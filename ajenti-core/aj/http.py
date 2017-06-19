@@ -1,11 +1,13 @@
 from datetime import datetime
 from six import BytesIO
+import base64
 import cgi
 import gevent
 import gzip
 import json
 import math
 import os
+import pickle
 import six
 
 from aj.api.http import BaseHttpHandler
@@ -167,22 +169,23 @@ class HttpContext(object):
         return env
 
     def serialize(self):
-        return {
+        return pickle.dumps({
             'env': self.get_cleaned_env(),
             'path': self.path,
             'headers': self.headers,
-            'body': self.body.encode('base64') if self.body else None,
+            'body': base64.b64encode(self.body) if self.body else None,
             'query': self.query,
             'prefix': self.prefix,
             'method': self.method,
-        }
+        })
 
     @classmethod
     def deserialize(cls, data):
+        data = pickle.loads(data)
         self = cls(data['env'])
         self.path = data['path']
         self.headers = data['headers']
-        self.body = data['body'].decode('base64') if data['body'] else None
+        self.body = base64.b64decode(data['body']) if data['body'] else None
         self.query = data['query']
         self.prefix = data['prefix']
         self.method = data['method']
@@ -390,5 +393,4 @@ class HttpContext(object):
             os.close(fd)
         else:
             content = open(path).read()
-            print (type(content))
             yield self.gzip(content)

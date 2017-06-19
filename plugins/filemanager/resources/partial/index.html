@@ -1,140 +1,120 @@
-<div class="row">
-    <progress-spinner ng:show="loading"></progress-spinner>
-    <div class="list-group" ng:hide="loading" keyboard-focus test-bind="fileList">
-        <div ng:show="parent" class="list-group-item list-group-item-small">
-            <div class="list-group-btn pull-left">
-                <span checkbox ng:model="___" disabled></span>
-            </div>
-            <a ng:click="navigate(parent)" class="list-group-main" test-bind="up">
-                &nbsp;
-                <i class="fa fa-fw fa-level-up"></i> <span translate>Up one level</span>
-            </a>
-        </div>
-        <div ng:repeat="item in items|orderBy:['-isDir', 'name']" class="list-group-item list-group-item-small" test-bind-item="{{item.name}}">
-            <a ng:href="{{urlPrefix}}/view/filemanager/properties/{{item.path}}" class="list-group-btn subtle" title="Properties">
-                <i class="fa fa-cog"></i>
-            </a>
-            <div class="list-group-addon pull-left">
-                <span class="subtle" checkbox ng:model="item.selected"></span>
-            </div>
-            <a ng:href="{{urlPrefix}}/view/filemanager{{item.isDir ? '' : '/properties'}}/{{item.path}}" class="list-group-main">
-                &nbsp;
-                <i class="fa fa-fw fa-folder-o" ng:if="item.isDir"></i>
-                <i class="fa fa-fw fa-file-o" ng:if="item.isFile"></i>
-                &nbsp;
-                {{item.name}}
-                &nbsp;
-                <span class="subtle" ng:show="item.isFile">{{item.size|bytes}}</span>
-            </a>
-        </div>
-    </div>
-</div>
-
-<div class="floating-toolbar-padder"></div>
-
-<floating-toolbar>
-    <a ng:click="showClipboard()" ng:show="clipboard.length > 0" class="btn btn-default btn-flat pull-right" test-bind="showClipboardButton">
-        <i class="fa fa-paste"></i> {{clipboard.length}}
-    </a>
-
-    <a ng:click="showNewFileDialog()" class="btn btn-default btn-flat" test-bind="newFileButton" translate>New file</a>
-    <a ng:click="showNewDirectoryDialog()" class="btn btn-default btn-flat" test-bind="newDirectoryButton" translate>New directory</a>
-    <a ng:click="showUploadDialog()" class="btn btn-default btn-flat" test-bind="uploadButton" translate>Upload</a>
-    <a ng:click="doPaste()" ng:show="clipboard.length > 0" class="btn btn-default btn-flat" test-bind="pasteButton" translate>Paste here</a>
-
-    <a ng:href="{{urlPrefix}}/view/filemanager/{{path}}" target="_blank" class="btn btn-default btn-flat pull-right">
-        <i class="fa fa-plus"></i> <span translate>Tab</span>
-    </a>
-</floating-toolbar>
-
-<floating-toolbar class="accented" ng:show="(items|filter:{selected:true}).length > 0" test-bind="selectionToolbar">
-    <a disabled class="btn btn-default btn-flat pull-right">
-        <strong>{{(items|filter:{selected:true}).length}}</strong> <span translate>items selected</span>
-    </a>
-
-    <a ng:click="doCut()" class="btn btn-default btn-flat" test-bind="cutButton" translate>Cut</a>
-    <a ng:click="doCopy()" class="btn btn-default btn-flat" test-bind="copyButton" translate>Copy</a>
-    <a ng:click="doDelete()" class="btn btn-default btn-flat" test-bind="deleteButton" translate>Delete</a>
-</floating-toolbar>
-
-<dialog ng:show="newFileDialogVisible" test-bind="newFileDialog">
-    <div class="modal-header">
-        <h4 translate>New file</h4>
-    </div>
-    <div class="modal-body">
-        <input type="text" ng:model="$parent.newFileName" class="form-control" placeholder="{{'File name'|translate}}" autofocus ng:enter="doCreateFile()" test-bind="newFileDialogInput" />
-    </div>
-    <div class="modal-footer">
-        <a ng:click="doCreateFile()" class="btn btn-default btn-flat" test-bind="newFileDialogOk" translate>Create</a>
-        <a ng:click="$parent.newFileDialogVisible = false" class="btn btn-default btn-flat" test-bind="newFileDialogCancel" translate>Cancel</a>
-    </div>
-</dialog>
-
-<dialog ng:show="newDirectoryDialogVisible" test-bind="newDirectoryDialog">
-    <div class="modal-header">
-        <h4 translate>New directory</h4>
-    </div>
-    <div class="modal-body">
-        <input type="text" ng:model="$parent.newDirectoryName" class="form-control" placeholder="{{'Directory name'|translate}}" autofocus ng:enter="doCreateDirectory()" test-bind="newDirectoryDialogInput" />
-    </div>
-    <div class="modal-footer">
-        <a ng:click="doCreateDirectory()" class="btn btn-default btn-flat" test-bind="newDirectoryDialogOk" translate>Create</a>
-        <a ng:click="$parent.newDirectoryDialogVisible = false" class="btn btn-default btn-flat" test-bind="newDirectoryDialogCancel" translate>Cancel</a>
-    </div>
-</dialog>
-
-<dialog ng:show="uploadDialogVisible" test-bind="uploadDialog">
-    <div class="modal-header">
-        <h4 translate>Upload files</h4>
-    </div>
-    <div class="modal-body" ng:show="uploadRunning" test-bind="uploadDialogUploadPanel">
-        <div class="text-center">
-            <br/>
-            <smart-progress max="uploadCurrent.length" text="uploadCurrent.name" value="uploadCurrent.progress" animate="true"></smart-progress>
-            <br/>
-        </div>
-    </div>
-    <div class="modal-body" ng:show="!uploadRunning" test-bind="uploadDialogSelectionPanel">
-        <div class="text-center">
-            <div ng:file-drop ng:model="$parent.uploadFiles" ng:file-change="doUpload()" ng:multiple="true" hideOnDropNotAvailable="false">
-                <button class="btn btn-primary" ng:file-select ng:model="$parent.uploadFiles" ng:file-change="doUpload()" ng:multiple="true" test-bind="uploadDialogSelectButton">
-                    <i class="fa fa-cloud-upload"></i> <span translate>Select files to upload</span>
-                </button>
-                <br/>
-                <br/>
-                <span class="subtle" translate>or drop them here</span>
-            </div>
-        </div>
-    </div>
-    <div class="modal-footer">
-        <a ng:click="cancelUpload()" class="btn btn-default btn-flat" test-bind="uploadDialogCancel" translate>Cancel</a>
-    </div>
-</dialog>
-
-<dialog ng:show="clipboardVisible && clipboard.length > 0" test-bind="clipboardDialog">
-    <div class="modal-header">
-        <h4 translate>Clipboard</h4>
-    </div>
-    <div class="modal-body">
-        <div class="list-group" test-bind="clipboardDialogList">
-            <div ng:repeat="item in clipboard" class="list-group-item list-group-item-small" test-bind-item="{{item.item.name}}">
-                <a ng:click="clipboard.splice($index, 1)" class="list-group-btn subtle" title="{{'Remove'|translate}}">
-                    <i class="fa fa-times"></i>
+<div
+    flow-init='{target: "/api/filesystem/upload", chunkSize: 1024 * 1024}'
+    flow-files-submitted="onUploadBegin($flow)"
+    flow-drop
+>
+    <div class="row">
+        <progress-spinner ng:show="loading"></progress-spinner>
+        <div class="list-group" ng:hide="loading" keyboard-focus test-bind="fileList">
+            <div ng:show="parent" class="list-group-item list-group-item-small">
+                <div class="list-group-btn pull-left">
+                    <span checkbox ng:model="___" disabled></span>
+                </div>
+                <a ng:click="navigate(parent)" class="list-group-main" test-bind="up">
+                    &nbsp;
+                    <i class="fa fa-fw fa-level-up"></i> <span translate>Up one level</span>
                 </a>
-                <div class="list-group-main">
-                    <i class="fa fa-fw fa-cut" ng:if="item.mode == 'move'"></i>
-                    <i class="fa fa-fw fa-copy" ng:if="item.mode == 'copy'"></i>
+            </div>
+            <div ng:repeat="item in items|orderBy:['-isDir', 'name']" class="list-group-item list-group-item-small" test-bind-item="{{item.name}}">
+                <a ng:href="{{urlPrefix}}/view/filemanager/properties/{{item.path}}" class="list-group-btn subtle" title="Properties">
+                    <i class="fa fa-cog"></i>
+                </a>
+                <div class="list-group-addon pull-left">
+                    <span class="subtle" checkbox ng:model="item.selected"></span>
+                </div>
+                <a ng:href="{{urlPrefix}}/view/filemanager{{item.isDir ? '' : '/properties'}}/{{item.path}}" class="list-group-main">
                     &nbsp;
-                    <i class="fa fa-fw fa-folder-o" ng:if="item.item.isDir"></i>
-                    <i class="fa fa-fw fa-file-o" ng:if="item.item.isFile"></i>
+                    <i class="fa fa-fw fa-folder-o" ng:if="item.isDir"></i>
+                    <i class="fa fa-fw fa-file-o" ng:if="item.isFile"></i>
                     &nbsp;
-                    {{item.item.path}}
+                    {{item.name}}
+                    &nbsp;
+                    <span class="subtle" ng:show="item.isFile">{{item.size|bytes}}</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="floating-toolbar-padder"></div>
+
+    <floating-toolbar>
+        <a ng:click="showClipboard()" ng:show="clipboard.length > 0" class="btn btn-default btn-flat pull-right" test-bind="showClipboardButton">
+            <i class="fa fa-paste"></i> {{clipboard.length}}
+        </a>
+
+        <a ng:click="showNewFileDialog()" class="btn btn-default btn-flat" test-bind="newFileButton" translate>New file</a>
+        <a ng:click="showNewDirectoryDialog()" class="btn btn-default btn-flat" test-bind="newDirectoryButton" translate>New directory</a>
+
+        <a flow-btn class="btn btn-default btn-flat" test-bind="uploadButton" translate>Upload</a>
+
+        <a ng:click="doPaste()" ng:show="clipboard.length > 0" class="btn btn-default btn-flat" test-bind="pasteButton" translate>Paste here</a>
+
+        <a ng:href="{{urlPrefix}}/view/filemanager/{{path}}" target="_blank" class="btn btn-default btn-flat pull-right">
+            <i class="fa fa-plus"></i> <span translate>Tab</span>
+        </a>
+    </floating-toolbar>
+
+    <floating-toolbar class="accented" ng:show="(items|filter:{selected:true}).length > 0" test-bind="selectionToolbar">
+        <a disabled class="btn btn-default btn-flat pull-right">
+            <strong>{{(items|filter:{selected:true}).length}}</strong> <span translate>items selected</span>
+        </a>
+
+        <a ng:click="doCut()" class="btn btn-default btn-flat" test-bind="cutButton" translate>Cut</a>
+        <a ng:click="doCopy()" class="btn btn-default btn-flat" test-bind="copyButton" translate>Copy</a>
+        <a ng:click="doDelete()" class="btn btn-default btn-flat" test-bind="deleteButton" translate>Delete</a>
+    </floating-toolbar>
+
+    <dialog ng:show="newFileDialogVisible" test-bind="newFileDialog">
+        <div class="modal-header">
+            <h4 translate>New file</h4>
+        </div>
+        <div class="modal-body">
+            <input type="text" ng:model="$parent.newFileName" class="form-control" placeholder="{{'File name'|translate}}" autofocus ng:enter="doCreateFile()" test-bind="newFileDialogInput" />
+        </div>
+        <div class="modal-footer">
+            <a ng:click="doCreateFile()" class="btn btn-default btn-flat" test-bind="newFileDialogOk" translate>Create</a>
+            <a ng:click="$parent.newFileDialogVisible = false" class="btn btn-default btn-flat" test-bind="newFileDialogCancel" translate>Cancel</a>
+        </div>
+    </dialog>
+
+    <dialog ng:show="newDirectoryDialogVisible" test-bind="newDirectoryDialog">
+        <div class="modal-header">
+            <h4 translate>New directory</h4>
+        </div>
+        <div class="modal-body">
+            <input type="text" ng:model="$parent.newDirectoryName" class="form-control" placeholder="{{'Directory name'|translate}}" autofocus ng:enter="doCreateDirectory()" test-bind="newDirectoryDialogInput" />
+        </div>
+        <div class="modal-footer">
+            <a ng:click="doCreateDirectory()" class="btn btn-default btn-flat" test-bind="newDirectoryDialogOk" translate>Create</a>
+            <a ng:click="$parent.newDirectoryDialogVisible = false" class="btn btn-default btn-flat" test-bind="newDirectoryDialogCancel" translate>Cancel</a>
+        </div>
+    </dialog>
+
+    <dialog ng:show="clipboardVisible && clipboard.length > 0" test-bind="clipboardDialog">
+        <div class="modal-header">
+            <h4 translate>Clipboard</h4>
+        </div>
+        <div class="modal-body">
+            <div class="list-group" test-bind="clipboardDialogList">
+                <div ng:repeat="item in clipboard" class="list-group-item list-group-item-small" test-bind-item="{{item.item.name}}">
+                    <a ng:click="clipboard.splice($index, 1)" class="list-group-btn subtle" title="{{'Remove'|translate}}">
+                        <i class="fa fa-times"></i>
+                    </a>
+                    <div class="list-group-main">
+                        <i class="fa fa-fw fa-cut" ng:if="item.mode == 'move'"></i>
+                        <i class="fa fa-fw fa-copy" ng:if="item.mode == 'copy'"></i>
+                        &nbsp;
+                        <i class="fa fa-fw fa-folder-o" ng:if="item.item.isDir"></i>
+                        <i class="fa fa-fw fa-file-o" ng:if="item.item.isFile"></i>
+                        &nbsp;
+                        {{item.item.path}}
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="modal-footer">
-        <a ng:click="clearClipboard()" class="btn btn-default btn-flat" test-bind="clipboardDialogClear" translate>Remove all items</a>
-        <a ng:click="hideClipboard()" class="btn btn-default btn-flat" test-bind="clipboardDialogCancel" translate>Close</a>
-    </div>
-</dialog>
+        <div class="modal-footer">
+            <a ng:click="clearClipboard()" class="btn btn-default btn-flat" test-bind="clipboardDialogClear" translate>Remove all items</a>
+            <a ng:click="hideClipboard()" class="btn btn-default btn-flat" test-bind="clipboardDialogCancel" translate>Close</a>
+        </div>
+    </dialog>
+</div>

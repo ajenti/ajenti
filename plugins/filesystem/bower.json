@@ -2,6 +2,6 @@
   "name": "plugin",
   "private": true,
   "dependencies": {
-    "ng-file-upload": "~3.0.7"
+    "ng-flow": "~2"
   }
 }

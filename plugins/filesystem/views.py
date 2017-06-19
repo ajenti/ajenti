@@ -4,6 +4,7 @@ import json
 import os
 import psutil
 import pwd
+import shutil
 from jadi import component
 
 from aj.api.http import url, HttpPlugin
@@ -54,16 +55,46 @@ class Handler(HttpPlugin):
         except OSError as e:
             raise EndpointError(e)
 
-    @url(r'/api/filesystem/upload/(?P<path>.+)')
+    @url(r'/api/filesystem/upload')
+    @authorize('filesystem:write')
+    @endpoint(page=True)
+    def handle_api_fs_upload_chunk(self, http_context):
+        id = http_context.query['flowIdentifier']
+        chunk_index = http_context.query['flowChunkNumber']
+        chunk_dir = '/tmp/upload-%s' % id
+        try:
+            os.makedirs(chunk_dir)
+        except:
+            pass
+        chunk_path = os.path.join(chunk_dir, chunk_index)
+
+        if http_context.method == 'GET':
+            if os.path.exists(chunk_path):
+                http_context.respond('200 OK')
+            else:
+                http_context.respond('204 No Content')
+        else:
+            with open(chunk_path, 'w') as f:
+                f.write(http_context.query['file'])
+            http_context.respond('200 OK')
+        return ''
+
+    @url(r'/api/filesystem/finish-upload')
     @authorize('filesystem:write')
     @endpoint(api=True)
-    def handle_api_fs_upload(self, http_context, path=None):
-        try:
-            with open(path, 'w') as f:
-                f.write(http_context.query['upload'])
-        except OSError as e:
-            raise EndpointError(e)
-        return True
+    def handle_api_fs_finish_upload(self, http_context):
+        name = http_context.json_body()['name']
+        path = http_context.json_body()['path']
+        id = http_context.json_body()['id']
+        chunk_dir = '/tmp/upload-%s' % id
+
+        target = os.path.join(path, name.replace('/', ''))
+        with open(target, 'wb') as f:
+            for i in range(len(os.listdir(chunk_dir))):
+                f.write(open(os.path.join(chunk_dir, str(i + 1))).read())
+
+        shutil.rmtree(chunk_dir)
+        return target
 
     @url(r'/api/filesystem/list/(?P<path>.+)')
     @authorize('filesystem:read')

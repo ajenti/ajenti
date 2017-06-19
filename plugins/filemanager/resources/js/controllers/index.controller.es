@@ -1,4 +1,4 @@
-angular.module('ajenti.filemanager').controller('FileManagerIndexController', function($scope, $routeParams, $location, $localStorage, $timeout, notify, identity, filesystem, pageTitle, urlPrefix, tasks, messagebox, $upload, gettext) {
+angular.module('ajenti.filemanager').controller('FileManagerIndexController', function($scope, $routeParams, $location, $localStorage, $timeout, notify, identity, filesystem, pageTitle, urlPrefix, tasks, messagebox, gettext) {
     pageTitle.set('path', $scope);
     $scope.loading = false;
     $scope.newDirectoryDialogVisible = false;
@@ -144,70 +144,17 @@ angular.module('ajenti.filemanager').controller('FileManagerIndexController', fu
         });
     };
 
-    // upload dialog
-    $scope.uploadFiles = [];
-    $scope.uploadPending = [];
-
-    $scope.showUploadDialog = () => $scope.uploadDialogVisible = true;
-
-    let uploadCallback = () => {
-        if ($scope.uploadPending.length > 0) {
-            $scope.uploadCurrent = {
-                file: $scope.uploadPending[0],
-                name: $scope.uploadPending[0].name
-            };
-            $scope.uploadPending.remove($scope.uploadCurrent.file);
-            $upload.upload({
-                url: `${urlPrefix}/api/filesystem/upload/${$scope.path}/${$scope.uploadCurrent.name}`,
-                file: $scope.uploadCurrent.file,
-                fileName: $scope.uploadCurrent.name,
-                fileFormDataName: 'upload'
-            }).success(() => {
-                notify.success(gettext('Uploaded'), $scope.uploadCurrent.name);
-                $scope.refresh();
-                return uploadCallback();
-            })
-            .xhr(xhr =>
-                $scope.uploadCurrent.cancel = () => xhr.abort()
-            )
-            .progress((e) => {
-                $scope.uploadCurrent.length = e.total;
-                $scope.uploadCurrent.progress = e.loaded;
-            })
-            .error((e) => {
-                if ($scope.uploadCurrent) {
-                    notify.error(gettext('Upload failed'), $scope.uploadCurrent.name);
-                    uploadCallback();
-                } else {
-                    notify.info(gettext('Upload cancelled'));
-                }
-            });
-        } else {
-            $scope.uploadDialogVisible = false;
-            $scope.uploadPending = [];
-            $scope.uploadRunning = false;
-            $scope.uploadCurrent = null;
-        }
-    };
-
-    $scope.doUpload = () =>
-        $timeout(() => {
-            $scope.uploadRunning = true;
-            $scope.uploadPending = $scope.uploadFiles;
-            $scope.uploadFiles = [];
-            uploadCallback();
-        });
-
-    $scope.cancelUpload = () => {
-        $scope.uploadDialogVisible = false;
-        $scope.uploadFiles = [];
-        $scope.uploadPending = [];
-        $scope.uploadRunning = false;
-        if ($scope.uploadCurrent) {
-            $scope.uploadCurrent.cancel();
-            $scope.uploadCurrent = null;
-        }
-    };
+    $scope.onUploadBegin = async ($flow) => {
+        msg = messagebox.show({progress: true})
+        filesystem.startFlowUpload($flow, $scope.path).then(() => {
+            notify.success(gettext('Uploaded'))
+            $scope.refresh()
+            msg.close()
+        }, null, (progress) => {
+          console.log(progress)
+            msg.messagebox.title = `Uploading: ${Math.floor(100 * progress)}%`
+        })
+    }
 
     // ---
 

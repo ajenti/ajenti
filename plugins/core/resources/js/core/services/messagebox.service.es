@@ -7,6 +7,7 @@ angular.module('core').service('messagebox', function($timeout, $q) {
         options.q = q;
         this.messages.push(options);
         return {
+            messagebox: options,
             then: (f) => q.promise.then(f),
             catch: (f) => q.promise.catch(f),
             finally: (f) => q.promise.finally(f),
