@@ -38,10 +38,20 @@ angular.module('core').controller('CoreRootController', function($scope, $rootSc
     };
 
     // ---
+    scope.showOverlaySidebar = false
+    $rootScope.toggleOverlayNavigation = (state) => {
+        if (angular.isDefined(state)) {
+            $scope.showOverlaySidebar = state
+        } else {
+            $scope.showOverlaySidebar = !$scope.showOverlaySidebar
+        }
+        $scope.$broadcast('navigation:toggle')
+    }
 
     $scope.$on('$routeChangeSuccess', function() {
+        $scope.toggleOverlayNavigation(false)
         feedback.emit('navigation', {url: $location.path()});
-    });
+    })
 
     // ---
 
