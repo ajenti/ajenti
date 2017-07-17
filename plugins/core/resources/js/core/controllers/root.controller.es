@@ -38,7 +38,7 @@ angular.module('core').controller('CoreRootController', function($scope, $rootSc
     };
 
     // ---
-    scope.showOverlaySidebar = false
+    $scope.showOverlaySidebar = false
     $rootScope.toggleOverlayNavigation = (state) => {
         if (angular.isDefined(state)) {
             $scope.showOverlaySidebar = state
