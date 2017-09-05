@@ -242,6 +242,7 @@ class PluginManager(object):
         return len(self.__plugin_info)
 
     def get_content_path(self, name, path):
+        path = path.replace('..', '').strip('/')
         return os.path.join(self[name]['path'], path)
 
     def get_loaded_plugins_list(self):
