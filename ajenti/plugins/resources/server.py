@@ -38,6 +38,8 @@ class ContentServer (HttpPlugin):
         if plugin_path is None:
             context.respond_not_found()
             return 'Not Found'
+
+        path = path.replace('..', '').strip('/')
         path = os.path.join(plugin_path, 'content/static', path)
         context.respond_ok()
         return context.file(path)
