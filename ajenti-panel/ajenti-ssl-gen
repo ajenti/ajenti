@@ -3,7 +3,7 @@ import sys
 import socket
 import random
 import yaml
-from OpenSSL.crypto import *
+from OpenSSL.crypto import dump_certificate, dump_privatekey, FILETYPE_PEM, PKey, TYPE_RSA, X509
 
 if len(sys.argv) < 2:
     print 'Usage: ajenti-ssl-gen <hostname> [-f]'
