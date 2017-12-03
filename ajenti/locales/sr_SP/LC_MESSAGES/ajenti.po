@@ -5,7 +5,7 @@ msgstr "Додаци"
 
 #: ajenti/plugins/plugins/plugins.py:37
 msgid "Gathering plugin list"
-msgstr ""
+msgstr "Прикупљање листе додатака"
 
 #: ajenti/plugins/plugins/layout/main.xml:1
 #: ajenti/plugins/webserver_common/layout/main.xml:4
@@ -43,22 +43,22 @@ msgstr "Име"
 
 #: ajenti/plugins/plugins/layout/main.xml:2
 msgid "Description"
-msgstr ""
+msgstr "Опис"
 
 #: ajenti/plugins/plugins/layout/main.xml:3
 msgid "Dependencies"
-msgstr ""
+msgstr "Зависности"
 
 #: ajenti/plugins/plugins/layout/main.xml:4
 #: ajenti/plugins/raid/layout/main.xml:3
 #: ajenti/plugins/resolv/layout/main.xml:3
 #: ajenti/plugins/bind9/layout/main.xml:6
 msgid "Type"
-msgstr ""
+msgstr "Тип"
 
 #: ajenti/plugins/plugins/layout/main.xml:5
 msgid "Depends on"
-msgstr ""
+msgstr "Зависи од"
 
 #: ajenti/plugins/plugins/layout/main.xml:6
 #: ajenti/plugins/tasks/layout/main.xml:4
@@ -66,12 +66,12 @@ msgstr ""
 #: ajenti/plugins/ctdb/layout/main.xml:1 ajenti/plugins/ctdb/layout/main.xml:2
 #: ajenti/plugins/openvpn/layout/main.xml:3
 msgid "Status"
-msgstr ""
+msgstr "Статус"
 
 #: ajenti/plugins/webserver_common/layout/main.xml:1
 #: ajenti/plugins/hosts/main.py:13
 msgid "Hosts"
-msgstr ""
+msgstr "Домаћини"
 
 #: ajenti/plugins/webserver_common/layout/main.xml:2
 #: ajenti/plugins/configurator/configurator.py:160
@@ -173,11 +173,11 @@ msgstr "Омогући"
 #: ajenti/plugins/webserver_common/layout/main.xml:6
 #: ajenti/plugins/configurator/configurator.py:261
 msgid "Configuration"
-msgstr ""
+msgstr "Конфигурација"
 
 #: ajenti/plugins/webserver_common/layout/main.xml:7
 msgid "Main configs"
-msgstr ""
+msgstr "Главна конфигурације"
 
 #: ajenti/plugins/webserver_common/layout/main.xml:8
 #: ajenti/plugins/configurator/layout/main.xml:34
@@ -213,7 +213,7 @@ msgstr "Сачувај"
 
 #: ajenti/plugins/memcache/widget.py:35
 msgid "Memcache memory usage"
-msgstr ""
+msgstr "Коришћење Memcache меморије"
 
 #: ajenti/plugins/mongo/main.py:19 ajenti/plugins/exports/main.py:19
 #: ajenti/plugins/samba/main.py:19 ajenti/plugins/snmpd/main.py:128
@@ -226,7 +226,7 @@ msgstr ""
 #: ajenti/plugins/squid/main.py:16 ajenti/plugins/rethink/main.py:19
 #: ajenti/plugins/bind9/main.py:30 ajenti/plugins/apache/main.py:65
 msgid "Software"
-msgstr ""
+msgstr "Софтвер"
 
 #: ajenti/plugins/mongo/layout/config.xml:1
 #: ajenti/plugins/configurator/layout/main.xml:5
@@ -235,7 +235,7 @@ msgstr ""
 #: ajenti/plugins/mysql/layout/config.xml:1
 #: ajenti/plugins/rethink/layout/config.xml:1
 msgid "Host"
-msgstr ""
+msgstr "Домаћин"
 
 #: ajenti/plugins/mongo/layout/config.xml:2
 #: ajenti/plugins/users/layout/main.xml:2
@@ -251,8 +251,7 @@ msgstr ""
 #: ajenti/plugins/vh-pureftpd/layout/ext.xml:1
 #: ajenti/plugins/mysql/layout/config.xml:2
 msgid "Username"
-msgstr "Korisničko ime\n"
-""
+msgstr "Корисничко име"
 
 #: ajenti/plugins/mongo/layout/config.xml:3 ajenti/plugins/main/passwd.py:11
 #: ajenti/plugins/samba/layout/main.xml:36
@@ -270,11 +269,11 @@ msgstr "Лозинка"
 
 #: ajenti/plugins/configurator/licensing.py:29
 msgid "Invalid key"
-msgstr ""
+msgstr "Неисправан кључ"
 
 #: ajenti/plugins/configurator/licensing.py:30
 msgid "Invalid IP"
-msgstr "Неважећи ИП"
+msgstr "Неисправна IP адреса"
 
 #: ajenti/plugins/configurator/licensing.py:31
 msgid "Expired"
@@ -282,14 +281,14 @@ msgstr "Истекло"
 
 #: ajenti/plugins/configurator/licensing.py:32
 msgid "Unknown"
-msgstr "Непознат"
+msgstr "Непознато"
 
 #: ajenti/plugins/configurator/licensing.py:45
 #: ajenti/plugins/configurator/licensing.py:54
 #: ajenti/plugins/users/main.py:117
 #, python-format
 msgid "Error: \"%s\""
-msgstr ""
+msgstr "Грешка: \"%s\""
 
 #: ajenti/plugins/configurator/configurator.py:46
 #: ajenti/plugins/configurator/layout/main.xml:18
@@ -297,32 +296,32 @@ msgstr ""
 #: ajenti/plugins/fail2ban/layout/main.xml:1
 #: ajenti/plugins/munin/layout/main.xml:2
 msgid "Configure"
-msgstr ""
+msgstr "Конфигуриши"
 
 #: ajenti/plugins/configurator/configurator.py:177
 msgid "Auto"
-msgstr "Аутоматско"
+msgstr "Аутоматски"
 
 #: ajenti/plugins/configurator/configurator.py:199
 msgid "Saved. Please restart Ajenti for changes to take effect."
-msgstr ""
+msgstr "Сачувано. Поново покрените Ajenti да би се промене примениле."
 
 #: ajenti/plugins/configurator/configurator.py:206
 msgid "Please supply hostname"
-msgstr ""
+msgstr "Подесите име домаћина"
 
 #: ajenti/plugins/configurator/configurator.py:222
 #, python-format
 msgid "Please configure %s plugin!"
-msgstr ""
+msgstr "Конфигуришите %s додатак!"
 
 #: ajenti/plugins/configurator/configurator.py:265
 msgid "Modify Ajenti configuration"
-msgstr ""
+msgstr "Измена Ajenti конфигурације"
 
 #: ajenti/plugins/configurator/configurator.py:266
 msgid "Restart Ajenti"
-msgstr ""
+msgstr "Поново покренити Ajenti"
 
 #: ajenti/plugins/configurator/layout/main.xml:1
 #: ajenti/plugins/configurator/layout/main.xml:2
@@ -333,19 +332,19 @@ msgstr ""
 #: ajenti/plugins/vh-mail/layout/main.xml:1
 #: ajenti/plugins/ctdb/layout/main.xml:4 ajenti/plugins/csf/layout/main.xml:1
 msgid "General"
-msgstr ""
+msgstr "Опште"
 
 #: ajenti/plugins/configurator/layout/main.xml:3
 msgid "Language"
-msgstr ""
+msgstr "Језик"
 
 #: ajenti/plugins/configurator/layout/main.xml:4
 msgid "HTTP Server"
-msgstr ""
+msgstr "HTTP Сервер"
 
 #: ajenti/plugins/configurator/layout/main.xml:6
 msgid "or UNIX socket path"
-msgstr ""
+msgstr "или путања UNIX прикључка"
 
 #: ajenti/plugins/configurator/layout/main.xml:7
 #: ajenti/plugins/vh/layout/main-website.xml:24
@@ -353,28 +352,28 @@ msgstr ""
 #: ajenti/plugins/squid/layout/port-template.xml:2
 #: ajenti/plugins/rethink/layout/config.xml:2
 msgid "Port"
-msgstr ""
+msgstr "Порт"
 
 #: ajenti/plugins/configurator/layout/main.xml:8
 msgid "Use SSL"
-msgstr ""
+msgstr "Користи SSL"
 
 #: ajenti/plugins/configurator/layout/main.xml:9
 msgid "Path to certificate"
-msgstr ""
+msgstr "Путања до сертификата"
 
 #: ajenti/plugins/configurator/layout/main.xml:10
 msgid "SSL Self-Signed Certificate Generator"
-msgstr ""
+msgstr "Генератор самопотписаног SSL сертификата"
 
 #: ajenti/plugins/configurator/layout/main.xml:11
 #: ajenti/plugins/db_common/layout/main.xml:13
 msgid "Hostname"
-msgstr ""
+msgstr "Име домаћина"
 
 #: ajenti/plugins/configurator/layout/main.xml:12
 msgid "Generate"
-msgstr ""
+msgstr "Генериши"
 
 #: ajenti/plugins/configurator/layout/main.xml:13
 #: ajenti/plugins/samba/layout/main.xml:33 ajenti/plugins/users/main.py:15
@@ -383,40 +382,40 @@ msgstr ""
 #: ajenti/plugins/git/layout/main.xml:2
 #: ajenti/plugins/db_common/layout/main.xml:6
 msgid "Users"
-msgstr ""
+msgstr "Корисници"
 
 #: ajenti/plugins/configurator/layout/main.xml:14
 msgid "Authentication"
-msgstr ""
+msgstr "Ауторизација"
 
 #: ajenti/plugins/configurator/layout/main.xml:16
 msgid "Sync with"
-msgstr ""
+msgstr "Синхронизуј са"
 
 #: ajenti/plugins/configurator/layout/main.xml:17
 msgid "Sync now"
-msgstr ""
+msgstr "Синхронизуј сада"
 
 #: ajenti/plugins/configurator/layout/main.xml:19
 msgid "Configured correctly"
-msgstr ""
+msgstr "Исправно је подешено"
 
 #: ajenti/plugins/configurator/layout/main.xml:20
 msgid "Failed to sync"
-msgstr ""
+msgstr "Синхронизација није успела"
 
 #: ajenti/plugins/configurator/layout/main.xml:21
 msgid "Accounts"
-msgstr "Рачуни"
+msgstr "Налози"
 
 #: ajenti/plugins/configurator/layout/main.xml:22
 msgid "Duplicate"
-msgstr "Дупликат"
+msgstr "Дуплирај"
 
 #: ajenti/plugins/configurator/layout/main.xml:24
 #: ajenti/plugins/vh-mail/layout/main.xml:6
 msgid "Change password"
-msgstr "Промјени лозинку"
+msgstr "Промени лозинку"
 
 #: ajenti/plugins/configurator/layout/main.xml:26
 msgid "Permissions"
@@ -429,11 +428,11 @@ msgstr "Остало"
 
 #: ajenti/plugins/configurator/layout/main.xml:28
 msgid "Send feedback"
-msgstr "Пошалји сугестију"
+msgstr "Пошаљи сугестију"
 
 #: ajenti/plugins/configurator/layout/main.xml:30
 msgid "Ajenti will anonymously send its version, your OS name, and which plugins you use most to ajenti.org"
-msgstr ""
+msgstr "Ajenti ће анонимно слати своју верзију, име вашег оперативног система и које додатке највише користите на ajenti.org"
 
 #: ajenti/plugins/configurator/layout/main.xml:33
 msgid "License"
@@ -446,77 +445,77 @@ msgstr "Лиценца"
 #: ajenti/plugins/services/layout/widget.xml:3
 #: ajenti/plugins/services/layout/bar.xml:3
 msgid "Restart"
-msgstr ""
+msgstr "Поново покрени"
 
 #: ajenti/plugins/configurator/layout/main.xml:36
 msgid "Restart Ajenti?"
-msgstr ""
+msgstr "Да ли сте сигурни да желите да поново покренете Ajenti?"
 
 #: ajenti/plugins/configurator/layout/ldap-sync-config.xml:1
 msgid "Server URL"
-msgstr ""
+msgstr "URL адреса сервера"
 
 #: ajenti/plugins/configurator/layout/ldap-sync-config.xml:2
 msgid "Admin DN"
-msgstr ""
+msgstr "Администраторско име домена"
 
 #: ajenti/plugins/configurator/layout/ldap-sync-config.xml:3
 msgid "Auth DN suffix"
-msgstr ""
+msgstr "Суфикс ауторизације за име домена"
 
 #: ajenti/plugins/configurator/layout/ldap-sync-config.xml:4
 msgid "Secret"
-msgstr ""
+msgstr "Тајна"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:1
 msgid "Server address"
-msgstr ""
+msgstr "Адреса сервера"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:2
 msgid "Domain name"
-msgstr ""
+msgstr "Име домена"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:3
 msgid "Base DN"
-msgstr ""
+msgstr "Основно име домена"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:4
 msgid "Limit to group DN"
-msgstr ""
+msgstr "Ограничи групу имена домена"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:5
 msgid "Admin user"
-msgstr ""
+msgstr "Корисничко име администратора"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:6
 msgid "Admin password"
-msgstr "Admin šifra"
+msgstr "Администраторска лозинка"
 
 #: ajenti/plugins/configurator/layout/licensing.xml:1
 msgid "License status"
-msgstr ""
+msgstr "Статус лиценце"
 
 #: ajenti/plugins/configurator/layout/licensing.xml:2
 msgid "Company"
-msgstr ""
+msgstr "Фирма"
 
 #: ajenti/plugins/configurator/layout/licensing.xml:3
 msgid "License type"
-msgstr ""
+msgstr "Врста лиценце"
 
 #: ajenti/plugins/configurator/layout/licensing.xml:4
 msgid "License expires on"
-msgstr ""
+msgstr "Лиценца истиче"
 
 #: ajenti/plugins/configurator/layout/licensing.xml:5
 #: ajenti/plugins/users/layout/user-list.xml:9
 #: ajenti/plugins/fm/layout/main.xml:15
 msgid "Remove"
-msgstr "Ukloni"
+msgstr "Уклони"
 
 #: ajenti/plugins/configurator/layout/licensing.xml:6
 msgid "No commercial license installed"
-msgstr ""
+msgstr "Није инсталирана комерцијална лиценца"
 
 #: ajenti/plugins/configurator/layout/licensing.xml:7
 msgid "Install"
@@ -525,21 +524,21 @@ msgstr "Инсталирај"
 #: ajenti/plugins/tasks/manager.py:69
 #, python-format
 msgid "Task %s finished"
-msgstr ""
+msgstr "Задатак %s је завршен"
 
 #: ajenti/plugins/tasks/manager.py:104
 #, python-format
 msgid "Task %s queued"
-msgstr ""
+msgstr "Задатак %s је заказан"
 
 #: ajenti/plugins/tasks/manager.py:116
 #, python-format
 msgid "Task %s started"
-msgstr ""
+msgstr "Задатак %s је покренут"
 
 #: ajenti/plugins/tasks/main.py:14 ajenti/plugins/tasks/layout/main.xml:36
 msgid "Tasks"
-msgstr ""
+msgstr "Задаци"
 
 #: ajenti/plugins/tasks/main.py:16 ajenti/plugins/notepad/notepad.py:33
 #: ajenti/plugins/fm/fm.py:34 ajenti/plugins/terminal/main.py:37
@@ -548,53 +547,53 @@ msgstr "Алати"
 
 #: ajenti/plugins/tasks/tasks.py:14
 msgid "Execute command"
-msgstr ""
+msgstr "Изврши команду"
 
 #: ajenti/plugins/tasks/tasks.py:34
 #, python-format
 msgid "Copying %s"
-msgstr "Копиранје %s"
+msgstr "Копирање %s"
 
 #: ajenti/plugins/tasks/tasks.py:64
 msgid "Move files"
-msgstr "Premesti fajlove"
+msgstr "Премести датотеке"
 
 #: ajenti/plugins/tasks/tasks.py:66
 #, python-format
 msgid "Moving %s"
-msgstr ""
+msgstr "Премештам %s"
 
 #: ajenti/plugins/tasks/tasks.py:71
 msgid "Delete files"
-msgstr ""
+msgstr "Обриши датотеке"
 
 #: ajenti/plugins/tasks/tasks.py:74
 #, python-format
 msgid "Deleting %s"
-msgstr ""
+msgstr "Бришем %s"
 
 #: ajenti/plugins/tasks/layout/main.xml:1
 msgid "Running tasks"
-msgstr ""
+msgstr "Извршавам задатке"
 
 #: ajenti/plugins/tasks/layout/main.xml:2 ajenti/plugins/vh/layout/main.xml:7
 #: ajenti/plugins/fstab/layout/main.xml:1
 #: ajenti/plugins/dashboard/layout/dash.xml:2
 msgid "Refresh"
-msgstr "Освјежи"
+msgstr "Освежи"
 
 #: ajenti/plugins/tasks/layout/main.xml:5
 msgid "Running"
-msgstr ""
+msgstr "У току"
 
 #: ajenti/plugins/tasks/layout/main.xml:6
 msgid "Aborting"
-msgstr "Поништава се"
+msgstr "Поништавам"
 
 #: ajenti/plugins/tasks/layout/main.xml:7
 #: ajenti/plugins/packages/layout/main.xml:7
 msgid "Pending"
-msgstr "На чеканју"
+msgstr "На чекању"
 
 #: ajenti/plugins/tasks/layout/main.xml:8
 msgid "Abort"
@@ -602,11 +601,11 @@ msgstr "Поништи"
 
 #: ajenti/plugins/tasks/layout/main.xml:9
 msgid "Completed tasks"
-msgstr ""
+msgstr "Завршени задаци"
 
 #: ajenti/plugins/tasks/layout/main.xml:12
 msgid "Success"
-msgstr "Успјешно"
+msgstr "Успешно"
 
 #: ajenti/plugins/tasks/layout/main.xml:13
 msgid "Aborted"
@@ -624,83 +623,83 @@ msgstr "Срушено"
 #: ajenti/plugins/db_common/layout/main.xml:1
 #: ajenti/plugins/terminal/layout/main.xml:1
 msgid "Run"
-msgstr ""
+msgstr "Покрени"
 
 #: ajenti/plugins/tasks/layout/main.xml:17
 msgid "Jobs"
-msgstr ""
+msgstr "Послови"
 
 #: ajenti/plugins/tasks/layout/main.xml:21
 msgid "Run task"
-msgstr ""
+msgstr "Покрени задатак"
 
 #: ajenti/plugins/tasks/layout/main.xml:22
 #: ajenti/plugins/cron/layout/main.xml:14
 msgid "Schedule"
-msgstr ""
+msgstr "Распоред"
 
 #: ajenti/plugins/tasks/layout/main.xml:23
 msgid "Manual (specify below)"
-msgstr ""
+msgstr "Ручно (прецизирај испод)"
 
 #: ajenti/plugins/tasks/layout/main.xml:24
 #: ajenti/plugins/cron/layout/main.xml:16
 msgid "Hourly"
-msgstr ""
+msgstr "На сат"
 
 #: ajenti/plugins/tasks/layout/main.xml:25
 #: ajenti/plugins/cron/layout/main.xml:17
 msgid "Daily"
-msgstr ""
+msgstr "Дневно"
 
 #: ajenti/plugins/tasks/layout/main.xml:26
 #: ajenti/plugins/cron/layout/main.xml:18
 msgid "Weekly"
-msgstr ""
+msgstr "Недељно"
 
 #: ajenti/plugins/tasks/layout/main.xml:27
 #: ajenti/plugins/cron/layout/main.xml:19
 msgid "Monthly"
-msgstr ""
+msgstr "Месечно"
 
 #: ajenti/plugins/tasks/layout/main.xml:28
 #: ajenti/plugins/cron/layout/main.xml:20
 msgid "Yearly"
-msgstr "Godišnje"
+msgstr "Годишње"
 
 #: ajenti/plugins/tasks/layout/main.xml:29
 #: ajenti/plugins/cron/layout/main.xml:21
 msgid "On reboot"
-msgstr ""
+msgstr "Приликом поновног покретања"
 
 #: ajenti/plugins/tasks/layout/main.xml:30
 msgid "Manual entry"
-msgstr ""
+msgstr "Ручни унос"
 
 #: ajenti/plugins/tasks/layout/main.xml:31
 #: ajenti/plugins/cron/layout/main.xml:5
 msgid "Minute"
-msgstr ""
+msgstr "Минут"
 
 #: ajenti/plugins/tasks/layout/main.xml:32
 #: ajenti/plugins/cron/layout/main.xml:6
 msgid "Hour"
-msgstr ""
+msgstr "Сат"
 
 #: ajenti/plugins/tasks/layout/main.xml:33
 #: ajenti/plugins/cron/layout/main.xml:7
 msgid "Day"
-msgstr ""
+msgstr "Дан"
 
 #: ajenti/plugins/tasks/layout/main.xml:34
 #: ajenti/plugins/cron/layout/main.xml:8
 msgid "Month"
-msgstr ""
+msgstr "Месец"
 
 #: ajenti/plugins/tasks/layout/main.xml:35
 #: ajenti/plugins/cron/layout/main.xml:9
 msgid "DoW"
-msgstr ""
+msgstr "Дан у недељи"
 
 #: ajenti/plugins/tasks/layout/main.xml:37
 #: ajenti/plugins/users/layout/user-list.xml:5
@@ -716,46 +715,46 @@ msgstr ""
 #: ajenti/plugins/squid/layout/options-editor.xml:1
 #: ajenti/plugins/bind9/layout/main.xml:10
 msgid "Create"
-msgstr ""
+msgstr "Направи"
 
 #: ajenti/plugins/tasks/layout/main.xml:40
 msgid "Run in parallel"
-msgstr ""
+msgstr "Покрени истовремено"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:1
 #: ajenti/plugins/tasks/layout/params-copydir.xml:1
 #: ajenti/plugins/tasks/layout/params-deletedir.xml:1
 msgid "From directory"
-msgstr ""
+msgstr "Из директоријума"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:2
 #: ajenti/plugins/tasks/layout/params-copydir.xml:2
 msgid "Into directory"
-msgstr ""
+msgstr "У директоријум"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:3
 msgid "Archive"
-msgstr ""
+msgstr "Архива"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:4
 msgid "Recursive"
-msgstr ""
+msgstr "Рекурзивно"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:5
 msgid "Preserve file times"
-msgstr ""
+msgstr "Задржи времена датотеке"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:6
 msgid "Preserve ext. attributes"
-msgstr ""
+msgstr "Задржи спољне атрибуте"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:7
 msgid "Delete in destination dir"
-msgstr ""
+msgstr "Обриши циљни директоријум"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:8
 msgid "Preserve permissions"
-msgstr ""
+msgstr "Задржи дозволе"
 
 #: ajenti/plugins/tasks/layout/params-execute.xml:1
 #: ajenti/plugins/scripts/layout/widget.xml:2
@@ -765,11 +764,11 @@ msgstr ""
 #: ajenti/plugins/cron/layout/main.xml:10
 #: ajenti/plugins/cron/layout/main.xml:15
 msgid "Command"
-msgstr ""
+msgstr "Команда"
 
 #: ajenti/plugins/exports/main.py:17
 msgid "NFS Exports"
-msgstr ""
+msgstr "NFS извози"
 
 #: ajenti/plugins/exports/main.py:38 ajenti/plugins/notepad/notepad.py:120
 #: ajenti/plugins/snmpd/main.py:192 ajenti/plugins/fail2ban/main.py:163
@@ -780,15 +779,15 @@ msgstr ""
 #: ajenti/plugins/fstab/main.py:103 ajenti/plugins/ntpd/main.py:155
 #: ajenti/plugins/csf/main.py:81 ajenti/plugins/bind9/main.py:87
 msgid "Saved"
-msgstr ""
+msgstr "Сачувано"
 
 #: ajenti/plugins/exports/layout/main.xml:3
 msgid "Directory"
-msgstr ""
+msgstr "Директоријум"
 
 #: ajenti/plugins/exports/layout/main.xml:4
 msgid "Clients"
-msgstr ""
+msgstr "Клијенти"
 
 #: ajenti/plugins/exports/layout/main.xml:6
 #: ajenti/plugins/iptables/layout/option-address.xml:1
@@ -798,7 +797,7 @@ msgstr ""
 #: ajenti/plugins/ntpd/layout/main.xml:7
 #: ajenti/plugins/hosts/layout/main.xml:4
 msgid "Address"
-msgstr ""
+msgstr "Адреса"
 
 #: ajenti/plugins/exports/layout/main.xml:7
 #: ajenti/plugins/dhcpd/layout/main.xml:6 ajenti/plugins/resolv/main.py:18
@@ -807,51 +806,51 @@ msgstr ""
 #: ajenti/plugins/squid/layout/main.xml:11
 #: ajenti/plugins/squid/layout/port-template.xml:3
 msgid "Options"
-msgstr ""
+msgstr "Опције"
 
 #: ajenti/plugins/notepad/notepad.py:13 ajenti/plugins/notepad/notepad.py:31
 msgid "Notepad"
-msgstr ""
+msgstr "Белешке"
 
 #: ajenti/plugins/notepad/notepad.py:71
 #, python-format
 msgid "Untitled %i"
-msgstr ""
+msgstr "Неименован %i"
 
 #: ajenti/plugins/notepad/layout/main.xml:1
 #: ajenti/plugins/terminal/layout/main.xml:2
 msgid "New"
-msgstr ""
+msgstr "Ново"
 
 #: ajenti/plugins/notepad/layout/main.xml:2
 #: ajenti/plugins/logs/layout/main.xml:1
 msgid "Open"
-msgstr ""
+msgstr "Отвори"
 
 #: ajenti/plugins/notepad/layout/main.xml:4
 msgid "Save As"
-msgstr ""
+msgstr "Сачувај као"
 
 #: ajenti/plugins/notepad/layout/main.xml:5
 msgid "Bookmark"
-msgstr ""
+msgstr "Омиљено"
 
 #: ajenti/plugins/notepad/layout/config.xml:1
 #: ajenti/plugins/fm/layout/config.xml:1
 #: ajenti/plugins/logs/layout/config.xml:1
 msgid "Topmost directory"
-msgstr ""
+msgstr "Корени директоријум"
 
 #: ajenti/plugins/main/controls_dialogs.py:16
 #: ajenti/plugins/packages/layout/row.xml:3
 #: ajenti/plugins/fm/layout/main.xml:17 ajenti/plugins/dashboard/api.py:38
 #: ajenti/plugins/dashboard/layout/dash.xml:6
 msgid "Cancel"
-msgstr ""
+msgstr "Откажи"
 
 #: ajenti/plugins/main/controls_dialogs.py:72
 msgid "The directory does not exist anymore"
-msgstr ""
+msgstr "Директоријум више не постоји"
 
 #: ajenti/plugins/main/passwd.py:21
 msgid "Passwords don't match"
@@ -863,7 +862,7 @@ msgstr "Нетачна лозинка"
 
 #: ajenti/plugins/main/passwd.py:29
 msgid "Password changed"
-msgstr "Лозинка промјенјена"
+msgstr "Лозинка је промењена"
 
 #: ajenti/plugins/main/controls_containers.py:38
 msgid "Empty"
@@ -871,28 +870,28 @@ msgstr "Празно"
 
 #: ajenti/plugins/main/controls_containers.py:40
 msgid "Filter..."
-msgstr ""
+msgstr "Филтер..."
 
 #: ajenti/plugins/main/main.py:49
 msgid "Invalid login or password"
-msgstr ""
+msgstr "Погрешно корисничко име или лозинка"
 
 #: ajenti/plugins/main/main.py:77
 #, python-format
 msgid "Email \"%s\" is not associated with any user"
-msgstr ""
+msgstr "Адреса ел. поште \"%s\" није додељена ни једном кориснику"
 
 #: ajenti/plugins/main/main.py:79
 msgid "Login failed"
-msgstr "Пријава неуспјешна"
+msgstr "Неуспешна пријава"
 
 #: ajenti/plugins/main/main.py:293
 msgid "Section access"
-msgstr ""
+msgstr "Приступ одељку"
 
 #: ajenti/plugins/main/layout/passwd-main.xml:1
 msgid "Password change"
-msgstr "Лозинка промјенјена"
+msgstr "Промена лозинке"
 
 #: ajenti/plugins/main/layout/passwd-main.xml:2
 msgid "Old password"
@@ -905,201 +904,201 @@ msgstr "Нова лозинка"
 
 #: ajenti/plugins/main/layout/passwd-main.xml:4
 msgid "Password confirmation"
-msgstr ""
+msgstr "Потврда лозинке"
 
 #: ajenti/plugins/main/layout/file-dialog-save.xml:1
 msgid "File name"
-msgstr "Назив фајла"
+msgstr "Име датотеке"
 
 #: ajenti/plugins/scripts/widget.py:12
 msgid "Script"
-msgstr ""
+msgstr "Скрипта"
 
 #: ajenti/plugins/scripts/widget.py:48
 msgid "Launched"
-msgstr ""
+msgstr "Покренуто"
 
 #: ajenti/plugins/scripts/widget.py:60
 msgid "Scripts"
-msgstr ""
+msgstr "Скрипте"
 
 #: ajenti/plugins/scripts/widget.py:64
 msgid "Run scripts"
-msgstr ""
+msgstr "Покрени скрипте"
 
 #: ajenti/plugins/scripts/layout/widget.xml:3
 msgid "Run in terminal"
-msgstr ""
+msgstr "Покрени у терминалу"
 
 #: ajenti/plugins/sensors/memory.py:31 ajenti/plugins/sensors/memory.py:38
 msgid "Memory usage"
-msgstr ""
+msgstr "Коришћење меморије"
 
 #: ajenti/plugins/sensors/memory.py:46 ajenti/plugins/sensors/memory.py:53
 msgid "Swap usage"
-msgstr ""
+msgstr "Коришћење swap-а"
 
 #: ajenti/plugins/sensors/load.py:38 ajenti/plugins/sensors/load.py:45
 msgid "Load average"
-msgstr ""
+msgstr "Просечно оптерећење"
 
 #: ajenti/plugins/sensors/uptime.py:21
 msgid "Uptime"
-msgstr ""
+msgstr "Време рада сервера"
 
 #: ajenti/plugins/sensors/cpu.py:19 ajenti/plugins/sensors/cpu.py:26
 #: ajenti/plugins/sensors/layout/cpu-widget.xml:1
 msgid "CPU usage"
-msgstr ""
+msgstr "Коришћење процесора"
 
 #: ajenti/plugins/sensors/layout/value-widget.xml:1
 #: ajenti/plugins/sensors/layout/progressbar-widget.xml:1
 msgid "Variant"
-msgstr ""
+msgstr "Врста"
 
 #: ajenti/plugins/samba/main.py:51
 msgid "Password updated"
-msgstr ""
+msgstr "Измена лозинке"
 
 #: ajenti/plugins/samba/main.py:54
 msgid "Password update failed"
-msgstr ""
+msgstr "Није успела измена лозинке"
 
 #: ajenti/plugins/samba/layout/main.xml:1
 #: ajenti/plugins/netatalk/layout/main.xml:1
 msgid "Shares"
-msgstr ""
+msgstr "Делова"
 
 #: ajenti/plugins/samba/layout/main.xml:6
 #: ajenti/plugins/vh/layout/main-website.xml:10
 #: ajenti/plugins/netatalk/layout/main.xml:5
 msgid "Path"
-msgstr ""
+msgstr "Путања"
 
 #: ajenti/plugins/samba/layout/main.xml:7
 msgid "Guest access"
-msgstr ""
+msgstr "Приступ госта"
 
 #: ajenti/plugins/samba/layout/main.xml:8
 msgid "Browseable"
-msgstr ""
+msgstr "Може прегледати"
 
 #: ajenti/plugins/samba/layout/main.xml:9
 msgid "Create mask"
-msgstr ""
+msgstr "Направи маску"
 
 #: ajenti/plugins/samba/layout/main.xml:10
 msgid "Directory mask"
-msgstr ""
+msgstr "Маска директоријума"
 
 #: ajenti/plugins/samba/layout/main.xml:11
 msgid "Read only"
-msgstr ""
+msgstr "Само за читање"
 
 #: ajenti/plugins/samba/layout/main.xml:12
 #: ajenti/plugins/vh/layout/main-website-location.xml:2
 #: ajenti/plugins/vh/layout/main-website.xml:31
 #: ajenti/plugins/vh-mail/layout/main.xml:23
 msgid "Advanced"
-msgstr ""
+msgstr "Напредно"
 
 #: ajenti/plugins/samba/layout/main.xml:13
 msgid "Allowed users"
-msgstr ""
+msgstr "Дозвољени корисници"
 
 #: ajenti/plugins/samba/layout/main.xml:14
 msgid "R/W users"
-msgstr ""
+msgstr "Ч/П корисници"
 
 #: ajenti/plugins/samba/layout/main.xml:15
 msgid "Veto files"
-msgstr ""
+msgstr "Забрањене датотеке"
 
 #: ajenti/plugins/samba/layout/main.xml:16
 msgid "Force file umask"
-msgstr ""
+msgstr "Присили маску датотеке"
 
 #: ajenti/plugins/samba/layout/main.xml:17
 msgid "Force dir umask"
-msgstr ""
+msgstr "Присили маску директоријума"
 
 #: ajenti/plugins/samba/layout/main.xml:18
 #: ajenti/plugins/netatalk/layout/main.xml:11
 msgid "Config"
-msgstr ""
+msgstr "Конфигурација"
 
 #: ajenti/plugins/samba/layout/main.xml:19
 #: ajenti/plugins/ctdb/layout/main.xml:12
 msgid "Networking"
-msgstr ""
+msgstr "Мрежа"
 
 #: ajenti/plugins/samba/layout/main.xml:20
 msgid "Interfaces"
-msgstr ""
+msgstr "Интерфејси"
 
 #: ajenti/plugins/samba/layout/main.xml:21
 msgid "Bind only to these interfaces"
-msgstr ""
+msgstr "Повежи само за ове интерфејсе"
 
 #: ajenti/plugins/samba/layout/main.xml:22
 msgid "Identification"
-msgstr ""
+msgstr "Идентификација"
 
 #: ajenti/plugins/samba/layout/main.xml:23
 msgid "Workgroup"
-msgstr ""
+msgstr "Радна група"
 
 #: ajenti/plugins/samba/layout/main.xml:24
 msgid "Server string"
-msgstr ""
+msgstr "Сервер се покреће"
 
 #: ajenti/plugins/samba/layout/main.xml:26
 #: ajenti/plugins/fail2ban/layout/main.xml:7
 #: ajenti/plugins/ctdb/layout/main.xml:11
 msgid "Log file"
-msgstr ""
+msgstr "Датотека дневника"
 
 #: ajenti/plugins/samba/layout/main.xml:27
 msgid "Security"
-msgstr ""
+msgstr "Безбедност"
 
 #: ajenti/plugins/samba/layout/main.xml:28
 msgid "Sessions"
-msgstr ""
+msgstr "Сесије"
 
 #: ajenti/plugins/samba/layout/main.xml:29
 msgid "Share"
-msgstr ""
+msgstr "Дељење"
 
 #: ajenti/plugins/samba/layout/main.xml:30
 #: ajenti/plugins/users/layout/main.xml:1
 #: ajenti/plugins/taskmgr/layout/main.xml:6
 msgid "User"
-msgstr ""
+msgstr "Корисник"
 
 #: ajenti/plugins/samba/layout/main.xml:31
 msgid "Machine"
-msgstr ""
+msgstr "Машина"
 
 #: ajenti/plugins/samba/layout/main.xml:32
 #: ajenti/plugins/openvpn/layout/main.xml:7
 msgid "Disconnect"
-msgstr ""
+msgstr "Раскачи"
 
 #: ajenti/plugins/samba/layout/main.xml:37
 #: ajenti/plugins/users/layout/user-list.xml:8
 #: ajenti/plugins/vh/layout/main-website.xml:11
 #: ajenti/plugins/ntpd/layout/main.xml:2
 msgid "Set"
-msgstr ""
+msgstr "Постави"
 
 #: ajenti/plugins/hdparm/widget.py:37
 msgid "HDD drive state"
-msgstr ""
+msgstr "Статус тврдог диска"
 
 #: ajenti/plugins/hdparm/widget.py:47 ajenti/plugins/smartctl/widget.py:60
 msgid "No data"
-msgstr ""
+msgstr "Без података"
 
 #: ajenti/plugins/hdparm/layout/widget.xml:1
 #: ajenti/plugins/hddtemp/layout/widget.xml:1
@@ -1111,7 +1110,7 @@ msgstr ""
 #: ajenti/plugins/fstab/layout/iio-widget.xml:1
 #: ajenti/plugins/smartctl/layout/widget.xml:1
 msgid "Device"
-msgstr ""
+msgstr "Уређај"
 
 #: ajenti/plugins/users/main.py:17 ajenti/plugins/raid/main.py:17
 #: ajenti/plugins/iptables/main.py:79 ajenti/plugins/packages/main.py:15
@@ -1121,322 +1120,322 @@ msgstr ""
 #: ajenti/plugins/taskmgr/main.py:21 ajenti/plugins/csf/main.py:18
 #: ajenti/plugins/cron/main.py:19 ajenti/plugins/logs/main.py:28
 msgid "System"
-msgstr ""
+msgstr "Систем"
 
 #: ajenti/plugins/users/main.py:105
 #, python-format
 msgid "Home dir for %s was created"
-msgstr ""
+msgstr "Направљен је почетни директоријум за %s"
 
 #: ajenti/plugins/users/main.py:114
 #, python-format
 msgid "Password for %s was changed"
-msgstr ""
+msgstr "Лозинка за %s је промењена"
 
 #: ajenti/plugins/users/main.py:119
 msgid "Password shouldn't be empty"
-msgstr ""
+msgstr "Лозинка не би смела бити празна"
 
 #: ajenti/plugins/users/main.py:123
 #, python-format
 msgid "Password for %s was removed"
-msgstr ""
+msgstr "Лозинка за %s је уклоњена"
 
 #: ajenti/plugins/users/layout/main.xml:3 ajenti/plugins/fm/layout/main.xml:26
 msgid "Group"
-msgstr ""
+msgstr "Група"
 
 #: ajenti/plugins/users/layout/main.xml:7
 msgid "System Users"
-msgstr ""
+msgstr "Системски корисници"
 
 #: ajenti/plugins/users/layout/main.xml:9
 msgid "Groups"
-msgstr ""
+msgstr "Групе"
 
 #: ajenti/plugins/users/layout/main.xml:12
 msgid "Members"
-msgstr ""
+msgstr "Чланови"
 
 #: ajenti/plugins/users/layout/user-list.xml:3
 #: ajenti/plugins/iptables/layout/main.xml:8
 msgid "Comment"
-msgstr ""
+msgstr "Коментар"
 
 #: ajenti/plugins/users/layout/user-list.xml:4
 msgid "Home directory"
-msgstr ""
+msgstr "Почетни директоријум"
 
 #: ajenti/plugins/users/layout/user-list.xml:6
 msgid "Shell"
-msgstr ""
+msgstr "Шкољка"
 
 #: ajenti/plugins/vh-mysql/mysql.py:90
 msgid "This database name is already used"
-msgstr ""
+msgstr "Ово име базе података се већ користи"
 
 #: ajenti/plugins/vh-mysql/mysql.py:121
 msgid "This username is already used"
-msgstr ""
+msgstr "Ово корисничко име се већ користи"
 
 #: ajenti/plugins/vh-mysql/mysql.py:156
 msgid "Permissions granted."
-msgstr ""
+msgstr "Дозволе су одобрене."
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:1
 #: ajenti/plugins/db_common/layout/main.xml:2
 msgid "Databases"
-msgstr ""
+msgstr "Базе података"
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:3
 #: ajenti/plugins/vh-mysql/layout/ext.xml:11
 msgid "Detach from the website"
-msgstr ""
+msgstr "Раскачи од сајта"
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:4
 #: ajenti/plugins/vh-mysql/layout/ext.xml:12
 msgid "Destroy"
-msgstr ""
+msgstr "Избриши"
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:5
 msgid "Drop the database?"
-msgstr ""
+msgstr "Да ли сте сигурни да желите да избришете ову базу података?"
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:13
 msgid "Drop the user?"
-msgstr ""
+msgstr "Да ли сте сигурни да желите да избришете корисника?"
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:17
 msgid "Grant all permissions"
-msgstr ""
+msgstr "Одобри све дозволе"
 
 #: ajenti/plugins/fail2ban/main.py:108
 msgid "File with name {0} already exists in {1}."
-msgstr ""
+msgstr "Датотека са именом {0} већ постоји у {1}."
 
 #: ajenti/plugins/fail2ban/main.py:176
 msgid "Some parameters are empty."
-msgstr ""
+msgstr "Неки параметри су празни."
 
 #: ajenti/plugins/fail2ban/main.py:228
 #, python-format
 msgid "Could not save config file. %s"
-msgstr ""
+msgstr "Није могуће сачувати конфигурациони фајл. %s"
 
 #: ajenti/plugins/fail2ban/layout/main.xml:5
 msgid "Filters checker"
-msgstr ""
+msgstr "Провера филтера"
 
 #: ajenti/plugins/fail2ban/layout/main.xml:6
 msgid "Filter file"
-msgstr ""
+msgstr "Филер Датотека"
 
 #: ajenti/plugins/fail2ban/layout/main.xml:8
 msgid "Run test"
-msgstr ""
+msgstr "Покрени тест"
 
 #: ajenti/plugins/vh-puma/puma.py:17
 msgid "PUMA service"
-msgstr ""
+msgstr "PUMA сервис"
 
 #: ajenti/plugins/dhcpd/main.py:14
 msgid "DHCP Server"
-msgstr ""
+msgstr "DHCP сервер"
 
 #: ajenti/plugins/dhcpd/layout/main.xml:1
 msgid "Subnetworks"
-msgstr ""
+msgstr "Подмреже"
 
 #: ajenti/plugins/dhcpd/layout/main.xml:4
 msgid "Specification"
-msgstr ""
+msgstr "Спецификације"
 
 #: ajenti/plugins/dhcpd/layout/main.xml:5
 msgid "IP ranges"
-msgstr ""
+msgstr "Распон IP адреса"
 
 #: ajenti/plugins/dhcpd/layout/main.xml:7
 msgid "Global options"
-msgstr ""
+msgstr "Опште опције"
 
 #: ajenti/plugins/munin/main.py:43
 #, python-format
 msgid "Couldn't connect to Munin: %s"
-msgstr ""
+msgstr "Не могу дасе повежем са Munin-ом: %s"
 
 #: ajenti/plugins/munin/main.py:47
 msgid "Munin HTTP authentication failed"
-msgstr ""
+msgstr "HTTP потврда идентитета Munin-а није успела"
 
 #: ajenti/plugins/munin/layout/main.xml:1
 msgid "View"
-msgstr ""
+msgstr "Преглед"
 
 #: ajenti/plugins/nginx/main.py:16 ajenti/plugins/supervisor/layout/main.xml:1
 #: ajenti/plugins/psql/main.py:13 ajenti/plugins/mysql/main.py:21
 #: ajenti/plugins/openvpn/layout/main.xml:2
 #: ajenti/plugins/bind9/layout/main.xml:1 ajenti/plugins/apache/main.py:16
 msgid "Reload"
-msgstr ""
+msgstr "Поново учитај"
 
 #: ajenti/plugins/git/main.py:32
 msgid "Git"
-msgstr ""
+msgstr "Git"
 
 #: ajenti/plugins/git/layout/main.xml:1
 msgid "Repositories"
-msgstr ""
+msgstr "Ризнице"
 
 #: ajenti/plugins/git/layout/main-repolist.xml:3
 msgid "Repository Name"
-msgstr ""
+msgstr "Име ризнице"
 
 #: ajenti/plugins/git/layout/main-repolist.xml:4
 msgid "Users (read-write)"
-msgstr ""
+msgstr "Корисници (читање и упис)"
 
 #: ajenti/plugins/git/layout/main-repolist.xml:5
 msgid "Users (read-only)"
-msgstr ""
+msgstr "Корисници (само читање)"
 
 #: ajenti/plugins/git/layout/main-userlist.xml:4
 msgid "Public Key"
-msgstr ""
+msgstr "Јавни кључ"
 
 #: ajenti/plugins/db_common/api.py:46
 msgid "Query finished"
-msgstr ""
+msgstr "Упит је завршен"
 
 #: ajenti/plugins/db_common/api.py:55
 #, python-format
 msgid "Output cut from %i rows to 200"
-msgstr ""
+msgstr "Исечак исписа од %i до 200 реда"
 
 #: ajenti/plugins/db_common/layout/main.xml:4
 msgid "Confirm database drop!"
-msgstr ""
+msgstr "Потврда брисања базе података!"
 
 #: ajenti/plugins/db_common/layout/main.xml:11
 msgid "Database name"
-msgstr ""
+msgstr "Име базе података"
 
 #: ajenti/plugins/vh/gate_static.py:8
 msgid "Static files"
-msgstr ""
+msgstr "Статични фајлови"
 
 #: ajenti/plugins/vh/gate_fcgi.py:8
 msgid "Custom FCGI"
-msgstr ""
+msgstr "Прилагођени FCGI"
 
 #: ajenti/plugins/vh/gate_proxy.py:8
 msgid "Reverse proxy"
-msgstr ""
+msgstr "Обрнути прокси"
 
 #: ajenti/plugins/vh/processes.py:41
 msgid "Process"
-msgstr ""
+msgstr "Процес"
 
 #: ajenti/plugins/vh/processes.py:56 ajenti/plugins/taskmgr/main.py:19
 msgid "Processes"
-msgstr ""
+msgstr "Процеси"
 
 #: ajenti/plugins/vh/main.py:20 ajenti/plugins/vh/layout/main.xml:1
 msgid "Websites"
-msgstr ""
+msgstr "Веб сајтови"
 
 #: ajenti/plugins/vh/main.py:87 ajenti/plugins/vh/main.py:239
 msgid "Testing configuration"
-msgstr ""
+msgstr "Проверавам конфигурацију"
 
 #: ajenti/plugins/vh/main.py:96
 msgid "Saving changes"
-msgstr ""
+msgstr "Уписујем измене"
 
 #: ajenti/plugins/vh/main.py:99 ajenti/plugins/vh/main.py:256
 msgid "Applying changes"
-msgstr ""
+msgstr "Примењујем измене"
 
 #: ajenti/plugins/vh/main.py:101 ajenti/plugins/vh/main.py:258
 msgid "Restarting web services"
-msgstr ""
+msgstr "Поново покрећем веб сервис"
 
 #: ajenti/plugins/vh/main.py:214
 msgid "Download complete"
-msgstr ""
+msgstr "Преузимање је завршено"
 
 #: ajenti/plugins/vh/layout/main.xml:2
 msgid "Manage"
-msgstr ""
+msgstr "Управљај"
 
 #: ajenti/plugins/vh/layout/main.xml:3
 msgid "New website"
-msgstr ""
+msgstr "Нови веб сајт"
 
 #: ajenti/plugins/vh/layout/main.xml:6
 msgid "Configuration checks"
-msgstr ""
+msgstr "Провера конфигурације"
 
 #: ajenti/plugins/vh/layout/main.xml:8
 msgid "Restart websites"
-msgstr ""
+msgstr "Поново покрени веб сајт"
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:1
 msgid "Process manager"
-msgstr ""
+msgstr "Управник процеса"
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:2
 msgid "Min processes"
-msgstr ""
+msgstr "Мин. процеси"
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:3
 msgid "Max processes"
-msgstr ""
+msgstr "Макс. процеси"
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:4
 #: ajenti/plugins/vh/layout/main-backend-params-nodejs.xml:4
 msgid "Process user"
-msgstr ""
+msgstr "Корисник процеса"
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:5
 msgid "Process group"
-msgstr ""
+msgstr "Група процеса"
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:6
 msgid "PHP .ini values"
-msgstr ""
+msgstr "Вредности PHP .ini"
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:7
 msgid "PHP flags"
-msgstr ""
+msgstr "PHP заставице"
 
 #: ajenti/plugins/vh/layout/main-backend-params-python-wsgi.xml:1
 msgid "Application module"
-msgstr ""
+msgstr "Модули апликације"
 
 #: ajenti/plugins/vh/layout/main-backend-params-python-wsgi.xml:2
 msgid "Virtualenv path"
-msgstr ""
+msgstr "Путања Virtualenv"
 
 #: ajenti/plugins/vh/layout/main-backend-params-python-wsgi.xml:3
 #: ajenti/plugins/vh/layout/main-backend-params-ruby-puma.xml:3
 #: ajenti/plugins/vh/layout/main-backend-params-ruby-unicorn.xml:1
 msgid "Workers"
-msgstr ""
+msgstr "Радници"
 
 #: ajenti/plugins/vh/layout/main-backend-params-python-wsgi.xml:5
 #: ajenti/plugins/vh/layout/main-website-location.xml:5
 #: ajenti/plugins/vh/layout/main-website.xml:32
 #: ajenti/plugins/vh-mail/layout/main.xml:29
 msgid "Custom configuration"
-msgstr ""
+msgstr "Прилагођена конфигурација"
 
 #: ajenti/plugins/vh/layout/main-backend-params-nodejs.xml:1
 msgid "Script name"
-msgstr ""
+msgstr "Име скрипте"
 
 #: ajenti/plugins/vh/layout/main-backend-params-nodejs.xml:2
 msgid "Script's HTTP port"
-msgstr ""
+msgstr "HTTP порт скрипте"
 
 #: ajenti/plugins/vh/layout/main-backend-params-nodejs.xml:3
 #: ajenti/plugins/vh/layout/main-backend-params-ruby-puma.xml:2
@@ -1444,969 +1443,969 @@ msgstr ""
 #: ajenti/plugins/supervisor/layout/main.xml:17
 #: ajenti/plugins/cron/layout/main.xml:22
 msgid "Environment"
-msgstr ""
+msgstr "Окружење"
 
 #: ajenti/plugins/vh/layout/main-backend-params-static.xml:1
 msgid "Show directory content"
-msgstr ""
+msgstr "Прикажи садржај директоријума"
 
 #: ajenti/plugins/vh/layout/main-backend-params-ruby-puma.xml:1
 msgid "Use Bundler"
-msgstr ""
+msgstr "Користи управник пакета - Bundler"
 
 #: ajenti/plugins/vh/layout/main-website-location.xml:1
 msgid "URL Pattern"
-msgstr ""
+msgstr "Шаблон URL адресе"
 
 #: ajenti/plugins/vh/layout/main-website-location.xml:3
 msgid "Custom path"
-msgstr ""
+msgstr "Прилагођена путања"
 
 #: ajenti/plugins/vh/layout/main-website-location.xml:4
 msgid "Append URL pattern to path"
-msgstr ""
+msgstr "Додај шаблон URL адресе на путању"
 
 #: ajenti/plugins/vh/layout/main-website-location.xml:6
 msgid "Use only custom configuration and don't include standard parameters"
-msgstr ""
+msgstr "Користи само прилагођена и не користи стандардна подешавања"
 
 #: ajenti/plugins/vh/layout/ext-processes.xml:5
 #: ajenti/plugins/supervisor/layout/main.xml:6
 msgid "Working directory"
-msgstr ""
+msgstr "Радни директоријум"
 
 #: ajenti/plugins/vh/layout/not-configured.xml:1
 msgid "Ajenti V is not enabled yet"
-msgstr ""
+msgstr "Ajenti V још није омогућен"
 
 #: ajenti/plugins/vh/layout/not-configured.xml:2
 msgid "Enabling Ajenti V will overwrite configuration for the following software:"
-msgstr ""
+msgstr "Омогућавањем Ajenti V биће преписана сва подешавања следећих програма:"
 
 #: ajenti/plugins/vh/layout/main-website.xml:1
 msgid "Back"
-msgstr ""
+msgstr "Назад"
 
 #: ajenti/plugins/vh/layout/main-website.xml:3
 #: ajenti/plugins/fm/layout/main.xml:7
 msgid "Delete"
-msgstr ""
+msgstr "Обриши"
 
 #: ajenti/plugins/vh/layout/main-website.xml:4
 msgid "All website data will be lost. Continue?"
-msgstr ""
+msgstr "Да ли сте сигурни да желите да обришете све податке веб сајта?"
 
 #: ajenti/plugins/vh/layout/main-website.xml:7
 #: ajenti/plugins/supervisor/layout/main.xml:8
 #: ajenti/plugins/supervisor/layout/main.xml:11
 msgid "Enabled"
-msgstr ""
+msgstr "Омогућено"
 
 #: ajenti/plugins/vh/layout/main-website.xml:8
 msgid "Maintenance mode"
-msgstr ""
+msgstr "Режим одржавања"
 
 #: ajenti/plugins/vh/layout/main-website.xml:9
 msgid "Website files"
-msgstr ""
+msgstr "Датотеке веб сајта"
 
 #: ajenti/plugins/vh/layout/main-website.xml:12
 msgid "Create directory"
-msgstr ""
+msgstr "Направи директоријум"
 
 #: ajenti/plugins/vh/layout/main-website.xml:13
 msgid "Fix file permissions"
-msgstr ""
+msgstr "Исправи датотечне дозволе"
 
 #: ajenti/plugins/vh/layout/main-website.xml:14
 msgid "Automatic downloader"
-msgstr ""
+msgstr "Преузимај аутоматски"
 
 #: ajenti/plugins/vh/layout/main-website.xml:15
 msgid "From URL"
-msgstr ""
+msgstr "Са URL адресе"
 
 #: ajenti/plugins/vh/layout/main-website.xml:16
 msgid "Download and unpack"
-msgstr ""
+msgstr "Преузми и распакуј"
 
 #: ajenti/plugins/vh/layout/main-website.xml:17
 msgid "Domains"
-msgstr ""
+msgstr "Домени"
 
 #: ajenti/plugins/vh/layout/main-website.xml:19
 msgid "Domain"
-msgstr ""
+msgstr "Домен"
 
 #: ajenti/plugins/vh/layout/main-website.xml:21
 #: ajenti/plugins/iptables/layout/option-ports.xml:1
 #: ajenti/plugins/squid/layout/main.xml:12
 msgid "Ports"
-msgstr ""
+msgstr "Портови"
 
 #: ajenti/plugins/vh/layout/main-website.xml:26
 msgid "SSL certificate path"
-msgstr ""
+msgstr "Путања до SSL сертификата"
 
 #: ajenti/plugins/vh/layout/main-website.xml:27
 msgid "SSL key path"
-msgstr ""
+msgstr "Путања до SSL кључа"
 
 #: ajenti/plugins/vh/layout/main-website.xml:28
 msgid "Content"
-msgstr ""
+msgstr "Садржај"
 
 #: ajenti/plugins/vh/layout/main-website.xml:33
 msgid "Custom top level configuration"
-msgstr ""
+msgstr "Прилагођена конфигурација на највишем нивоу"
 
 #: ajenti/plugins/vh/layout/main-website.xml:34
 #: ajenti/plugins/vh-mail/layout/main.xml:34
 msgid "Apply changes"
-msgstr ""
+msgstr "Примени измене"
 
 #: ajenti/plugins/supervisor/layout/main.xml:7
 msgid "Autostart"
-msgstr ""
+msgstr "Аутоматско покретање"
 
 #: ajenti/plugins/supervisor/layout/main.xml:9
 #: ajenti/plugins/supervisor/layout/main.xml:13
 msgid "Disabled"
-msgstr ""
+msgstr "Онемогућено"
 
 #: ajenti/plugins/supervisor/layout/main.xml:10
 msgid "Autorestart"
-msgstr ""
+msgstr "Аутоматско поновно покретање"
 
 #: ajenti/plugins/supervisor/layout/main.xml:12
 msgid "On crash"
-msgstr ""
+msgstr "Приликом пада"
 
 #: ajenti/plugins/supervisor/layout/main.xml:14
 msgid "Start timeout"
-msgstr ""
+msgstr "Почетна пауза"
 
 #: ajenti/plugins/supervisor/layout/main.xml:15
 msgid "Start retries"
-msgstr ""
+msgstr "Број поновних покушаја"
 
 #: ajenti/plugins/vh-nginx/nginx.py:15
 msgid "NGINX config test"
-msgstr ""
+msgstr "NGINX провера подешавања"
 
 #: ajenti/plugins/vh-nginx/nginx.py:26
 msgid "NGINX service"
-msgstr ""
+msgstr "NGINX сервис"
 
 #: ajenti/plugins/raid/main.py:15
 msgid "RAID"
-msgstr ""
+msgstr "RAID"
 
 #: ajenti/plugins/raid/layout/main.xml:2
 msgid "State"
-msgstr ""
+msgstr "Стање"
 
 #: ajenti/plugins/raid/layout/main.xml:4
 msgid "Devices"
-msgstr ""
+msgstr "Уређаји"
 
 #: ajenti/plugins/raid/layout/main.xml:5
 msgid "Blocks"
-msgstr ""
+msgstr "Блокови"
 
 #: ajenti/plugins/raid/layout/main.xml:6
 msgid "Recovery:"
-msgstr ""
+msgstr "Опоравак:"
 
 #: ajenti/plugins/iptables/main.py:61
 msgid "You can't disable firewall autostart on this platform"
-msgstr ""
+msgstr "Није могуће искључити аутоматско покретање \"Ватреног зида\" на овој платформи"
 
 #: ajenti/plugins/iptables/main.py:77
 msgid "Firewall"
-msgstr ""
+msgstr "Ватрени зид"
 
 #: ajenti/plugins/iptables/main.py:119
 #: ajenti/plugins/iptables/layout/main.xml:10
 msgid "Add option"
-msgstr ""
+msgstr "Додај опцију"
 
 #: ajenti/plugins/iptables/main.py:159
 msgid "Disable"
-msgstr ""
+msgstr "Онемогући"
 
 #: ajenti/plugins/iptables/main.py:159
 msgid " autostart"
-msgstr ""
+msgstr " аутоматско покретање"
 
 #: ajenti/plugins/iptables/main.py:213
 msgid "Applied successfully"
-msgstr ""
+msgstr "Успешно примењено"
 
 #: ajenti/plugins/iptables/layout/main.xml:1
 msgid "Raw edit"
-msgstr ""
+msgstr "Сирова измена"
 
 #: ajenti/plugins/iptables/layout/main.xml:2
 msgid "Load current state"
-msgstr ""
+msgstr "Учитај тренутно стање"
 
 #: ajenti/plugins/iptables/layout/main.xml:3
 msgid "This will overwrite the saved configuration with current firewall state! Continue?"
-msgstr ""
+msgstr "Да ли сте сигурни да желите да препишете конфигурацију тренутног стања \"Ватреног зида\"?"
 
 #: ajenti/plugins/iptables/layout/main.xml:4
 msgid "New Chain"
-msgstr ""
+msgstr "Нови ланац"
 
 #: ajenti/plugins/iptables/layout/main.xml:7
 msgid "Action"
-msgstr ""
+msgstr "Акција"
 
 #: ajenti/plugins/iptables/layout/main.xml:9
 msgid "Conditions"
-msgstr ""
+msgstr "Услови"
 
 #: ajenti/plugins/iptables/layout/main.xml:11
 msgid "New Rule"
-msgstr ""
+msgstr "Ново правило"
 
 #: ajenti/plugins/iptables/layout/main.xml:13
 #: ajenti/plugins/packages/layout/main.xml:2
 #: ajenti/plugins/csf/layout/main.xml:27
 msgid "Apply"
-msgstr ""
+msgstr "Примени"
 
 #: ajenti/plugins/iptables/layout/option-reject-with.xml:1
 msgid "Reason"
-msgstr ""
+msgstr "Разлог"
 
 #: ajenti/plugins/iptables/layout/option-match.xml:1
 msgid "Modules"
-msgstr ""
+msgstr "Модули"
 
 #: ajenti/plugins/iptables/layout/option-state.xml:1
 msgid "States"
-msgstr ""
+msgstr "Стања"
 
 #: ajenti/plugins/iptables/layout/option-custom.xml:2
 msgid "Arguments"
-msgstr ""
+msgstr "Аргументи"
 
 #: ajenti/plugins/iptables/layout/option-custom.xml:3
 msgid "Argument"
-msgstr ""
+msgstr "Аргумент"
 
 #: ajenti/plugins/iptables/layout/option-protocol.xml:1
 msgid "Protocol"
-msgstr ""
+msgstr "Протокол"
 
 #: ajenti/plugins/iptables/layout/option-interface.xml:1
 #: ajenti/plugins/ctdb/layout/main.xml:24
 msgid "Interface"
-msgstr ""
+msgstr "Интерфејс"
 
 #: ajenti/plugins/codemirror/__init__.py:7
 msgid "CodeMirror code editor"
-msgstr ""
+msgstr "CodeMirror уређивач кода"
 
 #: ajenti/plugins/netatalk/layout/main.xml:7
 msgid "Valid users"
-msgstr ""
+msgstr "Исправни корисници"
 
 #: ajenti/plugins/netatalk/layout/main.xml:8
 msgid "Resource forks"
-msgstr ""
+msgstr "Копије ресурса"
 
 #: ajenti/plugins/netatalk/layout/main.xml:9
 msgid "Extended attributes"
-msgstr ""
+msgstr "Проширени атрибути"
 
 #: ajenti/plugins/netatalk/layout/main.xml:10
 msgid "CNID scheme"
-msgstr ""
+msgstr "CNID шема"
 
 #: ajenti/plugins/netatalk/layout/main.xml:12
 msgid "AFP port"
-msgstr ""
+msgstr "AFP порт"
 
 #: ajenti/plugins/netatalk/layout/main.xml:13
 msgid "CNID address"
-msgstr ""
+msgstr "CNID адреса"
 
 #: ajenti/plugins/vh-mail/main.py:18
 msgid "Mail"
-msgstr ""
+msgstr "Пошта"
 
 #: ajenti/plugins/vh-mail/main.py:63
 msgid "Invalid mailbox name"
-msgstr ""
+msgstr "Неисправно име сандучића"
 
 #: ajenti/plugins/vh-mail/main.py:67
 msgid "Invalid mailbox domain"
-msgstr ""
+msgstr "Неисправан домен сандучића"
 
 #: ajenti/plugins/vh-mail/main.py:75 ajenti/plugins/vh-mail/main.py:83
 msgid "This address is already taken"
-msgstr ""
+msgstr "Адреса је већ заузета"
 
 #: ajenti/plugins/vh-mail/main.py:128
 #: ajenti/plugins/vh-mail/layout/main.xml:15
 msgid "Custom domain"
-msgstr ""
+msgstr "Прилагођен домен"
 
 #: ajenti/plugins/vh-mail/main.py:150
 msgid "No valid key exists"
-msgstr ""
+msgstr "Без исправног кључа"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:2
 msgid "Mailboxes"
-msgstr ""
+msgstr "Сандучићи"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:7
 #: ajenti/plugins/fm/layout/main.xml:11
 #: ajenti/plugins/fstab/layout/main.xml:15
 msgid "Size"
-msgstr ""
+msgstr "Величина"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:8
 #: ajenti/plugins/vh-mail/layout/main.xml:17
 msgid "Forwarding"
-msgstr ""
+msgstr "Преусмеравање"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:11
 msgid "Target address"
-msgstr ""
+msgstr "Циљна адреса"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:13
 msgid "New mailbox"
-msgstr ""
+msgstr "Ново сандуче"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:16
 msgid "Mailbox"
-msgstr ""
+msgstr "Сандуче"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:19
 msgid "Selector"
-msgstr ""
+msgstr "Изборник"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:20
 msgid "Private key"
-msgstr ""
+msgstr "Приватан кључ"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:21
 msgid "DNS entry template"
-msgstr ""
+msgstr "Шаблон DNS уноса"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:22
 msgid "Generate new DKIM key"
-msgstr ""
+msgstr "Направи нови DKIM кључ"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:25
 msgid "Certificate path"
-msgstr ""
+msgstr "Путања до сертификата"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:26
 msgid "Private key path"
-msgstr ""
+msgstr "Путања до приватног кључа"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:27
 msgid "Generate new certificate"
-msgstr ""
+msgstr "Направи нови сертификат"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:28
 msgid "Custom MTA configuration"
-msgstr ""
+msgstr "Прилагођена MTA конфигурација"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:30
 msgid "Custom ACLs"
-msgstr ""
+msgstr "Прилагођени ACL-и"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:31
 msgid "Custom routers"
-msgstr ""
+msgstr "Прилагођене руте"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:32
 msgid "Custom local router config"
-msgstr ""
+msgstr "Прилагођено подешавање локалне руте"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:33
 msgid "Custom transports"
-msgstr ""
+msgstr "Прилагођени преноси"
 
 #: ajenti/plugins/vh-mail/layout/not-configured.xml:1
 msgid "Ajenti V Mail is not enabled yet"
-msgstr ""
+msgstr "Ajenti V ел. пошта није још омогућена"
 
 #: ajenti/plugins/vh-mail/layout/not-configured.xml:2
 msgid "Enabling Ajenti V Mail will overwrite configuration for the following software:"
-msgstr ""
+msgstr "Омогућењем Ajenti V ел. поште преписаћете подешавања следећих програма:"
 
 #: ajenti/plugins/packages/pm_pacman.py:38
 msgid "No search results found"
-msgstr ""
+msgstr "Без резултата претраге"
 
 #: ajenti/plugins/packages/main.py:13 ajenti/plugins/packages/main.py:147
 msgid "Packages"
-msgstr ""
+msgstr "Пакети"
 
 #: ajenti/plugins/packages/main.py:51
 msgid "Enqueueing package installation"
-msgstr ""
+msgstr "Обезбеђујем инсталационе пакете"
 
 #: ajenti/plugins/packages/main.py:62
 msgid "Installation complete!"
-msgstr ""
+msgstr "Инсталација је завршена!"
 
 #: ajenti/plugins/packages/main.py:74
 msgid "Querying package manager"
-msgstr ""
+msgstr "Филтрирам управник пакета"
 
 #: ajenti/plugins/packages/main.py:135
 #, python-format
 msgid "%i found, 100 shown"
-msgstr ""
+msgstr "%i је пронађено, 100 приказано"
 
 #: ajenti/plugins/packages/main.py:138
 #, python-format
 msgid "%i found"
-msgstr ""
+msgstr "%i је пронађено"
 
 #: ajenti/plugins/packages/main.py:151
 msgid "Install / remove"
-msgstr ""
+msgstr "Унсталирај / уклони"
 
 #: ajenti/plugins/packages/main.py:152
 msgid "Refresh lists"
-msgstr ""
+msgstr "Освежи листу"
 
 #: ajenti/plugins/packages/layout/main.xml:1
 msgid "Get lists"
-msgstr ""
+msgstr "Преузми листу"
 
 #: ajenti/plugins/packages/layout/main.xml:3
 msgid "Upgradeable"
-msgstr ""
+msgstr "За надоградњу"
 
 #: ajenti/plugins/packages/layout/main.xml:4
 msgid "Upgrade all"
-msgstr ""
+msgstr "Надогради све"
 
 #: ajenti/plugins/packages/layout/main.xml:5
 #: ajenti/plugins/packages/layout/main.xml:6
 msgid "Search"
-msgstr ""
+msgstr "Претрага"
 
 #: ajenti/plugins/packages/layout/main.xml:8
 msgid "Cancel all"
-msgstr ""
+msgstr "Поништи све"
 
 #: ajenti/plugins/packages/layout/headers.xml:2
 msgid "Version"
-msgstr ""
+msgstr "Верзија"
 
 #: ajenti/plugins/packages/layout/row.xml:1
 msgid "Mark for installation/upgrade"
-msgstr ""
+msgstr "Означи за инсталацију/надоградњу"
 
 #: ajenti/plugins/packages/layout/row.xml:2
 msgid "Mark for removal"
-msgstr ""
+msgstr "Означи за уклањање"
 
 #: ajenti/plugins/hddtemp/widget.py:9
 msgid "HDD Temperature"
-msgstr ""
+msgstr "Температура тврдог диска"
 
 #: ajenti/plugins/lm_sensors/layout/widget.xml:1
 #: ajenti/plugins/ipmi/layout/widget.xml:1
 msgid "Sensor"
-msgstr ""
+msgstr "Сензор"
 
 #: ajenti/plugins/uname/widget.py:10
 msgid "uname"
-msgstr ""
+msgstr "Unix име"
 
 #: ajenti/plugins/uname/layout/widget.xml:1
 msgid "Uname options"
-msgstr ""
+msgstr "Опције unix имена"
 
 #: ajenti/plugins/nsd/main.py:42 ajenti/plugins/bind9/main.py:53
 msgid "Zone saved"
-msgstr ""
+msgstr "Зона је сачувана"
 
 #: ajenti/plugins/nsd/main.py:70
 #, python-format
 msgid "%s does not exist"
-msgstr ""
+msgstr "%s не постоји"
 
 #: ajenti/plugins/nsd/layout/main.xml:1 ajenti/plugins/bind9/layout/main.xml:2
 msgid "Zones"
-msgstr ""
+msgstr "Зоне"
 
 #: ajenti/plugins/nsd/layout/main.xml:5 ajenti/plugins/bind9/layout/main.xml:7
 msgid "File"
-msgstr ""
+msgstr "Датотека"
 
 #: ajenti/plugins/nsd/layout/main.xml:6 ajenti/plugins/bind9/layout/main.xml:8
 msgid "Zone"
-msgstr ""
+msgstr "Зона"
 
 #: ajenti/plugins/nsd/layout/main.xml:7 ajenti/plugins/bind9/layout/main.xml:9
 msgid "Zone file does not exist"
-msgstr ""
+msgstr "Датотека зоне не постоји"
 
 #: ajenti/plugins/nsd/layout/main.xml:9
 #: ajenti/plugins/bind9/layout/main.xml:11
 msgid "Save zone"
-msgstr ""
+msgstr "Сачувај зону"
 
 #: ajenti/plugins/fm/fm.py:19 ajenti/plugins/fm/fm.py:33
 msgid "File Manager"
-msgstr ""
+msgstr "Управник датотекама"
 
 #: ajenti/plugins/fm/fm.py:161
 msgid "Files deleted"
-msgstr ""
+msgstr "Избрисане датотеке"
 
 #: ajenti/plugins/fm/fm.py:179
 msgid "Files moved"
-msgstr ""
+msgstr "Премештене датотеке"
 
 #: ajenti/plugins/fm/fm.py:184
 msgid "Files copied"
-msgstr ""
+msgstr "Ископиране датотеке"
 
 #: ajenti/plugins/fm/fm.py:199
 #, python-format
 msgid "Selected %i items"
-msgstr ""
+msgstr "Изабрано је %i ставки"
 
 #: ajenti/plugins/fm/fm.py:238
 msgid "Unpacked"
-msgstr ""
+msgstr "Распаковано"
 
 #: ajenti/plugins/fm/layout/main.xml:1
 msgid "Close"
-msgstr ""
+msgstr "Затвори"
 
 #: ajenti/plugins/fm/layout/main.xml:2
 msgid "New File"
-msgstr ""
+msgstr "Нова датотека"
 
 #: ajenti/plugins/fm/layout/main.xml:3
 msgid "New Folder"
-msgstr ""
+msgstr "Нови директоријум"
 
 #: ajenti/plugins/fm/layout/main.xml:4
 msgid "Cut"
-msgstr ""
+msgstr "Исеци"
 
 #: ajenti/plugins/fm/layout/main.xml:5
 msgid "Copy"
-msgstr ""
+msgstr "Копирај"
 
 #: ajenti/plugins/fm/layout/main.xml:6
 msgid "Paste"
-msgstr ""
+msgstr "Убаци"
 
 #: ajenti/plugins/fm/layout/main.xml:9
 msgid "Select all"
-msgstr ""
+msgstr "Изабери све"
 
 #: ajenti/plugins/fm/layout/main.xml:12
 msgid "Upload"
-msgstr ""
+msgstr "Окачено"
 
 #: ajenti/plugins/fm/layout/main.xml:13
 msgid "Clipboard"
-msgstr ""
+msgstr "Привремена остава"
 
 #: ajenti/plugins/fm/layout/main.xml:19
 msgid "Last access time"
-msgstr ""
+msgstr "Време последњег приступа"
 
 #: ajenti/plugins/fm/layout/main.xml:20
 msgid "Modification time"
-msgstr ""
+msgstr "Време последње измене"
 
 #: ajenti/plugins/fm/layout/main.xml:21
 msgid "Creation time"
-msgstr ""
+msgstr "Време стварања"
 
 #: ajenti/plugins/fm/layout/main.xml:22
 msgid "Edit"
-msgstr ""
+msgstr "Уреди"
 
 #: ajenti/plugins/fm/layout/main.xml:23
 msgid "Unpack"
-msgstr ""
+msgstr "распакуј"
 
 #: ajenti/plugins/fm/layout/main.xml:24
 msgid "Access"
-msgstr ""
+msgstr "Приступ"
 
 #: ajenti/plugins/fm/layout/main.xml:25
 msgid "Owner"
-msgstr ""
+msgstr "Власник"
 
 #: ajenti/plugins/fm/layout/main.xml:27
 msgid "Others"
-msgstr ""
+msgstr "Остали"
 
 #: ajenti/plugins/fm/layout/main.xml:28
 msgid "Set recursively"
-msgstr ""
+msgstr "Постави рекурзивно"
 
 #: ajenti/plugins/fm/layout/config.xml:2
 msgid "Startup directory"
-msgstr ""
+msgstr "Почетни директоријум"
 
 #: ajenti/plugins/fm/layout/config.xml:3
 msgid "Owner for new files"
-msgstr ""
+msgstr "Власник за нове датотеке"
 
 #: ajenti/plugins/fm/layout/config.xml:4
 msgid "Group for new files"
-msgstr ""
+msgstr "Група за нове датотеке"
 
 #: ajenti/plugins/terminal/terminal.py:114
 #, python-format
 msgid "Process has exited with status %i"
-msgstr ""
+msgstr "Процес је окончан са стаутсом %i"
 
 #: ajenti/plugins/terminal/terminal.py:116
 msgid "Process has exited successfully"
-msgstr ""
+msgstr "Процес је успешно окончан"
 
 #: ajenti/plugins/terminal/main.py:22 ajenti/plugins/terminal/main.py:35
 #: ajenti/plugins/terminal/main.py:228
 msgid "Terminal"
-msgstr ""
+msgstr "Терминал"
 
 #: ajenti/plugins/terminal/main.py:232
 msgid "Run shell"
-msgstr ""
+msgstr "Покрени шкољку"
 
 #: ajenti/plugins/terminal/main.py:233
 msgid "Run custom commands"
-msgstr ""
+msgstr "Покрени прилагођену команду"
 
 #: ajenti/plugins/terminal/layout/main.xml:3
 msgid "No active terminals"
-msgstr ""
+msgstr "Без активних терминала"
 
 #: ajenti/plugins/terminal/layout/config.xml:1
 msgid "Default shell"
-msgstr ""
+msgstr "Подразумевана шкољка"
 
 #: ajenti/plugins/network/widget.py:88
 msgid "Immediate Traffic"
-msgstr ""
+msgstr "Непосредан проток"
 
 #: ajenti/plugins/network/widget.py:118
 msgid "Traffic"
-msgstr ""
+msgstr "Проток"
 
 #: ajenti/plugins/network/main.py:15
 msgid "Network"
-msgstr ""
+msgstr "Мрежа"
 
 #: ajenti/plugins/network/layout/main.xml:2
 msgid "Bring up"
-msgstr ""
+msgstr "Подигни"
 
 #: ajenti/plugins/network/layout/main.xml:3
 msgid "Bring down"
-msgstr ""
+msgstr "Спусти"
 
 #: ajenti/plugins/network/layout/main.xml:4
 msgid "Bringing down primary network connection may cut off any access to the server! Are you sure?"
-msgstr ""
+msgstr "Спуштање примарне мрежне везе може онемогућити приступ серверу, да ли сте сигурни?"
 
 #: ajenti/plugins/network/layout/main.xml:6
 msgid "Restarting primary network connection may cut off any access to the server! Are you sure?"
-msgstr ""
+msgstr "Поновно покретање примарне мрежне везе може онемогућити приступ серверу, да ли сте сигурни?"
 
 #: ajenti/plugins/network/layout/bit-linux-basic.xml:1
 msgid "Loopback"
-msgstr ""
+msgstr "Окрет уназад"
 
 #: ajenti/plugins/network/layout/bit-linux-basic.xml:2
 msgid "Static"
-msgstr ""
+msgstr "Статично"
 
 #: ajenti/plugins/network/layout/bit-linux-basic.xml:3
 msgid "Manual"
-msgstr ""
+msgstr "Ручно"
 
 #: ajenti/plugins/ctdb/main.py:20
 msgid "Samba Cluster"
-msgstr ""
+msgstr "Samba кластер"
 
 #: ajenti/plugins/ctdb/main.py:71
 msgid "Failed to obtain CTDB status"
-msgstr ""
+msgstr "Не могу да обезбедим CTDB статус"
 
 #: ajenti/plugins/ctdb/layout/main.xml:3
 msgid "Public IPs"
-msgstr ""
+msgstr "Јавне IP адресе"
 
 #: ajenti/plugins/ctdb/layout/main.xml:5
 msgid "Manage Samba"
-msgstr ""
+msgstr "Управљај Samba-ом"
 
 #: ajenti/plugins/ctdb/layout/main.xml:6
 msgid "Debug level"
-msgstr ""
+msgstr "Ниво отклањања неисправности"
 
 #: ajenti/plugins/ctdb/layout/main.xml:7
 msgid "Files"
-msgstr ""
+msgstr "Датотеке"
 
 #: ajenti/plugins/ctdb/layout/main.xml:8
 msgid "Recovery lock file"
-msgstr ""
+msgstr "Опорави закључану датотеку"
 
 #: ajenti/plugins/ctdb/layout/main.xml:9
 msgid "Public addresses file"
-msgstr ""
+msgstr "Датотека са јавним адресама"
 
 #: ajenti/plugins/ctdb/layout/main.xml:10
 msgid "Nodes file"
-msgstr ""
+msgstr "Датотека чворова"
 
 #: ajenti/plugins/ctdb/layout/main.xml:13
 msgid "Public interface"
-msgstr ""
+msgstr "Јавни интерфејс"
 
 #: ajenti/plugins/ctdb/layout/main.xml:14
 msgid "Public network"
-msgstr ""
+msgstr "Јавна мрежа"
 
 #: ajenti/plugins/ctdb/layout/main.xml:15
 msgid "Public gateway"
-msgstr ""
+msgstr "Јавни пролаз"
 
 #: ajenti/plugins/ctdb/layout/main.xml:16
 msgid "Nodes"
-msgstr ""
+msgstr "Чворови"
 
 #: ajenti/plugins/ctdb/layout/main.xml:20
 msgid "Public addresses"
-msgstr ""
+msgstr "Јавне адресе"
 
 #: ajenti/plugins/megaraid/layout/main.xml:1
 msgid "Adapter"
-msgstr ""
+msgstr "Адаптер"
 
 #: ajenti/plugins/megaraid/layout/widget.xml:1
 msgid "Array"
-msgstr ""
+msgstr "Низ"
 
 #: ajenti/plugins/resolv/main.py:13
 msgid "Nameservers"
-msgstr ""
+msgstr "Сервери назива"
 
 #: ajenti/plugins/resolv/main.py:18
 msgid "DNS nameserver"
-msgstr ""
+msgstr "DNS сервери назива"
 
 #: ajenti/plugins/resolv/main.py:18
 msgid "Local domain name"
-msgstr ""
+msgstr "Локално име домена"
 
 #: ajenti/plugins/resolv/main.py:18
 msgid "Search list"
-msgstr ""
+msgstr "Претрага листе"
 
 #: ajenti/plugins/resolv/main.py:18
 msgid "Sort list"
-msgstr ""
+msgstr "Сортирај листу"
 
 #: ajenti/plugins/resolv/layout/main.xml:4
 #: ajenti/plugins/cron/layout/main.xml:26
 msgid "Value"
-msgstr ""
+msgstr "Вредност"
 
 #: ajenti/plugins/fstab/widget.py:9
 msgid "Disk space"
-msgstr ""
+msgstr "Простор на диску"
 
 #: ajenti/plugins/fstab/widget.py:38
 msgid "Free disk space"
-msgstr ""
+msgstr "Слободан простор на диску"
 
 #: ajenti/plugins/fstab/widget.py:48
 #, python-format
 msgid "%s free"
-msgstr ""
+msgstr "%s слободно"
 
 #: ajenti/plugins/fstab/iops.py:70
 msgid "Immediate I/O"
-msgstr ""
+msgstr "Тренутни I/O проток"
 
 #: ajenti/plugins/fstab/main.py:51
 msgid "Filesystems"
-msgstr ""
+msgstr "Системи датотека"
 
 #: ajenti/plugins/fstab/main.py:75
 msgid "Unmounted"
-msgstr ""
+msgstr "Демонтирај"
 
 #: ajenti/plugins/fstab/main.py:82
 msgid "mount -a failed"
-msgstr ""
+msgstr "mount -a није успело"
 
 #: ajenti/plugins/fstab/layout/main.xml:2
 msgid "Mount all"
-msgstr ""
+msgstr "Монтирај све"
 
 #: ajenti/plugins/fstab/layout/main.xml:6
 #: ajenti/plugins/fstab/layout/main.xml:13
 msgid "Mountpoint"
-msgstr ""
+msgstr "Тачка монтирања"
 
 #: ajenti/plugins/fstab/layout/main.xml:7
 msgid "FS type"
-msgstr ""
+msgstr "Врста система датотека"
 
 #: ajenti/plugins/fstab/layout/main.xml:9
 msgid "Scan frequency"
-msgstr ""
+msgstr "Учесталост скенирања"
 
 #: ajenti/plugins/fstab/layout/main.xml:10
 msgid "Scan pass"
-msgstr ""
+msgstr "Пролаз скенирања"
 
 #: ajenti/plugins/fstab/layout/main.xml:11
 msgid "Mounted filesystems"
-msgstr ""
+msgstr "Монтирани системи датотека"
 
 #: ajenti/plugins/fstab/layout/main.xml:14
 msgid "Used"
-msgstr ""
+msgstr "Коришћено"
 
 #: ajenti/plugins/fstab/layout/main.xml:16
 msgid "Usage"
-msgstr ""
+msgstr "Коришћење"
 
 #: ajenti/plugins/fstab/layout/main.xml:17
 msgid "Unmount"
-msgstr ""
+msgstr "Демонтирај"
 
 #: ajenti/plugins/dashboard/welcome.py:13
 msgid "Welcome"
-msgstr ""
+msgstr "Добро дошли"
 
 #: ajenti/plugins/dashboard/dash.py:23
 msgid "Dashboard"
-msgstr ""
+msgstr "Командна табла"
 
 #: ajenti/plugins/dashboard/dash.py:214
 msgid "Widgets"
-msgstr ""
+msgstr "Програмчићи"
 
 #: ajenti/plugins/dashboard/text.py:7
 #: ajenti/plugins/dashboard/layout/text.xml:1
 #: ajenti/plugins/openvpn/layout/main.xml:12
 msgid "Text"
-msgstr ""
+msgstr "Текст"
 
 #: ajenti/plugins/dashboard/layout/dash.xml:1
 msgid "Add widget"
-msgstr ""
+msgstr "Додај програмчић"
 
 #: ajenti/plugins/dashboard/layout/dash.xml:3
 msgid "Automatic refresh"
-msgstr ""
+msgstr "Аутоматски освежавај"
 
 #: ajenti/plugins/dashboard/layout/dash.xml:4
 msgid "Update Ajenti"
-msgstr ""
+msgstr "Надогради Ajenti"
 
 #: ajenti/plugins/dashboard/layout/dash.xml:5
 msgid "Ajenti update is available"
-msgstr ""
+msgstr "Надоградња за Ajenti није доступна"
 
 #: ajenti/plugins/ntpd/main.py:93
 msgid "Date & Time"
-msgstr ""
+msgstr "Датум и време"
 
 #: ajenti/plugins/ntpd/main.py:142
 msgid "No servers defined"
-msgstr ""
+msgstr "Без дефинисаних сервера"
 
 #: ajenti/plugins/ntpd/main.py:146
 msgid "Done"
-msgstr ""
+msgstr "Завршено"
 
 #: ajenti/plugins/ntpd/layout/main.xml:1
 msgid "Current time"
-msgstr ""
+msgstr "Тренутно време"
 
 #: ajenti/plugins/ntpd/layout/main.xml:3
 msgid "Sync"
-msgstr ""
+msgstr "Синхронизација"
 
 #: ajenti/plugins/ntpd/layout/main.xml:4
 msgid "Servers"
-msgstr ""
+msgstr "Сервери"
 
 #: ajenti/plugins/openvpn/main.py:26
 msgid "OpenVPN"
-msgstr ""
+msgstr "OpenVPN"
 
 #: ajenti/plugins/openvpn/layout/main.xml:4
 msgid "Remote IP"
-msgstr ""
+msgstr "Удаљена IP адреса"
 
 #: ajenti/plugins/openvpn/layout/main.xml:5
 msgid "Local IP"
-msgstr ""
+msgstr "Локална IP адреса"
 
 #: ajenti/plugins/openvpn/layout/main.xml:6
 msgid "Connected since"
-msgstr ""
+msgstr "Повезано од"
 
 #: ajenti/plugins/openvpn/layout/main.xml:8
 msgid "clients"
-msgstr ""
+msgstr "клијенти"
 
 #: ajenti/plugins/openvpn/layout/main.xml:9
 msgid "Messages"
-msgstr ""
+msgstr "Поруке"
 
 #: ajenti/plugins/openvpn/layout/main.xml:10
 msgid "Timestamp"
-msgstr ""
+msgstr "Временски печат"
 
 #: ajenti/plugins/openvpn/layout/main.xml:11
 msgid "Flags"
-msgstr ""
+msgstr "Заставице"
 
 #: ajenti/plugins/openvpn/layout/config.xml:1
 msgid "Management address"
-msgstr ""
+msgstr "Адреса за управљање"
 
 #: ajenti/plugins/openvpn/layout/config.xml:2
 msgid "host:port or UNIX socket path"
-msgstr ""
+msgstr "домаћин:порт или путања UNIX прикључка"
 
 #: ajenti/plugins/power/power.py:58
 msgid "Power"
-msgstr ""
+msgstr "Напајање"
 
 #: ajenti/plugins/power/power.py:102
 msgid "Power control"
-msgstr ""
+msgstr "Контрола напајања"
 
 #: ajenti/plugins/power/power.py:106 ajenti/plugins/power/layout/widget.xml:3
 msgid "Suspend"
-msgstr ""
+msgstr "Суспендуј"
 
 #: ajenti/plugins/power/power.py:107 ajenti/plugins/power/layout/widget.xml:5
 msgid "Hibernate"
-msgstr ""
+msgstr "Хибернација"
 
 #: ajenti/plugins/power/power.py:108 ajenti/plugins/power/layout/widget.xml:7
 msgid "Reboot"
@@ -2418,259 +2417,258 @@ msgstr "Гашење"
 
 #: ajenti/plugins/power/layout/widget.xml:1
 msgid "AC power"
-msgstr ""
+msgstr "AC напајање"
 
 #: ajenti/plugins/power/layout/widget.xml:2
 msgid "Battery"
-msgstr ""
+msgstr "Батерија"
 
 #: ajenti/plugins/power/layout/widget.xml:4
 msgid "Suspend the system?"
-msgstr ""
+msgstr "Да ли желите да суспендујете систем?"
 
 #: ajenti/plugins/power/layout/widget.xml:6
 msgid "Hibernate the system?"
-msgstr ""
+msgstr "Да ли желите да ставите систем у стање хибернације?"
 
 #: ajenti/plugins/power/layout/widget.xml:8
 msgid "Reboot the system?"
-msgstr ""
+msgstr "Да ли желите да поново покренете систем?"
 
 #: ajenti/plugins/power/layout/widget.xml:9
 msgid "Power off"
-msgstr ""
+msgstr "Искључи"
 
 #: ajenti/plugins/power/layout/widget.xml:10
 msgid "Shutdown the system?"
-msgstr ""
+msgstr "Да ли сте сигурни да желите да искључите систем?"
 
 #: ajenti/plugins/services/widget.py:10
 #: ajenti/plugins/services/layout/widget.xml:4
 msgid "Service"
-msgstr ""
+msgstr "Сервис"
 
 #: ajenti/plugins/services/main.py:14
 msgid "Services"
-msgstr ""
+msgstr "Сервиси"
 
 #: ajenti/plugins/services/main.py:41
 #, python-format
 msgid "%s started"
-msgstr ""
+msgstr "%s је покренут"
 
 #: ajenti/plugins/services/main.py:46
 #, python-format
 msgid "%s stopped"
-msgstr ""
+msgstr "%s је заустављено"
 
 #: ajenti/plugins/services/main.py:51
 #, python-format
 msgid "%s restarted"
-msgstr ""
+msgstr "%s је поново покренуто"
 
 #: ajenti/plugins/services/layout/main.xml:1
 msgid "Origin"
-msgstr ""
+msgstr "Порекло"
 
 #: ajenti/plugins/services/layout/main.xml:2
 msgid "Actions"
-msgstr ""
+msgstr "Акције"
 
 #: ajenti/plugins/services/layout/main.xml:3
 #: ajenti/plugins/services/layout/widget.xml:1
 #: ajenti/plugins/services/layout/bar.xml:1
 msgid "Start"
-msgstr ""
+msgstr "Покрени"
 
 #: ajenti/plugins/services/layout/main.xml:4
 #: ajenti/plugins/services/layout/widget.xml:2
 #: ajenti/plugins/services/layout/bar.xml:2
 msgid "Stop"
-msgstr ""
+msgstr "Заустави"
 
 #: ajenti/plugins/ipmi/widget.py:9
 msgid "IPMI Sensor"
-msgstr ""
+msgstr "IPMI сензор"
 
 #: ajenti/plugins/hosts/layout/main.xml:5
 msgid "Aliases"
-msgstr ""
+msgstr "Псеудоним"
 
 #: ajenti/plugins/taskmgr/layout/main.xml:1
 msgid "Parent"
-msgstr ""
+msgstr "Родитељ"
 
 #: ajenti/plugins/taskmgr/layout/main.xml:4
 msgid "CPU"
-msgstr ""
+msgstr "Процесор"
 
 #: ajenti/plugins/taskmgr/layout/main.xml:5
 msgid "RAM"
-msgstr ""
+msgstr "Радна меморија"
 
 #: ajenti/plugins/taskmgr/layout/main.xml:7
 msgid "Terminate"
-msgstr ""
+msgstr "Прекини"
 
 #: ajenti/plugins/taskmgr/layout/main.xml:8
 msgid "Kill"
-msgstr ""
+msgstr "Убиј"
 
 #: ajenti/plugins/squid/layout/main.xml:5
 msgid "HTTP Access"
-msgstr ""
+msgstr "HTTP приступ"
 
 #: ajenti/plugins/squid/layout/main.xml:8
 msgid "Mode"
-msgstr ""
+msgstr "Мод"
 
 #: ajenti/plugins/squid/layout/main.xml:9
 #: ajenti/plugins/csf/layout/main.xml:19 ajenti/plugins/csf/layout/main.xml:24
 msgid "Allow"
-msgstr ""
+msgstr "Дозволи"
 
 #: ajenti/plugins/squid/layout/main.xml:10
 #: ajenti/plugins/csf/layout/main.xml:20
 msgid "Deny"
-msgstr ""
+msgstr "Забрани"
 
 #: ajenti/plugins/vh-nodejs/nodejs.py:18
 msgid "Node.js service"
-msgstr ""
+msgstr "Node.js сервис"
 
 #: ajenti/plugins/vh-gunicorn/gunicorn.py:30
 msgid "GUnicorn service"
-msgstr ""
+msgstr "GUnicorn сервис"
 
 #: ajenti/plugins/csf/main.py:16
 msgid "CSF Firewall"
-msgstr ""
+msgstr "CSF 1\"Ватрени зид\""
 
 #: ajenti/plugins/csf/main.py:69
 msgid "Applied"
-msgstr ""
+msgstr "Примењено"
 
 #: ajenti/plugins/csf/main.py:84
 msgid "Self-test OK"
-msgstr ""
+msgstr "Успешна самопровера"
 
 #: ajenti/plugins/csf/layout/main.xml:2
 msgid "Testing mode"
-msgstr ""
+msgstr "Мод тестирања"
 
 #: ajenti/plugins/csf/layout/main.xml:3
 msgid "Network device"
-msgstr ""
+msgstr "Мрежни уређаји"
 
 #: ajenti/plugins/csf/layout/main.xml:4
 msgid "Network device (IPv6)"
-msgstr ""
+msgstr "Мрежни уређаји (IPv6)"
 
 #: ajenti/plugins/csf/layout/main.xml:5
 msgid "Allowed ports"
-msgstr ""
+msgstr "Дозвољени портови"
 
 #: ajenti/plugins/csf/layout/main.xml:6 ajenti/plugins/csf/layout/main.xml:11
 msgid "Incoming TCP"
-msgstr ""
+msgstr "Долазни TCP"
 
 #: ajenti/plugins/csf/layout/main.xml:7 ajenti/plugins/csf/layout/main.xml:12
 msgid "Outgoing TCP"
-msgstr ""
+msgstr "Одлазни TCP"
 
 #: ajenti/plugins/csf/layout/main.xml:8 ajenti/plugins/csf/layout/main.xml:13
 msgid "Incoming UDP"
-msgstr ""
+msgstr "Долазни UDP"
 
 #: ajenti/plugins/csf/layout/main.xml:9 ajenti/plugins/csf/layout/main.xml:14
 msgid "Outgoing UDP"
-msgstr ""
+msgstr "Одлазни UDP"
 
 #: ajenti/plugins/csf/layout/main.xml:10
 msgid "Enable IPv6"
-msgstr ""
+msgstr "Омогући IPv6"
 
 #: ajenti/plugins/csf/layout/main.xml:15
 msgid "IP lists"
-msgstr ""
+msgstr "Листа IP адреса"
 
 #: ajenti/plugins/csf/layout/main.xml:16
 msgid "Permanent rules"
-msgstr ""
+msgstr "Трајна правила"
 
 #: ajenti/plugins/csf/layout/main.xml:17 ajenti/plugins/csf/layout/main.xml:22
 msgid "Allowed addresses"
-msgstr ""
+msgstr "Дозвољене адресе"
 
 #: ajenti/plugins/csf/layout/main.xml:18
 msgid "Denied addresses"
-msgstr ""
+msgstr "Забрањене адресе"
 
 #: ajenti/plugins/csf/layout/main.xml:21
 msgid "Temporary rules"
-msgstr ""
+msgstr "Привремена правила"
 
 #: ajenti/plugins/csf/layout/main.xml:23
 msgid "Banned addresses"
-msgstr ""
+msgstr "Блокиране адресе"
 
 #: ajenti/plugins/csf/layout/main.xml:25
 msgid "Ban"
-msgstr ""
+msgstr "Блокирај"
 
 #: ajenti/plugins/cron/layout/main.xml:1
 msgid "Select"
-msgstr ""
+msgstr "Изабери"
 
 #: ajenti/plugins/cron/layout/main.xml:2
 msgid "Normal"
-msgstr ""
+msgstr "Нормално"
 
 #: ajenti/plugins/cron/layout/main.xml:11
 msgid "Special"
-msgstr ""
+msgstr "Специјално"
 
 #: ajenti/plugins/rethink/layout/config.xml:3
 msgid "Auth"
-msgstr ""
+msgstr "Ауторизација"
 
 #: ajenti/plugins/logs/main.py:13 ajenti/plugins/logs/main.py:26
 msgid "Logs"
-msgstr ""
+msgstr "Дневник"
 
 #: ajenti/plugins/vh-php-fpm/phpfpm.py:62
 msgid "PHP-FPM service"
-msgstr ""
+msgstr "PHP-FPM сервис"
 
 #: ajenti/plugins/smartctl/widget.py:61
 msgid "FAILING"
-msgstr ""
+msgstr "FAILING"
 
 #: ajenti/plugins/smartctl/widget.py:62
 msgid "PRE-FAIL"
-msgstr ""
+msgstr "PRE-FAIL"
 
 #: ajenti/plugins/smartctl/widget.py:63
 msgid "Unknown error"
-msgstr ""
+msgstr "Непозната грешка"
 
 #: ajenti/plugins/smartctl/widget.py:64
 msgid "Errors in log"
-msgstr ""
+msgstr "Грешка у дневнику грешака"
 
 #: ajenti/usersync/adsync.py:18
 msgid "Active Directory Syncronization"
-msgstr ""
+msgstr "Синхронизација активних директоријума"
 
 #: ajenti/usersync/ldapsync.py:17
 msgid "LDAP User Syncronization"
-msgstr ""
+msgstr "LDAP синхронизација корисника"
 
 #: ajenti/usersync/local.py:12
 msgid "Off"
-msgstr ""
+msgstr "Искључено"
 
 #: ajenti/usersync/unix.py:14
 msgid "OS users"
-msgstr ""
-
+msgstr "Корисници оперативног система"
