@@ -15,7 +15,7 @@ from backend import FMBackend, Item, Unpacker
 
 
 @plugin
-class FileManagerConfigEditor (ClassConfigEditor):
+class FileManagerConfigEditor(ClassConfigEditor):
     title = _('File Manager')
     icon = 'folder-open'
 
@@ -24,7 +24,7 @@ class FileManagerConfigEditor (ClassConfigEditor):
 
 
 @plugin
-class FileManager (SectionPlugin):
+class FileManager(SectionPlugin):
     default_classconfig = {'root': '/', 'start': '/'}
     classconfig_editor = FileManagerConfigEditor
     classconfig_root = True
@@ -42,10 +42,12 @@ class FileManager (SectionPlugin):
         def post_item_bind(object, collection, item, ui):
             ui.find('name').on('click', self.on_item_click, object, item)
             ui.find('edit').on('click', self.edit, item.fullpath)
+
         self.find('items').post_item_bind = post_item_bind
 
         def post_bc_bind(object, collection, item, ui):
             ui.find('name').on('click', self.on_bc_click, object, item)
+
         self.find('breadcrumbs').post_item_bind = post_bc_bind
 
         self.clipboard = []
@@ -53,7 +55,8 @@ class FileManager (SectionPlugin):
 
     def on_first_page_load(self):
         self.new_tab()
-        self.binder = Binder(self.controller, self.find('filemanager')).populate()
+        self.binder = Binder(self.controller,
+                             self.find('filemanager')).populate()
         self.binder_c = Binder(self, self.find('bind-clipboard')).populate()
 
     def on_page_load(self):
@@ -104,7 +107,7 @@ class FileManager (SectionPlugin):
         if not os.path.exists(path):
             try:
                 os.mkdir(path)
-                os.chmod(path, 0755)
+                os.chmod(path, 0o755)
                 self._chown_new(path)
             except OSError as e:
                 self.context.notify('error', str(e))
@@ -160,6 +163,7 @@ class FileManager (SectionPlugin):
         def callback(task):
             self.context.notify('info', _('Files deleted'))
             self.refresh()
+
         self.backend.remove(self._get_checked(), cb=callback)
 
     @on('paste', 'click')
@@ -175,14 +179,18 @@ class FileManager (SectionPlugin):
 
         try:
             if for_move:
+
                 def callback(task):
                     self.context.notify('info', _('Files moved'))
                     self.refresh()
+
                 self.backend.move(for_move, tab.path, callback)
             if for_copy:
+
                 def callback(task):
                     self.context.notify('info', _('Files copied'))
                     self.refresh()
+
                 self.backend.copy(for_copy, tab.path, callback)
             self.clipboard = []
         except Exception as e:
@@ -196,7 +204,7 @@ class FileManager (SectionPlugin):
         for item in tab.items:
             item.checked = not item.checked
         self.binder.populate()
-        self.context.notify('info', _('Selected %i items') % len(tab.items)) 
+        self.context.notify('info', _('Selected %i items') % len(tab.items))
 
     def _get_checked(self):
         self.binder.update()
@@ -267,14 +275,17 @@ class FileManager (SectionPlugin):
 
             if self.find('chmod-recursive').value:
                 cmd = 'chown -Rv "%s:%s" "%s"; chmod -Rv %o "%s"' % (
-                    self.item.owner, self.item.group,
+                    self.item.owner,
+                    self.item.group,
                     self.item.fullpath,
                     self.item.mode,
                     self.item.fullpath,
                 )
                 self.context.launch('terminal', command=cmd)
 
-            logging.info('[fm] modifying %s: %o %s:%s' % (self.item.fullpath, self.item.mode, self.item.owner, self.item.group))
+            logging.info('[fm] modifying %s: %o %s:%s' %
+                         (self.item.fullpath, self.item.mode, self.item.owner,
+                          self.item.group))
 
     def on_bc_click(self, tab, item):
         if not item.path.startswith(self.classconfig['root']):
@@ -289,16 +300,17 @@ class FileManager (SectionPlugin):
 
 
 @plugin
-class UploadReceiver (HttpPlugin):
+class UploadReceiver(HttpPlugin):
     @url('/ajenti:fm-upload')
     def handle_upload(self, context):
         file = context.query['file']
-        context.session.endpoint.get_section(FileManager).upload(file.filename, file.file)
+        context.session.endpoint.get_section(FileManager).upload(
+            file.filename, file.file)
         context.respond_ok()
         return 'OK'
 
 
-class Controller (object):
+class Controller(object):
     def __init__(self):
         self.tabs = []
 
@@ -309,7 +321,7 @@ class Controller (object):
         self.tabs.append(Tab(None))
 
 
-class Tab (object):
+class Tab(object):
     def __init__(self, path):
         if path:
             self.navigate(path)
@@ -340,7 +352,7 @@ class Tab (object):
             self.breadcrumbs.insert(0, Breadcrumb(p))
 
 
-class Breadcrumb (object):
+class Breadcrumb(object):
     def __init__(self, path):
         self.name = os.path.split(path)[1]
         self.path = path

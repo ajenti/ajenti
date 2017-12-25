@@ -10,7 +10,7 @@ from ajenti.util import cache_value
 from api import Service, ServiceManager
 
 
-class SystemdService (Service):
+class SystemdService(Service):
     source = 'systemd'
 
     def __init__(self, name):
@@ -18,7 +18,8 @@ class SystemdService (Service):
         self.running = False
 
     def refresh(self):
-        self.running = subprocess.call(['systemctl', 'is-active', self.name]) == 0
+        self.running = subprocess.call(['systemctl', 'is-active',
+                                        self.name]) == 0
 
     def start(self):
         self.command('start')
@@ -34,11 +35,13 @@ class SystemdService (Service):
 
 
 @plugin
-class SystemdServiceManager (ServiceManager):
+class SystemdServiceManager(ServiceManager):
     def init(self):
         self.bus = dbus.SystemBus()
-        self.systemd = self.bus.get_object("org.freedesktop.systemd1", "/org/freedesktop/systemd1")
-        self.interface = dbus.Interface(self.systemd, 'org.freedesktop.systemd1.Manager')
+        self.systemd = self.bus.get_object("org.freedesktop.systemd1",
+                                           "/org/freedesktop/systemd1")
+        self.interface = dbus.Interface(self.systemd,
+                                        'org.freedesktop.systemd1.Manager')
 
     @classmethod
     def verify(cls):
@@ -49,13 +52,13 @@ class SystemdServiceManager (ServiceManager):
             c.init()
             c.get_all()
             return True
-        except Exception, e:
+        except Exception as e:
             logging.info('Disabling systemd service manager: %s' % str(e))
             return False
 
     @cache_value(1)
     def get_all(self):
-        unit_files = self.interface.ListUnitFiles() 
+        unit_files = self.interface.ListUnitFiles()
         r = []
         for unit_file in unit_files:
             if str(unit_file[0]).endswith('.service'):
