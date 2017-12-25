@@ -9,7 +9,6 @@ from ajenti.ipc import IPCHandler
 from ajenti.plugins import manager
 from ajenti.util import *
 
-
 HOST = 'ajenti.org'
 URL = 'http://%s/licensing-api/' % HOST
 LICENSE_PATH = '/var/lib/ajenti/license'
@@ -19,7 +18,7 @@ LICENSE_PATH = '/var/lib/ajenti/license'
 @plugin
 @persistent
 @rootcontext
-class Licensing (BasePlugin):
+class Licensing(BasePlugin):
     licensing_active = True
 
     def init(self):
@@ -41,7 +40,7 @@ class Licensing (BasePlugin):
 
     def write_license(self, key):
         open(LICENSE_PATH, 'w').write(key)
-        os.chmod(LICENSE_PATH, 0600)
+        os.chmod(LICENSE_PATH, 0o600)
 
     def activate(self):
         response = requests.post(URL + 'activate?key=' + self.read_license())
@@ -67,7 +66,7 @@ class Licensing (BasePlugin):
 
 
 @plugin
-class LicensingIPC (IPCHandler):
+class LicensingIPC(IPCHandler):
     def init(self):
         self.manager = Licensing.get()
 

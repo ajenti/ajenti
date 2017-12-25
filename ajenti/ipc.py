@@ -14,7 +14,7 @@ from ajenti.util import public
 @public
 @rootcontext
 @interface
-class IPCHandler (object):
+class IPCHandler(object):
     """
     Interface for custom IPC endpoints
     """
@@ -37,7 +37,7 @@ class IPCHandler (object):
         """
 
 
-class IPCWSGIHandler (WSGIHandler):
+class IPCWSGIHandler(WSGIHandler):
     def __init__(self, *args, **kwargs):
         WSGIHandler.__init__(self, *args, **kwargs)
         self.client_address = ('ipc', 0)
@@ -46,7 +46,7 @@ class IPCWSGIHandler (WSGIHandler):
         pass
 
 
-class IPCSocketServer (WSGIServer):
+class IPCSocketServer(WSGIServer):
     pass
 
 
@@ -78,7 +78,7 @@ def ipc_application(environment, start_response):
 @plugin
 @persistent
 @rootcontext
-class IPCServer (BasePlugin):
+class IPCServer(BasePlugin):
     def start(self):
         gevent.spawn(self.run)
 
@@ -89,7 +89,8 @@ class IPCServer (BasePlugin):
             os.unlink(socket_path)
         sock.bind(socket_path)
         sock.listen(5)
-        os.chmod(socket_path, 0700)
+        os.chmod(socket_path, 0o700)
 
-        server = IPCSocketServer(sock, application=ipc_application, handler_class=IPCWSGIHandler)
+        server = IPCSocketServer(
+            sock, application=ipc_application, handler_class=IPCWSGIHandler)
         server.serve_forever()
