@@ -640,12 +640,12 @@ msgstr "Rozvrh"
 
 #: ajenti/plugins/tasks/layout/main.xml:23
 msgid "Manual (specify below)"
-msgstr ""
+msgstr "Manuálne (upresnite nižšie)"
 
 #: ajenti/plugins/tasks/layout/main.xml:24
 #: ajenti/plugins/cron/layout/main.xml:16
 msgid "Hourly"
-msgstr ""
+msgstr "Každú hodinu"
 
 #: ajenti/plugins/tasks/layout/main.xml:25
 #: ajenti/plugins/cron/layout/main.xml:17
@@ -670,7 +670,7 @@ msgstr "Ročne"
 #: ajenti/plugins/tasks/layout/main.xml:29
 #: ajenti/plugins/cron/layout/main.xml:21
 msgid "On reboot"
-msgstr ""
+msgstr "Pri reštarte"
 
 #: ajenti/plugins/tasks/layout/main.xml:30
 msgid "Manual entry"
@@ -719,7 +719,7 @@ msgstr "Vytvoriť"
 
 #: ajenti/plugins/tasks/layout/main.xml:40
 msgid "Run in parallel"
-msgstr ""
+msgstr "Spustiť súbežne"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:1
 #: ajenti/plugins/tasks/layout/params-copydir.xml:1
@@ -738,23 +738,23 @@ msgstr "Archív"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:4
 msgid "Recursive"
-msgstr ""
+msgstr "Rekurzívne"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:5
 msgid "Preserve file times"
-msgstr ""
+msgstr "Zachovať časy súborov"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:6
 msgid "Preserve ext. attributes"
-msgstr ""
+msgstr "Zachovať ext. atribúty"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:7
 msgid "Delete in destination dir"
-msgstr ""
+msgstr "Odstrániť v cieľovom priečinku"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:8
 msgid "Preserve permissions"
-msgstr ""
+msgstr "Zachovať oprávnenia"
 
 #: ajenti/plugins/tasks/layout/params-execute.xml:1
 #: ajenti/plugins/scripts/layout/widget.xml:2
@@ -768,7 +768,7 @@ msgstr "Príkaz"
 
 #: ajenti/plugins/exports/main.py:17
 msgid "NFS Exports"
-msgstr ""
+msgstr "NFS exporty"
 
 #: ajenti/plugins/exports/main.py:38 ajenti/plugins/notepad/notepad.py:120
 #: ajenti/plugins/snmpd/main.py:192 ajenti/plugins/fail2ban/main.py:163
@@ -783,11 +783,11 @@ msgstr "Uložené"
 
 #: ajenti/plugins/exports/layout/main.xml:3
 msgid "Directory"
-msgstr ""
+msgstr "Priečinok"
 
 #: ajenti/plugins/exports/layout/main.xml:4
 msgid "Clients"
-msgstr ""
+msgstr "Klienti"
 
 #: ajenti/plugins/exports/layout/main.xml:6
 #: ajenti/plugins/iptables/layout/option-address.xml:1
@@ -820,12 +820,12 @@ msgstr ""
 #: ajenti/plugins/notepad/layout/main.xml:1
 #: ajenti/plugins/terminal/layout/main.xml:2
 msgid "New"
-msgstr ""
+msgstr "Nový"
 
 #: ajenti/plugins/notepad/layout/main.xml:2
 #: ajenti/plugins/logs/layout/main.xml:1
 msgid "Open"
-msgstr ""
+msgstr "Otvoriť"
 
 #: ajenti/plugins/notepad/layout/main.xml:4
 msgid "Save As"
@@ -839,7 +839,7 @@ msgstr "Záložka"
 #: ajenti/plugins/fm/layout/config.xml:1
 #: ajenti/plugins/logs/layout/config.xml:1
 msgid "Topmost directory"
-msgstr ""
+msgstr "Najvyšší priečinok"
 
 #: ajenti/plugins/main/controls_dialogs.py:16
 #: ajenti/plugins/packages/layout/row.xml:3
@@ -850,11 +850,11 @@ msgstr "Zrušiť"
 
 #: ajenti/plugins/main/controls_dialogs.py:72
 msgid "The directory does not exist anymore"
-msgstr ""
+msgstr "Priečinok už neexistuje"
 
 #: ajenti/plugins/main/passwd.py:21
 msgid "Passwords don't match"
-msgstr ""
+msgstr "Heslá sa nezhodujú"
 
 #: ajenti/plugins/main/passwd.py:25
 msgid "Incorrect password"

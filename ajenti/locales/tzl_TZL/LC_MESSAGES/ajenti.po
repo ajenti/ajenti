@@ -908,7 +908,7 @@ msgstr ""
 
 #: ajenti/plugins/main/layout/file-dialog-save.xml:1
 msgid "File name"
-msgstr ""
+msgstr "Nómina del fischeir"
 
 #: ajenti/plugins/scripts/widget.py:12
 msgid "Script"
@@ -1873,7 +1873,7 @@ msgstr ""
 
 #: ajenti/plugins/packages/main.py:151
 msgid "Install / remove"
-msgstr ""
+msgstr "Installarh / removarh"
 
 #: ajenti/plugins/packages/main.py:152
 msgid "Refresh lists"
@@ -2295,7 +2295,7 @@ msgstr ""
 
 #: ajenti/plugins/dashboard/welcome.py:13
 msgid "Welcome"
-msgstr ""
+msgstr "Benvenescu"
 
 #: ajenti/plugins/dashboard/dash.py:23
 msgid "Dashboard"

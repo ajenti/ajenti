@@ -2539,19 +2539,19 @@ msgstr "Node.js Layanan"
 
 #: ajenti/plugins/vh-gunicorn/gunicorn.py:30
 msgid "GUnicorn service"
-msgstr ""
+msgstr "Layanan GUnicorn"
 
 #: ajenti/plugins/csf/main.py:16
 msgid "CSF Firewall"
-msgstr ""
+msgstr "CSF Firewall"
 
 #: ajenti/plugins/csf/main.py:69
 msgid "Applied"
-msgstr ""
+msgstr "Diterapkan"
 
 #: ajenti/plugins/csf/main.py:84
 msgid "Self-test OK"
-msgstr ""
+msgstr "Pengujian sendiri OK"
 
 #: ajenti/plugins/csf/layout/main.xml:2
 msgid "Testing mode"
@@ -2559,11 +2559,11 @@ msgstr "Mode Pengujian"
 
 #: ajenti/plugins/csf/layout/main.xml:3
 msgid "Network device"
-msgstr ""
+msgstr "Perangkat Jaringan"
 
 #: ajenti/plugins/csf/layout/main.xml:4
 msgid "Network device (IPv6)"
-msgstr ""
+msgstr "Perangkat Jaringan (IPv6)"
 
 #: ajenti/plugins/csf/layout/main.xml:5
 msgid "Allowed ports"
@@ -2587,35 +2587,35 @@ msgstr "UDP Keluar"
 
 #: ajenti/plugins/csf/layout/main.xml:10
 msgid "Enable IPv6"
-msgstr ""
+msgstr "Aktifkan IPv6"
 
 #: ajenti/plugins/csf/layout/main.xml:15
 msgid "IP lists"
-msgstr ""
+msgstr "Daftar IP"
 
 #: ajenti/plugins/csf/layout/main.xml:16
 msgid "Permanent rules"
-msgstr ""
+msgstr "Aturan permanen"
 
 #: ajenti/plugins/csf/layout/main.xml:17 ajenti/plugins/csf/layout/main.xml:22
 msgid "Allowed addresses"
-msgstr ""
+msgstr "Alamat diizinkan"
 
 #: ajenti/plugins/csf/layout/main.xml:18
 msgid "Denied addresses"
-msgstr ""
+msgstr "Alamat ditolak"
 
 #: ajenti/plugins/csf/layout/main.xml:21
 msgid "Temporary rules"
-msgstr ""
+msgstr "Aturan sementara"
 
 #: ajenti/plugins/csf/layout/main.xml:23
 msgid "Banned addresses"
-msgstr ""
+msgstr "Alamat dilarang"
 
 #: ajenti/plugins/csf/layout/main.xml:25
 msgid "Ban"
-msgstr ""
+msgstr "Larang"
 
 #: ajenti/plugins/cron/layout/main.xml:1
 msgid "Select"

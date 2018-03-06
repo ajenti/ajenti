@@ -5,7 +5,7 @@ msgstr "Extensions"
 
 #: ajenti/plugins/plugins/plugins.py:37
 msgid "Gathering plugin list"
-msgstr ""
+msgstr "Recuperant llista de connectors"
 
 #: ajenti/plugins/plugins/layout/main.xml:1
 #: ajenti/plugins/webserver_common/layout/main.xml:4
@@ -43,7 +43,7 @@ msgstr "Nom"
 
 #: ajenti/plugins/plugins/layout/main.xml:2
 msgid "Description"
-msgstr ""
+msgstr "Descripció"
 
 #: ajenti/plugins/plugins/layout/main.xml:3
 msgid "Dependencies"
@@ -58,7 +58,7 @@ msgstr "Tipus"
 
 #: ajenti/plugins/plugins/layout/main.xml:5
 msgid "Depends on"
-msgstr ""
+msgstr "Depèn de"
 
 #: ajenti/plugins/plugins/layout/main.xml:6
 #: ajenti/plugins/tasks/layout/main.xml:4
@@ -71,7 +71,7 @@ msgstr "Estat"
 #: ajenti/plugins/webserver_common/layout/main.xml:1
 #: ajenti/plugins/hosts/main.py:13
 msgid "Hosts"
-msgstr ""
+msgstr "Amfitrió"
 
 #: ajenti/plugins/webserver_common/layout/main.xml:2
 #: ajenti/plugins/configurator/configurator.py:160
@@ -177,7 +177,7 @@ msgstr "Configuració"
 
 #: ajenti/plugins/webserver_common/layout/main.xml:7
 msgid "Main configs"
-msgstr ""
+msgstr "Config. principal"
 
 #: ajenti/plugins/webserver_common/layout/main.xml:8
 #: ajenti/plugins/configurator/layout/main.xml:34
@@ -213,7 +213,7 @@ msgstr "Guardar"
 
 #: ajenti/plugins/memcache/widget.py:35
 msgid "Memcache memory usage"
-msgstr ""
+msgstr "Estalviar ús de memòria-cache"
 
 #: ajenti/plugins/mongo/main.py:19 ajenti/plugins/exports/main.py:19
 #: ajenti/plugins/samba/main.py:19 ajenti/plugins/snmpd/main.py:128
@@ -269,19 +269,19 @@ msgstr "Contrasenya"
 
 #: ajenti/plugins/configurator/licensing.py:29
 msgid "Invalid key"
-msgstr ""
+msgstr "Clau no vàlida"
 
 #: ajenti/plugins/configurator/licensing.py:30
 msgid "Invalid IP"
-msgstr ""
+msgstr "IP no vàlida"
 
 #: ajenti/plugins/configurator/licensing.py:31
 msgid "Expired"
-msgstr ""
+msgstr "Veçut"
 
 #: ajenti/plugins/configurator/licensing.py:32
 msgid "Unknown"
-msgstr ""
+msgstr "Desconeguda"
 
 #: ajenti/plugins/configurator/licensing.py:45
 #: ajenti/plugins/configurator/licensing.py:54
@@ -364,7 +364,7 @@ msgstr "Ruta al certificat"
 
 #: ajenti/plugins/configurator/layout/main.xml:10
 msgid "SSL Self-Signed Certificate Generator"
-msgstr ""
+msgstr "Generador de certificat SSL auto signat"
 
 #: ajenti/plugins/configurator/layout/main.xml:11
 #: ajenti/plugins/db_common/layout/main.xml:13
@@ -419,7 +419,7 @@ msgstr "Canvia la contrasenya"
 
 #: ajenti/plugins/configurator/layout/main.xml:26
 msgid "Permissions"
-msgstr ""
+msgstr "Permisos"
 
 #: ajenti/plugins/configurator/layout/main.xml:27
 #: ajenti/plugins/samba/layout/main.xml:25
@@ -436,7 +436,7 @@ msgstr "Ajenti enviarà anònimament la seva versió, el nom del teu sistema ope
 
 #: ajenti/plugins/configurator/layout/main.xml:33
 msgid "License"
-msgstr ""
+msgstr "Llicència"
 
 #: ajenti/plugins/configurator/layout/main.xml:35
 #: ajenti/plugins/network/layout/main.xml:5
@@ -477,11 +477,11 @@ msgstr "Nom de domini"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:3
 msgid "Base DN"
-msgstr ""
+msgstr "Base DN"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:4
 msgid "Limit to group DN"
-msgstr ""
+msgstr "Límit agrupar DN"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:5
 msgid "Admin user"
@@ -493,19 +493,19 @@ msgstr "Contrasenya d'admin"
 
 #: ajenti/plugins/configurator/layout/licensing.xml:1
 msgid "License status"
-msgstr ""
+msgstr "Estat de la llicència"
 
 #: ajenti/plugins/configurator/layout/licensing.xml:2
 msgid "Company"
-msgstr ""
+msgstr "Empresa"
 
 #: ajenti/plugins/configurator/layout/licensing.xml:3
 msgid "License type"
-msgstr ""
+msgstr "Tipus de llicència"
 
 #: ajenti/plugins/configurator/layout/licensing.xml:4
 msgid "License expires on"
-msgstr ""
+msgstr "La llicència expira el"
 
 #: ajenti/plugins/configurator/layout/licensing.xml:5
 #: ajenti/plugins/users/layout/user-list.xml:9
@@ -515,11 +515,11 @@ msgstr "Treure"
 
 #: ajenti/plugins/configurator/layout/licensing.xml:6
 msgid "No commercial license installed"
-msgstr ""
+msgstr "Cap llicència comercial instal·lada"
 
 #: ajenti/plugins/configurator/layout/licensing.xml:7
 msgid "Install"
-msgstr ""
+msgstr "Instal·lar"
 
 #: ajenti/plugins/tasks/manager.py:69
 #, python-format
@@ -529,7 +529,7 @@ msgstr "Tasca %s finalitzada"
 #: ajenti/plugins/tasks/manager.py:104
 #, python-format
 msgid "Task %s queued"
-msgstr ""
+msgstr "Tasca %s en cua"
 
 #: ajenti/plugins/tasks/manager.py:116
 #, python-format
@@ -547,7 +547,7 @@ msgstr "Eines"
 
 #: ajenti/plugins/tasks/tasks.py:14
 msgid "Execute command"
-msgstr ""
+msgstr "Executar comanda"
 
 #: ajenti/plugins/tasks/tasks.py:34
 #, python-format
@@ -556,7 +556,7 @@ msgstr "Copiant %s"
 
 #: ajenti/plugins/tasks/tasks.py:64
 msgid "Move files"
-msgstr ""
+msgstr "Moure arxius"
 
 #: ajenti/plugins/tasks/tasks.py:66
 #, python-format
@@ -565,12 +565,12 @@ msgstr "Movent %s"
 
 #: ajenti/plugins/tasks/tasks.py:71
 msgid "Delete files"
-msgstr ""
+msgstr "Esborra arxius"
 
 #: ajenti/plugins/tasks/tasks.py:74
 #, python-format
 msgid "Deleting %s"
-msgstr ""
+msgstr "Suprimint %s"
 
 #: ajenti/plugins/tasks/layout/main.xml:1
 msgid "Running tasks"
@@ -617,7 +617,7 @@ msgstr "Error"
 
 #: ajenti/plugins/tasks/layout/main.xml:15
 msgid "Crashed"
-msgstr ""
+msgstr "Fallada"
 
 #: ajenti/plugins/tasks/layout/main.xml:16
 #: ajenti/plugins/db_common/layout/main.xml:1
@@ -699,7 +699,7 @@ msgstr "Mes"
 #: ajenti/plugins/tasks/layout/main.xml:35
 #: ajenti/plugins/cron/layout/main.xml:9
 msgid "DoW"
-msgstr ""
+msgstr "Dia de la setmana"
 
 #: ajenti/plugins/tasks/layout/main.xml:37
 #: ajenti/plugins/users/layout/user-list.xml:5
@@ -719,7 +719,7 @@ msgstr "Crear"
 
 #: ajenti/plugins/tasks/layout/main.xml:40
 msgid "Run in parallel"
-msgstr ""
+msgstr "Executar en paral·lel"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:1
 #: ajenti/plugins/tasks/layout/params-copydir.xml:1
@@ -730,7 +730,7 @@ msgstr "Del directori"
 #: ajenti/plugins/tasks/layout/params-rsync.xml:2
 #: ajenti/plugins/tasks/layout/params-copydir.xml:2
 msgid "Into directory"
-msgstr ""
+msgstr "Dins del directori"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:3
 msgid "Archive"
@@ -742,15 +742,15 @@ msgstr "Recursiu"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:5
 msgid "Preserve file times"
-msgstr ""
+msgstr "Preservar marca de temps de l'arxiu"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:6
 msgid "Preserve ext. attributes"
-msgstr ""
+msgstr "Preservar els atributs ampliats"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:7
 msgid "Delete in destination dir"
-msgstr ""
+msgstr "Suprimir en directori de destinació"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:8
 msgid "Preserve permissions"
@@ -768,7 +768,7 @@ msgstr "Comanda"
 
 #: ajenti/plugins/exports/main.py:17
 msgid "NFS Exports"
-msgstr ""
+msgstr "Exportació NFS"
 
 #: ajenti/plugins/exports/main.py:38 ajenti/plugins/notepad/notepad.py:120
 #: ajenti/plugins/snmpd/main.py:192 ajenti/plugins/fail2ban/main.py:163
@@ -815,7 +815,7 @@ msgstr "Bloc de notes"
 #: ajenti/plugins/notepad/notepad.py:71
 #, python-format
 msgid "Untitled %i"
-msgstr ""
+msgstr "Sense títol %i"
 
 #: ajenti/plugins/notepad/layout/main.xml:1
 #: ajenti/plugins/terminal/layout/main.xml:2
@@ -839,7 +839,7 @@ msgstr "Marcador"
 #: ajenti/plugins/fm/layout/config.xml:1
 #: ajenti/plugins/logs/layout/config.xml:1
 msgid "Topmost directory"
-msgstr ""
+msgstr "Directori arrel"
 
 #: ajenti/plugins/main/controls_dialogs.py:16
 #: ajenti/plugins/packages/layout/row.xml:3
@@ -850,40 +850,40 @@ msgstr "Cancel·lar"
 
 #: ajenti/plugins/main/controls_dialogs.py:72
 msgid "The directory does not exist anymore"
-msgstr ""
+msgstr "El directori no existeix"
 
 #: ajenti/plugins/main/passwd.py:21
 msgid "Passwords don't match"
-msgstr ""
+msgstr "Les contrasenyes no coincideixen"
 
 #: ajenti/plugins/main/passwd.py:25
 msgid "Incorrect password"
-msgstr ""
+msgstr "Contrasenya incorrecta"
 
 #: ajenti/plugins/main/passwd.py:29
 msgid "Password changed"
-msgstr ""
+msgstr "Contrasenya canviada"
 
 #: ajenti/plugins/main/controls_containers.py:38
 msgid "Empty"
-msgstr ""
+msgstr "Buit"
 
 #: ajenti/plugins/main/controls_containers.py:40
 msgid "Filter..."
-msgstr ""
+msgstr "Filtrar..."
 
 #: ajenti/plugins/main/main.py:49
 msgid "Invalid login or password"
-msgstr ""
+msgstr "Usuari o contrasenya no vàlids"
 
 #: ajenti/plugins/main/main.py:77
 #, python-format
 msgid "Email \"%s\" is not associated with any user"
-msgstr ""
+msgstr "E-mail \"%s\" no està associat amb cap usuari"
 
 #: ajenti/plugins/main/main.py:79
 msgid "Login failed"
-msgstr ""
+msgstr "L'entrada ha fallat"
 
 #: ajenti/plugins/main/main.py:293
 msgid "Section access"
@@ -891,11 +891,11 @@ msgstr "Accés de secció"
 
 #: ajenti/plugins/main/layout/passwd-main.xml:1
 msgid "Password change"
-msgstr ""
+msgstr "Canvi de contrasenya"
 
 #: ajenti/plugins/main/layout/passwd-main.xml:2
 msgid "Old password"
-msgstr ""
+msgstr "Contrasenya antiga"
 
 #: ajenti/plugins/main/layout/passwd-main.xml:3
 #: ajenti/plugins/users/layout/user-list.xml:7
@@ -904,7 +904,7 @@ msgstr "Contrasenya nova"
 
 #: ajenti/plugins/main/layout/passwd-main.xml:4
 msgid "Password confirmation"
-msgstr ""
+msgstr "Confirmació de contrasenya"
 
 #: ajenti/plugins/main/layout/file-dialog-save.xml:1
 msgid "File name"
@@ -967,17 +967,17 @@ msgstr "Actualització de contrasenya ha fallat"
 #: ajenti/plugins/samba/layout/main.xml:1
 #: ajenti/plugins/netatalk/layout/main.xml:1
 msgid "Shares"
-msgstr ""
+msgstr "Compartit"
 
 #: ajenti/plugins/samba/layout/main.xml:6
 #: ajenti/plugins/vh/layout/main-website.xml:10
 #: ajenti/plugins/netatalk/layout/main.xml:5
 msgid "Path"
-msgstr ""
+msgstr "Camí"
 
 #: ajenti/plugins/samba/layout/main.xml:7
 msgid "Guest access"
-msgstr ""
+msgstr "Accés de visitant"
 
 #: ajenti/plugins/samba/layout/main.xml:8
 msgid "Browseable"
@@ -1008,7 +1008,7 @@ msgstr "Usuaris permesos"
 
 #: ajenti/plugins/samba/layout/main.xml:14
 msgid "R/W users"
-msgstr ""
+msgstr "Usuari Llegir/Escriure"
 
 #: ajenti/plugins/samba/layout/main.xml:15
 msgid "Veto files"
@@ -1016,11 +1016,11 @@ msgstr "Vet arxius"
 
 #: ajenti/plugins/samba/layout/main.xml:16
 msgid "Force file umask"
-msgstr ""
+msgstr "Força umask d'arxiu"
 
 #: ajenti/plugins/samba/layout/main.xml:17
 msgid "Force dir umask"
-msgstr ""
+msgstr "Força umask del directori"
 
 #: ajenti/plugins/samba/layout/main.xml:18
 #: ajenti/plugins/netatalk/layout/main.xml:11
@@ -1038,7 +1038,7 @@ msgstr "Interfícies"
 
 #: ajenti/plugins/samba/layout/main.xml:21
 msgid "Bind only to these interfaces"
-msgstr ""
+msgstr "Vincula únicament amb aquestes interfícies"
 
 #: ajenti/plugins/samba/layout/main.xml:22
 msgid "Identification"
@@ -1050,7 +1050,7 @@ msgstr "Grup de treball"
 
 #: ajenti/plugins/samba/layout/main.xml:24
 msgid "Server string"
-msgstr ""
+msgstr "Cadena de servidor"
 
 #: ajenti/plugins/samba/layout/main.xml:26
 #: ajenti/plugins/fail2ban/layout/main.xml:7
@@ -1090,11 +1090,11 @@ msgstr "Desconnectat"
 #: ajenti/plugins/vh/layout/main-website.xml:11
 #: ajenti/plugins/ntpd/layout/main.xml:2
 msgid "Set"
-msgstr ""
+msgstr "Estableix"
 
 #: ajenti/plugins/hdparm/widget.py:37
 msgid "HDD drive state"
-msgstr ""
+msgstr "Estat disc HDD"
 
 #: ajenti/plugins/hdparm/widget.py:47 ajenti/plugins/smartctl/widget.py:60
 msgid "No data"
@@ -1125,7 +1125,7 @@ msgstr "Sistema"
 #: ajenti/plugins/users/main.py:105
 #, python-format
 msgid "Home dir for %s was created"
-msgstr ""
+msgstr "Directori Home creat per a %s"
 
 #: ajenti/plugins/users/main.py:114
 #, python-format
@@ -1139,7 +1139,7 @@ msgstr "La contrasenya per %s no pot ser buida"
 #: ajenti/plugins/users/main.py:123
 #, python-format
 msgid "Password for %s was removed"
-msgstr ""
+msgstr "La contrasenya per %s s'ha eliminat"
 
 #: ajenti/plugins/users/layout/main.xml:3 ajenti/plugins/fm/layout/main.xml:26
 msgid "Group"
@@ -1168,19 +1168,19 @@ msgstr "Directori d'inici"
 
 #: ajenti/plugins/users/layout/user-list.xml:6
 msgid "Shell"
-msgstr ""
+msgstr "Intèrpret d’ordres	"
 
 #: ajenti/plugins/vh-mysql/mysql.py:90
 msgid "This database name is already used"
-msgstr ""
+msgstr "Aquest nom de base de dades ja està en ús"
 
 #: ajenti/plugins/vh-mysql/mysql.py:121
 msgid "This username is already used"
-msgstr ""
+msgstr "Aquest nom d'usuari ja està en ús"
 
 #: ajenti/plugins/vh-mysql/mysql.py:156
 msgid "Permissions granted."
-msgstr ""
+msgstr "Permisos concedits."
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:1
 #: ajenti/plugins/db_common/layout/main.xml:2
@@ -1190,53 +1190,53 @@ msgstr "Base de dades"
 #: ajenti/plugins/vh-mysql/layout/ext.xml:3
 #: ajenti/plugins/vh-mysql/layout/ext.xml:11
 msgid "Detach from the website"
-msgstr ""
+msgstr "Separa del lloc web"
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:4
 #: ajenti/plugins/vh-mysql/layout/ext.xml:12
 msgid "Destroy"
-msgstr ""
+msgstr "Destruir"
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:5
 msgid "Drop the database?"
-msgstr ""
+msgstr "Eliminar la base de dades?"
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:13
 msgid "Drop the user?"
-msgstr ""
+msgstr "Eliminar l'usuari?"
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:17
 msgid "Grant all permissions"
-msgstr ""
+msgstr "Atorgar tots els permisos"
 
 #: ajenti/plugins/fail2ban/main.py:108
 msgid "File with name {0} already exists in {1}."
-msgstr ""
+msgstr "Arxiu amb nom {0} ja existeix a {1}."
 
 #: ajenti/plugins/fail2ban/main.py:176
 msgid "Some parameters are empty."
-msgstr ""
+msgstr "Alguns paràmetres estan buits."
 
 #: ajenti/plugins/fail2ban/main.py:228
 #, python-format
 msgid "Could not save config file. %s"
-msgstr ""
+msgstr "No s'ha pogut desar el fitxer de configuració. %s"
 
 #: ajenti/plugins/fail2ban/layout/main.xml:5
 msgid "Filters checker"
-msgstr ""
+msgstr "Comprovador de filtres"
 
 #: ajenti/plugins/fail2ban/layout/main.xml:6
 msgid "Filter file"
-msgstr ""
+msgstr "Arxiu de filtre"
 
 #: ajenti/plugins/fail2ban/layout/main.xml:8
 msgid "Run test"
-msgstr ""
+msgstr "Executar verificació"
 
 #: ajenti/plugins/vh-puma/puma.py:17
 msgid "PUMA service"
-msgstr ""
+msgstr "Servei PUMA"
 
 #: ajenti/plugins/dhcpd/main.py:14
 msgid "DHCP Server"
@@ -1265,11 +1265,11 @@ msgstr "No podria connectar a Munin: %s"
 
 #: ajenti/plugins/munin/main.py:47
 msgid "Munin HTTP authentication failed"
-msgstr ""
+msgstr "Autenticació de Munin HTTP ha fallat"
 
 #: ajenti/plugins/munin/layout/main.xml:1
 msgid "View"
-msgstr ""
+msgstr "Visualitza"
 
 #: ajenti/plugins/nginx/main.py:16 ajenti/plugins/supervisor/layout/main.xml:1
 #: ajenti/plugins/psql/main.py:13 ajenti/plugins/mysql/main.py:21
@@ -1280,27 +1280,27 @@ msgstr "Recarregar"
 
 #: ajenti/plugins/git/main.py:32
 msgid "Git"
-msgstr ""
+msgstr "Git"
 
 #: ajenti/plugins/git/layout/main.xml:1
 msgid "Repositories"
-msgstr ""
+msgstr "Repositoris"
 
 #: ajenti/plugins/git/layout/main-repolist.xml:3
 msgid "Repository Name"
-msgstr ""
+msgstr "Nom del Repositori"
 
 #: ajenti/plugins/git/layout/main-repolist.xml:4
 msgid "Users (read-write)"
-msgstr ""
+msgstr "Usuaris (lectura i escriptura)"
 
 #: ajenti/plugins/git/layout/main-repolist.xml:5
 msgid "Users (read-only)"
-msgstr ""
+msgstr "Usuaris (només de lectura)"
 
 #: ajenti/plugins/git/layout/main-userlist.xml:4
 msgid "Public Key"
-msgstr ""
+msgstr "Clau pública"
 
 #: ajenti/plugins/db_common/api.py:46
 msgid "Query finished"
@@ -1309,11 +1309,11 @@ msgstr "Consulta acabada"
 #: ajenti/plugins/db_common/api.py:55
 #, python-format
 msgid "Output cut from %i rows to 200"
-msgstr ""
+msgstr "Tall de sortida de files %i fins a 200"
 
 #: ajenti/plugins/db_common/layout/main.xml:4
 msgid "Confirm database drop!"
-msgstr ""
+msgstr "Confirmeu eliminació de Base de Dades!"
 
 #: ajenti/plugins/db_common/layout/main.xml:11
 msgid "Database name"
@@ -1321,19 +1321,19 @@ msgstr "Nom de base de dades"
 
 #: ajenti/plugins/vh/gate_static.py:8
 msgid "Static files"
-msgstr ""
+msgstr "Fitxers estαtics"
 
 #: ajenti/plugins/vh/gate_fcgi.py:8
 msgid "Custom FCGI"
-msgstr ""
+msgstr "FCGI Personalitzat"
 
 #: ajenti/plugins/vh/gate_proxy.py:8
 msgid "Reverse proxy"
-msgstr ""
+msgstr "Proxy invers"
 
 #: ajenti/plugins/vh/processes.py:41
 msgid "Process"
-msgstr ""
+msgstr "Procés"
 
 #: ajenti/plugins/vh/processes.py:56 ajenti/plugins/taskmgr/main.py:19
 msgid "Processes"
@@ -1341,101 +1341,101 @@ msgstr "Processos"
 
 #: ajenti/plugins/vh/main.py:20 ajenti/plugins/vh/layout/main.xml:1
 msgid "Websites"
-msgstr ""
+msgstr "Llocs web"
 
 #: ajenti/plugins/vh/main.py:87 ajenti/plugins/vh/main.py:239
 msgid "Testing configuration"
-msgstr ""
+msgstr "Verificant configuració"
 
 #: ajenti/plugins/vh/main.py:96
 msgid "Saving changes"
-msgstr ""
+msgstr "Desant canvis"
 
 #: ajenti/plugins/vh/main.py:99 ajenti/plugins/vh/main.py:256
 msgid "Applying changes"
-msgstr ""
+msgstr "Aplicant canvis"
 
 #: ajenti/plugins/vh/main.py:101 ajenti/plugins/vh/main.py:258
 msgid "Restarting web services"
-msgstr ""
+msgstr "Reiniciant serveis web"
 
 #: ajenti/plugins/vh/main.py:214
 msgid "Download complete"
-msgstr ""
+msgstr "Descarrega completa"
 
 #: ajenti/plugins/vh/layout/main.xml:2
 msgid "Manage"
-msgstr ""
+msgstr "Gestionar"
 
 #: ajenti/plugins/vh/layout/main.xml:3
 msgid "New website"
-msgstr ""
+msgstr "Nova web"
 
 #: ajenti/plugins/vh/layout/main.xml:6
 msgid "Configuration checks"
-msgstr ""
+msgstr "Configuració comprovacions"
 
 #: ajenti/plugins/vh/layout/main.xml:8
 msgid "Restart websites"
-msgstr ""
+msgstr "Reiniciar llocs web"
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:1
 msgid "Process manager"
-msgstr ""
+msgstr "Gestor de processos"
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:2
 msgid "Min processes"
-msgstr ""
+msgstr "Nombre mínim de processos"
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:3
 msgid "Max processes"
-msgstr ""
+msgstr "Nombre màxim de processos"
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:4
 #: ajenti/plugins/vh/layout/main-backend-params-nodejs.xml:4
 msgid "Process user"
-msgstr ""
+msgstr "Usuari de procés"
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:5
 msgid "Process group"
-msgstr ""
+msgstr "Grup del procés"
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:6
 msgid "PHP .ini values"
-msgstr ""
+msgstr "Valors PHP. ini"
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:7
 msgid "PHP flags"
-msgstr ""
+msgstr "Senyaladors PHP"
 
 #: ajenti/plugins/vh/layout/main-backend-params-python-wsgi.xml:1
 msgid "Application module"
-msgstr ""
+msgstr "Mòdul d'aplicació"
 
 #: ajenti/plugins/vh/layout/main-backend-params-python-wsgi.xml:2
 msgid "Virtualenv path"
-msgstr ""
+msgstr "Camí entorn virtual"
 
 #: ajenti/plugins/vh/layout/main-backend-params-python-wsgi.xml:3
 #: ajenti/plugins/vh/layout/main-backend-params-ruby-puma.xml:3
 #: ajenti/plugins/vh/layout/main-backend-params-ruby-unicorn.xml:1
 msgid "Workers"
-msgstr ""
+msgstr "Treballadors"
 
 #: ajenti/plugins/vh/layout/main-backend-params-python-wsgi.xml:5
 #: ajenti/plugins/vh/layout/main-website-location.xml:5
 #: ajenti/plugins/vh/layout/main-website.xml:32
 #: ajenti/plugins/vh-mail/layout/main.xml:29
 msgid "Custom configuration"
-msgstr ""
+msgstr "Configuració personalitzada"
 
 #: ajenti/plugins/vh/layout/main-backend-params-nodejs.xml:1
 msgid "Script name"
-msgstr ""
+msgstr "Nom de l'script"
 
 #: ajenti/plugins/vh/layout/main-backend-params-nodejs.xml:2
 msgid "Script's HTTP port"
-msgstr ""
+msgstr "Port HTTP de l'script"
 
 #: ajenti/plugins/vh/layout/main-backend-params-nodejs.xml:3
 #: ajenti/plugins/vh/layout/main-backend-params-ruby-puma.xml:2
@@ -1447,44 +1447,44 @@ msgstr "Entorn"
 
 #: ajenti/plugins/vh/layout/main-backend-params-static.xml:1
 msgid "Show directory content"
-msgstr ""
+msgstr "Mostra el contingut del directori"
 
 #: ajenti/plugins/vh/layout/main-backend-params-ruby-puma.xml:1
 msgid "Use Bundler"
-msgstr ""
+msgstr "Utilitzar Bundler"
 
 #: ajenti/plugins/vh/layout/main-website-location.xml:1
 msgid "URL Pattern"
-msgstr ""
+msgstr "Patró d'URL"
 
 #: ajenti/plugins/vh/layout/main-website-location.xml:3
 msgid "Custom path"
-msgstr ""
+msgstr "Camí personalitzat"
 
 #: ajenti/plugins/vh/layout/main-website-location.xml:4
 msgid "Append URL pattern to path"
-msgstr ""
+msgstr "Afegeixi el patró d'URL al camí"
 
 #: ajenti/plugins/vh/layout/main-website-location.xml:6
 msgid "Use only custom configuration and don't include standard parameters"
-msgstr ""
+msgstr "Utilitzar només la configuració personalitzada i no incloure paràmetres estàndards"
 
 #: ajenti/plugins/vh/layout/ext-processes.xml:5
 #: ajenti/plugins/supervisor/layout/main.xml:6
 msgid "Working directory"
-msgstr ""
+msgstr "Directori de treball"
 
 #: ajenti/plugins/vh/layout/not-configured.xml:1
 msgid "Ajenti V is not enabled yet"
-msgstr ""
+msgstr "Ajenti V no està actiu"
 
 #: ajenti/plugins/vh/layout/not-configured.xml:2
 msgid "Enabling Ajenti V will overwrite configuration for the following software:"
-msgstr ""
+msgstr "Activant Ajenti V sobreescriurà la configuració per al següent programari:"
 
 #: ajenti/plugins/vh/layout/main-website.xml:1
 msgid "Back"
-msgstr ""
+msgstr "Enrere"
 
 #: ajenti/plugins/vh/layout/main-website.xml:3
 #: ajenti/plugins/fm/layout/main.xml:7
@@ -1493,7 +1493,7 @@ msgstr "Suprimir"
 
 #: ajenti/plugins/vh/layout/main-website.xml:4
 msgid "All website data will be lost. Continue?"
-msgstr ""
+msgstr "Es perdran totes les dades del lloc web. Voleu continuar?"
 
 #: ajenti/plugins/vh/layout/main-website.xml:7
 #: ajenti/plugins/supervisor/layout/main.xml:8
@@ -1503,39 +1503,39 @@ msgstr "Habilitat"
 
 #: ajenti/plugins/vh/layout/main-website.xml:8
 msgid "Maintenance mode"
-msgstr ""
+msgstr "Mode de manteniment"
 
 #: ajenti/plugins/vh/layout/main-website.xml:9
 msgid "Website files"
-msgstr ""
+msgstr "Arxius del lloc web"
 
 #: ajenti/plugins/vh/layout/main-website.xml:12
 msgid "Create directory"
-msgstr ""
+msgstr "Crear directori"
 
 #: ajenti/plugins/vh/layout/main-website.xml:13
 msgid "Fix file permissions"
-msgstr ""
+msgstr "Arreglar els permisos d'arxiu"
 
 #: ajenti/plugins/vh/layout/main-website.xml:14
 msgid "Automatic downloader"
-msgstr ""
+msgstr "Gestor de baixades automàtic"
 
 #: ajenti/plugins/vh/layout/main-website.xml:15
 msgid "From URL"
-msgstr ""
+msgstr "Des d'URL"
 
 #: ajenti/plugins/vh/layout/main-website.xml:16
 msgid "Download and unpack"
-msgstr ""
+msgstr "Descarregar i desempaquetar"
 
 #: ajenti/plugins/vh/layout/main-website.xml:17
 msgid "Domains"
-msgstr ""
+msgstr "Dominis"
 
 #: ajenti/plugins/vh/layout/main-website.xml:19
 msgid "Domain"
-msgstr ""
+msgstr "Domini"
 
 #: ajenti/plugins/vh/layout/main-website.xml:21
 #: ajenti/plugins/iptables/layout/option-ports.xml:1
@@ -1545,24 +1545,24 @@ msgstr "Ports"
 
 #: ajenti/plugins/vh/layout/main-website.xml:26
 msgid "SSL certificate path"
-msgstr ""
+msgstr "Camí de certificat SSL"
 
 #: ajenti/plugins/vh/layout/main-website.xml:27
 msgid "SSL key path"
-msgstr ""
+msgstr "Camí de claus SSL"
 
 #: ajenti/plugins/vh/layout/main-website.xml:28
 msgid "Content"
-msgstr ""
+msgstr "Contingut"
 
 #: ajenti/plugins/vh/layout/main-website.xml:33
 msgid "Custom top level configuration"
-msgstr ""
+msgstr "Configuració personalitzada nivell superior"
 
 #: ajenti/plugins/vh/layout/main-website.xml:34
 #: ajenti/plugins/vh-mail/layout/main.xml:34
 msgid "Apply changes"
-msgstr ""
+msgstr "Aplicar canvis"
 
 #: ajenti/plugins/supervisor/layout/main.xml:7
 msgid "Autostart"
@@ -1591,11 +1591,11 @@ msgstr "Iniciar intents"
 
 #: ajenti/plugins/vh-nginx/nginx.py:15
 msgid "NGINX config test"
-msgstr ""
+msgstr "Prova de configuració NGINX"
 
 #: ajenti/plugins/vh-nginx/nginx.py:26
 msgid "NGINX service"
-msgstr ""
+msgstr "Servei NGINX"
 
 #: ajenti/plugins/raid/main.py:15
 msgid "RAID"
@@ -1615,11 +1615,11 @@ msgstr "Blocs"
 
 #: ajenti/plugins/raid/layout/main.xml:6
 msgid "Recovery:"
-msgstr ""
+msgstr "Recuperació:"
 
 #: ajenti/plugins/iptables/main.py:61
 msgid "You can't disable firewall autostart on this platform"
-msgstr ""
+msgstr "No pots deshabilitar l'inici automàtic del tallafocs a aquesta plataforma"
 
 #: ajenti/plugins/iptables/main.py:77
 msgid "Firewall"
@@ -1644,11 +1644,11 @@ msgstr "Aplicat satisfactoriament"
 
 #: ajenti/plugins/iptables/layout/main.xml:1
 msgid "Raw edit"
-msgstr ""
+msgstr "Edició crua (Raw)"
 
 #: ajenti/plugins/iptables/layout/main.xml:2
 msgid "Load current state"
-msgstr ""
+msgstr "Carregar l'estat actual"
 
 #: ajenti/plugins/iptables/layout/main.xml:3
 msgid "This will overwrite the saved configuration with current firewall state! Continue?"
@@ -1715,52 +1715,52 @@ msgstr "Usuaris vàlids"
 
 #: ajenti/plugins/netatalk/layout/main.xml:8
 msgid "Resource forks"
-msgstr ""
+msgstr "Recurs bifurcat ( Resource forks )"
 
 #: ajenti/plugins/netatalk/layout/main.xml:9
 msgid "Extended attributes"
-msgstr ""
+msgstr "Atributs ampliats"
 
 #: ajenti/plugins/netatalk/layout/main.xml:10
 msgid "CNID scheme"
-msgstr ""
+msgstr "Esquema CNID"
 
 #: ajenti/plugins/netatalk/layout/main.xml:12
 msgid "AFP port"
-msgstr ""
+msgstr "Port AFP"
 
 #: ajenti/plugins/netatalk/layout/main.xml:13
 msgid "CNID address"
-msgstr ""
+msgstr "Adreça CNID"
 
 #: ajenti/plugins/vh-mail/main.py:18
 msgid "Mail"
-msgstr ""
+msgstr "Correu electrònic"
 
 #: ajenti/plugins/vh-mail/main.py:63
 msgid "Invalid mailbox name"
-msgstr ""
+msgstr "Nom de la bústia no vàlid"
 
 #: ajenti/plugins/vh-mail/main.py:67
 msgid "Invalid mailbox domain"
-msgstr ""
+msgstr "Domini de la bústia de correu no és vàlid"
 
 #: ajenti/plugins/vh-mail/main.py:75 ajenti/plugins/vh-mail/main.py:83
 msgid "This address is already taken"
-msgstr ""
+msgstr "Aquesta adreça ja existeix"
 
 #: ajenti/plugins/vh-mail/main.py:128
 #: ajenti/plugins/vh-mail/layout/main.xml:15
 msgid "Custom domain"
-msgstr ""
+msgstr "Domini personalitzat"
 
 #: ajenti/plugins/vh-mail/main.py:150
 msgid "No valid key exists"
-msgstr ""
+msgstr "No existeix una clau vàlida"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:2
 msgid "Mailboxes"
-msgstr ""
+msgstr "Bústies de correu"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:7
 #: ajenti/plugins/fm/layout/main.xml:11
@@ -1771,75 +1771,75 @@ msgstr "Tamany"
 #: ajenti/plugins/vh-mail/layout/main.xml:8
 #: ajenti/plugins/vh-mail/layout/main.xml:17
 msgid "Forwarding"
-msgstr ""
+msgstr "Reenviament"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:11
 msgid "Target address"
-msgstr ""
+msgstr "Adreça de destinació"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:13
 msgid "New mailbox"
-msgstr ""
+msgstr "Nova bústia de correu"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:16
 msgid "Mailbox"
-msgstr ""
+msgstr "Bústia de correu"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:19
 msgid "Selector"
-msgstr ""
+msgstr "Selector"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:20
 msgid "Private key"
-msgstr ""
+msgstr "Clau privada"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:21
 msgid "DNS entry template"
-msgstr ""
+msgstr "Plantilla d'entrada DNS"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:22
 msgid "Generate new DKIM key"
-msgstr ""
+msgstr "Generar nova clau DKIM"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:25
 msgid "Certificate path"
-msgstr ""
+msgstr "Camí de certificat"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:26
 msgid "Private key path"
-msgstr ""
+msgstr "Camí de clau privada"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:27
 msgid "Generate new certificate"
-msgstr ""
+msgstr "Generar nou certificat"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:28
 msgid "Custom MTA configuration"
-msgstr ""
+msgstr "Configuració personalitzada MTA"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:30
 msgid "Custom ACLs"
-msgstr ""
+msgstr "ACL Personalitzat"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:31
 msgid "Custom routers"
-msgstr ""
+msgstr "Encaminador Personalitzat"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:32
 msgid "Custom local router config"
-msgstr ""
+msgstr "Configuració router local personalitzats"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:33
 msgid "Custom transports"
-msgstr ""
+msgstr "Transport personalitzat"
 
 #: ajenti/plugins/vh-mail/layout/not-configured.xml:1
 msgid "Ajenti V Mail is not enabled yet"
-msgstr ""
+msgstr "Correu d'Ajenti V no està habilitat encara"
 
 #: ajenti/plugins/vh-mail/layout/not-configured.xml:2
 msgid "Enabling Ajenti V Mail will overwrite configuration for the following software:"
-msgstr ""
+msgstr "Activant correu d'Ajenti V sobreescriurà la configuració per al següent programari:"
 
 #: ajenti/plugins/packages/pm_pacman.py:38
 msgid "No search results found"
@@ -1851,7 +1851,7 @@ msgstr "Paquets"
 
 #: ajenti/plugins/packages/main.py:51
 msgid "Enqueueing package installation"
-msgstr ""
+msgstr "Enviant a la cua d'instal·lació de paquets"
 
 #: ajenti/plugins/packages/main.py:62
 msgid "Installation complete!"
@@ -1859,7 +1859,7 @@ msgstr "Instal·lació completa!"
 
 #: ajenti/plugins/packages/main.py:74
 msgid "Querying package manager"
-msgstr ""
+msgstr "Consultant gestor de paquets"
 
 #: ajenti/plugins/packages/main.py:135
 #, python-format
@@ -1869,7 +1869,7 @@ msgstr "%i trobat, 100 mostrat"
 #: ajenti/plugins/packages/main.py:138
 #, python-format
 msgid "%i found"
-msgstr ""
+msgstr "Trobat %i"
 
 #: ajenti/plugins/packages/main.py:151
 msgid "Install / remove"
@@ -2180,11 +2180,11 @@ msgstr ""
 
 #: ajenti/plugins/ctdb/layout/main.xml:14
 msgid "Public network"
-msgstr ""
+msgstr "Xarxa pública"
 
 #: ajenti/plugins/ctdb/layout/main.xml:15
 msgid "Public gateway"
-msgstr ""
+msgstr "Porta d'enllaç pública"
 
 #: ajenti/plugins/ctdb/layout/main.xml:16
 msgid "Nodes"
@@ -2200,7 +2200,7 @@ msgstr "Adaptador"
 
 #: ajenti/plugins/megaraid/layout/widget.xml:1
 msgid "Array"
-msgstr ""
+msgstr "Matriu"
 
 #: ajenti/plugins/resolv/main.py:13
 msgid "Nameservers"
@@ -2220,7 +2220,7 @@ msgstr "Llista de cerca"
 
 #: ajenti/plugins/resolv/main.py:18
 msgid "Sort list"
-msgstr ""
+msgstr "Llista ordenada"
 
 #: ajenti/plugins/resolv/layout/main.xml:4
 #: ajenti/plugins/cron/layout/main.xml:26
@@ -2321,35 +2321,35 @@ msgstr "Actualització automàtica"
 
 #: ajenti/plugins/dashboard/layout/dash.xml:4
 msgid "Update Ajenti"
-msgstr ""
+msgstr "Actualitza Ajenti"
 
 #: ajenti/plugins/dashboard/layout/dash.xml:5
 msgid "Ajenti update is available"
-msgstr ""
+msgstr "Hi ha una actualització d'Ajenti disponible"
 
 #: ajenti/plugins/ntpd/main.py:93
 msgid "Date & Time"
-msgstr ""
+msgstr "Data i Hora"
 
 #: ajenti/plugins/ntpd/main.py:142
 msgid "No servers defined"
-msgstr ""
+msgstr "No hi ha servidors definits"
 
 #: ajenti/plugins/ntpd/main.py:146
 msgid "Done"
-msgstr ""
+msgstr "Fet"
 
 #: ajenti/plugins/ntpd/layout/main.xml:1
 msgid "Current time"
-msgstr ""
+msgstr "Hora actual"
 
 #: ajenti/plugins/ntpd/layout/main.xml:3
 msgid "Sync"
-msgstr ""
+msgstr "Syncronitza"
 
 #: ajenti/plugins/ntpd/layout/main.xml:4
 msgid "Servers"
-msgstr ""
+msgstr "Servidors"
 
 #: ajenti/plugins/openvpn/main.py:26
 msgid "OpenVPN"
@@ -2389,7 +2389,7 @@ msgstr "Adreça de gestió"
 
 #: ajenti/plugins/openvpn/layout/config.xml:2
 msgid "host:port or UNIX socket path"
-msgstr ""
+msgstr "servidor:port o camí UNIX socket"
 
 #: ajenti/plugins/power/power.py:58
 msgid "Power"
@@ -2455,17 +2455,17 @@ msgstr "Serveis"
 #: ajenti/plugins/services/main.py:41
 #, python-format
 msgid "%s started"
-msgstr ""
+msgstr "%s inicialitzat"
 
 #: ajenti/plugins/services/main.py:46
 #, python-format
 msgid "%s stopped"
-msgstr ""
+msgstr "%s aturat"
 
 #: ajenti/plugins/services/main.py:51
 #, python-format
 msgid "%s restarted"
-msgstr ""
+msgstr "%s reiniciat"
 
 #: ajenti/plugins/services/layout/main.xml:1
 msgid "Origin"
@@ -2489,7 +2489,7 @@ msgstr "Atura"
 
 #: ajenti/plugins/ipmi/widget.py:9
 msgid "IPMI Sensor"
-msgstr ""
+msgstr "Sensor IPMI"
 
 #: ajenti/plugins/hosts/layout/main.xml:5
 msgid "Aliases"
@@ -2497,7 +2497,7 @@ msgstr "Àlies"
 
 #: ajenti/plugins/taskmgr/layout/main.xml:1
 msgid "Parent"
-msgstr ""
+msgstr "Pare"
 
 #: ajenti/plugins/taskmgr/layout/main.xml:4
 msgid "CPU"
@@ -2517,7 +2517,7 @@ msgstr "Matar"
 
 #: ajenti/plugins/squid/layout/main.xml:5
 msgid "HTTP Access"
-msgstr ""
+msgstr "Accés HTTP"
 
 #: ajenti/plugins/squid/layout/main.xml:8
 msgid "Mode"
@@ -2535,87 +2535,87 @@ msgstr "Denega"
 
 #: ajenti/plugins/vh-nodejs/nodejs.py:18
 msgid "Node.js service"
-msgstr ""
+msgstr "Servei Node.js"
 
 #: ajenti/plugins/vh-gunicorn/gunicorn.py:30
 msgid "GUnicorn service"
-msgstr ""
+msgstr "Servei GUnicorn"
 
 #: ajenti/plugins/csf/main.py:16
 msgid "CSF Firewall"
-msgstr ""
+msgstr "Tallafoc CSF"
 
 #: ajenti/plugins/csf/main.py:69
 msgid "Applied"
-msgstr ""
+msgstr "Aplicat"
 
 #: ajenti/plugins/csf/main.py:84
 msgid "Self-test OK"
-msgstr ""
+msgstr "Autoprova OK"
 
 #: ajenti/plugins/csf/layout/main.xml:2
 msgid "Testing mode"
-msgstr ""
+msgstr "Mode de Verificació"
 
 #: ajenti/plugins/csf/layout/main.xml:3
 msgid "Network device"
-msgstr ""
+msgstr "Dispositiu de xarxa"
 
 #: ajenti/plugins/csf/layout/main.xml:4
 msgid "Network device (IPv6)"
-msgstr ""
+msgstr "Dispositiu de xarxa (IPv6)"
 
 #: ajenti/plugins/csf/layout/main.xml:5
 msgid "Allowed ports"
-msgstr ""
+msgstr "Ports permesos"
 
 #: ajenti/plugins/csf/layout/main.xml:6 ajenti/plugins/csf/layout/main.xml:11
 msgid "Incoming TCP"
-msgstr ""
+msgstr "TCP entrant"
 
 #: ajenti/plugins/csf/layout/main.xml:7 ajenti/plugins/csf/layout/main.xml:12
 msgid "Outgoing TCP"
-msgstr ""
+msgstr "TCP sortint"
 
 #: ajenti/plugins/csf/layout/main.xml:8 ajenti/plugins/csf/layout/main.xml:13
 msgid "Incoming UDP"
-msgstr ""
+msgstr "UDP entrant"
 
 #: ajenti/plugins/csf/layout/main.xml:9 ajenti/plugins/csf/layout/main.xml:14
 msgid "Outgoing UDP"
-msgstr ""
+msgstr "UDP sortint"
 
 #: ajenti/plugins/csf/layout/main.xml:10
 msgid "Enable IPv6"
-msgstr ""
+msgstr "Habilitar IPv6"
 
 #: ajenti/plugins/csf/layout/main.xml:15
 msgid "IP lists"
-msgstr ""
+msgstr "Llistes de IP"
 
 #: ajenti/plugins/csf/layout/main.xml:16
 msgid "Permanent rules"
-msgstr ""
+msgstr "Normes permanents"
 
 #: ajenti/plugins/csf/layout/main.xml:17 ajenti/plugins/csf/layout/main.xml:22
 msgid "Allowed addresses"
-msgstr ""
+msgstr "Adreces permeses"
 
 #: ajenti/plugins/csf/layout/main.xml:18
 msgid "Denied addresses"
-msgstr ""
+msgstr "Denegació d'adreces"
 
 #: ajenti/plugins/csf/layout/main.xml:21
 msgid "Temporary rules"
-msgstr ""
+msgstr "Normes provisionals"
 
 #: ajenti/plugins/csf/layout/main.xml:23
 msgid "Banned addresses"
-msgstr ""
+msgstr "Adreces prohibides"
 
 #: ajenti/plugins/csf/layout/main.xml:25
 msgid "Ban"
-msgstr ""
+msgstr "Expulsar"
 
 #: ajenti/plugins/cron/layout/main.xml:1
 msgid "Select"
@@ -2631,7 +2631,7 @@ msgstr "Especial"
 
 #: ajenti/plugins/rethink/layout/config.xml:3
 msgid "Auth"
-msgstr ""
+msgstr "Autenticació"
 
 #: ajenti/plugins/logs/main.py:13 ajenti/plugins/logs/main.py:26
 msgid "Logs"
@@ -2639,7 +2639,7 @@ msgstr "Registres"
 
 #: ajenti/plugins/vh-php-fpm/phpfpm.py:62
 msgid "PHP-FPM service"
-msgstr ""
+msgstr "Servei PHP-FPM"
 
 #: ajenti/plugins/smartctl/widget.py:61
 msgid "FAILING"
@@ -2659,7 +2659,7 @@ msgstr "Errors al registre"
 
 #: ajenti/usersync/adsync.py:18
 msgid "Active Directory Syncronization"
-msgstr ""
+msgstr "Sincronització de l'Active Directory"
 
 #: ajenti/usersync/ldapsync.py:17
 msgid "LDAP User Syncronization"
