@@ -1,7 +1,7 @@
 from base64 import b64encode
 import catcher
 import gevent
-import gevent.coros
+import gevent.lock
 import json
 import logging
 import requests
@@ -93,7 +93,7 @@ class MainSocket (SocketPlugin):
 
     def on_connect(self):
         self.compression = 'zlib'
-        self.__updater_lock = gevent.coros.RLock()
+        self.__updater_lock = gevent.lock.RLock()
 
         # Inject into session
         self.request.session.endpoint = self
