@@ -1,7 +1,10 @@
 from base64 import b64encode
 import catcher
 import gevent
-import gevent.lock
+try:
+    from gevent.lock import RLock
+except:
+    from gevent.coros import RLock
 import json
 import logging
 import requests
@@ -93,7 +96,7 @@ class MainSocket (SocketPlugin):
 
     def on_connect(self):
         self.compression = 'zlib'
-        self.__updater_lock = gevent.lock.RLock()
+        self.__updater_lock = RLock()
 
         # Inject into session
         self.request.session.endpoint = self
