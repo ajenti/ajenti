@@ -55,4 +55,6 @@ With more plugins::
 
     sudo pip install ajenti-panel ajenti.plugin.dashboard ajenti.plugin.settings ajenti.plugin.plugins ajenti.plugin.filemanager ajenti.plugin.notepad ajenti.plugin.packages ajenti.plugin.services ajenti.plugin.terminal
 
-
+Install Ajenti 1.x and Ajenti V
+======================
+https://support.ajenti.org/knowledge-bases/5-kb/categories/1-ajenti-v/articles
