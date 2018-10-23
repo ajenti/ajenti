@@ -47,8 +47,8 @@ check:
 	ajenti-dev-multitool --find-outdated
 
 upload:
-	cd ajenti-core && ./setup.py sdist upload --sign --identity "Ajenti Packagers"
-	cd ajenti-panel && ./setup.py sdist upload --sign --identity "Ajenti Packagers"
+	cd ajenti-core && ./setup.py sdist && twine upload dist/*.tar.gz -i "Ajenti Packagers" -s
+	cd ajenti-panel && ./setup.py sdist && twine upload dist/*.tar.gz -i "Ajenti Packagers" -s
 
 upload-plugins: build
 	ajenti-dev-multitool --setuppy 'sdist upload --sign --identity "Ajenti Packagers"'
