@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-01 23:51+0100\n"
-"PO-Revision-Date: 2016-11-01 18:53-0400\n"
+"POT-Creation-Date: 2018-11-02 15:25+0100\n"
+"PO-Revision-Date: 2018-11-02 14:44\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=4; plural=((n%10==1 && n%100!=11) ? 0 : ((n%10 >= 2 && n%10 <=4 && (n%100 < 12 || n%100 > 14)) ? 1 : ((n%10 == 0 || (n%10 >= 5 && n%10 <=9)) || (n%100 >= 11 && n%100 <= 14)) ? 2 : 3));\n"
 "X-Generator: crowdin.com\n"
 "X-Crowdin-Project: ajenti\n"
 "X-Crowdin-Language: ru\n"
@@ -38,7 +38,7 @@ msgstr "Цвет тега"
 
 #: plugins/settings/resources/partial/index.html:181
 msgid "Common name"
-msgstr ""
+msgstr "Распространенное имя"
 
 #: plugins/settings/resources/partial/index.html:169
 msgid "Country"
@@ -52,13 +52,13 @@ msgstr "Запретить другие средства аутентифика�
 msgid "Download certificate"
 msgstr "Скачать сертификат"
 
-#: plugins/settings/resources/partial/index.html:109
-msgid "Enable client authentication"
-msgstr "Включите проверку подлинности клиентов"
-
 #: plugins/settings/resources/partial/index.html:85
 msgid "Enable SSL"
 msgstr "Использовать SSL"
+
+#: plugins/settings/resources/partial/index.html:109
+msgid "Enable client authentication"
+msgstr "Включите проверку подлинности клиентов"
 
 #: plugins/settings/resources/partial/index.html:187
 msgid "Generate"
@@ -116,18 +116,6 @@ msgstr "Удалить"
 msgid "Restart panel"
 msgstr "Перезапустить панель"
 
-#: plugins/settings/resources/partial/index.html:253
-msgid "Save"
-msgstr "Сохранить"
-
-#: plugins/settings/resources/partial/index.html:192
-msgid "Save and Close"
-msgstr "Сохранить и закрыть"
-
-#: plugins/settings/resources/partial/index.html:58
-msgid "Socket path"
-msgstr "Путь до сокета"
-
 #: plugins/settings/resources/partial/index.html:91
 msgid "SSL certificate file"
 msgstr "Файл сертификата SSL"
@@ -139,6 +127,18 @@ msgstr "Проверка подлинности клиента SSL"
 #: plugins/settings/resources/partial/index.html:117
 msgid "SSL client certificates"
 msgstr "Пользовательский сертификат SSL"
+
+#: plugins/settings/resources/partial/index.html:253
+msgid "Save"
+msgstr "Сохранить"
+
+#: plugins/settings/resources/partial/index.html:192
+msgid "Save and Close"
+msgstr "Сохранить и закрыть"
+
+#: plugins/settings/resources/partial/index.html:58
+msgid "Socket path"
+msgstr "Путь до сокета"
 
 #: plugins/settings/resources/partial/index.html:173
 msgid "State"

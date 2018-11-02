@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-01 23:51+0100\n"
-"PO-Revision-Date: 2016-11-01 18:53-0400\n"
+"POT-Creation-Date: 2018-11-02 15:25+0100\n"
+"PO-Revision-Date: 2018-11-02 14:44\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Slovenian\n"
 "Language: sl_SI\n"
@@ -28,9 +28,8 @@ msgstr "Vse"
 msgid "Apply"
 msgstr "Uporabi"
 
-#: plugins/filemanager/resources/partial/index.html:110
-#: plugins/filemanager/resources/partial/index.html:69
-#: plugins/filemanager/resources/partial/index.html:82
+#: plugins/filemanager/resources/partial/index.html:76
+#: plugins/filemanager/resources/partial/index.html:89
 #: plugins/filemanager/resources/partial/properties.html:188
 msgid "Cancel"
 msgstr "Prekliči"
@@ -39,46 +38,46 @@ msgstr "Prekliči"
 msgid "Change permissions"
 msgstr "Spremeni dovoljenja"
 
-#: plugins/filemanager/resources/partial/index.html:116
+#: plugins/filemanager/resources/partial/index.html:95
 msgid "Clipboard"
 msgstr "Odložišče"
 
-#: plugins/filemanager/resources/partial/index.html:138
+#: plugins/filemanager/resources/partial/index.html:117
 msgid "Close"
 msgstr "Zapri"
 
-#: plugins/filemanager/resources/partial/index.html:56
+#: plugins/filemanager/resources/partial/index.html:63
 msgid "Copy"
 msgstr "Kopiraj"
 
-#: plugins/filemanager/resources/partial/index.html:68
-#: plugins/filemanager/resources/partial/index.html:81
+#: plugins/filemanager/resources/partial/index.html:75
+#: plugins/filemanager/resources/partial/index.html:88
 msgid "Create"
 msgstr "Ustvari"
 
-#: plugins/filemanager/resources/partial/index.html:55
+#: plugins/filemanager/resources/partial/index.html:62
 msgid "Cut"
 msgstr "Izreži"
-
-#: plugins/filemanager/resources/partial/index.html:57
-msgid "Delete"
-msgstr "Izbriši"
 
 #: plugins/filemanager/resources/partial/properties.html:32
 msgid "DIRECTORY"
 msgstr "IMENIK"
 
-#: plugins/filemanager/resources/partial/index.html:78
+#: plugins/filemanager/resources/partial/index.html:64
+msgid "Delete"
+msgstr "Izbriši"
+
+#: plugins/filemanager/resources/partial/index.html:85
 msgid "Directory name"
 msgstr "Ime imenika"
-
-#: plugins/filemanager/resources/partial/properties.html:123
-msgid "Edit in Notepad"
-msgstr "Uredi v Beležnici"
 
 #: plugins/filemanager/resources/partial/properties.html:70
 msgid "EXECUTE"
 msgstr "Izvršiti"
+
+#: plugins/filemanager/resources/partial/properties.html:123
+msgid "Edit in Notepad"
+msgstr "Uredi v Beležnici"
 
 #: plugins/filemanager/resources/partial/properties.html:173
 msgid "Extra"
@@ -88,7 +87,7 @@ msgstr "Dodatno"
 msgid "FILE"
 msgstr "DATOTEKA"
 
-#: plugins/filemanager/resources/partial/index.html:65
+#: plugins/filemanager/resources/partial/index.html:72
 msgid "File name"
 msgstr "Ime datoteke"
 
@@ -100,10 +99,6 @@ msgstr "Celotna pot"
 #: plugins/filemanager/resources/partial/properties.html:149
 msgid "Group"
 msgstr "Skupina"
-
-#: plugins/filemanager/resources/partial/index.html:52
-msgid "items selected"
-msgstr "izbrani elementi"
 
 #: plugins/filemanager/resources/partial/properties.html:43
 msgid "LINK"
@@ -121,25 +116,21 @@ msgstr "Spremenjeno"
 msgid "Name"
 msgstr "Ime"
 
-#: plugins/filemanager/resources/partial/index.html:41
-#: plugins/filemanager/resources/partial/index.html:75
+#: plugins/filemanager/resources/partial/index.html:46
+#: plugins/filemanager/resources/partial/index.html:82
 msgid "New directory"
 msgstr "Nova mapa"
 
-#: plugins/filemanager/resources/partial/index.html:40
-#: plugins/filemanager/resources/partial/index.html:62
+#: plugins/filemanager/resources/partial/index.html:45
+#: plugins/filemanager/resources/partial/index.html:69
 msgid "New file"
 msgstr "Nova datoteka"
-
-#: plugins/filemanager/resources/partial/index.html:105
-msgid "or drop them here"
-msgstr "ali jih spustite tukaj"
 
 #: plugins/filemanager/resources/partial/properties.html:92
 msgid "Owner"
 msgstr "Lastnik"
 
-#: plugins/filemanager/resources/partial/index.html:43
+#: plugins/filemanager/resources/partial/index.html:50
 msgid "Paste here"
 msgstr "Prilepi tukaj"
 
@@ -151,23 +142,19 @@ msgstr ""
 msgid "READ"
 msgstr "BRANJE"
 
-#: plugins/filemanager/resources/partial/index.html:121
+#: plugins/filemanager/resources/partial/index.html:100
 msgid "Remove"
 msgstr "Odstrani"
 
-#: plugins/filemanager/resources/partial/index.html:137
+#: plugins/filemanager/resources/partial/index.html:116
 msgid "Remove all items"
 msgstr "Odstrani vse elemente"
-
-#: plugins/filemanager/resources/partial/index.html:101
-msgid "Select files to upload"
-msgstr "Izberite datoteke za nalaganje"
 
 #: plugins/filemanager/resources/partial/properties.html:76
 msgid "Size"
 msgstr "Velikost"
 
-#: plugins/filemanager/resources/partial/index.html:46
+#: plugins/filemanager/resources/partial/index.html:53
 msgid "Tab"
 msgstr "Tab"
 
@@ -175,17 +162,13 @@ msgstr "Tab"
 msgid "Type"
 msgstr "Vrsta"
 
-#: plugins/filemanager/resources/partial/index.html:10
+#: plugins/filemanager/resources/partial/index.html:15
 msgid "Up one level"
 msgstr "Prestavi se nivo višje"
 
-#: plugins/filemanager/resources/partial/index.html:42
+#: plugins/filemanager/resources/partial/index.html:48
 msgid "Upload"
 msgstr "Naloži"
-
-#: plugins/filemanager/resources/partial/index.html:88
-msgid "Upload files"
-msgstr "Naloži datoteke"
 
 #: plugins/filemanager/resources/partial/properties.html:137
 msgid "User"
@@ -194,6 +177,10 @@ msgstr "Uporabnik"
 #: plugins/filemanager/resources/partial/properties.html:63
 msgid "WRITE"
 msgstr "PISANJE"
+
+#: plugins/filemanager/resources/partial/index.html:59
+msgid "items selected"
+msgstr "izbrani elementi"
 
 #: plugins/filemanager/main.py:15
 msgid "File Manager"

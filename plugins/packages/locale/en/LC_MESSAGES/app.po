@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-01 23:51+0100\n"
+"POT-Creation-Date: 2018-11-02 15:23+0100\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
@@ -34,10 +34,6 @@ msgstr ""
 msgid "Mark for upgrade"
 msgstr ""
 
-#: plugins/packages/resources/partial/index.html:56
-msgid "pending"
-msgstr ""
-
 #: plugins/packages/resources/partial/index.html:3
 msgid "Search packages"
 msgstr ""
@@ -52,6 +48,10 @@ msgstr ""
 
 #: plugins/packages/resources/partial/index.html:32
 msgid "Upgradeable"
+msgstr ""
+
+#: plugins/packages/resources/partial/index.html:56
+msgid "pending"
 msgstr ""
 
 #: plugins/packages/main.py:25

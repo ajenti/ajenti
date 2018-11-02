@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-01 23:51+0100\n"
-"PO-Revision-Date: 2016-11-01 18:53-0400\n"
+"POT-Creation-Date: 2018-11-02 15:25+0100\n"
+"PO-Revision-Date: 2018-11-02 14:45\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Persian\n"
 "Language: fa_IR\n"
@@ -18,57 +18,57 @@ msgstr ""
 
 #: plugins/packages/resources/partial/index.html:59
 msgid "Apply changes"
-msgstr ""
+msgstr "اعمال تغییرات"
 
 #: plugins/packages/resources/partial/index.html:69
 msgid "Cancel"
-msgstr ""
+msgstr "لغو"
 
 #: plugins/packages/resources/partial/index.html:83
 msgid "Close"
-msgstr ""
+msgstr "بستن"
 
 #: plugins/packages/resources/partial/index.html:26
 msgid "Installed"
-msgstr ""
+msgstr "نصب شده"
 
 #: plugins/packages/resources/partial/index.html:12
 msgid "Mark for installation"
-msgstr ""
+msgstr "نشانه‌گذاری برای نصب"
 
 #: plugins/packages/resources/partial/index.html:15
 msgid "Mark for removal"
-msgstr ""
+msgstr "علامت‌گذاری برای حذف"
 
 #: plugins/packages/resources/partial/index.html:9
 msgid "Mark for upgrade"
-msgstr ""
-
-#: plugins/packages/resources/partial/index.html:56
-msgid "pending"
-msgstr ""
+msgstr "علامت‌گذاری برای بروزرسانی"
 
 #: plugins/packages/resources/partial/index.html:3
 msgid "Search packages"
-msgstr ""
+msgstr "جستجو‌کردن بسته‌ها"
 
 #: plugins/packages/resources/partial/index.html:64
 msgid "Selections"
-msgstr ""
+msgstr "انتخاب‌ها"
 
 #: plugins/packages/resources/partial/index.html:51
 msgid "Update package list"
-msgstr ""
+msgstr "بروزرسانی لیست بسته‌ها"
 
 #: plugins/packages/resources/partial/index.html:32
 msgid "Upgradeable"
-msgstr ""
+msgstr "قابل ارتقاء"
+
+#: plugins/packages/resources/partial/index.html:56
+msgid "pending"
+msgstr "در انتظار"
 
 #: plugins/packages/main.py:25
 msgid "Packages"
-msgstr ""
+msgstr "بسته ها"
 
 #: plugins/packages/main.py:39
 msgid "Install/remove packages"
-msgstr ""
+msgstr "نصب/حذف بسته‌ها"
 

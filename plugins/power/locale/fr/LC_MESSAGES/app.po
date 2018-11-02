@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-01 23:51+0100\n"
-"PO-Revision-Date: 2016-11-01 18:53-0400\n"
+"POT-Creation-Date: 2018-11-02 15:25+0100\n"
+"PO-Revision-Date: 2018-11-02 14:41\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: French\n"
 "Language: fr_FR\n"
@@ -16,17 +16,13 @@ msgstr ""
 "X-Crowdin-Language: fr\n"
 "X-Crowdin-File: /2.0/power.po\n"
 
-#: plugins/power/resources/partial/index.html:61
-msgid "{{battery.voltage}} V"
-msgstr ""
-
 #: plugins/power/resources/partial/index.html:72
 msgid "Adapters"
-msgstr ""
+msgstr "Adaptateurs"
 
 #: plugins/power/resources/partial/index.html:32
 msgid "Batteries"
-msgstr ""
+msgstr "Batteries"
 
 #: plugins/power/resources/partial/index.html:55
 msgid "Charging"
@@ -34,7 +30,7 @@ msgstr "Rechargement en cours"
 
 #: plugins/power/resources/partial/index.html:58
 msgid "Discharging at {{battery.rate}} W"
-msgstr ""
+msgstr "Déchargement à {{battery.rate}} W"
 
 #: plugins/power/resources/partial/index.html:22
 msgid "Hibernate"
@@ -42,7 +38,7 @@ msgstr "Mise en veille prolongée"
 
 #: plugins/power/resources/partial/index.html:75
 msgid "No adapters detected"
-msgstr ""
+msgstr "Aucun adaptateur détecté"
 
 #: plugins/power/resources/partial/index.html:35
 msgid "No batteries detected"
@@ -50,37 +46,41 @@ msgstr "Aucune batterie détectée"
 
 #: plugins/power/resources/partial/index.html:92
 msgid "Not available"
-msgstr ""
+msgstr "Pas disponible"
 
 #: plugins/power/resources/partial/index.html:89
 msgid "Plugged in"
-msgstr ""
+msgstr "Branché"
 
 #: plugins/power/resources/partial/widget.html:2 plugins/power/main.py:16
 msgid "Power"
-msgstr ""
+msgstr "Allumer"
 
 #: plugins/power/resources/partial/index.html:13
 msgid "Power off"
-msgstr ""
+msgstr "Éteindre"
 
 #: plugins/power/resources/partial/index.html:16
 msgid "Reboot"
-msgstr ""
+msgstr "Redémarrer"
 
 #: plugins/power/resources/partial/index.html:19
 msgid "Suspend"
-msgstr ""
+msgstr "Suspendre"
 
 #: plugins/power/resources/partial/index.html:6
 msgid "System uptime"
-msgstr ""
+msgstr "Durée de fonctionnement du système"
+
+#: plugins/power/resources/partial/index.html:61
+msgid "{{battery.voltage}} V"
+msgstr "{{battery.voltage}} V"
+
+#: plugins/power/widget.py:9
+msgid "Power state"
+msgstr "État de l'alimentation"
 
 #: plugins/power/main.py:30
 msgid "Shutdown and reboot the system"
 msgstr "Arrêter et redémarrer le système"
-
-#: plugins/power/widget.py:9
-msgid "Power state"
-msgstr ""
 

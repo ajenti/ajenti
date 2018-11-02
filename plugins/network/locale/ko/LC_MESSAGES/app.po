@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-01 23:51+0100\n"
-"PO-Revision-Date: 2016-11-01 18:53-0400\n"
+"POT-Creation-Date: 2018-11-02 15:25+0100\n"
+"PO-Revision-Date: 2018-11-02 14:43\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Korean\n"
 "Language: ko_KR\n"
@@ -59,10 +59,6 @@ msgstr "닫기"
 msgid "Configure"
 msgstr "설정"
 
-#: plugins/network/resources/partial/index.html:31
-msgid "Deactivate (down) interface"
-msgstr "인터페이스 비활성화"
-
 #: plugins/network/resources/partial/index.html:191
 msgid "DNS"
 msgstr "DNS"
@@ -70,6 +66,10 @@ msgstr "DNS"
 #: plugins/network/resources/partial/index.html:210
 msgid "DNS server address"
 msgstr "DNS 서버 주소"
+
+#: plugins/network/resources/partial/index.html:31
+msgid "Deactivate (down) interface"
+msgstr "인터페이스 비활성화"
 
 #: plugins/network/resources/partial/index.html:172
 msgid "Down script"
@@ -91,13 +91,13 @@ msgstr "호스트 이름"
 msgid "Hosts"
 msgstr "호스트"
 
-#: plugins/network/resources/partial/index.html:19
-msgid "Interfaces"
-msgstr "인터페이스"
-
 #: plugins/network/resources/partial/index.html:285
 msgid "IP address"
 msgstr "IP 주소"
+
+#: plugins/network/resources/partial/index.html:19
+msgid "Interfaces"
+msgstr "인터페이스"
 
 #: plugins/network/resources/partial/index.html:107
 msgid "Mask"

@@ -3,14 +3,14 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-11-01 23:51+0100\n"
-"PO-Revision-Date: 2016-11-01 18:53-0400\n"
+"PO-Revision-Date: 2018-11-02 14:44\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Slovak\n"
 "Language: sk_SK\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"Plural-Forms: nplurals=4; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 3;\n"
 "X-Generator: crowdin.com\n"
 "X-Crowdin-Project: ajenti\n"
 "X-Crowdin-Language: sk\n"
@@ -18,11 +18,11 @@ msgstr ""
 
 #: plugins/core/content/pages/index.html:146
 msgid "A bootstrap error has occured"
-msgstr ""
+msgstr "Vyskytla sa chyba s bootstrap"
 
 #: plugins/core/resources/partial/login.html:27
 msgid "Authenticate"
-msgstr ""
+msgstr "Overiť"
 
 #: plugins/core/content/pages/index.html:84
 msgid "Elevate"
@@ -34,19 +34,19 @@ msgstr ""
 
 #: plugins/core/resources/partial/login.html:26
 msgid "Log in"
-msgstr ""
+msgstr "Prihlásiť sa"
 
 #: plugins/core/content/pages/index.html:89
 msgid "Log out"
-msgstr ""
+msgstr "Odhlásiť sa"
 
 #: plugins/core/content/pages/index.html:170
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 #: plugins/core/resources/partial/login.html:22
 msgid "Password"
-msgstr ""
+msgstr "Heslo"
 
 #: plugins/core/content/pages/index.html:149
 msgid "Please see browser console"
@@ -54,11 +54,11 @@ msgstr ""
 
 #: plugins/core/content/pages/index.html:125
 msgid "Quick search"
-msgstr ""
+msgstr "Rýchle hľadanie"
 
 #: plugins/core/resources/partial/login.html:19
 msgid "Username"
-msgstr ""
+msgstr "Používateľske meno"
 
 #: plugins/core/main.py:17
 msgid "General"
@@ -66,19 +66,19 @@ msgstr ""
 
 #: plugins/core/main.py:24
 msgid "Tools"
-msgstr ""
+msgstr "Nástroje"
 
 #: plugins/core/main.py:31
 msgid "Software"
-msgstr ""
+msgstr "Softvér"
 
 #: plugins/core/main.py:38
 msgid "System"
-msgstr ""
+msgstr "Systém"
 
 #: plugins/core/main.py:45
 msgid "Other"
-msgstr ""
+msgstr "Iné"
 
 #: plugins/core/main.py:68
 msgid "Read configuration file"
@@ -90,5 +90,5 @@ msgstr ""
 
 #: plugins/core/views/api.py:97
 msgid "Authorization failed"
-msgstr ""
+msgstr "Autorizácia zlyhala"
 

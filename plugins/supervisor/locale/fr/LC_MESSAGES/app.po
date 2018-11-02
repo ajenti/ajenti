@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-01 23:51+0100\n"
-"PO-Revision-Date: 2016-11-01 18:53-0400\n"
+"POT-Creation-Date: 2018-11-02 15:25+0100\n"
+"PO-Revision-Date: 2018-11-02 14:41\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: French\n"
 "Language: fr_FR\n"
@@ -50,39 +50,39 @@ msgstr "Général"
 
 #: plugins/supervisor/resources/partial/index.html:196
 msgid "Kill children"
-msgstr ""
+msgstr "Tuer le processus enfant"
 
 #: plugins/supervisor/resources/partial/index.html:43
 msgid "New process name"
-msgstr ""
+msgstr "Nouveau nom du processus"
 
 #: plugins/supervisor/resources/partial/index.html:158
 msgid "No"
-msgstr ""
+msgstr "Non"
 
 #: plugins/supervisor/resources/partial/index.html:39
 msgid "No processes defined"
-msgstr ""
+msgstr "Aucun processus défini"
 
 #: plugins/supervisor/resources/partial/index.html:75
 msgid "Number of processes"
-msgstr ""
+msgstr "Nombre de processus"
 
 #: plugins/supervisor/resources/partial/index.html:157
 msgid "On crash"
-msgstr ""
+msgstr "En cas de plantage"
 
 #: plugins/supervisor/resources/partial/index.html:85
 msgid "Process name template"
-msgstr ""
-
-#: plugins/supervisor/resources/partial/index.html:5
-msgid "Remove"
-msgstr ""
+msgstr "Modèle de nom de processus"
 
 #: plugins/supervisor/resources/partial/index.html:26
 msgid "RUNNING"
 msgstr "EN COURS D'EXÉCUTION"
+
+#: plugins/supervisor/resources/partial/index.html:5
+msgid "Remove"
+msgstr "Supprimer"
 
 #: plugins/supervisor/resources/partial/index.html:216
 #: plugins/supervisor/resources/partial/index.html:53
@@ -91,19 +91,19 @@ msgstr "Enregistrer"
 
 #: plugins/supervisor/resources/partial/index.html:166
 msgid "Seconds to start"
-msgstr ""
+msgstr "Secondes pour démarrer"
 
 #: plugins/supervisor/resources/partial/index.html:174
 msgid "Seconds to stop"
-msgstr ""
+msgstr "Secondes pour arrêter"
 
 #: plugins/supervisor/resources/partial/index.html:203
 msgid "Start retries"
-msgstr ""
+msgstr "Tentatives de démarrage"
 
 #: plugins/supervisor/resources/partial/index.html:187
 msgid "Terminate children"
-msgstr ""
+msgstr "Terminer le processus enfant"
 
 #: plugins/supervisor/resources/partial/index.html:95
 msgid "User account"

@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-11-01 23:51+0100\n"
-"PO-Revision-Date: 2016-11-01 18:53-0400\n"
+"PO-Revision-Date: 2018-11-02 14:45\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Portuguese, Brazilian\n"
 "Language: pt_BR\n"
@@ -26,7 +26,7 @@ msgstr "Definir hora"
 
 #: plugins/datetime/resources/partial/index.html:9
 msgid "Set timezone"
-msgstr ""
+msgstr "Definir o fuso horário"
 
 #: plugins/datetime/resources/partial/index.html:31
 msgid "Sync time from the Internet"

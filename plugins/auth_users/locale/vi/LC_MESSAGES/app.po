@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-01 23:51+0100\n"
-"PO-Revision-Date: 2016-11-01 18:54-0400\n"
+"POT-Creation-Date: 2018-11-02 15:24+0100\n"
+"PO-Revision-Date: 2018-11-02 14:45\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Vietnamese\n"
 "Language: vi_VN\n"
@@ -18,69 +18,69 @@ msgstr ""
 
 #: plugins/auth_users/resources/partial/index.html:11
 msgid "Configure"
-msgstr ""
+msgstr "Đặt cấu hình"
 
 #: plugins/auth_users/resources/partial/index.html:31
 msgid "Create"
-msgstr ""
+msgstr "Tạo"
 
 #: plugins/auth_users/resources/partial/index.html:42
 msgid "Default root password is <code>admin</code>"
-msgstr ""
+msgstr "Mật khẩu chủ mặc định là <code>admin</code>"
 
 #: plugins/auth_users/resources/partial/index.html:90
 msgid "Filesystem root"
-msgstr ""
+msgstr "Hệ thống tập tin gốc"
 
 #: plugins/auth_users/resources/partial/index.html:64
 msgid "New password"
-msgstr ""
+msgstr "Mật khẩu mới"
 
 #: plugins/auth_users/resources/partial/index.html:29
 msgid "New user name"
-msgstr ""
+msgstr "Tên người dùng mới"
 
 #: plugins/auth_users/resources/partial/index.html:97
 msgid "OK"
-msgstr ""
+msgstr "Đồng ý"
 
 #: plugins/auth_users/resources/partial/index.html:83
 msgid "Permissions"
-msgstr ""
+msgstr "Quyền được phép"
 
 #: plugins/auth_users/resources/partial/index.html:48
 msgid "Save"
-msgstr ""
+msgstr "Lưu"
 
 #: plugins/auth_users/resources/partial/index.html:73
 msgid "Sidebar entries"
-msgstr ""
+msgstr "Bên mục"
 
 #: plugins/auth_users/resources/partial/index.html:57
 msgid "System account"
-msgstr ""
+msgstr "Tài khoản hệ thống"
 
 #: plugins/auth_users/resources/partial/index.html:76
 msgid "This only affects appearance of the sidebar. Disable actual permissions under the <b>Permissions</b> tab."
-msgstr ""
+msgstr "Điều này chỉ ảnh hưởng đến sự xuất hiện của các bên. Vô hiệu hoá quyền truy cập thực tế bên dưới tab <b>quyền</b>."
 
 #: plugins/auth_users/resources/partial/index.html:60
 msgid "This user will be constrained by POSIX permissions for the selected system account."
-msgstr ""
+msgstr "Người dùng này sẽ được hạn chế bởi POSIX quyền cho trương mục hệ thống đã chọn."
 
 #: plugins/auth_users/resources/partial/index.html:68
 msgid "Update password"
-msgstr ""
+msgstr "Cập nhật mật khẩu"
 
 #: plugins/auth_users/resources/partial/index.html:38
 msgid "You have no users mapped to <b>root</b> system account. Saving this configuration will prevent any administrative access."
-msgstr ""
-
-#: plugins/auth_users/main.py:16
-msgid "Users"
-msgstr ""
+msgstr "Bạn có không có người vẽ bản đồ <b>gốc</b> hệ thống tài khoản. Lưu cấu hình này sẽ ngăn chặn bất kỳ quyền truy cập quản trị."
 
 #: plugins/auth_users/api.py:13
 msgid "Custom users"
-msgstr ""
+msgstr "Người dùng tùy chỉnh"
+
+#: plugins/auth_users/main.py:16
+msgid "Users"
+msgstr "Người dùng"
 

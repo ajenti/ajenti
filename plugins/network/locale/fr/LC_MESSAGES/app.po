@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-01 23:51+0100\n"
-"PO-Revision-Date: 2016-11-01 18:52-0400\n"
+"POT-Creation-Date: 2018-11-02 15:25+0100\n"
+"PO-Revision-Date: 2018-11-02 14:41\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: French\n"
 "Language: fr_FR\n"
@@ -18,7 +18,7 @@ msgstr ""
 
 #: plugins/network/resources/partial/index.html:28
 msgid "Activate (up) interface"
-msgstr ""
+msgstr "Activer l'interface (up)"
 
 #: plugins/network/resources/partial/index.html:212
 #: plugins/network/resources/partial/index.html:261
@@ -32,7 +32,7 @@ msgstr "Adresse"
 
 #: plugins/network/resources/partial/index.html:92
 msgid "Addressing"
-msgstr ""
+msgstr "Addressage"
 
 #: plugins/network/resources/partial/index.html:293
 msgid "Aliases"
@@ -40,15 +40,15 @@ msgstr "Alias"
 
 #: plugins/network/resources/partial/index.html:277
 msgid "Canonical hostname"
-msgstr ""
+msgstr "Nom d’hôte canonique"
 
 #: plugins/network/resources/partial/index.html:55
 msgid "Checking status..."
-msgstr ""
+msgstr "Vérification de l'état..."
 
 #: plugins/network/resources/partial/index.html:122
 msgid "Client ID"
-msgstr ""
+msgstr "ID client"
 
 #: plugins/network/resources/partial/index.html:184
 #: plugins/network/resources/partial/index.html:319
@@ -59,10 +59,6 @@ msgstr "Fermer"
 msgid "Configure"
 msgstr "Configurer"
 
-#: plugins/network/resources/partial/index.html:31
-msgid "Deactivate (down) interface"
-msgstr ""
-
 #: plugins/network/resources/partial/index.html:191
 msgid "DNS"
 msgstr "DNS"
@@ -71,9 +67,13 @@ msgstr "DNS"
 msgid "DNS server address"
 msgstr "Adresse du serveur DNS"
 
+#: plugins/network/resources/partial/index.html:31
+msgid "Deactivate (down) interface"
+msgstr "Désactiver l'interface (down)"
+
 #: plugins/network/resources/partial/index.html:172
 msgid "Down script"
-msgstr ""
+msgstr "Script de désactivation"
 
 #: plugins/network/resources/partial/index.html:83
 msgid "Family"
@@ -85,27 +85,27 @@ msgstr "Passerelle"
 
 #: plugins/network/resources/partial/index.html:8
 msgid "Hostname"
-msgstr ""
+msgstr "Nom d'hôte"
 
 #: plugins/network/resources/partial/index.html:225
 msgid "Hosts"
-msgstr ""
-
-#: plugins/network/resources/partial/index.html:19
-msgid "Interfaces"
-msgstr "Interfaces"
+msgstr "Hôtes"
 
 #: plugins/network/resources/partial/index.html:285
 msgid "IP address"
 msgstr "Adresse IP"
 
+#: plugins/network/resources/partial/index.html:19
+msgid "Interfaces"
+msgstr "Interfaces"
+
 #: plugins/network/resources/partial/index.html:107
 msgid "Mask"
-msgstr ""
+msgstr "Masque"
 
 #: plugins/network/resources/partial/index.html:115
 msgid "Metric"
-msgstr ""
+msgstr "Métrique"
 
 #: plugins/network/resources/partial/index.html:4 plugins/network/main.py:17
 msgid "Network"
@@ -113,42 +113,42 @@ msgstr "Réseau"
 
 #: plugins/network/resources/partial/index.html:310
 msgid "New alias"
-msgstr ""
+msgstr "Nouvel alias"
 
 #: plugins/network/resources/partial/index.html:259
 msgid "New host name"
-msgstr ""
+msgstr "Nouveau nom d’hôte"
 
 #: plugins/network/resources/partial/index.html:255
 #: plugins/network/resources/partial/index.html:295
 msgid "No hosts defined"
-msgstr ""
+msgstr "Aucun hôte défini"
 
 #: plugins/network/resources/partial/index.html:206
 msgid "No nameservers defined"
-msgstr ""
+msgstr "Aucun serveur de noms défini"
 
 #: plugins/network/resources/partial/index.html:177
 msgid "Post-down script"
-msgstr ""
+msgstr "Script de post-désactivation"
 
 #: plugins/network/resources/partial/index.html:162
 msgid "Post-up script"
-msgstr ""
+msgstr "Script de post-activation"
 
 #: plugins/network/resources/partial/index.html:167
 msgid "Pre-down script"
-msgstr ""
+msgstr "Script de pré-désactivation"
 
 #: plugins/network/resources/partial/index.html:152
 msgid "Pre-up script"
-msgstr ""
+msgstr "Script de pré-désactivation"
 
 #: plugins/network/resources/partial/index.html:196
 #: plugins/network/resources/partial/index.html:230
 #: plugins/network/resources/partial/index.html:299
 msgid "Remove"
-msgstr ""
+msgstr "Supprimer"
 
 #: plugins/network/resources/partial/index.html:34
 msgid "Restart interface"
@@ -163,23 +163,23 @@ msgstr "Enregistrer"
 
 #: plugins/network/resources/partial/index.html:129
 msgid "Scope"
-msgstr ""
+msgstr "Champ d’application"
 
 #: plugins/network/resources/partial/index.html:77
 msgid "Unknown addressing"
-msgstr ""
+msgstr "Adressage inconnu"
 
 #: plugins/network/resources/partial/index.html:74
 msgid "Unknown family"
-msgstr ""
+msgstr "Famille inconnue"
 
 #: plugins/network/resources/partial/index.html:157
 msgid "Up script"
-msgstr ""
+msgstr "Script d'activation"
 
 #: plugins/network/resources/partial/index.html:12
 msgid "Update hostname"
-msgstr ""
+msgstr "Mettre le nom d'hôte à jour"
 
 #: plugins/network/main.py:31
 msgid "Configure network interfaces"

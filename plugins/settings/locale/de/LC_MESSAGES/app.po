@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-01 23:51+0100\n"
-"PO-Revision-Date: 2016-11-01 18:53-0400\n"
+"POT-Creation-Date: 2018-11-02 15:25+0100\n"
+"PO-Revision-Date: 2018-11-02 14:42\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: German\n"
 "Language: de_DE\n"
@@ -52,13 +52,13 @@ msgstr "Andere Authentifizierungsmittel verweigern"
 msgid "Download certificate"
 msgstr "Zertifikat herunterladen"
 
-#: plugins/settings/resources/partial/index.html:109
-msgid "Enable client authentication"
-msgstr "Clientauthentifizierung aktivieren"
-
 #: plugins/settings/resources/partial/index.html:85
 msgid "Enable SSL"
 msgstr "SSL aktivieren"
+
+#: plugins/settings/resources/partial/index.html:109
+msgid "Enable client authentication"
+msgstr "Clientauthentifizierung aktivieren"
 
 #: plugins/settings/resources/partial/index.html:187
 msgid "Generate"
@@ -116,18 +116,6 @@ msgstr "Entfernen"
 msgid "Restart panel"
 msgstr "Neustarten des Panels"
 
-#: plugins/settings/resources/partial/index.html:253
-msgid "Save"
-msgstr "Speichern"
-
-#: plugins/settings/resources/partial/index.html:192
-msgid "Save and Close"
-msgstr "Speichern & Schließen"
-
-#: plugins/settings/resources/partial/index.html:58
-msgid "Socket path"
-msgstr "Socket-Pfad"
-
 #: plugins/settings/resources/partial/index.html:91
 msgid "SSL certificate file"
 msgstr "SSL-Zertifikats-Datei"
@@ -139,6 +127,18 @@ msgstr "SSL-Clientauthentifizierung"
 #: plugins/settings/resources/partial/index.html:117
 msgid "SSL client certificates"
 msgstr "SSL-Client-Zertifikate"
+
+#: plugins/settings/resources/partial/index.html:253
+msgid "Save"
+msgstr "Speichern"
+
+#: plugins/settings/resources/partial/index.html:192
+msgid "Save and Close"
+msgstr "Speichern & Schließen"
+
+#: plugins/settings/resources/partial/index.html:58
+msgid "Socket path"
+msgstr "Socket-Pfad"
 
 #: plugins/settings/resources/partial/index.html:173
 msgid "State"

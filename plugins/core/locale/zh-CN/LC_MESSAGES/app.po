@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-11-01 23:51+0100\n"
-"PO-Revision-Date: 2016-11-01 18:52-0400\n"
+"PO-Revision-Date: 2018-11-02 14:45\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -42,7 +42,7 @@ msgstr "注销"
 
 #: plugins/core/content/pages/index.html:170
 msgid "OK"
-msgstr ""
+msgstr "完成"
 
 #: plugins/core/resources/partial/login.html:22
 msgid "Password"

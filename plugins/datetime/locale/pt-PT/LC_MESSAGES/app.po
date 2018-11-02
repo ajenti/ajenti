@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-11-01 23:51+0100\n"
-"PO-Revision-Date: 2016-11-01 18:53-0400\n"
+"PO-Revision-Date: 2018-11-02 14:43\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Portuguese\n"
 "Language: pt_PT\n"
@@ -18,29 +18,29 @@ msgstr ""
 
 #: plugins/datetime/resources/partial/index.html:17 plugins/datetime/main.py:17
 msgid "Date & time"
-msgstr ""
+msgstr "Data e hora"
 
 #: plugins/datetime/resources/partial/index.html:26
 msgid "Set time"
-msgstr ""
+msgstr "Definir tempo"
 
 #: plugins/datetime/resources/partial/index.html:9
 msgid "Set timezone"
-msgstr ""
+msgstr "Definir o fuso horário"
 
 #: plugins/datetime/resources/partial/index.html:31
 msgid "Sync time from the Internet"
-msgstr ""
+msgstr "Tempo de sincronização da Internet"
 
 #: plugins/datetime/resources/partial/index.html:5
 msgid "Time zone"
-msgstr ""
+msgstr "Fuso horário"
 
 #: plugins/datetime/main.py:31
 msgid "Change date and time"
-msgstr ""
+msgstr "Mudança de data e hora"
 
 #: plugins/datetime/views.py:59
 msgid "ntpdate utility is not installed"
-msgstr ""
+msgstr "ntpdate utilitário não está instalado"
 

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-01 23:51+0100\n"
-"PO-Revision-Date: 2016-11-01 18:53-0400\n"
+"POT-Creation-Date: 2018-11-02 15:25+0100\n"
+"PO-Revision-Date: 2018-11-02 14:45\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Indonesian\n"
 "Language: id_ID\n"
@@ -16,71 +16,71 @@ msgstr ""
 "X-Crowdin-Language: id\n"
 "X-Crowdin-File: /2.0/power.po\n"
 
-#: plugins/power/resources/partial/index.html:61
-msgid "{{battery.voltage}} V"
-msgstr ""
-
 #: plugins/power/resources/partial/index.html:72
 msgid "Adapters"
-msgstr ""
+msgstr "Adaptor"
 
 #: plugins/power/resources/partial/index.html:32
 msgid "Batteries"
-msgstr ""
+msgstr "Baterai"
 
 #: plugins/power/resources/partial/index.html:55
 msgid "Charging"
-msgstr ""
+msgstr "Pengisian"
 
 #: plugins/power/resources/partial/index.html:58
 msgid "Discharging at {{battery.rate}} W"
-msgstr ""
+msgstr "Pengosongan di {{battery.rate}} W"
 
 #: plugins/power/resources/partial/index.html:22
 msgid "Hibernate"
-msgstr ""
+msgstr "Hibernate"
 
 #: plugins/power/resources/partial/index.html:75
 msgid "No adapters detected"
-msgstr ""
+msgstr "Tidak ada adapter yang terdeteksi"
 
 #: plugins/power/resources/partial/index.html:35
 msgid "No batteries detected"
-msgstr ""
+msgstr "Tidak ada baterai yang terdeteksi"
 
 #: plugins/power/resources/partial/index.html:92
 msgid "Not available"
-msgstr ""
+msgstr "Tidak tersedia"
 
 #: plugins/power/resources/partial/index.html:89
 msgid "Plugged in"
-msgstr ""
+msgstr "Terpasang"
 
 #: plugins/power/resources/partial/widget.html:2 plugins/power/main.py:16
 msgid "Power"
-msgstr ""
+msgstr "Daya"
 
 #: plugins/power/resources/partial/index.html:13
 msgid "Power off"
-msgstr ""
+msgstr "Matikan daya"
 
 #: plugins/power/resources/partial/index.html:16
 msgid "Reboot"
-msgstr ""
+msgstr "Nyalakan Ulang"
 
 #: plugins/power/resources/partial/index.html:19
 msgid "Suspend"
-msgstr ""
+msgstr "Tunda"
 
 #: plugins/power/resources/partial/index.html:6
 msgid "System uptime"
-msgstr ""
+msgstr "Sistem uptime"
 
-#: plugins/power/main.py:30
-msgid "Shutdown and reboot the system"
-msgstr ""
+#: plugins/power/resources/partial/index.html:61
+msgid "{{battery.voltage}} V"
+msgstr "{{battery.voltage}} V"
 
 #: plugins/power/widget.py:9
 msgid "Power state"
-msgstr ""
+msgstr "Status daya"
+
+#: plugins/power/main.py:30
+msgid "Shutdown and reboot the system"
+msgstr "Shutdown dan reboot sistem"
 

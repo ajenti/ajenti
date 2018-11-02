@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-11-01 23:51+0100\n"
-"PO-Revision-Date: 2016-11-01 18:52-0400\n"
+"PO-Revision-Date: 2018-11-02 14:42\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Finnish\n"
 "Language: fi_FI\n"
@@ -18,29 +18,29 @@ msgstr ""
 
 #: plugins/datetime/resources/partial/index.html:17 plugins/datetime/main.py:17
 msgid "Date & time"
-msgstr ""
+msgstr "Päivämäärä ja aika"
 
 #: plugins/datetime/resources/partial/index.html:26
 msgid "Set time"
-msgstr ""
+msgstr "Aseta aika"
 
 #: plugins/datetime/resources/partial/index.html:9
 msgid "Set timezone"
-msgstr ""
+msgstr "Aseta aikavyöhyke"
 
 #: plugins/datetime/resources/partial/index.html:31
 msgid "Sync time from the Internet"
-msgstr ""
+msgstr "Synkronoi aika Internetistä"
 
 #: plugins/datetime/resources/partial/index.html:5
 msgid "Time zone"
-msgstr ""
+msgstr "Aikavyöhyke"
 
 #: plugins/datetime/main.py:31
 msgid "Change date and time"
-msgstr ""
+msgstr "Muuta päivämäärä ja aika"
 
 #: plugins/datetime/views.py:59
 msgid "ntpdate utility is not installed"
-msgstr ""
+msgstr "ntpdate apuohjelmaa ei ole asennettu"
 

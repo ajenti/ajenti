@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-01 23:51+0100\n"
+"POT-Creation-Date: 2018-11-02 15:25+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -41,13 +41,13 @@ msgstr ""
 msgid "Add widget"
 msgstr ""
 
-#: plugins/dashboard/resources/partial/widget.html:1
-msgid "Configure"
-msgstr ""
-
 #: plugins/dashboard/resources/partial/widgets/cpu.html:10
 #: plugins/dashboard/widgets/cpu.py:10
 msgid "CPU usage"
+msgstr ""
+
+#: plugins/dashboard/resources/partial/widget.html:1
+msgid "Configure"
 msgstr ""
 
 #: plugins/dashboard/resources/partial/widgets/hostname.html:2

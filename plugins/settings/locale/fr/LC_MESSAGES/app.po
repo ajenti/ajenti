@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-01 23:51+0100\n"
-"PO-Revision-Date: 2016-11-01 18:53-0400\n"
+"POT-Creation-Date: 2018-11-02 15:25+0100\n"
+"PO-Revision-Date: 2018-11-02 14:41\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: French\n"
 "Language: fr_FR\n"
@@ -18,15 +18,15 @@ msgstr ""
 
 #: plugins/settings/resources/partial/index.html:76
 msgid "Allow sudo elevation for logged in users"
-msgstr ""
+msgstr "Permettre l'utilisation de sudo pour les utilisateurs enregistrés"
 
 #: plugins/settings/resources/partial/index.html:67
 msgid "Authentication provider"
-msgstr ""
+msgstr "Fournisseur d’authentification"
 
 #: plugins/settings/resources/partial/index.html:39
 msgid "Binding"
-msgstr ""
+msgstr "Connexions"
 
 #: plugins/settings/resources/partial/index.html:188
 msgid "Cancel"
@@ -34,11 +34,11 @@ msgstr "Annuler"
 
 #: plugins/settings/resources/partial/index.html:16
 msgid "Color tag"
-msgstr ""
+msgstr "Tag de couleur"
 
 #: plugins/settings/resources/partial/index.html:181
 msgid "Common name"
-msgstr ""
+msgstr "Nom commun "
 
 #: plugins/settings/resources/partial/index.html:169
 msgid "Country"
@@ -46,19 +46,19 @@ msgstr "Pays"
 
 #: plugins/settings/resources/partial/index.html:112
 msgid "Deny other means of authentication"
-msgstr ""
+msgstr "Refuser d’autres moyens d’authentification"
 
 #: plugins/settings/resources/partial/index.html:159
 msgid "Download certificate"
 msgstr "Télécharger le certificat"
 
-#: plugins/settings/resources/partial/index.html:109
-msgid "Enable client authentication"
-msgstr ""
-
 #: plugins/settings/resources/partial/index.html:85
 msgid "Enable SSL"
 msgstr "Activer SSL"
+
+#: plugins/settings/resources/partial/index.html:109
+msgid "Enable client authentication"
+msgstr "Activez l’authentification de clients"
 
 #: plugins/settings/resources/partial/index.html:187
 msgid "Generate"
@@ -74,11 +74,11 @@ msgstr "Génération de certificat"
 
 #: plugins/settings/resources/partial/index.html:50
 msgid "Host / IP"
-msgstr ""
+msgstr "Hôte / IP"
 
 #: plugins/settings/resources/partial/index.html:30
 msgid "Language"
-msgstr ""
+msgstr "Langue"
 
 #: plugins/settings/resources/partial/index.html:165
 msgid "Login as"
@@ -98,7 +98,7 @@ msgstr "Nouveau certificat client"
 
 #: plugins/settings/resources/partial/index.html:119
 msgid "No certificates are created yet."
-msgstr ""
+msgstr "Aucun certificat n’est encore créé."
 
 #: plugins/settings/resources/partial/index.html:177
 msgid "Organization"
@@ -106,7 +106,7 @@ msgstr "Organisation "
 
 #: plugins/settings/resources/partial/index.html:53
 msgid "Port"
-msgstr ""
+msgstr "Port"
 
 #: plugins/settings/resources/partial/index.html:209
 msgid "Remove"
@@ -115,6 +115,18 @@ msgstr "Supprimer"
 #: plugins/settings/resources/partial/index.html:254
 msgid "Restart panel"
 msgstr "Redémarrer le panel"
+
+#: plugins/settings/resources/partial/index.html:91
+msgid "SSL certificate file"
+msgstr "Certificat SSL"
+
+#: plugins/settings/resources/partial/index.html:107
+msgid "SSL client authentication"
+msgstr "Authentification client SSL"
+
+#: plugins/settings/resources/partial/index.html:117
+msgid "SSL client certificates"
+msgstr "Certificats clients SSL"
 
 #: plugins/settings/resources/partial/index.html:253
 msgid "Save"
@@ -126,19 +138,7 @@ msgstr "Enregistrer et Fermer"
 
 #: plugins/settings/resources/partial/index.html:58
 msgid "Socket path"
-msgstr ""
-
-#: plugins/settings/resources/partial/index.html:91
-msgid "SSL certificate file"
-msgstr ""
-
-#: plugins/settings/resources/partial/index.html:107
-msgid "SSL client authentication"
-msgstr ""
-
-#: plugins/settings/resources/partial/index.html:117
-msgid "SSL client certificates"
-msgstr ""
+msgstr "Chemin de la socket"
 
 #: plugins/settings/resources/partial/index.html:173
 msgid "State"

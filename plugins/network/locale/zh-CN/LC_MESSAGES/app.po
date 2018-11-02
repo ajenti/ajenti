@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-01 23:51+0100\n"
-"PO-Revision-Date: 2016-11-01 18:52-0400\n"
+"POT-Creation-Date: 2018-11-02 15:25+0100\n"
+"PO-Revision-Date: 2018-11-02 14:45\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -59,10 +59,6 @@ msgstr "关闭"
 msgid "Configure"
 msgstr "配置"
 
-#: plugins/network/resources/partial/index.html:31
-msgid "Deactivate (down) interface"
-msgstr "停用 (down) 界面"
-
 #: plugins/network/resources/partial/index.html:191
 msgid "DNS"
 msgstr "DNS"
@@ -70,6 +66,10 @@ msgstr "DNS"
 #: plugins/network/resources/partial/index.html:210
 msgid "DNS server address"
 msgstr "DNS 服务器地址"
+
+#: plugins/network/resources/partial/index.html:31
+msgid "Deactivate (down) interface"
+msgstr "停用 (down) 界面"
 
 #: plugins/network/resources/partial/index.html:172
 msgid "Down script"
@@ -91,13 +91,13 @@ msgstr "主机名"
 msgid "Hosts"
 msgstr "主机"
 
-#: plugins/network/resources/partial/index.html:19
-msgid "Interfaces"
-msgstr "接口"
-
 #: plugins/network/resources/partial/index.html:285
 msgid "IP address"
 msgstr "IP地址"
+
+#: plugins/network/resources/partial/index.html:19
+msgid "Interfaces"
+msgstr "接口"
 
 #: plugins/network/resources/partial/index.html:107
 msgid "Mask"

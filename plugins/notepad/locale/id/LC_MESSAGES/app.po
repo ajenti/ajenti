@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-11-01 23:51+0100\n"
-"PO-Revision-Date: 2016-11-01 18:53-0400\n"
+"PO-Revision-Date: 2018-11-02 14:45\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Indonesian\n"
 "Language: id_ID\n"
@@ -18,33 +18,33 @@ msgstr ""
 
 #: plugins/notepad/resources/partial/index.html:31
 msgid "Bookmark this"
-msgstr ""
+msgstr "Tandai posting ini"
 
 #: plugins/notepad/resources/partial/index.html:36
 msgid "Bookmarks"
-msgstr ""
+msgstr "Tandai"
 
 #: plugins/notepad/resources/partial/index.html:48
 msgid "New"
-msgstr ""
+msgstr "Baru"
 
 #: plugins/notepad/resources/partial/index.html:49
 msgid "Open"
-msgstr ""
+msgstr "Buka"
 
 #: plugins/notepad/resources/partial/index.html:50
 msgid "Save"
-msgstr ""
+msgstr "Simpan"
 
 #: plugins/notepad/resources/partial/index.html:51
 msgid "Save As..."
-msgstr ""
+msgstr "Simpan Sebagai..."
 
 #: plugins/notepad/resources/partial/index.html:27
 msgid "Tab"
-msgstr ""
+msgstr "Tab"
 
 #: plugins/notepad/main.py:15
 msgid "Notepad"
-msgstr ""
+msgstr "Buku catatan"
 

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-01 23:51+0100\n"
-"PO-Revision-Date: 2016-11-01 18:52-0400\n"
+"POT-Creation-Date: 2018-11-02 15:25+0100\n"
+"PO-Revision-Date: 2018-11-02 14:46\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Esperanto\n"
 "Language: eo_UY\n"
@@ -76,13 +76,13 @@ msgstr ""
 msgid "Process name template"
 msgstr ""
 
-#: plugins/supervisor/resources/partial/index.html:5
-msgid "Remove"
-msgstr "Forigi"
-
 #: plugins/supervisor/resources/partial/index.html:26
 msgid "RUNNING"
 msgstr ""
+
+#: plugins/supervisor/resources/partial/index.html:5
+msgid "Remove"
+msgstr "Forigi"
 
 #: plugins/supervisor/resources/partial/index.html:216
 #: plugins/supervisor/resources/partial/index.html:53

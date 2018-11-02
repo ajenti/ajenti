@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-01 23:51+0100\n"
+"POT-Creation-Date: 2018-11-02 15:23+0100\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
@@ -72,10 +72,10 @@ msgid ""
 "configuration will prevent any administrative access."
 msgstr ""
 
-#: plugins/auth_users/main.py:16
-msgid "Users"
-msgstr ""
-
 #: plugins/auth_users/api.py:13
 msgid "Custom users"
+msgstr ""
+
+#: plugins/auth_users/main.py:16
+msgid "Users"
 msgstr ""

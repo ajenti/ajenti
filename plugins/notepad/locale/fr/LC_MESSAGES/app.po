@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-11-01 23:51+0100\n"
-"PO-Revision-Date: 2016-11-01 18:52-0400\n"
+"PO-Revision-Date: 2018-11-02 14:41\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: French\n"
 "Language: fr_FR\n"
@@ -18,7 +18,7 @@ msgstr ""
 
 #: plugins/notepad/resources/partial/index.html:31
 msgid "Bookmark this"
-msgstr ""
+msgstr "Ajouter ceci aux favoris"
 
 #: plugins/notepad/resources/partial/index.html:36
 msgid "Bookmarks"
@@ -34,7 +34,7 @@ msgstr "Ouvrir"
 
 #: plugins/notepad/resources/partial/index.html:50
 msgid "Save"
-msgstr ""
+msgstr "Sauvegarder"
 
 #: plugins/notepad/resources/partial/index.html:51
 msgid "Save As..."
@@ -46,5 +46,5 @@ msgstr "Onglet"
 
 #: plugins/notepad/main.py:15
 msgid "Notepad"
-msgstr ""
+msgstr "Bloc-notes"
 
