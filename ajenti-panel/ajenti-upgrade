@@ -21,7 +21,7 @@ if sys.stdout.isatty():
 pending = {}
 
 for package in installed:
-    data = requests.get('http://pypi.python.org/pypi/%s/json' % package).json()
+    data = requests.get('https://pypi.python.org/pypi/%s/json' % package).json()
     if sys.stdout.isatty():
         sys.stdout.write('.')
         sys.stdout.flush()
