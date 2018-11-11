@@ -55,6 +55,25 @@ With more plugins::
 
     sudo pip install ajenti-panel ajenti.plugin.dashboard ajenti.plugin.settings ajenti.plugin.plugins ajenti.plugin.filemanager ajenti.plugin.notepad ajenti.plugin.packages ajenti.plugin.services ajenti.plugin.terminal
 
+Install Ajenti RHEL/CentOS 6.x
+======================
+Adding EPEL repo
+
+rpm -ivh http://download.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm 
+
+Adding Ajenti repo
+
+rpm -ivh http://repo.ajenti.org/ajenti-repo-1.0-1.noarch.rpm
+
+Installing package
+
+yum install ajenti -y
+
+Because file is not signed you might need to append --nogpgcheck to the yum install command
+
+Default user: root
+Default password: admin
+
 Install Ajenti 1.x and Ajenti V
 ======================
 https://support.ajenti.org/knowledge-bases/5-kb/categories/1-ajenti-v/articles
