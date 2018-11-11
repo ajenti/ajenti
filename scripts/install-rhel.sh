@@ -13,4 +13,4 @@ rpm -ivh http://repo.ajenti.org/ajenti-repo-1.0-1.noarch.rpm
 echo ':: Installing package'
 yum install ajenti -y
 
-echo ':: Done! Open https://<address>:8000 in browser'
+echo ':: Done! Open https://<address>:8000 in browser -- Default credentials: user:root / password:admin '
