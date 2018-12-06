@@ -15,6 +15,7 @@ angular.module('core').controller('CoreLoginController', function($scope, $log, 
             return;
         }
         $scope.working = true;
+        $scope.username = $scope.username.toLowerCase();
         identity.auth($scope.username, $scope.password, $scope.mode).then(username => {
             $scope.success = true;
             location.href = $routeParams.nextPage || '/';
