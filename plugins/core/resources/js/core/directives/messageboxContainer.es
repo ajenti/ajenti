@@ -2,7 +2,7 @@ angular.module('core').directive('messageboxContainer', (messagebox) =>
     ({
         restrict: 'E',
         template: `
-            <dialog ng:show="message.visible" style="z-index: 1050" ng:repeat="message in messagebox.messages">
+            <dialog class="messagebox" ng:show="message.visible" ng:repeat="message in messagebox.messages">
                 <div class="modal-header">
                     <h4>{{message.title|translate}}</h4>
                 </div>
