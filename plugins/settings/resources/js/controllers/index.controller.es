@@ -55,7 +55,6 @@ angular.module('ajenti.settings').controller('SettingsIndexController', ($scope,
 
     $scope.save = () => {
         $scope.certificate = config.data.ssl.certificate;
-        console.log('bla');
         if ($scope.certificate != $scope.oldCertificate) {
             return  $http.post('/api/settings/test-certificate/', {'certificate': $scope.certificate})
                     .then(data => { config.save().then(dt => notify.success(gettext('Saved')))})
