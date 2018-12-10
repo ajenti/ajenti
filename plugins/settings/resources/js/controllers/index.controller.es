@@ -2,6 +2,7 @@ angular.module('ajenti.settings').controller('SettingsIndexController', ($scope,
     pageTitle.set(gettext('Settings'));
 
     $scope.config = config;
+    $scope.oldCertificate = config.data.ssl.certificate;
 
     $scope.availableColors = [
         'default',
@@ -52,12 +53,14 @@ angular.module('ajenti.settings').controller('SettingsIndexController', ($scope,
         }
     });
 
-    $scope.save = () =>
-        config.save().then(data =>
-            notify.success(gettext('Saved'))
-        ).catch(() =>
-            notify.error(gettext('Could not save config'))
-        );
+    $scope.save = () => {
+        $scope.certificate = config.data.ssl.certificate;
+        if ($scope.certificate != $scope.oldCertificate) {
+            return  $http.post('/api/settings/test-certificate/', {'certificate': $scope.certificate})
+                    .then(data => { config.save().then(dt => notify.success(gettext('Saved')))})
+                    .catch(err => { notify.error(gettext('SSL Error')), err.message});
+        };
+    };
 
     $scope.createNewServerCertificate = () =>
         messagebox.show({
