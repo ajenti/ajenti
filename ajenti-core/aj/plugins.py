@@ -265,7 +265,7 @@ class PluginManager(object):
         for path in found:
             yml_info = yaml.load(open(os.path.join(path, 'plugin.yml')))
             yml_info['resources'] = [
-                ({'path': x} if isinstance(x, basestring) else x)
+                ({'path': x} if isinstance(x, str) else x)
                 for x in yml_info.get('resources', [])
             ]
             self.__plugin_info[yml_info['name']] = {
