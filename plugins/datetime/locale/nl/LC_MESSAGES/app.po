@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-01 23:51+0100\n"
+"POT-Creation-Date: 2019-01-14 14:52+0100\n"
 "PO-Revision-Date: 2018-11-02 14:43\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Dutch\n"
@@ -16,31 +16,34 @@ msgstr ""
 "X-Crowdin-Language: nl\n"
 "X-Crowdin-File: /2.0/datetime.po\n"
 
-#: plugins/datetime/resources/partial/index.html:17 plugins/datetime/main.py:17
-msgid "Date & time"
+#: datetime/resources/partial/index.html:17 datetime/main.py:17
+#, fuzzy
+msgid "Date &amp; time"
 msgstr "Datum & tijd"
 
-#: plugins/datetime/resources/partial/index.html:26
+#: datetime/resources/partial/index.html:26
 msgid "Set time"
 msgstr "Tijd instellen"
 
-#: plugins/datetime/resources/partial/index.html:9
+#: datetime/resources/partial/index.html:9
 msgid "Set timezone"
 msgstr "Tijdzone instellen"
 
-#: plugins/datetime/resources/partial/index.html:31
+#: datetime/resources/partial/index.html:31
 msgid "Sync time from the Internet"
 msgstr "Sync tijd vanaf het Internet"
 
-#: plugins/datetime/resources/partial/index.html:5
+#: datetime/resources/partial/index.html:5
 msgid "Time zone"
 msgstr "Tijdzone"
 
-#: plugins/datetime/main.py:31
+#: datetime/main.py:31
 msgid "Change date and time"
 msgstr "Datum en tijd wijzigen"
 
-#: plugins/datetime/views.py:59
+#: datetime/views.py:59
 msgid "ntpdate utility is not installed"
 msgstr "ntpdate hulpprogramma is niet geïnstalleerd"
 
+#~ msgid "Date & time"
+#~ msgstr "Datum & tijd"
