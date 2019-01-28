@@ -177,7 +177,7 @@ class HttpContext(object):
             'query': self.query,
             'prefix': self.prefix,
             'method': self.method,
-        })
+        }, protocol=0)
 
     @classmethod
     def deserialize(cls, data):
