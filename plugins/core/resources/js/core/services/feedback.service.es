@@ -1,5 +1,6 @@
-angular.module('core').service('feedback', function($log, ajentiVersion, ajentiPlatform, ajentiPlatformUnmapped) {
-    this.enabled = true; // TODO
+angular.module('core').service('feedback', function($log, ajentiVersion, ajentiPlatform, ajentiPlatformUnmapped, customization) {
+    this.enabled = customization.plugins.core.enableMixpanel !== false;
+    
     this.token = 'df4919c7cb869910c1e188dbc2918807';
 
     this.init = () => {
