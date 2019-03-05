@@ -3,7 +3,7 @@ try:
 except ImportError:
     import xmlrpc.client as xmlrpclib
 
-import pip
+import pkg_resources
 
 from jadi import component
 from aj.plugins.packages.api import PackageManager, Package
@@ -34,7 +34,7 @@ class PIPPackageManager(PackageManager):
         p.name = dist['name']
         p.version = dist['version']
         p.description = dist['summary']
-        for d in pip.get_installed_distributions():
+        for d in pkg_resources.working_set:
             if d.key == p.name:
                 p.is_installed = True
                 p.installed_version = d.version
@@ -46,7 +46,7 @@ class PIPPackageManager(PackageManager):
             yield self.__make_package(dist)
 
     def get_package(self, _id):
-        for d in pip.get_installed_distributions():
+        for d in pkg_resources.working_set:
             if d.key == _id.split('==')[0]:
                 return self.__make_package_pipdist(d)
 
