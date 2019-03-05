@@ -209,7 +209,7 @@ class GateMiddleware(object):
         # pylint: disable=E0712
         except Timeout:
             http_context.respond('504 Gateway Timeout')
-            return 'Worker timeout'
+            return [b'Worker timeout']
 
         # ---
 
