@@ -2,34 +2,34 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-14 14:52+0100\n"
+"POT-Creation-Date: 2016-11-01 23:51+0100\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: datetime/resources/partial/index.html:17 datetime/main.py:17
-msgid "Date &amp; time"
+#: plugins/datetime/resources/partial/index.html:17 plugins/datetime/main.py:17
+msgid "Date & time"
 msgstr ""
 
-#: datetime/resources/partial/index.html:26
+#: plugins/datetime/resources/partial/index.html:26
 msgid "Set time"
 msgstr ""
 
-#: datetime/resources/partial/index.html:9
+#: plugins/datetime/resources/partial/index.html:9
 msgid "Set timezone"
 msgstr ""
 
-#: datetime/resources/partial/index.html:31
+#: plugins/datetime/resources/partial/index.html:31
 msgid "Sync time from the Internet"
 msgstr ""
 
-#: datetime/resources/partial/index.html:5
+#: plugins/datetime/resources/partial/index.html:5
 msgid "Time zone"
 msgstr ""
 
-#: datetime/main.py:31
+#: plugins/datetime/main.py:31
 msgid "Change date and time"
 msgstr ""
 
-#: datetime/views.py:59
+#: plugins/datetime/views.py:59
 msgid "ntpdate utility is not installed"
 msgstr ""

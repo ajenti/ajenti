@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-14 14:52+0100\n"
+"POT-Creation-Date: 2016-11-01 23:51+0100\n"
 "PO-Revision-Date: 2018-11-02 14:46\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Esperanto\n"
@@ -16,30 +16,31 @@ msgstr ""
 "X-Crowdin-Language: eo\n"
 "X-Crowdin-File: /2.0/datetime.po\n"
 
-#: datetime/resources/partial/index.html:17 datetime/main.py:17
-msgid "Date &amp; time"
+#: plugins/datetime/resources/partial/index.html:17 plugins/datetime/main.py:17
+msgid "Date & time"
 msgstr ""
 
-#: datetime/resources/partial/index.html:26
+#: plugins/datetime/resources/partial/index.html:26
 msgid "Set time"
 msgstr ""
 
-#: datetime/resources/partial/index.html:9
+#: plugins/datetime/resources/partial/index.html:9
 msgid "Set timezone"
 msgstr "Agordi horzonon"
 
-#: datetime/resources/partial/index.html:31
+#: plugins/datetime/resources/partial/index.html:31
 msgid "Sync time from the Internet"
 msgstr ""
 
-#: datetime/resources/partial/index.html:5
+#: plugins/datetime/resources/partial/index.html:5
 msgid "Time zone"
 msgstr "Horzono"
 
-#: datetime/main.py:31
+#: plugins/datetime/main.py:31
 msgid "Change date and time"
 msgstr ""
 
-#: datetime/views.py:59
+#: plugins/datetime/views.py:59
 msgid "ntpdate utility is not installed"
 msgstr ""
+
