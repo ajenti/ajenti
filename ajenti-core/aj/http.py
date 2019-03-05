@@ -50,7 +50,7 @@ class HttpRoot(object):
             else:
                 http_context.respond(400)
                 http_context.run_response()
-                return 'Invalid URL Prefix'
+                return [b'Invalid URL Prefix']
 
         content = self.handler.handle(http_context)
 
@@ -255,21 +255,21 @@ class HttpContext(object):
         Returns a HTTP ``500 Server Error`` response
         """
         self.respond('500 Server Error')
-        return 'Server Error'
+        return [b'Server Error']
 
     def respond_forbidden(self):
         """
         Returns a HTTP ``403 Forbidden`` response
         """
         self.respond('403 Forbidden')
-        return 'Forbidden'
+        return [b'Forbidden']
 
     def respond_not_found(self):
         """
         Returns a ``HTTP 404 Not Found`` response
         """
         self.respond('404 Not Found')
-        return 'Not Found'
+        return [b'Not Found']
 
     def redirect(self, location):
         """
