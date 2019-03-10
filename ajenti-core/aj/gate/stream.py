@@ -3,6 +3,7 @@ import binascii
 import gevent.socket
 import json
 import os
+import six
 import logging
 
 MSG_SIZE_LIMIT = 1024 * 1024 * 128  # 128 MB
@@ -34,7 +35,7 @@ class GateStreamRequest(object):
         self.endpoint = endpoint
 
     def serialize(self):
-        self.object_tmp = {k : (v.decode()  if isinstance(v, bytes) else v) for k, v in self.object.items()}
+        self.object_tmp = {k : (v.decode()  if isinstance(v, six.binary_type) else v) for k, v in self.object.items()}
         return {
             'id': self.id.decode(),
             'object': self.object_tmp,
@@ -54,7 +55,7 @@ class GateStreamResponse(object):
 
     def serialize(self):
         return {
-            'id': self.id,
+            'id': self.id.encode('utf-8') if isinstance(self.id, six.text_type) else self.id,
             'object': self.object,
         }
 
