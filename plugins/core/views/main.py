@@ -1,6 +1,7 @@
 import gevent
 import json
 import logging
+import six
 import subprocess
 from jadi import component
 
@@ -56,7 +57,7 @@ class Handler(HttpPlugin):
                 dict((manager[n]['info']['name'], manager[n]['info']['title']) for n in manager)
             ),
             'config': json.dumps(aj.config.data),
-            'version': aj.version,
+            'version': six.text_type(aj.version),
             'platform': aj.platform,
             'platformUnmapped': aj.platform_unmapped,
             'bootstrapColor': aj.config.data.get('color', None),

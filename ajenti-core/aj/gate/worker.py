@@ -129,6 +129,7 @@ class Worker(object):
             socket_namespaces = {}
             while True:
                 rq = self.stream.recv()
+                
                 if not rq:
                     return
 
@@ -192,7 +193,7 @@ class Worker(object):
         }
 
         try:
-            http_context = HttpContext.deserialize(rq.object['context'])
+            http_context = HttpContext.deserialize(rq.object['context'].encode())
             logging.debug(
                 '                    ... %s %s',
                 http_context.method,
