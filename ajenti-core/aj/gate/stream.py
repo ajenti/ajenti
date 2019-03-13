@@ -35,10 +35,10 @@ class GateStreamRequest(object):
         self.endpoint = endpoint
 
     def serialize(self):
-        self.object_tmp = {k : (v.decode()  if isinstance(v, six.binary_type) else v) for k, v in self.object.items()}
+        object_tmp = {k : (v.decode()  if isinstance(v, six.binary_type) else v) for k, v in self.object.items()}
         return {
             'id': self.id,
-            'object': self.object_tmp,
+            'object': object_tmp,
         }
 
     @classmethod
