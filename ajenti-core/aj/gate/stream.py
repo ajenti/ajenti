@@ -30,14 +30,14 @@ def _seq_combine(parts):
 
 class GateStreamRequest(object):
     def __init__(self, obj, endpoint):
-        self.id = binascii.hexlify(os.urandom(32))
+        self.id = binascii.hexlify(os.urandom(32)).decode()
         self.object = obj
         self.endpoint = endpoint
 
     def serialize(self):
         self.object_tmp = {k : (v.decode()  if isinstance(v, six.binary_type) else v) for k, v in self.object.items()}
         return {
-            'id': self.id.decode(),
+            'id': self.id,
             'object': self.object_tmp,
         }
 
