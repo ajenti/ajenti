@@ -25,10 +25,12 @@ angular.module('core').config(($routeProvider, $locationProvider, urlPrefix) => 
     $routeProvider.when('/view/ui-test', {
         templateUrl: '/core:resources/partial/index.html'
     });
+
+    $routeProvider.otherwise({
+            controller: 'CoreError404',
+            templateUrl: '/core:resources/partial/404.html'
+        });
 });
-
-
-// TODO 404
 
 angular.module('core').run(($location, urlPrefix) => {
     $location._oldPath = $location.path;

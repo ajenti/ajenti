@@ -50,6 +50,7 @@ resources:
     - resources/js/core/controllers/root.controller.es
     - resources/js/core/controllers/tasks.controller.es
     - resources/js/core/controllers/navbox.controller.es
+    - resources/js/core/controllers/error.controller.es
     - resources/js/core/directives/autofocus.es
     - resources/js/core/directives/checkbox.es
     - resources/js/core/directives/datePickerFix.es
@@ -79,6 +80,7 @@ resources:
     - resources/js/core/services/tasks.service.es
     - resources/partial/index.html
     - resources/partial/login.html
+    - resources/partial/404.html
     - resources/partial/sidebarItem.html
     - resources/partial/sidebarTasks.html
     - resources/partial/serverErrorMessage.html
