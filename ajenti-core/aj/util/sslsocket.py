@@ -33,6 +33,13 @@ class SSLSocket(object):
         self._makefile_refs = 0
         self.__send_lock = threading.Lock()
 
+    if PY3:
+        def __enter__(self):
+            return self
+
+        def __exit__(self, *args):
+            self.close()
+
     def __getattr__(self, attr):
         if attr == '_sock':
             return self
