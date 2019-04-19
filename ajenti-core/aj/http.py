@@ -362,7 +362,7 @@ class HttpContext(object):
         self.add_header('Last-Modified', mtime.strftime('%a, %b %d %Y %H:%M:%S GMT'))
         self.add_header('Accept-Ranges', 'bytes')
 
-        name = name or os.path.split(path)[-1]
+        name = name or os.path.split(path)[-1].encode()
 
         if inline:
             self.add_header('Content-Disposition', b'inline; filename=%s' % name)
@@ -392,5 +392,5 @@ class HttpContext(object):
                     break
             os.close(fd)
         else:
-            content = open(path).read()
+            content = open(path, 'rb').read()
             yield self.gzip(content)
