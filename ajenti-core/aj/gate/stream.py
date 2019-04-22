@@ -55,7 +55,7 @@ class GateStreamResponse(object):
 
     def serialize(self):
         return {
-            'id': self.id.encode('utf-8') if isinstance(self.id, six.text_type) else self.id,
+            'id': self.id,
             'object': self.object,
         }
 
