@@ -17,9 +17,9 @@ class InvalidRouteHandler(BaseHttpHandler):
         http_context.respond_not_found()
         
         with open(os.path.dirname(__file__)+'/static/images/error.jpeg', "rb") as error_image:
-            error_encoded = base64.b64encode(error_image.read())
+            error_encoded = base64.b64encode(error_image.read()).decode()
             
-        return """
+        return ["""
         <!DOCTYPE html>
         <html>
             <body>
@@ -42,7 +42,7 @@ class InvalidRouteHandler(BaseHttpHandler):
                 </p>
             </body>
         </html>
-        """ % error_encoded
+        """ % error_encoded]
 
 @service
 class CentralDispatcher(BaseHttpHandler):
@@ -71,9 +71,9 @@ class CentralDispatcher(BaseHttpHandler):
         traceback.print_exc()
         
         with open(os.path.dirname(__file__)+'/static/images/error.jpeg', "rb") as error_image:
-            error_encoded = base64.b64encode(error_image.read())
+            error_encoded = base64.b64encode(error_image.read()).decode()
         
-        return """
+        return ["""
         <html>
             <body>
 
@@ -102,4 +102,4 @@ class CentralDispatcher(BaseHttpHandler):
                 </pre>
             </body>
         </html>
-        """ % (error_encoded, cgi.escape(stack))
+        """ % (error_encoded, cgi.escape(stack))]
