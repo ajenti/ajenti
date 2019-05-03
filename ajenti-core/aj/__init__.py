@@ -60,7 +60,7 @@ def detect_version():
     )
     if p.wait() != 0:
         return __version__
-    return p.stdout.read().strip(b'\n ')
+    return p.stdout.read().strip(b'\n ').decode()
 
 
 def detect_platform():

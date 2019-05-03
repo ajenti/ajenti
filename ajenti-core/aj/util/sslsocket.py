@@ -3,7 +3,7 @@ Heavily based on https://github.com/Eugeny/gevent_openssl/blob/master/gevent_ope
 """
 
 import OpenSSL.SSL
-from six import StringIO, PY2, PY3
+from six import BytesIO, PY2, PY3, binary_type
 import select
 import socket
 import sys
@@ -21,7 +21,7 @@ if PY3:
             # print('>> readline')
             data = self.__text.readline()
             # print('<< ', data)
-            return data
+            return binary_type(data, 'utf-8')
 
 
 class SSLSocket(object):
@@ -32,6 +32,13 @@ class SSLSocket(object):
         self._connection.set_accept_state()
         self._makefile_refs = 0
         self.__send_lock = threading.Lock()
+
+    if PY3:
+        def __enter__(self):
+            return self
+
+        def __exit__(self, *args):
+            self.close()
 
     def __getattr__(self, attr):
         if attr == '_sock':
@@ -79,7 +86,7 @@ class SSLSocket(object):
         return n
 
     def send(self, data, flags=0):
-        io = StringIO()
+        io = BytesIO()
         io.write(data)
         buffer = io.getvalue()
 
