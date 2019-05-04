@@ -63,7 +63,7 @@ class Handler(HttpPlugin):
         r = {}
         for l in subprocess.check_output(['pip', 'freeze']).splitlines():
             if l:
-                package = l.split('=')[0]
+                package = l.decode().split('=')[0]
                 if package:
                     prefix = 'ajenti.plugin.'
                     if package.startswith(prefix):
