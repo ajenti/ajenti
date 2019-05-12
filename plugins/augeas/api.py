@@ -1,5 +1,6 @@
 import augeas
 from jadi import interface
+from six import PY3
 
 
 class AugeasError(Exception):
@@ -43,8 +44,11 @@ class Augeas(augeas.Augeas):
                 self.set(path + '/incl[%i]' % (index + 1), incl)
 
     def __enc(self, v):
+        if PY3:
+            return v
         if v:
             return v.encode('utf8')
+        
 
     def match(self, path):
         return augeas.Augeas.match(self, self.__enc(path))
