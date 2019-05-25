@@ -1,4 +1,4 @@
-angular.module('core').controller('CoreLoginController', function($scope, $log, $rootScope, $routeParams, identity, notify, gettext) {
+angular.module('core').controller('CoreLoginController', function($scope, $log, $rootScope, $routeParams, identity, notify, gettext, customization) {
     $rootScope.disableExpiredSessionInterceptor = true;
     $scope.working = false;
     $scope.success = false;
@@ -18,7 +18,7 @@ angular.module('core').controller('CoreLoginController', function($scope, $log, 
         $scope.username = $scope.username.toLowerCase();
         identity.auth($scope.username, $scope.password, $scope.mode).then(username => {
             $scope.success = true;
-            location.href = $routeParams.nextPage || '/';
+            location.href = customization.plugins.core.loginredir || $routeParams.nextPage || '/';
         }, error => {
             $scope.working = false;
             $log.log('Authentication failed', error);
