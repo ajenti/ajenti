@@ -14,8 +14,8 @@ angular.module('ajenti.auth.users').controller('AuthUsersIndexController', funct
                 }
             };
         }
-        config.getPermissions().then((data) => {
-            $scope.permissions = data;
+        config.getPermissions(config).then((data) => {
+            $scope.permissions = data;console.log(data);
             let result = [];
             for (let username in config.data.auth.users) {
                 $scope.resetPermissions(username);
