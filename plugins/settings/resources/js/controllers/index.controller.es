@@ -34,7 +34,7 @@ angular.module('ajenti.settings').controller('SettingsIndexController', ($scope,
     });
 
     config.load().then(
-        () => config.getAuthenticationProviders(), () => notify.error(gettext('Could not load config'))
+        () => config.getAuthenticationProviders(config), () => notify.error(gettext('Could not load config'))
     ).then(p =>
         $scope.authenticationProviders = p
     ).catch(() =>
