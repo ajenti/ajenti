@@ -73,7 +73,7 @@ class CentralDispatcher(BaseHttpHandler):
         with open(os.path.dirname(__file__)+'/static/images/error.jpeg', "rb") as error_image:
             error_encoded = base64.b64encode(error_image.read()).decode()
         
-        return ["""
+        return """
         <html>
             <body>
 
@@ -97,9 +97,7 @@ class CentralDispatcher(BaseHttpHandler):
                 <p>
                     Server error
                 </p>
-                <pre>
-                    %s
-                </pre>
+                <pre>%s</pre>
             </body>
         </html>
-        """ % (error_encoded, cgi.escape(stack))]
+        """ % (error_encoded, cgi.escape(stack))

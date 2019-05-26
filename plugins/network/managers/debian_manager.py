@@ -98,7 +98,7 @@ class DebianNetworkManager(NetworkManager):
         ifconfig_down(iface)
 
     def get_hostname(self):
-        return subprocess.check_output('hostname')
+        return subprocess.check_output('hostname', encoding='utf-8')
 
     def set_hostname(self, value):
         with open('/etc/hostname', 'w') as f:
