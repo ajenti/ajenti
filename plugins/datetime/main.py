@@ -14,7 +14,7 @@ class ItemProvider(SidebarItemProvider):
             {
                 'attach': 'category:system',
                 'id': 'datetime',
-                'name': _('Date &amp; time'),
+                'name': _('Date & time'),
                 'icon': 'clock-o',
                 'url': '/view/datetime',
                 'children': [],
