@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-11-01 23:51+0100\n"
-"PO-Revision-Date: 2016-11-01 18:53-0400\n"
+"PO-Revision-Date: 2018-11-02 14:45\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Portuguese, Brazilian\n"
 "Language: pt_BR\n"
@@ -32,16 +32,16 @@ msgstr "Autor"
 
 #: plugins/plugins/resources/partial/index.html:47
 msgid "Available plugins"
-msgstr ""
+msgstr "Plugins Disponíveis"
 
 #: plugins/plugins/resources/partial/index.html:154
 #: plugins/plugins/resources/partial/index.html:206
 msgid "Close"
-msgstr ""
+msgstr "Fechar"
 
 #: plugins/plugins/resources/partial/index.html:70
 msgid "Community"
-msgstr ""
+msgstr "Comunidade"
 
 #: plugins/plugins/resources/partial/index.html:10
 msgid "Core"
@@ -49,7 +49,7 @@ msgstr "Núcleo"
 
 #: plugins/plugins/resources/partial/index.html:184
 msgid "Downloads in the last month"
-msgstr ""
+msgstr "Downloads no último mês"
 
 #: plugins/plugins/resources/partial/repo-plugin.html:39
 msgid "Downloads this month"
@@ -57,11 +57,11 @@ msgstr "Downloads este mês"
 
 #: plugins/plugins/resources/partial/index.html:103
 msgid "Error"
-msgstr ""
+msgstr "Erro"
 
 #: plugins/plugins/resources/partial/index.html:114
 msgid "Exception: <code>{{selectedInstalledPlugin.crash.cls}}</code>"
-msgstr ""
+msgstr "Excessão:<código>{{Plugininstaladoselecionado.colisão.cls}}</código>"
 
 #: plugins/plugins/resources/partial/index.html:71
 msgid "Filter"
@@ -70,7 +70,7 @@ msgstr "Filtro"
 #: plugins/plugins/resources/partial/index.html:142
 #: plugins/plugins/resources/partial/repo-plugin.html:55
 msgid "Homepage"
-msgstr ""
+msgstr "Página Inicial"
 
 #: plugins/plugins/resources/partial/index.html:203
 #: plugins/plugins/resources/partial/index.html:56
@@ -88,17 +88,17 @@ msgstr "Erro ao carregar"
 
 #: plugins/plugins/resources/partial/index.html:129
 msgid "Location"
-msgstr ""
+msgstr "Localização"
 
 #: plugins/plugins/resources/partial/index.html:117
 msgid "Message: <code>{{selectedInstalledPlugin.crash.message}}</code>"
-msgstr ""
+msgstr "Mensagem:<código>{{Plugininstaladoselecionado.colisão.mensagem}}</código>"
 
 #: plugins/plugins/resources/partial/index.html:166
 #: plugins/plugins/resources/partial/index.html:97
 #: plugins/plugins/resources/partial/repo-plugin.html:7
 msgid "Name"
-msgstr ""
+msgstr "Nome"
 
 #: plugins/plugins/resources/partial/index.html:53
 msgid "Official"
@@ -106,11 +106,11 @@ msgstr "Oficial"
 
 #: plugins/plugins/resources/partial/index.html:215
 msgid "Restart panel"
-msgstr ""
+msgstr "Reiniciar painel"
 
 #: plugins/plugins/resources/partial/index.html:112
 msgid "This plugin crashed with the following error:"
-msgstr ""
+msgstr "Este plugin falhou com a seguinte menagem de erro:"
 
 #: plugins/plugins/resources/partial/index.html:107
 msgid "This plugin requires application binary <code>{{selectedInstalledPlugin.crash.binaryName}}</code>, which was unavailable during startup."
@@ -118,7 +118,7 @@ msgstr "Este plugin requer aplicativo binário <code>{{selectedInstalledPlugin.c
 
 #: plugins/plugins/resources/partial/index.html:104
 msgid "This plugin requires plugin <code>{{selectedInstalledPlugin.crash.pluginName}}</code>, which was unavailable during startup."
-msgstr ""
+msgstr "Este plugin requer o plugin <código>{{Plugininstaladoselecionado.colisão.nomedoplugin}}</código>, que não estava disponível durante a inicialização"
 
 #: plugins/plugins/resources/partial/repo-plugin.html:15
 msgid "Title"
@@ -127,23 +127,23 @@ msgstr "Título"
 #: plugins/plugins/resources/partial/index.html:151
 #: plugins/plugins/resources/partial/index.html:30
 msgid "Uninstall"
-msgstr ""
+msgstr "Desinstalar"
 
 #: plugins/plugins/resources/partial/index.html:148
 msgid "Update"
-msgstr ""
+msgstr "Atualizar"
 
 #: plugins/plugins/resources/partial/index.html:6
 msgid "Update everything"
-msgstr ""
+msgstr "Atualizar tudo"
 
 #: plugins/plugins/resources/partial/index.html:3
 msgid "Updates"
-msgstr ""
+msgstr "Atualizações"
 
 #: plugins/plugins/resources/partial/index.html:38
 msgid "Upgradeable to {{getUpgrade(plugin).version}}"
-msgstr ""
+msgstr "Atualizável para Upgradeable to {{getUpgrade(plugin).version}}"
 
 #: plugins/plugins/resources/partial/index.html:123
 #: plugins/plugins/resources/partial/index.html:172

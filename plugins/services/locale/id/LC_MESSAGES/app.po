@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-11-01 23:51+0100\n"
-"PO-Revision-Date: 2016-11-01 18:53-0400\n"
+"PO-Revision-Date: 2018-11-02 14:45\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Indonesian\n"
 "Language: id_ID\n"
@@ -18,22 +18,22 @@ msgstr ""
 
 #: plugins/services/resources/partial/index.html:2
 msgid "Filter services"
-msgstr ""
+msgstr "Layanan filter"
 
 #: plugins/services/resources/partial/widget.config.html:3
 msgid "Manager"
-msgstr ""
+msgstr "Manajer"
 
 #: plugins/services/resources/partial/widget.config.html:7
 #: plugins/services/widget.py:9
 msgid "Service"
-msgstr ""
+msgstr "Layanan"
 
 #: plugins/services/main.py:26
 msgid "Services"
-msgstr ""
+msgstr "Layanan"
 
 #: plugins/services/main.py:39
 msgid "Manage system services"
-msgstr ""
+msgstr "Mengelola layanan sistem"
 

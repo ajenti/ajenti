@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-11-01 23:51+0100\n"
-"PO-Revision-Date: 2016-11-01 18:52-0400\n"
+"PO-Revision-Date: 2018-11-02 14:42\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Finnish\n"
 "Language: fi_FI\n"
@@ -22,7 +22,7 @@ msgstr ""
 
 #: plugins/core/resources/partial/login.html:27
 msgid "Authenticate"
-msgstr ""
+msgstr "Tunnistaudu"
 
 #: plugins/core/content/pages/index.html:84
 msgid "Elevate"
@@ -34,19 +34,19 @@ msgstr ""
 
 #: plugins/core/resources/partial/login.html:26
 msgid "Log in"
-msgstr ""
+msgstr "Kirjaudu sisään"
 
 #: plugins/core/content/pages/index.html:89
 msgid "Log out"
-msgstr ""
+msgstr "Kirjaudu ulos"
 
 #: plugins/core/content/pages/index.html:170
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 #: plugins/core/resources/partial/login.html:22
 msgid "Password"
-msgstr ""
+msgstr "Salasana"
 
 #: plugins/core/content/pages/index.html:149
 msgid "Please see browser console"
@@ -54,11 +54,11 @@ msgstr ""
 
 #: plugins/core/content/pages/index.html:125
 msgid "Quick search"
-msgstr ""
+msgstr "Pikahaku"
 
 #: plugins/core/resources/partial/login.html:19
 msgid "Username"
-msgstr ""
+msgstr "Käyttäjätunnus"
 
 #: plugins/core/main.py:17
 msgid "General"
@@ -66,15 +66,15 @@ msgstr ""
 
 #: plugins/core/main.py:24
 msgid "Tools"
-msgstr ""
+msgstr "Työkalut"
 
 #: plugins/core/main.py:31
 msgid "Software"
-msgstr ""
+msgstr "Ohjelmisto"
 
 #: plugins/core/main.py:38
 msgid "System"
-msgstr ""
+msgstr "Järjestelmä"
 
 #: plugins/core/main.py:45
 msgid "Other"
@@ -90,5 +90,5 @@ msgstr ""
 
 #: plugins/core/views/api.py:97
 msgid "Authorization failed"
-msgstr ""
+msgstr "Todennus epäonnistui"
 

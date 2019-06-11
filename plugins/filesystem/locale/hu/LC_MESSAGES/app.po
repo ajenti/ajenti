@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-01 23:51+0100\n"
-"PO-Revision-Date: 2016-11-01 18:53-0400\n"
+"POT-Creation-Date: 2018-11-02 15:25+0100\n"
+"PO-Revision-Date: 2018-11-02 14:43\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Hungarian\n"
 "Language: hu_HU\n"
@@ -49,14 +49,6 @@ msgstr "Teljes"
 msgid "Up one level"
 msgstr "Egy szinttel feljebb"
 
-#: plugins/filesystem/main.py:12
-msgid "Read from the filesystem"
-msgstr "Fájlrendszer olvasás"
-
-#: plugins/filesystem/main.py:17
-msgid "Write to the filesystem"
-msgstr "Fájlrendszer írás"
-
 #: plugins/filesystem/tasks.py:9
 msgid "File transfer"
 msgstr "Fájlátvitel"
@@ -68,4 +60,12 @@ msgstr "Törlés"
 #: plugins/filesystem/widget.py:10
 msgid "Disk space"
 msgstr "Lemezterület"
+
+#: plugins/filesystem/main.py:12
+msgid "Read from the filesystem"
+msgstr "Fájlrendszer olvasás"
+
+#: plugins/filesystem/main.py:17
+msgid "Write to the filesystem"
+msgstr "Fájlrendszer írás"
 

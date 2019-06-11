@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-01 23:51+0100\n"
-"PO-Revision-Date: 2016-11-01 18:52-0400\n"
+"POT-Creation-Date: 2018-11-02 15:25+0100\n"
+"PO-Revision-Date: 2018-11-02 14:42\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Arabic\n"
 "Language: ar_SA\n"
@@ -18,19 +18,19 @@ msgstr ""
 
 #: plugins/supervisor/resources/partial/index.html:45
 msgid "Add"
-msgstr ""
+msgstr "إضافة"
 
 #: plugins/supervisor/resources/partial/index.html:150
 msgid "Autorestart"
-msgstr ""
+msgstr "إعادة تشغيل تلقائي"
 
 #: plugins/supervisor/resources/partial/index.html:136
 msgid "Autostart"
-msgstr ""
+msgstr "تشغيل تلقائي"
 
 #: plugins/supervisor/resources/partial/index.html:217
 msgid "Close"
-msgstr ""
+msgstr "إغلاق"
 
 #: plugins/supervisor/resources/partial/index.html:65
 msgid "Command"
@@ -38,7 +38,7 @@ msgstr ""
 
 #: plugins/supervisor/resources/partial/index.html:8
 msgid "Configure"
-msgstr ""
+msgstr "ضبط"
 
 #: plugins/supervisor/resources/partial/index.html:106
 msgid "Environment"
@@ -58,7 +58,7 @@ msgstr ""
 
 #: plugins/supervisor/resources/partial/index.html:158
 msgid "No"
-msgstr ""
+msgstr "لا"
 
 #: plugins/supervisor/resources/partial/index.html:39
 msgid "No processes defined"
@@ -76,18 +76,18 @@ msgstr ""
 msgid "Process name template"
 msgstr ""
 
-#: plugins/supervisor/resources/partial/index.html:5
-msgid "Remove"
-msgstr ""
-
 #: plugins/supervisor/resources/partial/index.html:26
 msgid "RUNNING"
 msgstr ""
 
+#: plugins/supervisor/resources/partial/index.html:5
+msgid "Remove"
+msgstr "إزالة"
+
 #: plugins/supervisor/resources/partial/index.html:216
 #: plugins/supervisor/resources/partial/index.html:53
 msgid "Save"
-msgstr ""
+msgstr "حفظ"
 
 #: plugins/supervisor/resources/partial/index.html:166
 msgid "Seconds to start"
@@ -115,7 +115,7 @@ msgstr ""
 
 #: plugins/supervisor/resources/partial/index.html:156
 msgid "Yes"
-msgstr ""
+msgstr "نعم"
 
 #: plugins/supervisor/main.py:15
 msgid "Supervisor"

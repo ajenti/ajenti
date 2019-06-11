@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-01 23:51+0100\n"
-"PO-Revision-Date: 2016-11-01 18:53-0400\n"
+"POT-Creation-Date: 2018-11-02 15:25+0100\n"
+"PO-Revision-Date: 2018-11-02 14:45\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Indonesian\n"
 "Language: id_ID\n"
@@ -18,184 +18,171 @@ msgstr ""
 
 #: plugins/filemanager/resources/partial/properties.html:49
 msgid "Access"
-msgstr ""
+msgstr "Akses"
 
 #: plugins/filemanager/resources/partial/properties.html:161
 msgid "All"
-msgstr ""
+msgstr "Semua"
 
 #: plugins/filemanager/resources/partial/properties.html:187
 msgid "Apply"
-msgstr ""
+msgstr "Terapkan"
 
-#: plugins/filemanager/resources/partial/index.html:110
-#: plugins/filemanager/resources/partial/index.html:69
-#: plugins/filemanager/resources/partial/index.html:82
+#: plugins/filemanager/resources/partial/index.html:76
+#: plugins/filemanager/resources/partial/index.html:89
 #: plugins/filemanager/resources/partial/properties.html:188
 msgid "Cancel"
-msgstr ""
+msgstr "Batal"
 
 #: plugins/filemanager/resources/partial/properties.html:115
 msgid "Change permissions"
-msgstr ""
+msgstr "Mengubah izin"
 
-#: plugins/filemanager/resources/partial/index.html:116
+#: plugins/filemanager/resources/partial/index.html:95
 msgid "Clipboard"
-msgstr ""
+msgstr "Clipboard"
 
-#: plugins/filemanager/resources/partial/index.html:138
+#: plugins/filemanager/resources/partial/index.html:117
 msgid "Close"
-msgstr ""
+msgstr "Tutup"
 
-#: plugins/filemanager/resources/partial/index.html:56
+#: plugins/filemanager/resources/partial/index.html:63
 msgid "Copy"
-msgstr ""
+msgstr "Salin"
 
-#: plugins/filemanager/resources/partial/index.html:68
-#: plugins/filemanager/resources/partial/index.html:81
+#: plugins/filemanager/resources/partial/index.html:75
+#: plugins/filemanager/resources/partial/index.html:88
 msgid "Create"
-msgstr ""
+msgstr "Buat"
 
-#: plugins/filemanager/resources/partial/index.html:55
+#: plugins/filemanager/resources/partial/index.html:62
 msgid "Cut"
-msgstr ""
-
-#: plugins/filemanager/resources/partial/index.html:57
-msgid "Delete"
-msgstr ""
+msgstr "Potong"
 
 #: plugins/filemanager/resources/partial/properties.html:32
 msgid "DIRECTORY"
-msgstr ""
+msgstr "DIREKTORI"
 
-#: plugins/filemanager/resources/partial/index.html:78
+#: plugins/filemanager/resources/partial/index.html:64
+msgid "Delete"
+msgstr "Hapus"
+
+#: plugins/filemanager/resources/partial/index.html:85
 msgid "Directory name"
-msgstr ""
-
-#: plugins/filemanager/resources/partial/properties.html:123
-msgid "Edit in Notepad"
-msgstr ""
+msgstr "Nama direktori"
 
 #: plugins/filemanager/resources/partial/properties.html:70
 msgid "EXECUTE"
-msgstr ""
+msgstr "MENJALANKAN"
+
+#: plugins/filemanager/resources/partial/properties.html:123
+msgid "Edit in Notepad"
+msgstr "Menyunting di Notepad"
 
 #: plugins/filemanager/resources/partial/properties.html:173
 msgid "Extra"
-msgstr ""
+msgstr "Tambahan"
 
 #: plugins/filemanager/resources/partial/properties.html:37
 msgid "FILE"
-msgstr ""
+msgstr "BERKAS"
 
-#: plugins/filemanager/resources/partial/index.html:65
+#: plugins/filemanager/resources/partial/index.html:72
 msgid "File name"
-msgstr ""
+msgstr "Nama berkas"
 
 #: plugins/filemanager/resources/partial/properties.html:18
 msgid "Full path"
-msgstr ""
+msgstr "Path lengkap"
 
 #: plugins/filemanager/resources/partial/properties.html:100
 #: plugins/filemanager/resources/partial/properties.html:149
 msgid "Group"
-msgstr ""
-
-#: plugins/filemanager/resources/partial/index.html:52
-msgid "items selected"
-msgstr ""
+msgstr "Grup"
 
 #: plugins/filemanager/resources/partial/properties.html:43
 msgid "LINK"
-msgstr ""
+msgstr "LINK"
 
 #: plugins/filemanager/resources/partial/properties.html:108
 msgid "Mode"
-msgstr ""
+msgstr "Mode"
 
 #: plugins/filemanager/resources/partial/properties.html:84
 msgid "Modified"
-msgstr ""
+msgstr "Dimodifikasi"
 
 #: plugins/filemanager/resources/partial/properties.html:10
 msgid "Name"
-msgstr ""
+msgstr "Nama"
 
-#: plugins/filemanager/resources/partial/index.html:41
-#: plugins/filemanager/resources/partial/index.html:75
+#: plugins/filemanager/resources/partial/index.html:46
+#: plugins/filemanager/resources/partial/index.html:82
 msgid "New directory"
-msgstr ""
+msgstr "Direktori baru"
 
-#: plugins/filemanager/resources/partial/index.html:40
-#: plugins/filemanager/resources/partial/index.html:62
+#: plugins/filemanager/resources/partial/index.html:45
+#: plugins/filemanager/resources/partial/index.html:69
 msgid "New file"
-msgstr ""
-
-#: plugins/filemanager/resources/partial/index.html:105
-msgid "or drop them here"
-msgstr ""
+msgstr "File baru"
 
 #: plugins/filemanager/resources/partial/properties.html:92
 msgid "Owner"
-msgstr ""
+msgstr "Pemilik"
 
-#: plugins/filemanager/resources/partial/index.html:43
+#: plugins/filemanager/resources/partial/index.html:50
 msgid "Paste here"
-msgstr ""
+msgstr "Tempel di sini"
 
 #: plugins/filemanager/resources/partial/properties.html:132
 msgid "Permission bits"
-msgstr ""
+msgstr "Hak akses"
 
 #: plugins/filemanager/resources/partial/properties.html:56
 msgid "READ"
-msgstr ""
+msgstr "MEMBACA"
 
-#: plugins/filemanager/resources/partial/index.html:121
+#: plugins/filemanager/resources/partial/index.html:100
 msgid "Remove"
-msgstr ""
+msgstr "Hapus"
 
-#: plugins/filemanager/resources/partial/index.html:137
+#: plugins/filemanager/resources/partial/index.html:116
 msgid "Remove all items"
-msgstr ""
-
-#: plugins/filemanager/resources/partial/index.html:101
-msgid "Select files to upload"
-msgstr ""
+msgstr "Menghapus semua item"
 
 #: plugins/filemanager/resources/partial/properties.html:76
 msgid "Size"
-msgstr ""
+msgstr "Ukuran"
 
-#: plugins/filemanager/resources/partial/index.html:46
+#: plugins/filemanager/resources/partial/index.html:53
 msgid "Tab"
-msgstr ""
+msgstr "Tab"
 
 #: plugins/filemanager/resources/partial/properties.html:26
 msgid "Type"
-msgstr ""
+msgstr "Tipe"
 
-#: plugins/filemanager/resources/partial/index.html:10
+#: plugins/filemanager/resources/partial/index.html:15
 msgid "Up one level"
-msgstr ""
+msgstr "Naik satu tingkat"
 
-#: plugins/filemanager/resources/partial/index.html:42
+#: plugins/filemanager/resources/partial/index.html:48
 msgid "Upload"
-msgstr ""
-
-#: plugins/filemanager/resources/partial/index.html:88
-msgid "Upload files"
-msgstr ""
+msgstr "Unggah"
 
 #: plugins/filemanager/resources/partial/properties.html:137
 msgid "User"
-msgstr ""
+msgstr "Pengguna"
 
 #: plugins/filemanager/resources/partial/properties.html:63
 msgid "WRITE"
-msgstr ""
+msgstr "MENULIS"
+
+#: plugins/filemanager/resources/partial/index.html:59
+msgid "items selected"
+msgstr "item yang dipilih"
 
 #: plugins/filemanager/main.py:15
 msgid "File Manager"
-msgstr ""
+msgstr "Manajer berkas"
 

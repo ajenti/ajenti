@@ -1,6 +1,8 @@
 import logging
+import os
 import cgi
 import traceback
+import base64
 from jadi import service
 
 from aj.api.http import BaseHttpHandler, HttpPlugin
@@ -13,8 +15,34 @@ class InvalidRouteHandler(BaseHttpHandler):
     def handle(self, http_context):
         logging.warn('URL not found: %s', http_context.path)
         http_context.respond_not_found()
-        return 'URL not found'
+        
+        with open(os.path.dirname(__file__)+'/static/images/error.jpeg', "rb") as error_image:
+            error_encoded = base64.b64encode(error_image.read()).decode()
+            
+        return ["""
+        <!DOCTYPE html>
+        <html>
+            <body>
 
+                <style>
+                    body {
+                        font-family: sans-serif;
+                        color: #888;
+                        text-align: center;
+                    }
+                </style>
+                
+                <img src="data:image/png;base64, %s" alt="Error image" />
+                <br/>
+                <p>
+                    404 - URL not found
+                </p>
+                <p>
+                    <a href="/">Return to ajenti panel</a> 
+                </p>
+            </body>
+        </html>
+        """ % error_encoded]
 
 @service
 class CentralDispatcher(BaseHttpHandler):
@@ -41,6 +69,10 @@ class CentralDispatcher(BaseHttpHandler):
         context.respond_server_error()
         stack = traceback.format_exc()
         traceback.print_exc()
+        
+        with open(os.path.dirname(__file__)+'/static/images/error.jpeg', "rb") as error_image:
+            error_encoded = base64.b64encode(error_image.read()).decode()
+        
         return """
         <html>
             <body>
@@ -60,14 +92,12 @@ class CentralDispatcher(BaseHttpHandler):
                     }
                 </style>
 
-                <img src="/aj:static/main/error.jpeg" />
+                <img src="data:image/png;base64, %s" alt="Error image" />
                 <br/>
                 <p>
                     Server error
                 </p>
-                <pre>
-%s
-                </pre>
+                <pre>%s</pre>
             </body>
         </html>
-        """ % cgi.escape(stack)
+        """ % (error_encoded, cgi.escape(stack))

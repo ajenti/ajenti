@@ -3,14 +3,14 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-11-01 23:51+0100\n"
-"PO-Revision-Date: 2016-11-01 18:54-0400\n"
+"PO-Revision-Date: 2018-11-02 14:44\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Turkish\n"
 "Language: tr_TR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: crowdin.com\n"
 "X-Crowdin-Project: ajenti\n"
 "X-Crowdin-Language: tr\n"
@@ -18,11 +18,11 @@ msgstr ""
 
 #: plugins/plugins/resources/partial/index.html:14
 msgid "Ajenti core {{ajentiVersion}}, no upgrades available."
-msgstr "Ajenti versiyon {{ajentiVersion}}, yeni yükseltme yok."
+msgstr "Ajenti sürümü {{ajentiVersion}}, yeni yükseltme yok."
 
 #: plugins/plugins/resources/partial/index.html:20
 msgid "Ajenti core {{ajentiVersion}}. An upgrade to {{coreUpgradeAvailable}} is available."
-msgstr "Ajenti çekirdek {{ajentiVersion}}. {{coreUpgradeAvailable}} için bir yükseltme yapılabilir."
+msgstr "Ajenti sürümü {{ajentiVersion}}. Yeni {{coreUpgradeAvailable}} için bir yükseltme yapılabilir."
 
 #: plugins/plugins/resources/partial/index.html:135
 #: plugins/plugins/resources/partial/index.html:190
@@ -32,7 +32,7 @@ msgstr "Hazırlayan"
 
 #: plugins/plugins/resources/partial/index.html:47
 msgid "Available plugins"
-msgstr "Mevcut eklentiler"
+msgstr "Kullanılabilir Eklentiler"
 
 #: plugins/plugins/resources/partial/index.html:154
 #: plugins/plugins/resources/partial/index.html:206
@@ -41,7 +41,7 @@ msgstr "Kapat"
 
 #: plugins/plugins/resources/partial/index.html:70
 msgid "Community"
-msgstr ""
+msgstr "Topluluk"
 
 #: plugins/plugins/resources/partial/index.html:10
 msgid "Core"
@@ -49,11 +49,11 @@ msgstr "Çekirdek"
 
 #: plugins/plugins/resources/partial/index.html:184
 msgid "Downloads in the last month"
-msgstr ""
+msgstr "Son bir ay içerisinde indirme"
 
 #: plugins/plugins/resources/partial/repo-plugin.html:39
 msgid "Downloads this month"
-msgstr ""
+msgstr "Bu ay indirilenler"
 
 #: plugins/plugins/resources/partial/index.html:103
 msgid "Error"
@@ -61,11 +61,11 @@ msgstr "Hata"
 
 #: plugins/plugins/resources/partial/index.html:114
 msgid "Exception: <code>{{selectedInstalledPlugin.crash.cls}}</code>"
-msgstr ""
+msgstr "Özel durum: <code>{{selectedInstalledPlugin.crash.cls}}</code>"
 
 #: plugins/plugins/resources/partial/index.html:71
 msgid "Filter"
-msgstr ""
+msgstr "Filtre"
 
 #: plugins/plugins/resources/partial/index.html:142
 #: plugins/plugins/resources/partial/repo-plugin.html:55
@@ -84,15 +84,15 @@ msgstr "Yüklü eklentiler"
 
 #: plugins/plugins/resources/partial/index.html:41
 msgid "Loading error"
-msgstr ""
+msgstr "Yükleme hatası"
 
 #: plugins/plugins/resources/partial/index.html:129
 msgid "Location"
-msgstr ""
+msgstr "Konum"
 
 #: plugins/plugins/resources/partial/index.html:117
 msgid "Message: <code>{{selectedInstalledPlugin.crash.message}}</code>"
-msgstr ""
+msgstr "Hata oluştu: <code>{{selectedInstalledPlugin.crash.cls}}</code>"
 
 #: plugins/plugins/resources/partial/index.html:166
 #: plugins/plugins/resources/partial/index.html:97
@@ -110,15 +110,15 @@ msgstr "Paneli yeniden başlat"
 
 #: plugins/plugins/resources/partial/index.html:112
 msgid "This plugin crashed with the following error:"
-msgstr ""
+msgstr "Bu eklenti aşağıdaki hata ile düştü:"
 
 #: plugins/plugins/resources/partial/index.html:107
 msgid "This plugin requires application binary <code>{{selectedInstalledPlugin.crash.binaryName}}</code>, which was unavailable during startup."
-msgstr ""
+msgstr "Bu plugin, başlatılırken hata oluşan <code>{{selectedInstalledPlugin.crash.binaryName}}</code> programına ihtiyaç duyuyor."
 
 #: plugins/plugins/resources/partial/index.html:104
 msgid "This plugin requires plugin <code>{{selectedInstalledPlugin.crash.pluginName}}</code>, which was unavailable during startup."
-msgstr ""
+msgstr "Bu eklenti <code>{{selectedInstalledPlugin.crash.pluginName}}</code> gerektirir, başlangıçta kullanılmayacaktır."
 
 #: plugins/plugins/resources/partial/repo-plugin.html:15
 msgid "Title"
@@ -143,7 +143,7 @@ msgstr "Güncellemeler"
 
 #: plugins/plugins/resources/partial/index.html:38
 msgid "Upgradeable to {{getUpgrade(plugin).version}}"
-msgstr ""
+msgstr "{{getUpgrade(plugin).version}} versiyonuna güncellenebilir"
 
 #: plugins/plugins/resources/partial/index.html:123
 #: plugins/plugins/resources/partial/index.html:172

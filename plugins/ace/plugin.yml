@@ -2,7 +2,7 @@ name: ace
 author: Ajenti project
 email: e@ajenti.org
 url: http://ajenti.org
-version: '0.25'
+version: '0.26'
 title: 'Ace editor'
 icon: cog
 dependencies:

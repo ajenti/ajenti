@@ -2,7 +2,7 @@ name: power
 author: Ajenti project
 email: e@ajenti.org
 url: http://ajenti.org
-version: '0.19'
+version: '0.20'
 title: 'Power management'
 icon: bolt
 dependencies:

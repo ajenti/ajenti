@@ -74,3 +74,17 @@ class Handler(HttpPlugin):
         return {
             'path': certificate_path,
         }
+
+    @url(r'/api/settings/test-certificate/')
+    @endpoint(api=True)
+    def handle_test_certificate(self, http_context):
+        if http_context.method == 'POST':
+            data = http_context.json_body()
+            certificate_path = data['certificate']
+            try:
+                certificate = load_certificate(FILETYPE_PEM, open(certificate_path).read())
+                private_key = load_privatekey(FILETYPE_PEM, open(certificate_path).read())
+            except Exception as e:
+                raise EndpointError(None, message=str(e))    
+                
+            return {'path': certificate_path}

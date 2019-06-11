@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-01 23:51+0100\n"
-"PO-Revision-Date: 2016-11-01 18:53-0400\n"
+"POT-Creation-Date: 2018-11-02 15:25+0100\n"
+"PO-Revision-Date: 2018-11-02 14:41\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Spanish\n"
 "Language: es_ES\n"
@@ -59,10 +59,6 @@ msgstr "Cerrar"
 msgid "Configure"
 msgstr "Configurar"
 
-#: plugins/network/resources/partial/index.html:31
-msgid "Deactivate (down) interface"
-msgstr "Desactivar (down) interfaz"
-
 #: plugins/network/resources/partial/index.html:191
 msgid "DNS"
 msgstr "DNS"
@@ -71,9 +67,13 @@ msgstr "DNS"
 msgid "DNS server address"
 msgstr "Dirección del servidor DNS"
 
+#: plugins/network/resources/partial/index.html:31
+msgid "Deactivate (down) interface"
+msgstr "Desactivar (down) interfaz"
+
 #: plugins/network/resources/partial/index.html:172
 msgid "Down script"
-msgstr ""
+msgstr "Por escritura"
 
 #: plugins/network/resources/partial/index.html:83
 msgid "Family"
@@ -91,13 +91,13 @@ msgstr "Nombre del Host"
 msgid "Hosts"
 msgstr "Hosts"
 
-#: plugins/network/resources/partial/index.html:19
-msgid "Interfaces"
-msgstr "Interfaces"
-
 #: plugins/network/resources/partial/index.html:285
 msgid "IP address"
 msgstr "Dirección IP"
+
+#: plugins/network/resources/partial/index.html:19
+msgid "Interfaces"
+msgstr "Interfaces"
 
 #: plugins/network/resources/partial/index.html:107
 msgid "Mask"
@@ -130,19 +130,19 @@ msgstr "No hay nombres de servidores definidos"
 
 #: plugins/network/resources/partial/index.html:177
 msgid "Post-down script"
-msgstr ""
+msgstr "Abajo la secuencia de comandos"
 
 #: plugins/network/resources/partial/index.html:162
 msgid "Post-up script"
-msgstr ""
+msgstr "Hasta la secuencia de comandos"
 
 #: plugins/network/resources/partial/index.html:167
 msgid "Pre-down script"
-msgstr ""
+msgstr "Abajo la secuencia de comandos"
 
 #: plugins/network/resources/partial/index.html:152
 msgid "Pre-up script"
-msgstr ""
+msgstr "Hasta la secuencia de comandos"
 
 #: plugins/network/resources/partial/index.html:196
 #: plugins/network/resources/partial/index.html:230
@@ -175,7 +175,7 @@ msgstr "Familia desconocida"
 
 #: plugins/network/resources/partial/index.html:157
 msgid "Up script"
-msgstr ""
+msgstr "Guión"
 
 #: plugins/network/resources/partial/index.html:12
 msgid "Update hostname"

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-01 23:51+0100\n"
-"PO-Revision-Date: 2016-11-01 18:53-0400\n"
+"POT-Creation-Date: 2018-11-02 15:25+0100\n"
+"PO-Revision-Date: 2018-11-02 14:42\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: German\n"
 "Language: de_DE\n"
@@ -49,14 +49,6 @@ msgstr "Insgesamt"
 msgid "Up one level"
 msgstr "Eine Ebene nach oben"
 
-#: plugins/filesystem/main.py:12
-msgid "Read from the filesystem"
-msgstr "Lese vom Dateisystem"
-
-#: plugins/filesystem/main.py:17
-msgid "Write to the filesystem"
-msgstr "Auf das Dateisystem schreiben"
-
 #: plugins/filesystem/tasks.py:9
 msgid "File transfer"
 msgstr "Dateitransfer"
@@ -68,4 +60,12 @@ msgstr "Lösche"
 #: plugins/filesystem/widget.py:10
 msgid "Disk space"
 msgstr "Speicherplatz"
+
+#: plugins/filesystem/main.py:12
+msgid "Read from the filesystem"
+msgstr "Lese vom Dateisystem"
+
+#: plugins/filesystem/main.py:17
+msgid "Write to the filesystem"
+msgstr "Auf das Dateisystem schreiben"
 

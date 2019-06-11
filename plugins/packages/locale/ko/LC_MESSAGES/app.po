@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-01 23:51+0100\n"
-"PO-Revision-Date: 2016-11-01 18:53-0400\n"
+"POT-Creation-Date: 2018-11-02 15:25+0100\n"
+"PO-Revision-Date: 2018-11-02 14:43\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Korean\n"
 "Language: ko_KR\n"
@@ -44,10 +44,6 @@ msgstr "삭제할 항목"
 msgid "Mark for upgrade"
 msgstr "업그레이드할 항목"
 
-#: plugins/packages/resources/partial/index.html:56
-msgid "pending"
-msgstr ""
-
 #: plugins/packages/resources/partial/index.html:3
 msgid "Search packages"
 msgstr "패키지 검색"
@@ -63,6 +59,10 @@ msgstr "패키지 목록 업데이트"
 #: plugins/packages/resources/partial/index.html:32
 msgid "Upgradeable"
 msgstr "업그레이드 가능"
+
+#: plugins/packages/resources/partial/index.html:56
+msgid "pending"
+msgstr ""
 
 #: plugins/packages/main.py:25
 msgid "Packages"

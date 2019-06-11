@@ -58,6 +58,6 @@ setup(
     author_email='e@ajenti.org',
     url='http://ajenti.org/',
     packages=find_packages(),
-    scripts=['ajenti-panel', 'ajenti-ssl-gen', 'ajenti-client-ssl-gen'],
+    scripts=['ajenti-panel', 'ajenti-ssl-gen', 'ajenti-client-ssl-gen', 'ajenti-upgrade'],
     cmdclass={'install': install},
 )

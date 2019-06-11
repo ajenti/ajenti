@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-01 23:51+0100\n"
+"POT-Creation-Date: 2018-11-02 15:25+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -60,16 +60,16 @@ msgstr ""
 msgid "Configure"
 msgstr ""
 
-#: plugins/network/resources/partial/index.html:31
-msgid "Deactivate (down) interface"
-msgstr ""
-
 #: plugins/network/resources/partial/index.html:191
 msgid "DNS"
 msgstr ""
 
 #: plugins/network/resources/partial/index.html:210
 msgid "DNS server address"
+msgstr ""
+
+#: plugins/network/resources/partial/index.html:31
+msgid "Deactivate (down) interface"
 msgstr ""
 
 #: plugins/network/resources/partial/index.html:172
@@ -92,12 +92,12 @@ msgstr ""
 msgid "Hosts"
 msgstr ""
 
-#: plugins/network/resources/partial/index.html:19
-msgid "Interfaces"
-msgstr ""
-
 #: plugins/network/resources/partial/index.html:285
 msgid "IP address"
+msgstr ""
+
+#: plugins/network/resources/partial/index.html:19
+msgid "Interfaces"
 msgstr ""
 
 #: plugins/network/resources/partial/index.html:107

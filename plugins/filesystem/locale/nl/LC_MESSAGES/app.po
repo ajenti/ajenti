@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-01 23:51+0100\n"
-"PO-Revision-Date: 2016-11-01 18:52-0400\n"
+"POT-Creation-Date: 2018-11-02 15:25+0100\n"
+"PO-Revision-Date: 2018-11-02 14:43\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Dutch\n"
 "Language: nl_NL\n"
@@ -49,14 +49,6 @@ msgstr "Totaal"
 msgid "Up one level"
 msgstr "Eén niveau omhoog"
 
-#: plugins/filesystem/main.py:12
-msgid "Read from the filesystem"
-msgstr "Lezen van het bestandssysteem"
-
-#: plugins/filesystem/main.py:17
-msgid "Write to the filesystem"
-msgstr "Schrijven naar het bestandssysteem"
-
 #: plugins/filesystem/tasks.py:9
 msgid "File transfer"
 msgstr "Bestandsoverdracht"
@@ -68,4 +60,12 @@ msgstr "Bezig met verwijderen"
 #: plugins/filesystem/widget.py:10
 msgid "Disk space"
 msgstr "Schijfruimte"
+
+#: plugins/filesystem/main.py:12
+msgid "Read from the filesystem"
+msgstr "Lezen van het bestandssysteem"
+
+#: plugins/filesystem/main.py:17
+msgid "Write to the filesystem"
+msgstr "Schrijven naar het bestandssysteem"
 

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-01 23:51+0100\n"
-"PO-Revision-Date: 2016-11-01 18:52-0400\n"
+"POT-Creation-Date: 2018-11-02 15:25+0100\n"
+"PO-Revision-Date: 2018-11-02 14:45\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -44,10 +44,6 @@ msgstr "标记以便删除"
 msgid "Mark for upgrade"
 msgstr "标记以便升级"
 
-#: plugins/packages/resources/partial/index.html:56
-msgid "pending"
-msgstr "挂起"
-
 #: plugins/packages/resources/partial/index.html:3
 msgid "Search packages"
 msgstr "搜索软件包"
@@ -63,6 +59,10 @@ msgstr "更新软件包列表"
 #: plugins/packages/resources/partial/index.html:32
 msgid "Upgradeable"
 msgstr "可升级"
+
+#: plugins/packages/resources/partial/index.html:56
+msgid "pending"
+msgstr "挂起"
 
 #: plugins/packages/main.py:25
 msgid "Packages"

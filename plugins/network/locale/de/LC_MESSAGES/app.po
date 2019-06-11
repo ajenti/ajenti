@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-01 23:51+0100\n"
-"PO-Revision-Date: 2016-11-01 18:53-0400\n"
+"POT-Creation-Date: 2018-11-02 15:25+0100\n"
+"PO-Revision-Date: 2018-11-02 14:42\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: German\n"
 "Language: de_DE\n"
@@ -18,7 +18,7 @@ msgstr ""
 
 #: plugins/network/resources/partial/index.html:28
 msgid "Activate (up) interface"
-msgstr ""
+msgstr "(+) Schnittstelle aktiviere"
 
 #: plugins/network/resources/partial/index.html:212
 #: plugins/network/resources/partial/index.html:261
@@ -40,7 +40,7 @@ msgstr "Aliase"
 
 #: plugins/network/resources/partial/index.html:277
 msgid "Canonical hostname"
-msgstr ""
+msgstr "Autorisierter Hostname (CNAME)"
 
 #: plugins/network/resources/partial/index.html:55
 msgid "Checking status..."
@@ -59,10 +59,6 @@ msgstr "Schließen"
 msgid "Configure"
 msgstr "Konfigurieren"
 
-#: plugins/network/resources/partial/index.html:31
-msgid "Deactivate (down) interface"
-msgstr ""
-
 #: plugins/network/resources/partial/index.html:191
 msgid "DNS"
 msgstr "DNS"
@@ -71,9 +67,13 @@ msgstr "DNS"
 msgid "DNS server address"
 msgstr "DNS-Serveradresse"
 
+#: plugins/network/resources/partial/index.html:31
+msgid "Deactivate (down) interface"
+msgstr "(+) Schnittstelle deaktiviere"
+
 #: plugins/network/resources/partial/index.html:172
 msgid "Down script"
-msgstr ""
+msgstr "Skript während des Trennens ausführen"
 
 #: plugins/network/resources/partial/index.html:83
 msgid "Family"
@@ -91,13 +91,13 @@ msgstr "Hostname"
 msgid "Hosts"
 msgstr "Hosts"
 
-#: plugins/network/resources/partial/index.html:19
-msgid "Interfaces"
-msgstr "Schnittstellen"
-
 #: plugins/network/resources/partial/index.html:285
 msgid "IP address"
 msgstr "IP Adresse"
+
+#: plugins/network/resources/partial/index.html:19
+msgid "Interfaces"
+msgstr "Schnittstellen"
 
 #: plugins/network/resources/partial/index.html:107
 msgid "Mask"
@@ -130,19 +130,19 @@ msgstr "Keine Nameserver definiert"
 
 #: plugins/network/resources/partial/index.html:177
 msgid "Post-down script"
-msgstr ""
+msgstr "Skript nach dem Trennen ausführen"
 
 #: plugins/network/resources/partial/index.html:162
 msgid "Post-up script"
-msgstr ""
+msgstr "Skript nach dem Starten ausführen"
 
 #: plugins/network/resources/partial/index.html:167
 msgid "Pre-down script"
-msgstr ""
+msgstr "Skript vor dem Trennen ausführen"
 
 #: plugins/network/resources/partial/index.html:152
 msgid "Pre-up script"
-msgstr ""
+msgstr "Skript vor dem Starten ausführen"
 
 #: plugins/network/resources/partial/index.html:196
 #: plugins/network/resources/partial/index.html:230
@@ -175,7 +175,7 @@ msgstr "Unbekannte Familie"
 
 #: plugins/network/resources/partial/index.html:157
 msgid "Up script"
-msgstr ""
+msgstr "Skript während des Startens ausführen"
 
 #: plugins/network/resources/partial/index.html:12
 msgid "Update hostname"

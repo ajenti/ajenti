@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-01 23:51+0100\n"
-"PO-Revision-Date: 2016-11-01 18:52-0400\n"
+"POT-Creation-Date: 2018-11-02 15:25+0100\n"
+"PO-Revision-Date: 2018-11-02 14:42\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Finnish\n"
 "Language: fi_FI\n"
@@ -34,19 +34,19 @@ msgstr ""
 
 #: plugins/dashboard/resources/partial/index.html:12
 msgid "Add"
-msgstr ""
+msgstr "Lisää"
 
 #: plugins/dashboard/resources/partial/index.html:40
 msgid "Add widget"
 msgstr ""
 
-#: plugins/dashboard/resources/partial/widget.html:1
-msgid "Configure"
-msgstr ""
-
 #: plugins/dashboard/resources/partial/widgets/cpu.html:10
 #: plugins/dashboard/widgets/cpu.py:10
 msgid "CPU usage"
+msgstr "Suorittimen käyttö"
+
+#: plugins/dashboard/resources/partial/widget.html:1
+msgid "Configure"
 msgstr ""
 
 #: plugins/dashboard/resources/partial/widgets/hostname.html:2
@@ -57,28 +57,28 @@ msgstr ""
 #: plugins/dashboard/resources/partial/widgets/memory.html:10
 #: plugins/dashboard/widgets/memory.py:10
 msgid "Memory usage"
-msgstr ""
+msgstr "Muistinkäyttö"
 
 #: plugins/dashboard/resources/partial/index.html:22
 #: plugins/dashboard/resources/partial/widget.html:7
 msgid "Remove"
-msgstr ""
+msgstr "Poista"
 
 #: plugins/dashboard/resources/partial/index.html:17
 msgid "Rename"
-msgstr ""
+msgstr "Nimeä uudelleen"
 
 #: plugins/dashboard/resources/partial/index.html:82
 msgid "Save"
-msgstr ""
+msgstr "Tallenna"
 
 #: plugins/dashboard/resources/partial/index.html:8
 msgid "Tabs"
-msgstr ""
+msgstr "Välilehdet"
 
 #: plugins/dashboard/resources/partial/widgets/memory.html:4
 msgid "Total"
-msgstr ""
+msgstr "Yhteensä"
 
 #: plugins/dashboard/resources/partial/widgets/uptime.html:2
 #: plugins/dashboard/widgets/uptime.py:11
@@ -87,9 +87,9 @@ msgstr ""
 
 #: plugins/dashboard/main.py:15
 msgid "Dashboard"
-msgstr ""
+msgstr "Ohjausnäkymä"
 
 #: plugins/dashboard/widgets/loadavg.py:12
 msgid "Load average"
-msgstr ""
+msgstr "Kuormituskeskiarvo"
 

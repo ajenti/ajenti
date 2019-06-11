@@ -2,13 +2,13 @@ name: core
 author: Ajenti project
 email: e@ajenti.org
 url: http://ajenti.org
-version: '0.88'
+version: '0.90'
 title: Core
 icon: link
 dependencies: []
 resources:
-    - resources/vendor/babel-polyfill/browser-polyfill.js
     - resources/vendor/core.js/client/shim.min.js
+    - resources/vendor/babel-polyfill/browser-polyfill.js
     - resources/vendor/jquery/dist/jquery.min.js
     - resources/vendor/angular/angular.js
     - resources/vendor/angular-mocks/angular-mocks.js
@@ -50,6 +50,7 @@ resources:
     - resources/js/core/controllers/root.controller.es
     - resources/js/core/controllers/tasks.controller.es
     - resources/js/core/controllers/navbox.controller.es
+    - resources/js/core/controllers/error.controller.es
     - resources/js/core/directives/autofocus.es
     - resources/js/core/directives/checkbox.es
     - resources/js/core/directives/datePickerFix.es
@@ -79,6 +80,7 @@ resources:
     - resources/js/core/services/tasks.service.es
     - resources/partial/index.html
     - resources/partial/login.html
+    - resources/partial/404.html
     - resources/partial/sidebarItem.html
     - resources/partial/sidebarTasks.html
     - resources/partial/serverErrorMessage.html

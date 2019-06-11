@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-01 23:51+0100\n"
-"PO-Revision-Date: 2016-11-01 18:52-0400\n"
+"POT-Creation-Date: 2018-11-02 15:25+0100\n"
+"PO-Revision-Date: 2018-11-02 14:45\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -34,20 +34,20 @@ msgstr "活跃的核心"
 
 #: plugins/dashboard/resources/partial/index.html:12
 msgid "Add"
-msgstr ""
+msgstr "添加"
 
 #: plugins/dashboard/resources/partial/index.html:40
 msgid "Add widget"
 msgstr "添加小部件"
 
-#: plugins/dashboard/resources/partial/widget.html:1
-msgid "Configure"
-msgstr "配置"
-
 #: plugins/dashboard/resources/partial/widgets/cpu.html:10
 #: plugins/dashboard/widgets/cpu.py:10
 msgid "CPU usage"
 msgstr "CPU 使用率"
+
+#: plugins/dashboard/resources/partial/widget.html:1
+msgid "Configure"
+msgstr "配置"
 
 #: plugins/dashboard/resources/partial/widgets/hostname.html:2
 #: plugins/dashboard/widgets/hostname.py:10
@@ -66,7 +66,7 @@ msgstr "删除"
 
 #: plugins/dashboard/resources/partial/index.html:17
 msgid "Rename"
-msgstr ""
+msgstr "重命名"
 
 #: plugins/dashboard/resources/partial/index.html:82
 msgid "Save"
@@ -74,7 +74,7 @@ msgstr "保存"
 
 #: plugins/dashboard/resources/partial/index.html:8
 msgid "Tabs"
-msgstr ""
+msgstr "标签"
 
 #: plugins/dashboard/resources/partial/widgets/memory.html:4
 msgid "Total"

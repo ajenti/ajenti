@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-01 23:51+0100\n"
-"PO-Revision-Date: 2016-11-01 18:54-0400\n"
+"POT-Creation-Date: 2018-11-02 15:25+0100\n"
+"PO-Revision-Date: 2018-11-02 14:44\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Turkish\n"
 "Language: tr_TR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: crowdin.com\n"
 "X-Crowdin-Project: ajenti\n"
 "X-Crowdin-Language: tr\n"
@@ -40,7 +40,7 @@ msgstr "Diğer adlar"
 
 #: plugins/network/resources/partial/index.html:277
 msgid "Canonical hostname"
-msgstr ""
+msgstr "Standart host adı"
 
 #: plugins/network/resources/partial/index.html:55
 msgid "Checking status..."
@@ -59,10 +59,6 @@ msgstr "Kapat"
 msgid "Configure"
 msgstr "Yapılandır"
 
-#: plugins/network/resources/partial/index.html:31
-msgid "Deactivate (down) interface"
-msgstr ""
-
 #: plugins/network/resources/partial/index.html:191
 msgid "DNS"
 msgstr "DNS"
@@ -71,13 +67,17 @@ msgstr "DNS"
 msgid "DNS server address"
 msgstr "DNS sunucusu adresi"
 
+#: plugins/network/resources/partial/index.html:31
+msgid "Deactivate (down) interface"
+msgstr "Arayüzü devre dışı bırak"
+
 #: plugins/network/resources/partial/index.html:172
 msgid "Down script"
-msgstr ""
+msgstr "Kapanma betiği"
 
 #: plugins/network/resources/partial/index.html:83
 msgid "Family"
-msgstr ""
+msgstr "Aile"
 
 #: plugins/network/resources/partial/index.html:111
 msgid "Gateway"
@@ -91,13 +91,13 @@ msgstr "Ana makine adı"
 msgid "Hosts"
 msgstr "Ana bilgisayarlar"
 
-#: plugins/network/resources/partial/index.html:19
-msgid "Interfaces"
-msgstr "Arabirimleri"
-
 #: plugins/network/resources/partial/index.html:285
 msgid "IP address"
 msgstr "IP Adresleri"
+
+#: plugins/network/resources/partial/index.html:19
+msgid "Interfaces"
+msgstr "Arabirimleri"
 
 #: plugins/network/resources/partial/index.html:107
 msgid "Mask"
@@ -126,23 +126,23 @@ msgstr "Tanımlı hiçbir ana bilgisayar yok"
 
 #: plugins/network/resources/partial/index.html:206
 msgid "No nameservers defined"
-msgstr ""
+msgstr "İsim sunucusu tanımlı değil"
 
 #: plugins/network/resources/partial/index.html:177
 msgid "Post-down script"
-msgstr ""
+msgstr "Kapanma sonrası betiği"
 
 #: plugins/network/resources/partial/index.html:162
 msgid "Post-up script"
-msgstr ""
+msgstr "Açılma sonrası betiği"
 
 #: plugins/network/resources/partial/index.html:167
 msgid "Pre-down script"
-msgstr ""
+msgstr "Kapanma öncesi betiği"
 
 #: plugins/network/resources/partial/index.html:152
 msgid "Pre-up script"
-msgstr ""
+msgstr "Açılma öncesi betiği"
 
 #: plugins/network/resources/partial/index.html:196
 #: plugins/network/resources/partial/index.html:230
@@ -167,25 +167,25 @@ msgstr "Scope"
 
 #: plugins/network/resources/partial/index.html:77
 msgid "Unknown addressing"
-msgstr ""
+msgstr "Bilinmeyen adresleme"
 
 #: plugins/network/resources/partial/index.html:74
 msgid "Unknown family"
-msgstr ""
+msgstr "Bilinmeyen aile"
 
 #: plugins/network/resources/partial/index.html:157
 msgid "Up script"
-msgstr ""
+msgstr "Açılma betiği"
 
 #: plugins/network/resources/partial/index.html:12
 msgid "Update hostname"
-msgstr ""
+msgstr "Sunucu adını güncelle"
 
 #: plugins/network/main.py:31
 msgid "Configure network interfaces"
-msgstr ""
+msgstr "Ağ arabirimini yapılandır"
 
 #: plugins/network/main.py:36
 msgid "Activate/deactivate network interfaces"
-msgstr ""
+msgstr "Ağ arabirimlerini aktifleştir/devre dışı bırak"
 

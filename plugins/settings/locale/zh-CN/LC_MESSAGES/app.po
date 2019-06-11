@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-01 23:51+0100\n"
-"PO-Revision-Date: 2016-11-01 18:52-0400\n"
+"POT-Creation-Date: 2018-11-02 15:25+0100\n"
+"PO-Revision-Date: 2018-11-02 14:45\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -52,13 +52,13 @@ msgstr "拒绝其他的身份验证"
 msgid "Download certificate"
 msgstr "下载证书"
 
-#: plugins/settings/resources/partial/index.html:109
-msgid "Enable client authentication"
-msgstr "启用客户端身份验证"
-
 #: plugins/settings/resources/partial/index.html:85
 msgid "Enable SSL"
 msgstr "启用SSL"
+
+#: plugins/settings/resources/partial/index.html:109
+msgid "Enable client authentication"
+msgstr "启用客户端身份验证"
 
 #: plugins/settings/resources/partial/index.html:187
 msgid "Generate"
@@ -116,18 +116,6 @@ msgstr "删除"
 msgid "Restart panel"
 msgstr "重启面板"
 
-#: plugins/settings/resources/partial/index.html:253
-msgid "Save"
-msgstr "保存"
-
-#: plugins/settings/resources/partial/index.html:192
-msgid "Save and Close"
-msgstr "保存并关闭"
-
-#: plugins/settings/resources/partial/index.html:58
-msgid "Socket path"
-msgstr "套接字路径"
-
 #: plugins/settings/resources/partial/index.html:91
 msgid "SSL certificate file"
 msgstr "SSL 证书文件"
@@ -139,6 +127,18 @@ msgstr "SSL 客户端身份验证"
 #: plugins/settings/resources/partial/index.html:117
 msgid "SSL client certificates"
 msgstr "SSL 客户端证书"
+
+#: plugins/settings/resources/partial/index.html:253
+msgid "Save"
+msgstr "保存"
+
+#: plugins/settings/resources/partial/index.html:192
+msgid "Save and Close"
+msgstr "保存并关闭"
+
+#: plugins/settings/resources/partial/index.html:58
+msgid "Socket path"
+msgstr "套接字路径"
 
 #: plugins/settings/resources/partial/index.html:173
 msgid "State"

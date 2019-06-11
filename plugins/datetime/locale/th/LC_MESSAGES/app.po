@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-01 23:51+0100\n"
-"PO-Revision-Date: 2016-11-01 18:54-0400\n"
+"POT-Creation-Date: 2019-01-14 14:52+0100\n"
+"PO-Revision-Date: 2018-11-02 14:45\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Thai\n"
 "Language: th_TH\n"
@@ -16,31 +16,34 @@ msgstr ""
 "X-Crowdin-Language: th\n"
 "X-Crowdin-File: /2.0/datetime.po\n"
 
-#: plugins/datetime/resources/partial/index.html:17 plugins/datetime/main.py:17
-msgid "Date & time"
+#: datetime/resources/partial/index.html:17 datetime/main.py:17
+#, fuzzy
+msgid "Date &amp; time"
 msgstr "วันที่ & เวลา"
 
-#: plugins/datetime/resources/partial/index.html:26
+#: datetime/resources/partial/index.html:26
 msgid "Set time"
 msgstr "ตั้งเวลา"
 
-#: plugins/datetime/resources/partial/index.html:9
+#: datetime/resources/partial/index.html:9
 msgid "Set timezone"
 msgstr ""
 
-#: plugins/datetime/resources/partial/index.html:31
+#: datetime/resources/partial/index.html:31
 msgid "Sync time from the Internet"
 msgstr "ปรับเทียบเวลาจากอินเทอร์เน็ต"
 
-#: plugins/datetime/resources/partial/index.html:5
+#: datetime/resources/partial/index.html:5
 msgid "Time zone"
 msgstr "เขตเวลา"
 
-#: plugins/datetime/main.py:31
+#: datetime/main.py:31
 msgid "Change date and time"
 msgstr "ตั้งวันที่และเวลา"
 
-#: plugins/datetime/views.py:59
+#: datetime/views.py:59
 msgid "ntpdate utility is not installed"
 msgstr "ntpdate ยังไม่ถูกติดตั้ง"
 
+#~ msgid "Date & time"
+#~ msgstr "วันที่ & เวลา"

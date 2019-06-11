@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-01 23:51+0100\n"
-"PO-Revision-Date: 2016-11-01 18:53-0400\n"
+"POT-Creation-Date: 2018-11-02 15:25+0100\n"
+"PO-Revision-Date: 2018-11-02 14:45\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Indonesian\n"
 "Language: id_ID\n"
@@ -18,174 +18,174 @@ msgstr ""
 
 #: plugins/network/resources/partial/index.html:28
 msgid "Activate (up) interface"
-msgstr ""
+msgstr "Nonaktifkan (bawah) antarmuka"
 
 #: plugins/network/resources/partial/index.html:212
 #: plugins/network/resources/partial/index.html:261
 #: plugins/network/resources/partial/index.html:312
 msgid "Add"
-msgstr ""
+msgstr "Menambahkan"
 
 #: plugins/network/resources/partial/index.html:103
 msgid "Address"
-msgstr ""
+msgstr "Alamat"
 
 #: plugins/network/resources/partial/index.html:92
 msgid "Addressing"
-msgstr ""
+msgstr "Alamat"
 
 #: plugins/network/resources/partial/index.html:293
 msgid "Aliases"
-msgstr ""
+msgstr "Alias"
 
 #: plugins/network/resources/partial/index.html:277
 msgid "Canonical hostname"
-msgstr ""
+msgstr "Nama host Canonical"
 
 #: plugins/network/resources/partial/index.html:55
 msgid "Checking status..."
-msgstr ""
+msgstr "Memeriksa status..."
 
 #: plugins/network/resources/partial/index.html:122
 msgid "Client ID"
-msgstr ""
+msgstr "ID klien"
 
 #: plugins/network/resources/partial/index.html:184
 #: plugins/network/resources/partial/index.html:319
 msgid "Close"
-msgstr ""
+msgstr "Close"
 
 #: plugins/network/resources/partial/index.html:233
 msgid "Configure"
-msgstr ""
-
-#: plugins/network/resources/partial/index.html:31
-msgid "Deactivate (down) interface"
-msgstr ""
+msgstr "Konfigurasi"
 
 #: plugins/network/resources/partial/index.html:191
 msgid "DNS"
-msgstr ""
+msgstr "DNS"
 
 #: plugins/network/resources/partial/index.html:210
 msgid "DNS server address"
-msgstr ""
+msgstr "Alamat server DNS"
+
+#: plugins/network/resources/partial/index.html:31
+msgid "Deactivate (down) interface"
+msgstr "Nonaktifkan (bawah) antarmuka"
 
 #: plugins/network/resources/partial/index.html:172
 msgid "Down script"
-msgstr ""
+msgstr "Down script"
 
 #: plugins/network/resources/partial/index.html:83
 msgid "Family"
-msgstr ""
+msgstr "Keluarga"
 
 #: plugins/network/resources/partial/index.html:111
 msgid "Gateway"
-msgstr ""
+msgstr "Pintu gerbang"
 
 #: plugins/network/resources/partial/index.html:8
 msgid "Hostname"
-msgstr ""
+msgstr "Nama host"
 
 #: plugins/network/resources/partial/index.html:225
 msgid "Hosts"
-msgstr ""
-
-#: plugins/network/resources/partial/index.html:19
-msgid "Interfaces"
-msgstr ""
+msgstr "Tuan rumah"
 
 #: plugins/network/resources/partial/index.html:285
 msgid "IP address"
-msgstr ""
+msgstr "Alamat IP"
+
+#: plugins/network/resources/partial/index.html:19
+msgid "Interfaces"
+msgstr "Antarmuka"
 
 #: plugins/network/resources/partial/index.html:107
 msgid "Mask"
-msgstr ""
+msgstr "Masker"
 
 #: plugins/network/resources/partial/index.html:115
 msgid "Metric"
-msgstr ""
+msgstr "Metrik"
 
 #: plugins/network/resources/partial/index.html:4 plugins/network/main.py:17
 msgid "Network"
-msgstr ""
+msgstr "Jaringan"
 
 #: plugins/network/resources/partial/index.html:310
 msgid "New alias"
-msgstr ""
+msgstr "Alias ​​baru"
 
 #: plugins/network/resources/partial/index.html:259
 msgid "New host name"
-msgstr ""
+msgstr "Nama host baru"
 
 #: plugins/network/resources/partial/index.html:255
 #: plugins/network/resources/partial/index.html:295
 msgid "No hosts defined"
-msgstr ""
+msgstr "Tidak ada host yang didefinisikan"
 
 #: plugins/network/resources/partial/index.html:206
 msgid "No nameservers defined"
-msgstr ""
+msgstr "Tidak ada nameserver yang didefinisikan"
 
 #: plugins/network/resources/partial/index.html:177
 msgid "Post-down script"
-msgstr ""
+msgstr "Skrip post-down"
 
 #: plugins/network/resources/partial/index.html:162
 msgid "Post-up script"
-msgstr ""
+msgstr "Naskah pos"
 
 #: plugins/network/resources/partial/index.html:167
 msgid "Pre-down script"
-msgstr ""
+msgstr "Skrip pra-turun"
 
 #: plugins/network/resources/partial/index.html:152
 msgid "Pre-up script"
-msgstr ""
+msgstr "Pre-up naskah"
 
 #: plugins/network/resources/partial/index.html:196
 #: plugins/network/resources/partial/index.html:230
 #: plugins/network/resources/partial/index.html:299
 msgid "Remove"
-msgstr ""
+msgstr "Menghapus"
 
 #: plugins/network/resources/partial/index.html:34
 msgid "Restart interface"
-msgstr ""
+msgstr "Restart antarmuka"
 
 #: plugins/network/resources/partial/index.html:183
 #: plugins/network/resources/partial/index.html:219
 #: plugins/network/resources/partial/index.html:268
 #: plugins/network/resources/partial/index.html:318
 msgid "Save"
-msgstr ""
+msgstr "Simpan"
 
 #: plugins/network/resources/partial/index.html:129
 msgid "Scope"
-msgstr ""
+msgstr "Cakupan"
 
 #: plugins/network/resources/partial/index.html:77
 msgid "Unknown addressing"
-msgstr ""
+msgstr "Pengalamatan yang tidak diketahui"
 
 #: plugins/network/resources/partial/index.html:74
 msgid "Unknown family"
-msgstr ""
+msgstr "Keluarga yang tidak diketahui"
 
 #: plugins/network/resources/partial/index.html:157
 msgid "Up script"
-msgstr ""
+msgstr "Skrip Up"
 
 #: plugins/network/resources/partial/index.html:12
 msgid "Update hostname"
-msgstr ""
+msgstr "Perbarui nama host"
 
 #: plugins/network/main.py:31
 msgid "Configure network interfaces"
-msgstr ""
+msgstr "Mengkonfigurasi antarmuka jaringan"
 
 #: plugins/network/main.py:36
 msgid "Activate/deactivate network interfaces"
-msgstr ""
+msgstr "Mengaktifkan/menonaktifkan antarmuka jaringan"
 

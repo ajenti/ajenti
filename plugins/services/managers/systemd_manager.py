@@ -18,7 +18,7 @@ class SystemdServiceManager(ServiceManager):
 
     def list(self, units=None):
         if not units:
-            units = [x.split()[0] for x in subprocess.check_output(['systemctl', 'list-unit-files', '--no-legend', '--no-pager', '-la']).splitlines() if x]
+            units = [x.split()[0] for x in subprocess.check_output(['systemctl', 'list-unit-files', '--no-legend', '--no-pager', '-la']).decode().splitlines() if x]
             units = [x for x in units if x.endswith('.service') and '@' not in x]
             units = list(set(units))
 
@@ -26,7 +26,7 @@ class SystemdServiceManager(ServiceManager):
 
         used_names = set()
         unit = {}
-        for l in subprocess.check_output(cmd).splitlines() + [None]:
+        for l in subprocess.check_output(cmd).decode().splitlines() + [None]:
             if not l:
                 if len(unit) > 0:
                     svc = Service(self)

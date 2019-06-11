@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-01 23:51+0100\n"
-"PO-Revision-Date: 2016-11-01 18:52-0400\n"
+"POT-Creation-Date: 2018-11-02 15:25+0100\n"
+"PO-Revision-Date: 2018-11-02 14:45\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -49,14 +49,6 @@ msgstr "共计"
 msgid "Up one level"
 msgstr "上一级"
 
-#: plugins/filesystem/main.py:12
-msgid "Read from the filesystem"
-msgstr "从文件系统读取"
-
-#: plugins/filesystem/main.py:17
-msgid "Write to the filesystem"
-msgstr "写到文件系统"
-
 #: plugins/filesystem/tasks.py:9
 msgid "File transfer"
 msgstr "文件传输"
@@ -68,4 +60,12 @@ msgstr "正在删除"
 #: plugins/filesystem/widget.py:10
 msgid "Disk space"
 msgstr "磁盘空间"
+
+#: plugins/filesystem/main.py:12
+msgid "Read from the filesystem"
+msgstr "从文件系统读取"
+
+#: plugins/filesystem/main.py:17
+msgid "Write to the filesystem"
+msgstr "写到文件系统"
 

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-01 23:51+0100\n"
-"PO-Revision-Date: 2016-11-01 18:52-0400\n"
+"POT-Creation-Date: 2018-11-02 15:25+0100\n"
+"PO-Revision-Date: 2018-11-02 14:45\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -46,10 +46,6 @@ msgstr "运行命令......"
 msgid "Script"
 msgstr "脚本"
 
-#: plugins/terminal/resources/partial/widget.config.html:11
-msgid "stdin data"
-msgstr "stdin 数据"
-
 #: plugins/terminal/resources/partial/index.html:1
 msgid "Terminals"
 msgstr "终端"
@@ -57,6 +53,10 @@ msgstr "终端"
 #: plugins/terminal/resources/partial/index.html:9
 msgid "Terminate"
 msgstr "终止"
+
+#: plugins/terminal/resources/partial/widget.config.html:11
+msgid "stdin data"
+msgstr "stdin 数据"
 
 #: plugins/terminal/main.py:16
 msgid "Terminal"

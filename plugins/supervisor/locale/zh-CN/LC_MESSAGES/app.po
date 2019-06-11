@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-01 23:51+0100\n"
-"PO-Revision-Date: 2016-11-01 18:52-0400\n"
+"POT-Creation-Date: 2018-11-02 15:25+0100\n"
+"PO-Revision-Date: 2018-11-02 14:45\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -76,13 +76,13 @@ msgstr "崩溃"
 msgid "Process name template"
 msgstr "进程名称模板"
 
-#: plugins/supervisor/resources/partial/index.html:5
-msgid "Remove"
-msgstr "删除"
-
 #: plugins/supervisor/resources/partial/index.html:26
 msgid "RUNNING"
 msgstr "运行中"
+
+#: plugins/supervisor/resources/partial/index.html:5
+msgid "Remove"
+msgstr "删除"
 
 #: plugins/supervisor/resources/partial/index.html:216
 #: plugins/supervisor/resources/partial/index.html:53

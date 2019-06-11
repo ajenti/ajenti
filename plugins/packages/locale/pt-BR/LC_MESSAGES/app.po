@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-01 23:51+0100\n"
-"PO-Revision-Date: 2016-11-01 18:53-0400\n"
+"POT-Creation-Date: 2018-11-02 15:25+0100\n"
+"PO-Revision-Date: 2018-11-02 14:45\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Portuguese, Brazilian\n"
 "Language: pt_BR\n"
@@ -30,23 +30,19 @@ msgstr "Fechar"
 
 #: plugins/packages/resources/partial/index.html:26
 msgid "Installed"
-msgstr ""
+msgstr "Instalado"
 
 #: plugins/packages/resources/partial/index.html:12
 msgid "Mark for installation"
-msgstr ""
+msgstr "Marcar para instalação"
 
 #: plugins/packages/resources/partial/index.html:15
 msgid "Mark for removal"
-msgstr ""
+msgstr "Marca para remoção"
 
 #: plugins/packages/resources/partial/index.html:9
 msgid "Mark for upgrade"
 msgstr "Marcar para atualização"
-
-#: plugins/packages/resources/partial/index.html:56
-msgid "pending"
-msgstr ""
 
 #: plugins/packages/resources/partial/index.html:3
 msgid "Search packages"
@@ -54,15 +50,19 @@ msgstr "Pesquisar pacotes"
 
 #: plugins/packages/resources/partial/index.html:64
 msgid "Selections"
-msgstr ""
+msgstr "Seleções"
 
 #: plugins/packages/resources/partial/index.html:51
 msgid "Update package list"
-msgstr ""
+msgstr "Lista de pacotes de atualização"
 
 #: plugins/packages/resources/partial/index.html:32
 msgid "Upgradeable"
 msgstr "Atualizável"
+
+#: plugins/packages/resources/partial/index.html:56
+msgid "pending"
+msgstr "pendente"
 
 #: plugins/packages/main.py:25
 msgid "Packages"

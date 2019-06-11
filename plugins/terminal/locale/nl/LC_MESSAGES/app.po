@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-01 23:51+0100\n"
-"PO-Revision-Date: 2016-11-01 18:52-0400\n"
+"POT-Creation-Date: 2018-11-02 15:25+0100\n"
+"PO-Revision-Date: 2018-11-02 14:43\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Dutch\n"
 "Language: nl_NL\n"
@@ -46,10 +46,6 @@ msgstr "Een opdracht uitvoeren..."
 msgid "Script"
 msgstr "Script"
 
-#: plugins/terminal/resources/partial/widget.config.html:11
-msgid "stdin data"
-msgstr "stdin-gegevens"
-
 #: plugins/terminal/resources/partial/index.html:1
 msgid "Terminals"
 msgstr "Terminals"
@@ -57,6 +53,10 @@ msgstr "Terminals"
 #: plugins/terminal/resources/partial/index.html:9
 msgid "Terminate"
 msgstr "Beëindigen"
+
+#: plugins/terminal/resources/partial/widget.config.html:11
+msgid "stdin data"
+msgstr "stdin-gegevens"
 
 #: plugins/terminal/main.py:16
 msgid "Terminal"

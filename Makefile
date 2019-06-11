@@ -1,3 +1,6 @@
+## Flag for custom config file
+CONFIGFILE := ''
+
 all: build
 
 bower:
@@ -8,17 +11,28 @@ build:
 	ajenti-dev-multitool --build
 
 run:
-	cd ajenti-panel && ./ajenti-panel -v --autologin --plugins ../plugins
+	cd ajenti-panel && ./ajenti-panel -v --autologin --plugins ../plugins $(CONFIGFILE)
 
 rundev:
-	cd ajenti-panel && ./ajenti-panel -v --autologin --plugins ../plugins --dev
+	cd ajenti-panel && ./ajenti-panel -v --autologin --plugins ../plugins --dev $(CONFIGFILE)
 
 rundevlogin:
-	cd ajenti-panel && ./ajenti-panel -v --plugins ../plugins --dev
+	cd ajenti-panel && ./ajenti-panel -v --plugins ../plugins --dev $(CONFIGFILE)
 
 runprod:
-	cd ajenti-panel && ./ajenti-panel --plugins ../plugins
+	cd ajenti-panel && ./ajenti-panel --plugins ../plugins $(CONFIGFILE)
 
+run3:
+	cd ajenti-panel && python3 ./ajenti-panel -v --autologin --plugins ../plugins $(CONFIGFILE)
+
+rundev3:
+	cd ajenti-panel && python3 ./ajenti-panel -v --autologin --plugins ../plugins --dev $(CONFIGFILE)
+
+rundevlogin3:
+	cd ajenti-panel && python3 ./ajenti-panel -v --plugins ../plugins --dev $(CONFIGFILE)
+
+runprod3:
+	cd ajenti-panel && python3 ./ajenti-panel --plugins ../plugins $(CONFIGFILE)
 
 clean:
 	find | grep \.pyc | xargs rm || true
@@ -47,8 +61,8 @@ check:
 	ajenti-dev-multitool --find-outdated
 
 upload:
-	cd ajenti-core && ./setup.py sdist upload --sign --identity "Ajenti Packagers"
-	cd ajenti-panel && ./setup.py sdist upload --sign --identity "Ajenti Packagers"
+	cd ajenti-core && ./setup.py sdist && twine upload dist/*.tar.gz -i "Ajenti Packagers" -s
+	cd ajenti-panel && ./setup.py sdist && twine upload dist/*.tar.gz -i "Ajenti Packagers" -s
 
 upload-plugins: build
 	ajenti-dev-multitool --setuppy 'sdist upload --sign --identity "Ajenti Packagers"'

@@ -6,7 +6,7 @@ import subprocess
 
 # imported by installer, no 3rd party imports here!
 
-__version__ = '2.1.24'
+__version__ = '2.1.26'
 
 # Global state
 
@@ -60,7 +60,7 @@ def detect_version():
     )
     if p.wait() != 0:
         return __version__
-    return p.stdout.read().strip('\n ')
+    return p.stdout.read().strip(b'\n ').decode()
 
 
 def detect_platform():

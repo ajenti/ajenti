@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-01 23:51+0100\n"
-"PO-Revision-Date: 2016-11-01 18:53-0400\n"
+"POT-Creation-Date: 2018-11-02 15:25+0100\n"
+"PO-Revision-Date: 2018-11-02 14:42\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: German\n"
 "Language: de_DE\n"
@@ -15,10 +15,6 @@ msgstr ""
 "X-Crowdin-Project: ajenti\n"
 "X-Crowdin-Language: de\n"
 "X-Crowdin-File: /2.0/power.po\n"
-
-#: plugins/power/resources/partial/index.html:61
-msgid "{{battery.voltage}} V"
-msgstr "{{battery.voltage}} V"
 
 #: plugins/power/resources/partial/index.html:72
 msgid "Adapters"
@@ -74,13 +70,17 @@ msgstr "Bereitschaft"
 
 #: plugins/power/resources/partial/index.html:6
 msgid "System uptime"
-msgstr "Uptime"
+msgstr "Betriebszeit"
 
-#: plugins/power/main.py:30
-msgid "Shutdown and reboot the system"
-msgstr "Herunterfahren und Neustart des Systems"
+#: plugins/power/resources/partial/index.html:61
+msgid "{{battery.voltage}} V"
+msgstr "{{battery.voltage}} V"
 
 #: plugins/power/widget.py:9
 msgid "Power state"
 msgstr "Status"
+
+#: plugins/power/main.py:30
+msgid "Shutdown and reboot the system"
+msgstr "Herunterfahren und Neustart des Systems"
 

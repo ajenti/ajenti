@@ -50,7 +50,7 @@ class HttpRoot(object):
             else:
                 http_context.respond(400)
                 http_context.run_response()
-                return 'Invalid URL Prefix'
+                return [b'Invalid URL Prefix']
 
         content = self.handler.handle(http_context)
 
@@ -177,7 +177,7 @@ class HttpContext(object):
             'query': self.query,
             'prefix': self.prefix,
             'method': self.method,
-        })
+        }, protocol=0)
 
     @classmethod
     def deserialize(cls, data):
@@ -255,21 +255,21 @@ class HttpContext(object):
         Returns a HTTP ``500 Server Error`` response
         """
         self.respond('500 Server Error')
-        return 'Server Error'
+        return [b'Server Error']
 
     def respond_forbidden(self):
         """
         Returns a HTTP ``403 Forbidden`` response
         """
         self.respond('403 Forbidden')
-        return 'Forbidden'
+        return [b'Forbidden']
 
     def respond_not_found(self):
         """
         Returns a ``HTTP 404 Not Found`` response
         """
         self.respond('404 Not Found')
-        return 'Not Found'
+        return [b'Not Found']
 
     def redirect(self, location):
         """
@@ -362,7 +362,7 @@ class HttpContext(object):
         self.add_header('Last-Modified', mtime.strftime('%a, %b %d %Y %H:%M:%S GMT'))
         self.add_header('Accept-Ranges', 'bytes')
 
-        name = name or os.path.split(path)[-1]
+        name = name or os.path.split(path)[-1].encode()
 
         if inline:
             self.add_header('Content-Disposition', b'inline; filename=%s' % name)
@@ -392,5 +392,5 @@ class HttpContext(object):
                     break
             os.close(fd)
         else:
-            content = open(path).read()
+            content = open(path, 'rb').read()
             yield self.gzip(content)

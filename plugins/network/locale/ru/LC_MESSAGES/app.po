@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-01 23:51+0100\n"
-"PO-Revision-Date: 2016-11-01 18:53-0400\n"
+"POT-Creation-Date: 2018-11-02 15:25+0100\n"
+"PO-Revision-Date: 2018-11-02 14:44\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=4; plural=((n%10==1 && n%100!=11) ? 0 : ((n%10 >= 2 && n%10 <=4 && (n%100 < 12 || n%100 > 14)) ? 1 : ((n%10 == 0 || (n%10 >= 5 && n%10 <=9)) || (n%100 >= 11 && n%100 <= 14)) ? 2 : 3));\n"
 "X-Generator: crowdin.com\n"
 "X-Crowdin-Project: ajenti\n"
 "X-Crowdin-Language: ru\n"
@@ -40,7 +40,7 @@ msgstr "Аллиасы"
 
 #: plugins/network/resources/partial/index.html:277
 msgid "Canonical hostname"
-msgstr ""
+msgstr "Каноническое имя хоста"
 
 #: plugins/network/resources/partial/index.html:55
 msgid "Checking status..."
@@ -59,10 +59,6 @@ msgstr "Закрыть"
 msgid "Configure"
 msgstr "настроить"
 
-#: plugins/network/resources/partial/index.html:31
-msgid "Deactivate (down) interface"
-msgstr "Отключить интерфейс"
-
 #: plugins/network/resources/partial/index.html:191
 msgid "DNS"
 msgstr "DNS"
@@ -71,9 +67,13 @@ msgstr "DNS"
 msgid "DNS server address"
 msgstr "Адрес DNS-сервера"
 
+#: plugins/network/resources/partial/index.html:31
+msgid "Deactivate (down) interface"
+msgstr "Отключить интерфейс"
+
 #: plugins/network/resources/partial/index.html:172
 msgid "Down script"
-msgstr ""
+msgstr "Остановить сценарий"
 
 #: plugins/network/resources/partial/index.html:83
 msgid "Family"
@@ -91,13 +91,13 @@ msgstr "Имя хоста"
 msgid "Hosts"
 msgstr "Хосты"
 
-#: plugins/network/resources/partial/index.html:19
-msgid "Interfaces"
-msgstr "Подключения"
-
 #: plugins/network/resources/partial/index.html:285
 msgid "IP address"
 msgstr "IP-адрес"
+
+#: plugins/network/resources/partial/index.html:19
+msgid "Interfaces"
+msgstr "Подключения"
 
 #: plugins/network/resources/partial/index.html:107
 msgid "Mask"
@@ -130,19 +130,19 @@ msgstr "Серверы имен не определены"
 
 #: plugins/network/resources/partial/index.html:177
 msgid "Post-down script"
-msgstr ""
+msgstr "Пост-остановка сценария"
 
 #: plugins/network/resources/partial/index.html:162
 msgid "Post-up script"
-msgstr ""
+msgstr "Пост-запуск сценария"
 
 #: plugins/network/resources/partial/index.html:167
 msgid "Pre-down script"
-msgstr ""
+msgstr "Предварительная-остановка сценария"
 
 #: plugins/network/resources/partial/index.html:152
 msgid "Pre-up script"
-msgstr ""
+msgstr "Предварительный-запуск сценария"
 
 #: plugins/network/resources/partial/index.html:196
 #: plugins/network/resources/partial/index.html:230
@@ -163,19 +163,19 @@ msgstr "Сохранить"
 
 #: plugins/network/resources/partial/index.html:129
 msgid "Scope"
-msgstr ""
+msgstr "Граница"
 
 #: plugins/network/resources/partial/index.html:77
 msgid "Unknown addressing"
-msgstr ""
+msgstr "Неизвестное обращение"
 
 #: plugins/network/resources/partial/index.html:74
 msgid "Unknown family"
-msgstr ""
+msgstr "Неизвестная семья"
 
 #: plugins/network/resources/partial/index.html:157
 msgid "Up script"
-msgstr ""
+msgstr "Запустить сценарий"
 
 #: plugins/network/resources/partial/index.html:12
 msgid "Update hostname"

@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-11-01 23:51+0100\n"
-"PO-Revision-Date: 2016-11-01 18:53-0400\n"
+"PO-Revision-Date: 2018-11-02 14:45\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Portuguese, Brazilian\n"
 "Language: pt_BR\n"
@@ -30,15 +30,15 @@ msgstr "Novo"
 
 #: plugins/notepad/resources/partial/index.html:49
 msgid "Open"
-msgstr ""
+msgstr "Abrir"
 
 #: plugins/notepad/resources/partial/index.html:50
 msgid "Save"
-msgstr ""
+msgstr "Salvar"
 
 #: plugins/notepad/resources/partial/index.html:51
 msgid "Save As..."
-msgstr ""
+msgstr "Salvar Como..."
 
 #: plugins/notepad/resources/partial/index.html:27
 msgid "Tab"

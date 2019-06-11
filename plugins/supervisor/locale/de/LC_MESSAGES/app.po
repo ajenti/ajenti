@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-01 23:51+0100\n"
-"PO-Revision-Date: 2016-11-01 18:53-0400\n"
+"POT-Creation-Date: 2018-11-02 15:25+0100\n"
+"PO-Revision-Date: 2018-11-02 14:42\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: German\n"
 "Language: de_DE\n"
@@ -74,15 +74,15 @@ msgstr "Bei einem Absturz"
 
 #: plugins/supervisor/resources/partial/index.html:85
 msgid "Process name template"
-msgstr ""
-
-#: plugins/supervisor/resources/partial/index.html:5
-msgid "Remove"
-msgstr "Entfernen"
+msgstr "Name der Prozessvorlage"
 
 #: plugins/supervisor/resources/partial/index.html:26
 msgid "RUNNING"
 msgstr "LÄUFT"
+
+#: plugins/supervisor/resources/partial/index.html:5
+msgid "Remove"
+msgstr "Entfernen"
 
 #: plugins/supervisor/resources/partial/index.html:216
 #: plugins/supervisor/resources/partial/index.html:53
@@ -107,7 +107,7 @@ msgstr "Unterprozesse stoppen"
 
 #: plugins/supervisor/resources/partial/index.html:95
 msgid "User account"
-msgstr "Nutzerkonten"
+msgstr "Benutzerkonto"
 
 #: plugins/supervisor/resources/partial/index.html:115
 msgid "Working directory"
@@ -119,5 +119,5 @@ msgstr "Ja"
 
 #: plugins/supervisor/main.py:15
 msgid "Supervisor"
-msgstr "Supervisor"
+msgstr "SuperVisor"
 

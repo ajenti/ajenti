@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-01 23:51+0100\n"
-"PO-Revision-Date: 2016-11-01 18:53-0400\n"
+"POT-Creation-Date: 2018-11-02 15:25+0100\n"
+"PO-Revision-Date: 2018-11-02 14:45\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Indonesian\n"
 "Language: id_ID\n"
@@ -18,141 +18,141 @@ msgstr ""
 
 #: plugins/settings/resources/partial/index.html:76
 msgid "Allow sudo elevation for logged in users"
-msgstr ""
+msgstr "Biarkan elevasi sudo untuk pengguna yang masuk"
 
 #: plugins/settings/resources/partial/index.html:67
 msgid "Authentication provider"
-msgstr ""
+msgstr "Penyedia otentikasi"
 
 #: plugins/settings/resources/partial/index.html:39
 msgid "Binding"
-msgstr ""
+msgstr "Mengikat"
 
 #: plugins/settings/resources/partial/index.html:188
 msgid "Cancel"
-msgstr ""
+msgstr "Membatalkan"
 
 #: plugins/settings/resources/partial/index.html:16
 msgid "Color tag"
-msgstr ""
+msgstr "Tag warna"
 
 #: plugins/settings/resources/partial/index.html:181
 msgid "Common name"
-msgstr ""
+msgstr "Nama umum"
 
 #: plugins/settings/resources/partial/index.html:169
 msgid "Country"
-msgstr ""
+msgstr "Negara"
 
 #: plugins/settings/resources/partial/index.html:112
 msgid "Deny other means of authentication"
-msgstr ""
+msgstr "Tolak cara otentikasi lainnya"
 
 #: plugins/settings/resources/partial/index.html:159
 msgid "Download certificate"
-msgstr ""
-
-#: plugins/settings/resources/partial/index.html:109
-msgid "Enable client authentication"
-msgstr ""
+msgstr "Download sertifikat"
 
 #: plugins/settings/resources/partial/index.html:85
 msgid "Enable SSL"
-msgstr ""
+msgstr "Aktifkan SSL"
+
+#: plugins/settings/resources/partial/index.html:109
+msgid "Enable client authentication"
+msgstr "Aktifkan otentikasi klien"
 
 #: plugins/settings/resources/partial/index.html:187
 msgid "Generate"
-msgstr ""
+msgstr "Menghasilkan"
 
 #: plugins/settings/resources/partial/index.html:98
 msgid "Generate a self-signed certificate"
-msgstr ""
+msgstr "Buat sertifikat yang ditandatangani sendiri"
 
 #: plugins/settings/resources/partial/index.html:152
 msgid "Generating certificate"
-msgstr ""
+msgstr "Membangkitkan sertifikat"
 
 #: plugins/settings/resources/partial/index.html:50
 msgid "Host / IP"
-msgstr ""
+msgstr "Host / IP"
 
 #: plugins/settings/resources/partial/index.html:30
 msgid "Language"
-msgstr ""
+msgstr "Bahasa"
 
 #: plugins/settings/resources/partial/index.html:165
 msgid "Login as"
-msgstr ""
+msgstr "Masuk sebagai"
 
 #: plugins/settings/resources/partial/index.html:10
 msgid "Machine name"
-msgstr ""
+msgstr "Nama mesin"
 
 #: plugins/settings/resources/partial/index.html:142
 msgid "New certificate"
-msgstr ""
+msgstr "Sertifikat baru"
 
 #: plugins/settings/resources/partial/index.html:147
 msgid "New client certificate"
-msgstr ""
+msgstr "Sertifikat klien baru"
 
 #: plugins/settings/resources/partial/index.html:119
 msgid "No certificates are created yet."
-msgstr ""
+msgstr "Belum ada sertifikat yang dibuat."
 
 #: plugins/settings/resources/partial/index.html:177
 msgid "Organization"
-msgstr ""
+msgstr "Organisasi"
 
 #: plugins/settings/resources/partial/index.html:53
 msgid "Port"
-msgstr ""
+msgstr "Pelabuhan"
 
 #: plugins/settings/resources/partial/index.html:209
 msgid "Remove"
-msgstr ""
+msgstr "Menghapus"
 
 #: plugins/settings/resources/partial/index.html:254
 msgid "Restart panel"
-msgstr ""
-
-#: plugins/settings/resources/partial/index.html:253
-msgid "Save"
-msgstr ""
-
-#: plugins/settings/resources/partial/index.html:192
-msgid "Save and Close"
-msgstr ""
-
-#: plugins/settings/resources/partial/index.html:58
-msgid "Socket path"
-msgstr ""
+msgstr "Panel Mengulang"
 
 #: plugins/settings/resources/partial/index.html:91
 msgid "SSL certificate file"
-msgstr ""
+msgstr "File sertifikat SSL"
 
 #: plugins/settings/resources/partial/index.html:107
 msgid "SSL client authentication"
-msgstr ""
+msgstr "Otentikasi klien SSL"
 
 #: plugins/settings/resources/partial/index.html:117
 msgid "SSL client certificates"
-msgstr ""
+msgstr "Sertifikat klien SSL"
+
+#: plugins/settings/resources/partial/index.html:253
+msgid "Save"
+msgstr "Menyimpan"
+
+#: plugins/settings/resources/partial/index.html:192
+msgid "Save and Close"
+msgstr "Simpan dan Tutup"
+
+#: plugins/settings/resources/partial/index.html:58
+msgid "Socket path"
+msgstr "Jalan soket"
 
 #: plugins/settings/resources/partial/index.html:173
 msgid "State"
-msgstr ""
+msgstr "Negara"
 
 #: plugins/settings/resources/partial/index.html:74
 msgid "Sudo"
-msgstr ""
+msgstr "Sudo"
 
 #: plugins/settings/resources/partial/index.html:153
 msgid "This might take a few seconds"
-msgstr ""
+msgstr "Ini mungkin memakan waktu beberapa detik"
 
 #: plugins/settings/main.py:15
 msgid "Settings"
-msgstr ""
+msgstr "Pengaturan"
 

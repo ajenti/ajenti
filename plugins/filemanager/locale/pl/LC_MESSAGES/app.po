@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-01 23:51+0100\n"
-"PO-Revision-Date: 2016-11-01 18:53-0400\n"
+"POT-Creation-Date: 2018-11-02 15:25+0100\n"
+"PO-Revision-Date: 2018-11-02 14:43\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Polish\n"
 "Language: pl_PL\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
 "X-Generator: crowdin.com\n"
 "X-Crowdin-Project: ajenti\n"
 "X-Crowdin-Language: pl\n"
@@ -28,9 +28,8 @@ msgstr "Wszyscy"
 msgid "Apply"
 msgstr "Zastosuj"
 
-#: plugins/filemanager/resources/partial/index.html:110
-#: plugins/filemanager/resources/partial/index.html:69
-#: plugins/filemanager/resources/partial/index.html:82
+#: plugins/filemanager/resources/partial/index.html:76
+#: plugins/filemanager/resources/partial/index.html:89
 #: plugins/filemanager/resources/partial/properties.html:188
 msgid "Cancel"
 msgstr "Anuluj"
@@ -39,46 +38,46 @@ msgstr "Anuluj"
 msgid "Change permissions"
 msgstr "Zmień uprawnienia"
 
-#: plugins/filemanager/resources/partial/index.html:116
+#: plugins/filemanager/resources/partial/index.html:95
 msgid "Clipboard"
 msgstr "Schowek"
 
-#: plugins/filemanager/resources/partial/index.html:138
+#: plugins/filemanager/resources/partial/index.html:117
 msgid "Close"
 msgstr "Zamknij"
 
-#: plugins/filemanager/resources/partial/index.html:56
+#: plugins/filemanager/resources/partial/index.html:63
 msgid "Copy"
 msgstr "Kopiuj"
 
-#: plugins/filemanager/resources/partial/index.html:68
-#: plugins/filemanager/resources/partial/index.html:81
+#: plugins/filemanager/resources/partial/index.html:75
+#: plugins/filemanager/resources/partial/index.html:88
 msgid "Create"
 msgstr "Utwórz"
 
-#: plugins/filemanager/resources/partial/index.html:55
+#: plugins/filemanager/resources/partial/index.html:62
 msgid "Cut"
 msgstr "Wytnij"
-
-#: plugins/filemanager/resources/partial/index.html:57
-msgid "Delete"
-msgstr "Usuń"
 
 #: plugins/filemanager/resources/partial/properties.html:32
 msgid "DIRECTORY"
 msgstr "KATALOG"
 
-#: plugins/filemanager/resources/partial/index.html:78
+#: plugins/filemanager/resources/partial/index.html:64
+msgid "Delete"
+msgstr "Usuń"
+
+#: plugins/filemanager/resources/partial/index.html:85
 msgid "Directory name"
 msgstr "Nazwa katalogu"
-
-#: plugins/filemanager/resources/partial/properties.html:123
-msgid "Edit in Notepad"
-msgstr "Edytuj w notatniku"
 
 #: plugins/filemanager/resources/partial/properties.html:70
 msgid "EXECUTE"
 msgstr "WYKONAJ"
+
+#: plugins/filemanager/resources/partial/properties.html:123
+msgid "Edit in Notepad"
+msgstr "Edytuj w notatniku"
 
 #: plugins/filemanager/resources/partial/properties.html:173
 msgid "Extra"
@@ -88,7 +87,7 @@ msgstr "Dodatkowe"
 msgid "FILE"
 msgstr "PLIK"
 
-#: plugins/filemanager/resources/partial/index.html:65
+#: plugins/filemanager/resources/partial/index.html:72
 msgid "File name"
 msgstr "Nazwa pliku"
 
@@ -100,10 +99,6 @@ msgstr "Pełna ścieżka"
 #: plugins/filemanager/resources/partial/properties.html:149
 msgid "Group"
 msgstr "Grupa"
-
-#: plugins/filemanager/resources/partial/index.html:52
-msgid "items selected"
-msgstr "wybrane elementy"
 
 #: plugins/filemanager/resources/partial/properties.html:43
 msgid "LINK"
@@ -121,25 +116,21 @@ msgstr "Zmodyfikowany"
 msgid "Name"
 msgstr "Nazwa"
 
-#: plugins/filemanager/resources/partial/index.html:41
-#: plugins/filemanager/resources/partial/index.html:75
+#: plugins/filemanager/resources/partial/index.html:46
+#: plugins/filemanager/resources/partial/index.html:82
 msgid "New directory"
 msgstr "Nowy Katalog"
 
-#: plugins/filemanager/resources/partial/index.html:40
-#: plugins/filemanager/resources/partial/index.html:62
+#: plugins/filemanager/resources/partial/index.html:45
+#: plugins/filemanager/resources/partial/index.html:69
 msgid "New file"
 msgstr "Nowy plik"
-
-#: plugins/filemanager/resources/partial/index.html:105
-msgid "or drop them here"
-msgstr "lub upuść je tutaj"
 
 #: plugins/filemanager/resources/partial/properties.html:92
 msgid "Owner"
 msgstr "Właściciel"
 
-#: plugins/filemanager/resources/partial/index.html:43
+#: plugins/filemanager/resources/partial/index.html:50
 msgid "Paste here"
 msgstr "Wklej tutaj"
 
@@ -151,23 +142,19 @@ msgstr "Bity uprawnień"
 msgid "READ"
 msgstr "ODCZYT"
 
-#: plugins/filemanager/resources/partial/index.html:121
+#: plugins/filemanager/resources/partial/index.html:100
 msgid "Remove"
 msgstr "Usuń"
 
-#: plugins/filemanager/resources/partial/index.html:137
+#: plugins/filemanager/resources/partial/index.html:116
 msgid "Remove all items"
 msgstr "Usuń wszystkie elementy"
-
-#: plugins/filemanager/resources/partial/index.html:101
-msgid "Select files to upload"
-msgstr "Wybierz pliki do przesłania"
 
 #: plugins/filemanager/resources/partial/properties.html:76
 msgid "Size"
 msgstr "Rozmiar"
 
-#: plugins/filemanager/resources/partial/index.html:46
+#: plugins/filemanager/resources/partial/index.html:53
 msgid "Tab"
 msgstr "Karta"
 
@@ -175,17 +162,13 @@ msgstr "Karta"
 msgid "Type"
 msgstr "Typ"
 
-#: plugins/filemanager/resources/partial/index.html:10
+#: plugins/filemanager/resources/partial/index.html:15
 msgid "Up one level"
 msgstr "Poziom w górę"
 
-#: plugins/filemanager/resources/partial/index.html:42
+#: plugins/filemanager/resources/partial/index.html:48
 msgid "Upload"
 msgstr "Prześlij"
-
-#: plugins/filemanager/resources/partial/index.html:88
-msgid "Upload files"
-msgstr "Prześlij pliki"
 
 #: plugins/filemanager/resources/partial/properties.html:137
 msgid "User"
@@ -194,6 +177,10 @@ msgstr "Użytkownik"
 #: plugins/filemanager/resources/partial/properties.html:63
 msgid "WRITE"
 msgstr "ZAPISZ"
+
+#: plugins/filemanager/resources/partial/index.html:59
+msgid "items selected"
+msgstr "wybrane elementy"
 
 #: plugins/filemanager/main.py:15
 msgid "File Manager"

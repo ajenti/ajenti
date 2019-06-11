@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-01 23:51+0100\n"
-"PO-Revision-Date: 2016-11-01 18:52-0400\n"
+"POT-Creation-Date: 2018-11-02 15:25+0100\n"
+"PO-Revision-Date: 2018-11-02 14:43\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Dutch\n"
 "Language: nl_NL\n"
@@ -44,10 +44,6 @@ msgstr "Aanmerken voor verwijdering"
 msgid "Mark for upgrade"
 msgstr "Markeren voor upgrade"
 
-#: plugins/packages/resources/partial/index.html:56
-msgid "pending"
-msgstr "in behandeling"
-
 #: plugins/packages/resources/partial/index.html:3
 msgid "Search packages"
 msgstr ""
@@ -63,6 +59,10 @@ msgstr ""
 #: plugins/packages/resources/partial/index.html:32
 msgid "Upgradeable"
 msgstr ""
+
+#: plugins/packages/resources/partial/index.html:56
+msgid "pending"
+msgstr "in behandeling"
 
 #: plugins/packages/main.py:25
 msgid "Packages"

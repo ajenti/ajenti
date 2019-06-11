@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-01 23:51+0100\n"
+"POT-Creation-Date: 2019-01-14 14:52+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,30 +17,30 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: plugins/datetime/resources/partial/index.html:17 plugins/datetime/main.py:17
-msgid "Date & time"
+#: datetime/resources/partial/index.html:17 datetime/main.py:17
+msgid "Date &amp; time"
 msgstr ""
 
-#: plugins/datetime/resources/partial/index.html:26
+#: datetime/resources/partial/index.html:26
 msgid "Set time"
 msgstr ""
 
-#: plugins/datetime/resources/partial/index.html:9
+#: datetime/resources/partial/index.html:9
 msgid "Set timezone"
 msgstr ""
 
-#: plugins/datetime/resources/partial/index.html:31
+#: datetime/resources/partial/index.html:31
 msgid "Sync time from the Internet"
 msgstr ""
 
-#: plugins/datetime/resources/partial/index.html:5
+#: datetime/resources/partial/index.html:5
 msgid "Time zone"
 msgstr ""
 
-#: plugins/datetime/main.py:31
+#: datetime/main.py:31
 msgid "Change date and time"
 msgstr ""
 
-#: plugins/datetime/views.py:59
+#: datetime/views.py:59
 msgid "ntpdate utility is not installed"
 msgstr ""

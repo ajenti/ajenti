@@ -5,8 +5,11 @@ from jadi import component
 from aj.plugins.augeas.api import Augeas
 from aj.plugins.network.api import NetworkManager
 
-from .ifconfig import ifconfig_up, ifconfig_down, ifconfig_get_ip, ifconfig_get_up
-
+# ifconfig is not installed per default anymore, use ip instead if ifconfig miss
+if subprocess.call(['which', 'ifconfig']) == 0:
+    from .ifconfig import ifconfig_up, ifconfig_down, ifconfig_get_ip, ifconfig_get_up
+else:
+    from .ip import ifconfig_up, ifconfig_down, ifconfig_get_ip, ifconfig_get_up
 
 @component(NetworkManager)
 class DebianNetworkManager(NetworkManager):
@@ -15,7 +18,9 @@ class DebianNetworkManager(NetworkManager):
 
     @classmethod
     def __verify__(cls):
-        return aj.platform in ['debian']
+        if b'Ubuntu' in aj.platform_string:
+            ubuntu_version = int(aj.platform_string[7:9])
+        return aj.platform in ['debian'] and ubuntu_version < 18
 
     def __init__(self, context):
         NetworkManager.__init__(self, context)
@@ -93,7 +98,7 @@ class DebianNetworkManager(NetworkManager):
         ifconfig_down(iface)
 
     def get_hostname(self):
-        return subprocess.check_output('hostname')
+        return subprocess.check_output('hostname', encoding='utf-8')
 
     def set_hostname(self, value):
         with open('/etc/hostname', 'w') as f:
