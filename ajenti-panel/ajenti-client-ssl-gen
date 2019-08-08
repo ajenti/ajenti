@@ -51,6 +51,6 @@ cert_info = {
 config['ssl']['client_auth']['certificates'].append(cert_info)
 
 with open(config_path, 'w') as f:
-    f.write(yaml.dump(config, default_flow_style=False))
+    f.write(yaml.dump(config, default_flow_style=False).decode('utf-8'))
 
 open(output, 'w').write(pkcs.export())

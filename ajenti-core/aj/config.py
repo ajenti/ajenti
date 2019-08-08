@@ -71,5 +71,5 @@ class UserConfig(BaseConfig):
         with open(self.path, 'w') as f:
             f.write(yaml.safe_dump(
                 self.data, default_flow_style=False, encoding='utf-8', allow_unicode=True
-            ))
+            ).decode('utf-8'))
         self.harden()

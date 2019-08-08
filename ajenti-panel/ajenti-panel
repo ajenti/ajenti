@@ -30,8 +30,9 @@ class AjentiConfig(aj.config.BaseConfig):
         self.data = yaml.load(open(self.path), Loader=yaml.Loader)
 
     def save(self):
+        print("ICI "*50, type(yaml.safe_dump(self.data, default_flow_style=False, encoding='utf-8', allow_unicode=True)))
         with open(self.path, 'w') as f:
-            f.write(yaml.safe_dump(self.data, default_flow_style=False, encoding='utf-8', allow_unicode=True))
+            f.write(yaml.safe_dump(self.data, default_flow_style=False, encoding='utf-8', allow_unicode=True).decode('utf-8'))
 
 
 def usage():
