@@ -14,7 +14,7 @@ etcdir = '/etc/ajenti'
 certificate_path = '%s/ajenti.pem' % etcdir
 config_path = '%s/config.yml' % etcdir
 
-config = yaml.load(open(config_path))
+config = yaml.load(open(config_path), Loader=yaml.Loader)
 
 if len(sys.argv) == 2:
     if config['ssl']['certificate']:

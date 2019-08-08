@@ -14,7 +14,7 @@ output = sys.argv[2]
 etcdir = '/etc/ajenti'
 config_path = '%s/config.yml' % etcdir
 
-config = yaml.load(open(config_path))
+config = yaml.load(open(config_path), Loader=yaml.Loader)
 
 if not config['ssl']['enable']:
     print 'SSL is not enabled in config.yml'
