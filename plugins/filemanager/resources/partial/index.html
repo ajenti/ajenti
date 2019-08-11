@@ -69,7 +69,7 @@
             <h4 translate>New file</h4>
         </div>
         <div class="modal-body">
-            <input type="text" ng:model="$parent.newFileName" class="form-control" placeholder="{{'File name'|translate}}" autofocus ng:enter="doCreateFile()" test-bind="newFileDialogInput" />
+            <input type="text" ng:model="$parent.$parent.newFileName" class="form-control" placeholder="{{'File name'|translate}}" autofocus ng:enter="doCreateFile()" test-bind="newFileDialogInput" />
         </div>
         <div class="modal-footer">
             <a ng:click="doCreateFile()" class="btn btn-default btn-flat" test-bind="newFileDialogOk" translate>Create</a>
@@ -82,7 +82,7 @@
             <h4 translate>New directory</h4>
         </div>
         <div class="modal-body">
-            <input type="text" ng:model="$parent.newDirectoryName" class="form-control" placeholder="{{'Directory name'|translate}}" autofocus ng:enter="doCreateDirectory()" test-bind="newDirectoryDialogInput" />
+            <input type="text" ng:model="$parent.$parent.newDirectoryName" class="form-control" placeholder="{{'Directory name'|translate}}" autofocus ng:enter="doCreateDirectory()" test-bind="newDirectoryDialogInput" />
         </div>
         <div class="modal-footer">
             <a ng:click="doCreateDirectory()" class="btn btn-default btn-flat" test-bind="newDirectoryDialogOk" translate>Create</a>
