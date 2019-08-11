@@ -120,7 +120,7 @@ angular.module('ajenti.filemanager').controller('FileManagerIndexController', fu
             $scope.refresh();
             $scope.newFileDialogVisible = false;
         }, (err) => {
-            notify.error(gettext('Could not create file'), err.message)
+            notify.error(gettext('Could not create file'), err.data.message)
         });
     };
 
@@ -140,7 +140,7 @@ angular.module('ajenti.filemanager').controller('FileManagerIndexController', fu
             $scope.refresh();
             $scope.newDirectoryDialogVisible = false;
         }, (err) => {
-            notify.error(gettext('Could not create directory'), err.message)
+            notify.error(gettext('Could not create directory'), err.data.message)
         });
     };
 

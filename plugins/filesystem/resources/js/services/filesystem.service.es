@@ -17,11 +17,11 @@ angular.module('ajenti.filesystem').service('filesystem', function($rootScope, $
     this.chmod = (path, mode) =>
       $http.post(`/api/filesystem/chmod/${path}`, {mode}).then(response => response.data)
 
-    this.createFile = (path, mode) =>
-      $http.post(`/api/filesystem/create-file/${path}`, {mode}).then(response => response.data)
+    this.createFile = (path) =>
+      $http.post(`/api/filesystem/create-file/${path}`)
 
-    this.createDirectory = (path, mode) =>
-      $http.post(`/api/filesystem/create-directory/${path}`, {mode}).then(response => response.data)
+    this.createDirectory = (path) =>
+      $http.post(`/api/filesystem/create-directory/${path}`)
 
     this.downloadBlob = (content, mime, name) =>
         setTimeout(() => {
