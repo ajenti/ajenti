@@ -64,8 +64,7 @@ angular.module('ajenti.settings').controller('SettingsIndexController', ($scope,
             config.save().then(data =>
                 notify.success(gettext('Saved'))
             ).catch(() =>
-                notify.error(gettext('Could not save config'))
-        );
+                notify.error(gettext('Could not save config')));
         }
     };
 
