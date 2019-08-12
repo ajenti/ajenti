@@ -14,7 +14,7 @@ output = sys.argv[2]
 etcdir = '/etc/ajenti'
 config_path = '%s/config.yml' % etcdir
 
-config = yaml.load(open(config_path))
+config = yaml.load(open(config_path), Loader=yaml.Loader)
 
 if not config['ssl']['enable']:
     print 'SSL is not enabled in config.yml'
@@ -51,6 +51,6 @@ cert_info = {
 config['ssl']['client_auth']['certificates'].append(cert_info)
 
 with open(config_path, 'w') as f:
-    f.write(yaml.dump(config, default_flow_style=False))
+    f.write(yaml.dump(config, default_flow_style=False).decode('utf-8'))
 
 open(output, 'w').write(pkcs.export())

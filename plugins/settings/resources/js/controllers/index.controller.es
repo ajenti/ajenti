@@ -59,7 +59,13 @@ angular.module('ajenti.settings').controller('SettingsIndexController', ($scope,
             return  $http.post('/api/settings/test-certificate/', {'certificate': $scope.certificate})
                     .then(data => { config.save().then(dt => notify.success(gettext('Saved')))})
                     .catch(err => { notify.error(gettext('SSL Error')), err.message});
-        };
+        }
+        else {
+            config.save().then(data =>
+                notify.success(gettext('Saved'))
+            ).catch(() =>
+                notify.error(gettext('Could not save config')));
+        }
     };
 
     $scope.createNewServerCertificate = () =>

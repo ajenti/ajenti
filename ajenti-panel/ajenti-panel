@@ -27,11 +27,11 @@ class AjentiConfig(aj.config.BaseConfig):
     def load(self):
         if os.geteuid() == 0:
             os.chmod(self.path, 384)  # 0o600
-        self.data = yaml.load(open(self.path))
+        self.data = yaml.load(open(self.path), Loader=yaml.Loader)
 
     def save(self):
         with open(self.path, 'w') as f:
-            f.write(yaml.safe_dump(self.data, default_flow_style=False, encoding='utf-8', allow_unicode=True))
+            f.write(yaml.safe_dump(self.data, default_flow_style=False, encoding='utf-8', allow_unicode=True).decode('utf-8'))
 
 
 def usage():

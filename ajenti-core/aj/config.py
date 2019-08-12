@@ -62,7 +62,7 @@ class UserConfig(BaseConfig):
             self.data = {}
 
     def load(self):
-        self.data = yaml.load(open(self.path))
+        self.data = yaml.load(open(self.path), Loader=yaml.Loader)
 
     def harden(self):
         os.chmod(self.path, stat.S_IRWXU)
@@ -71,5 +71,5 @@ class UserConfig(BaseConfig):
         with open(self.path, 'w') as f:
             f.write(yaml.safe_dump(
                 self.data, default_flow_style=False, encoding='utf-8', allow_unicode=True
-            ))
+            ).decode('utf-8'))
         self.harden()
