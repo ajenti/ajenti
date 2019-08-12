@@ -20,6 +20,8 @@ setup(
     url='http://ajenti.org/',
     packages=find_packages(),
     package_data={                                                              
-        "package": [
-            "aj/static/images/*"]},
+        "aj": [
+            "aj/static/images/*",
+        ],
+    },
 )
