@@ -2,7 +2,7 @@ name: packages
 author: Ajenti project
 email: e@ajenti.org
 url: http://ajenti.org
-version: '0.28'
+version: '0.29'
 title: 'Packages'
 icon: gift
 dependencies:

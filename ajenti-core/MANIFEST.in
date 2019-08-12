@@ -1,4 +1,4 @@
-recursive-include ajenticore * *.*
-recursive-exclude ajenticore *~ *.pyc
+recursive-include aj * *.*
+recursive-exclude aj *~ *.pyc
 include Makefile
 include requirements.txt
