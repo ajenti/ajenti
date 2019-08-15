@@ -19,6 +19,7 @@ setup(
     author_email='e@ajenti.org',
     url='http://ajenti.org/',
     packages=find_packages(),
+    include_package_data=True,
     package_data={                                                              
         "package": [
             "aj/static/images/*"]},
