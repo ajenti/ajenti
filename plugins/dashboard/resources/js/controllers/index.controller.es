@@ -77,13 +77,16 @@ angular.module('ajenti.dashboard').controller('DashboardIndexController', functi
         })
     ;
 
-    $scope.removeTab = (index) =>
+    $scope.removeTab = (index) => {
         messagebox.show({
             text: gettext(`Remove the '${$scope.userConfig.dashboard.tabs[index].name}' tab?`),
             positive: gettext('Remove'),
             negative: gettext('Cancel')
-        }).then(() => $scope.userConfig.dashboard.tabs.splice(index, 1))
-    ;
+        }).then(() => {
+            $scope.userConfig.dashboard.tabs.splice(index, 1);
+            $scope.save();
+            });
+    };
 
     $scope.renameTab = function(index) {
         let tab = $scope.userConfig.dashboard.tabs[index];
