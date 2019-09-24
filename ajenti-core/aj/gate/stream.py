@@ -120,6 +120,8 @@ class GateStreamServerEndpoint(object):
         with self.buffer_lock:
             return self.buffer.pop(_id)
 
+    def destroy(self):
+        self.pipe.close()
 
 class GateStreamWorkerEndpoint(object):
     def __init__(self, pipe):

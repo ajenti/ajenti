@@ -70,6 +70,7 @@ class WorkerGate(object):
         except OSError:
             pass
 
+        self.stream.destroy()
         self.stream_reader.kill(block=False)
 
     def send_config_data(self):
