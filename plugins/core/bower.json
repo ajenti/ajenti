@@ -10,7 +10,7 @@
     "angular-mocks": "~1.5.4",
     "angular-touch": "~1.5.4",
     "bootstrap": "~3.3.1",
-    "fontawesome": "~5.9.0",
+    "fontawesome": "~5.11.2",
     "angular-socket-io": "~0.6.1",
     "angular-loading-bar": "~0.6.0",
     "angular-bootstrap": "~2.1.0",
