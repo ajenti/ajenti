@@ -4,6 +4,8 @@ import os
 import socket
 import traceback
 from jadi import component
+from datetime import timedelta
+from time import time
 
 import aj
 from aj.api.http import url, HttpPlugin
@@ -142,3 +144,8 @@ class Handler(HttpPlugin):
                         languages.add(lang)
 
         return sorted(list(languages))
+
+    @url('/api/core/session-time')
+    @endpoint(api=True)
+    def handle_api_sessiontime(self, http_context):
+        return int(self.context.session.timestamp+3600-time())

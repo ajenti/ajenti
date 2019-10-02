@@ -1,4 +1,4 @@
-angular.module('core').controller('CoreRootController', function($scope, $rootScope, $location, $localStorage, $log, $timeout, $q, identity, customization, urlPrefix, ajentiPlugins, ajentiVersion, ajentiPlatform, ajentiPlatformUnmapped, favicon, feedback, locale, config) {
+angular.module('core').controller('CoreRootController', function($scope, $rootScope, $location, $localStorage, $log, $timeout, $q, $interval, $http, identity, customization, urlPrefix, ajentiPlugins, ajentiVersion, ajentiPlatform, ajentiPlatformUnmapped, favicon, feedback, locale, config) {
     $rootScope.identity = identity;
     $rootScope.$location = $location;
     $rootScope.location = location;
@@ -82,4 +82,24 @@ angular.module('core').controller('CoreRootController', function($scope, $rootSc
             $scope.$apply(() => $rootScope.$broadcast('window:resize'))
         })
     );
+
+    $http.get('/api/core/session-time').then((resp) => {
+        $scope.resttime = resp.data;
+        $rootScope.counter = $scope.convertTime($scope.resttime);
+    });
+
+    $scope.countDown = function() {
+        $scope.resttime -= 1;
+        $rootScope.counter = $scope.convertTime($scope.resttime);
+    };
+
+    $scope.convertTime = function(seconds) {
+        hours = ('00' + Math.floor(seconds/3600)).slice(-2);
+        rest = seconds % 3600;
+        minutes = ('00' + Math.floor(rest/60)).slice(-2);
+        seconds = ('00' + rest % 60).slice(-2);
+        return [hours, minutes, seconds]
+    };
+
+    $interval($scope.countDown, 1000, 0);
 });
