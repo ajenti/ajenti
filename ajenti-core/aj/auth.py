@@ -5,6 +5,7 @@ import pwd
 import subprocess
 import syslog
 from jadi import component, service, interface
+from six import PY3
 
 import aj
 from aj.api.http import BaseHttpHandler
@@ -99,8 +100,14 @@ class OSAuthenticationProvider(AuthenticationProvider):
 
     def authenticate(self, username, password):
         child = None
+
+        if PY3:
+            from shlex import quote
+        else:
+            from pipes import quote
+
         try:
-            child = pexpect.spawn('/bin/sh', ['-c', '/bin/su -c "/bin/echo SUCCESS" - %s' % username], timeout=5)
+            child = pexpect.spawn('/bin/sh', ['-c', '/bin/su -c "/bin/echo SUCCESS" - %s' % quote(username)], timeout=5)
             child.expect('.*:')
             child.sendline(password)
             result = child.expect(['su: .*', 'SUCCESS'])
