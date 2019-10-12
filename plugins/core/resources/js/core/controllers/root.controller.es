@@ -84,13 +84,13 @@ angular.module('core').controller('CoreRootController', function($scope, $rootSc
     );
 
     $http.get('/api/core/session-time').then((resp) => {
-        $scope.resttime = resp.data;
-        $rootScope.counter = $scope.convertTime($scope.resttime);
+        $rootScope.resttime = resp.data;
+        $rootScope.counter = $scope.convertTime($rootScope.resttime);
     });
 
     $scope.countDown = function() {
-        $scope.resttime -= 1;
-        $rootScope.counter = $scope.convertTime($scope.resttime);
+        $rootScope.resttime -= 1;
+        $rootScope.counter = $scope.convertTime($rootScope.resttime);
     };
 
     $scope.convertTime = function(seconds) {
