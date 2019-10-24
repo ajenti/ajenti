@@ -1,7 +1,7 @@
 from socketio.handler import SocketIOHandler
 import six
 import aj
-from gevent._ssl3 import SSLSocket # Only PY3 compatible
+from gevent.ssl import SSLSocket
 from aj.security.verifier import ClientCertificateVerificator
 
 
