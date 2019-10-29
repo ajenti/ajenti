@@ -13,5 +13,5 @@ class ClientCertificateVerificator(object):
         digest = x509.digest('sha1')
         # logging.debug('SSL verify: %s / %s' % (x509.get_subject(), digest))
         for c in aj.config.data['ssl']['client_auth']['certificates']:
-            if c['serial'] == serial and c['digest'] == digest:
+            if long(c['serial']) == serial and c['digest'] == digest:
                 return c['user']
