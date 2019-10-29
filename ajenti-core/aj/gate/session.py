@@ -12,7 +12,7 @@ class Session(object):
 
     last_id = 0
 
-    def __init__(self, key, gateway_middleware=None, client_info=None, auth_info=None, **kwargs):
+    def __init__(self, key, gateway_middleware=None, client_info=None, auth_info=None, session_max_time=3600, **kwargs):
         Session.last_id += 1
         self.id = Session.last_id
         self.key = key
@@ -30,6 +30,7 @@ class Session(object):
         self.gate = WorkerGate(
             self, gateway_middleware=gateway_middleware, name='session %i' % self.id, log_tag='worker', **kwargs
         )
+        self.session_max_time = session_max_time
         self.gate.start()
         logging.debug('New session %s', self.id)
 
@@ -53,7 +54,7 @@ class Session(object):
         return time.time() - self.timestamp
 
     def is_dead(self):
-        return not self.active or self.get_age() > 3600
+        return not self.active or self.get_age() > self.session_max_time
 
     def set_cookie(self, http_context):
         """

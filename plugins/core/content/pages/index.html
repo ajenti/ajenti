@@ -95,9 +95,10 @@
                     </div>
                 </div>
 
-                <p class="navbar-text pull-right hide-phone">
+                <p class="navbar-text pull-right hide-phone" style="min-width:99px;">
                     <i class="fa fa-hdd-o"></i> {{ identity.machine.name }}
                 </p>
+                <span ng:if="identity.user && resttime < 1800" translate class="pull-right sessiontime hide-phone">Session time : {{ counter[0] }}:{{ counter[1] }}:{{ counter[2] }}</span>
             </div>
         </nav>
 

@@ -136,7 +136,8 @@ class GateMiddleware(object):
             'address': env.get('REMOTE_ADDR', None),
         }
         session_key = self.generate_session_key(env)
-        session = Session(session_key, gateway_middleware=self, client_info=client_info, **kwargs)
+        session_max_time = aj.config.data['session_max_time']
+        session = Session(session_key, gateway_middleware=self, client_info=client_info, session_max_time=session_max_time, **kwargs)
         self.sessions[session_key] = session
         return session
 
