@@ -4,6 +4,8 @@ import os
 import socket
 import traceback
 from jadi import component
+from datetime import timedelta
+from time import time
 
 import aj
 from aj.api.http import url, HttpPlugin
@@ -142,3 +144,9 @@ class Handler(HttpPlugin):
                         languages.add(lang)
 
         return sorted(list(languages))
+
+    @url('/api/core/session-time')
+    @endpoint(api=True)
+    def handle_api_sessiontime(self, http_context):
+        session_max_time = aj.config.data['session_max_time'] if aj.config.data['session_max_time'] else 3600
+        return int(self.context.session.timestamp + session_max_time - time())
