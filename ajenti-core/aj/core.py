@@ -20,6 +20,7 @@ from aj.plugins import PluginManager
 from aj.wsgi import RequestHandler
 
 import gevent
+import ssl
 import gevent.ssl
 from gevent import monkey
 
@@ -147,11 +148,30 @@ def run(config=None, plugin_providers=None, product_name='ajenti', dev_mode=Fals
 
     if aj.config.data['ssl']['enable'] and aj.config.data['bind']['mode'] == 'tcp':
         aj.server.ssl_args = {'server_side': True}
-        certificate = aj.config.data['ssl']['certificate']
+        cert_path = aj.config.data['ssl']['certificate']
+
+        if aj.config.data['ssl']['client_auth']['enable']:
+            context = gevent.ssl.create_default_context(ssl.Purpose.CLIENT_AUTH)
+            context.load_cert_chain(certfile=cert_path, keyfile=cert_path)
+            context.options |= ssl.OP_NO_SSLv2 | ssl.OP_NO_SSLv3 | ssl.OP_NO_TLSv1 | ssl.OP_NO_TLSv1_1
+            context.set_ciphers('ALL:!ADH:!EXP:!LOW:!RC2:!3DES:!SEED:!RC4:+HIGH:+MEDIUM')
+
+            #context.load_verify_locations(cafile=cert_path)
+            #context.verify_mode = ssl.CERT_OPTIONAL
+            # todo harden files
+            # logging.info('Enabling SSL client authentication')
+            # context.add_client_ca(certificate)
+            # context.get_cert_store().add_cert(certificate)
+            # verify_flags = SSL.VERIFY_PEER
+            # if aj.config.data['ssl']['client_auth']['force']:
+                # context.verify_mode = ssl.CERT_REQUIRED
+                # verify_flags |= SSL.VERIFY_FAIL_IF_NO_PEER_CERT
+            # context.set_verify(verify_flags, AuthenticationService.get(aj.context).client_certificate_callback)
+            # context.set_verify_depth(0)
 
         # Temporary wrapper to test SSLSocket from gevent
         def wp(socket, **args):
-            return gevent.ssl.SSLSocket(sock=socket, certfile=certificate, keyfile=certificate, server_side=True)
+            return context.wrap_socket(sock=socket, server_side=True)
 
         aj.server.wrap_socket = wp
         logging.info('SSL enabled')
