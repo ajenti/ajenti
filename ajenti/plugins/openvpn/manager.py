@@ -56,7 +56,7 @@ class lsocket(socket.socket):
     def recvb(self, count, peek=False):
         """Fills internal buffer with data from socket and returns first B{count} received bytes.
         @type count: int
-        @param count: Number of bytes to recieve
+        @param count: Number of bytes to receive
         @type peek: Bool
         @param peek: Keeps bytes in the buffer if true
         @rtype: str
