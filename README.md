@@ -7,17 +7,17 @@ http://ajenti.org/
 
 Ajenti is a Linux & BSD web admin panel. Ajenti 2 provides a new interface and a better architecture.
 
-![](https://up.unpeud.info/ajenti/screen-ajenti2-login.png)
+![](docs/img/screen-ajenti2-login.png)
 
-![](https://up.unpeud.info/ajenti/screen-ajenti2-dashboard.png)
+![](docs/img/screen-ajenti2-dashboard.png)
 
-![](https://up.unpeud.info/ajenti/screen-ajenti2-settings.png)
+![](docs/img/screen-ajenti2-settings.png)
 
-![](https://up.unpeud.info/ajenti/screen-ajenti2-plugins.png)
+![](docs/img/screen-ajenti2-plugins.png)
 
-![](https://up.unpeud.info/ajenti/screen-ajenti2-systemd.png)
+![](docs/img/screen-ajenti2-systemd.png)
 
-![](https://up.unpeud.info/ajenti/screen-ajenti2-terminal.png)
+![](docs/img/screen-ajenti2-terminal.png)
 
 Feature highlights
 ==================
