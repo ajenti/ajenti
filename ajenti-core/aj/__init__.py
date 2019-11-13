@@ -53,14 +53,16 @@ __all__ = [
 
 
 def detect_version():
-    p = subprocess.Popen(
-        'git describe --tags 2> /dev/null',
-        shell=True,
-        stdout=subprocess.PIPE
-    )
-    if p.wait() != 0:
-        return __version__
-    return p.stdout.read().strip(b'\n ').decode()
+    return __version__
+    ## No git tag yet for ajenti 2
+    # p = subprocess.Popen(
+        # 'git describe --tags 2> /dev/null',
+        # shell=True,
+        # stdout=subprocess.PIPE
+    # )
+    # if p.wait() != 0:
+        # return __version__
+    # return p.stdout.read().strip(b'\n ').decode()
 
 
 def detect_platform():
