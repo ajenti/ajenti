@@ -1,7 +1,7 @@
 angular.module('ajenti.settings').controller('SettingsIndexController', ($scope, $http, $sce, notify, pageTitle, identity, messagebox, passwd, config, core, locale, gettext) => {
     pageTitle.set(gettext('Settings'));
 
-    $scope.config = config;
+    $scope.config = config;console.log($scope.config);
     $scope.oldCertificate = config.data.ssl.certificate;
 
     $scope.availableColors = [

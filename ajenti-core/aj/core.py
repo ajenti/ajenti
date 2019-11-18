@@ -149,7 +149,7 @@ def run(config=None, plugin_providers=None, product_name='ajenti', dev_mode=Fals
     if aj.config.data['ssl']['enable'] and aj.config.data['bind']['mode'] == 'tcp':
         aj.server.ssl_args = {'server_side': True}
         cert_path = aj.config.data['ssl']['certificate']
-        if 'fqdn_certificate' in aj.config.data['ssl'].keys():
+        if aj.config.data['ssl']['fqdn_certificate']:
             fqdn_cert_path = aj.config.data['ssl']['fqdn_certificate']
         else:
             fqdn_cert_path = cert_path

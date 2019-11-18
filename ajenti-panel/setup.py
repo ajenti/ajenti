@@ -27,9 +27,11 @@ bind:
   port: 8000
 color: default
 max_sessions: 9
+session_max_time: 3600
 name: %s
 ssl:
   certificate:
+  fqdn_certificate:
   client_auth:
     certificates: []
     enable: false

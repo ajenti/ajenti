@@ -33,6 +33,7 @@ class BaseConfig(object):
     def ensure_structure(self):
         self.data.setdefault('name', None)
         self.data.setdefault('max_sessions', 99)
+        self.data.setdefault('session_max_time', 3600)
         self.data.setdefault('language', 'en')
         self.data.setdefault('restricted_user', 'nobody')
         self.data.setdefault('auth', {})
@@ -41,6 +42,7 @@ class BaseConfig(object):
         self.data.setdefault('ssl', {})
         self.data['ssl'].setdefault('enable', False)
         self.data['ssl'].setdefault('certificate', None)
+        self.data['ssl'].setdefault('fqdn_certificate', None)
         self.data['ssl'].setdefault('client_auth', {})
         self.data['ssl']['client_auth'].setdefault('enable', False)
         self.data['ssl']['client_auth'].setdefault('force', False)
