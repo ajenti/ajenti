@@ -1,9 +1,9 @@
 from socketio.handler import SocketIOHandler
 import six
 import aj
-from gevent.ssl import SSLSocket
+import gevent.ssl
 from aj.security.verifier import ClientCertificateVerificator
-
+from OpenSSL import crypto
 
 class RequestHandler(SocketIOHandler):
     def __init__(self, *args, **kwargs):
@@ -12,11 +12,11 @@ class RequestHandler(SocketIOHandler):
 
     def get_environ(self):
         env = SocketIOHandler.get_environ(self)
-        env['SSL'] = isinstance(self.socket, SSLSocket)
+        env['SSL'] = isinstance(self.socket, gevent.ssl.SSLSocket)
         env['SSL_CLIENT_VALID'] = False
         env['SSL_CLIENT_USER'] = None
         # if env['SSL']:
-            # certificate = self.socket.get_peer_certificate()
+            # certificate = crypto.load_certificate(crypto.FILETYPE_PEM, gevent.ssl.DER_cert_to_PEM_cert(self.socket.getpeercert(True)))
             # env['SSL_CLIENT_CERTIFICATE'] = certificate
             # if certificate:
                 # user = ClientCertificateVerificator.get(aj.context).verify(certificate)
