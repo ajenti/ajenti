@@ -15,14 +15,16 @@ class RequestHandler(SocketIOHandler):
         env['SSL'] = isinstance(self.socket, gevent.ssl.SSLSocket)
         env['SSL_CLIENT_VALID'] = False
         env['SSL_CLIENT_USER'] = None
-        # if env['SSL']:
-            # certificate = crypto.load_certificate(crypto.FILETYPE_PEM, gevent.ssl.DER_cert_to_PEM_cert(self.socket.getpeercert(True)))
-            # env['SSL_CLIENT_CERTIFICATE'] = certificate
-            # if certificate:
-                # user = ClientCertificateVerificator.get(aj.context).verify(certificate)
-                # env['SSL_CLIENT_VALID'] = bool(user)
-                # env['SSL_CLIENT_USER'] = user
-                # env['SSL_CLIENT_DIGEST'] = certificate.digest('sha1')
+        if env['SSL']:
+            peer_cert = self.socket.getpeercert(True)
+            if peer_cert:
+                certificate = crypto.load_certificate(crypto.FILETYPE_PEM, gevent.ssl.DER_cert_to_PEM_cert(peer_cert))
+                env['SSL_CLIENT_CERTIFICATE'] = certificate
+                if certificate:
+                    user = ClientCertificateVerificator.get(aj.context).verify(certificate)
+                    env['SSL_CLIENT_VALID'] = bool(user)
+                    env['SSL_CLIENT_USER'] = user
+                    env['SSL_CLIENT_DIGEST'] = certificate.digest('sha1')
         return env
 
     def handle_one_response(self):

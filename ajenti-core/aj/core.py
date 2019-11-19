@@ -168,10 +168,7 @@ def run(config=None, plugin_providers=None, product_name='ajenti', dev_mode=Fals
             else:
                 context.verify_mode = ssl.CERT_OPTIONAL
 
-            ## Depth 0 ?
-            # context.verify_flags = ssl.VERIFY_CRL_CHECK_LEAF
-
-            ## Test callback ( this must return None to get forward )
+            ## Test callback : client_certificate_callback must return None to get forward
             # context.set_servername_callback(AuthenticationService.get(aj.context).client_certificate_callback)
 
         aj.server.wrap_socket = lambda socket, **args:context.wrap_socket(sock=socket, server_side=True)
