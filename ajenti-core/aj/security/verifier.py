@@ -1,7 +1,9 @@
 from jadi import service
-
+from six import PY3
 import aj
 
+if PY3:
+    long = int
 
 @service
 class ClientCertificateVerificator(object):
