@@ -1,7 +1,7 @@
 # core
 cookies
 gevent>=1.1.2
-gevent-socketio-master>=0.3.6.99
+gevent-socketio-hartwork>=0.3.6
 gevent-websocket
 gipc
 jadi>=1.0.3

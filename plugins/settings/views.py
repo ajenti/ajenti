@@ -44,7 +44,7 @@ class Handler(HttpPlugin):
         return {
             'digest': cert.digest('sha1'),
             'name': ','.join('%s=%s' % x for x in cert.get_subject().get_components()),
-            'serial': cert.get_serial_number(),
+            'serial': str(cert.get_serial_number()),
             'b64certificate': pkcs.export().encode('base64'),
         }
 
