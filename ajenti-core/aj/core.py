@@ -17,13 +17,12 @@ from aj.auth import AuthenticationService
 from aj.http import HttpRoot, HttpMiddlewareAggregator
 from aj.gate.middleware import GateMiddleware
 from aj.plugins import PluginManager
-from aj.util.sslsocket import SSLSocket
 from aj.wsgi import RequestHandler
 
 import gevent
+import ssl
 import gevent.ssl
 from gevent import monkey
-from OpenSSL import SSL, crypto
 
 # Gevent monkeypatch ---------------------
 monkey.patch_all(select=True, thread=True, aggressive=False, subprocess=True)
@@ -148,36 +147,31 @@ def run(config=None, plugin_providers=None, product_name='ajenti', dev_mode=Fals
     )
 
     if aj.config.data['ssl']['enable'] and aj.config.data['bind']['mode'] == 'tcp':
-        context = SSL.Context(SSL.TLSv1_2_METHOD)
-        context.set_session_id(str(id(context)))
-        context.set_options(SSL.OP_NO_SSLv2 | SSL.OP_NO_SSLv3 | SSL.OP_NO_TLSv1 | SSL.OP_NO_TLSv1_1)
-        context.set_cipher_list('ALL:!ADH:!EXP:!LOW:!RC2:!3DES:!SEED:!RC4:+HIGH:+MEDIUM')
+        aj.server.ssl_args = {'server_side': True}
+        cert_path = aj.config.data['ssl']['certificate']
+        if aj.config.data['ssl']['fqdn_certificate']:
+            fqdn_cert_path = aj.config.data['ssl']['fqdn_certificate']
+        else:
+            fqdn_cert_path = cert_path
 
-        certificate = crypto.load_certificate(
-            crypto.FILETYPE_PEM,
-            open(aj.config.data['ssl']['certificate']).read()
-        )
-        private_key = crypto.load_privatekey(
-            crypto.FILETYPE_PEM,
-            open(aj.config.data['ssl']['certificate']).read()
-        )
-
-        context.use_certificate(certificate)
-        context.use_privatekey(private_key)
+        context = gevent.ssl.SSLContext(ssl.PROTOCOL_TLS)
+        context.load_cert_chain(certfile=fqdn_cert_path, keyfile=fqdn_cert_path)
+        context.options |= ssl.OP_NO_SSLv2 | ssl.OP_NO_SSLv3 | ssl.OP_NO_TLSv1 | ssl.OP_NO_TLSv1_1
+        context.set_ciphers('ALL:!ADH:!EXP:!LOW:!RC2:!3DES:!SEED:!RC4:+HIGH:+MEDIUM')
 
         if aj.config.data['ssl']['client_auth']['enable']:
-            # todo harden files
-            logging.info('Enabling SSL client authentication')
-            context.add_client_ca(certificate)
-            context.get_cert_store().add_cert(certificate)
-            verify_flags = SSL.VERIFY_PEER
-            if aj.config.data['ssl']['client_auth']['force']:
-                verify_flags |= SSL.VERIFY_FAIL_IF_NO_PEER_CERT
-            context.set_verify(verify_flags, AuthenticationService.get(aj.context).client_certificate_callback)
-            context.set_verify_depth(0)
 
-        aj.server.ssl_args = {'server_side': True}
-        aj.server.wrap_socket = lambda socket, **ssl: SSLSocket(context, socket)
+            logging.info('Enabling SSL client authentication')
+            context.load_verify_locations(cafile=cert_path)
+            if aj.config.data['ssl']['client_auth']['force']:
+                context.verify_mode = ssl.CERT_REQUIRED
+            else:
+                context.verify_mode = ssl.CERT_OPTIONAL
+
+            ## Test callback : client_certificate_callback must return None to get forward
+            # context.set_servername_callback(AuthenticationService.get(aj.context).client_certificate_callback)
+
+        aj.server.wrap_socket = lambda socket, **args:context.wrap_socket(sock=socket, server_side=True)
         logging.info('SSL enabled')
 
     # auth.log

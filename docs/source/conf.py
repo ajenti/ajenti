@@ -96,7 +96,7 @@ class Mock(object):
 MOCK_MODULES = [
     'augeas',
     'gevent',
-    'gevent-socketio',
+    'gevent-socketio-hartwork',
     'gevent.event',
     'gevent.lock',
     'gevent.pywsgi',

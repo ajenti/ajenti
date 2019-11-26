@@ -18,6 +18,7 @@ name: Test Box
 restricted_user: nobody
 ssl:
   certificate: /etc/ajenti/ajenti.pem
+  fqdn_certificate: ''
   client_auth:
     certificates:
     - digest: 5F:C9:F2:8E:25:AC:D2:72:1B:B1:44:08:53:A7:11:9C:01:6C:D8:02
