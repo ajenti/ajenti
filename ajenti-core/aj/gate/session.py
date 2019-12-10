@@ -68,3 +68,11 @@ class Session(object):
             httponly=True
         ).render_response()
         http_context.add_header('Set-Cookie', cookie)
+
+    def serialize(self):
+        return {
+            'key':self.key,
+            'identity':self.identity,
+            'timestamp':self.timestamp,
+            'client_info':self.client_info
+        }

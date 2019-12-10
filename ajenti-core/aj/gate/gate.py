@@ -80,6 +80,13 @@ class WorkerGate(object):
             'data': aj.config.data,
         })
 
+    def send_sessionlist(self):
+        logging.debug('Sending a session list update to %s', self.name)
+        self.stream.send({
+            'type': 'session-list',
+            'data': [session.serialize() for key,session in self.gateway_middleware.sessions.items()],
+        })
+
     def _stream_reader(self):
         try:
             while True:
@@ -95,6 +102,8 @@ class WorkerGate(object):
                     self.session.deactivate()
                 if resp.object['type'] == 'restart-master':
                     aj.restart()
+                if resp.object['type'] == 'update-sessionlist':
+                    self.gateway_middleware.broadcast_sessionlist()
                 if resp.object['type'] == 'reload-config':
                     aj.config.load()
                     aj.config.ensure_structure()
