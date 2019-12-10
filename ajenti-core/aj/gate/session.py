@@ -18,7 +18,7 @@ class Session(object):
         self.key = key
         self.client_info = client_info or {}
         self.data = {}
-        self.identity = None
+        self.identity = kwargs['initial_identity'] if 'initial_identity' in kwargs.keys() else None
         self.auth_info = auth_info
         self.touch()
         self.active = True
