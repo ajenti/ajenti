@@ -57,7 +57,8 @@ class AuthenticationMiddleware(BaseHttpHandler):
                 except KeyError:
                     found = False
                 if found:
-                    self.auth.login(username)
+                    self.auth.prepare_session_redirect(http_context, username, True)
+                    #self.auth.login(username)
 
         http_context.add_header('X-Auth-Identity', str(self.context.identity or ''))
 
