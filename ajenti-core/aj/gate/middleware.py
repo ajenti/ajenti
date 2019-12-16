@@ -163,6 +163,12 @@ class GateMiddleware(object):
             if not session.is_dead():
                 session.gate.send_config_data()
 
+    def broadcast_sessionlist(self):
+        self.restricted_gate.send_sessionlist()
+        for session in self.sessions.values():
+            if not session.is_dead():
+                session.gate.send_sessionlist()
+
     def handle(self, http_context):
         start_time = time.time()
 

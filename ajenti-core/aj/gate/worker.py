@@ -157,6 +157,10 @@ class Worker(object):
                     aj.config.data = rq.object['data']
                     self._master_config_reloaded.set()
 
+                if rq.object['type'] == 'session-list':
+                    logging.debug('Received a session list update')
+                    aj.sessions = rq.object['data']
+
         # pylint: disable=W0703
         except Exception:
             logging.error('Worker crashed!')
@@ -165,6 +169,11 @@ class Worker(object):
     def terminate(self):
         self.send_to_upstream({
             'type': 'terminate',
+        })
+
+    def update_sessionlist(self):
+        self.send_to_upstream({
+            'type': 'update-sessionlist',
         })
 
     def restart_master(self):
