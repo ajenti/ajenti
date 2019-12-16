@@ -44,6 +44,8 @@ master = True
 
 plugin_providers = []
 
+sessions = {}
+
 
 __all__ = [
     'config', 'platform', 'platform_string', 'platform_unmapped',

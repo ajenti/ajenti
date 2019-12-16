@@ -18,7 +18,7 @@ class Session(object):
         self.key = key
         self.client_info = client_info or {}
         self.data = {}
-        self.identity = None
+        self.identity = kwargs['initial_identity'] if 'initial_identity' in kwargs.keys() else None
         self.auth_info = auth_info
         self.touch()
         self.active = True
@@ -68,3 +68,11 @@ class Session(object):
             httponly=True
         ).render_response()
         http_context.add_header('Set-Cookie', cookie)
+
+    def serialize(self):
+        return {
+            'key':self.key,
+            'identity':self.identity,
+            'timestamp':self.timestamp,
+            'client_info':self.client_info
+        }
