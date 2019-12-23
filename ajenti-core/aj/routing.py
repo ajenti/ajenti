@@ -7,6 +7,34 @@ from jadi import service
 
 from aj.api.http import BaseHttpHandler, HttpPlugin
 
+class DeniedRouteHandler(BaseHttpHandler):
+    """If client authentication is forced, and the client certificate is not valid."""
+
+    def __init__(self, context):
+        pass
+
+    def handle(self, http_context):
+        logging.warn('Invalid client certificate : %s', http_context.env['SSL_CLIENT_DIGEST'])
+        http_context.respond_unauthenticated()
+
+        return ["""
+        <!DOCTYPE html>
+        <html>
+            <body>
+
+                <style>
+                    body {
+                        font-family: sans-serif;
+                        color: #888;
+                        text-align: center;
+                    }
+                </style>
+                <p>
+                    401 - Unauthenticated
+                </p>
+            </body>
+        </html>
+        """]
 
 class InvalidRouteHandler(BaseHttpHandler):
     def __init__(self, context):
@@ -49,24 +77,28 @@ class CentralDispatcher(BaseHttpHandler):
     def __init__(self, context):
         self.context = context
         self.invalid = InvalidRouteHandler(context)
+        self.denied = DeniedRouteHandler(context)
 
-    def handle(self, context):
+    def handle(self, http_context):
         """
         Dispatch the request to every HttpPlugin
         """
 
+        if http_context.env['SSL_CLIENT_AUTH_FORCE'] and not http_context.env['SSL_CLIENT_VALID']:
+            return http_context.fallthrough(self.denied)
+
         for instance in HttpPlugin.all(self.context):
             try:
-                output = instance.handle(context)
+                output = instance.handle(http_context)
             # pylint: disable=W0703
             except Exception as e:
-                return [self.respond_error(context, e)]
+                return [self.respond_error(http_context, e)]
             if output is not None:
                 return output
-        return context.fallthrough(self.invalid)
+        return http_context.fallthrough(self.invalid)
 
-    def respond_error(self, context, exception):
-        context.respond_server_error()
+    def respond_error(self, http_context, exception):
+        http_context.respond_server_error()
         stack = traceback.format_exc()
         traceback.print_exc()
         
