@@ -257,6 +257,14 @@ class HttpContext(object):
         self.respond('500 Server Error')
         return [b'Server Error']
 
+
+    def respond_unauthenticated(self):
+        """
+        Returns a HTTP ``401 Unauthenticated`` response
+        """
+        self.respond('401 Unauthenticated')
+        return [b'Unauthenticated']
+
     def respond_forbidden(self):
         """
         Returns a HTTP ``403 Forbidden`` response
