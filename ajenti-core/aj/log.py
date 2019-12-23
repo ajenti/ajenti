@@ -59,7 +59,7 @@ class ConsoleHandler(logging.StreamHandler):
         if aj.debug:
             s += colored(
                 ('%15s:%-4s  ' % (record.filename[-15:], record.lineno)),
-                'grey',
+                'magenta',
                 attrs=['bold']
             )
 
