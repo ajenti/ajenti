@@ -6,11 +6,12 @@ angular.module('core').directive('smartProgress', () =>
             value: '=',
             text: '=?',
             max: '=',
-            maxText: '=?'
+            maxText: '=?',
+            type: '@'
         },
         template: `
             <div>
-                <uib-progressbar type="warning" max="100" value="100 * value / max" animate="animate" ng:class="{indeterminate: !max}">
+                <uib-progressbar type="{{type}}" max="100" value="100 * value / max" animate="animate" ng:class="{indeterminate: !max}">
                 </uib-progressbar>
             </div>
             <div class="values">
@@ -19,6 +20,7 @@ angular.module('core').directive('smartProgress', () =>
             </div>`,
         link($scope, element, attr) {
             $scope.animate = angular.isDefined($scope.animate) ? $scope.animate : true;
+            $scope.type = angular.isDefined($scope.type) ? $scope.type : 'warning';
         }
     })
 );
