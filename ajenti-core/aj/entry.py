@@ -24,7 +24,7 @@ def start(daemonize=False, log_level=logging.INFO, **kwargs):
         )
         with context:
             aj.log.init_log_directory()
-            aj.log.init_log_file()
+            aj.log.init_log_file(log_level)
             import aj.core
             try:
                 aj.core.run(**kwargs)
