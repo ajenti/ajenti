@@ -100,7 +100,7 @@ def init_log_directory():
         os.mkdir(LOG_DIR)
 
 
-def init_log_file():
+def init_log_file(log_level=logging.INFO):
     sys.stderr = sys.stdout = LoggerWriter()
     log = logging.getLogger()
     try:
@@ -109,7 +109,7 @@ def init_log_file():
             when='midnight',
             backupCount=7
         )
-        handler.setLevel(logging.INFO)
+        handler.setLevel(log_level)
         handler.setFormatter(logging.Formatter('%(asctime)s %(levelname)-8s: %(message)s'))
         log.handlers = [handler]
     except IOError:

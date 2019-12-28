@@ -125,4 +125,5 @@ if __name__ == '__main__':
         product_name='ajenti',
         daemonize=daemonize,
         plugin_providers=plugin_providers,
+        log_level=log_level,
     )
