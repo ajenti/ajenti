@@ -1,4 +1,4 @@
-angular.module('core').controller('CoreRootController', function($scope, $rootScope, $location, $localStorage, $log, $timeout, $q, $interval, $http, identity, customization, urlPrefix, ajentiPlugins, ajentiVersion, ajentiPlatform, ajentiPlatformUnmapped, favicon, feedback, locale, config) {
+angular.module('core').controller('CoreRootController', function($scope, $rootScope, $location, $localStorage, $log, $timeout, $q, $interval, $http, $window, identity, customization, urlPrefix, ajentiPlugins, ajentiVersion, ajentiPlatform, ajentiPlatformUnmapped, favicon, feedback, locale, config) {
     $rootScope.identity = identity;
     $rootScope.$location = $location;
     $rootScope.location = location;
@@ -86,11 +86,20 @@ angular.module('core').controller('CoreRootController', function($scope, $rootSc
     $http.get('/api/core/session-time').then((resp) => {
         $rootScope.resttime = resp.data;
         $rootScope.counter = $scope.convertTime($rootScope.resttime);
+        if ($rootScope.resttime > 0) {
+            $scope.timeDown = $interval($scope.countDown, 1000, 0);
+        }
     });
 
     $scope.countDown = function() {
-        $rootScope.resttime -= 1;
-        $rootScope.counter = $scope.convertTime($rootScope.resttime);
+        if ($rootScope.resttime <= 0) {
+            $interval.cancel($scope.timeDown);
+            $window.location.href = '/view/login/normal';
+        }
+        else {
+            $rootScope.resttime -= 1;
+            $rootScope.counter = $scope.convertTime($rootScope.resttime);
+        }
     };
 
     $scope.convertTime = function(seconds) {
@@ -101,5 +110,4 @@ angular.module('core').controller('CoreRootController', function($scope, $rootSc
         return [hours, minutes, seconds]
     };
 
-    $interval($scope.countDown, 1000, 0);
 });
