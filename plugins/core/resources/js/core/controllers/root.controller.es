@@ -48,6 +48,10 @@ angular.module('core').controller('CoreRootController', function($scope, $rootSc
         $scope.$broadcast('navigation:toggle')
     }
 
+    $scope.$on('$routeChangeStart', function() {
+        $scope.updateResttime();
+    })
+
     $scope.$on('$routeChangeSuccess', function() {
         $scope.toggleOverlayNavigation(false)
         feedback.emit('navigation', {url: $location.path()});
@@ -83,17 +87,24 @@ angular.module('core').controller('CoreRootController', function($scope, $rootSc
         })
     );
 
-    $http.get('/api/core/session-time').then((resp) => {
-        $rootScope.resttime = resp.data;
-        $rootScope.counter = $scope.convertTime($rootScope.resttime);
-        if ($rootScope.resttime > 0) {
-            $scope.timeDown = $interval($scope.countDown, 1000, 0);
-        }
-    });
+    $scope.updateResttime = function() {
+        if ($location.path() != '/view/login/normal') {
+            $http.get('/api/core/session-time').then((resp) => {
+                $rootScope.resttime = resp.data;
+                $rootScope.counter = $scope.convertTime($rootScope.resttime);
+                if ($rootScope.resttime > 0 && !angular.isDefined($scope.timeDown)) {
+                    $scope.timeDown = $interval($scope.countDown, 1000, 0);
+                }
+            });
+        };
+    };
+
+    $scope.updateResttime();
 
     $scope.countDown = function() {
         if ($rootScope.resttime <= 0) {
             $interval.cancel($scope.timeDown);
+            $scope.timeDown = null;
             $window.location.href = '/view/login/normal';
         }
         else {

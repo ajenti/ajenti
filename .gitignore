@@ -10,4 +10,5 @@
 plugins/demo*
 docs/build
 *.mo
+.idea*
 .crowdin.key

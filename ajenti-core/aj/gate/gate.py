@@ -84,7 +84,7 @@ class WorkerGate(object):
         logging.debug('Sending a session list update to %s', self.name)
         self.stream.send({
             'type': 'session-list',
-            'data': [session.serialize() for key,session in self.gateway_middleware.sessions.items()],
+            'data': {key:session.serialize() for key,session in self.gateway_middleware.sessions.items()},
         })
 
     def _stream_reader(self):

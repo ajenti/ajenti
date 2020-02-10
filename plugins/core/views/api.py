@@ -148,5 +148,14 @@ class Handler(HttpPlugin):
     @url('/api/core/session-time')
     @endpoint(api=True)
     def handle_api_sessiontime(self, http_context):
-        session_max_time = aj.config.data['session_max_time'] if aj.config.data['session_max_time'] else 3600
-        return int(self.context.session.timestamp + session_max_time - time())
+        if aj.dev_autologin:
+            return 86400
+        else:
+            self.context.worker.update_sessionlist()
+            # Wait until the new values propagate
+            gevent.sleep(0.01)
+            session_max_time = aj.config.data['session_max_time'] if aj.config.data['session_max_time'] else 3600
+            timestamp = 0
+            if self.context.session.key in aj.sessions.keys():
+                timestamp = aj.sessions[self.context.session.key]['timestamp']
+            return int(timestamp + session_max_time - time())
