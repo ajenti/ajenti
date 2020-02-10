@@ -22,7 +22,7 @@ angular.module('core').controller('CoreLoginController', function($scope, $log, 
         }, error => {
             $scope.working = false;
             $log.log('Authentication failed', error);
-            notify.error(gettext('Authentication failed'), error);
+            notify.error(gettext('Authentication failed'));
         });
     };
 });
