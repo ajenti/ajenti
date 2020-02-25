@@ -42,6 +42,8 @@ class FileManager (SectionPlugin):
         def post_item_bind(object, collection, item, ui):
             ui.find('name').on('click', self.on_item_click, object, item)
             ui.find('edit').on('click', self.edit, item.fullpath)
+            ui.find('edit').on('click', self.edit, str(utils.escape(item.fullpath))
+
         self.find('items').post_item_bind = post_item_bind
 
         def post_bc_bind(object, collection, item, ui):
