@@ -74,8 +74,9 @@ class GateStreamServerEndpoint(object):
 
     def send(self, obj):
         rq = GateStreamRequest(obj, self)
-        for part in _seq_split(json.dumps(rq.serialize())):
-            self.pipe.put(part)
+        if not self.pipe._reader._closed:
+            for part in _seq_split(json.dumps(rq.serialize())):
+                self.pipe.put(part)
         if self.log:
             logging.debug('%s: >> %s', self, rq.id)
         return rq
