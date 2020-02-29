@@ -1,5 +1,4 @@
 from datetime import datetime
-from six import BytesIO
 import base64
 import cgi
 import gevent
@@ -130,7 +129,7 @@ class HttpContext(object):
         self.method = self.env['REQUEST_METHOD'].upper()
 
         self.env.setdefault('QUERY_STRING', '')
-        if self.method in ['POST', 'PUT', 'DELETE']:
+        if self.method in ['POST', 'PUT']:
             ctype = self.env.get('CONTENT_TYPE', 'application/x-www-form-urlencoded')
             if 'wsgi.input' in self.env:
                 self.body = self.env['wsgi.input'].read()
@@ -298,7 +297,7 @@ class HttpContext(object):
         :type  compression: int
         :rtype: str
         """
-        io = BytesIO()
+        io = six.BytesIO()
         gz = gzip.GzipFile('', 'wb', compression, io)
         gz.write(content)
         gz.close()
