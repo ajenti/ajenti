@@ -30,11 +30,11 @@ class Handler(HttpPlugin):
         if not os.path.exists(path):
             return http_context.respond_not_found()
         try:
-            content = open(path).read()
+            content = open(path, 'rb').read()
             if http_context.query:
                 encoding = http_context.query.get('encoding', None)
                 if encoding:
-                    content = content.decode(encoding).encode('utf-8')
+                    content = content.decode(encoding)
             return content
         except OSError as e:
             http_context.respond_server_error()
@@ -49,7 +49,7 @@ class Handler(HttpPlugin):
             if http_context.query:
                 encoding = http_context.query.get('encoding', None)
                 if encoding:
-                    content = content.decode('utf-8').encode(encoding)
+                    content = content.decode('utf-8')
             with open(path, 'w') as f:
                 f.write(content)
         except OSError as e:
