@@ -5,7 +5,7 @@ angular.module('core').config($routeProvider => {
     })
 });
 
-angular.module('ajenti.plugins').controller('PluginsIndexController', function($scope, $q, $http, notify, pageTitle, messagebox, tasks, core, gettext) {
+angular.module('ajenti.plugins').controller('PluginsIndexController', function($scope, $q, $http, $rootScope, notify, pageTitle, messagebox, tasks, core, gettext) {
     pageTitle.set('Plugins');
 
     $scope.officialKeyFingerprint = '425E 018E 2394 4B4B 4281  4EE0 BDC3 FBAA 5302 9759';
@@ -14,6 +14,29 @@ angular.module('ajenti.plugins').controller('PluginsIndexController', function($
     $scope.coreUpgradeAvailable = null;
 
     $scope.selectRepoPlugin = plugin => $scope.selectedRepoPlugin = plugin;
+
+    $scope.needUpgrade = (local_version,repo_version) => {
+        if (local_version === repo_version) {
+            return false;
+        }
+        details_local = local_version.split('.');
+        details_repo = repo_version.split('.');
+        min_array_len = Math.min(details_local.length, details_repo.length);
+        for (let i=0; i<=min_array_len; i++) {
+            if (parseInt(details_local[i]) < parseInt(details_repo[i])) {
+                return true;
+            }
+            // For special developer case ...
+            if (parseInt(details_local[i]) > parseInt(details_repo[i])) {
+                return false;
+            }
+        }
+        // At this point, all minimal details values are equals, like e.g. 1.32 and 1.32.4
+        if (details_local.length < details_repo.length) {
+            return true;
+        }
+        return false;
+    }
 
     $scope.refresh = () => {
         $http.get('/api/plugins/list/installed').success((data) => {
@@ -33,7 +56,7 @@ angular.module('ajenti.plugins').controller('PluginsIndexController', function($
             notify.error(gettext('Could not load the installed plugin list'), err.message)
         });
 
-        $http.get('/api/plugins/core/check-upgrade').success(data => $scope.coreUpgradeAvailable = data);
+        $http.get('/api/plugins/core/check-upgrade').success(data => $scope.coreUpgradeAvailable = $scope.needUpgrade($rootScope.ajentiVersion,data));
 
         $scope.pypiList = null;
         $http.get('/api/plugins/pypi/list').success(data => $scope.pypiList = data);
@@ -93,7 +116,7 @@ angular.module('ajenti.plugins').controller('PluginsIndexController', function($
             return null;
         }
         for (let p of $scope.repoList) {
-            if (p.name === plugin.name && p.version !== plugin.version) {
+            if (p.name === plugin.name && $scope.needUpgrade(plugin.version,p.version)) {
                 return p;
             }
         }
