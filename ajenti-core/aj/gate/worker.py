@@ -79,10 +79,11 @@ class Worker(object):
 
         self._master_config_reloaded = Event()
 
-    def demote(self, uid):
+    def demote(self, uid, gid=None):
         try:
             username = pwd.getpwuid(uid).pw_name
-            gid = pwd.getpwuid(uid).pw_gid
+            if not gid:
+                gid = pwd.getpwuid(uid).pw_gid
         except KeyError:
             username = None
             gid = uid

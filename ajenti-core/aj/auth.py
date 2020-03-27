@@ -89,6 +89,9 @@ class AuthenticationProvider(object):
     def get_isolation_uid(self, username):
         raise NotImplementedError
 
+    def get_isolation_gid(self, username):
+        raise NotImplementedError
+
     def get_profile(self, username):
         return {}
 
@@ -127,6 +130,9 @@ class OSAuthenticationProvider(AuthenticationProvider):
 
     def get_isolation_uid(self, username):
         return pwd.getpwnam(username).pw_uid
+
+    def get_isolation_gid(self, username):
+        return None
 
 
 @public
@@ -178,12 +184,13 @@ class AuthenticationService(object):
         ))
         if demote:
             uid = self.get_provider().get_isolation_uid(username)
+            gid = self.get_provider().get_isolation_gid(username)
             logging.debug('Authentication provider "%s" maps "%s" -> %i' % (
                 self.get_provider().name,
                 username,
                 uid,
             ))
-            self.context.worker.demote(uid)
+            self.context.worker.demote(uid, gid)
         self.context.identity = username
 
     def prepare_session_redirect(self, http_context, username, auth_info):
