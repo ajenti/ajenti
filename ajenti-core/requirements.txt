@@ -1,6 +1,6 @@
 # core
 cookies
-gevent>=1.1.2
+gevent>=1.3.7
 gevent-socketio-hartwork>=0.3.6
 gevent-websocket
 gipc
@@ -9,15 +9,15 @@ lxml>=2.2.4
 passlib
 pexpect
 psutil>=2.2.1
-pyOpenSSL #<0.14 # 0.14 breaks WantWrite retries
+# pyOpenSSL #<0.14 # 0.14 breaks WantWrite retries
 python-daemon-3k
 pyyaml
 requests>=2
 setproctitle
 six>=1.9.0
 termcolor
-pip>=6
-setuptools>=12
+pip>=20
+setuptools>=41
 #dbus # for upstart # todo: pypi package is fucked up, install from pkg mgr
 
 # packages
