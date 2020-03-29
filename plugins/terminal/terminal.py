@@ -138,7 +138,7 @@ class Terminal(object):
 
     def format(self, full=False):
         def compress(line):
-            return [[tok or 0 for tok in ch] for ch in line]
+            return [[tok or 0 for tok in ch] for _, ch in line.items()]
 
         l = {}
         self.screen.dirty.add(self.screen.cursor.y)
@@ -150,7 +150,7 @@ class Terminal(object):
         self.screen.dirty.clear()
 
         if full:
-            l = [compress(x) for x in self.screen.buffer]
+            l = [compress(x) for _, x in self.screen.buffer.items()]
 
         r = {
             'lines': l,
