@@ -54,12 +54,19 @@ class PIPPackageManager(PackageManager):
         pass
 
     def get_apply_cmd(self, selection):
-        cmd = 'pip install '
+        packages = []
+        cmd = ''
+
         for sel in selection:
             if sel['operation'] in ['install', 'upgrade']:
-                cmd += sel['package']['id']
-        cmd += '; pip uninstall '
+                packages.append(sel['package']['id'])
+        if packages:
+            cmd = 'python3 -m pip install ' + ' '.join(packages) + ' ;'
+            packages = []
+
         for sel in selection:
             if sel['operation'] in ['remove']:
-                cmd += sel['package']['name']
+                packages.append(sel['package']['name'])
+        if packages:
+            cmd = 'python3 -m pip uninstall ' + ' '.join(packages)
         return cmd
