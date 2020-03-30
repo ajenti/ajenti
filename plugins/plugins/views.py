@@ -61,7 +61,7 @@ class Handler(HttpPlugin):
     @endpoint(api=True)
     def handle_api_pypi_list(self, http_context):
         r = {}
-        for l in subprocess.check_output(['pip', 'freeze']).splitlines():
+        for l in subprocess.check_output(['python3', '-m', 'pip', 'freeze']).splitlines():
             if l:
                 package = l.decode().split('=')[0]
                 if package:
@@ -76,7 +76,7 @@ class Handler(HttpPlugin):
     def handle_api_pypi_install(self, http_context, name=None, version=None):
         # TODO replaced with a task
         try:
-            subprocess.call(['pip', 'install', 'ajenti.plugin.%s==%s' % (name, version)])
+            subprocess.call(['python3', '-m', 'pip', 'install', 'ajenti.plugin.%s==%s' % (name, version)])
         except subprocess.CalledProcessError as e:
             raise EndpointError(e.output)
 
@@ -84,7 +84,7 @@ class Handler(HttpPlugin):
     @endpoint(api=True)
     def handle_api_pypi_uninstall(self, http_context, name=None):
         try:
-            subprocess.check_output(['pip', 'uninstall', '-y', 'ajenti.plugin.%s' % name])
+            subprocess.check_output(['python3', '-m', 'pip', 'uninstall', '-y', 'ajenti.plugin.%s' % name])
         except subprocess.CalledProcessError as e:
             raise EndpointError(e.output)
 

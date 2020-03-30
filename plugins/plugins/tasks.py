@@ -11,7 +11,7 @@ class InstallPlugin (Task):
         self.spec = 'ajenti.plugin.%s==%s' % (name, version)
 
     def run(self):
-        subprocess.check_output(['pip', 'install', self.spec])
+        subprocess.check_output(['python3', '-m', 'pip', 'install', self.spec])
 
 
 class UpgradeAll (Task):

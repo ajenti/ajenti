@@ -1,14 +1,14 @@
 #!/bin/bash
 echo -en 'travis_fold:start:deps.python\r'
     echo Installing Python modules
-    pip install -r ajenti-core/requirements.txt
-    pip install -r plugins/core/requirements.txt
-    pip install -r plugins/augeas/requirements.txt
-    pip install -r plugins/auth_users/requirements.txt
-    pip install -r plugins/datetime/requirements.txt
-    pip install -r plugins/services/requirements.txt
-    pip install -r plugins/terminal/requirements.txt
-    pip install ajenti-dev-multitool
+    python3 -m pip install -r ajenti-core/requirements.txt
+    python3 -m pip install -r plugins/core/requirements.txt
+    python3 -m pip install -r plugins/augeas/requirements.txt
+    python3 -m pip install -r plugins/auth_users/requirements.txt
+    python3 -m pip install -r plugins/datetime/requirements.txt
+    python3 -m pip install -r plugins/services/requirements.txt
+    python3 -m pip install -r plugins/terminal/requirements.txt
+    python3 -m pip install ajenti-dev-multitool
 echo -en 'travis_fold:end:deps.python\r'
 
 echo -en 'travis_fold:start:deps.node\r'
