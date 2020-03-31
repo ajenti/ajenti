@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 from setuptools import setup
 from setuptools.command.install import install as _install
 from setuptools import find_packages
@@ -50,6 +50,7 @@ class install(_install):
 setup(
     name='ajenti-panel',
     version=aj.__version__,
+    python_requires='>=3',
     install_requires=[
         'aj==%s' % aj.__version__,
         'pyyaml',
