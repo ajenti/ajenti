@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 from setuptools import setup, find_packages
 import platform
 import aj
@@ -13,6 +13,7 @@ else:
 setup(
     name='aj',
     version=aj.__version__,
+    python_requires='>=3',
     install_requires=__requires,
     description='Web UI base toolkit',
     author='Eugene Pankov',
