@@ -1,6 +1,6 @@
 from PIL import Image, ImageDraw
 
-from six import StringIO
+from six import BytesIO
 import subprocess
 
 from jadi import component
@@ -107,7 +107,7 @@ class Handler(HttpPlugin):
                 draw.point((x, y * 2 + 1), fill=(fc if ord(ch) > 32 else bc))
                 draw.point((x, y * 2), fill=bc)
 
-        sio = StringIO()
+        sio = BytesIO()
         img.save(sio, 'PNG')
 
         http_context.add_header('Content-Type', 'image/png')
