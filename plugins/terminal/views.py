@@ -40,6 +40,13 @@ class Handler(HttpPlugin):
             'stderr': e,
         }
 
+    @url('/api/terminal/is_dead/(?P<terminal_id>.+)')
+    @endpoint(api=True)
+    def handle_test_dead(self, http_context, terminal_id=None):
+        if terminal_id in self.mgr:
+            return self.mgr[terminal_id].dead
+        return True
+
     @url('/api/terminal/list')
     @endpoint(api=True)
     def handle_list(self, http_context):
@@ -55,7 +62,9 @@ class Handler(HttpPlugin):
     @url(r'/api/terminal/kill/(?P<terminal_id>.+)')
     @endpoint(api=True)
     def handle_kill(self, http_context, terminal_id=None):
-        return self.mgr.kill(terminal_id)
+        if terminal_id in self.mgr:
+            return self.mgr.kill(terminal_id)
+        return None
 
     @url(r'/api/terminal/full/(?P<terminal_id>.+)')
     @endpoint(api=True)
