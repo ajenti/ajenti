@@ -63,8 +63,10 @@ class Handler(HttpPlugin):
     @endpoint(api=True)
     def handle_kill(self, http_context, terminal_id=None):
         if terminal_id in self.mgr:
-            return self.mgr.kill(terminal_id)
-        return None
+            redirect = self.mgr[terminal_id].redirect
+            self.mgr.kill(terminal_id)
+            return redirect
+        return '/view/terminal'
 
     @url(r'/api/terminal/full/(?P<terminal_id>.+)')
     @endpoint(api=True)

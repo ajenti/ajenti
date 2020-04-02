@@ -16,8 +16,9 @@ angular.module('ajenti.terminal').service('terminals', function($http, $q, $loca
 
     this.kill = function(id) {
         return $http.get(`/api/terminal/kill/${id}`).then((response) => {
+            let redirect = response.data;
             notify.info(gettext('You will be redirect to the previous page.'));
-            return $timeout(() => $location.path(`/view/terminal`), 3000);
+            return $timeout(() => $location.path(redirect), 3000);
         })
     };
 

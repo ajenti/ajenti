@@ -53,7 +53,7 @@ angular.module('ajenti.packages').controller('PackagesIndexController', function
         packages.applySelection($scope.managerId, $scope.selection).then((data) => {
             $scope.selection = [];
             let cmd = data.terminalCommand;
-            terminals.create({command: cmd, autoclose: true}).then((id) => {
+            terminals.create({command: cmd, autoclose: true, redirect: `/view/packages/${$scope.managerId}`}).then((id) => {
                 $location.path(`${urlPrefix}/view/terminal/${id}`);
             });
         })

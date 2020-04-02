@@ -17,13 +17,17 @@ from aj.util import BroadcastQueue
 
 
 class Terminal(object):
-    def __init__(self, manager=None, id=None, command=None, autoclose=False, autoclose_retain=5):
+    def __init__(self, manager=None, id=None, command=None, autoclose=False, autoclose_retain=5, redirect=None):
         self.width = 80
         self.height = 25
         self.id = id
         self.manager = manager
         self.autoclose = autoclose
         self.autoclose_retain = autoclose_retain
+        if redirect:
+            self.redirect = redirect
+        else:
+            self.redirect = '/view/terminal'
         self.output = BroadcastQueue()
 
         env = {}
