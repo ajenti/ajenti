@@ -1,4 +1,4 @@
-angular.module('ajenti.terminal').controller('TerminalViewController', ($scope, $routeParams, hotkeys, pageTitle) => {
+angular.module('ajenti.terminal').controller('TerminalViewController', ($scope, $routeParams, $http, $location, hotkeys, pageTitle) => {
     pageTitle.set('Terminal');
 
     $scope.id = $routeParams.id;
@@ -15,6 +15,11 @@ angular.module('ajenti.terminal').controller('TerminalViewController', ($scope, 
         }
         if (k === 'V' && e.ctrlKey && e.shiftKey) {
             $scope.$broadcast('terminal:paste');
+            return true;
+        }
+        if (k === 'D' && e.ctrlKey) {
+            $http.get(`/api/terminal/kill/${$scope.id}`);
+            $location.path(`/view/terminal`);
             return true;
         }
     });
