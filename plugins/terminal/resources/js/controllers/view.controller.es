@@ -1,4 +1,4 @@
-angular.module('ajenti.terminal').controller('TerminalViewController', ($scope, $routeParams, hotkeys, pageTitle) => {
+angular.module('ajenti.terminal').controller('TerminalViewController', ($scope, $routeParams, $interval, terminals, hotkeys, pageTitle) => {
     pageTitle.set('Terminal');
 
     $scope.id = $routeParams.id;
@@ -17,6 +17,20 @@ angular.module('ajenti.terminal').controller('TerminalViewController', ($scope, 
             $scope.$broadcast('terminal:paste');
             return true;
         }
+        if (k === 'D' && e.ctrlKey) {
+            terminals.kill($scope.id);
+            return true;
+        }
+    });
+
+    $scope.check = () => {
+        terminals.is_dead($scope.id);
+    }
+
+    $scope.redirect_if_dead = $interval($scope.check, 4000, 0);
+
+    $scope.$on('$destroy', function() {
+        $interval.cancel($scope.redirect_if_dead);
     });
 
     $scope.hideCopyDialogVisible = () => $scope.copyDialogVisible = false;

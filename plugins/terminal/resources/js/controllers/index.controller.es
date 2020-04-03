@@ -7,7 +7,7 @@ angular.module('ajenti.terminal').controller('TerminalIndexController', ($scope,
         });
     };
 
-    $scope.create = () => terminals.create().then(id => $location.path(`/view/terminal/${id}`));
+    $scope.create = () => terminals.create({autoclose:true}).then(id => $location.path(`/view/terminal/${id}`));
 
     $scope.runCommand = () => terminals.create({command: $scope.command, autoclose: true}).then(id => $location.path(`/view/terminal/${id}`));
 

@@ -1,4 +1,4 @@
-angular.module('ajenti.terminal').service('terminals', function($http, $q, $location) {
+angular.module('ajenti.terminal').service('terminals', function($http, $q, $location, $timeout, notify, gettext) {
     this.script = function(options) {
         return $http.post('/api/terminal/script', options).then(response => response.data)
     };
@@ -15,7 +15,19 @@ angular.module('ajenti.terminal').service('terminals', function($http, $q, $loca
     };
 
     this.kill = function(id) {
-        return $http.get(`/api/terminal/kill/${id}`).then(response => response.data)
+        return $http.get(`/api/terminal/kill/${id}`).then((response) => {
+            let redirect = response.data;
+            notify.info(gettext('You will be redirect to the previous page.'));
+            return $timeout(() => $location.path(redirect), 3000);
+        })
+    };
+
+    this.is_dead = function(id) {
+        return $http.get(`/api/terminal/is_dead/${id}`, {ignoreLoadingBar: true}).then((response) => {
+            if (response.data === true) {
+                return this.kill(id);
+            };
+        })
     };
 
     this.create = function(options) {

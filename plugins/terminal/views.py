@@ -1,6 +1,6 @@
 from PIL import Image, ImageDraw
 
-from six import StringIO
+from six import BytesIO
 import subprocess
 
 from jadi import component
@@ -40,6 +40,13 @@ class Handler(HttpPlugin):
             'stderr': e,
         }
 
+    @url('/api/terminal/is_dead/(?P<terminal_id>.+)')
+    @endpoint(api=True)
+    def handle_test_dead(self, http_context, terminal_id=None):
+        if terminal_id in self.mgr:
+            return self.mgr[terminal_id].dead
+        return True
+
     @url('/api/terminal/list')
     @endpoint(api=True)
     def handle_list(self, http_context):
@@ -55,7 +62,11 @@ class Handler(HttpPlugin):
     @url(r'/api/terminal/kill/(?P<terminal_id>.+)')
     @endpoint(api=True)
     def handle_kill(self, http_context, terminal_id=None):
-        return self.mgr.kill(terminal_id)
+        if terminal_id in self.mgr:
+            redirect = self.mgr[terminal_id].redirect
+            self.mgr.kill(terminal_id)
+            return redirect
+        return '/view/terminal'
 
     @url(r'/api/terminal/full/(?P<terminal_id>.+)')
     @endpoint(api=True)
@@ -107,7 +118,7 @@ class Handler(HttpPlugin):
                 draw.point((x, y * 2 + 1), fill=(fc if ord(ch) > 32 else bc))
                 draw.point((x, y * 2), fill=bc)
 
-        sio = StringIO()
+        sio = BytesIO()
         img.save(sio, 'PNG')
 
         http_context.add_header('Content-Type', 'image/png')
