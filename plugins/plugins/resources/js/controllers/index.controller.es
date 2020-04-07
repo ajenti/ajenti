@@ -38,22 +38,13 @@ angular.module('ajenti.plugins').controller('PluginsIndexController', function($
         return false;
     }
 
-    $scope.testPypi = false;
-    $scope.checkPypi = () => {
-       $http.get('/api/plugins/testpypi/list').success((data) => {
-            for (let pl of data) {
-                console.log(pl);
-            }
-        });
-    }
-
     $scope.refresh = () => {
         $http.get('/api/plugins/list/installed').success((data) => {
             $scope.installedPlugins = data;
             $scope.repoList = null;
             $scope.repoListOfficial = null;
             $scope.repoListCommunity = null;
-            $http.get('/api/plugins/repo/list').success((data) => {
+            $http.get('/api/plugins/getpypi/list').success((data) => {
                 $scope.repoList = data;
                 $scope.notInstalledRepoList = $scope.repoList.filter((x) => !$scope.isInstalled(x)).map((x) => x);
                 $scope.repoListOfficial = $scope.repoList.filter((x) => x.signature === $scope.officialKeyFingerprint).map((x) => x);

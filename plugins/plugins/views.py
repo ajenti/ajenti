@@ -2,7 +2,7 @@ import os
 import requests
 import shutil
 import subprocess
-from bs4 import BeautifulSoup as bs
+from lxml.html import fromstring
 from concurrent import futures
 
 import aj
@@ -93,6 +93,7 @@ class Handler(HttpPlugin):
     @url(r'/api/plugins/repo/list')
     @endpoint(api=True)
     def handle_api_repo_list(self, http_context):
+        """Replaced through /api/plugins/getpypi/list"""
         if os.path.exists('/root/.cache/pip'):
             shutil.rmtree('/root/.cache/pip')
         try:
@@ -113,17 +114,30 @@ class Handler(HttpPlugin):
             return version
         return None
 
-    @url(r'/api/plugins/testpypi/list')
+    @url(r'/api/plugins/getpypi/list')
     @endpoint(api=True)
-    def handle_api_testpypi_list(self, http_context):
-        def filter_aj(tag):
-            return tag.name == 'a' and tag.text.startswith('ajenti.plugin')
+    def handle_api_getpypi_list(self, http_context):
+        def filter_info(plugin):
+            return {
+                "url": plugin['info']['project_urls']['Homepage'],
+                "version": plugin['info']['version'],
+                "description": plugin['info']['description'],
+                "name": plugin['info']['name'].split('.')[-1],
+                "title": plugin['info']['summary'],
+                "author_email": plugin['info']['author_email'],
+                "last_month_downloads": plugin['info']['downloads']['last_month'],
+                "author": plugin['info']['author'],
+                "pypi_name": plugin['info']['name'],
+                "signature": "425E 018E 2394 4B4B 4281  4EE0 BDC3 FBAA 5302 9759"
+                            if plugin['info']['author_email'] == "e@ajenti.org"
+                            else "null",
+            }
 
         def get_json_info(plugin):
             try:
                 url = 'https://pypi.python.org/pypi/%s/json' % plugin
                 data = requests.get(url).json()
-                plugin_list.append(data)
+                plugin_list.append(filter_info(data))
             except Exception as e:
                 raise EndpointError(e)
 
@@ -132,10 +146,9 @@ class Handler(HttpPlugin):
         try:
             plugin_list = []
             page = requests.get('https://pypi.org/simple')
-            soup = bs(page.text, 'html.parser')
-            to_get = ["aj", "ajenti-panel", "ajenti-dev-multitool"] + [plugin.text for plugin in soup.find_all(filter_aj)]
+            pypi_plugin_list = fromstring(page.content).xpath("//a[starts-with(text(),'ajenti.plugin')]/text()")
             with futures.ThreadPoolExecutor(20) as executor:
-                res = executor.map(get_json_info, to_get)
+                res = executor.map(get_json_info, pypi_plugin_list)
             return plugin_list
         except Exception as e:
             raise EndpointError(e)
