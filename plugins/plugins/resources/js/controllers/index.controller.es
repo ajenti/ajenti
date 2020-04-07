@@ -8,7 +8,6 @@ angular.module('core').config($routeProvider => {
 angular.module('ajenti.plugins').controller('PluginsIndexController', function($scope, $q, $http, $rootScope, notify, pageTitle, messagebox, tasks, core, gettext) {
     pageTitle.set('Plugins');
 
-    $scope.officialKeyFingerprint = '425E 018E 2394 4B4B 4281  4EE0 BDC3 FBAA 5302 9759';
     $scope.selectedInstalledPlugin = null;
     $scope.selectedRepoPlugin = null;
     $scope.coreUpgradeAvailable = null;
@@ -47,8 +46,8 @@ angular.module('ajenti.plugins').controller('PluginsIndexController', function($
             $http.get('/api/plugins/getpypi/list').success((data) => {
                 $scope.repoList = data;
                 $scope.notInstalledRepoList = $scope.repoList.filter((x) => !$scope.isInstalled(x)).map((x) => x);
-                $scope.repoListOfficial = $scope.repoList.filter((x) => x.signature === $scope.officialKeyFingerprint).map((x) => x);
-                $scope.repoListCommunity = $scope.repoList.filter((x) => x.signature !== $scope.officialKeyFingerprint).map((x) => x);
+                $scope.repoListOfficial = $scope.repoList.filter((x) => x.type === "official").map((x) => x);
+                $scope.repoListCommunity = $scope.repoList.filter((x) => x.type !== "official").map((x) => x);
             }, err => {
                 notify.error(gettext('Could not load plugin repository'), err.message)
             });

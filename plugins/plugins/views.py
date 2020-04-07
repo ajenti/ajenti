@@ -118,19 +118,18 @@ class Handler(HttpPlugin):
     @endpoint(api=True)
     def handle_api_getpypi_list(self, http_context):
         def filter_info(plugin):
+            name = plugin['info']['name'].split('.')[-1]
             return {
                 "url": plugin['info']['project_urls']['Homepage'],
                 "version": plugin['info']['version'],
                 "description": plugin['info']['description'],
-                "name": plugin['info']['name'].split('.')[-1],
+                "name": name,
                 "title": plugin['info']['summary'],
                 "author_email": plugin['info']['author_email'],
                 "last_month_downloads": plugin['info']['downloads']['last_month'],
                 "author": plugin['info']['author'],
                 "pypi_name": plugin['info']['name'],
-                "signature": "425E 018E 2394 4B4B 4281  4EE0 BDC3 FBAA 5302 9759"
-                            if plugin['info']['author_email'] == "e@ajenti.org"
-                            else "null",
+                "type": "official" if name in official else "community",
             }
 
         def get_json_info(plugin):
@@ -146,6 +145,7 @@ class Handler(HttpPlugin):
         try:
             plugin_list = []
             page = requests.get('https://pypi.org/simple')
+            official = requests.get('https://raw.githubusercontent.com/ajenti/ajenti/master/official_plugins.json').json()['plugins']
             pypi_plugin_list = fromstring(page.content).xpath("//a[starts-with(text(),'ajenti.plugin')]/text()")
             with futures.ThreadPoolExecutor(20) as executor:
                 res = executor.map(get_json_info, pypi_plugin_list)
