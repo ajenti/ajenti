@@ -12,6 +12,9 @@
     <div ng:show="!coreUpgradeAvailable">
         <div class="alert alert-info">
             <i class="fa fa-info-circle"></i> <span translate>Ajenti core {{ajentiVersion}}, no upgrades available.</span>
+            <a ng:click="checkPypi()" ng:show="testPypi" class="btn btn-primary pull-right">
+                <i class="fa fa-arrow-up"></i> <span translate>Check packages by Pypi</span>
+            </a>
         </div>
     </div>
 

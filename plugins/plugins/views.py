@@ -2,6 +2,8 @@ import os
 import requests
 import shutil
 import subprocess
+from bs4 import BeautifulSoup as bs
+from concurrent import futures
 
 import aj
 from jadi import component
@@ -110,3 +112,31 @@ class Handler(HttpPlugin):
         if version != aj.version:
             return version
         return None
+
+    @url(r'/api/plugins/testpypi/list')
+    @endpoint(api=True)
+    def handle_api_testpypi_list(self, http_context):
+        def filter_aj(tag):
+            return tag.name == 'a' and tag.text.startswith('ajenti.plugin')
+
+        def get_json_info(plugin):
+            try:
+                url = 'https://pypi.python.org/pypi/%s/json' % plugin
+                data = requests.get(url).json()
+                plugin_list.append(data)
+            except Exception as e:
+                raise EndpointError(e)
+
+        if os.path.exists('/root/.cache/pip'):
+            shutil.rmtree('/root/.cache/pip')
+        try:
+            plugin_list = []
+            page = requests.get('https://pypi.org/simple')
+            soup = bs(page.text, 'html.parser')
+            to_get = ["aj", "ajenti-panel", "ajenti-dev-multitool"] + [plugin.text for plugin in soup.find_all(filter_aj)]
+            with futures.ThreadPoolExecutor(20) as executor:
+                res = executor.map(get_json_info, to_get)
+            return plugin_list
+        except Exception as e:
+            raise EndpointError(e)
+

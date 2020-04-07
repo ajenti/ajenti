@@ -38,6 +38,15 @@ angular.module('ajenti.plugins').controller('PluginsIndexController', function($
         return false;
     }
 
+    $scope.testPypi = false;
+    $scope.checkPypi = () => {
+       $http.get('/api/plugins/testpypi/list').success((data) => {
+            for (let pl of data) {
+                console.log(pl);
+            }
+        });
+    }
+
     $scope.refresh = () => {
         $http.get('/api/plugins/list/installed').success((data) => {
             $scope.installedPlugins = data;
