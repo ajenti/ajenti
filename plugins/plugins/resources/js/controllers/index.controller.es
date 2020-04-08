@@ -127,12 +127,12 @@ angular.module('ajenti.plugins').controller('PluginsIndexController', function($
         $scope.selectedInstalledPlugin = null;
         let msg = messagebox.show({progress: true, title: 'Installing'});
         upgradeInfo = $scope.getUpgrade(plugin);
-        if (upgradeInfo) {
+        if (upgradeInfo !== null) {
             if (upgradeInfo.version != plugin.version)
                 version = upgradeInfo.version;
-            else
-                version = plugin.version;
         }
+        else
+            version = plugin.version;
         return tasks.start(
             'aj.plugins.plugins.tasks.InstallPlugin',
             [],
