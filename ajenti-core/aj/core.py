@@ -87,6 +87,7 @@ def run(config=None, plugin_providers=None, product_name='ajenti', dev_mode=Fals
     __builtins__['_'] = lambda x: x
 
     logging.info('Ajenti Core %s', aj.version)
+    logging.info('Master PID - %s', os.getpid())
     logging.info('Detected platform: %s / %s', aj.platform, aj.platform_string)
 
     # Load plugins

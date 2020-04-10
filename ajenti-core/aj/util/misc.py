@@ -34,7 +34,7 @@ def make_report(e):
     import platform as _platform
     from aj import platform, platform_unmapped, platform_string, version, debug
 
-    tb = traceback.format_exc(e)
+    tb = traceback.format_exc()
     tb = '\n'.join('    ' + x for x in tb.splitlines())
 
 

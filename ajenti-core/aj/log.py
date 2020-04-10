@@ -94,6 +94,9 @@ class LoggerWriter:
         if message != '\n':
             logging.warning('stdout: %s', message.strip('\n'))
 
+    def flush(self):
+        pass
+
 
 def init_log_directory():
     if not os.path.exists(LOG_DIR):
@@ -101,7 +104,7 @@ def init_log_directory():
 
 
 def init_log_file(log_level=logging.INFO):
-    sys.stderr = sys.stdout = LoggerWriter()
+    #sys.stderr = sys.stdout = LoggerWriter()
     log = logging.getLogger()
     try:
         handler = logging.handlers.TimedRotatingFileHandler(
