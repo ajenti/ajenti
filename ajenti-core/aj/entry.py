@@ -7,7 +7,7 @@ import aj.log
 from aj.util.pidfile import PidFile
 
 
-def start(daemonize=False, log_level=logging.INFO, **kwargs):
+def start(daemonize=False, log_level=logging.INFO, dev_mode=False, **kwargs):
     """
     A wrapper for :func:`run` that optionally runs it in a forked daemon process.
 
@@ -32,6 +32,9 @@ def start(daemonize=False, log_level=logging.INFO, **kwargs):
             except Exception as e:
                 handle_crash(e)
     else:
+        if not dev_mode:
+            aj.log.init_log_directory()
+            aj.log.init_log_file(log_level)
         import aj.core
         try:
             aj.core.run(**kwargs)
@@ -46,7 +49,7 @@ def handle_crash(exc):
     # todo rework this
     logging.error('Fatal crash occured')
     traceback.print_exc()
-    exc.traceback = traceback.format_exc(exc)
+    exc.traceback = traceback.format_exc()
     report_path = '/root/%s-crash.txt' % aj.product
     try:
         report = open(report_path, 'w')
