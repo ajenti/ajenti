@@ -105,14 +105,13 @@ class Handler(HttpPlugin):
     @endpoint(api=True)
     def handle_api_core_check_upgrade(self, http_context):
         url = 'https://pypi.python.org/pypi/%s/json' % 'ajenti-panel'
+        version = None
         try:
             data = requests.get(url).json()
+            version = data['info']['version']
         except Exception as e:
             raise EndpointError(e)
-        version = data['info']['version']
-        if version != aj.version:
-            return version
-        return None
+        return version
 
     @url(r'/api/plugins/getpypi/list')
     @endpoint(api=True)

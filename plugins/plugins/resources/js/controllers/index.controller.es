@@ -15,6 +15,10 @@ angular.module('ajenti.plugins').controller('PluginsIndexController', function($
     $scope.selectRepoPlugin = plugin => $scope.selectedRepoPlugin = plugin;
 
     $scope.needUpgrade = (local_version,repo_version) => {
+        if (repo_version === null) {
+            notify.error(gettext('Could not load repository version for ajenti-panel.'));
+            return false;
+        }
         if (local_version === repo_version) {
             return false;
         }
