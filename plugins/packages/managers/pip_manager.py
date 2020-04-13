@@ -61,12 +61,12 @@ class PIPPackageManager(PackageManager):
             if sel['operation'] in ['install', 'upgrade']:
                 packages.append(sel['package']['id'])
         if packages:
-            cmd = 'python3 -m pip install ' + ' '.join(packages) + ' ;'
+            cmd = 'pip3 install ' + ' '.join(packages) + ' ;'
             packages = []
 
         for sel in selection:
             if sel['operation'] in ['remove']:
                 packages.append(sel['package']['name'])
         if packages:
-            cmd = 'python3 -m pip uninstall ' + ' '.join(packages)
+            cmd = 'pip3 uninstall ' + ' '.join(packages)
         return cmd
