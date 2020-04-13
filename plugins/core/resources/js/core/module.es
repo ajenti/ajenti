@@ -29,7 +29,7 @@ angular.module('core').factory('$exceptionHandler', ($injector, $log, gettext) =
     function(exception, cause) {
         let str = exception.toString();
         if (str && str.indexOf('Possibly unhandled rejection') != 0) {
-            $injector.get('notify').warning(gettext('Unhanded error occured'), gettext('Please see browser console'));
+            $injector.get('notify').warning(gettext('Unhandled error occurred'), gettext('Please see browser console'));
         } else {
             $log.debug.apply($log, arguments);
             return

@@ -28,7 +28,7 @@ class Task(object):
         self.exception = None
         self.started = time.time()
         self.finished = None
-        self.id = os.urandom(32).encode('hex')
+        self.id = os.urandom(32).hex()
         self.reader = None
         self.pipe = None
         self.process = None
