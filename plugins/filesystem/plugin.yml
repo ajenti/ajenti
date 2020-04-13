@@ -2,7 +2,7 @@ name: filesystem
 author: Ajenti project
 email: e@ajenti.org
 url: http://ajenti.org
-version: '0.43'
+version: '0.44'
 title: 'Filesystem API'
 icon: cog
 dependencies:
