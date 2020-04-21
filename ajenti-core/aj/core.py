@@ -141,7 +141,6 @@ def run(config=None, plugin_providers=None, product_name='ajenti', dev_mode=Fals
         policy_server=False,
         transports=[
             str('websocket'),
-            str('flashsocket'),
             str('xhr-polling'),
             str('jsonp-polling'),
         ],
