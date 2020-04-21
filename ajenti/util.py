@@ -169,7 +169,7 @@ Log content:
         version,
         platform, platform_unmapped, platform_string.strip(),
         subprocess.check_output(['uname', '-mp']).strip(),
-        '.'.join([str(x) for x in _platform.python_version_tuple()]),
+        '.'.join(str(x) for x in _platform.python_version_tuple()),
         installation_uid,
         debug,
         catcher_url or 'Failed to upload traceback',

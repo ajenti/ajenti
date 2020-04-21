@@ -30,7 +30,9 @@ class HttpRoot (object):
     A root middleware object that creates the :class:`HttpContext` and dispatches it to other registered middleware
     """
 
-    def __init__(self, stack=[]):
+    def __init__(self, stack=None):
+        if stack is None:
+            stack = []
         self.stack = stack
 
     def add(self, middleware):
