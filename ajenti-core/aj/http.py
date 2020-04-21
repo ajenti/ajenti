@@ -372,9 +372,9 @@ class HttpContext(object):
         name = name or os.path.split(path)[-1].encode()
 
         if inline:
-            self.add_header('Content-Disposition', b'inline; filename=%s' % name)
+            self.add_header('Content-Disposition', (b'inline; filename=%s' % name).decode())
         else:
-            self.add_header('Content-Disposition', b'attachment; filename=%s' % name)
+            self.add_header('Content-Disposition', (b'attachment; filename=%s' % name).decode())
 
         if stream:
             if range_from:
