@@ -69,7 +69,7 @@ psutil | %s
             version,
             platform, platform_unmapped, platform_string,
             subprocess.check_output(['uname', '-mp']).strip(),
-            '.'.join([str(x) for x in _platform.python_version_tuple()]),
+            '.'.join(str(x) for x in _platform.python_version_tuple()),
             debug,
             ', '.join(sorted(PluginManager.get(aj.context).get_loaded_plugins_list())),
 

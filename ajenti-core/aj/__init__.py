@@ -98,7 +98,7 @@ def detect_platform():
         return res, res
 
     dist = ''
-    (maj, min, patch) = pyplatform.python_version_tuple()
+    (maj, min, _) = pyplatform.python_version_tuple()
     maj = int(maj)
     min = int(min)
     if (maj * 10 + min) >= 26:
