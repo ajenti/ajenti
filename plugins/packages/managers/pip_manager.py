@@ -4,6 +4,7 @@ except ImportError:
     import xmlrpc.client as xmlrpclib
 
 import pkg_resources
+import importlib
 
 from jadi import component
 from aj.plugins.packages.api import PackageManager, Package
@@ -34,6 +35,7 @@ class PIPPackageManager(PackageManager):
         p.name = dist['name']
         p.version = dist['version']
         p.description = dist['summary']
+        importlib.reload(pkg_resources)
         for d in pkg_resources.working_set:
             if d.key == p.name:
                 p.is_installed = True
@@ -61,12 +63,12 @@ class PIPPackageManager(PackageManager):
             if sel['operation'] in ['install', 'upgrade']:
                 packages.append(sel['package']['id'])
         if packages:
-            cmd = 'pip3 install ' + ' '.join(packages) + ' ;'
+            cmd = 'python3 -m pip install ' + ' '.join(packages) + ' ;'
             packages = []
 
         for sel in selection:
             if sel['operation'] in ['remove']:
                 packages.append(sel['package']['name'])
         if packages:
-            cmd = 'pip3 uninstall ' + ' '.join(packages)
+            cmd = 'python3 -m pip uninstall ' + ' '.join(packages)
         return cmd
