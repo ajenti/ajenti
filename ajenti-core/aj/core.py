@@ -13,7 +13,7 @@ from six.moves import reload_module
 
 import aj
 import aj.plugins
-from aj.auth import AuthenticationService
+# from aj.auth import AuthenticationService # Test for callback with certificate
 from aj.http import HttpRoot, HttpMiddlewareAggregator
 from aj.gate.middleware import GateMiddleware
 from aj.plugins import PluginManager

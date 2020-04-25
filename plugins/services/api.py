@@ -1,7 +1,7 @@
 from jadi import interface
 
 
-class Service(object):
+class Service():
     def __init__(self, manager):
         self.id = None
         self.name = None
@@ -19,7 +19,7 @@ class ServiceOperationError(Exception):
 
 
 @interface
-class ServiceManager(object):
+class ServiceManager():
     id = None
     name = None
 

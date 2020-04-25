@@ -1,7 +1,7 @@
 import logging
 
 
-class LazyModule(object):
+class LazyModule():
     def __init__(self, module, obj=None):
         self._module = module
         self._object = obj

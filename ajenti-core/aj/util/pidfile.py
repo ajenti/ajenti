@@ -2,7 +2,7 @@ import os
 import fcntl
 
 
-class PidFile(object):
+class PidFile():
     """
     Context manager that locks a pid file.  Implemented as class
     not generator because daemon.py is calling .__exit__() with no parameters

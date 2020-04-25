@@ -2,7 +2,7 @@ from jadi import interface
 
 
 @interface
-class NetworkManager(object):
+class NetworkManager():
     def __init__(self, context):
         self.context = context
 

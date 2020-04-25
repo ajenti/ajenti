@@ -28,7 +28,7 @@ while True:
         time.sleep(1)
 
 
-class base (object):
+class base ():
     @classmethod
     def setup_class(cls):
         sys.stdout = open('/dev/stderr')

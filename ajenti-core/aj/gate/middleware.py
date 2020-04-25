@@ -86,7 +86,7 @@ class SocketIORouteHandler(BaseHttpHandler):
 
 
 @service
-class GateMiddleware(object):
+class GateMiddleware():
     def __init__(self, context):
         self.context = context
         self.sessions = {}

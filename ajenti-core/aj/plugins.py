@@ -12,7 +12,7 @@ from aj.util import public
 
 
 @public
-class PluginProvider(object):
+class PluginProvider():
     """
     A base class for plugin locator
     """
@@ -89,7 +89,7 @@ class PluginCrashed(PluginLoadError):
 
 
 @public
-class Dependency(object):
+class Dependency():
     class Unsatisfied(PluginLoadError):
         def __init__(self):
             PluginLoadError.__init__(self, None)
@@ -217,7 +217,7 @@ class FileDependency(Dependency):
 
 @public
 @service
-class PluginManager(object):
+class PluginManager():
     """
     Handles plugin loading and unloading
     """

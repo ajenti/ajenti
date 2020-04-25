@@ -5,7 +5,7 @@ import yaml
 from jadi import service
 
 
-class BaseConfig(object):
+class BaseConfig():
     """
     A base class for config implementations. Your implementation must be able to save
     arbitrary mixture of ``dict``, ``list``, and scalar values.

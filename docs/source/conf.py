@@ -73,7 +73,7 @@ def setup(app):
 
 USE_PIP_INSTALL = True
 
-class Mock(object):
+class Mock():
     __all__ = []
 
     def __init__(self, *args, **kwargs):

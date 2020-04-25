@@ -44,7 +44,7 @@ class YUMPackageManager(PackageManager):
         return self.__make_package(pkg)
 
     def update_lists(self, progress_callback):
-        class Progress(object):
+        class Progress():
             def __init__(self):
                 self.size = 0
                 self.done = 0

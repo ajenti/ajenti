@@ -1,7 +1,7 @@
 from jadi import interface
 
 
-class Package(object):
+class Package():
     def __init__(self, manager):
         self.manager = manager
         self.id = None
@@ -14,7 +14,7 @@ class Package(object):
 
 
 @interface
-class PackageManager(object):
+class PackageManager():
     id = None
     name = None
     update_command = None

@@ -89,7 +89,7 @@ class Augeas(augeas.Augeas):
 
 
 @interface
-class AugeasEndpoint(object):
+class AugeasEndpoint():
     """
     Implement this to provide Augeas trees to the frontend.
     """

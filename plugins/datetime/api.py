@@ -3,7 +3,7 @@ from jadi import interface
 
 
 @interface
-class TZManager(object):
+class TZManager():
     def __init__(self, context):
         self.context = context
 

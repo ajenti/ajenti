@@ -21,7 +21,7 @@ def _validate_origin(env):
     return True
 
 
-class HttpRoot(object):
+class HttpRoot():
     """
     A root WSGI middleware object that creates the :class:`HttpContext` and dispatches
     it to an HTTP handler.
@@ -81,7 +81,7 @@ class HttpMiddlewareAggregator(BaseHttpHandler):
                 return output
 
 
-class HttpContext(object):
+class HttpContext():
     """
     Instance of :class:`HttpContext` is passed to all HTTP handler methods
 

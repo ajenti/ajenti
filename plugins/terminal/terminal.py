@@ -16,7 +16,7 @@ import pyte
 from aj.util import BroadcastQueue
 
 
-class Terminal(object):
+class Terminal():
     def __init__(self, manager=None, id=None, command=None, autoclose=False, autoclose_retain=5, redirect=None):
         self.width = 80
         self.height = 25

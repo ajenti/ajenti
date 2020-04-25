@@ -7,7 +7,7 @@ from .terminal import Terminal
 
 
 @service
-class TerminalManager(object):
+class TerminalManager():
     def __init__(self, context):
         self.context = context
         self.terminals = {}

@@ -5,7 +5,7 @@ from cookies import Cookie
 from aj.gate.gate import WorkerGate
 
 
-class Session(object):
+class Session():
     """
     Holds the HTTP session data
     """
