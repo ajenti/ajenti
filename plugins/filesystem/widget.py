@@ -16,7 +16,7 @@ class DiskWidget(Widget):
 
     def get_value(self, config):
         parts = psutil.disk_partitions()
-        usage = dict((x.mountpoint, psutil.disk_usage(x.mountpoint)) for x in parts)
+        usage = {x.mountpoint:psutil.disk_usage(x.mountpoint) for x in parts}
         mountpoint = config.get('mountpoint', None)
         if mountpoint is None:
             return {
