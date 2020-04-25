@@ -26,14 +26,14 @@ class Transfer(Task):
                     'mv', item['item']['path'], self.destination
                 ])
                 if r != 0:
-                    logging.warn('mv exited with code %i', r)
+                    logging.warning('mv exited with code %i', r)
             if item['mode'] == 'copy':
                 logging.info('Copying %s', item['item']['path'])
                 r = subprocess.call([
                     'cp', '-a', item['item']['path'], self.destination
                 ])
                 if r != 0:
-                    logging.warn('cp exited with code %i', r)
+                    logging.warning('cp exited with code %i', r)
 
         self.push('filesystem', 'refresh')
 
@@ -56,6 +56,6 @@ class Delete(Task):
                 'rm', '-r', '-f', item['path'],
             ])
             if r != 0:
-                logging.warn('rm exited with code %i', r)
+                logging.warning('rm exited with code %i', r)
 
         self.push('filesystem', 'refresh')

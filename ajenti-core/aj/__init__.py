@@ -147,7 +147,7 @@ def init():
     if aj.platform is None:
         aj.platform_unmapped, aj.platform = detect_platform()
     else:
-        logging.warn('Platform ID was enforced by commandline!')
+        logging.warning('Platform ID was enforced by commandline!')
         aj.platform_unmapped = aj.platform
     aj.platform_string = detect_platform_string()
 

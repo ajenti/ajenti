@@ -14,7 +14,7 @@ class DeniedRouteHandler(BaseHttpHandler):
         pass
 
     def handle(self, http_context):
-        logging.warn('Invalid client certificate : %s', http_context.env['SSL_CLIENT_DIGEST'])
+        logging.warning('Invalid client certificate : %s', http_context.env['SSL_CLIENT_DIGEST'])
         http_context.respond_unauthenticated()
 
         return ["""
@@ -41,7 +41,7 @@ class InvalidRouteHandler(BaseHttpHandler):
         pass
 
     def handle(self, http_context):
-        logging.warn('URL not found: %s', http_context.path)
+        logging.warning('URL not found: %s', http_context.path)
         http_context.respond_not_found()
         
         with open(os.path.dirname(__file__)+'/static/images/error.jpeg', "rb") as error_image:

@@ -79,7 +79,7 @@ def endpoint(page=False, api=False, auth=True):
                 status = e.code
                 result = e.data
             except (EndpointError, SecurityError) as e:
-                logging.warn('Endpoint error at %s: %s', context.path, e.message)
+                logging.warning('Endpoint error at %s: %s', context.path, e.message)
                 if page:
                     raise
                 status = 500

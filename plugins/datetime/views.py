@@ -49,7 +49,7 @@ class Handler(HttpPlugin):
         try:
             subprocess.call(['hwclock', '--systohc'])
         except:
-            logging.warn('No hwclock utility available, not setting hardware clock')
+            logging.warning('No hwclock utility available, not setting hardware clock')
 
     @url(r'/api/datetime/time/sync')
     @authorize('datetime:write')

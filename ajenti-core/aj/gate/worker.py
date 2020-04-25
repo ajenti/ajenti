@@ -92,7 +92,7 @@ class Worker(object):
             return
         else:
             if os.getuid() != 0:
-                logging.warn('Running as a limited user, setuid() unavailable!')
+                logging.warning('Running as a limited user, setuid() unavailable!')
                 return
 
         logging.info(
