@@ -22,7 +22,7 @@ class EndpointError(Exception):
         self.message = message or six.u(str(inner))
         try:
             self.traceback_str = traceback.format_exc()
-        except:
+        except Exception as e:
             self.traceback_str = None
 
     def __str__(self):

@@ -120,8 +120,8 @@ def detect_platform():
 
     if dist == '':
         try:
-            dist = subprocess.check_output(['strings', '-4', '/etc/issue']).split()[0].strip()
-        except:
+            dist = subprocess.check_output(['strings', '-4', '/etc/issue']).split()[0].strip().decode()
+        except subprocess.CalledProcessError as e:
             dist = 'unknown'
 
     res = dist.strip(' \'"\t\n\r').lower()
@@ -136,9 +136,9 @@ def detect_platform():
 
 def detect_platform_string():
     try:
-        return subprocess.check_output(['lsb_release', '-sd']).strip()
-    except:
-        return subprocess.check_output(['uname', '-mrs']).strip()
+        return subprocess.check_output(['lsb_release', '-sd']).strip().decode()
+    except subprocess.CalledProcessError as e:
+        return subprocess.check_output(['uname', '-mrs']).strip().decode()
 
 
 def init():

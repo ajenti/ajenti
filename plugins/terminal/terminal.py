@@ -45,7 +45,7 @@ class Terminal():
                     try:
                         shell = subprocess.check_output(['which', sh])
                         break
-                    except:
+                    except Exception as e:
                         pass
             self.command = shell
 

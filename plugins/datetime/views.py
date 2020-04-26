@@ -48,7 +48,7 @@ class Handler(HttpPlugin):
         subprocess.call(['date', datetime.fromtimestamp(int(time)).strftime('%m%d%H%M%Y')])
         try:
             subprocess.call(['hwclock', '--systohc'])
-        except:
+        except FileNotFoundError as e:
             logging.warning('No hwclock utility available, not setting hardware clock')
 
     @url(r'/api/datetime/time/sync')

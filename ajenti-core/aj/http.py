@@ -74,9 +74,9 @@ class HttpMiddlewareAggregator(BaseHttpHandler):
     def __init__(self, stack):
         self.stack = stack
 
-    def handle(self, context):
+    def handle(self, http_context):
         for middleware in self.stack:
-            output = middleware.handle(context)
+            output = middleware.handle(http_context)
             if output is not None:
                 return output
 
@@ -352,7 +352,7 @@ class HttpContext():
                 if mtime <= rtime:
                     self.respond('304 Not Modified')
                     return
-            except:
+            except Exception as e:
                 pass
 
         http_range = self.env.get('HTTP_RANGE', None)

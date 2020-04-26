@@ -16,7 +16,7 @@ class UbuntuNetworkManager(NetworkManager):
 
     @classmethod
     def __verify__(cls):
-        if b'Ubuntu' in aj.platform_string:
+        if 'Ubuntu' in aj.platform_string:
             ubuntu_version = int(aj.platform_string[7:9])
         return aj.platform in ['debian'] and ubuntu_version >= 18
 

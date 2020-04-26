@@ -14,7 +14,7 @@ class YUMPackageManager(PackageManager):
         try:
             yum.YumBase().doGenericSetup(cache=1)
             return True
-        except:
+        except Exception as e:
             return False
 
     def __init__(self, context):

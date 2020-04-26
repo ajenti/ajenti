@@ -74,7 +74,7 @@ try:
 
     simplejson.dumps = wrap(simplejson.dumps)
     simplejson.loads = wrap(simplejson.loads)
-except:
+except Exception as e:
     pass
 
 

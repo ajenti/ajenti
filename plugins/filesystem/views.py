@@ -64,7 +64,7 @@ class Handler(HttpPlugin):
         chunk_dir = '/tmp/upload-%s' % id
         try:
             os.makedirs(chunk_dir)
-        except:
+        except Exception as e:
             pass
         chunk_path = os.path.join(chunk_dir, chunk_index)
 

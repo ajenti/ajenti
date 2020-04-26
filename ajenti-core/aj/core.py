@@ -180,7 +180,7 @@ def run(config=None, plugin_providers=None, product_name='ajenti', dev_mode=Fals
             ident=str(aj.product),
             facility=syslog.LOG_AUTH,
         )
-    except:
+    except Exception as e:
         syslog.openlog(aj.product)
 
     def cleanup():
