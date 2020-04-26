@@ -50,24 +50,29 @@ echo ":: Distro: $DISTRO"
 if [ "$OS" == "rhel" ] ; then
     echo ":: Installing prerequisites"
     yum install -y epel-release
-    yum install -y gcc python-devel python-pip libxslt-devel libxml2-devel libffi-devel openssl-devel libjpeg-turbo-devel libpng-devel dbus-python python-augeas ntpdate || exit 1
+    yum install -y gcc python3-devel python3-pip libxslt-devel libxml2-devel libffi-devel openssl-devel libjpeg-turbo-devel libpng-devel dbus-python python3-augeas ntpdate || exit 1
+fi
+
+
+if [ "$DISTRO" == "ubuntu" ] ; then
+    echo ":: Enabling universe repository"
+    add-apt-repository universe
 fi
 
 if [ "$OS" == "debian" ] ; then
     echo ":: Installing prerequisites"
     apt-get update
-    DEBIAN_FRONTEND='noninteractive' apt-get install -y build-essential python-pip python-dev python-lxml libffi-dev libssl-dev libjpeg-dev libpng-dev uuid-dev python-dbus python-augeas python-apt ntpdate || exit 1
+    DEBIAN_FRONTEND='noninteractive' apt-get install -y build-essential python3-pip python3-dev python3-lxml python3-dbus python3-augeas python3-apt ntpdate || exit 1
 fi
 
 
 echo ":: Upgrading PIP"
-rm /usr/lib/python2.7/dist-packages/setuptools.egg-info || true # for debian 7
-easy_install -U pip
-pip install -U pip wheel setuptools distribute
-pip uninstall -y gevent-socketio gevent-socketio-hartwork
+rm /usr/lib/`which python3`/dist-packages/setuptools.egg-info || true # for debian 7
+`which python3` -m pip install -U pip wheel setuptools
+`which python3` -m pip uninstall -y gevent-socketio gevent-socketio-hartwork
 
 echo ":: Installing Ajenti"
-`which pip` install ajenti-panel ajenti.plugin.dashboard ajenti.plugin.settings ajenti.plugin.plugins ajenti.plugin.notepad ajenti.plugin.terminal ajenti.plugin.filemanager ajenti.plugin.packages ajenti.plugin.services || exit 1
+`which python3` -m pip install ajenti-panel ajenti.plugin.core ajenti.plugin.dashboard ajenti.plugin.settings ajenti.plugin.plugins ajenti.plugin.notepad ajenti.plugin.terminal ajenti.plugin.filemanager ajenti.plugin.packages ajenti.plugin.services || exit 1
 
 # ----------------
 
@@ -99,7 +104,7 @@ After=network.target
 [Service]
 Type=forking
 PIDFile=/var/run/ajenti.pid
-ExecStart=$(which python) $(which ajenti-panel) -d
+ExecStart=$(which python3) $(which ajenti-panel) -d
 
 [Install]
 WantedBy=multi-user.target
