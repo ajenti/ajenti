@@ -72,7 +72,7 @@ class AuthenticationError(Exception):
 
 
 @interface
-class AuthenticationProvider(object):
+class AuthenticationProvider():
     id = None
     name = None
     allows_sudo_elevation = False
@@ -137,7 +137,7 @@ class OSAuthenticationProvider(AuthenticationProvider):
 
 @public
 @service
-class AuthenticationService(object):
+class AuthenticationService():
     def __init__(self, context):
         self.context = context
 
@@ -200,7 +200,7 @@ class AuthenticationService(object):
 
 @public
 @interface
-class PermissionProvider(object):
+class PermissionProvider():
     def __init__(self, context):
         self.context = context
 
@@ -209,7 +209,7 @@ class PermissionProvider(object):
 
 
 @public
-class authorize(object):
+class authorize():
     def __init__(self, permission_id):
         self.permission_id = permission_id
 

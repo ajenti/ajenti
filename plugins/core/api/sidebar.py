@@ -3,7 +3,7 @@ from aj.auth import authorize, SecurityError
 
 
 @interface
-class SidebarItemProvider(object):
+class SidebarItemProvider():
     """
     Interface for providing sidebar items.
     """
@@ -32,7 +32,7 @@ class SidebarItemProvider(object):
 
 
 @service
-class Sidebar(object):
+class Sidebar():
     def __init__(self, context):
         self.context = context
 

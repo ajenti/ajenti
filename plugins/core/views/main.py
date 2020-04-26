@@ -60,7 +60,7 @@ class Handler(HttpPlugin):
         content = open(path).read() % {
             'prefix': http_context.prefix,
             'plugins': json.dumps(
-                dict((manager[n]['info']['name'], manager[n]['info']['title']) for n in manager)
+                {manager[n]['info']['name']:manager[n]['info']['title'] for n in manager}
             ),
             'config': json.dumps(aj.config.data),
             'version': six.text_type(aj.version),

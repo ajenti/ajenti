@@ -5,7 +5,7 @@ from jadi import service
 
 
 @service
-class PowerManager(object):
+class PowerManager():
     def __init__(self, context):
         self.context = context
 

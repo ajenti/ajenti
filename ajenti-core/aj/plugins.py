@@ -12,7 +12,7 @@ from aj.util import public
 
 
 @public
-class PluginProvider(object):
+class PluginProvider():
     """
     A base class for plugin locator
     """
@@ -89,7 +89,7 @@ class PluginCrashed(PluginLoadError):
 
 
 @public
-class Dependency(object):
+class Dependency():
     class Unsatisfied(PluginLoadError):
         def __init__(self):
             PluginLoadError.__init__(self, None)
@@ -217,7 +217,7 @@ class FileDependency(Dependency):
 
 @public
 @service
-class PluginManager(object):
+class PluginManager():
     """
     Handles plugin loading and unloading
     """
@@ -310,7 +310,7 @@ class PluginManager(object):
             for dep in plugin['info']['dependencies']:
                 if isinstance(dep, PluginDependency) and dep.plugin_name not in self.load_order:
                     self.__crashes[plugin['info']['name']] = dep.build_exception()
-                    logging.warn('Not loading [%s] because [%s] is unavailable', plugin['info']['name'], dep.plugin_name)
+                    logging.warning('Not loading [%s] because [%s] is unavailable', plugin['info']['name'], dep.plugin_name)
 
         for name in list(self.load_order):
             try:
@@ -319,7 +319,7 @@ class PluginManager(object):
                         dependency.check()
             except Dependency.Unsatisfied as e:
                 self.__crashes[name] = e
-                logging.warn('Not loading [%s] because dependency failed: %s', name, e)
+                logging.warning('Not loading [%s] because dependency failed: %s', name, e)
                 self.load_order.remove(name)
 
         logging.debug('Resolved load order for %i plugins: %s', len(self.load_order), self.load_order)

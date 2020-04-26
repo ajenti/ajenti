@@ -21,7 +21,7 @@ def _validate_origin(env):
     return True
 
 
-class HttpRoot(object):
+class HttpRoot():
     """
     A root WSGI middleware object that creates the :class:`HttpContext` and dispatches
     it to an HTTP handler.
@@ -74,14 +74,14 @@ class HttpMiddlewareAggregator(BaseHttpHandler):
     def __init__(self, stack):
         self.stack = stack
 
-    def handle(self, context):
+    def handle(self, http_context):
         for middleware in self.stack:
-            output = middleware.handle(context)
+            output = middleware.handle(http_context)
             if output is not None:
                 return output
 
 
-class HttpContext(object):
+class HttpContext():
     """
     Instance of :class:`HttpContext` is passed to all HTTP handler methods
 
@@ -149,9 +149,9 @@ class HttpContext(object):
 
         self.query = {}
         if self.form_cgi_query:
-            self.query.update(dict((k, self.form_cgi_query[k].value) for k in self.form_cgi_query))
+            self.query.update({k:self.form_cgi_query[k].value for k in self.form_cgi_query})
         if self.url_cgi_query:
-            self.query.update(dict((k, self.url_cgi_query[k].value) for k in self.url_cgi_query))
+            self.query.update({k:self.url_cgi_query[k].value for k in self.url_cgi_query})
 
     def json_body(self):
         return json.loads(self.body.decode('utf-8'))
@@ -352,7 +352,7 @@ class HttpContext(object):
                 if mtime <= rtime:
                     self.respond('304 Not Modified')
                     return
-            except:
+            except Exception as e:
                 pass
 
         http_range = self.env.get('HTTP_RANGE', None)
@@ -372,9 +372,9 @@ class HttpContext(object):
         name = name or os.path.split(path)[-1].encode()
 
         if inline:
-            self.add_header('Content-Disposition', b'inline; filename=%s' % name)
+            self.add_header('Content-Disposition', (b'inline; filename=%s' % name).decode())
         else:
-            self.add_header('Content-Disposition', b'attachment; filename=%s' % name)
+            self.add_header('Content-Disposition', (b'attachment; filename=%s' % name).decode())
 
         if stream:
             if range_from:

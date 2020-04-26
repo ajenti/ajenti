@@ -20,5 +20,5 @@ class UpgradeAll (Task):
     def run(self):
         try:
             subprocess.check_output(['ajenti-upgrade'])
-        except:
+        except FileNotFoundError as e:
             subprocess.check_output(['/usr/local/bin/ajenti-upgrade'])

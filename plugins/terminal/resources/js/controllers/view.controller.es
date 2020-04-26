@@ -1,4 +1,4 @@
-angular.module('ajenti.terminal').controller('TerminalViewController', ($scope, $routeParams, $interval, terminals, hotkeys, pageTitle) => {
+angular.module('ajenti.terminal').controller('TerminalViewController', ($scope, $routeParams, $interval, terminals, hotkeys, pageTitle, gettext, notify) => {
     pageTitle.set('Terminal');
 
     $scope.id = $routeParams.id;
@@ -6,7 +6,10 @@ angular.module('ajenti.terminal').controller('TerminalViewController', ($scope, 
     $scope.copyData = '';
     $scope.copyDialogVisible = false;
 
-    $scope.onReady = () => $scope.ready = true;
+    $scope.onReady = () => {
+        $scope.ready = true;
+        notify.info(gettext('Use exit or Ctrl+D to exit terminal.'));
+    }
 
     hotkeys.on($scope, function(k, e) {
         if (k === 'C' && e.ctrlKey && e.shiftKey) {

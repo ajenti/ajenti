@@ -28,7 +28,7 @@ def _seq_combine(parts):
     return object
 
 
-class GateStreamRequest(object):
+class GateStreamRequest():
     def __init__(self, obj, endpoint):
         self.id = binascii.hexlify(os.urandom(32)).decode()
         self.object = obj
@@ -48,7 +48,7 @@ class GateStreamRequest(object):
         return self
 
 
-class GateStreamResponse(object):
+class GateStreamResponse():
     def __init__(self, _id, obj):
         self.id = _id
         self.object = obj
@@ -65,7 +65,7 @@ class GateStreamResponse(object):
         return self
 
 
-class GateStreamServerEndpoint(object):
+class GateStreamServerEndpoint():
     def __init__(self, pipe):
         self.pipe = pipe
         self.buffer = {}
@@ -124,7 +124,7 @@ class GateStreamServerEndpoint(object):
     def destroy(self):
         self.pipe.close()
 
-class GateStreamWorkerEndpoint(object):
+class GateStreamWorkerEndpoint():
     def __init__(self, pipe):
         self.pipe = pipe
         self.log = False

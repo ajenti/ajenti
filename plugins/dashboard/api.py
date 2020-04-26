@@ -2,7 +2,7 @@ from jadi import interface
 
 
 @interface
-class Widget(object):
+class Widget():
     """
     Base interface for dashboard widgets.
     """

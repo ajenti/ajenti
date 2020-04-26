@@ -16,18 +16,18 @@ class UpstartServiceManager(ServiceManager):
         try:
             UpstartSystem()
             return True
-        except:
+        except Exception as e:
             try:
                 UpstartSystem(bus=DirectUpstartBus())
                 return True
-            except:
+            except Exception as e:
                 return False
 
     def __init__(self, context):
         self.bus = None
         try:
             self.upstart = UpstartSystem()
-        except:
+        except Exception as e:
             self.bus = DirectUpstartBus()
             self.upstart = UpstartSystem(bus=self.bus)
 
@@ -46,7 +46,7 @@ class UpstartServiceManager(ServiceManager):
         try:
             svc.state = job.get_status()['state']
             svc.running = svc.state == 'running'
-        except:
+        except Exception as e:
             svc.running = False
         return svc
 

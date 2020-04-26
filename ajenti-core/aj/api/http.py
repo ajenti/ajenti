@@ -24,7 +24,7 @@ def url(pattern):
     return decorator
 
 
-class BaseHttpHandler(object):
+class BaseHttpHandler():
     """
     Base class for everything that can process HTTP requests
     """
@@ -49,7 +49,7 @@ class HttpMiddleware(BaseHttpHandler):
 
 
 @interface
-class HttpPlugin(object):
+class HttpPlugin():
     """
     A base interface for HTTP request handling::
 
@@ -92,7 +92,7 @@ class HttpPlugin(object):
 
 
 @interface
-class SocketEndpoint(object):
+class SocketEndpoint():
     """
     Base interface for Socket.IO endpoints.
 

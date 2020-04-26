@@ -86,7 +86,7 @@ class SocketIORouteHandler(BaseHttpHandler):
 
 
 @service
-class GateMiddleware(object):
+class GateMiddleware():
     def __init__(self, context):
         self.context = context
         self.sessions = {}
@@ -179,7 +179,7 @@ class GateMiddleware(object):
 
         if not session and aj.dev_autologin:
             username = pwd.getpwuid(os.geteuid()).pw_name
-            logging.warn('Opening an autologin session for user %s', username)
+            logging.warning('Opening an autologin session for user %s', username)
             session = self.open_session(
                 http_context.env,
                 initial_identity=username

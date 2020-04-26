@@ -13,7 +13,7 @@ from six.moves import reload_module
 
 import aj
 import aj.plugins
-from aj.auth import AuthenticationService
+# from aj.auth import AuthenticationService # Test for callback with certificate
 from aj.http import HttpRoot, HttpMiddlewareAggregator
 from aj.gate.middleware import GateMiddleware
 from aj.plugins import PluginManager
@@ -73,9 +73,9 @@ def run(config=None, plugin_providers=None, product_name='ajenti', dev_mode=Fals
     aj.config.ensure_structure()
 
     if aj.debug:
-        logging.warn('Debug mode')
+        logging.warning('Debug mode')
     if aj.dev:
-        logging.warn('Dev mode')
+        logging.warning('Dev mode')
 
     try:
         locale.setlocale(locale.LC_ALL, '')
@@ -93,7 +93,7 @@ def run(config=None, plugin_providers=None, product_name='ajenti', dev_mode=Fals
     # Load plugins
     PluginManager.get(aj.context).load_all_from(aj.plugin_providers)
     if len(PluginManager.get(aj.context)) == 0:
-        logging.warn('No plugins were loaded!')
+        logging.warning('No plugins were loaded!')
 
     if aj.config.data['bind']['mode'] == 'unix':
         path = aj.config.data['bind']['socket']
@@ -116,7 +116,7 @@ def run(config=None, plugin_providers=None, product_name='ajenti', dev_mode=Fals
             try:
                 listener.setsockopt(socket.IPPROTO_TCP, socket.TCP_CORK, 1)
             except socket.error:
-                logging.warn('Could not set TCP_CORK')
+                logging.warning('Could not set TCP_CORK')
         listener.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
         logging.info('Binding to [%s]:%s', host, port)
         try:
@@ -141,7 +141,6 @@ def run(config=None, plugin_providers=None, product_name='ajenti', dev_mode=Fals
         policy_server=False,
         transports=[
             str('websocket'),
-            str('flashsocket'),
             str('xhr-polling'),
             str('jsonp-polling'),
         ],
@@ -181,7 +180,7 @@ def run(config=None, plugin_providers=None, product_name='ajenti', dev_mode=Fals
             ident=str(aj.product),
             facility=syslog.LOG_AUTH,
         )
-    except:
+    except Exception as e:
         syslog.openlog(aj.product)
 
     def cleanup():
@@ -216,7 +215,7 @@ def run(config=None, plugin_providers=None, product_name='ajenti', dev_mode=Fals
         gevent.wait()
 
     if hasattr(aj.server, 'restart_marker'):
-        logging.warn('Restarting by request')
+        logging.warning('Restarting by request')
         cleanup()
 
         fd = 20  # Close all descriptors. Creepy thing
@@ -228,7 +227,7 @@ def run(config=None, plugin_providers=None, product_name='ajenti', dev_mode=Fals
                 pass
             fd -= 1
 
-        logging.warn('Will restart the process now')
+        logging.warning('Will restart the process now')
         if '-d' in sys.argv:
             sys.argv.remove('-d')
         os.execv(sys.argv[0], sys.argv)

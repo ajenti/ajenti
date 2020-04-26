@@ -2,7 +2,7 @@ import weakref
 from gevent.queue import Queue
 
 
-class BroadcastQueue(object):
+class BroadcastQueue():
     def __init__(self):
         self._queues = []
 

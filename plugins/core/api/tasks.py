@@ -14,7 +14,7 @@ from aj.util import BroadcastQueue
 from aj.plugins.core.api.push import Push
 
 
-class Task(object):
+class Task():
     """
     Tasks are one-off child processes with progress reporting. This is a base abstract class.
     """
@@ -177,7 +177,7 @@ class Task(object):
 
 
 @service
-class TasksService(object):
+class TasksService():
     def __init__(self, context):
         self.context = context
         self.tasks = {}

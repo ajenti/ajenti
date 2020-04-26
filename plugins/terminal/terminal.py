@@ -16,7 +16,7 @@ import pyte
 from aj.util import BroadcastQueue
 
 
-class Terminal(object):
+class Terminal():
     def __init__(self, manager=None, id=None, command=None, autoclose=False, autoclose_retain=5, redirect=None):
         self.width = 80
         self.height = 25
@@ -45,7 +45,7 @@ class Terminal(object):
                     try:
                         shell = subprocess.check_output(['which', sh])
                         break
-                    except:
+                    except Exception as e:
                         pass
             self.command = shell
 

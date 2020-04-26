@@ -3,7 +3,7 @@ from aj.util import BroadcastQueue
 
 
 @service
-class Push(object):
+class Push():
     """
     A service providing push messages to the client.
     """

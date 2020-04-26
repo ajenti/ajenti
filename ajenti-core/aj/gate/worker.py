@@ -18,7 +18,7 @@ from aj.routing import CentralDispatcher
 from aj.log import set_log_params, init_log_forwarding
 
 
-class WorkerSocketNamespace(object):
+class WorkerSocketNamespace():
     def __init__(self, context, _id):
         self.context = context
         self.id = _id
@@ -45,7 +45,7 @@ class WorkerSocketNamespace(object):
             endpoint.destroy()
 
 
-class Worker(object):
+class Worker():
     def __init__(self, stream, gate):
         aj.worker = self
         self.stream = stream
@@ -92,7 +92,7 @@ class Worker(object):
             return
         else:
             if os.getuid() != 0:
-                logging.warn('Running as a limited user, setuid() unavailable!')
+                logging.warning('Running as a limited user, setuid() unavailable!')
                 return
 
         logging.info(

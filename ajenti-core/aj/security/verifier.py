@@ -6,7 +6,7 @@ if PY3:
     long = int
 
 @service
-class ClientCertificateVerificator(object):
+class ClientCertificateVerificator():
     def __init__(self, context):
         self.context = context
 

@@ -11,7 +11,7 @@ from aj.plugins.dashboard.api import Widget
 class Handler(HttpPlugin):
     def __init__(self, context):
         self.context = context
-        self.widgets = dict((x.id, x) for x in Widget.all(self.context))
+        self.widgets = {x.id:x for x in Widget.all(self.context)}
 
     @url(r'/api/dashboard/widgets')
     @endpoint(api=True)

@@ -9,7 +9,7 @@ from aj.plugins.services.api import ServiceManager, ServiceOperationError
 class Handler(HttpPlugin):
     def __init__(self, context):
         self.context = context
-        self.managers = dict((x.id, x) for x in ServiceManager.all(self.context))
+        self.managers = {x.id:x for x in ServiceManager.all(self.context)}
 
     def __service_to_json(self, svc):
         return {

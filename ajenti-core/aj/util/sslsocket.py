@@ -1,5 +1,6 @@
 """
 Heavily based on https://github.com/Eugeny/gevent_openssl/blob/master/gevent_openssl/SSL.py
+Not used anymore - DEPRECATED
 """
 
 import OpenSSL.SSL
@@ -24,7 +25,7 @@ if PY3:
             return binary_type(data, 'utf-8')
 
 
-class SSLSocket(object):
+class SSLSocket():
     def __init__(self, context, sock=None):
         self._context = context
         self.__socket = sock

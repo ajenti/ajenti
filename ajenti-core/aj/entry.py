@@ -53,7 +53,7 @@ def handle_crash(exc):
     report_path = '/root/%s-crash.txt' % aj.product
     try:
         report = open(report_path, 'w')
-    except:
+    except Exception as e:
         report_path = './%s-crash.txt' % aj.product
         report = open(report_path, 'w')
 
