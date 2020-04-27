@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-27 12:10+0200\n"
-"PO-Revision-Date: 2020-04-27 11:01\n"
+"PO-Revision-Date: 2020-04-27 19:35\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: German\n"
 "Language: de_DE\n"
@@ -192,72 +192,72 @@ msgstr "Netzwerkschnittstellen aktivieren/deaktivieren"
 #: plugins/network/resources/js/controllers/hosts.controller.es:20
 #: plugins/network/resources/js/controllers/dns.controller.es:11
 msgid "Saved"
-msgstr ""
+msgstr "Gespeichert"
 
 #: plugins/network/resources/js/controllers/hosts.controller.es:22
 #: plugins/network/resources/js/controllers/dns.controller.es:13
 msgid "Could not save"
-msgstr ""
+msgstr "Speichern fehlgeschlagen"
 
 #: plugins/network/resources/js/controllers/index.controller.es:10
 msgid "Static"
-msgstr ""
+msgstr "Statisch"
 
 #: plugins/network/resources/js/controllers/index.controller.es:11
 msgid "Auto"
-msgstr ""
+msgstr "Automatisch"
 
 #: plugins/network/resources/js/controllers/index.controller.es:13
 msgid "Manual"
-msgstr ""
+msgstr "Manuell"
 
 #: plugins/network/resources/js/controllers/index.controller.es:14
 msgid "Loopback"
-msgstr ""
+msgstr "Loopback"
 
 #: plugins/network/resources/js/controllers/index.controller.es:41
 msgid "Interface activated"
-msgstr ""
+msgstr "Schnittstelle aktiviert"
 
 #: plugins/network/resources/js/controllers/index.controller.es:47
 #: plugins/network/resources/js/controllers/index.controller.es:60
 msgid "Warning"
-msgstr ""
+msgstr "Warnung"
 
 #: plugins/network/resources/js/controllers/index.controller.es:48
 msgid "Deactivating a network interface can lock you out of the remote session"
-msgstr ""
+msgstr "Deaktivieren einer Netzwerkschnittstelle kann Sie aus der Remote Sitzung aussperren"
 
 #: plugins/network/resources/js/controllers/index.controller.es:49
 msgid "Deactivate"
-msgstr ""
+msgstr "Deaktivieren"
 
 #: plugins/network/resources/js/controllers/index.controller.es:50
 #: plugins/network/resources/js/controllers/index.controller.es:63
 msgid "Cancel"
-msgstr ""
+msgstr "Abbrechen"
 
 #: plugins/network/resources/js/controllers/index.controller.es:53
 msgid "Interface deactivated"
-msgstr ""
+msgstr "Schnittstelle deaktiviert"
 
 #: plugins/network/resources/js/controllers/index.controller.es:61
 msgid "Restarting a network interface can lock you out of the remote session"
-msgstr ""
+msgstr "Neustart einer Netzwerkschnittstelle kann Sie aus der Remote Sitzung aussperren"
 
 #: plugins/network/resources/js/controllers/index.controller.es:62
 msgid "Restart"
-msgstr ""
+msgstr "Neustart"
 
 #: plugins/network/resources/js/controllers/index.controller.es:67
 msgid "Interface reactivated"
-msgstr ""
+msgstr "Schnittstelle reaktiviert"
 
 #: plugins/network/resources/js/controllers/index.controller.es:75
 msgid "Hostname changed"
-msgstr ""
+msgstr "Hostname geändert"
 
 #: plugins/network/resources/js/controllers/index.controller.es:77
 msgid "Failed"
-msgstr ""
+msgstr "Fehlgeschlagen"
 

@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-27 12:10+0200\n"
-"PO-Revision-Date: 2020-04-27 11:01\n"
+"PO-Revision-Date: 2020-04-27 19:35\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: German\n"
 "Language: de_DE\n"
@@ -112,105 +112,106 @@ msgstr "Autorisierung fehlgeschlagen"
 
 #: plugins/core/resources/js/core/interceptors.es:5
 msgid "Security error"
-msgstr ""
+msgstr "Sicherheitsfehler"
 
 #: plugins/core/resources/js/core/interceptors.es:8
 msgid "Server error"
-msgstr ""
+msgstr "Serverfehler"
 
 #: plugins/core/resources/js/core/interceptors.es:12
 msgid "Close"
-msgstr ""
+msgstr "Schließen"
 
 #: plugins/core/resources/js/core/interceptors.es:20
 msgid "Your session has expired"
-msgstr ""
+msgstr "Ihre Sitzung ist abgelaufen"
 
 #: plugins/core/resources/js/core/module.es:32
 msgid "Unhandled error occurred"
-msgstr ""
+msgstr "Ein unerwarteter Fehler ist aufgetreten\n"
+""
 
 #: plugins/core/resources/js/core/filters.es:7
 msgid "0 bytes"
-msgstr ""
+msgstr "0 Bytes"
 
 #: plugins/core/resources/js/core/filters.es:13
 msgid "bytes"
-msgstr ""
+msgstr "Bytes"
 
 #: plugins/core/resources/js/core/filters.es:14
 msgid "KB"
-msgstr ""
+msgstr "KB"
 
 #: plugins/core/resources/js/core/filters.es:15
 msgid "MB"
-msgstr ""
+msgstr "MB"
 
 #: plugins/core/resources/js/core/filters.es:16
 msgid "GB"
-msgstr ""
+msgstr "GB"
 
 #: plugins/core/resources/js/core/filters.es:17
 msgid "TB"
-msgstr ""
+msgstr "TB"
 
 #: plugins/core/resources/js/core/filters.es:18
 msgid "PB"
-msgstr ""
+msgstr "PB"
 
 #: plugins/core/resources/js/core/filters.es:40
 msgid "th"
-msgstr ""
+msgstr "th"
 
 #: plugins/core/resources/js/core/filters.es:41
 msgid "st"
-msgstr ""
+msgstr "st"
 
 #: plugins/core/resources/js/core/filters.es:42
 msgid "nd"
-msgstr ""
+msgstr "nd"
 
 #: plugins/core/resources/js/core/filters.es:43
 msgid "rd"
-msgstr ""
+msgstr "rd"
 
 #: plugins/core/resources/js/core/services/core.service.es:6
 msgid "Restart"
-msgstr ""
+msgstr "Neustart"
 
 #: plugins/core/resources/js/core/services/core.service.es:7
 msgid "Restart the panel?"
-msgstr ""
+msgstr "Das Panel neustarten?"
 
 #: plugins/core/resources/js/core/services/core.service.es:8
 msgid "Yes"
-msgstr ""
+msgstr "Ja"
 
 #: plugins/core/resources/js/core/services/core.service.es:9
 msgid "No"
-msgstr ""
+msgstr "Nein"
 
 #: plugins/core/resources/js/core/services/core.service.es:15
 msgid "Restarting"
-msgstr ""
+msgstr "Neustart wird durchgeführt"
 
 #: plugins/core/resources/js/core/services/core.service.es:19
 msgid "Restarted"
-msgstr ""
+msgstr "Neu gestartet"
 
 #: plugins/core/resources/js/core/services/core.service.es:19
 msgid "Please wait"
-msgstr ""
+msgstr "Bitte warten"
 
 #: plugins/core/resources/js/core/services/core.service.es:29
 msgid "Could not restart"
-msgstr ""
+msgstr "Konnte nicht neu gestartet werden"
 
 #: plugins/core/resources/js/core/services/tasks.service.es:26
 msgid "Done"
-msgstr ""
+msgstr "Erledigt"
 
 #: plugins/core/resources/js/core/controllers/login.controller.es:25
 msgid "Authentication failed"
-msgstr ""
+msgstr "Authentifizierung fehlgeschlagen"
 

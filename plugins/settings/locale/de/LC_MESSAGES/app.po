@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-27 12:11+0200\n"
-"PO-Revision-Date: 2020-04-27 11:01\n"
+"PO-Revision-Date: 2020-04-27 19:35\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: German\n"
 "Language: de_DE\n"
@@ -169,43 +169,43 @@ msgstr "Einstellungen"
 
 #: plugins/settings/resources/js/controllers/index.controller.es:37
 msgid "Could not load config"
-msgstr ""
+msgstr "Konfiguration konnte nicht geladen werden"
 
 #: plugins/settings/resources/js/controllers/index.controller.es:41
 msgid "Could not load authentication provider list"
-msgstr ""
+msgstr "Authentifizierungsanbieterliste konnte nicht geladen werden"
 
 #: plugins/settings/resources/js/controllers/index.controller.es:60
 #: plugins/settings/resources/js/controllers/index.controller.es:65
 msgid "Saved"
-msgstr ""
+msgstr "Gespeichert"
 
 #: plugins/settings/resources/js/controllers/index.controller.es:61
 msgid "SSL Error"
-msgstr ""
+msgstr "SSL-Fehler"
 
 #: plugins/settings/resources/js/controllers/index.controller.es:67
 msgid "Could not save config"
-msgstr ""
+msgstr "Konfiguration konnte nicht gespeichert werden"
 
 #: plugins/settings/resources/js/controllers/index.controller.es:73
 msgid "Self-signed certificate"
-msgstr ""
+msgstr "Selbstsigniertes Zertifikat"
 
 #: plugins/settings/resources/js/controllers/index.controller.es:74
 msgid "Generating a new certificate will void all existing client authentication certificates!"
-msgstr ""
+msgstr "Die Generierung eines neuen Zertifikats wird alle bestehenden Client-Authentifizierungszertifikate außer Kraft setzen!"
 
 #: plugins/settings/resources/js/controllers/index.controller.es:79
 msgid "Please wait"
-msgstr ""
+msgstr "Bitte warten"
 
 #: plugins/settings/resources/js/controllers/index.controller.es:81
 msgid "Certificate successfully generated"
-msgstr ""
+msgstr "Zertifikat erfolgreich generiert"
 
 #: plugins/settings/resources/js/controllers/index.controller.es:87
 #: plugins/settings/resources/js/controllers/index.controller.es:106
 msgid "Certificate generation failed"
-msgstr ""
+msgstr "Zertifikatserstellung fehlgeschlagen"
 

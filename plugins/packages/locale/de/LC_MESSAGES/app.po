@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-27 12:10+0200\n"
-"PO-Revision-Date: 2020-04-27 11:01\n"
+"PO-Revision-Date: 2020-04-27 19:35\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: German\n"
 "Language: de_DE\n"
@@ -74,17 +74,17 @@ msgstr "Installieren/Entfernen von Paketen"
 
 #: plugins/packages/resources/js/controllers/index.controller.es:18
 msgid "Could not find packages"
-msgstr ""
+msgstr "Pakete konnten nicht gefunden werden"
 
 #: plugins/packages/resources/js/controllers/index.controller.es:25
 msgid "Package list update started"
-msgstr ""
+msgstr "Paket-Listen-Update gestartet"
 
 #: plugins/packages/resources/js/controllers/index.controller.es:27
 msgid "Package list update failed"
-msgstr ""
+msgstr "Paket-Listen-Update fehlgeschlagen"
 
 #: plugins/packages/resources/js/controllers/index.controller.es:61
 msgid "Could not apply changes"
-msgstr ""
+msgstr "Die Änderungen konnten nicht übernommen werden"
 

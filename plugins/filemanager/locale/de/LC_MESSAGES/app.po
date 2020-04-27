@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-27 12:10+0200\n"
-"PO-Revision-Date: 2020-04-27 11:01\n"
+"PO-Revision-Date: 2020-04-27 19:35\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: German\n"
 "Language: de_DE\n"
@@ -189,29 +189,29 @@ msgstr "Datei-Manager"
 
 #: plugins/filemanager/resources/js/controllers/properties.controller.es:15
 msgid "Could not read file information"
-msgstr ""
+msgstr "Dateiinformationen konnten nicht gelesen werden"
 
 #: plugins/filemanager/resources/js/controllers/properties.controller.es:29
 msgid "File mode saved"
-msgstr ""
+msgstr "Datei-Modus gespeichert"
 
 #: plugins/filemanager/resources/js/controllers/index.controller.es:15
 msgid "Could not load directory"
-msgstr ""
+msgstr "Verzeichnis konnte nicht geladen werden"
 
 #: plugins/filemanager/resources/js/controllers/index.controller.es:86
 msgid "Delete selected items?"
-msgstr ""
+msgstr "Ausgewählte Elemente löschen?"
 
 #: plugins/filemanager/resources/js/controllers/index.controller.es:123
 msgid "Could not create file"
-msgstr ""
+msgstr "Datei konnte nicht erstellt werden"
 
 #: plugins/filemanager/resources/js/controllers/index.controller.es:143
 msgid "Could not create directory"
-msgstr ""
+msgstr "Verzeichnis konnte nicht erstellt werden"
 
 #: plugins/filemanager/resources/js/controllers/index.controller.es:150
 msgid "Uploaded"
-msgstr ""
+msgstr "Hochgeladen"
 

@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-27 12:10+0200\n"
-"PO-Revision-Date: 2020-04-27 11:01\n"
+"PO-Revision-Date: 2020-04-27 19:35\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: German\n"
 "Language: de_DE\n"
@@ -97,7 +97,7 @@ msgstr "Neuer Name"
 
 #: plugins/dashboard/resources/js/controllers/index.controller.es:82
 msgid "${$scope.userConfig.dashboard.tabs[index].name}"
-msgstr ""
+msgstr "${$scope.userConfig.dashboard.tabs[index].name}"
 
 #: plugins/dashboard/resources/js/controllers/index.controller.es:84
 msgid "Cancel"
