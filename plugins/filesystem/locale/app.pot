@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-11-02 15:25+0100\n"
+"POT-Creation-Date: 2020-04-27 12:10+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -50,6 +50,10 @@ msgstr ""
 msgid "Up one level"
 msgstr ""
 
+#: plugins/filesystem/widget.py:10
+msgid "Disk space"
+msgstr ""
+
 #: plugins/filesystem/tasks.py:9
 msgid "File transfer"
 msgstr ""
@@ -58,14 +62,14 @@ msgstr ""
 msgid "Deleting"
 msgstr ""
 
-#: plugins/filesystem/widget.py:10
-msgid "Disk space"
-msgstr ""
-
 #: plugins/filesystem/main.py:12
 msgid "Read from the filesystem"
 msgstr ""
 
 #: plugins/filesystem/main.py:17
 msgid "Write to the filesystem"
+msgstr ""
+
+#: plugins/filesystem/resources/js/directives/fileDialog.es:35
+msgid "Could not load directory"
 msgstr ""

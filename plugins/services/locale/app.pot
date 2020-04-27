@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-11-02 15:25+0100\n"
+"POT-Creation-Date: 2020-04-27 12:11+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -31,9 +31,19 @@ msgid "Service"
 msgstr ""
 
 #: plugins/services/main.py:26
+#: plugins/services/resources/js/controllers/index.controller.es:2
 msgid "Services"
 msgstr ""
 
 #: plugins/services/main.py:39
 msgid "Manage system services"
+msgstr ""
+
+#: plugins/services/resources/js/controllers/widget.controller.es:14
+#: plugins/services/resources/js/controllers/index.controller.es:27
+msgid "Service operation failed"
+msgstr ""
+
+#: plugins/services/resources/js/controllers/index.controller.es:24
+msgid "Done"
 msgstr ""

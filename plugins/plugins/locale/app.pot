@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-11-02 15:25+0100\n"
+"POT-Creation-Date: 2020-04-27 12:11+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -133,6 +133,8 @@ msgstr ""
 
 #: plugins/plugins/resources/partial/index.html:151
 #: plugins/plugins/resources/partial/index.html:30
+#: plugins/plugins/resources/js/controllers/index.controller.es:174
+#: plugins/plugins/resources/js/controllers/index.controller.es:176
 msgid "Uninstall"
 msgstr ""
 
@@ -160,4 +162,81 @@ msgstr ""
 
 #: plugins/plugins/main.py:15
 msgid "Plugins"
+msgstr ""
+
+#: plugins/plugins/resources/js/controllers/index.controller.es:19
+msgid "Could not load repository version for ajenti-panel."
+msgstr ""
+
+#: plugins/plugins/resources/js/controllers/index.controller.es:56
+msgid "Could not load plugin repository"
+msgstr ""
+
+#: plugins/plugins/resources/js/controllers/index.controller.es:59
+msgid "Could not load the installed plugin list"
+msgstr ""
+
+#: plugins/plugins/resources/js/controllers/index.controller.es:105
+msgid "All plugins updated"
+msgstr ""
+
+#: plugins/plugins/resources/js/controllers/index.controller.es:107
+#: plugins/plugins/resources/js/controllers/index.controller.es:147
+#: plugins/plugins/resources/js/controllers/index.controller.es:183
+msgid "Done"
+msgstr ""
+
+#: plugins/plugins/resources/js/controllers/index.controller.es:108
+#: plugins/plugins/resources/js/controllers/index.controller.es:147
+msgid "Installed. A panel restart is required."
+msgstr ""
+
+#: plugins/plugins/resources/js/controllers/index.controller.es:109
+#: plugins/plugins/resources/js/controllers/index.controller.es:147
+#: plugins/plugins/resources/js/controllers/index.controller.es:185
+msgid "Restart now"
+msgstr ""
+
+#: plugins/plugins/resources/js/controllers/index.controller.es:110
+#: plugins/plugins/resources/js/controllers/index.controller.es:147
+#: plugins/plugins/resources/js/controllers/index.controller.es:186
+msgid "Later"
+msgstr ""
+
+#: plugins/plugins/resources/js/controllers/index.controller.es:114
+msgid "Some plugins failed to update"
+msgstr ""
+
+#: plugins/plugins/resources/js/controllers/index.controller.es:150
+msgid "Install failed"
+msgstr ""
+
+#: plugins/plugins/resources/js/controllers/index.controller.es:158
+msgid "Warning"
+msgstr ""
+
+#: plugins/plugins/resources/js/controllers/index.controller.es:159
+msgid ""
+"This will remove the Plugins plugin. You can reinstall it later using PIP."
+msgstr ""
+
+#: plugins/plugins/resources/js/controllers/index.controller.es:160
+msgid "Continue"
+msgstr ""
+
+#: plugins/plugins/resources/js/controllers/index.controller.es:161
+#: plugins/plugins/resources/js/controllers/index.controller.es:177
+msgid "Cancel"
+msgstr ""
+
+#: plugins/plugins/resources/js/controllers/index.controller.es:179
+msgid "Uninstalling"
+msgstr ""
+
+#: plugins/plugins/resources/js/controllers/index.controller.es:184
+msgid "Uninstalled. A panel restart is required."
+msgstr ""
+
+#: plugins/plugins/resources/js/controllers/index.controller.es:191
+msgid "Uninstall failed"
 msgstr ""

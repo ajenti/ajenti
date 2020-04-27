@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-11-02 15:23+0100\n"
+"POT-Creation-Date: 2020-04-27 12:10+0200\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
@@ -78,4 +78,8 @@ msgstr ""
 
 #: plugins/auth_users/main.py:16
 msgid "Users"
+msgstr ""
+
+#: plugins/auth_users/resources/js/controllers/index.controller.es:70
+msgid "Password updated"
 msgstr ""

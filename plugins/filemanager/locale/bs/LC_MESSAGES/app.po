@@ -1,0 +1,217 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: ajenti\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-04-27 12:10+0200\n"
+"PO-Revision-Date: 2020-04-27 11:01\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Bosnian\n"
+"Language: bs_BA\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Crowdin-Project: ajenti\n"
+"X-Crowdin-Language: bs\n"
+"X-Crowdin-File: /2.0/filemanager.po\n"
+
+#: plugins/filemanager/resources/partial/properties.html:49
+msgid "Access"
+msgstr ""
+
+#: plugins/filemanager/resources/partial/properties.html:161
+msgid "All"
+msgstr ""
+
+#: plugins/filemanager/resources/partial/properties.html:187
+msgid "Apply"
+msgstr ""
+
+#: plugins/filemanager/resources/partial/index.html:76
+#: plugins/filemanager/resources/partial/index.html:89
+#: plugins/filemanager/resources/partial/properties.html:188
+#: plugins/filemanager/resources/js/controllers/index.controller.es:88
+msgid "Cancel"
+msgstr ""
+
+#: plugins/filemanager/resources/partial/properties.html:115
+msgid "Change permissions"
+msgstr ""
+
+#: plugins/filemanager/resources/partial/index.html:95
+msgid "Clipboard"
+msgstr ""
+
+#: plugins/filemanager/resources/partial/index.html:117
+msgid "Close"
+msgstr ""
+
+#: plugins/filemanager/resources/partial/index.html:63
+msgid "Copy"
+msgstr ""
+
+#: plugins/filemanager/resources/partial/index.html:75
+#: plugins/filemanager/resources/partial/index.html:88
+msgid "Create"
+msgstr ""
+
+#: plugins/filemanager/resources/partial/index.html:62
+msgid "Cut"
+msgstr ""
+
+#: plugins/filemanager/resources/partial/properties.html:32
+msgid "DIRECTORY"
+msgstr ""
+
+#: plugins/filemanager/resources/partial/index.html:64
+#: plugins/filemanager/resources/js/controllers/index.controller.es:87
+msgid "Delete"
+msgstr ""
+
+#: plugins/filemanager/resources/partial/index.html:85
+msgid "Directory name"
+msgstr ""
+
+#: plugins/filemanager/resources/partial/properties.html:70
+msgid "EXECUTE"
+msgstr ""
+
+#: plugins/filemanager/resources/partial/properties.html:123
+msgid "Edit in Notepad"
+msgstr ""
+
+#: plugins/filemanager/resources/partial/properties.html:173
+msgid "Extra"
+msgstr ""
+
+#: plugins/filemanager/resources/partial/properties.html:37
+msgid "FILE"
+msgstr ""
+
+#: plugins/filemanager/resources/partial/index.html:72
+msgid "File name"
+msgstr ""
+
+#: plugins/filemanager/resources/partial/properties.html:18
+msgid "Full path"
+msgstr ""
+
+#: plugins/filemanager/resources/partial/properties.html:100
+#: plugins/filemanager/resources/partial/properties.html:149
+msgid "Group"
+msgstr ""
+
+#: plugins/filemanager/resources/partial/properties.html:43
+msgid "LINK"
+msgstr ""
+
+#: plugins/filemanager/resources/partial/properties.html:108
+msgid "Mode"
+msgstr ""
+
+#: plugins/filemanager/resources/partial/properties.html:84
+msgid "Modified"
+msgstr ""
+
+#: plugins/filemanager/resources/partial/properties.html:10
+msgid "Name"
+msgstr ""
+
+#: plugins/filemanager/resources/partial/index.html:46
+#: plugins/filemanager/resources/partial/index.html:82
+msgid "New directory"
+msgstr ""
+
+#: plugins/filemanager/resources/partial/index.html:45
+#: plugins/filemanager/resources/partial/index.html:69
+msgid "New file"
+msgstr ""
+
+#: plugins/filemanager/resources/partial/properties.html:92
+msgid "Owner"
+msgstr ""
+
+#: plugins/filemanager/resources/partial/index.html:50
+msgid "Paste here"
+msgstr ""
+
+#: plugins/filemanager/resources/partial/properties.html:132
+msgid "Permission bits"
+msgstr ""
+
+#: plugins/filemanager/resources/partial/properties.html:56
+msgid "READ"
+msgstr ""
+
+#: plugins/filemanager/resources/partial/index.html:100
+msgid "Remove"
+msgstr ""
+
+#: plugins/filemanager/resources/partial/index.html:116
+msgid "Remove all items"
+msgstr ""
+
+#: plugins/filemanager/resources/partial/properties.html:76
+msgid "Size"
+msgstr ""
+
+#: plugins/filemanager/resources/partial/index.html:53
+msgid "Tab"
+msgstr ""
+
+#: plugins/filemanager/resources/partial/properties.html:26
+msgid "Type"
+msgstr ""
+
+#: plugins/filemanager/resources/partial/index.html:15
+msgid "Up one level"
+msgstr ""
+
+#: plugins/filemanager/resources/partial/index.html:48
+msgid "Upload"
+msgstr ""
+
+#: plugins/filemanager/resources/partial/properties.html:137
+msgid "User"
+msgstr ""
+
+#: plugins/filemanager/resources/partial/properties.html:63
+msgid "WRITE"
+msgstr ""
+
+#: plugins/filemanager/resources/partial/index.html:59
+msgid "items selected"
+msgstr ""
+
+#: plugins/filemanager/main.py:15
+msgid "File Manager"
+msgstr ""
+
+#: plugins/filemanager/resources/js/controllers/properties.controller.es:15
+msgid "Could not read file information"
+msgstr ""
+
+#: plugins/filemanager/resources/js/controllers/properties.controller.es:29
+msgid "File mode saved"
+msgstr ""
+
+#: plugins/filemanager/resources/js/controllers/index.controller.es:15
+msgid "Could not load directory"
+msgstr ""
+
+#: plugins/filemanager/resources/js/controllers/index.controller.es:86
+msgid "Delete selected items?"
+msgstr ""
+
+#: plugins/filemanager/resources/js/controllers/index.controller.es:123
+msgid "Could not create file"
+msgstr ""
+
+#: plugins/filemanager/resources/js/controllers/index.controller.es:143
+msgid "Could not create directory"
+msgstr ""
+
+#: plugins/filemanager/resources/js/controllers/index.controller.es:150
+msgid "Uploaded"
+msgstr ""
+

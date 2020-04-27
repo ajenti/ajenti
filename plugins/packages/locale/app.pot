@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-11-02 15:25+0100\n"
+"POT-Creation-Date: 2020-04-27 12:10+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -66,9 +66,26 @@ msgid "pending"
 msgstr ""
 
 #: plugins/packages/main.py:25
+#: plugins/packages/resources/js/controllers/index.controller.es:2
 msgid "Packages"
 msgstr ""
 
 #: plugins/packages/main.py:39
 msgid "Install/remove packages"
+msgstr ""
+
+#: plugins/packages/resources/js/controllers/index.controller.es:18
+msgid "Could not find packages"
+msgstr ""
+
+#: plugins/packages/resources/js/controllers/index.controller.es:25
+msgid "Package list update started"
+msgstr ""
+
+#: plugins/packages/resources/js/controllers/index.controller.es:27
+msgid "Package list update failed"
+msgstr ""
+
+#: plugins/packages/resources/js/controllers/index.controller.es:61
+msgid "Could not apply changes"
 msgstr ""

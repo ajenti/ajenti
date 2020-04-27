@@ -1,0 +1,211 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: ajenti\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-04-27 12:11+0200\n"
+"PO-Revision-Date: 2020-04-27 11:01\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Bosnian\n"
+"Language: bs_BA\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Crowdin-Project: ajenti\n"
+"X-Crowdin-Language: bs\n"
+"X-Crowdin-File: /2.0/settings.po\n"
+
+#: plugins/settings/resources/partial/index.html:85
+msgid "Allow sudo elevation for logged in users"
+msgstr ""
+
+#: plugins/settings/resources/partial/index.html:76
+msgid "Authentication provider"
+msgstr ""
+
+#: plugins/settings/resources/partial/index.html:48
+msgid "Binding"
+msgstr ""
+
+#: plugins/settings/resources/partial/index.html:205
+#: plugins/settings/resources/js/controllers/index.controller.es:76
+msgid "Cancel"
+msgstr ""
+
+#: plugins/settings/resources/partial/index.html:16
+msgid "Color tag"
+msgstr ""
+
+#: plugins/settings/resources/partial/index.html:198
+msgid "Common name"
+msgstr ""
+
+#: plugins/settings/resources/partial/index.html:186
+msgid "Country"
+msgstr ""
+
+#: plugins/settings/resources/partial/index.html:129
+msgid "Deny other means of authentication"
+msgstr ""
+
+#: plugins/settings/resources/partial/index.html:176
+msgid "Download certificate"
+msgstr ""
+
+#: plugins/settings/resources/partial/index.html:94
+msgid "Enable SSL"
+msgstr ""
+
+#: plugins/settings/resources/partial/index.html:126
+msgid "Enable client authentication"
+msgstr ""
+
+#: plugins/settings/resources/partial/index.html:204
+#: plugins/settings/resources/js/controllers/index.controller.es:75
+msgid "Generate"
+msgstr ""
+
+#: plugins/settings/resources/partial/index.html:107
+msgid "Generate a self-signed certificate"
+msgstr ""
+
+#: plugins/settings/resources/partial/index.html:169
+#: plugins/settings/resources/js/controllers/index.controller.es:79
+msgid "Generating certificate"
+msgstr ""
+
+#: plugins/settings/resources/partial/index.html:59
+msgid "Host / IP"
+msgstr ""
+
+#: plugins/settings/resources/partial/index.html:30
+msgid "Language"
+msgstr ""
+
+#: plugins/settings/resources/partial/index.html:182
+msgid "Login as"
+msgstr ""
+
+#: plugins/settings/resources/partial/index.html:10
+msgid "Machine name"
+msgstr ""
+
+#: plugins/settings/resources/partial/index.html:37
+msgid "Max session time"
+msgstr ""
+
+#: plugins/settings/resources/partial/index.html:159
+msgid "New certificate"
+msgstr ""
+
+#: plugins/settings/resources/partial/index.html:164
+msgid "New client certificate"
+msgstr ""
+
+#: plugins/settings/resources/partial/index.html:136
+msgid "No certificates are created yet."
+msgstr ""
+
+#: plugins/settings/resources/partial/index.html:194
+msgid "Organization"
+msgstr ""
+
+#: plugins/settings/resources/partial/index.html:62
+msgid "Port"
+msgstr ""
+
+#: plugins/settings/resources/partial/index.html:226
+msgid "Remove"
+msgstr ""
+
+#: plugins/settings/resources/partial/index.html:271
+msgid "Restart panel"
+msgstr ""
+
+#: plugins/settings/resources/partial/index.html:111
+msgid "SSL FQDN certificate file"
+msgstr ""
+
+#: plugins/settings/resources/partial/index.html:100
+msgid "SSL certificate file"
+msgstr ""
+
+#: plugins/settings/resources/partial/index.html:124
+msgid "SSL client authentication"
+msgstr ""
+
+#: plugins/settings/resources/partial/index.html:134
+msgid "SSL client certificates"
+msgstr ""
+
+#: plugins/settings/resources/partial/index.html:270
+msgid "Save"
+msgstr ""
+
+#: plugins/settings/resources/partial/index.html:209
+msgid "Save and Close"
+msgstr ""
+
+#: plugins/settings/resources/partial/index.html:67
+msgid "Socket path"
+msgstr ""
+
+#: plugins/settings/resources/partial/index.html:190
+msgid "State"
+msgstr ""
+
+#: plugins/settings/resources/partial/index.html:83
+msgid "Sudo"
+msgstr ""
+
+#: plugins/settings/resources/partial/index.html:170
+msgid "This might take a few seconds"
+msgstr ""
+
+#: plugins/settings/main.py:15
+#: plugins/settings/resources/js/controllers/index.controller.es:2
+msgid "Settings"
+msgstr ""
+
+#: plugins/settings/resources/js/controllers/index.controller.es:37
+msgid "Could not load config"
+msgstr ""
+
+#: plugins/settings/resources/js/controllers/index.controller.es:41
+msgid "Could not load authentication provider list"
+msgstr ""
+
+#: plugins/settings/resources/js/controllers/index.controller.es:60
+#: plugins/settings/resources/js/controllers/index.controller.es:65
+msgid "Saved"
+msgstr ""
+
+#: plugins/settings/resources/js/controllers/index.controller.es:61
+msgid "SSL Error"
+msgstr ""
+
+#: plugins/settings/resources/js/controllers/index.controller.es:67
+msgid "Could not save config"
+msgstr ""
+
+#: plugins/settings/resources/js/controllers/index.controller.es:73
+msgid "Self-signed certificate"
+msgstr ""
+
+#: plugins/settings/resources/js/controllers/index.controller.es:74
+msgid "Generating a new certificate will void all existing client authentication certificates!"
+msgstr ""
+
+#: plugins/settings/resources/js/controllers/index.controller.es:79
+msgid "Please wait"
+msgstr ""
+
+#: plugins/settings/resources/js/controllers/index.controller.es:81
+msgid "Certificate successfully generated"
+msgstr ""
+
+#: plugins/settings/resources/js/controllers/index.controller.es:87
+#: plugins/settings/resources/js/controllers/index.controller.es:106
+msgid "Certificate generation failed"
+msgstr ""
+

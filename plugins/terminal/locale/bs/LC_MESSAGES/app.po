@@ -1,0 +1,100 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: ajenti\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-04-27 12:11+0200\n"
+"PO-Revision-Date: 2020-04-27 11:01\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Bosnian\n"
+"Language: bs_BA\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Crowdin-Project: ajenti\n"
+"X-Crowdin-Language: bs\n"
+"X-Crowdin-File: /2.0/terminal.po\n"
+
+#: plugins/terminal/resources/partial/view.html:15
+msgid "Copy terminal content"
+msgstr ""
+
+#: plugins/terminal/resources/partial/view.html:26
+msgid "Done"
+msgstr ""
+
+#: plugins/terminal/resources/partial/widget.config.html:3
+msgid "Name"
+msgstr ""
+
+#: plugins/terminal/resources/partial/index.html:29
+msgid "Open a new terminal"
+msgstr ""
+
+#: plugins/terminal/resources/partial/widget.html:7
+msgid "Run"
+msgstr ""
+
+#: plugins/terminal/resources/partial/index.html:34
+msgid "Run a command..."
+msgstr ""
+
+#: plugins/terminal/resources/partial/widget.config.html:7
+#: plugins/terminal/resources/partial/widget.html:2
+#: plugins/terminal/widget.py:8
+msgid "Script"
+msgstr ""
+
+#: plugins/terminal/resources/partial/index.html:1
+#: plugins/terminal/resources/js/controllers/index.controller.es:2
+msgid "Terminals"
+msgstr ""
+
+#: plugins/terminal/resources/partial/index.html:9
+msgid "Terminate"
+msgstr ""
+
+#: plugins/terminal/resources/partial/widget.config.html:11
+msgid "stdin data"
+msgstr ""
+
+#: plugins/terminal/main.py:16
+msgid "Terminal"
+msgstr ""
+
+#: plugins/terminal/main.py:30
+msgid "Run arbitrary scripts"
+msgstr ""
+
+#: plugins/terminal/main.py:35
+msgid "Open shell terminals"
+msgstr ""
+
+#: plugins/terminal/resources/js/directives/terminal.es:178
+msgid "Terminal was closed"
+msgstr ""
+
+#: plugins/terminal/resources/js/services/terminals.service.es:20
+msgid "You will be redirect to the previous page."
+msgstr ""
+
+#: plugins/terminal/resources/js/controllers/view.controller.es:11
+msgid "Use exit or Ctrl+D to exit terminal."
+msgstr ""
+
+#: plugins/terminal/resources/js/controllers/widget.controller.es:7
+msgid "Starting the script"
+msgstr ""
+
+#: plugins/terminal/resources/js/controllers/widget.controller.es:10
+msgid "Script has finished"
+msgstr ""
+
+#: plugins/terminal/resources/js/controllers/widget.controller.es:12
+msgid "Script has failed"
+msgstr ""
+
+#: plugins/terminal/resources/js/controllers/widget.controller.es:15
+msgid "Could not launch the script"
+msgstr ""
+
