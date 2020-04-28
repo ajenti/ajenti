@@ -61,12 +61,12 @@ Frontend
 Platforms
 =========
 
-* Debian 6 or later
-* Ubuntu Precise or later
-* CentOS 6 or later
-* RHEL 6 or later
+* Debian 9 or later
+* Ubuntu Bionic or later
+* CentOS 8 or later
+* RHEL 8 or later
 * Can be run on other Linux or BSD systems with minimal modifications.
-* Supports Python 2.7+ and PyPy.
+* Supports Python 3.5+.
 
 
 .. toctree::
