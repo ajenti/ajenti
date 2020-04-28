@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-11-02 15:25+0100\n"
+"POT-Creation-Date: 2020-04-27 12:11+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -34,6 +34,7 @@ msgid "Discharging at {{battery.rate}} W"
 msgstr ""
 
 #: plugins/power/resources/partial/index.html:22
+#: plugins/power/resources/js/controllers/index.controller.es:55
 msgid "Hibernate"
 msgstr ""
 
@@ -62,10 +63,12 @@ msgid "Power off"
 msgstr ""
 
 #: plugins/power/resources/partial/index.html:16
+#: plugins/power/resources/js/controllers/index.controller.es:32
 msgid "Reboot"
 msgstr ""
 
 #: plugins/power/resources/partial/index.html:19
+#: plugins/power/resources/js/controllers/index.controller.es:45
 msgid "Suspend"
 msgstr ""
 
@@ -83,4 +86,54 @@ msgstr ""
 
 #: plugins/power/main.py:30
 msgid "Shutdown and reboot the system"
+msgstr ""
+
+#: plugins/power/resources/js/controllers/index.controller.es:2
+msgid "Power management"
+msgstr ""
+
+#: plugins/power/resources/js/controllers/index.controller.es:20
+#: plugins/power/resources/js/controllers/index.controller.es:30
+#: plugins/power/resources/js/controllers/index.controller.es:43
+#: plugins/power/resources/js/controllers/index.controller.es:53
+msgid "Warning"
+msgstr ""
+
+#: plugins/power/resources/js/controllers/index.controller.es:21
+msgid "Are you sure you want to shutdown the system now?"
+msgstr ""
+
+#: plugins/power/resources/js/controllers/index.controller.es:22
+msgid "Shutdown"
+msgstr ""
+
+#: plugins/power/resources/js/controllers/index.controller.es:23
+#: plugins/power/resources/js/controllers/index.controller.es:33
+#: plugins/power/resources/js/controllers/index.controller.es:46
+#: plugins/power/resources/js/controllers/index.controller.es:56
+msgid "Cancel"
+msgstr ""
+
+#: plugins/power/resources/js/controllers/index.controller.es:31
+msgid "Are you sure you want to reboot the system now?"
+msgstr ""
+
+#: plugins/power/resources/js/controllers/index.controller.es:37
+msgid "System is rebooting. We will try to reconnect with it."
+msgstr ""
+
+#: plugins/power/resources/js/controllers/index.controller.es:44
+msgid "Are you sure you want to suspend the system now?"
+msgstr ""
+
+#: plugins/power/resources/js/controllers/index.controller.es:48
+msgid "System is suspending"
+msgstr ""
+
+#: plugins/power/resources/js/controllers/index.controller.es:54
+msgid "Are you sure you want to hibernate the system now?"
+msgstr ""
+
+#: plugins/power/resources/js/controllers/index.controller.es:58
+msgid "System is hibernating"
 msgstr ""

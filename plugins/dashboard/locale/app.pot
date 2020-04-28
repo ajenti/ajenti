@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-11-02 15:25+0100\n"
+"POT-Creation-Date: 2020-04-27 12:10+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -62,6 +62,7 @@ msgstr ""
 
 #: plugins/dashboard/resources/partial/index.html:22
 #: plugins/dashboard/resources/partial/widget.html:7
+#: plugins/dashboard/resources/js/controllers/index.controller.es:83
 msgid "Remove"
 msgstr ""
 
@@ -87,7 +88,21 @@ msgid "Uptime"
 msgstr ""
 
 #: plugins/dashboard/main.py:15
+#: plugins/dashboard/resources/js/controllers/index.controller.es:2
 msgid "Dashboard"
+msgstr ""
+
+#: plugins/dashboard/resources/js/controllers/index.controller.es:67
+#: plugins/dashboard/resources/js/controllers/index.controller.es:93
+msgid "New name"
+msgstr ""
+
+#: plugins/dashboard/resources/js/controllers/index.controller.es:82
+msgid "${$scope.userConfig.dashboard.tabs[index].name}"
+msgstr ""
+
+#: plugins/dashboard/resources/js/controllers/index.controller.es:84
+msgid "Cancel"
 msgstr ""
 
 #: plugins/dashboard/widgets/loadavg.py:12

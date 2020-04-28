@@ -1,0 +1,213 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: ajenti\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-04-27 12:10+0200\n"
+"PO-Revision-Date: 2020-04-27 11:01\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Bosnian\n"
+"Language: bs_BA\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Crowdin-Project: ajenti\n"
+"X-Crowdin-Language: bs\n"
+"X-Crowdin-File: /2.0/core.po\n"
+
+#: plugins/core/resources/partial/404.html:4
+msgid "404 - Page not found"
+msgstr ""
+
+#: plugins/core/resources/partial/404.html:7
+msgid "<span>\n"
+"                    <i class=\"fa fa-exclamation-triangle\" style=\"color:red;\"></i>\n"
+"                </span>\n"
+"                The URL {{url}} was not found on this server."
+msgstr ""
+
+#: plugins/core/content/pages/index.html:149
+msgid "A bootstrap error has occured"
+msgstr ""
+
+#: plugins/core/resources/partial/login.html:27
+msgid "Authenticate"
+msgstr ""
+
+#: plugins/core/content/pages/index.html:86
+msgid "Elevate"
+msgstr ""
+
+#: plugins/core/content/pages/index.html:132
+msgid "Enter"
+msgstr ""
+
+#: plugins/core/resources/partial/login.html:26
+msgid "Log in"
+msgstr ""
+
+#: plugins/core/content/pages/index.html:91
+msgid "Log out"
+msgstr ""
+
+#: plugins/core/content/pages/index.html:173
+msgid "OK"
+msgstr ""
+
+#: plugins/core/resources/partial/login.html:22
+msgid "Password"
+msgstr ""
+
+#: plugins/core/content/pages/index.html:152
+#: plugins/core/resources/js/core/module.es:32
+msgid "Please see browser console"
+msgstr ""
+
+#: plugins/core/content/pages/index.html:128
+msgid "Quick search"
+msgstr ""
+
+#: plugins/core/content/pages/index.html:101
+msgid "Session time : {{ counter[0] }}:{{ counter[1] }}:{{ counter[2] }}"
+msgstr ""
+
+#: plugins/core/resources/partial/login.html:19
+msgid "Username"
+msgstr ""
+
+#: plugins/core/main.py:17
+msgid "General"
+msgstr ""
+
+#: plugins/core/main.py:24
+msgid "Tools"
+msgstr ""
+
+#: plugins/core/main.py:31
+msgid "Software"
+msgstr ""
+
+#: plugins/core/main.py:38
+msgid "System"
+msgstr ""
+
+#: plugins/core/main.py:45
+msgid "Other"
+msgstr ""
+
+#: plugins/core/main.py:68
+msgid "Read configuration file"
+msgstr ""
+
+#: plugins/core/main.py:73
+msgid "Write configuration file"
+msgstr ""
+
+#: plugins/core/views/api.py:99
+msgid "Authorization failed"
+msgstr ""
+
+#: plugins/core/resources/js/core/interceptors.es:5
+msgid "Security error"
+msgstr ""
+
+#: plugins/core/resources/js/core/interceptors.es:8
+msgid "Server error"
+msgstr ""
+
+#: plugins/core/resources/js/core/interceptors.es:12
+msgid "Close"
+msgstr ""
+
+#: plugins/core/resources/js/core/interceptors.es:20
+msgid "Your session has expired"
+msgstr ""
+
+#: plugins/core/resources/js/core/module.es:32
+msgid "Unhandled error occurred"
+msgstr ""
+
+#: plugins/core/resources/js/core/filters.es:7
+msgid "0 bytes"
+msgstr ""
+
+#: plugins/core/resources/js/core/filters.es:13
+msgid "bytes"
+msgstr ""
+
+#: plugins/core/resources/js/core/filters.es:14
+msgid "KB"
+msgstr ""
+
+#: plugins/core/resources/js/core/filters.es:15
+msgid "MB"
+msgstr ""
+
+#: plugins/core/resources/js/core/filters.es:16
+msgid "GB"
+msgstr ""
+
+#: plugins/core/resources/js/core/filters.es:17
+msgid "TB"
+msgstr ""
+
+#: plugins/core/resources/js/core/filters.es:18
+msgid "PB"
+msgstr ""
+
+#: plugins/core/resources/js/core/filters.es:40
+msgid "th"
+msgstr ""
+
+#: plugins/core/resources/js/core/filters.es:41
+msgid "st"
+msgstr ""
+
+#: plugins/core/resources/js/core/filters.es:42
+msgid "nd"
+msgstr ""
+
+#: plugins/core/resources/js/core/filters.es:43
+msgid "rd"
+msgstr ""
+
+#: plugins/core/resources/js/core/services/core.service.es:6
+msgid "Restart"
+msgstr ""
+
+#: plugins/core/resources/js/core/services/core.service.es:7
+msgid "Restart the panel?"
+msgstr ""
+
+#: plugins/core/resources/js/core/services/core.service.es:8
+msgid "Yes"
+msgstr ""
+
+#: plugins/core/resources/js/core/services/core.service.es:9
+msgid "No"
+msgstr ""
+
+#: plugins/core/resources/js/core/services/core.service.es:15
+msgid "Restarting"
+msgstr ""
+
+#: plugins/core/resources/js/core/services/core.service.es:19
+msgid "Restarted"
+msgstr ""
+
+#: plugins/core/resources/js/core/services/core.service.es:19
+msgid "Please wait"
+msgstr ""
+
+#: plugins/core/resources/js/core/services/core.service.es:29
+msgid "Could not restart"
+msgstr ""
+
+#: plugins/core/resources/js/core/services/tasks.service.es:26
+msgid "Done"
+msgstr ""
+
+#: plugins/core/resources/js/core/controllers/login.controller.es:25
+msgid "Authentication failed"
+msgstr ""
+

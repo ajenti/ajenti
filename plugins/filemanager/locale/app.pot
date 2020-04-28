@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-11-02 15:25+0100\n"
+"POT-Creation-Date: 2020-04-27 12:10+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -32,6 +32,7 @@ msgstr ""
 #: plugins/filemanager/resources/partial/index.html:76
 #: plugins/filemanager/resources/partial/index.html:89
 #: plugins/filemanager/resources/partial/properties.html:188
+#: plugins/filemanager/resources/js/controllers/index.controller.es:88
 msgid "Cancel"
 msgstr ""
 
@@ -65,6 +66,7 @@ msgid "DIRECTORY"
 msgstr ""
 
 #: plugins/filemanager/resources/partial/index.html:64
+#: plugins/filemanager/resources/js/controllers/index.controller.es:87
 msgid "Delete"
 msgstr ""
 
@@ -185,4 +187,32 @@ msgstr ""
 
 #: plugins/filemanager/main.py:15
 msgid "File Manager"
+msgstr ""
+
+#: plugins/filemanager/resources/js/controllers/properties.controller.es:15
+msgid "Could not read file information"
+msgstr ""
+
+#: plugins/filemanager/resources/js/controllers/properties.controller.es:29
+msgid "File mode saved"
+msgstr ""
+
+#: plugins/filemanager/resources/js/controllers/index.controller.es:15
+msgid "Could not load directory"
+msgstr ""
+
+#: plugins/filemanager/resources/js/controllers/index.controller.es:86
+msgid "Delete selected items?"
+msgstr ""
+
+#: plugins/filemanager/resources/js/controllers/index.controller.es:123
+msgid "Could not create file"
+msgstr ""
+
+#: plugins/filemanager/resources/js/controllers/index.controller.es:143
+msgid "Could not create directory"
+msgstr ""
+
+#: plugins/filemanager/resources/js/controllers/index.controller.es:150
+msgid "Uploaded"
 msgstr ""

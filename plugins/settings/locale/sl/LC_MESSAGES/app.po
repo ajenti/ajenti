@@ -2,33 +2,33 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-11-02 15:25+0100\n"
-"PO-Revision-Date: 2018-11-02 14:44\n"
-"Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
+"POT-Creation-Date: 2020-04-27 12:11+0200\n"
+"PO-Revision-Date: 2020-04-27 11:01\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Slovenian\n"
 "Language: sl_SI\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n%100==4 ? 3 : 0);\n"
-"X-Generator: crowdin.com\n"
 "X-Crowdin-Project: ajenti\n"
 "X-Crowdin-Language: sl\n"
 "X-Crowdin-File: /2.0/settings.po\n"
 
-#: plugins/settings/resources/partial/index.html:76
+#: plugins/settings/resources/partial/index.html:85
 msgid "Allow sudo elevation for logged in users"
 msgstr "Omogoči sudo način za prijavljene uporabnike"
 
-#: plugins/settings/resources/partial/index.html:67
+#: plugins/settings/resources/partial/index.html:76
 msgid "Authentication provider"
 msgstr "Ponudnik avtentikacije"
 
-#: plugins/settings/resources/partial/index.html:39
+#: plugins/settings/resources/partial/index.html:48
 msgid "Binding"
 msgstr ""
 
-#: plugins/settings/resources/partial/index.html:188
+#: plugins/settings/resources/partial/index.html:205
+#: plugins/settings/resources/js/controllers/index.controller.es:76
 msgid "Cancel"
 msgstr "Prekliči"
 
@@ -36,43 +36,45 @@ msgstr "Prekliči"
 msgid "Color tag"
 msgstr ""
 
-#: plugins/settings/resources/partial/index.html:181
+#: plugins/settings/resources/partial/index.html:198
 msgid "Common name"
 msgstr ""
 
-#: plugins/settings/resources/partial/index.html:169
+#: plugins/settings/resources/partial/index.html:186
 msgid "Country"
 msgstr "Država"
 
-#: plugins/settings/resources/partial/index.html:112
+#: plugins/settings/resources/partial/index.html:129
 msgid "Deny other means of authentication"
 msgstr "Zavrni ostale načine avtentikacije"
 
-#: plugins/settings/resources/partial/index.html:159
+#: plugins/settings/resources/partial/index.html:176
 msgid "Download certificate"
 msgstr "Prenesi potrdilo"
 
-#: plugins/settings/resources/partial/index.html:85
+#: plugins/settings/resources/partial/index.html:94
 msgid "Enable SSL"
 msgstr "Omogoči SSL"
 
-#: plugins/settings/resources/partial/index.html:109
+#: plugins/settings/resources/partial/index.html:126
 msgid "Enable client authentication"
 msgstr "Omogoči avtentikacijo s strani odjemalca"
 
-#: plugins/settings/resources/partial/index.html:187
+#: plugins/settings/resources/partial/index.html:204
+#: plugins/settings/resources/js/controllers/index.controller.es:75
 msgid "Generate"
 msgstr "Ustvari"
 
-#: plugins/settings/resources/partial/index.html:98
+#: plugins/settings/resources/partial/index.html:107
 msgid "Generate a self-signed certificate"
 msgstr "Ustvari samopodpisano potrdilo"
 
-#: plugins/settings/resources/partial/index.html:152
+#: plugins/settings/resources/partial/index.html:169
+#: plugins/settings/resources/js/controllers/index.controller.es:79
 msgid "Generating certificate"
 msgstr "Ustvarjanje potrdila"
 
-#: plugins/settings/resources/partial/index.html:50
+#: plugins/settings/resources/partial/index.html:59
 msgid "Host / IP"
 msgstr "Gostitelj / IP"
 
@@ -80,7 +82,7 @@ msgstr "Gostitelj / IP"
 msgid "Language"
 msgstr "Jezik"
 
-#: plugins/settings/resources/partial/index.html:165
+#: plugins/settings/resources/partial/index.html:182
 msgid "Login as"
 msgstr "Vpiši se kot"
 
@@ -88,71 +90,122 @@ msgstr "Vpiši se kot"
 msgid "Machine name"
 msgstr "Ime naprave"
 
-#: plugins/settings/resources/partial/index.html:142
+#: plugins/settings/resources/partial/index.html:37
+msgid "Max session time"
+msgstr ""
+
+#: plugins/settings/resources/partial/index.html:159
 msgid "New certificate"
 msgstr "Nov certifikat"
 
-#: plugins/settings/resources/partial/index.html:147
+#: plugins/settings/resources/partial/index.html:164
 msgid "New client certificate"
 msgstr "Novi certifikat za odjemalca"
 
-#: plugins/settings/resources/partial/index.html:119
+#: plugins/settings/resources/partial/index.html:136
 msgid "No certificates are created yet."
 msgstr "Ni še ustvarjenih certifikatov."
 
-#: plugins/settings/resources/partial/index.html:177
+#: plugins/settings/resources/partial/index.html:194
 msgid "Organization"
 msgstr "Organizacija"
 
-#: plugins/settings/resources/partial/index.html:53
+#: plugins/settings/resources/partial/index.html:62
 msgid "Port"
 msgstr "Vrata"
 
-#: plugins/settings/resources/partial/index.html:209
+#: plugins/settings/resources/partial/index.html:226
 msgid "Remove"
 msgstr "Odstrani"
 
-#: plugins/settings/resources/partial/index.html:254
+#: plugins/settings/resources/partial/index.html:271
 msgid "Restart panel"
 msgstr ""
 
-#: plugins/settings/resources/partial/index.html:91
+#: plugins/settings/resources/partial/index.html:111
+msgid "SSL FQDN certificate file"
+msgstr ""
+
+#: plugins/settings/resources/partial/index.html:100
 msgid "SSL certificate file"
 msgstr "SSL certifikatna datoteka"
 
-#: plugins/settings/resources/partial/index.html:107
+#: plugins/settings/resources/partial/index.html:124
 msgid "SSL client authentication"
 msgstr ""
 
-#: plugins/settings/resources/partial/index.html:117
+#: plugins/settings/resources/partial/index.html:134
 msgid "SSL client certificates"
 msgstr ""
 
-#: plugins/settings/resources/partial/index.html:253
+#: plugins/settings/resources/partial/index.html:270
 msgid "Save"
 msgstr "Shrani"
 
-#: plugins/settings/resources/partial/index.html:192
+#: plugins/settings/resources/partial/index.html:209
 msgid "Save and Close"
 msgstr "Shrani in zapri"
 
-#: plugins/settings/resources/partial/index.html:58
+#: plugins/settings/resources/partial/index.html:67
 msgid "Socket path"
 msgstr "Pot vtičnice"
 
-#: plugins/settings/resources/partial/index.html:173
+#: plugins/settings/resources/partial/index.html:190
 msgid "State"
 msgstr "Stanje"
 
-#: plugins/settings/resources/partial/index.html:74
+#: plugins/settings/resources/partial/index.html:83
 msgid "Sudo"
 msgstr "Sudo"
 
-#: plugins/settings/resources/partial/index.html:153
+#: plugins/settings/resources/partial/index.html:170
 msgid "This might take a few seconds"
 msgstr "To lahko traja nekaj sekund"
 
 #: plugins/settings/main.py:15
+#: plugins/settings/resources/js/controllers/index.controller.es:2
 msgid "Settings"
 msgstr "Nastavitve"
+
+#: plugins/settings/resources/js/controllers/index.controller.es:37
+msgid "Could not load config"
+msgstr ""
+
+#: plugins/settings/resources/js/controllers/index.controller.es:41
+msgid "Could not load authentication provider list"
+msgstr ""
+
+#: plugins/settings/resources/js/controllers/index.controller.es:60
+#: plugins/settings/resources/js/controllers/index.controller.es:65
+msgid "Saved"
+msgstr ""
+
+#: plugins/settings/resources/js/controllers/index.controller.es:61
+msgid "SSL Error"
+msgstr ""
+
+#: plugins/settings/resources/js/controllers/index.controller.es:67
+msgid "Could not save config"
+msgstr ""
+
+#: plugins/settings/resources/js/controllers/index.controller.es:73
+msgid "Self-signed certificate"
+msgstr ""
+
+#: plugins/settings/resources/js/controllers/index.controller.es:74
+msgid "Generating a new certificate will void all existing client authentication certificates!"
+msgstr ""
+
+#: plugins/settings/resources/js/controllers/index.controller.es:79
+msgid "Please wait"
+msgstr ""
+
+#: plugins/settings/resources/js/controllers/index.controller.es:81
+msgid "Certificate successfully generated"
+msgstr ""
+
+#: plugins/settings/resources/js/controllers/index.controller.es:87
+#: plugins/settings/resources/js/controllers/index.controller.es:106
+msgid "Certificate generation failed"
+msgstr ""
 

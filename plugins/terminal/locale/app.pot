@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-11-02 15:25+0100\n"
+"POT-Creation-Date: 2020-04-27 12:11+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -48,6 +48,7 @@ msgid "Script"
 msgstr ""
 
 #: plugins/terminal/resources/partial/index.html:1
+#: plugins/terminal/resources/js/controllers/index.controller.es:2
 msgid "Terminals"
 msgstr ""
 
@@ -69,4 +70,32 @@ msgstr ""
 
 #: plugins/terminal/main.py:35
 msgid "Open shell terminals"
+msgstr ""
+
+#: plugins/terminal/resources/js/directives/terminal.es:178
+msgid "Terminal was closed"
+msgstr ""
+
+#: plugins/terminal/resources/js/services/terminals.service.es:20
+msgid "You will be redirect to the previous page."
+msgstr ""
+
+#: plugins/terminal/resources/js/controllers/view.controller.es:11
+msgid "Use exit or Ctrl+D to exit terminal."
+msgstr ""
+
+#: plugins/terminal/resources/js/controllers/widget.controller.es:7
+msgid "Starting the script"
+msgstr ""
+
+#: plugins/terminal/resources/js/controllers/widget.controller.es:10
+msgid "Script has finished"
+msgstr ""
+
+#: plugins/terminal/resources/js/controllers/widget.controller.es:12
+msgid "Script has failed"
+msgstr ""
+
+#: plugins/terminal/resources/js/controllers/widget.controller.es:15
+msgid "Could not launch the script"
 msgstr ""

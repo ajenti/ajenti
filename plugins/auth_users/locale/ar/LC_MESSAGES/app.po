@@ -2,16 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-11-02 15:24+0100\n"
-"PO-Revision-Date: 2018-11-02 14:41\n"
-"Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
+"POT-Creation-Date: 2020-04-27 12:10+0200\n"
+"PO-Revision-Date: 2020-04-27 11:01\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Arabic\n"
 "Language: ar_SA\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
-"X-Generator: crowdin.com\n"
 "X-Crowdin-Project: ajenti\n"
 "X-Crowdin-Language: ar\n"
 "X-Crowdin-File: /2.0/auth_users.po\n"
@@ -26,11 +25,11 @@ msgstr "أنشئ"
 
 #: plugins/auth_users/resources/partial/index.html:42
 msgid "Default root password is <code>admin</code>"
-msgstr ""
+msgstr "كلمة المرور الافتراضية لحساب root هي <code>admin</code>"
 
 #: plugins/auth_users/resources/partial/index.html:90
 msgid "Filesystem root"
-msgstr ""
+msgstr "نظام ملفات الجذر"
 
 #: plugins/auth_users/resources/partial/index.html:64
 msgid "New password"
@@ -54,19 +53,19 @@ msgstr "حفظ"
 
 #: plugins/auth_users/resources/partial/index.html:73
 msgid "Sidebar entries"
-msgstr ""
+msgstr "إدخالات الشريط الجانبي"
 
 #: plugins/auth_users/resources/partial/index.html:57
 msgid "System account"
-msgstr ""
+msgstr "الى حساب النظام"
 
 #: plugins/auth_users/resources/partial/index.html:76
 msgid "This only affects appearance of the sidebar. Disable actual permissions under the <b>Permissions</b> tab."
-msgstr ""
+msgstr "هذا سيؤثر على الشريط الجانبي فقط. يمكنك تغيير الأذونات تحت تبويبة <b>أذونات</b>."
 
 #: plugins/auth_users/resources/partial/index.html:60
 msgid "This user will be constrained by POSIX permissions for the selected system account."
-msgstr ""
+msgstr "سيتم تقييد هذا المستخدم بأذونات POSIX لحساب النظام المحدد."
 
 #: plugins/auth_users/resources/partial/index.html:68
 msgid "Update password"
@@ -74,7 +73,7 @@ msgstr "تحديث كلمة المرور"
 
 #: plugins/auth_users/resources/partial/index.html:38
 msgid "You have no users mapped to <b>root</b> system account. Saving this configuration will prevent any administrative access."
-msgstr ""
+msgstr "ليس لديك أي مستخدم مربوط بحساب النظام <b>root</b>. حفظ هذه الاعدادات سيمنع أي صلاحيات إدارية."
 
 #: plugins/auth_users/api.py:13
 msgid "Custom users"
@@ -83,4 +82,8 @@ msgstr ""
 #: plugins/auth_users/main.py:16
 msgid "Users"
 msgstr "المستخدمين"
+
+#: plugins/auth_users/resources/js/controllers/index.controller.es:70
+msgid "Password updated"
+msgstr ""
 
