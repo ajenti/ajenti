@@ -49,8 +49,8 @@ echo ":: Distro: $DISTRO"
 
 if [ "$OS" == "rhel" ] ; then
     echo ":: Installing prerequisites"
-    yum install -y epel-release
-    yum install -y gcc python3-devel python3-pip libxslt-devel libxml2-devel libffi-devel openssl-devel libjpeg-turbo-devel libpng-devel dbus-python python3-augeas ntpdate || exit 1
+    dnf install -y epel-release
+    dnf install -y gcc python3-devel python3-pip python3-pillow python3-augeas chrony || exit 1
 fi
 
 
