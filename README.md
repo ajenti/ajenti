@@ -39,24 +39,36 @@ Ajenti is a Linux & BSD modular server admin panel. Ajenti 2 provides a new inte
 <table align="center">
     <tr>
         <td align="center">
-           <img src="docs/img/rd-login.png" alt="Screenshot Ajenti Login" width="300px" /> 
+            <a href="https://raw.githubusercontent.com/ajenti/ajenti/master/docs/img/rd-login.png">
+                <img src="docs/img/rd-login.png" alt="Screenshot Ajenti Login" width="300px" />
+            </a>
         </td>
         <td align="center">
-           <img src="docs/img/rd-dashboard.png" alt="Screenshot Ajenti Dashboard" width="300px" /> 
+            <a href="https://raw.githubusercontent.com/ajenti/ajenti/master/docs/img/rd-dashboard.png">
+                <img src="docs/img/rd-dashboard.png" alt="Screenshot Ajenti Dashboard" width="300px" /> 
+            </a>
         </td>
         <td align="center">
-           <img src="docs/img/rd-settings.png" alt="Screenshot Ajenti Settings" width="300px" /> 
+            <a href="https://raw.githubusercontent.com/ajenti/ajenti/master/docs/img/rd-settings.png"> 
+                <img src="docs/img/rd-settings.png" alt="Screenshot Ajenti Settings" width="300px" />
+            </a>
         </td>
     </tr>
     <tr>
         <td align="center">
-           <img src="docs/img/rd-plugins.png" alt="Screenshot Ajenti Plugins" width="300px" /> 
+            <a href="https://raw.githubusercontent.com/ajenti/ajenti/master/docs/img/rd-login.png"> 
+                <img src="docs/img/rd-plugins.png" alt="Screenshot Ajenti Plugins" width="300px" /> 
+            </a>
         </td>
         <td align="center">
-           <img src="docs/img/rd-systemd.png" alt="Screenshot Ajenti Systemd" width="300px" /> 
+            <a href="https://raw.githubusercontent.com/ajenti/ajenti/master/docs/img/rd-login.png"> 
+                <img src="docs/img/rd-systemd.png" alt="Screenshot Ajenti Systemd" width="300px" />
+            </a> 
         </td>
         <td align="center">
-           <img src="docs/img/rd-terminal.png" alt="Screenshot Ajenti Terminal" width="300px" /> 
+            <a href="https://raw.githubusercontent.com/ajenti/ajenti/master/docs/img/rd-login.png"> 
+                <img src="docs/img/rd-terminal.png" alt="Screenshot Ajenti Terminal" width="300px" /> 
+            </a>
         </td>
     </tr>
 </table>
