@@ -111,7 +111,7 @@ class OSAuthenticationProvider(AuthenticationProvider):
             from pipes import quote
 
         try:
-            child = pexpect.spawn('/bin/sh', ['-c', '/bin/su -c "/bin/echo SUCCESS" - %s' % quote(username)], timeout=5)
+            child = pexpect.spawn('/bin/sh', ['-c', '/bin/su -c "/bin/echo SUCCESS" - %s' % quote(username)], timeout=25)
             child.expect('.*:')
             child.sendline(password)
             result = child.expect(['su: .*', 'SUCCESS'])
