@@ -6,7 +6,7 @@ Getting Started
 Required knowledge
 ==================
 
-  * Python 2
+  * Python 3
   * JavaScript (ES5, ES6 or CoffeeScript)
   * basic AngularJS knowledge (modules & controllers)
   * basic HTML skills
@@ -25,16 +25,15 @@ We recommend to use the automatic installer - see the :ref:`installation guide <
 Build tools require NodeJS - you can use the NodeSource repositories for quick setup::
 
     # Using Ubuntu
-    curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash -
+    curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
     sudo apt-get install -y nodejs
 
     # Using Debian, as root
-    curl -sL https://deb.nodesource.com/setup_7.x | bash -
+    curl -sL https://deb.nodesource.com/setup_14.x | bash -
     apt-get install -y nodejs
 
     # Using RHEL or centos, as root
-    curl -sL https://rpm.nodesource.com/setup_7.x | bash -
-    yum install nodejs
+    curl -sL https://rpm.nodesource.com/setup_14.x | bash -
 
 Now, install the build tools::
 
@@ -44,13 +43,13 @@ Now, install the build tools::
     apt-get install gettext
 
     # RHEL or CentOS
-    yum install gettext
+    dnf install gettext
 
 
 3. Install ajenti-dev-multitool
 -------------------------------
 
-    pip install ajenti-dev-multitool
+    pip3 install ajenti-dev-multitool
 
 Your first plugin
 =================
