@@ -2,7 +2,9 @@ import os
 import pwd
 import stat
 import yaml
-from jadi import service
+from jadi import interface, component, service
+import aj
+from aj.util import public
 
 
 class BaseConfig():
@@ -39,6 +41,7 @@ class BaseConfig():
         self.data.setdefault('auth', {})
         self.data['auth'].setdefault('emails', {})
         self.data['auth'].setdefault('provider', 'os')
+        self.data['auth'].setdefault('user_config', 'os')
         self.data.setdefault('ssl', {})
         self.data['ssl'].setdefault('enable', False)
         self.data['ssl'].setdefault('certificate', None)
@@ -48,11 +51,50 @@ class BaseConfig():
         self.data['ssl']['client_auth'].setdefault('force', False)
         self.data['ssl']['client_auth'].setdefault('certificates', {})
 
+@interface
+class UserConfigProvider():
+    id = None
+    name = None
 
-@service
-class UserConfig(BaseConfig):
     def __init__(self, context):
-        BaseConfig.__init__(self)
+        self.data = None
+
+    def load(self):
+        raise NotImplementedError
+
+    def harden(self):
+        raise NotImplementedError
+
+    def save(self):
+        raise NotImplementedError
+
+class UserConfigError(Exception):
+    def __init__(self, message):
+        self.message = message
+
+    def __str__(self):
+        return self.message
+
+@public
+@service
+class UserConfigService():
+    def __init__(self, context):
+        self.context = context
+
+    def get_provider(self):
+        provider_id = aj.config.data['auth'].get('user_config', 'os')
+        for provider in UserConfigProvider.all(self.context):
+            if provider.id == provider_id:
+                return provider
+        raise UserConfigError('User config provider %s is unavailable' % provider_id)
+
+@component(UserConfigProvider)
+class UserConfig(UserConfigProvider):
+    id = 'os'
+    name = 'OS users'
+
+    def __init__(self, context):
+        UserConfigProvider.__init__(self, context)
         username = pwd.getpwuid(os.getuid())[0]
         _dir = os.path.expanduser('~%s/.config' % username)
         if not os.path.exists(_dir):

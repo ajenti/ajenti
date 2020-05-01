@@ -56,17 +56,17 @@ Ajenti is a Linux & BSD modular server admin panel. Ajenti 2 provides a new inte
     </tr>
     <tr>
         <td align="center">
-            <a href="https://raw.githubusercontent.com/ajenti/ajenti/master/docs/img/rd-login.png"> 
+            <a href="https://raw.githubusercontent.com/ajenti/ajenti/master/docs/img/rd-plugins.png"> 
                 <img src="docs/img/rd-plugins.png" alt="Screenshot Ajenti Plugins" width="300px" /> 
             </a>
         </td>
         <td align="center">
-            <a href="https://raw.githubusercontent.com/ajenti/ajenti/master/docs/img/rd-login.png"> 
+            <a href="https://raw.githubusercontent.com/ajenti/ajenti/master/docs/img/rd-systemd.png"> 
                 <img src="docs/img/rd-systemd.png" alt="Screenshot Ajenti Systemd" width="300px" />
             </a> 
         </td>
         <td align="center">
-            <a href="https://raw.githubusercontent.com/ajenti/ajenti/master/docs/img/rd-login.png"> 
+            <a href="https://raw.githubusercontent.com/ajenti/ajenti/master/docs/img/rd-terminal.png"> 
                 <img src="docs/img/rd-terminal.png" alt="Screenshot Ajenti Terminal" width="300px" /> 
             </a>
         </td>
