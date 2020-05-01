@@ -21,6 +21,7 @@ auth:
   allow_sudo: true
   emails: {}
   provider: os
+  user_config: os
 bind:
   host: 0.0.0.0
   mode: tcp
