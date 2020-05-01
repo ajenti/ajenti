@@ -4,7 +4,7 @@ Running Ajenti
 Starting service
 ----------------
 
-Ajenti provides binary *ajenti-panel* and initscript/job/unit *ajenti*.
+The automatic install script provides binary *ajenti-panel* and initscript/job/unit *ajenti*.
 You can ensure the service is running::
 
     service ajenti restart
@@ -31,6 +31,8 @@ Commandline options
   * ``-v`` - Debug/verbose logging
   * ``--dev`` - Enables automatic resources build on each request
   * ``-d, --daemon`` - Run in background (daemon mode)
+  * ``--stock-plugins`` - Run with provided plugins (default if option ``--plugins`` is not used)
+  * ``--plugins <dir>`` - Run with additional plugins
   * ``--autologin`` - Will automatically log in the user under which the panel runs. **This is a security issue if your system is public**.
 
 Debugging

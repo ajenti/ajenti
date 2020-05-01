@@ -7,10 +7,10 @@ Installing
 .. CAUTION::
     Supported operating systems:
 
-    * Debian 6 or later
-    * Ubuntu Precise or later
-    * CentOS 6 or later
-    * RHEL 6 or later
+    * Debian 9 or later
+    * Ubuntu Bionic or later
+    * CentOS 8 or later
+    * RHEL 8 or later
 
     Other Linux-based systems *might* work, but you'll have to use manual installation method.
 
@@ -29,32 +29,37 @@ Manual Installation
 Native dependencies: Debian/Ubuntu
 ----------------------------------
 
+Enable Universe repository (Ubuntu only)::
+
+    sudo add-apt-repository universe
+
 ::
 
-    sudo apt-get install build-essential python-pip python-dev python-lxml libffi-dev libssl-dev libjpeg-dev libpng-dev uuid-dev python-dbus
+    sudo apt-get install build-essential python3-pip python3-dev python3-lxml libssl-dev python3-dbus python3-augeas python3-apt ntpdate
 
 Native dependencies: RHEL/CentOS
 --------------------------------
 
+Enable EPEL repository::
+
+    sudo dnf install epel-release
+
 ::
 
-    sudo yum install gcc python-devel python-pip libxslt-devel libxml2-devel libffi-devel openssl-devel libjpeg-turbo-devel libpng-devel dbus-python
+    sudo dnf install -y gcc python3-devel python3-pip python3-pillow python3-augeas chrony openssl-devel
 
-Install Ajenti
---------------
+Install Ajenti 2
+----------------
 
 Upgrade PIP::
 
-    sudo pip install 'setuptools>=0.6rc11' 'pip>=6' wheel
+    sudo pip3 install setuptools pip wheel -U
 
 Minimal install::
 
-    sudo pip install ajenti-panel ajenti.plugin.dashboard ajenti.plugin.settings ajenti.plugin.plugins
+    sudo pip3 install ajenti-panel ajenti.plugin.core ajenti.plugin.dashboard ajenti.plugin.settings ajenti.plugin.plugins
 
-With more plugins::
+With all plugins::
 
-    sudo pip install ajenti-panel ajenti.plugin.dashboard ajenti.plugin.settings ajenti.plugin.plugins ajenti.plugin.filemanager ajenti.plugin.notepad ajenti.plugin.packages ajenti.plugin.services ajenti.plugin.terminal
+    sudo pip3 install ajenti-panel ajenti.plugin.ace ajenti.plugin.augeas ajenti.plugin.auth-users ajenti.plugin.core ajenti.plugin.dashboard ajenti.plugin.datetime ajenti.plugin.filemanager ajenti.plugin.filesystem ajenti.plugin.network ajenti.plugin.notepad ajenti.plugin.packages ajenti.plugin.passwd ajenti.plugin.plugins ajenti.plugin.power ajenti.plugin.services ajenti.plugin.settings ajenti.plugin.terminal
 
-Install Ajenti 1.x and Ajenti V
-======================
-https://support.ajenti.org/knowledge-bases/5-kb/categories/1-ajenti-v/articles

@@ -18,7 +18,7 @@ setup(
     description='Web UI base toolkit',
     author='Eugene Pankov',
     author_email='e@ajenti.org',
-    url='http://ajenti.org/',
+    url='https://ajenti.org/',
     packages=find_packages(),
     include_package_data=True,
     package_data={                                                              

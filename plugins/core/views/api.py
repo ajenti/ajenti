@@ -1,5 +1,5 @@
 import gevent
-import json
+import simplejson as json
 import os
 import socket
 import traceback

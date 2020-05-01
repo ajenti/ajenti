@@ -1,5 +1,6 @@
 # core
 cookies
+distro
 gevent==1.3.7
 gevent-socketio-hartwork>=0.3.6
 gevent-websocket
@@ -9,7 +10,7 @@ lxml>=2.2.4
 passlib
 pexpect
 psutil>=2.2.1
-# pyOpenSSL #<0.14 # 0.14 breaks WantWrite retries
+pyOpenSSL==19.1.0
 python-daemon-3k
 pyyaml
 requests>=2
