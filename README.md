@@ -1,4 +1,4 @@
-[![Logo](docs/img/Logo.png)](http://ajenti.org/)
+[![Logo](docs/img/Logo.png)](https://ajenti.org/)
 
 Ajenti is a Linux & BSD modular server admin panel. Ajenti 2 provides a new interface and a better architecture, developed with [Python3](https://www.python.org/) and [AngularJS](https://angularjs.org/).
 
@@ -73,7 +73,7 @@ Ajenti is a Linux & BSD modular server admin panel. Ajenti 2 provides a new inte
     </tr>
 </table>
 
-See http://ajenti.org for more information
+See https://ajenti.org for more information
 
 ----
 
