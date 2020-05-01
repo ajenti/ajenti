@@ -97,7 +97,7 @@ class Handler(HttpPlugin):
         if os.path.exists('/root/.cache/pip'):
             shutil.rmtree('/root/.cache/pip')
         try:
-            return requests.get('http://ajenti.org/plugins/list').json()
+            return requests.get('https://ajenti.org/plugins/list').json()
         except Exception as e:
             raise EndpointError(e)
 
