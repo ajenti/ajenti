@@ -50,7 +50,7 @@ echo ":: Distro: $DISTRO"
 if [ "$OS" == "rhel" ] ; then
     echo ":: Installing prerequisites"
     dnf install -y epel-release
-    dnf install -y gcc python3-devel python3-pip python3-pillow python3-augeas chrony || exit 1
+    dnf install -y gcc python3-devel python3-pip python3-pillow python3-augeas python3-dbus openssl-devel chrony || exit 1
 fi
 
 
@@ -62,7 +62,7 @@ fi
 if [ "$OS" == "debian" ] ; then
     echo ":: Installing prerequisites"
     apt-get update
-    DEBIAN_FRONTEND='noninteractive' apt-get install -y build-essential python3-pip python3-dev python3-lxml python3-dbus python3-augeas python3-apt ntpdate || exit 1
+    DEBIAN_FRONTEND='noninteractive' apt-get install -y build-essential python3-pip python3-dev python3-lxml python3-dbus python3-augeas libssl-dev python3-apt ntpdate || exit 1
 fi
 
 
