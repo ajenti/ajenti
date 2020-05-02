@@ -49,7 +49,7 @@ html_context = {
 # Gettext
 import gettext
 translation = gettext.NullTranslations()
-translation.install(unicode=True)
+translation.install()
 
 
 intersphinx_mapping = {'http://docs.python.org/': None}
