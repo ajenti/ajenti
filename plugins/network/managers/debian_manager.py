@@ -18,9 +18,12 @@ class DebianNetworkManager(NetworkManager):
 
     @classmethod
     def __verify__(cls):
+        """Same behaviour for Debian and Ubuntu < 18"""
+        check_prior_ubuntu = False
         if 'Ubuntu' in aj.platform_string:
             ubuntu_version = int(aj.platform_string[7:9])
-        return aj.platform in ['debian'] and ubuntu_version < 18
+            check_prior_ubuntu = ubuntu_version < 18
+        return aj.platform in ['debian'] and check_prior_ubuntu
 
     def __init__(self, context):
         NetworkManager.__init__(self, context)
