@@ -10,3 +10,4 @@ pyOpenSSL
 pyte
 pytz
 termcolor
+pyyaml
