@@ -46,11 +46,13 @@ plugin_providers = []
 
 sessions = {}
 
+python_version = None
+
 
 __all__ = [
     'config', 'platform', 'platform_string', 'platform_unmapped',
     'version', 'server', 'debug', 'init',
-    'exit', 'restart'
+    'exit', 'restart', 'python_version'
 ]
 
 
@@ -66,6 +68,9 @@ def detect_version():
         # return __version__
     # return p.stdout.read().strip(b'\n ').decode()
 
+
+def detect_python():
+    return pyplatform.python_version()
 
 def detect_platform():
     base_mapping = {
@@ -153,6 +158,7 @@ def init():
         logging.warning('Platform ID was enforced by commandline!')
         aj.platform_unmapped = aj.platform
     aj.platform_string = detect_platform_string()
+    aj.python_version = detect_python()
 
 
 def exit():
