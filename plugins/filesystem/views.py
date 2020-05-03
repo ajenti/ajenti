@@ -74,7 +74,7 @@ class Handler(HttpPlugin):
             else:
                 http_context.respond('204 No Content')
         else:
-            with open(chunk_path, 'w') as f:
+            with open(chunk_path, 'wb') as f:
                 f.write(http_context.query['file'])
             http_context.respond('200 OK')
         return ''
@@ -91,7 +91,7 @@ class Handler(HttpPlugin):
         target = os.path.join(path, name.replace('/', ''))
         with open(target, 'wb') as f:
             for i in range(len(os.listdir(chunk_dir))):
-                f.write(open(os.path.join(chunk_dir, str(i + 1))).read())
+                f.write(open(os.path.join(chunk_dir, str(i + 1)), 'rb').read())
 
         shutil.rmtree(chunk_dir)
         return target
