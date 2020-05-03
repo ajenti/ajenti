@@ -46,7 +46,7 @@ Enable EPEL repository::
 
 ::
 
-    sudo dnf install -y gcc python3-devel python3-pip python3-pillow python3-augeas chrony openssl-devel
+    sudo dnf install -y gcc python3-devel python3-pip python3-pillow python3-augeas python3-dbus chrony openssl-devel
 
 Install Ajenti 2
 ----------------

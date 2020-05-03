@@ -18,7 +18,7 @@ class Handler(HttpPlugin):
     @url(r'/api/settings/generate-client-certificate')
     @endpoint(api=True)
     def handle_api_generate_client_certificate(self, http_context):
-        data = json.loads(http_context.body)
+        data = json.loads(http_context.body.decode())
 
         key = PKey()
         key.generate_key(TYPE_RSA, 4096)

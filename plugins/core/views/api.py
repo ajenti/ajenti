@@ -62,7 +62,7 @@ class Handler(HttpPlugin):
     @url('/api/core/auth')
     @endpoint(api=True, auth=False)
     def handle_api_auth(self, http_context):
-        body_data = json.loads(http_context.body)
+        body_data = json.loads(http_context.body.decode())
         mode = body_data['mode']
         username = body_data.get('username', None)
         password = body_data.get('password', None)

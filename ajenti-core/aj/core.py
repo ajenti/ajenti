@@ -89,6 +89,7 @@ def run(config=None, plugin_providers=None, product_name='ajenti', dev_mode=Fals
     logging.info('Ajenti Core %s', aj.version)
     logging.info('Master PID - %s', os.getpid())
     logging.info('Detected platform: %s / %s', aj.platform, aj.platform_string)
+    logging.info('Python version: %s', aj.python_version)
 
     # Load plugins
     PluginManager.get(aj.context).load_all_from(aj.plugin_providers)
