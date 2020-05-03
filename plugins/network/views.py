@@ -22,7 +22,7 @@ class Handler(HttpPlugin):
     @authorize('network:configure')
     @endpoint(api=True)
     def handle_api_config_set(self, http_context):
-        return self.manager.set_config(json.loads(http_context.body))
+        return self.manager.set_config(json.loads(http_context.body.decode()))
 
     @url(r'/api/network/state/(?P<iface>.+)')
     @endpoint(api=True)

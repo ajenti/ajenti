@@ -187,7 +187,7 @@ class Handler(HttpPlugin):
     def handle_api_fs_chmod(self, http_context, path=None):
         if not os.path.exists(path):
             raise EndpointReturn(404)
-        data = json.loads(http_context.body)
+        data = json.loads(http_context.body.decode())
         try:
             os.chmod(path, data['mode'])
         except OSError as e:
