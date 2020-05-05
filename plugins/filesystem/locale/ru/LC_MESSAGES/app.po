@@ -70,5 +70,5 @@ msgstr "Запись в файловую систему"
 
 #: plugins/filesystem/resources/js/directives/fileDialog.es:35
 msgid "Could not load directory"
-msgstr ""
+msgstr "Не удалось загрузить каталог"
 
