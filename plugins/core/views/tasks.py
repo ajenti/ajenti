@@ -15,7 +15,7 @@ class Handler(HttpPlugin):
     @url('/api/core/tasks/start')
     @endpoint(api=True)
     def handle_api_tasks_start(self, http_context):
-        data = json.loads(http_context.body)
+        data = json.loads(http_context.body.decode())
         modulename, clsname = data['cls'].rsplit('.', 1)
         module = __import__(modulename, fromlist=[''])
         cls = getattr(module, clsname)

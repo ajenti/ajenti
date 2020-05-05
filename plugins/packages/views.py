@@ -58,7 +58,7 @@ class Handler(HttpPlugin):
     @endpoint(api=True)
     def handle_api_apply(self, http_context, manager_id=None):
         mgr = self.managers[manager_id]
-        selection = json.loads(http_context.body)
+        selection = json.loads(http_context.body.decode())
         cmd = mgr.get_apply_cmd(selection)
         return {
             'terminalCommand': cmd,

@@ -47,7 +47,7 @@ class Handler(HttpPlugin):
     @url(r'/api/augeas/endpoint/set/(?P<id>.+)')
     @endpoint(api=True)
     def handle_api_set(self, http_context, id=None):
-        data = json.loads(http_context.body)
+        data = json.loads(http_context.body.decode())
 
         ep = self.__get_augeas_endpoint(id)
         if not ep:

@@ -8,6 +8,7 @@ import math
 import os
 import pickle
 import six
+import logging
 
 from aj.api.http import BaseHttpHandler
 
@@ -135,8 +136,12 @@ class HttpContext():
                 self.body = self.env['wsgi.input'].read()
                 if ctype.startswith('application/x-www-form-urlencoded') or \
                         ctype.startswith('multipart/form-data'):
+                    if isinstance(self.body, str):
+                        # Avoid compatibility problem
+                        logging.warning("Body converted to bytes!")
+                        self.body = self.body.encode()
                     self.form_cgi_query = cgi.FieldStorage(
-                        fp=six.StringIO(self.body),
+                        fp=six.BytesIO(self.body),
                         environ=self.env,
                         keep_blank_values=1
                     )
