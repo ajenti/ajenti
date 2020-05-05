@@ -41,7 +41,7 @@ msgstr "Настроить"
 
 #: plugins/supervisor/resources/partial/index.html:106
 msgid "Environment"
-msgstr "Переменные среды"
+msgstr "Окружение"
 
 #: plugins/supervisor/resources/partial/index.html:62
 msgid "General"
@@ -49,7 +49,7 @@ msgstr "Общий"
 
 #: plugins/supervisor/resources/partial/index.html:196
 msgid "Kill children"
-msgstr "Убить ребенка"
+msgstr "Детская заглушка (удаление)"
 
 #: plugins/supervisor/resources/partial/index.html:43
 msgid "New process name"
@@ -69,7 +69,7 @@ msgstr "Количество процессов"
 
 #: plugins/supervisor/resources/partial/index.html:157
 msgid "On crash"
-msgstr "При падении"
+msgstr "При поломке"
 
 #: plugins/supervisor/resources/partial/index.html:85
 msgid "Process name template"
@@ -90,11 +90,11 @@ msgstr "Сохранить"
 
 #: plugins/supervisor/resources/partial/index.html:166
 msgid "Seconds to start"
-msgstr "Секунд для начала"
+msgstr "Секунд до начала"
 
 #: plugins/supervisor/resources/partial/index.html:174
 msgid "Seconds to stop"
-msgstr "Секунд для завершения"
+msgstr "Секунд до завершения"
 
 #: plugins/supervisor/resources/partial/index.html:203
 msgid "Start retries"
@@ -102,7 +102,7 @@ msgstr "Повторить попытку запуска"
 
 #: plugins/supervisor/resources/partial/index.html:187
 msgid "Terminate children"
-msgstr "Остановить детей"
+msgstr "Детское ограничение"
 
 #: plugins/supervisor/resources/partial/index.html:95
 msgid "User account"
@@ -123,14 +123,14 @@ msgstr "Наблюдатель"
 
 #: plugins/supervisor/resources/js/controllers/index.controller.es:19
 msgid "Saved"
-msgstr ""
+msgstr "Сохранено"
 
 #: plugins/supervisor/resources/js/controllers/index.controller.es:20
 msgid "Could not save"
-msgstr ""
+msgstr "Невозможно сохранить"
 
 #: plugins/supervisor/resources/js/controllers/index.controller.es:34
 #: plugins/supervisor/resources/js/controllers/index.controller.es:39
 msgid "Failed"
-msgstr ""
+msgstr "Не удалось"
 
