@@ -49,27 +49,27 @@ msgstr "Изменить дату и время"
 
 #: plugins/datetime/resources/js/controllers/index.controller.es:2
 msgid "Date & Time"
-msgstr ""
+msgstr "Дата и Время"
 
 #: plugins/datetime/resources/js/controllers/index.controller.es:24
 msgid "Timezone set"
-msgstr ""
+msgstr "Часовой пояс установлен"
 
 #: plugins/datetime/resources/js/controllers/index.controller.es:26
 #: plugins/datetime/resources/js/controllers/index.controller.es:30
 #: plugins/datetime/resources/js/controllers/index.controller.es:37
 msgid "Failed"
-msgstr ""
+msgstr "Не удалось"
 
 #: plugins/datetime/resources/js/controllers/index.controller.es:30
 msgid "Time set"
-msgstr ""
+msgstr "Время установлено"
 
 #: plugins/datetime/resources/js/controllers/index.controller.es:33
 msgid "Synchronizing..."
-msgstr ""
+msgstr "Синхронизируемся..."
 
 #: plugins/datetime/resources/js/controllers/index.controller.es:36
 msgid "Time synchronized"
-msgstr ""
+msgstr "Время синхронизировано"
 
