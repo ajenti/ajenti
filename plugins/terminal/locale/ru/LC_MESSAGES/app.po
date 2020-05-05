@@ -72,29 +72,29 @@ msgstr "Открывать терминалы с shell"
 
 #: plugins/terminal/resources/js/directives/terminal.es:178
 msgid "Terminal was closed"
-msgstr ""
+msgstr "Терминал был закрыт"
 
 #: plugins/terminal/resources/js/services/terminals.service.es:20
 msgid "You will be redirect to the previous page."
-msgstr ""
+msgstr "Вы будете перенаправлены на предыдущую страницу"
 
 #: plugins/terminal/resources/js/controllers/view.controller.es:11
 msgid "Use exit or Ctrl+D to exit terminal."
-msgstr ""
+msgstr "Нажмите exit или Ctrl+D для выхода из терминала"
 
 #: plugins/terminal/resources/js/controllers/widget.controller.es:7
 msgid "Starting the script"
-msgstr ""
+msgstr "Запуск скрипта"
 
 #: plugins/terminal/resources/js/controllers/widget.controller.es:10
 msgid "Script has finished"
-msgstr ""
+msgstr "Скрипт завершен"
 
 #: plugins/terminal/resources/js/controllers/widget.controller.es:12
 msgid "Script has failed"
-msgstr ""
+msgstr "Скрипт не удался"
 
 #: plugins/terminal/resources/js/controllers/widget.controller.es:15
 msgid "Could not launch the script"
-msgstr ""
+msgstr "Не удалось запустить скрипт"
 
