@@ -49,13 +49,13 @@ msgstr "Блокнот"
 
 #: plugins/notepad/resources/js/controllers/index.controller.es:6
 msgid "Current file will be closed. Continue?"
-msgstr ""
+msgstr "Текущий файл будет закрыт. Продолжить?"
 
 #: plugins/notepad/resources/js/controllers/index.controller.es:31
 msgid "Could not open the file"
-msgstr ""
+msgstr "Не удалось открыть файл"
 
 #: plugins/notepad/resources/js/controllers/index.controller.es:49
 msgid "Could not save the file"
-msgstr ""
+msgstr "Не удалось сохранить файл"
 
