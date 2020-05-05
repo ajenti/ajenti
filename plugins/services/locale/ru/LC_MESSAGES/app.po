@@ -40,9 +40,9 @@ msgstr "Управление системными сервисами"
 #: plugins/services/resources/js/controllers/widget.controller.es:14
 #: plugins/services/resources/js/controllers/index.controller.es:27
 msgid "Service operation failed"
-msgstr ""
+msgstr "Сервисная операция не удалась"
 
 #: plugins/services/resources/js/controllers/index.controller.es:24
 msgid "Done"
-msgstr ""
+msgstr "Готово"
 
