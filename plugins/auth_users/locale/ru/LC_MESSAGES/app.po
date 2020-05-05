@@ -85,5 +85,5 @@ msgstr "Пользователи"
 
 #: plugins/auth_users/resources/js/controllers/index.controller.es:70
 msgid "Password updated"
-msgstr ""
+msgstr "Пароль обновлен"
 
