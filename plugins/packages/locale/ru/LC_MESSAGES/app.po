@@ -74,17 +74,17 @@ msgstr "Установка/удаление пакетов"
 
 #: plugins/packages/resources/js/controllers/index.controller.es:18
 msgid "Could not find packages"
-msgstr ""
+msgstr "Не удалось найти пакеты"
 
 #: plugins/packages/resources/js/controllers/index.controller.es:25
 msgid "Package list update started"
-msgstr ""
+msgstr "Началось обновление списка пакетов"
 
 #: plugins/packages/resources/js/controllers/index.controller.es:27
 msgid "Package list update failed"
-msgstr ""
+msgstr "Обновление списка пакетов не удалось"
 
 #: plugins/packages/resources/js/controllers/index.controller.es:61
 msgid "Could not apply changes"
-msgstr ""
+msgstr "Не удалось применить изменения"
 
