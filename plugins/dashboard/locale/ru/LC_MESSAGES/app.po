@@ -93,15 +93,15 @@ msgstr "Главная"
 #: plugins/dashboard/resources/js/controllers/index.controller.es:67
 #: plugins/dashboard/resources/js/controllers/index.controller.es:93
 msgid "New name"
-msgstr ""
+msgstr "Новое имя"
 
 #: plugins/dashboard/resources/js/controllers/index.controller.es:82
 msgid "${$scope.userConfig.dashboard.tabs[index].name}"
-msgstr ""
+msgstr "${$scope.userConfig.dashboard.tabs[index].name}"
 
 #: plugins/dashboard/resources/js/controllers/index.controller.es:84
 msgid "Cancel"
-msgstr ""
+msgstr "Отмена"
 
 #: plugins/dashboard/widgets/loadavg.py:12
 msgid "Load average"
