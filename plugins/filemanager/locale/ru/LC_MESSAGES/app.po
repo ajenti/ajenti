@@ -189,29 +189,29 @@ msgstr "Файловый менеджер"
 
 #: plugins/filemanager/resources/js/controllers/properties.controller.es:15
 msgid "Could not read file information"
-msgstr ""
+msgstr "Не удалось прочитать информацию о файле"
 
 #: plugins/filemanager/resources/js/controllers/properties.controller.es:29
 msgid "File mode saved"
-msgstr ""
+msgstr "Режим файла сохранен"
 
 #: plugins/filemanager/resources/js/controllers/index.controller.es:15
 msgid "Could not load directory"
-msgstr ""
+msgstr "Не удалось загрузить каталог"
 
 #: plugins/filemanager/resources/js/controllers/index.controller.es:86
 msgid "Delete selected items?"
-msgstr ""
+msgstr "Удалить выбранные элементы?"
 
 #: plugins/filemanager/resources/js/controllers/index.controller.es:123
 msgid "Could not create file"
-msgstr ""
+msgstr "Не удалось создать файл"
 
 #: plugins/filemanager/resources/js/controllers/index.controller.es:143
 msgid "Could not create directory"
-msgstr ""
+msgstr "Не удалось создать каталог"
 
 #: plugins/filemanager/resources/js/controllers/index.controller.es:150
 msgid "Uploaded"
-msgstr ""
+msgstr "Загружено"
 
