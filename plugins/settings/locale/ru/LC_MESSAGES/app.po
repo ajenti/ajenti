@@ -92,7 +92,7 @@ msgstr "Имя машины"
 
 #: plugins/settings/resources/partial/index.html:37
 msgid "Max session time"
-msgstr ""
+msgstr "Максимальное время сессии"
 
 #: plugins/settings/resources/partial/index.html:159
 msgid "New certificate"
@@ -124,7 +124,7 @@ msgstr "Перезапустить панель"
 
 #: plugins/settings/resources/partial/index.html:111
 msgid "SSL FQDN certificate file"
-msgstr ""
+msgstr "Файл сертификата SSL FQDN"
 
 #: plugins/settings/resources/partial/index.html:100
 msgid "SSL certificate file"
@@ -169,43 +169,43 @@ msgstr "Настройки"
 
 #: plugins/settings/resources/js/controllers/index.controller.es:37
 msgid "Could not load config"
-msgstr ""
+msgstr "Не удалось загрузить конфиг"
 
 #: plugins/settings/resources/js/controllers/index.controller.es:41
 msgid "Could not load authentication provider list"
-msgstr ""
+msgstr "Не удалось загрузить список провайдеров аутентификации"
 
 #: plugins/settings/resources/js/controllers/index.controller.es:60
 #: plugins/settings/resources/js/controllers/index.controller.es:65
 msgid "Saved"
-msgstr ""
+msgstr "Сохранено"
 
 #: plugins/settings/resources/js/controllers/index.controller.es:61
 msgid "SSL Error"
-msgstr ""
+msgstr "Ошибка SSL"
 
 #: plugins/settings/resources/js/controllers/index.controller.es:67
 msgid "Could not save config"
-msgstr ""
+msgstr "Не удалось сохранить конфиг"
 
 #: plugins/settings/resources/js/controllers/index.controller.es:73
 msgid "Self-signed certificate"
-msgstr ""
+msgstr "Самоподписанный сертификат"
 
 #: plugins/settings/resources/js/controllers/index.controller.es:74
 msgid "Generating a new certificate will void all existing client authentication certificates!"
-msgstr ""
+msgstr "Генерация нового сертификата аннулирует существующие сертификаты аутентификации клиента"
 
 #: plugins/settings/resources/js/controllers/index.controller.es:79
 msgid "Please wait"
-msgstr ""
+msgstr "Пожалуйста, подождите"
 
 #: plugins/settings/resources/js/controllers/index.controller.es:81
 msgid "Certificate successfully generated"
-msgstr ""
+msgstr "Сертификат успешно создан"
 
 #: plugins/settings/resources/js/controllers/index.controller.es:87
 #: plugins/settings/resources/js/controllers/index.controller.es:106
 msgid "Certificate generation failed"
-msgstr ""
+msgstr "Не удалось создать сертификат"
 
