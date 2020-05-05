@@ -35,7 +35,7 @@ msgstr "адреса"
 
 #: plugins/network/resources/partial/index.html:293
 msgid "Aliases"
-msgstr "Аллиасы"
+msgstr "Псевдонимы"
 
 #: plugins/network/resources/partial/index.html:277
 msgid "Canonical hostname"
@@ -56,7 +56,7 @@ msgstr "Закрыть"
 
 #: plugins/network/resources/partial/index.html:233
 msgid "Configure"
-msgstr "настроить"
+msgstr "Настроить"
 
 #: plugins/network/resources/partial/index.html:191
 msgid "DNS"
@@ -72,7 +72,7 @@ msgstr "Отключить интерфейс"
 
 #: plugins/network/resources/partial/index.html:172
 msgid "Down script"
-msgstr "Остановить сценарий"
+msgstr "Остановить скрипт"
 
 #: plugins/network/resources/partial/index.html:83
 msgid "Family"
@@ -130,19 +130,19 @@ msgstr "Серверы имен не определены"
 
 #: plugins/network/resources/partial/index.html:177
 msgid "Post-down script"
-msgstr "Пост-остановка сценария"
+msgstr "Пост-остановка скрипта"
 
 #: plugins/network/resources/partial/index.html:162
 msgid "Post-up script"
-msgstr "Пост-запуск сценария"
+msgstr "Пост-запуск скрипта"
 
 #: plugins/network/resources/partial/index.html:167
 msgid "Pre-down script"
-msgstr "Предварительная-остановка сценария"
+msgstr "Предварительная-остановка скрипта"
 
 #: plugins/network/resources/partial/index.html:152
 msgid "Pre-up script"
-msgstr "Предварительный-запуск сценария"
+msgstr "Предварительный-запуск скрипта"
 
 #: plugins/network/resources/partial/index.html:196
 #: plugins/network/resources/partial/index.html:230
@@ -192,72 +192,72 @@ msgstr "Активация/деактивация сетевых интерфе�
 #: plugins/network/resources/js/controllers/hosts.controller.es:20
 #: plugins/network/resources/js/controllers/dns.controller.es:11
 msgid "Saved"
-msgstr ""
+msgstr "Сохранено"
 
 #: plugins/network/resources/js/controllers/hosts.controller.es:22
 #: plugins/network/resources/js/controllers/dns.controller.es:13
 msgid "Could not save"
-msgstr ""
+msgstr "Не удалось сохранить"
 
 #: plugins/network/resources/js/controllers/index.controller.es:10
 msgid "Static"
-msgstr ""
+msgstr "Неподвижный"
 
 #: plugins/network/resources/js/controllers/index.controller.es:11
 msgid "Auto"
-msgstr ""
+msgstr "Автоматический"
 
 #: plugins/network/resources/js/controllers/index.controller.es:13
 msgid "Manual"
-msgstr ""
+msgstr "Основной"
 
 #: plugins/network/resources/js/controllers/index.controller.es:14
 msgid "Loopback"
-msgstr ""
+msgstr "Возвращаемый"
 
 #: plugins/network/resources/js/controllers/index.controller.es:41
 msgid "Interface activated"
-msgstr ""
+msgstr "Интерфейс активирован"
 
 #: plugins/network/resources/js/controllers/index.controller.es:47
 #: plugins/network/resources/js/controllers/index.controller.es:60
 msgid "Warning"
-msgstr ""
+msgstr "Предупреждение"
 
 #: plugins/network/resources/js/controllers/index.controller.es:48
 msgid "Deactivating a network interface can lock you out of the remote session"
-msgstr ""
+msgstr "Отключение сетевого интерфейса может заблокировать вас от удаленного сеанса"
 
 #: plugins/network/resources/js/controllers/index.controller.es:49
 msgid "Deactivate"
-msgstr ""
+msgstr "Отключение"
 
 #: plugins/network/resources/js/controllers/index.controller.es:50
 #: plugins/network/resources/js/controllers/index.controller.es:63
 msgid "Cancel"
-msgstr ""
+msgstr "Отмена"
 
 #: plugins/network/resources/js/controllers/index.controller.es:53
 msgid "Interface deactivated"
-msgstr ""
+msgstr "Интерфейс отключен"
 
 #: plugins/network/resources/js/controllers/index.controller.es:61
 msgid "Restarting a network interface can lock you out of the remote session"
-msgstr ""
+msgstr "Перезапуск сетевого интерфейса может заблокировать вас от удаленного сеанса"
 
 #: plugins/network/resources/js/controllers/index.controller.es:62
 msgid "Restart"
-msgstr ""
+msgstr "Перезапуск"
 
 #: plugins/network/resources/js/controllers/index.controller.es:67
 msgid "Interface reactivated"
-msgstr ""
+msgstr "Интерфейс возобновлен"
 
 #: plugins/network/resources/js/controllers/index.controller.es:75
 msgid "Hostname changed"
-msgstr ""
+msgstr "Имя хоста изменено"
 
 #: plugins/network/resources/js/controllers/index.controller.es:77
 msgid "Failed"
-msgstr ""
+msgstr "Не удалось"
 
