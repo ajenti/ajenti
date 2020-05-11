@@ -1,7 +1,6 @@
 import gevent
 import json
 import logging
-import six
 import subprocess
 import os
 import pwd
@@ -63,7 +62,7 @@ class Handler(HttpPlugin):
                 {manager[n]['info']['name']:manager[n]['info']['title'] for n in manager}
             ),
             'config': json.dumps(aj.config.data),
-            'version': six.text_type(aj.version),
+            'version': str(aj.version),
             'platform': aj.platform,
             'platformUnmapped': aj.platform_unmapped,
             'bootstrapColor': aj.config.data.get('color', None),

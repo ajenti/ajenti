@@ -1,6 +1,6 @@
 from PIL import Image, ImageDraw
 
-from six import BytesIO
+from io import BytesIO
 import subprocess
 
 from jadi import component
