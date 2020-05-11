@@ -3,7 +3,6 @@ import logging
 import os
 import pwd
 import random
-import six
 import socketio
 import time
 from cookies import Cookies
@@ -80,7 +79,7 @@ class SocketIORouteHandler(BaseHttpHandler):
         }
 
     def handle(self, context):
-        return six.binary_type(socketio.socketio_manage(
+        return bytes(socketio.socketio_manage(
             context.env, self.namespaces, context
         ) or b'')
 
@@ -252,7 +251,7 @@ class GateMiddleware():
         )
 
         for index, item in enumerate(content):
-            if isinstance(item, six.text_type):
+            if isinstance(item, str):
                 content[index] = item.encode('utf-8')
 
         # Touch the session in case system time has dramatically

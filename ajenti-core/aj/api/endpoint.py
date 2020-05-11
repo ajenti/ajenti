@@ -1,13 +1,11 @@
 from functools import wraps
 import json
 import logging
-import six
 import traceback
+
 
 from aj.auth import SecurityError
 
-
-@six.python_2_unicode_compatible
 class EndpointError(Exception):
     """
     To be raised by endpoints when a foreseen error occurs.
@@ -19,7 +17,7 @@ class EndpointError(Exception):
     def __init__(self, inner, message=None):
         Exception.__init__(self)
         self.inner = inner
-        self.message = message or six.u(str(inner))
+        self.message = message or str(inner)
         try:
             self.traceback_str = traceback.format_exc()
         except Exception as e:
@@ -29,7 +27,6 @@ class EndpointError(Exception):
         return self.message
 
 
-@six.python_2_unicode_compatible
 class EndpointReturn(Exception):
     """
     Raising ``EndpointReturn`` will return a custom HTTP code in the API endpoints.

@@ -1,5 +1,4 @@
 from socketio.handler import SocketIOHandler
-import six
 import aj
 import gevent.ssl
 from aj.security.verifier import ClientCertificateVerificator
@@ -36,6 +35,6 @@ class RequestHandler(SocketIOHandler):
         return response
 
     def _sendall(self, data):
-        if isinstance(data, six.text_type):
-                data = six.binary_type(data.encode('utf-8'))
+        if isinstance(data, str):
+                data = data.encode('utf-8')
         return SocketIOHandler._sendall(self, data)

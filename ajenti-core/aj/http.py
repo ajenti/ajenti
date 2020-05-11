@@ -6,8 +6,8 @@ import gzip
 import json
 import math
 import os
+from io import BytesIO
 import pickle
-import six
 import logging
 
 from aj.api.http import BaseHttpHandler
@@ -141,7 +141,7 @@ class HttpContext():
                         logging.warning("Body converted to bytes!")
                         self.body = self.body.encode()
                     self.form_cgi_query = cgi.FieldStorage(
-                        fp=six.BytesIO(self.body),
+                        fp=BytesIO(self.body),
                         environ=self.env,
                         keep_blank_values=1
                     )
@@ -168,7 +168,7 @@ class HttpContext():
         env = self.env.copy()
         for k in list(env):
             # pylint: disable=W1504
-            if type(env[k]) not in (six.text_type, six.binary_type, list, dict, bool, type(None), int):
+            if type(env[k]) not in (str, bytes, list, dict, bool, type(None), int):
                 del env[k]
         return env
 
@@ -302,7 +302,7 @@ class HttpContext():
         :type  compression: int
         :rtype: str
         """
-        io = six.BytesIO()
+        io = BytesIO()
         gz = gzip.GzipFile('', 'wb', compression, io)
         gz.write(content)
         gz.close()

@@ -1,7 +1,6 @@
 import gevent
 import logging
 import re
-import six
 import types
 from jadi import interface
 
@@ -76,14 +75,14 @@ class HttpPlugin():
         :returns: reponse data
         """
 
-        for name, method in six.iteritems(self.__class__.__dict__):
+        for name, method in self.__class__.__dict__.items():
             if hasattr(method, 'url_pattern'):
                 method = getattr(self, name)
                 match = method.url_pattern.match(http_context.path)
                 if match:
                     http_context.route_data = match.groupdict()
                     data = method(http_context, **http_context.route_data)
-                    if isinstance(data, six.text_type):
+                    if isinstance(data, str):
                         data = data.encode('utf-8')
                     if isinstance(data, types.GeneratorType):
                         return data
