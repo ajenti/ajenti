@@ -1,0 +1,169 @@
+<br/>
+
+<div>
+    <uib:tabset active="activeTab">
+        <uib:tab heading="{{'Jobs'|translate}}">
+            <br/>
+            <div ng:show="crontab.normal_tasks.length == 0" class="alert alert-info" translate>There is no cronjob.</div>
+            <table ng:show="crontab.normal_tasks.length > 0" class="table">
+                <tr>
+                    <th class="text-center" translate>Minute</th>
+                    <th class="text-center" translate>Hour</th>
+                    <th class="text-center" translate>Day (month)</th>
+                    <th class="text-center" translate>Month</th>
+                    <th class="text-center" translate>Day (week)</th>
+                    <th class="text-center" translate>Command</th>
+                    <th></th> <!-- Column for modify -->
+                    <th></th> <!-- Column for remove -->
+                </tr>
+                <tr ng:repeat="job in crontab.normal_tasks" ng:click="editTask('normal_tasks', job)">
+                    <td class="text-center" style="width:75px">{{job.minute}}</td>
+                    <td class="text-center" style="width:75px">{{job.hour}}</td>
+                    <td class="text-center" style="width:75px">{{job.day_of_month}}</td>
+                    <td class="text-center" style="width:75px">{{job.month}}</td>
+                    <td class="text-center" style="width:75px">{{job.day_of_week}}</td>
+                    <td class="text-center">{{job.command}}</td>
+                    <td style="width:1px;">
+                        <button class="btn btn-default" ng:click="modify('normal_tasks',job)" title="Modify">
+                                <i class="fa fa-cog"></i>
+                        </button>
+                    </td>
+                    <td style="width:1px;">
+                        <button class="btn btn-default" ng:click="remove('normal_tasks', job)" title="Remove">
+                                <i class="fa fa-trash-o"></i>
+                        </button>
+                    </td>
+                </tr>
+            </table>
+            <button class="btn btn-default" ng:click="add('normal_tasks')" translate>Add</button>
+        </uib:tab>
+        <uib:tab heading="{{'Special'|translate}}">
+            <br/>
+            <div ng:show="crontab.special_tasks.length == 0" class="alert alert-info" translate>There is no special task.</div>
+            <table ng:show="crontab.special_tasks.length > 0" class="table">
+                <tr>
+                    <th translate>Special</th>
+                    <th translate>Command</th>
+                    <th></th> <!-- Column for modify -->
+                    <th></th> <!-- Column for remove -->
+                </tr>
+                <tr ng:repeat="job in crontab.special_tasks">
+                    <td>{{job.special}}</td>
+                    <td>{{job.command}}</td>
+                    <td style="width:1px;">
+                        <button class="btn btn-default" ng:click="modify('special_tasks',job)" title="Modify">
+                                <i class="fa fa-cog"></i>
+                        </button>
+                    </td>
+                    <td style="width:1px;">
+                        <button class="btn btn-default" ng:click="remove('special_tasks', job)" title="Remove">
+                                <i class="fa fa-trash-o"></i>
+                        </button>
+                    </td>
+                </tr>
+            </table>
+            <button class="btn btn-default" ng:click="add('special_tasks')" translate>Add</button>
+        </uib:tab>
+        <uib:tab heading="{{'Environment variables'|translate}}">
+            <br/>
+            <div ng:show="crontab.env_settings.length == 0" class="alert alert-info" translate>There is no variables environment set.</div>
+            <table ng:show="crontab.env_settings.length > 0" class="table">
+                <tr>
+                    <th translate>Name</th>
+                    <th translate>Value</th>
+                    <th></th> <!-- Column for modify -->
+                    <th></th> <!-- Column for remove -->
+                </tr>
+                <tr ng:repeat="var in crontab.env_settings">
+                    <td>{{var.name}}</td>
+                    <td>{{var.value}}</td>
+                    <td style="width:1px;">
+                        <button class="btn btn-default" ng:click="modify('env_settings', var)" title="Modify">
+                                <i class="fa fa-cog"></i>
+                        </button>
+                    </td>
+                    <td style="width:1px;">
+                        <button class="btn btn-default" ng:click="remove('env_settings', var)" title="Remove">
+                                <i class="fa fa-trash-o"></i>
+                        </button>
+                    </td>
+                </tr>
+            </table>
+            <button class="btn btn-default" ng:click="add('env_settings')" translate>Add</button>
+        </uib:tab>
+    </uib:tabset>
+    <dialog ng:show="modifyJob">
+        <div class="modal-header">
+            <h4><span translate>Modify</span> {{translate[modifyJob.type]}}</h4>
+        </div>
+        <div class="modal-body scrollable">
+            <form class="form-group" ng:show="modifyJob.type == 'normal_tasks'" ng:submit="closeDialog(modifyJob.type, modifyJob.job)">
+                <label translate>Minute</label>
+                <div class="input-group">
+                    <input class="form-control" ng:model="modifyJob.job.minute" required size="80">
+                </div>
+                <label translate>Hour</label>
+                <div class="input-group">
+                    <input class="form-control" ng:model="modifyJob.job.hour" required size="80">
+                </div>
+                <label translate>Day of the month</label>
+                <div class="input-group">
+                    <input class="form-control" ng:model="modifyJob.job.day_of_month" required size="80">
+                </div>
+                <label translate>Month</label>
+                <div class="input-group">
+                    <input class="form-control" ng:model="modifyJob.job.month" required size="80">
+                </div>
+                <label translate>Day of the week</label>
+                <div class="input-group">
+                    <input class="form-control" ng:model="modifyJob.job.day_of_week" required size="80">
+                </div>
+                <label translate>Command</label>
+                <div class="input-group">
+                    <textarea class="form-control" ng:model="modifyJob.job.command" required cols="80"></textarea>
+                </div>
+                <label translate>Comment</label>
+                <div class="input-group">
+                    <textarea class="form-control" ng:model="modifyJob.job.comment" rows="15" cols="80"></textarea>
+                </div>
+                <button type="reset" ng:click="reset()" class="btn btn-default btn-flat pull-right" translate>Cancel</button>
+                <button type="submit" class="btn btn-default btn-flat pull-right" translate>OK</button>
+            </form>
+            <form class="form-group" ng:show="modifyJob.type == 'special_tasks'" ng:submit="closeDialog(modifyJob.type, modifyJob.job)">
+                <label translate>Special</label>
+                <div class="input-group">
+                    <select class="form-control" ng:model="modifyJob.job.special" ng:options="opt for opt in special"></select>
+                </div>
+                <label translate>Command</label>
+                <div class="input-group">
+                    <textarea class="form-control" ng:model="modifyJob.job.command" required cols="80"></textarea>
+                </div>
+                <label translate>Comment</label>
+                <div class="input-group">
+                    <textarea class="form-control" ng:model="modifyJob.job.comment" rows="15" cols="80"></textarea>
+                </div>
+                <button type="reset" ng:click="reset()" class="btn btn-default btn-flat pull-right" translate>Cancel</button>
+                <button type="submit" class="btn btn-default btn-flat pull-right" translate>OK</button>
+            </form>
+            <form class="form-group" ng:show="modifyJob.type == 'env_settings'" ng:submit="closeDialog(modifyJob.type, modifyJob.job)">
+                <label translate>Name</label>
+                <div class="input-group">
+                    <input class="form-control" ng:model="modifyJob.job.name" required size="80">
+                </div>
+                <label translate>Value</label>
+                <div class="input-group">
+                    <textarea class="form-control" ng:model="modifyJob.job.value" required cols="80"></textarea>
+                </div>
+                <label translate>Comment</label>
+                <div class="input-group">
+                    <textarea class="form-control" ng:model="modifyJob.job.comment" rows="15" cols="80"></textarea>
+                </div>
+                <button type="reset" ng:click="reset()" class="btn btn-default btn-flat pull-right" translate>Cancel</button>
+                <button type="submit" class="btn btn-default btn-flat pull-right" translate>OK</button>
+            </form>
+        </div>
+    </dialog>
+    <floating-toolbar>
+        <button ng:click="save()" class="btn btn-default btn-flat" translate>Save</button>
+    </floating-toolbar>
+</div>
