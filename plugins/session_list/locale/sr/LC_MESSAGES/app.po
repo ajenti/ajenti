@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: webui\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-05 14:14+0100\n"
+"POT-Creation-Date: 2020-05-19 19:29+0200\n"
 "PO-Revision-Date: 2016-11-01 18:53-0400\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Serbian (Cyrillic)\n"
@@ -17,27 +17,26 @@ msgstr ""
 "X-Crowdin-Language: sr\n"
 "X-Crowdin-File: /2.0/datetime.po\n"
 
-#: check_certificates/resources/partial/index.html:15
-msgid "Add url"
+#: plugins/session_list/resources/partial/index.html:9
+msgid "IP"
 msgstr ""
 
-#: check_certificates/main.py:17
-#: check_certificates/resources/js/controllers/index.controller.coffee:2
-msgid "Check certificates"
+#: plugins/session_list/resources/partial/index.html:10
+msgid "Logged in"
 msgstr ""
 
-#: check_certificates/resources/js/controllers/index.controller.coffee:15
-msgid "New url"
+#: plugins/session_list/resources/partial/index.html:11
+msgid "Timeout"
 msgstr ""
 
-#: check_certificates/resources/js/controllers/index.controller.coffee:26
-msgid "Remove the url "
+#: plugins/session_list/resources/partial/index.html:8
+msgid "User <span class=\"badge\">{{number}}</span>"
 msgstr ""
 
-#: check_certificates/resources/js/controllers/index.controller.coffee:27
-msgid "Remove"
+#: plugins/session_list/main.py:17
+msgid "Session list"
 msgstr ""
 
-#: check_certificates/resources/js/controllers/index.controller.coffee:28
-msgid "Cancel"
+#: plugins/session_list/resources/js/controllers/index.controller.coffee:2
+msgid "List all sessions"
 msgstr ""
