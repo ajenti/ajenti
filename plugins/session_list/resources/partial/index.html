@@ -1,0 +1,37 @@
+<br/>
+
+<div class="form-group">
+    
+    <div>
+        <table style="width:100%;" class="table">
+            <tr>
+                <th translate>User <span class="badge">{{number}}</span></th>
+                <th translate>IP</th>
+                <th translate>Logged in</th>
+                <th translate>Timeout</th>
+            </tr>
+            <tr ng:repeat="session in sessions">
+                <td style="width:20%;font-weight:bold;">
+                    <span class="label label-info">{{session.identity}}</span>
+                </td>
+                <td style="width:20%;color:red;">
+                    <span class="label label-danger">{{session.client_info.address}}</span>
+                </td>
+                <td style="width:20%;">
+                    {{session.timestamp*1000 | date: 'dd MMMM yyyy HH:mm:ss'}}
+                </td>
+
+                <td style="width:20%;">
+                    {{session.timestamp*1000 + session_max_time*1000 | date: 'dd MMMM yyyy HH:mm:ss'}}
+                </td>
+<!--
+                <td width="1">
+                    <button class="btn btn-default" ng:click="remove(h)" title="Remove">
+                        <i class="fa fa-trash-o"></i>
+                    </button>
+                </td>
+-->
+            </tr>
+        </table>
+    </div>
+</div>

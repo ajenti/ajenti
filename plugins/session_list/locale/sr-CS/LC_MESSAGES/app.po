@@ -1,0 +1,43 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: webui\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-11-05 14:14+0100\n"
+"PO-Revision-Date: 2016-11-01 18:53-0400\n"
+"Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
+"Language-Team: Serbian (Latin)\n"
+"Language: sr_CS\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: crowdin.com\n"
+"X-Crowdin-Project: webui\n"
+"X-Crowdin-Language: sr-CS\n"
+"X-Crowdin-File: /2.0/datetime.po\n"
+
+#: check_certificates/resources/partial/index.html:15
+msgid "Add url"
+msgstr ""
+
+#: check_certificates/main.py:17
+#: check_certificates/resources/js/controllers/index.controller.coffee:2
+msgid "Check certificates"
+msgstr ""
+
+#: check_certificates/resources/js/controllers/index.controller.coffee:15
+msgid "New url"
+msgstr ""
+
+#: check_certificates/resources/js/controllers/index.controller.coffee:26
+msgid "Remove the url "
+msgstr ""
+
+#: check_certificates/resources/js/controllers/index.controller.coffee:27
+msgid "Remove"
+msgstr ""
+
+#: check_certificates/resources/js/controllers/index.controller.coffee:28
+msgid "Cancel"
+msgstr ""
