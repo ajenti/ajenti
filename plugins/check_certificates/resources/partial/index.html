@@ -1,0 +1,35 @@
+<br/>
+
+<div class="form-group">
+    
+        <table style="width:100%;" class="table">
+            <tr ng:repeat="h in status" class="{{h.status}}">
+                <td>
+                    <i class="fas fa-check" ng-if="h.status == 'success'" style="font-size: 20px;"></i>
+                    <i class="fas fa-exclamation-triangle" ng-if="h.status == 'warning'" style="font-size: 20px;"></i>
+                    <i class="fas fa-info-circle" ng-if="h.status == 'info'" style="font-size: 20px;"></i>
+                    <i class="fas fa-skull-crossbones" ng-if="h.status == 'danger'" style="font-size: 20px;"></i>
+                </td>
+                <th style="width:25%;">
+                    {{h.url}}<br />
+                    {{h.issuer.CN}}
+                </th>
+                <td style="width:20%;">
+                    <span ng:show="h.notAfter.slice(0,2) != 'No'" translate>Certificate start : </span><br />
+                    <span ng:show="h.notAfter.slice(0,2) != 'No'" translate>Certificate end : </span>
+                </td>
+                <td>
+                    <span ng:show="h.notAfter.slice(0,2) == 'No'" style="font-weight:bold;" >{{h.notAfter}}</span>
+                    <span ng:show="h.notAfter.slice(0,2) != 'No'">{{h.notBefore| date:'dd MMM yyyy HH:mm:ss'}}</span><br />
+                    <span ng:show="h.notAfter.slice(0,2) != 'No'">{{h.notAfter| date:'dd MMM yyyy HH:mm:ss'}}</span>
+                    <span ng:show="h.restTime" style="font-weight:bold;" translate>({{h.restTime}} days)</span>
+                </td>
+                <td width="1">
+                    <button class="btn btn-default" ng:click="remove(h)" title="Remove">
+                        <i class="fa fa-trash-o"></i>
+                    </button>
+                </td>
+            </tr>
+        </table>
+    <button class="btn btn-default" ng:click="add()" translate>Add host</button>
+</div>

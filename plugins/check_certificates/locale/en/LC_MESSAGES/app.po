@@ -1,0 +1,32 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-11-05 14:14+0100\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: check_certificates/resources/partial/index.html:15
+msgid "Add url"
+msgstr ""
+
+#: check_certificates/main.py:17
+#: check_certificates/resources/js/controllers/index.controller.coffee:2
+msgid "Check certificates"
+msgstr ""
+
+#: check_certificates/resources/js/controllers/index.controller.coffee:15
+msgid "New url"
+msgstr ""
+
+#: check_certificates/resources/js/controllers/index.controller.coffee:26
+msgid "Remove the url "
+msgstr ""
+
+#: check_certificates/resources/js/controllers/index.controller.coffee:27
+msgid "Remove"
+msgstr ""
+
+#: check_certificates/resources/js/controllers/index.controller.coffee:28
+msgid "Cancel"
+msgstr ""

@@ -1,0 +1,60 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: webui\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-11-05 14:14+0100\n"
+"PO-Revision-Date: 2016-11-01 18:53-0400\n"
+"Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
+"Language-Team: Portuguese, Brazilian\n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: crowdin.com\n"
+"X-Crowdin-Project: webui\n"
+"X-Crowdin-Language: pt-BR\n"
+"X-Crowdin-File: /2.0/datetime.po\n"
+
+#: check_certificates/resources/partial/index.html:15
+msgid "Add url"
+msgstr ""
+
+#: check_certificates/main.py:17
+#: check_certificates/resources/js/controllers/index.controller.coffee:2
+msgid "Check certificates"
+msgstr ""
+
+#: check_certificates/resources/js/controllers/index.controller.coffee:15
+msgid "New url"
+msgstr ""
+
+#: check_certificates/resources/js/controllers/index.controller.coffee:26
+msgid "Remove the url "
+msgstr ""
+
+#: check_certificates/resources/js/controllers/index.controller.coffee:27
+msgid "Remove"
+msgstr ""
+
+#: check_certificates/resources/js/controllers/index.controller.coffee:28
+msgid "Cancel"
+msgstr ""
+
+#~ msgid "Date & time"
+#~ msgstr "Data & hora"
+
+#~ msgid "Set time"
+#~ msgstr "Definir hora"
+
+#~ msgid "Sync time from the Internet"
+#~ msgstr "Sincronizar relógio com internet"
+
+#~ msgid "Time zone"
+#~ msgstr "Fuso horário"
+
+#~ msgid "Change date and time"
+#~ msgstr "Definir a data e hora"
+
+#~ msgid "ntpdate utility is not installed"
+#~ msgstr "ntpdate não está instalado"
