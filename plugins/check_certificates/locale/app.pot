@@ -1,0 +1,55 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-05-19 19:28+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: plugins/check_certificates/resources/partial/index.html:25
+msgid "({{h.restTime}} days)"
+msgstr ""
+
+#: plugins/check_certificates/resources/partial/index.html:34
+msgid "Add host"
+msgstr ""
+
+#: plugins/check_certificates/resources/partial/index.html:19
+msgid "Certificate end :"
+msgstr ""
+
+#: plugins/check_certificates/resources/partial/index.html:18
+msgid "Certificate start :"
+msgstr ""
+
+#: plugins/check_certificates/main.py:17
+#: plugins/check_certificates/resources/js/controllers/index.controller.coffee:2
+msgid "Check certificates"
+msgstr ""
+
+#: plugins/check_certificates/resources/js/controllers/index.controller.coffee:15
+msgid "New url"
+msgstr ""
+
+#: plugins/check_certificates/resources/js/controllers/index.controller.coffee:26
+msgid "Remove the url "
+msgstr ""
+
+#: plugins/check_certificates/resources/js/controllers/index.controller.coffee:27
+msgid "Remove"
+msgstr ""
+
+#: plugins/check_certificates/resources/js/controllers/index.controller.coffee:28
+msgid "Cancel"
+msgstr ""
