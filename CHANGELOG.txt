@@ -1,0 +1,41 @@
+Ajenti 2.1.36 - Dev
+
+- Remove six module,
+- Add plugins session list, check certificate and cron, 
+
+
+Ajenti 2.1.35 - 03/05/2020
+
+- Fix some Python3 compatibility issues between Python 3.5 and Python 3.7,
+- Fix modules requirements,
+- Elevate user config as provider for more contexts options,
+- Compatibility with Ubuntu Focal,
+- Disable flashsocket,
+- Update to FontAwesome 5.13.0,
+- Update french and german translations,
+- Update install script for install in CentOS/RHEL 8, Debian 9/10, Ubuntu 18.04/20.04,
+- Update doc for install in CentOS/RHEL 8, Debian 9/10, Ubuntu 18.04/20.04.
+
+
+Ajenti 2.1.34 - 13/04/2020
+
+- Switch to Python 3
+- Fix restart problem,
+- Fix some Python3 compatibility issues,
+- Fix terminal plugin and add autoclose,
+- Direct request for plugin manager to pypi.org,
+- Update package manager,
+- Group isolation.
+
+
+Ajenti 2.1.33 - 13/02/2020
+
+- Show session time,
+- Manage session timeout and redirect to login,
+- Some Python 3 compatibility fixs,
+- Add broadcast to get sessions list,
+- Differenciate FQDN and peer cert for compatibility with Let's Encrypt,
+- Switch to gevent SSL,
+- Switch to gevent-socketio-hartwork,
+- Fix shell injection i nos auth provider.
+
