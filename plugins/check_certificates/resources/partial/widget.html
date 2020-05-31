@@ -1,0 +1,19 @@
+<div ng:controller="CertWidgetController">
+    <div class="row">
+        <div class="widget-header" translate>
+            <p>Certificates to be renewed</p>
+            <div class="alert alert-success" ng:show="status.length == 0" translate>
+                <i class="fas fa-check"></i>
+                All certificates are up to date !
+            </div>
+            <div ng:show="status.length > 0">
+                <p ng:repeat="cert in status" class="bg-{{cert.status}}">
+                    <i class="fas fa-exclamation-triangle" ng-if="cert.status == 'warning'"></i>
+                    <i class="fas fa-skull-crossbones" ng-if="cert.status == 'danger'"></i>
+                    {{cert.url}}
+                    <span class="pull-right">{{cert.notAfter| date:'dd MMM yyyy HH:mm:ss'}}</span>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
