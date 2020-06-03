@@ -5,7 +5,6 @@ angular.module('check_certificates').controller 'CertIndexController', ($scope, 
 
     config.getUserConfig().then (userConfig) ->
         $scope.userConfig = userConfig
-        $scope.userConfig.certificates = $scope.userConfig.certificates
 
         for url in $scope.userConfig.certificates.domain
             $http.post('/api/check_cert/test', {url:url}).then (resp) ->
