@@ -1,0 +1,11 @@
+<div ng:controller="SessionWidgetController">
+    <div class="widget-header" translate>
+        <p>Authenticated users</p>
+        <div>
+            <p ng:repeat="session in sessions" class="text-primary">
+                {{session.identity}}
+                <span class="pull-right">{{session.client_info.address}}</span>
+            </p>
+        </div>
+    </div>
+</div>

@@ -12,4 +12,6 @@ angular.module('session_list').controller 'SessionListIndexController', ($scope,
     $scope.getList()
 
     # Refresh list every 15s
-    $scope.refresh = $interval($scope.getList, 15000, 0);
+    $scope.refresh = $interval($scope.getList, 15000, 0)
+
+    $scope.$on('$destroy', () -> $interval.cancel($scope.refresh))
