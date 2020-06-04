@@ -11,5 +11,7 @@ resources:
     - resources/js/module.es
     - resources/js/routing.es
     - resources/js/controllers/index.controller.coffee
+    - resources/js/controllers/widget.controller.es
     - resources/partial/index.html
+    - resources/partial/widget.html
     - ng:session_list
