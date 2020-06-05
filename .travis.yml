@@ -1,21 +1,22 @@
+dist: bionic
 language: python
 python:
-    - 2.7
+    - 3.6
 node_js:
-    - 0.10
+    - 14
 before_install:
     - scripts/ci-setup.sh
+install:
+    - sudo python3 -m pip install -r ajenti-core/requirements.txt
 script:
     - scripts/ci.sh
-notifications:
-  slack: ajenti:ANVVc21AEbnRLYAWBZlhzAtW 
-sudo: false
 addons:
   apt:
     packages:
-    - python-lxml 
-    - python-dbus 
-    - python-lxml 
+    - python3-lxml
+    - python3-dbus
+    - python3-lxml
+    - python3-pip
     - libaugeas-dev
     - augeas-tools
 cache:
