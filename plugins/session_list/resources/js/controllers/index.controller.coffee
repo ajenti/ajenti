@@ -1,4 +1,4 @@
-angular.module('session_list').controller 'SessionListIndexController', ($scope, $http, $interval, $timeout, notify, pageTitle, messagebox, gettext, config) ->
+angular.module('ajenti.session_list').controller 'SessionListIndexController', ($scope, $http, $interval, $timeout, notify, pageTitle, messagebox, gettext, config) ->
     pageTitle.set(gettext('List all sessions'))
 
     $scope.getList = () ->

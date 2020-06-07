@@ -1,4 +1,4 @@
-angular.module('check_certificates').controller 'CertIndexController', ($scope, $http, $interval, $timeout, notify, pageTitle, messagebox, gettext, config) ->
+angular.module('ajenti.check_certificates').controller 'CertIndexController', ($scope, $http, $interval, $timeout, notify, pageTitle, messagebox, gettext, config) ->
     pageTitle.set(gettext('Check certificates'))
 
     $scope.status = []
