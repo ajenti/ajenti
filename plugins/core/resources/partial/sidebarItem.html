@@ -8,7 +8,9 @@
             <i ng:if="!item.expanded" class="fa fa-fw fa-caret-right"></i>
         </a>
         <a ng:href="{{item.url[0] == '/' ? (urlPrefix + item.url) : item.url}}" ng:mouseup="feedback.emit('sidebar', {id: item.id})" class="link">
-            <i class="fa fa-fw fa-{{item.icon}}"></i> {{item.name|translate}}
+            <i class="fa fa-fw fa-{{item.icon}}" ng:show="item.icon.indexOf(' ') < 0"></i>
+            <i class="fa-fw {{item.icon}}" ng:show="item.icon.indexOf(' ') > 0"></i>
+            {{item.name|translate}}
         </a>
     </div>
     <div class="children" ng:show="item.expanded && item.children.length > 0">
