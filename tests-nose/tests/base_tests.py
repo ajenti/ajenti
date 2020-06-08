@@ -11,7 +11,7 @@ import sys
 import shutil
 
 
-process = subprocess.Popen(['python', './ajenti-test-instance.py'])
+process = subprocess.Popen(['sudo', 'python3', './ajenti-test-instance.py'])
 url = 'http://localhost:8000'
 
 
@@ -24,7 +24,7 @@ while True:
         requests.get(url)
         break
     except:
-        print 'ajenti not ready yet, waiting...'
+        print('ajenti not ready yet, waiting...')
         time.sleep(1)
 
 
@@ -74,14 +74,14 @@ class filesystem_test (base):
             f.write('file 1')
 
         rq = self.session.get(url + '/api/filesystem/read/%s' % self.path('1'))
-        eq_(rq.text, 'file 1')
+        eq_(rq.text, '"file 1"')
         rq = self.session.get(url + '/api/filesystem/read/%s' % self.path('3'))
         eq_(rq.status_code, 404)
 
     def write_test(self):
         content = 'file 2'
         rq = self.session.post(
-            url + '/api/filesystem/write/%s' % self.path('2'),
+            url + '/api/filesystem/write/%s?encoding=utf-8' % self.path('2'),
             data=content
         )
         eq_(rq.status_code, 200)
@@ -102,7 +102,7 @@ class filesystem_test (base):
         os.makedirs(self.path('list'))
         path = self.path('list/file')
         open(path, 'w').close()
-        os.chmod(path, 0765)
+        os.chmod(path, 0o765)
         rq = self.session.get(url + '/api/filesystem/list/%s' % self.path('list'))
         eq_(rq.status_code, 200)
 
@@ -115,7 +115,7 @@ class filesystem_test (base):
         eq_(data[0]['isDir'], False)
         eq_(data[0]['isFile'], True)
         eq_(data[0]['isLink'], False)
-        eq_(data[0]['mode'], 0100765)
+        eq_(data[0]['mode'], 0o100765)
         eq_(data[0]['uid'], os.stat(path).st_uid)
         eq_(data[0]['gid'], os.stat(path).st_gid)
         eq_(data[0]['size'], 0)
@@ -125,7 +125,7 @@ class filesystem_test (base):
     def stat_test(self):
         path = self.path('file')
         open(path, 'w').close()
-        os.chmod(path, 0765)
+        os.chmod(path, 0o765)
         rq = self.session.get(url + '/api/filesystem/stat/%s' % path)
         eq_(rq.status_code, 200)
 
@@ -135,7 +135,7 @@ class filesystem_test (base):
         eq_(data['isDir'], False)
         eq_(data['isFile'], True)
         eq_(data['isLink'], False)
-        eq_(data['mode'], 0100765)
+        eq_(data['mode'], 0o100765)
         eq_(data['uid'], os.stat(path).st_uid)
         eq_(data['gid'], os.stat(path).st_gid)
         eq_(data['size'], 0)
@@ -143,10 +143,10 @@ class filesystem_test (base):
     def chmod_test(self):
         path = self.path('file')
         open(path, 'w').close()
-        os.chmod(path, 0765)
-        rq = self.session.post(url + '/api/filesystem/chmod/%s' % path, data=json.dumps({'mode': 0767}))
+        os.chmod(path, 0o765)
+        rq = self.session.post(url + '/api/filesystem/chmod/%s' % path, data=json.dumps({'mode': 0o767}))
         eq_(rq.status_code, 200)
-        eq_(os.stat(path).st_mode, 0100767)
+        eq_(os.stat(path).st_mode, 0o100767)
 
     def create_file_test(self):
         path = self.path('create_file_test')
