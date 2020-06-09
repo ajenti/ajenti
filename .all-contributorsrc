@@ -1,6 +1,6 @@
 {
   "projectName": "ajenti",
-  "projectOwner": "Eugeny",
+  "projectOwner": "ajenti",
   "repoType": "github",
   "repoHost": "https://github.com",
   "files": [
@@ -216,7 +216,17 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "UnicronNL",
+      "name": "Kim",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/1267745?v=4",
+      "profile": "https://github.com/UnicronNL",
+      "contributions": [
+        "code"
+      ]
     }
   ],
-  "contributorsPerLine": 7
+  "contributorsPerLine": 7,
+  "skipCi": true
 }
