@@ -109,7 +109,7 @@ def detect_platform():
     min = int(min)
     if (maj * 10 + min) >= 36:
         import distro
-        dist = distro.linux_distribution()[0]
+        dist = distro.linux_distribution()[0].split()[0]
     elif (maj * 10 + min) >= 26:
         dist = pyplatform.linux_distribution()[0]
     else:
