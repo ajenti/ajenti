@@ -19,7 +19,7 @@ class Handler(HttpPlugin):
             self.docker = subprocess.check_output(['which', 'docker'])
             return True
         except subprocess.CalledProcessError:
-            raise EndpointError(_('docker is not installed on this host.'))
+            return False
 
     @url(r'/api/docker/get_resources')
     @endpoint(api=True)
@@ -35,7 +35,7 @@ class Handler(HttpPlugin):
             command = self.docker + ['inspect', container, '--format', '\'{{json .}}\'']
             return json.loads(subprocess.check_output(command).decode())
 
-    @url(r'/api/docker/control')
+    @url(r'/api/docker/container_command')
     @endpoint(api=True)
     def handle_api_container_stop(self, http_context):
         """Possible controls are start, stop and remove, container is the hash."""
@@ -45,6 +45,7 @@ class Handler(HttpPlugin):
             command = self.docker + [control, container]
             try:
                 subprocess.check_output(command)
+                return True
             except subprocess.CalledProcessError as e:
                 return e
 
@@ -58,3 +59,4 @@ class Handler(HttpPlugin):
             image['hash'] = image['ID'].split(':')[1][:12]
             images.append(image)
         return images
+

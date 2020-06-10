@@ -5,13 +5,24 @@ angular.module('ajenti.docker').controller('DockerIndexController', function($sc
     $scope.ready = false;
     $scope.imagesReady = false;
 
-    $http.get('/api/docker/which').then(() => {
-        $scope.getResources();
-        $scope.refresh = $interval($scope.getResources, 5000, 0);
+    $http.get('/api/docker/which').then((resp) => {
+        if (resp.data) {
+            $scope.getResources();
+            $scope.start_refresh();
+            $scope.installed = true;
+        }
+        else {
+            $scope.ready = true;
+            $scope.installed = false;
+        }
     });
 
+    $scope.start_refresh = () => {
+        if ($scope.refresh === undefined)
+            $scope.refresh = $interval($scope.getResources, 5000, 0);
+    }
     $scope.getResources = () => {
-        $http.get('/api/docker/get_resources', {ignoreLoadingBar: true}).then( (resp) => {
+        $http.get('/api/docker/get_resources', {ignoreLoadingBar: true}).then((resp) => {
             $scope.ready = true;
             $scope.container_stats = resp.data;
         });
@@ -24,12 +35,16 @@ angular.module('ajenti.docker').controller('DockerIndexController', function($sc
         });
     }
 
+    $scope.closeDetails = () => $scope.showDetails = false;
+
     $scope.stop = (container) => {
-        $http.post('/api/docker/control', {container: container, control:'stop'})
+        $http.post('/api/docker/container_command', {container: container, control:'stop'}).then(() =>
+            notify.success(gettext('Stop command successfully sent.')));
     }
 
     $scope.start = (container) => {
-        $http.post('/api/docker/control', {container: container, control:'start'})
+        $http.post('/api/docker/container_command', {container: container, control:'start'}).then(() =>
+            notify.success(gettext('Start command successfully sent.')));
     }
 
     $scope.remove = (container) => {
@@ -38,11 +53,14 @@ angular.module('ajenti.docker').controller('DockerIndexController', function($sc
             positive: gettext('Remove'),
             negative: gettext('Cancel')
         }).then(() => {
-            $http.post('/api/docker/control', {container: container, control: 'rm'});
+            $http.post('/api/docker/container_command', {container: container, control: 'rm'}).then(() =>
+            notify.success(gettext('Remove command successfully sent.')));
         });
     }
 
     $scope.getImages = () => {
+        $interval.cancel($scope.refresh);
+        delete $scope.refresh;
         $http.post('/api/docker/list_images').then((resp) => {
             $scope.images = resp.data;
             $scope.imagesReady = true;
