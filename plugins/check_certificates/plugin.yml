@@ -14,4 +14,4 @@ resources:
     - resources/js/controllers/widget.controller.es
     - resources/partial/index.html
     - resources/partial/widget.html
-    - ng:check_certificates
+    - ng:ajenti.check_certificates

@@ -1,4 +1,4 @@
-angular.module('session_list').controller('SessionWidgetController', ($scope, $http, config) =>
+angular.module('ajenti.session_list').controller('SessionWidgetController', ($scope, $http, config) =>
     $scope.$on('widget-update', function($event, id, data) {
         if (id !== $scope.widget.id) {
             return;

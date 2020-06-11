@@ -1,4 +1,4 @@
-angular.module('check_certificates').controller('CertWidgetController', ($scope, $http, config) =>
+angular.module('ajenti.check_certificates').controller('CertWidgetController', ($scope, $http, config) =>
     $scope.$on('widget-update', function($event, id, data) {
         if (id !== $scope.widget.id) {
             return;

@@ -3,7 +3,7 @@
 <div class="form-group">
     
         <table style="width:100%;" class="table">
-            <tr ng:repeat="h in status" class="{{h.status}}">
+            <tr ng:repeat="h in status" class="text-{{h.status}}">
                 <td>
                     <i class="fas fa-check" ng-if="h.status == 'success'" style="font-size: 20px;"></i>
                     <i class="fas fa-exclamation-triangle" ng-if="h.status == 'warning'" style="font-size: 20px;"></i>
