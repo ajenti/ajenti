@@ -1,0 +1,95 @@
+<br/>
+
+<progress-spinner ng:show="!ready"></progress-spinner>
+
+<div>
+    <div class="alert alert-info" ng:show="ready && !installed" translate>Docker is not installed on this host.</div>
+    <uib:tabset ng:show="installed">
+        <uib:tab heading="Container" ng:click="start_refresh()">
+            <div class="alert alert-info" ng:show="container_stats.length == 0 && ready" translate>No container on this host.</div>
+            <table class="table" ng:show="container_stats.length > 0">
+                <tr>
+                    <th translate>Name (Hash)</th>
+                    <th translate>Memory usage</th>
+                    <th translate>Cpu usage</th>
+                    <th translate>Network used</th>
+                    <th translate></th>
+                    <th translate></th>
+                </tr>
+                <tr ng:repeat="container in container_stats">
+                    <td ng:click="getDetails(container.Container)">
+                        {{container.Name}}<br />
+                        <span class="badge">{{container.Container}}</span>
+                    </td>
+                    <td><span ng:show="container.PIDs != 0">{{container.MemUsage}}</span></td>
+                    <td><span ng:show="container.PIDs != 0">{{container.CPUPerc}}</span></td>
+                    <td><span ng:show="container.PIDs != 0">{{container.NetIO}}</span></td>
+                    <td>
+                        <button class="btn btn-flat" ng:show="container.PIDs != 0" ng:click="stop(container.Container)"><i class="fas fa-stop"></i></button>
+                        <button class="btn btn-flat" ng:show="container.PIDs == 0" ng:click="start(container.Container)"><i class="fas fa-play"></i></button>
+                    </td>
+                    <td>
+                        <button class="btn btn-flat" ng:click="remove(container.Container)"><i class="fas fa-trash"></i></button>
+                    </td>
+                </tr>
+            </table>
+            <dialog ng:show="showDetails">
+                <div class="modal-header">
+                    <h4>{{details.Name}}<span class="badge pull-right">{{details.Config.Hostname}}</span></h4>
+                </div>
+                <div class="modal-body">
+                    <table class="table">
+                        <tr>
+                            <td translate>Full id</td>
+                            <td>{{details.Id}}</td>
+                        </tr>
+                        <tr>
+                            <td translate>Created at</td>
+                            <td>{{details.Created}}</td>
+                        </tr>
+                        <tr ng:repeat="(network,desc) in details.NetworkSettings.Networks">
+                            <td translate>IP</td>
+                            <td>{{desc.IPAddress}}</td>
+                        </tr>
+                        <tr ng:repeat="(port,desc) in details.NetworkSettings.Ports">
+                            <td translate>Ports</td>
+                            <td>{{port}} -> {{desc[0].HostPort}}</td>
+                        </tr>
+                        <tr ng:repeat="volume in details.Mounts">
+                            <td translate>Volumes</td>
+                            <td>{{volume.Source}} ({{volume.Type}}) -> {{volume.Destination}}</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <a ng:click="closeDetails()" class="btn btn-default btn-flat" translate>Close</a>
+                </div>
+            </dialog>
+        </uib:tab>
+        <uib:tab heading="Images" ng:click="getImages()">
+            <div class="alert alert-info" ng:show="images.length == 0 && imagesReady" translate>No docker images on this host.</div>
+            <table class="table" ng:show="images.length > 0">
+                <tr>
+                    <th translate>Repository</th>
+                    <th translate>Created</th>
+                    <th translate>Tag</th>
+                    <th translate>Size</th>
+<!--                    <th translate></th>-->
+                    <th translate></th>
+                </tr>
+                <tr ng:repeat="image in images">
+                    <td>{{image.Repository}}</td>
+                    <td>{{image.CreatedSince}}</td>
+                    <td>{{image.Tag}}</td>
+                    <td>{{image.Size}}</td>
+<!--                    <td>-->
+<!--                        <button class="btn btn-flat" ng:click="startNewContainer(image.hash)"><i class="fas fa-play"></i></button>-->
+<!--                    </td>-->
+                    <td>
+                        <button class="btn btn-flat" ng:click="removeImage(image.hash)"><i class="fas fa-trash"></i></button>
+                    </td>
+                </tr>
+            </table>
+        </uib:tab>
+    </uib:tabset>
+</div>

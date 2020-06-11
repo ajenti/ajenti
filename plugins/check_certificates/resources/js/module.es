@@ -1,3 +1,3 @@
-angular.module('check_certificates', [
+angular.module('ajenti.check_certificates', [
     'core',
 ]);
