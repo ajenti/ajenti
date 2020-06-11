@@ -16,10 +16,9 @@ class Handler(HttpPlugin):
     @endpoint(api=True)
     def handle_api_which_docker(self, http_context):
         try:
-            self.docker = subprocess.check_output(['which', 'docker'])
-            return True
-        except subprocess.CalledProcessError:
-            return False
+            self.docker = subprocess.check_output(['which', 'docker']).decode().strip()
+        except subprocess.CalledProcessError as e:
+            raise EndpointError(_('Docker is not installed on this host'))
 
     @url(r'/api/docker/get_resources')
     @endpoint(api=True)
@@ -44,10 +43,9 @@ class Handler(HttpPlugin):
             control = http_context.json_body()['control']
             command = self.docker + [control, container]
             try:
-                subprocess.check_output(command)
-                return True
+                subprocess.check_output(command, stderr=subprocess.STDOUT)
             except subprocess.CalledProcessError as e:
-                return e
+                raise EndpointError(e.output.decode().strip())
 
     @url(r'/api/docker/list_images')
     @endpoint(api=True)
@@ -59,4 +57,15 @@ class Handler(HttpPlugin):
             image['hash'] = image['ID'].split(':')[1][:12]
             images.append(image)
         return images
+
+    @url(r'/api/docker/remove_image')
+    @endpoint(api=True)
+    def handle_api_remove_image(self, http_context):
+        if http_context.method == 'POST':
+            image = http_context.json_body()['image']
+            command = self.docker + ['rmi', image]
+            try:
+                subprocess.check_output(command, stderr=subprocess.STDOUT)
+            except subprocess.CalledProcessError as e:
+                raise EndpointError(e.output.decode().strip())
 

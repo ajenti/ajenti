@@ -74,7 +74,7 @@
                     <th translate>Created</th>
                     <th translate>Tag</th>
                     <th translate>Size</th>
-                    <th translate></th>
+<!--                    <th translate></th>-->
                     <th translate></th>
                 </tr>
                 <tr ng:repeat="image in images">
@@ -82,9 +82,9 @@
                     <td>{{image.CreatedSince}}</td>
                     <td>{{image.Tag}}</td>
                     <td>{{image.Size}}</td>
-                    <td>
-                        <button class="btn btn-flat" ng:click="startNewContainer(image.hash)"><i class="fas fa-play"></i></button>
-                    </td>
+<!--                    <td>-->
+<!--                        <button class="btn btn-flat" ng:click="startNewContainer(image.hash)"><i class="fas fa-play"></i></button>-->
+<!--                    </td>-->
                     <td>
                         <button class="btn btn-flat" ng:click="removeImage(image.hash)"><i class="fas fa-trash"></i></button>
                     </td>
