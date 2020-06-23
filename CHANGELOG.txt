@@ -1,7 +1,12 @@
 Ajenti 2.1.36 - Dev
 
 - Remove six module,
-- Add plugins session list, check certificate and cron, 
+- Add session list plugin,
+- Add certificate plugin,
+- Add cron plugin,
+- Add docker plugin,
+- Fix notepad problem on Windows,
+- Fix platform network problem on Ubuntu.
 
 
 Ajenti 2.1.35 - 03/05/2020
