@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-27 12:11+0200\n"
-"PO-Revision-Date: 2020-04-27 11:01\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2020-06-23 08:40\n"
+"Last-Translator: \n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
 "MIME-Version: 1.0\n"
@@ -12,8 +12,10 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=((n%10==1 && n%100!=11) ? 0 : ((n%10 >= 2 && n%10 <=4 && (n%100 < 12 || n%100 > 14)) ? 1 : ((n%10 == 0 || (n%10 >= 5 && n%10 <=9)) || (n%100 >= 11 && n%100 <= 14)) ? 2 : 3));\n"
 "X-Crowdin-Project: ajenti\n"
+"X-Crowdin-Project-ID: 18127\n"
 "X-Crowdin-Language: ru\n"
 "X-Crowdin-File: /2.0/settings.po\n"
+"X-Crowdin-File-ID: 38\n"
 
 #: plugins/settings/resources/partial/index.html:85
 msgid "Allow sudo elevation for logged in users"
@@ -92,7 +94,7 @@ msgstr "Имя машины"
 
 #: plugins/settings/resources/partial/index.html:37
 msgid "Max session time"
-msgstr ""
+msgstr "Максимальное время сессии"
 
 #: plugins/settings/resources/partial/index.html:159
 msgid "New certificate"
@@ -124,7 +126,7 @@ msgstr "Перезапустить панель"
 
 #: plugins/settings/resources/partial/index.html:111
 msgid "SSL FQDN certificate file"
-msgstr ""
+msgstr "Файл сертификата FQDN SSL"
 
 #: plugins/settings/resources/partial/index.html:100
 msgid "SSL certificate file"
@@ -169,43 +171,43 @@ msgstr "Настройки"
 
 #: plugins/settings/resources/js/controllers/index.controller.es:37
 msgid "Could not load config"
-msgstr ""
+msgstr "Не удалось загрузить настройки"
 
 #: plugins/settings/resources/js/controllers/index.controller.es:41
 msgid "Could not load authentication provider list"
-msgstr ""
+msgstr "Не удалось загрузить список провайдеров аутентификации"
 
 #: plugins/settings/resources/js/controllers/index.controller.es:60
 #: plugins/settings/resources/js/controllers/index.controller.es:65
 msgid "Saved"
-msgstr ""
+msgstr "Сохранено"
 
 #: plugins/settings/resources/js/controllers/index.controller.es:61
 msgid "SSL Error"
-msgstr ""
+msgstr "Ошибка SSL"
 
 #: plugins/settings/resources/js/controllers/index.controller.es:67
 msgid "Could not save config"
-msgstr ""
+msgstr "Не удалось сохранить настройки"
 
 #: plugins/settings/resources/js/controllers/index.controller.es:73
 msgid "Self-signed certificate"
-msgstr ""
+msgstr "Самозаверенный сертификат"
 
 #: plugins/settings/resources/js/controllers/index.controller.es:74
 msgid "Generating a new certificate will void all existing client authentication certificates!"
-msgstr ""
+msgstr "Создание нового сертификата аннулирует все существующие сертификаты аутентификации клиента!"
 
 #: plugins/settings/resources/js/controllers/index.controller.es:79
 msgid "Please wait"
-msgstr ""
+msgstr "Пожалуйста, подождите"
 
 #: plugins/settings/resources/js/controllers/index.controller.es:81
 msgid "Certificate successfully generated"
-msgstr ""
+msgstr "Сертификат успешно создан"
 
 #: plugins/settings/resources/js/controllers/index.controller.es:87
 #: plugins/settings/resources/js/controllers/index.controller.es:106
 msgid "Certificate generation failed"
-msgstr ""
+msgstr "Ошибка создания сертификата"
 

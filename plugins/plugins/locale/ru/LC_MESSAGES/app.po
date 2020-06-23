@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-27 12:11+0200\n"
-"PO-Revision-Date: 2020-04-27 11:01\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2020-06-23 08:40\n"
+"Last-Translator: \n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
 "MIME-Version: 1.0\n"
@@ -12,8 +12,10 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=((n%10==1 && n%100!=11) ? 0 : ((n%10 >= 2 && n%10 <=4 && (n%100 < 12 || n%100 > 14)) ? 1 : ((n%10 == 0 || (n%10 >= 5 && n%10 <=9)) || (n%100 >= 11 && n%100 <= 14)) ? 2 : 3));\n"
 "X-Crowdin-Project: ajenti\n"
+"X-Crowdin-Project-ID: 18127\n"
 "X-Crowdin-Language: ru\n"
 "X-Crowdin-File: /2.0/plugins.po\n"
+"X-Crowdin-File-ID: 35\n"
 
 #: plugins/plugins/resources/partial/index.html:14
 msgid "Ajenti core {{ajentiVersion}}, no upgrades available."
@@ -158,77 +160,77 @@ msgstr "Плагины"
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:19
 msgid "Could not load repository version for ajenti-panel."
-msgstr ""
+msgstr "Не удалось загрузить версию репозитория для ajenti-panel."
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:56
 msgid "Could not load plugin repository"
-msgstr ""
+msgstr "Не удалось загрузить хранилище плагинов"
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:59
 msgid "Could not load the installed plugin list"
-msgstr ""
+msgstr "Не удалось загрузить список установленных плагинов"
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:105
 msgid "All plugins updated"
-msgstr ""
+msgstr "Все плагины обновлены"
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:107
 #: plugins/plugins/resources/js/controllers/index.controller.es:147
 #: plugins/plugins/resources/js/controllers/index.controller.es:183
 msgid "Done"
-msgstr ""
+msgstr "Выполнено"
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:108
 #: plugins/plugins/resources/js/controllers/index.controller.es:147
 msgid "Installed. A panel restart is required."
-msgstr ""
+msgstr "Установлено. Требуется перезагрузка панели."
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:109
 #: plugins/plugins/resources/js/controllers/index.controller.es:147
 #: plugins/plugins/resources/js/controllers/index.controller.es:185
 msgid "Restart now"
-msgstr ""
+msgstr "Перезагрузить сейчас"
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:110
 #: plugins/plugins/resources/js/controllers/index.controller.es:147
 #: plugins/plugins/resources/js/controllers/index.controller.es:186
 msgid "Later"
-msgstr ""
+msgstr "Позже"
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:114
 msgid "Some plugins failed to update"
-msgstr ""
+msgstr "Не удалось обновить некоторые плагины"
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:150
 msgid "Install failed"
-msgstr ""
+msgstr "Ошибка установки"
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:158
 msgid "Warning"
-msgstr ""
+msgstr "Предупреждение"
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:159
 msgid "This will remove the Plugins plugin. You can reinstall it later using PIP."
-msgstr ""
+msgstr "Это приведет к удалению Plugins. Вы можете переустановить его позже с помощью PIP."
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:160
 msgid "Continue"
-msgstr ""
+msgstr "Продолжить"
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:161
 #: plugins/plugins/resources/js/controllers/index.controller.es:177
 msgid "Cancel"
-msgstr ""
+msgstr "Отмена"
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:179
 msgid "Uninstalling"
-msgstr ""
+msgstr "Удаление…"
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:184
 msgid "Uninstalled. A panel restart is required."
-msgstr ""
+msgstr "Удалено. Требуется перезагрузка панели."
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:191
 msgid "Uninstall failed"
-msgstr ""
+msgstr "Не удалось удалить"
 

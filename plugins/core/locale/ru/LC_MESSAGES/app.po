@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-27 12:10+0200\n"
-"PO-Revision-Date: 2020-04-27 11:01\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2020-06-23 08:40\n"
+"Last-Translator: \n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
 "MIME-Version: 1.0\n"
@@ -12,19 +12,24 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=((n%10==1 && n%100!=11) ? 0 : ((n%10 >= 2 && n%10 <=4 && (n%100 < 12 || n%100 > 14)) ? 1 : ((n%10 == 0 || (n%10 >= 5 && n%10 <=9)) || (n%100 >= 11 && n%100 <= 14)) ? 2 : 3));\n"
 "X-Crowdin-Project: ajenti\n"
+"X-Crowdin-Project-ID: 18127\n"
 "X-Crowdin-Language: ru\n"
 "X-Crowdin-File: /2.0/core.po\n"
+"X-Crowdin-File-ID: 26\n"
 
 #: plugins/core/resources/partial/404.html:4
 msgid "404 - Page not found"
-msgstr ""
+msgstr "404 - Страница не найдена"
 
 #: plugins/core/resources/partial/404.html:7
 msgid "<span>\n"
 "                    <i class=\"fa fa-exclamation-triangle\" style=\"color:red;\"></i>\n"
 "                </span>\n"
 "                The URL {{url}} was not found on this server."
-msgstr ""
+msgstr "<span>\n"
+"                    <i class=\"fa fa-exclamation-triangle\" style=\"color:red;\"></i>\n"
+"                </span>\n"
+"                Адрес {{url}} не найден на этом сервере."
 
 #: plugins/core/content/pages/index.html:149
 msgid "A bootstrap error has occured"
@@ -69,7 +74,7 @@ msgstr "Быстрый поиск"
 
 #: plugins/core/content/pages/index.html:101
 msgid "Session time : {{ counter[0] }}:{{ counter[1] }}:{{ counter[2] }}"
-msgstr ""
+msgstr "Время сеанса: {{ counter[0] }}:{{ counter[1] }}:{{ counter[2] }}"
 
 #: plugins/core/resources/partial/login.html:19
 msgid "Username"
@@ -109,105 +114,105 @@ msgstr "Авторизация не успешна"
 
 #: plugins/core/resources/js/core/interceptors.es:5
 msgid "Security error"
-msgstr ""
+msgstr "Ошибка безопасности"
 
 #: plugins/core/resources/js/core/interceptors.es:8
 msgid "Server error"
-msgstr ""
+msgstr "Ошибка на сервере"
 
 #: plugins/core/resources/js/core/interceptors.es:12
 msgid "Close"
-msgstr ""
+msgstr "Закрыть"
 
 #: plugins/core/resources/js/core/interceptors.es:20
 msgid "Your session has expired"
-msgstr ""
+msgstr "Время сессии истекло"
 
 #: plugins/core/resources/js/core/module.es:32
 msgid "Unhandled error occurred"
-msgstr ""
+msgstr "Произошла необработанная ошибка."
 
 #: plugins/core/resources/js/core/filters.es:7
 msgid "0 bytes"
-msgstr ""
+msgstr "0 байт"
 
 #: plugins/core/resources/js/core/filters.es:13
 msgid "bytes"
-msgstr ""
+msgstr "байт"
 
 #: plugins/core/resources/js/core/filters.es:14
 msgid "KB"
-msgstr ""
+msgstr "Кб"
 
 #: plugins/core/resources/js/core/filters.es:15
 msgid "MB"
-msgstr ""
+msgstr "Мб"
 
 #: plugins/core/resources/js/core/filters.es:16
 msgid "GB"
-msgstr ""
+msgstr "Гб"
 
 #: plugins/core/resources/js/core/filters.es:17
 msgid "TB"
-msgstr ""
+msgstr "Тб"
 
 #: plugins/core/resources/js/core/filters.es:18
 msgid "PB"
-msgstr ""
+msgstr "Пб"
 
 #: plugins/core/resources/js/core/filters.es:40
 msgid "th"
-msgstr ""
+msgstr "й"
 
 #: plugins/core/resources/js/core/filters.es:41
 msgid "st"
-msgstr ""
+msgstr "й"
 
 #: plugins/core/resources/js/core/filters.es:42
 msgid "nd"
-msgstr ""
+msgstr "й"
 
 #: plugins/core/resources/js/core/filters.es:43
 msgid "rd"
-msgstr ""
+msgstr "й"
 
 #: plugins/core/resources/js/core/services/core.service.es:6
 msgid "Restart"
-msgstr ""
+msgstr "Перезапуск"
 
 #: plugins/core/resources/js/core/services/core.service.es:7
 msgid "Restart the panel?"
-msgstr ""
+msgstr "Перезапустить панель?"
 
 #: plugins/core/resources/js/core/services/core.service.es:8
 msgid "Yes"
-msgstr ""
+msgstr "Да"
 
 #: plugins/core/resources/js/core/services/core.service.es:9
 msgid "No"
-msgstr ""
+msgstr "Нет"
 
 #: plugins/core/resources/js/core/services/core.service.es:15
 msgid "Restarting"
-msgstr ""
+msgstr "Перезапуск"
 
 #: plugins/core/resources/js/core/services/core.service.es:19
 msgid "Restarted"
-msgstr ""
+msgstr "Перезапущено"
 
 #: plugins/core/resources/js/core/services/core.service.es:19
 msgid "Please wait"
-msgstr ""
+msgstr "Пожалуйста, подождите"
 
 #: plugins/core/resources/js/core/services/core.service.es:29
 msgid "Could not restart"
-msgstr ""
+msgstr "Не удалось перезапустить"
 
 #: plugins/core/resources/js/core/services/tasks.service.es:26
 msgid "Done"
-msgstr ""
+msgstr "Выполнено"
 
 #: plugins/core/resources/js/core/controllers/login.controller.es:25
 msgid "Authentication failed"
-msgstr ""
+msgstr "Ошибка аутентификации"
 

@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-27 12:10+0200\n"
-"PO-Revision-Date: 2020-04-27 11:01\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2020-06-23 08:40\n"
+"Last-Translator: \n"
 "Language-Team: Italian\n"
 "Language: it_IT\n"
 "MIME-Version: 1.0\n"
@@ -12,19 +12,24 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Crowdin-Project: ajenti\n"
+"X-Crowdin-Project-ID: 18127\n"
 "X-Crowdin-Language: it\n"
 "X-Crowdin-File: /2.0/core.po\n"
+"X-Crowdin-File-ID: 26\n"
 
 #: plugins/core/resources/partial/404.html:4
 msgid "404 - Page not found"
-msgstr ""
+msgstr "404 Pagina non trovata"
 
 #: plugins/core/resources/partial/404.html:7
 msgid "<span>\n"
 "                    <i class=\"fa fa-exclamation-triangle\" style=\"color:red;\"></i>\n"
 "                </span>\n"
 "                The URL {{url}} was not found on this server."
-msgstr ""
+msgstr "<span>\n"
+"<i class=\"fa fa-exclamation-triangle\" style=\"color:red;\">\n"
+"</span>\n"
+" Il link {{url}} non è stato trovato su questo server."
 
 #: plugins/core/content/pages/index.html:149
 msgid "A bootstrap error has occured"
@@ -32,7 +37,7 @@ msgstr "Si è verificato un errore di sistema"
 
 #: plugins/core/resources/partial/login.html:27
 msgid "Authenticate"
-msgstr "Convalida"
+msgstr "Autenticati"
 
 #: plugins/core/content/pages/index.html:86
 msgid "Elevate"
@@ -69,7 +74,7 @@ msgstr "Ricerca rapida"
 
 #: plugins/core/content/pages/index.html:101
 msgid "Session time : {{ counter[0] }}:{{ counter[1] }}:{{ counter[2] }}"
-msgstr ""
+msgstr "Tempo sessione: {{ counter[0] }}:{{ counter[1] }}:{{ counter[2] }}"
 
 #: plugins/core/resources/partial/login.html:19
 msgid "Username"
@@ -109,105 +114,105 @@ msgstr "Autorizzazione non riuscita"
 
 #: plugins/core/resources/js/core/interceptors.es:5
 msgid "Security error"
-msgstr ""
+msgstr "Errore di sicurezza"
 
 #: plugins/core/resources/js/core/interceptors.es:8
 msgid "Server error"
-msgstr ""
+msgstr "Errore del server"
 
 #: plugins/core/resources/js/core/interceptors.es:12
 msgid "Close"
-msgstr ""
+msgstr "Chiudi"
 
 #: plugins/core/resources/js/core/interceptors.es:20
 msgid "Your session has expired"
-msgstr ""
+msgstr "La sessione è scaduta"
 
 #: plugins/core/resources/js/core/module.es:32
 msgid "Unhandled error occurred"
-msgstr ""
+msgstr "Si è verificata un'eccezione non gestibile."
 
 #: plugins/core/resources/js/core/filters.es:7
 msgid "0 bytes"
-msgstr ""
+msgstr "0 bytes"
 
 #: plugins/core/resources/js/core/filters.es:13
 msgid "bytes"
-msgstr ""
+msgstr "bytes"
 
 #: plugins/core/resources/js/core/filters.es:14
 msgid "KB"
-msgstr ""
+msgstr "KB"
 
 #: plugins/core/resources/js/core/filters.es:15
 msgid "MB"
-msgstr ""
+msgstr "MB"
 
 #: plugins/core/resources/js/core/filters.es:16
 msgid "GB"
-msgstr ""
+msgstr "GB"
 
 #: plugins/core/resources/js/core/filters.es:17
 msgid "TB"
-msgstr ""
+msgstr "TB"
 
 #: plugins/core/resources/js/core/filters.es:18
 msgid "PB"
-msgstr ""
+msgstr "PB"
 
 #: plugins/core/resources/js/core/filters.es:40
 msgid "th"
-msgstr ""
+msgstr "°"
 
 #: plugins/core/resources/js/core/filters.es:41
 msgid "st"
-msgstr ""
+msgstr "°"
 
 #: plugins/core/resources/js/core/filters.es:42
 msgid "nd"
-msgstr ""
+msgstr "°"
 
 #: plugins/core/resources/js/core/filters.es:43
 msgid "rd"
-msgstr ""
+msgstr "°"
 
 #: plugins/core/resources/js/core/services/core.service.es:6
 msgid "Restart"
-msgstr ""
+msgstr "Riavvia"
 
 #: plugins/core/resources/js/core/services/core.service.es:7
 msgid "Restart the panel?"
-msgstr ""
+msgstr "Riavviare il pannello?"
 
 #: plugins/core/resources/js/core/services/core.service.es:8
 msgid "Yes"
-msgstr ""
+msgstr "Si"
 
 #: plugins/core/resources/js/core/services/core.service.es:9
 msgid "No"
-msgstr ""
+msgstr "No"
 
 #: plugins/core/resources/js/core/services/core.service.es:15
 msgid "Restarting"
-msgstr ""
+msgstr "Riavvio in corso"
 
 #: plugins/core/resources/js/core/services/core.service.es:19
 msgid "Restarted"
-msgstr ""
+msgstr "Riavviato"
 
 #: plugins/core/resources/js/core/services/core.service.es:19
 msgid "Please wait"
-msgstr ""
+msgstr "Attendere prego"
 
 #: plugins/core/resources/js/core/services/core.service.es:29
 msgid "Could not restart"
-msgstr ""
+msgstr "Non è possibile riavviare "
 
 #: plugins/core/resources/js/core/services/tasks.service.es:26
 msgid "Done"
-msgstr ""
+msgstr "Fatto"
 
 #: plugins/core/resources/js/core/controllers/login.controller.es:25
 msgid "Authentication failed"
-msgstr ""
+msgstr "Autenticazione fallita"
 

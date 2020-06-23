@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-27 12:10+0200\n"
-"PO-Revision-Date: 2020-04-27 11:01\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2020-06-23 08:40\n"
+"Last-Translator: \n"
 "Language-Team: Korean\n"
 "Language: ko_KR\n"
 "MIME-Version: 1.0\n"
@@ -12,8 +12,10 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Crowdin-Project: ajenti\n"
+"X-Crowdin-Project-ID: 18127\n"
 "X-Crowdin-Language: ko\n"
 "X-Crowdin-File: /2.0/network.po\n"
+"X-Crowdin-File-ID: 31\n"
 
 #: plugins/network/resources/partial/index.html:28
 msgid "Activate (up) interface"
@@ -192,12 +194,12 @@ msgstr "네트워크 인터페이스 활성화/비활성화"
 #: plugins/network/resources/js/controllers/hosts.controller.es:20
 #: plugins/network/resources/js/controllers/dns.controller.es:11
 msgid "Saved"
-msgstr ""
+msgstr "저장됨"
 
 #: plugins/network/resources/js/controllers/hosts.controller.es:22
 #: plugins/network/resources/js/controllers/dns.controller.es:13
 msgid "Could not save"
-msgstr ""
+msgstr "저장할 수 없음"
 
 #: plugins/network/resources/js/controllers/index.controller.es:10
 msgid "Static"
@@ -205,11 +207,11 @@ msgstr ""
 
 #: plugins/network/resources/js/controllers/index.controller.es:11
 msgid "Auto"
-msgstr ""
+msgstr "자동"
 
 #: plugins/network/resources/js/controllers/index.controller.es:13
 msgid "Manual"
-msgstr ""
+msgstr "수동"
 
 #: plugins/network/resources/js/controllers/index.controller.es:14
 msgid "Loopback"
@@ -222,36 +224,36 @@ msgstr ""
 #: plugins/network/resources/js/controllers/index.controller.es:47
 #: plugins/network/resources/js/controllers/index.controller.es:60
 msgid "Warning"
-msgstr ""
+msgstr "경고"
 
 #: plugins/network/resources/js/controllers/index.controller.es:48
 msgid "Deactivating a network interface can lock you out of the remote session"
-msgstr ""
+msgstr "네트워크 인터페이스를 비활성화 하면 원격 연결이 끊길 수 있습니다"
 
 #: plugins/network/resources/js/controllers/index.controller.es:49
 msgid "Deactivate"
-msgstr ""
+msgstr "비활성화"
 
 #: plugins/network/resources/js/controllers/index.controller.es:50
 #: plugins/network/resources/js/controllers/index.controller.es:63
 msgid "Cancel"
-msgstr ""
+msgstr "취소"
 
 #: plugins/network/resources/js/controllers/index.controller.es:53
 msgid "Interface deactivated"
-msgstr ""
+msgstr "인터페이스 비활성화됨"
 
 #: plugins/network/resources/js/controllers/index.controller.es:61
 msgid "Restarting a network interface can lock you out of the remote session"
-msgstr ""
+msgstr "네트워크 인터페이스를 재시작하면 원격 연결이 끊길 수 있습니다"
 
 #: plugins/network/resources/js/controllers/index.controller.es:62
 msgid "Restart"
-msgstr ""
+msgstr "재시작"
 
 #: plugins/network/resources/js/controllers/index.controller.es:67
 msgid "Interface reactivated"
-msgstr ""
+msgstr "인터페이스 재활성화됨"
 
 #: plugins/network/resources/js/controllers/index.controller.es:75
 msgid "Hostname changed"
@@ -259,5 +261,5 @@ msgstr ""
 
 #: plugins/network/resources/js/controllers/index.controller.es:77
 msgid "Failed"
-msgstr ""
+msgstr "실패"
 

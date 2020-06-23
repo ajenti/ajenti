@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-27 12:11+0200\n"
-"PO-Revision-Date: 2020-04-27 11:01\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2020-06-23 08:40\n"
+"Last-Translator: \n"
 "Language-Team: Korean\n"
 "Language: ko_KR\n"
 "MIME-Version: 1.0\n"
@@ -12,8 +12,10 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Crowdin-Project: ajenti\n"
+"X-Crowdin-Project-ID: 18127\n"
 "X-Crowdin-Language: ko\n"
 "X-Crowdin-File: /2.0/settings.po\n"
+"X-Crowdin-File-ID: 38\n"
 
 #: plugins/settings/resources/partial/index.html:85
 msgid "Allow sudo elevation for logged in users"
@@ -169,7 +171,7 @@ msgstr "설정"
 
 #: plugins/settings/resources/js/controllers/index.controller.es:37
 msgid "Could not load config"
-msgstr ""
+msgstr "설정을 불러올 수 없습니다"
 
 #: plugins/settings/resources/js/controllers/index.controller.es:41
 msgid "Could not load authentication provider list"
@@ -178,15 +180,15 @@ msgstr ""
 #: plugins/settings/resources/js/controllers/index.controller.es:60
 #: plugins/settings/resources/js/controllers/index.controller.es:65
 msgid "Saved"
-msgstr ""
+msgstr "저장됨"
 
 #: plugins/settings/resources/js/controllers/index.controller.es:61
 msgid "SSL Error"
-msgstr ""
+msgstr "SSL 오류"
 
 #: plugins/settings/resources/js/controllers/index.controller.es:67
 msgid "Could not save config"
-msgstr ""
+msgstr "설정을 저장할 수 없습니다"
 
 #: plugins/settings/resources/js/controllers/index.controller.es:73
 msgid "Self-signed certificate"
@@ -198,14 +200,14 @@ msgstr ""
 
 #: plugins/settings/resources/js/controllers/index.controller.es:79
 msgid "Please wait"
-msgstr ""
+msgstr "잠시만 기다려 주십시오"
 
 #: plugins/settings/resources/js/controllers/index.controller.es:81
 msgid "Certificate successfully generated"
-msgstr ""
+msgstr "인증서가 성공적으로 생성되었습니다."
 
 #: plugins/settings/resources/js/controllers/index.controller.es:87
 #: plugins/settings/resources/js/controllers/index.controller.es:106
 msgid "Certificate generation failed"
-msgstr ""
+msgstr "인증서 생성 실패"
 

@@ -1,0 +1,121 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-23 09:56+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: plugins/docker/resources/partial/index.html:65
+msgid "Close"
+msgstr ""
+
+#: plugins/docker/resources/partial/index.html:14
+msgid "Cpu usage"
+msgstr ""
+
+#: plugins/docker/resources/partial/index.html:74
+msgid "Created"
+msgstr ""
+
+#: plugins/docker/resources/partial/index.html:47
+msgid "Created at"
+msgstr ""
+
+#: plugins/docker/resources/partial/index.html:6
+msgid "Docker is not installed on this host."
+msgstr ""
+
+#: plugins/docker/resources/partial/index.html:43
+msgid "Full id"
+msgstr ""
+
+#: plugins/docker/resources/partial/index.html:51
+msgid "IP"
+msgstr ""
+
+#: plugins/docker/resources/partial/index.html:13
+msgid "Memory usage"
+msgstr ""
+
+#: plugins/docker/resources/partial/index.html:12
+msgid "Name (Hash)"
+msgstr ""
+
+#: plugins/docker/resources/partial/index.html:15
+msgid "Network used"
+msgstr ""
+
+#: plugins/docker/resources/partial/index.html:9
+msgid "No container on this host."
+msgstr ""
+
+#: plugins/docker/resources/partial/index.html:70
+msgid "No docker images on this host."
+msgstr ""
+
+#: plugins/docker/resources/partial/index.html:55
+msgid "Ports"
+msgstr ""
+
+#: plugins/docker/resources/partial/index.html:73
+msgid "Repository"
+msgstr ""
+
+#: plugins/docker/resources/partial/index.html:76
+msgid "Size"
+msgstr ""
+
+#: plugins/docker/resources/partial/index.html:75
+msgid "Tag"
+msgstr ""
+
+#: plugins/docker/resources/partial/index.html:59
+msgid "Volumes"
+msgstr ""
+
+#: plugins/docker/views.py:21
+msgid "Docker is not installed on this host"
+msgstr ""
+
+#: plugins/docker/resources/js/controllers/index.controller.es:41
+msgid "Stop command successfully sent."
+msgstr ""
+
+#: plugins/docker/resources/js/controllers/index.controller.es:46
+msgid "Start command successfully sent."
+msgstr ""
+
+#: plugins/docker/resources/js/controllers/index.controller.es:51
+msgid "Really remove this container?"
+msgstr ""
+
+#: plugins/docker/resources/js/controllers/index.controller.es:52
+#: plugins/docker/resources/js/controllers/index.controller.es:72
+msgid "Remove"
+msgstr ""
+
+#: plugins/docker/resources/js/controllers/index.controller.es:53
+#: plugins/docker/resources/js/controllers/index.controller.es:73
+msgid "Cancel"
+msgstr ""
+
+#: plugins/docker/resources/js/controllers/index.controller.es:56
+#: plugins/docker/resources/js/controllers/index.controller.es:76
+msgid "Remove command successfully sent."
+msgstr ""
+
+#: plugins/docker/resources/js/controllers/index.controller.es:71
+msgid "Really remove this image?"
+msgstr ""
