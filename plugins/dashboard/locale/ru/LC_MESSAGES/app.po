@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-27 12:10+0200\n"
-"PO-Revision-Date: 2020-04-27 11:01\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2020-06-23 08:40\n"
+"Last-Translator: \n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
 "MIME-Version: 1.0\n"
@@ -12,8 +12,10 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=((n%10==1 && n%100!=11) ? 0 : ((n%10 >= 2 && n%10 <=4 && (n%100 < 12 || n%100 > 14)) ? 1 : ((n%10 == 0 || (n%10 >= 5 && n%10 <=9)) || (n%100 >= 11 && n%100 <= 14)) ? 2 : 3));\n"
 "X-Crowdin-Project: ajenti\n"
+"X-Crowdin-Project-ID: 18127\n"
 "X-Crowdin-Language: ru\n"
 "X-Crowdin-File: /2.0/dashboard.po\n"
+"X-Crowdin-File-ID: 27\n"
 
 #: plugins/dashboard/resources/partial/widgets/loadavg.html:3
 msgid "1 min"
@@ -37,7 +39,7 @@ msgstr "Добавить"
 
 #: plugins/dashboard/resources/partial/index.html:40
 msgid "Add widget"
-msgstr "Виджет"
+msgstr "Добавить виджет"
 
 #: plugins/dashboard/resources/partial/widgets/cpu.html:10
 #: plugins/dashboard/widgets/cpu.py:10
@@ -88,20 +90,20 @@ msgstr "Аптайм"
 #: plugins/dashboard/main.py:15
 #: plugins/dashboard/resources/js/controllers/index.controller.es:2
 msgid "Dashboard"
-msgstr "Главная"
+msgstr "Панель приборов"
 
 #: plugins/dashboard/resources/js/controllers/index.controller.es:67
 #: plugins/dashboard/resources/js/controllers/index.controller.es:93
 msgid "New name"
-msgstr ""
+msgstr "Новое имя"
 
 #: plugins/dashboard/resources/js/controllers/index.controller.es:82
 msgid "${$scope.userConfig.dashboard.tabs[index].name}"
-msgstr ""
+msgstr "${$scope.userConfig.dashboard.tabs[index].name}"
 
 #: plugins/dashboard/resources/js/controllers/index.controller.es:84
 msgid "Cancel"
-msgstr ""
+msgstr "Отмена"
 
 #: plugins/dashboard/widgets/loadavg.py:12
 msgid "Load average"

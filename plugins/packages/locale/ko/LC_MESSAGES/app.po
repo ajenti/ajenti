@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-27 12:10+0200\n"
-"PO-Revision-Date: 2020-04-27 11:01\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2020-06-23 08:40\n"
+"Last-Translator: \n"
 "Language-Team: Korean\n"
 "Language: ko_KR\n"
 "MIME-Version: 1.0\n"
@@ -12,8 +12,10 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Crowdin-Project: ajenti\n"
+"X-Crowdin-Project-ID: 18127\n"
 "X-Crowdin-Language: ko\n"
 "X-Crowdin-File: /2.0/packages.po\n"
+"X-Crowdin-File-ID: 33\n"
 
 #: plugins/packages/resources/partial/index.html:59
 msgid "Apply changes"
@@ -74,17 +76,17 @@ msgstr "패키지 설치/삭제"
 
 #: plugins/packages/resources/js/controllers/index.controller.es:18
 msgid "Could not find packages"
-msgstr ""
+msgstr "패키지를 찾을 수 없습니다"
 
 #: plugins/packages/resources/js/controllers/index.controller.es:25
 msgid "Package list update started"
-msgstr ""
+msgstr "패키지 목록 업데이트 시작"
 
 #: plugins/packages/resources/js/controllers/index.controller.es:27
 msgid "Package list update failed"
-msgstr ""
+msgstr "패키지 목록 업데이트 실패"
 
 #: plugins/packages/resources/js/controllers/index.controller.es:61
 msgid "Could not apply changes"
-msgstr ""
+msgstr "변경사항을 적용할 수 없습니다"
 

@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-27 12:10+0200\n"
-"PO-Revision-Date: 2020-04-27 11:01\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2020-06-23 08:40\n"
+"Last-Translator: \n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
 "MIME-Version: 1.0\n"
@@ -12,8 +12,10 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=((n%10==1 && n%100!=11) ? 0 : ((n%10 >= 2 && n%10 <=4 && (n%100 < 12 || n%100 > 14)) ? 1 : ((n%10 == 0 || (n%10 >= 5 && n%10 <=9)) || (n%100 >= 11 && n%100 <= 14)) ? 2 : 3));\n"
 "X-Crowdin-Project: ajenti\n"
+"X-Crowdin-Project-ID: 18127\n"
 "X-Crowdin-Language: ru\n"
 "X-Crowdin-File: /2.0/network.po\n"
+"X-Crowdin-File-ID: 31\n"
 
 #: plugins/network/resources/partial/index.html:28
 msgid "Activate (up) interface"
@@ -192,72 +194,72 @@ msgstr "Активация/деактивация сетевых интерфе�
 #: plugins/network/resources/js/controllers/hosts.controller.es:20
 #: plugins/network/resources/js/controllers/dns.controller.es:11
 msgid "Saved"
-msgstr ""
+msgstr "Сохранено"
 
 #: plugins/network/resources/js/controllers/hosts.controller.es:22
 #: plugins/network/resources/js/controllers/dns.controller.es:13
 msgid "Could not save"
-msgstr ""
+msgstr "Не удалось сохранить"
 
 #: plugins/network/resources/js/controllers/index.controller.es:10
 msgid "Static"
-msgstr ""
+msgstr "Неподвижный"
 
 #: plugins/network/resources/js/controllers/index.controller.es:11
 msgid "Auto"
-msgstr ""
+msgstr "Автоматический"
 
 #: plugins/network/resources/js/controllers/index.controller.es:13
 msgid "Manual"
-msgstr ""
+msgstr "Руководство"
 
 #: plugins/network/resources/js/controllers/index.controller.es:14
 msgid "Loopback"
-msgstr ""
+msgstr "Вернуться назад"
 
 #: plugins/network/resources/js/controllers/index.controller.es:41
 msgid "Interface activated"
-msgstr ""
+msgstr "Интерфейс активирован"
 
 #: plugins/network/resources/js/controllers/index.controller.es:47
 #: plugins/network/resources/js/controllers/index.controller.es:60
 msgid "Warning"
-msgstr ""
+msgstr "Предупреждение"
 
 #: plugins/network/resources/js/controllers/index.controller.es:48
 msgid "Deactivating a network interface can lock you out of the remote session"
-msgstr ""
+msgstr "Отключение сетевого интерфейса может заблокировать вас от удаленного сеанса"
 
 #: plugins/network/resources/js/controllers/index.controller.es:49
 msgid "Deactivate"
-msgstr ""
+msgstr "Отключить"
 
 #: plugins/network/resources/js/controllers/index.controller.es:50
 #: plugins/network/resources/js/controllers/index.controller.es:63
 msgid "Cancel"
-msgstr ""
+msgstr "Отмена"
 
 #: plugins/network/resources/js/controllers/index.controller.es:53
 msgid "Interface deactivated"
-msgstr ""
+msgstr "Интерфейс деактивирован(отключен)"
 
 #: plugins/network/resources/js/controllers/index.controller.es:61
 msgid "Restarting a network interface can lock you out of the remote session"
-msgstr ""
+msgstr "Перезагрузка сетевого интерфейса может отключить вас от удаленного сеанса"
 
 #: plugins/network/resources/js/controllers/index.controller.es:62
 msgid "Restart"
-msgstr ""
+msgstr "Перезагрузка"
 
 #: plugins/network/resources/js/controllers/index.controller.es:67
 msgid "Interface reactivated"
-msgstr ""
+msgstr "Интерфейс возобновлен"
 
 #: plugins/network/resources/js/controllers/index.controller.es:75
 msgid "Hostname changed"
-msgstr ""
+msgstr "Имя хоста изменено"
 
 #: plugins/network/resources/js/controllers/index.controller.es:77
 msgid "Failed"
-msgstr ""
+msgstr "Прервано"
 

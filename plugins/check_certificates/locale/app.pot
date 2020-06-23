@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-19 19:28+0200\n"
+"POT-Creation-Date: 2020-06-23 10:30+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,6 +19,12 @@ msgstr ""
 
 #: plugins/check_certificates/resources/partial/index.html:25
 msgid "({{h.restTime}} days)"
+msgstr ""
+
+#: plugins/check_certificates/resources/partial/widget.html:4
+msgid ""
+"<i class=\"fas fa-check\"></i>\n"
+"            All certificates are up to date !"
 msgstr ""
 
 #: plugins/check_certificates/resources/partial/index.html:34
@@ -33,23 +39,31 @@ msgstr ""
 msgid "Certificate start :"
 msgstr ""
 
+#: plugins/check_certificates/resources/partial/widget.html:3
+msgid "Certificates to be renewed"
+msgstr ""
+
+#: plugins/check_certificates/widget.py:8
+msgid "Certificates"
+msgstr ""
+
 #: plugins/check_certificates/main.py:17
 #: plugins/check_certificates/resources/js/controllers/index.controller.coffee:2
 msgid "Check certificates"
 msgstr ""
 
-#: plugins/check_certificates/resources/js/controllers/index.controller.coffee:15
+#: plugins/check_certificates/resources/js/controllers/index.controller.coffee:14
 msgid "New url"
 msgstr ""
 
-#: plugins/check_certificates/resources/js/controllers/index.controller.coffee:26
+#: plugins/check_certificates/resources/js/controllers/index.controller.coffee:25
 msgid "Remove the url "
 msgstr ""
 
-#: plugins/check_certificates/resources/js/controllers/index.controller.coffee:27
+#: plugins/check_certificates/resources/js/controllers/index.controller.coffee:26
 msgid "Remove"
 msgstr ""
 
-#: plugins/check_certificates/resources/js/controllers/index.controller.coffee:28
+#: plugins/check_certificates/resources/js/controllers/index.controller.coffee:27
 msgid "Cancel"
 msgstr ""

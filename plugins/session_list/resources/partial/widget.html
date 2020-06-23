@@ -1,6 +1,6 @@
 <div ng:controller="SessionWidgetController">
-    <div class="widget-header" translate>
-        <p>Authenticated users</p>
+    <div class="widget-header">
+        <p translate>Authenticated users</p>
         <div>
             <p ng:repeat="session in sessions" class="text-primary">
                 {{session.identity}}
