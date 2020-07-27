@@ -57,4 +57,4 @@ class Handler(HttpPlugin):
     @authorize('network:configure')
     @endpoint(api=True)
     def handle_api_hostname_set(self, http_context):
-        self.manager.set_hostname(http_context.body)
+        self.manager.set_hostname(http_context.body.decode())
