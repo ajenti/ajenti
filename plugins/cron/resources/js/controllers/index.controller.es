@@ -1,4 +1,4 @@
-angular.module('cron').controller('CronIndexController', function($scope, $http, $log, pageTitle, gettext, notify) {
+angular.module('ajenti.cron').controller('CronIndexController', function($scope, $http, $log, pageTitle, gettext, notify) {
     pageTitle.set(gettext('Cron'));
 
     $scope.title = gettext('Cron');

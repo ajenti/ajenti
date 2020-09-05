@@ -14,4 +14,4 @@ resources:
     - 'resources/js/routing.es'
     - 'resources/js/controllers/index.controller.es'
     - 'resources/partial/index.html'
-    - 'ng:cron'
+    - 'ng:ajenti.cron'
