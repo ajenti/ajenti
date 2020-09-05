@@ -1,0 +1,29 @@
+<br/>
+
+<div>
+    <uib:tabset active="activeTab">
+        <uib:tab heading="{{'Mounted'|translate}}">
+            <table class="table">
+                <tr>
+                    <th translate>Device</th>
+                    <th translate>Mountpoint</th>
+                    <th translate>Used</th>
+                    <th translate>Size</th>
+                    <th translate>Usage</th>
+                    <th> </th>
+                </tr>
+                <tr ng:repeat="entry in mounted">
+                    <td>{{entry.device}}</td>
+                    <td>{{entry.mountpoint}}</td>
+                    <td>{{entry.used|bytes}}</td>
+                    <td>{{entry.size|bytes}}</td>
+                    <td><smart-progress value="entry.usage" max="1"></smart-progress></td>
+                    <td></td>
+                </tr>
+            </table>
+        </uib:tab>
+        <uib:tab heading="{{'Fstab'}}">
+            <p class="alert alert-info">{{python_get}}</p>
+        </uib:tab>
+    </uib:tabset>
+</div>
