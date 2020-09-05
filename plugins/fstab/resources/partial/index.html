@@ -18,7 +18,9 @@
                     <td>{{entry.used|bytes}}</td>
                     <td>{{entry.size|bytes}}</td>
                     <td><smart-progress value="entry.usage" max="1"></smart-progress></td>
-                    <td></td>
+                    <td width="1">
+                        <button class="btn btn-default" ng:click="umount(entry)"><i class="fas fa-eject"></i></button>
+                    </td>
                 </tr>
             </table>
         </uib:tab>

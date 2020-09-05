@@ -38,6 +38,17 @@ class Handler(HttpPlugin):
 
             return filesystems
 
+    @url(r'/api/umount')
+    @endpoint(api=True)
+    def handle_api_umount(self, http_context):
+
+        if http_context.method == 'POST':
+            mountpoint = http_context.json_body()['mountpoint']
+            try:
+                subprocess.check_output(['umount', mountpoint])
+                return True
+            except Exception as e:
+                raise EndpointError(e)
 
     @url(r'/api/fstab')
     @endpoint(api=True)
