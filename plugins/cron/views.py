@@ -1,7 +1,6 @@
 from jadi import component
 
 from aj.api.http import url, HttpPlugin
-from aj.auth import authorize
 from aj.api.endpoint import endpoint, EndpointError
 from .manager import CronManager
 from reconfigure.items.crontab import CrontabNormalTaskData, CrontabSpecialTaskData, CrontabEnvSettingData
@@ -12,7 +11,6 @@ class Handler(HttpPlugin):
         self.context = context
 
     @url(r'/api/get_crontab')
-    # @authorize('crontab:show')
     @endpoint(api=True)
     def handle_api_get_crontab(self, http_context):
         if http_context.method == 'GET':
@@ -21,7 +19,6 @@ class Handler(HttpPlugin):
             return crontab.tree.to_dict()
 
     @url(r'/api/save_crontab')
-    # @authorize('crontab:show')
     @endpoint(api=True)
     def handle_api_save_crontab(self, http_context):
         if http_context.method == 'POST':
