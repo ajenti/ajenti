@@ -1,5 +1,6 @@
 from jadi import component
 import subprocess
+import os
 
 from aj.api.http import url, HttpPlugin
 from aj.api.endpoint import endpoint, EndpointError
@@ -56,7 +57,7 @@ class Handler(HttpPlugin):
     def handle_api_fstab(self, http_context):
 
         if http_context.method == 'GET':
-            self.fstab_config = FSTabConfig(path='/etc/fstab-dev')
+            self.fstab_config = FSTabConfig(path='/etc/fstab')
             self.fstab_config.load()
             return self.fstab_config.tree.to_dict()
 
@@ -72,8 +73,12 @@ class Handler(HttpPlugin):
                 new_fstab.tree.filesystems.append(device)
 
             data = new_fstab.save()[None]
+
+            # Always make a backup
+            os.rename('/etc/fstab', '/etc/fstab.bak')
+
             try:
-                with open('/etc/fstab-new', 'w') as f:
+                with open('/etc/fstab', 'w') as f:
                     f.write(data)
                 return True
             except Exception as e:
