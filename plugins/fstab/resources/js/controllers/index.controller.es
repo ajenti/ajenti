@@ -2,6 +2,7 @@ angular.module('ajenti.fstab').controller('FstabIndexController', function($scop
     pageTitle.set(gettext('Fstab'));
 
     $scope.showDetails = false;
+    $scope.add_new = false;
 
     $http.get('/api/get_mounted').then( (resp) => {
 	    $scope.mounted = resp.data;
@@ -20,8 +21,8 @@ angular.module('ajenti.fstab').controller('FstabIndexController', function($scop
     });
 
     $scope.show = (device) => {
-        $scope.showDetails = true;
         $scope.edit_device = device;
+        $scope.showDetails = true;
     }
 
     $scope.save = () => {
@@ -29,6 +30,26 @@ angular.module('ajenti.fstab').controller('FstabIndexController', function($scop
         $http.post('/api/fstab', {config: $scope.fstab}).then( (resp) => {
             notify.success(gettext('Fstab successfully saved!'))
         });
+    }
+
+    $scope.add = () => {
+        $scope.add_new = true;
+        $scope.edit_device = {
+            'device': '',
+            'mountpoint': '/',
+            'type': 'ext4',
+            'options': 'defaults',
+            'freq': '0',
+            'passno': '0',
+        };
+        $scope.showDetails = true;
+    }
+
+    $scope.saveNew = () => {
+        $scope.showDetails = false;
+        $scope.add_new = false;
+        $scope.fstab.push($scope.edit_device);
+        $scope.save();
     }
 
     $scope.remove = (device) => {
