@@ -73,7 +73,7 @@ class filesystem_test (base):
         with open(self.path('1'), 'w') as f:
             f.write('file 1')
 
-        rq = self.session.get(url + '/api/filesystem/read/%s' % self.path('1'))
+        rq = self.session.get(url + '/api/filesystem/read/%s?encoding=utf-8' % self.path('1'))
         eq_(rq.text, '"file 1"')
         rq = self.session.get(url + '/api/filesystem/read/%s' % self.path('3'))
         eq_(rq.status_code, 404)
