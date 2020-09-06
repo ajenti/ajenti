@@ -1,4 +1,4 @@
-angular.module('ajenti.cron').controller('CronIndexController', function($scope, $http, $log, pageTitle, gettext, notify) {
+angular.module('ajenti.cron').controller('CronIndexController', function($scope, $http, $log, pageTitle, gettext, notify, messagebox) {
     pageTitle.set(gettext('Cron'));
 
     $scope.title = gettext('Cron');
@@ -41,8 +41,14 @@ angular.module('ajenti.cron').controller('CronIndexController', function($scope,
     }
 
     $scope.remove = (type, values) => {
-        position = $scope.crontab[type].indexOf(values);
-        $scope.crontab[type].splice(position, 1);
+        messagebox.show({
+            text: gettext('Do you really want to permanently delete this entry?'),
+            positive: gettext('Delete'),
+            negative: gettext('Cancel')
+        }).then( () => {
+            position = $scope.crontab[type].indexOf(values);
+            $scope.crontab[type].splice(position, 1);
+        })
     }
 
     $http.get('/api/get_crontab').then( (resp) => {
