@@ -69,6 +69,10 @@ def endpoint(page=False, api=False, auth=True):
 
             try:
                 result = fx(self, context, *args, **kwargs)
+                if isinstance(context.status, str):
+                    # Catch 404 from api and propagate
+                    if '200' not in context.status:
+                        status = context.status
                 if page:
                     return result
             except EndpointReturn as e:
