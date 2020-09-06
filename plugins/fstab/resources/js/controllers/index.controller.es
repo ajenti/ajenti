@@ -1,4 +1,4 @@
-angular.module('ajenti.fstab').controller('FstabIndexController', function($scope, $http, pageTitle, gettext, notify) {
+angular.module('ajenti.fstab').controller('FstabIndexController', function($scope, $http, pageTitle, gettext, notify, messagebox) {
     pageTitle.set(gettext('Fstab'));
 
     $scope.showDetails = false;
@@ -31,6 +31,17 @@ angular.module('ajenti.fstab').controller('FstabIndexController', function($scop
         });
     }
 
+    $scope.remove = (device) => {
+        messagebox.show({
+            text: gettext('Do you really want to permanently delete this entry?'),
+            positive: gettext('Delete'),
+            negative: gettext('Cancel')
+        }).then( () => {
+            position = $scope.fstab.indexOf(device);
+            $scope.fstab.splice(position, 1);
+            $scope.save();
+        })
+    }
 
 });
 
