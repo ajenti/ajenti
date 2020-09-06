@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-27 12:11+0200\n"
-"PO-Revision-Date: 2020-06-23 08:40\n"
+"PO-Revision-Date: 2020-09-06 11:22\n"
 "Last-Translator: \n"
 "Language-Team: Burmese\n"
 "Language: my_MM\n"
@@ -23,19 +23,19 @@ msgstr ""
 
 #: plugins/terminal/resources/partial/view.html:26
 msgid "Done"
-msgstr ""
+msgstr "ပြီးပြီ"
 
 #: plugins/terminal/resources/partial/widget.config.html:3
 msgid "Name"
-msgstr ""
+msgstr "အမည်"
 
 #: plugins/terminal/resources/partial/index.html:29
 msgid "Open a new terminal"
-msgstr ""
+msgstr "တာမီနယ် အသစ်တစ်ခု ဖွင့်ပါ"
 
 #: plugins/terminal/resources/partial/widget.html:7
 msgid "Run"
-msgstr ""
+msgstr "လုပ်ပါ"
 
 #: plugins/terminal/resources/partial/index.html:34
 msgid "Run a command..."
@@ -45,12 +45,12 @@ msgstr ""
 #: plugins/terminal/resources/partial/widget.html:2
 #: plugins/terminal/widget.py:8
 msgid "Script"
-msgstr ""
+msgstr "Script"
 
 #: plugins/terminal/resources/partial/index.html:1
 #: plugins/terminal/resources/js/controllers/index.controller.es:2
 msgid "Terminals"
-msgstr ""
+msgstr "တာမီနယ်များ"
 
 #: plugins/terminal/resources/partial/index.html:9
 msgid "Terminate"

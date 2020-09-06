@@ -1,0 +1,120 @@
+<br/>
+
+<div>
+    <uib:tabset active="activeTab">
+        <uib:tab heading="{{'Mounted'|translate}}">
+            <table class="table">
+                <tr>
+                    <th translate>Device</th>
+                    <th translate>Mountpoint</th>
+                    <th translate>Used</th>
+                    <th translate>Size</th>
+                    <th translate>Usage</th>
+                    <th> </th>
+                </tr>
+                <tr ng:repeat="entry in mounted">
+                    <td>{{entry.device}}</td>
+                    <td>{{entry.mountpoint}}</td>
+                    <td>{{entry.used|bytes}}</td>
+                    <td>{{entry.size|bytes}}</td>
+                    <td><smart-progress value="entry.usage" max="1"></smart-progress></td>
+                    <td width="1">
+                        <button class="btn btn-default" ng:click="umount(entry)"><i class="fas fa-eject"></i></button>
+                    </td>
+                </tr>
+            </table>
+        </uib:tab>
+        <uib:tab heading="Fstab">
+            <table class="table">
+                <tr>
+                    <th translate>Device</th>
+                    <th translate>Mountpoint</th>
+                    <th translate>Type</th>
+                    <th translate> </th>
+                    <th translate> </th>
+                </tr>
+                <tr ng:repeat="device in fstab">
+                    <td>{{device.device}}</td>
+                    <td>{{device.mountpoint}}</td>
+                    <td>{{device.type}}</td>
+                    <td class="list-group">
+                        <button class="btn btn-default" ng:click="edit(device)">
+                            <i class="fas fa-pen"></i>
+                        </button>
+                    </td>
+                    <td>
+                        <button class="btn btn-default" ng:click="remove(device)">
+                            <i class="fa fa-remove"></i>
+                        </button>
+                    </td>
+                </tr>
+            </table>
+            <button class="btn btn-default" ng:click="add()" translate>Add</button>
+        </uib:tab>
+    </uib:tabset>
+    <dialog ng:show="showDetails">
+        <div class="modal-header">
+            <h4 ng:show="!$parent.add_new"><span translate>Modify</span> {{$parent.edit_device.mountpoint}}</h4>
+            <h4 ng:show="$parent.add_new"><span translate>Add new device</span></h4>
+        </div>
+        <div class="modal-body">
+            <form class="form-group" ng:submit="save()">
+                <table class="table">
+                    <tr>
+                        <td>
+                            <span translate>Device: </span>
+                        </td>
+                        <td>
+                            <input class="form-control" type="text" ng:model="$parent.edit_device.device">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span translate>Mountpoint: </span>
+                        </td>
+                        <td>
+                            <input class="form-control" type="text" ng:model="$parent.edit_device.mountpoint">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span translate>Options: </span>
+                        </td>
+                        <td>
+                            <input class="form-control" type="text" ng:model="$parent.edit_device.options">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span translate>Type: </span>
+                        </td>
+                        <td>
+                            <input class="form-control" type="text" ng:model="$parent.edit_device.type">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span translate>Frequency: </span>
+                        </td>
+                        <td>
+                            <input class="form-control" type="text" ng:model="$parent.edit_device.freq">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span translate>Pass: </span>
+                        </td>
+                        <td>
+                            <input class="form-control" type="text" ng:model="$parent.edit_device.passno">
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="reset" ng:click="reset()" class="btn btn-default btn-flat pull-right" translate>Cancel</button>
+            <button type="submit" ng:click="save()" class="btn btn-default btn-flat pull-right" ng:show="!$parent.add_new" translate>Save</button>
+            <button type="submit" ng:click="saveNew()" class="btn btn-default btn-flat pull-right" ng:show="$parent.add_new" translate>Save</button>
+        </div>
+    </dialog>
+</div>

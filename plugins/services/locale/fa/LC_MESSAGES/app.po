@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-27 12:11+0200\n"
-"PO-Revision-Date: 2020-06-23 08:40\n"
+"PO-Revision-Date: 2020-09-06 11:22\n"
 "Last-Translator: \n"
 "Language-Team: Persian\n"
 "Language: fa_IR\n"
@@ -42,9 +42,9 @@ msgstr "مدیریت سرویس‌های سیستم"
 #: plugins/services/resources/js/controllers/widget.controller.es:14
 #: plugins/services/resources/js/controllers/index.controller.es:27
 msgid "Service operation failed"
-msgstr ""
+msgstr "عملیات ناموفق بود"
 
 #: plugins/services/resources/js/controllers/index.controller.es:24
 msgid "Done"
-msgstr ""
+msgstr "انجام شد"
 

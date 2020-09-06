@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-23 10:30+0200\n"
-"PO-Revision-Date: 2020-06-23 08:40\n"
+"PO-Revision-Date: 2020-09-06 11:22\n"
 "Last-Translator: \n"
 "Language-Team: Persian\n"
 "Language: fa_IR\n"
@@ -19,51 +19,52 @@ msgstr ""
 
 #: plugins/check_certificates/resources/partial/index.html:25
 msgid "({{h.restTime}} days)"
-msgstr ""
+msgstr "({{h.restTime}} روز)"
 
 #: plugins/check_certificates/resources/partial/widget.html:4
 msgid "<i class=\"fas fa-check\"></i>\n"
 "            All certificates are up to date !"
-msgstr ""
+msgstr "<i class=\"fas fa-check\"></i>\n"
+"            تمامی مجوز ها بروز هستند !"
 
 #: plugins/check_certificates/resources/partial/index.html:34
 msgid "Add host"
-msgstr ""
+msgstr "افزودن میزبان"
 
 #: plugins/check_certificates/resources/partial/index.html:19
 msgid "Certificate end :"
-msgstr ""
+msgstr "انقضای گواهی :"
 
 #: plugins/check_certificates/resources/partial/index.html:18
 msgid "Certificate start :"
-msgstr ""
+msgstr "شروع گواهی :"
 
 #: plugins/check_certificates/resources/partial/widget.html:3
 msgid "Certificates to be renewed"
-msgstr ""
+msgstr "گواهی ها برای تمدید"
 
 #: plugins/check_certificates/widget.py:8
 msgid "Certificates"
-msgstr ""
+msgstr "گواهی ها"
 
 #: plugins/check_certificates/main.py:17
 #: plugins/check_certificates/resources/js/controllers/index.controller.coffee:2
 msgid "Check certificates"
-msgstr ""
+msgstr "بررسی گواهی ها"
 
 #: plugins/check_certificates/resources/js/controllers/index.controller.coffee:14
 msgid "New url"
-msgstr ""
+msgstr "آدرس جدید"
 
 #: plugins/check_certificates/resources/js/controllers/index.controller.coffee:25
 msgid "Remove the url "
-msgstr ""
+msgstr "حذف آدرس"
 
 #: plugins/check_certificates/resources/js/controllers/index.controller.coffee:26
 msgid "Remove"
-msgstr ""
+msgstr "حذف"
 
 #: plugins/check_certificates/resources/js/controllers/index.controller.coffee:27
 msgid "Cancel"
-msgstr ""
+msgstr "لفو"
 
