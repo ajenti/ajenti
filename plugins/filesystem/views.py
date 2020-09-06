@@ -28,7 +28,8 @@ class Handler(HttpPlugin):
     @endpoint(api=True)
     def handle_api_fs_read(self, http_context, path=None):
         if not os.path.exists(path):
-            return http_context.respond_not_found()
+            http_context.respond_not_found()
+            return 'File not found'
         try:
             content = open(path, 'rb').read()
             if http_context.query:
