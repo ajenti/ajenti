@@ -2,6 +2,93 @@
 
 <div>
     <uib:tabset active="activeTab">
+        <uib:tab heading="Fstab">
+            <table class="table">
+                <tr>
+                    <th translate>Device</th>
+                    <th translate>Mountpoint</th>
+                    <th translate>Type</th>
+                    <th translate> </th>
+                    <th translate> </th>
+                </tr>
+                <tr ng:repeat="device in fstab">
+                    <td>{{device.device}}</td>
+                    <td>{{device.mountpoint}}</td>
+                    <td>{{device.type}}</td>
+                    <td class="list-group">
+                        <a class="list-group-btn" ng:click="show(device)">
+                            <i class="fas fa-pen"></i>
+                        </a>
+                    </td>
+                    <td>
+                        <a class="list-group-btn" ng:click="remove(device)">
+                            <i class="fa fa-remove"></i>
+                        </a>
+                    </td>
+                </tr>
+            </table>
+            <dialog ng:show="showDetails">
+                <div class="modal-header">
+                    <h4><span translate>Modify</span> {{$parent.edit_device.mountpoint}}</h4>
+                </div>
+                <div class="modal-body scrollable">
+                    <form class="form-group" ng:submit="save($parent.edit_device)">
+                        <table class="table">
+                            <tr>
+                                <td>
+                                    <span translate>Device: </span>
+                                </td>
+                                <td>
+                                    <input class="form-control" type="text" ng:model="$parent.edit_device.device">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span translate>Mountpoint: </span>
+                                </td>
+                                <td>
+                                    <input class="form-control" type="text" ng:model="$parent.edit_device.mountpoint">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span translate>Options: </span>
+                                </td>
+                                <td>
+                                    <input class="form-control" type="text" ng:model="$parent.edit_device.options">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span translate>Type: </span>
+                                </td>
+                                <td>
+                                    <input class="form-control" type="text" ng:model="$parent.edit_device.type">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span translate>Frequency: </span>
+                                </td>
+                                <td>
+                                    <input class="form-control" type="text" ng:model="$parent.edit_device.freq">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span translate>Pass: </span>
+                                </td>
+                                <td>
+                                    <input class="form-control" type="text" ng:model="$parent.edit_device.passno">
+                                </td>
+                            </tr>
+                        </table>
+                        <button type="reset" ng:click="$parent.showDetails = false" class="btn btn-default btn-flat pull-right" translate>Cancel</button>
+                        <button type="submit" class="btn btn-default btn-flat pull-right" translate>OK</button>
+                    </form>
+                </div>
+            </dialog>
+        </uib:tab>
         <uib:tab heading="{{'Mounted'|translate}}">
             <table class="table">
                 <tr>
@@ -23,9 +110,6 @@
                     </td>
                 </tr>
             </table>
-        </uib:tab>
-        <uib:tab heading="{{'Fstab'}}">
-            <p class="alert alert-info">{{python_get}}</p>
         </uib:tab>
     </uib:tabset>
 </div>
