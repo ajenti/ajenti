@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-23 09:56+0200\n"
-"PO-Revision-Date: 2020-06-23 08:39\n"
+"POT-Creation-Date: 2020-09-06 13:09+0200\n"
+"PO-Revision-Date: 2020-09-06 11:21\n"
 "Last-Translator: \n"
 "Language-Team: Arabic\n"
 "Language: ar_SA\n"
@@ -21,130 +21,139 @@ msgstr ""
 #: plugins/cron/resources/partial/index.html:65
 #: plugins/cron/resources/partial/index.html:92
 msgid "Add"
-msgstr ""
+msgstr "أضف"
 
 #: plugins/cron/resources/partial/index.html:129
 #: plugins/cron/resources/partial/index.html:145
 #: plugins/cron/resources/partial/index.html:161
+#: plugins/cron/resources/js/controllers/index.controller.es:47
 msgid "Cancel"
-msgstr ""
+msgstr "إلغاء الأمر"
 
 #: plugins/cron/resources/partial/index.html:121
 #: plugins/cron/resources/partial/index.html:137
 #: plugins/cron/resources/partial/index.html:15
 #: plugins/cron/resources/partial/index.html:46
 msgid "Command"
-msgstr ""
+msgstr "أمر"
 
 #: plugins/cron/resources/partial/index.html:125
 #: plugins/cron/resources/partial/index.html:141
 #: plugins/cron/resources/partial/index.html:157
 msgid "Comment"
-msgstr ""
+msgstr "تعليق"
 
 #: plugins/cron/resources/partial/index.html:12
 msgid "Day (month)"
-msgstr ""
+msgstr "اليوم (الشهر)"
 
 #: plugins/cron/resources/partial/index.html:14
 msgid "Day (week)"
-msgstr ""
+msgstr "اليوم (الأسبوع)"
 
 #: plugins/cron/resources/partial/index.html:109
 msgid "Day of the month"
-msgstr ""
+msgstr "يوم من الشهر"
 
 #: plugins/cron/resources/partial/index.html:117
 msgid "Day of the week"
-msgstr ""
+msgstr "يوم من الأسبوع"
 
 #: plugins/cron/resources/partial/index.html:67
 msgid "Environment variables"
-msgstr ""
+msgstr "المتغيرات البيئية"
 
 #: plugins/cron/resources/partial/index.html:105
 #: plugins/cron/resources/partial/index.html:11
 msgid "Hour"
-msgstr ""
+msgstr "ساعة"
 
 #: plugins/cron/resources/partial/index.html:5
 msgid "Jobs"
-msgstr ""
+msgstr "وظائف"
 
 #: plugins/cron/resources/partial/index.html:10
 #: plugins/cron/resources/partial/index.html:101
 msgid "Minute"
-msgstr ""
+msgstr "دقيقة"
 
 #: plugins/cron/resources/partial/index.html:97
 msgid "Modify"
-msgstr ""
+msgstr "تغيير"
 
 #: plugins/cron/resources/partial/index.html:113
 #: plugins/cron/resources/partial/index.html:13
 msgid "Month"
-msgstr ""
+msgstr "شهر"
 
 #: plugins/cron/resources/partial/index.html:149
 #: plugins/cron/resources/partial/index.html:72
 msgid "Name"
-msgstr ""
+msgstr "الاسم"
 
 #: plugins/cron/resources/partial/index.html:130
 #: plugins/cron/resources/partial/index.html:146
 #: plugins/cron/resources/partial/index.html:162
 msgid "OK"
-msgstr ""
+msgstr "موافق"
 
 #: plugins/cron/resources/partial/index.html:167
 msgid "Save"
-msgstr ""
+msgstr "حفظ"
 
 #: plugins/cron/resources/partial/index.html:133
 #: plugins/cron/resources/partial/index.html:40
 #: plugins/cron/resources/partial/index.html:45
 msgid "Special"
-msgstr ""
+msgstr "مميز"
 
 #: plugins/cron/resources/partial/index.html:7
 msgid "There is no cronjob."
-msgstr ""
+msgstr "لا توجد وظيفة محصورة."
 
 #: plugins/cron/resources/partial/index.html:42
 msgid "There is no special task."
-msgstr ""
+msgstr "ولا توجد مهمة خاصة."
 
 #: plugins/cron/resources/partial/index.html:69
 msgid "There is no variables environment set."
-msgstr ""
+msgstr "لا توجد مجموعة من المتغيرات."
 
 #: plugins/cron/resources/partial/index.html:153
 #: plugins/cron/resources/partial/index.html:73
 msgid "Value"
-msgstr ""
+msgstr "القيمة"
 
 #: plugins/cron/resources/js/controllers/index.controller.es:2
 #: plugins/cron/resources/js/controllers/index.controller.es:4
 msgid "Cron"
-msgstr ""
+msgstr "Cron"
 
 #: plugins/cron/resources/js/controllers/index.controller.es:32
 msgid "normal task"
-msgstr ""
+msgstr "المهمة العادية"
 
 #: plugins/cron/resources/js/controllers/index.controller.es:33
 msgid "special task"
-msgstr ""
+msgstr "مهمة خاصة"
 
 #: plugins/cron/resources/js/controllers/index.controller.es:34
 msgid "environment variable"
+msgstr "متغير البيئة"
+
+#: plugins/cron/resources/js/controllers/index.controller.es:45
+msgid "Do you really want to permanently delete this entry?"
 msgstr ""
 
-#: plugins/cron/resources/js/controllers/index.controller.es:70
+#: plugins/cron/resources/js/controllers/index.controller.es:46
+msgid "Delete"
+msgstr ""
+
+#: plugins/cron/resources/js/controllers/index.controller.es:76
 msgid "Crontab successfully saved !"
-msgstr ""
+msgstr "تم حفظ Crontab بنجاح!"
 
-#: plugins/cron/resources/js/controllers/index.controller.es:73
+#: plugins/cron/resources/js/controllers/index.controller.es:79
 msgid "Failed to save crontab"
-msgstr ""
+msgstr "فشل في حفظ التغييرات"
 

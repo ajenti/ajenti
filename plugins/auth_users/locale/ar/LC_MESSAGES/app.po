@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-27 12:10+0200\n"
-"PO-Revision-Date: 2020-06-23 08:39\n"
+"PO-Revision-Date: 2020-09-06 11:21\n"
 "Last-Translator: \n"
 "Language-Team: Arabic\n"
 "Language: ar_SA\n"
@@ -79,7 +79,7 @@ msgstr "ليس لديك أي مستخدم مربوط بحساب النظام <b>
 
 #: plugins/auth_users/api.py:13
 msgid "Custom users"
-msgstr ""
+msgstr "مستخدمين مخصصين"
 
 #: plugins/auth_users/main.py:16
 msgid "Users"
@@ -87,5 +87,5 @@ msgstr "المستخدمين"
 
 #: plugins/auth_users/resources/js/controllers/index.controller.es:70
 msgid "Password updated"
-msgstr ""
+msgstr "تحديث كلمة المرور "
 
