@@ -20,7 +20,7 @@ angular.module('ajenti.fstab').controller('FstabIndexController', function($scop
 	    $scope.fstab = resp.data.filesystems;
     });
 
-    $scope.show = (device) => {
+    $scope.edit = (device) => {
         $scope.edit_device = device;
         $scope.showDetails = true;
     }
@@ -46,8 +46,7 @@ angular.module('ajenti.fstab').controller('FstabIndexController', function($scop
     }
 
     $scope.saveNew = () => {
-        $scope.showDetails = false;
-        $scope.add_new = false;
+        $scope.reset()
         $scope.fstab.push($scope.edit_device);
         $scope.save();
     }
@@ -64,5 +63,9 @@ angular.module('ajenti.fstab').controller('FstabIndexController', function($scop
         })
     }
 
+    $scope.reset = () => {
+        $scope.showDetails = false;
+        $scope.add_new = false;
+    }
 });
 
