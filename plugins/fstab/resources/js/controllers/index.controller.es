@@ -19,13 +19,18 @@ angular.module('ajenti.fstab').controller('FstabIndexController', function($scop
 	    $scope.fstab = resp.data.filesystems;
     });
 
-    $http.post('/api/fstab', {my_var: 'fstab'}).then( (resp) => {
-	    $scope.python_post = resp.data;
-    });
-
     $scope.show = (device) => {
         $scope.showDetails = true;
         $scope.edit_device = device;
     }
+
+    $scope.save = () => {
+        $scope.showDetails = false;
+        $http.post('/api/fstab', {config: $scope.fstab}).then( (resp) => {
+            notify.success(gettext('Fstab successfully saved!'))
+        });
+    }
+
+
 });
 

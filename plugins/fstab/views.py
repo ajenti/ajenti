@@ -4,6 +4,7 @@ import subprocess
 from aj.api.http import url, HttpPlugin
 from aj.api.endpoint import endpoint, EndpointError
 from reconfigure.configs import FSTabConfig
+from reconfigure.items.fstab import FilesystemData
 
 
 @component(HttpPlugin)
@@ -58,4 +59,25 @@ class Handler(HttpPlugin):
             self.fstab_config = FSTabConfig(path='/etc/fstab-dev')
             self.fstab_config.load()
             return self.fstab_config.tree.to_dict()
+
+        if http_context.method == 'POST':
+            config = http_context.json_body()['config']
+            new_fstab = FSTabConfig(content='')
+            new_fstab.load()
+
+            for filesystem in config:
+                device = FilesystemData()
+                for property, value in filesystem.items():
+                    setattr(device, property, value)
+                new_fstab.tree.filesystems.append(device)
+
+            data = new_fstab.save()[None]
+            try:
+                with open('/etc/fstab-new', 'w') as f:
+                    f.write(data)
+                return True
+            except Exception as e:
+                raise EndpointError(e)
+
+
 
