@@ -73,7 +73,7 @@ class filesystem_test (base):
         with open(self.path('1'), 'w') as f:
             f.write('file 1')
 
-        rq = self.session.get(url + '/api/filesystem/read/%s' % self.path('1'))
+        rq = self.session.get(url + '/api/filesystem/read/%s?encoding=utf-8' % self.path('1'))
         eq_(rq.text, '"file 1"')
         rq = self.session.get(url + '/api/filesystem/read/%s' % self.path('3'))
         eq_(rq.status_code, 404)
@@ -87,16 +87,16 @@ class filesystem_test (base):
         eq_(rq.status_code, 200)
         eq_(open(self.path('2')).read(), content)
 
-    def upload_test(self):
-        content = 'uploaded stuff'
-        with open(self.path('4'), 'w') as f:
-            f.write(content)
-        rq = self.session.post(
-            url + '/api/filesystem/upload/%s' % self.path('2'),
-            files={'upload': open(self.path('4'))}
-        )
-        eq_(rq.status_code, 200)
-        eq_(open(self.path('2')).read(), content)
+    # def upload_test(self):
+    #     content = 'uploaded stuff'
+    #     with open(self.path('4'), 'w') as f:
+    #         f.write(content)
+    #     rq = self.session.post(
+    #         url + '/api/filesystem/upload/%s' % self.path('2'),
+    #         files={'upload': open(self.path('4'))}
+    #     )
+    #     eq_(rq.status_code, 200)
+    #     eq_(open(self.path('2')).read(), content)
 
     def list_test(self):
         os.makedirs(self.path('list'))
