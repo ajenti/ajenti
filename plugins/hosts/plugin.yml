@@ -1,0 +1,18 @@
+name: hosts
+author: Arnaud Kientz
+email: arnaud@unpeud.info
+url: https://ajenti.org
+version: '0.1'
+title: 'hosts'
+icon: sitemap
+
+dependencies:
+    - !!python/object:aj.plugins.PluginDependency {
+        plugin_name: core
+    }
+resources:
+    - 'resources/js/module.es'
+    - 'resources/js/routing.es'
+    - 'resources/js/controllers/index.controller.es'
+    - 'resources/partial/index.html'
+    - 'ng:ajenti.hosts'
