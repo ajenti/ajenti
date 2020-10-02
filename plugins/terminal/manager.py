@@ -22,7 +22,7 @@ class TerminalManager():
         return [{
             'id': _id,
             'command': self[_id].command,
-        } for _id in self.terminals.keys()]
+        } for _id in self.terminals]
 
     def create(self, **kwargs):
         _id = binascii.hexlify(os.urandom(32)).decode('utf-8')
