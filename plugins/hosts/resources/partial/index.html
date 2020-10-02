@@ -59,7 +59,9 @@
                             <span translate>Aliases: </span>
                         </td>
                         <td>
-                            <input class="form-control" type="text" ng:model="$parent.edit_host.aliases">
+                            <div ng:repeat="alias in $parent.edit_host.aliases">
+                                <input class="form-control" type="text" ng:model="alias.name">
+                            </div>
                         </td>
                     </tr>
                 </table>

@@ -9,6 +9,7 @@ angular.module('ajenti.hosts').controller('HostsIndexController', function($scop
     });
 
     $scope.edit = (host) => {
+        host.aliases.push({'name':''});
         $scope.edit_host = host;
         $scope.showDetails = true;
     }
@@ -25,7 +26,7 @@ angular.module('ajenti.hosts').controller('HostsIndexController', function($scop
         $scope.edit_host = {
             'address': '127.0.0.1',
             'name': 'localhost',
-            'aliases': [],
+            'aliases': [{'name':''}],
         };
         $scope.showDetails = true;
     }

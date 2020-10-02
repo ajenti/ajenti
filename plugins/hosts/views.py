@@ -5,7 +5,7 @@ import os
 from aj.api.http import url, HttpPlugin
 from aj.api.endpoint import endpoint, EndpointError
 from reconfigure.configs import HostsConfig
-from reconfigure.items.hosts import HostData
+from reconfigure.items.hosts import AliasData, HostData
 
 
 @component(HttpPlugin)
@@ -18,7 +18,7 @@ class Handler(HttpPlugin):
     def handle_api_hosts(self, http_context):
 
         if http_context.method == 'GET':
-            self.hosts_config = HostsConfig(path='/etc/hosts')
+            self.hosts_config = HostsConfig(path='/etc/hosts-dev')
             self.hosts_config.load()
             return self.hosts_config.tree.to_dict()
 
@@ -30,16 +30,22 @@ class Handler(HttpPlugin):
             for host in config:
                 new_host = HostData()
                 for property, value in host.items():
-                    setattr(new_host, property, value)
-                new_hosts.tree.filesystems.append(device)
+                    if property == 'aliases':
+                        for alias in value:
+                            new_alias = AliasData()
+                            new_alias.name = alias['name']
+                            new_host.aliases.append(new_alias)
+                    else:
+                        setattr(new_host, property, value)
+                new_hosts.tree.hosts.append(new_host)
 
             data = new_hosts.save()[None]
 
             # Always make a backup
-            os.rename('/etc/hosts', '/etc/hosts.bak')
+            os.rename('/etc/hosts-dev', '/etc/hosts.bak')
 
             try:
-                with open('/etc/hosts', 'w') as f:
+                with open('/etc/hosts-dev', 'w') as f:
                     f.write(data)
                 return True
             except Exception as e:
