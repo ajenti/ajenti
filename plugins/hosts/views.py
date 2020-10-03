@@ -18,7 +18,7 @@ class Handler(HttpPlugin):
     def handle_api_hosts(self, http_context):
 
         if http_context.method == 'GET':
-            self.hosts_config = HostsConfig(path='/etc/hosts-dev')
+            self.hosts_config = HostsConfig(path='/etc/hosts')
             self.hosts_config.load()
             return self.hosts_config.tree.to_dict()
 
@@ -43,10 +43,10 @@ class Handler(HttpPlugin):
             data = new_hosts.save()[None]
 
             # Always make a backup
-            os.rename('/etc/hosts-dev', '/etc/hosts.bak')
+            os.rename('/etc/hosts', '/etc/hosts.bak')
 
             try:
-                with open('/etc/hosts-dev', 'w') as f:
+                with open('/etc/hosts', 'w') as f:
                     f.write(data)
                 return True
             except Exception as e:
