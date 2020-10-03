@@ -9,7 +9,9 @@ angular.module('ajenti.hosts').controller('HostsIndexController', function($scop
     });
 
     $scope.edit = (host) => {
-        host.aliases.push({'name':''});
+        if (!$scope.has_empty_alias(host)) {
+            $scope.add_alias(host);
+        }
         $scope.edit_host = host;
         $scope.showDetails = true;
     }
@@ -29,6 +31,19 @@ angular.module('ajenti.hosts').controller('HostsIndexController', function($scop
             'aliases': [{'name':''}],
         };
         $scope.showDetails = true;
+    }
+
+    $scope.has_empty_alias = (host) =>{
+        for (alias of host.aliases) {
+            if (alias.name == '') {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    $scope.add_alias = (host) => {
+        host.aliases.push({'name':''});
     }
 
     $scope.saveNew = () => {

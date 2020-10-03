@@ -57,6 +57,10 @@
                     <tr>
                         <td>
                             <span translate>Aliases: </span>
+                            <br />
+                            <a class="btn btn-default" ng:click="add_alias($parent.edit_host)">
+                                <i class="fas fa-plus"></i>
+                            </a>
                         </td>
                         <td>
                             <div ng:repeat="alias in $parent.edit_host.aliases">

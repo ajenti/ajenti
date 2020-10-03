@@ -32,9 +32,10 @@ class Handler(HttpPlugin):
                 for property, value in host.items():
                     if property == 'aliases':
                         for alias in value:
-                            new_alias = AliasData()
-                            new_alias.name = alias['name']
-                            new_host.aliases.append(new_alias)
+                            if alias['name'] != '':
+                                new_alias = AliasData()
+                                new_alias.name = alias['name']
+                                new_host.aliases.append(new_alias)
                     else:
                         setattr(new_host, property, value)
                 new_hosts.tree.hosts.append(new_host)
