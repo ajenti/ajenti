@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-06 13:10+0200\n"
-"PO-Revision-Date: 2020-09-06 11:21\n"
+"POT-Creation-Date: 2020-10-03 11:58+0200\n"
+"PO-Revision-Date: 2020-10-03 10:06\n"
 "Last-Translator: \n"
 "Language-Team: French\n"
 "Language: fr_FR\n"
@@ -14,102 +14,68 @@ msgstr ""
 "X-Crowdin-Project: ajenti\n"
 "X-Crowdin-Project-ID: 18127\n"
 "X-Crowdin-Language: fr\n"
-"X-Crowdin-File: /2.0/fstab.po\n"
-"X-Crowdin-File-ID: 68\n"
+"X-Crowdin-File: /2.0/hosts.po\n"
+"X-Crowdin-File-ID: 70\n"
 
-#: plugins/fstab/resources/partial/index.html:52
+#: plugins/hosts/resources/partial/index.html:31
 msgid "Add"
 msgstr "Ajouter"
 
-#: plugins/fstab/resources/partial/index.html:58
-msgid "Add new device"
-msgstr "Ajouter un nouveau périphérique"
+#: plugins/hosts/resources/partial/index.html:36
+msgid "Add new host"
+msgstr "Ajouter un nouvel hôte"
 
-#: plugins/fstab/resources/partial/index.html:115
-#: plugins/fstab/resources/js/controllers/index.controller.es:58
+#: plugins/hosts/resources/partial/index.html:7
+msgid "Address"
+msgstr "Adresse"
+
+#: plugins/hosts/resources/partial/index.html:51
+msgid "Address:"
+msgstr "Adresse: "
+
+#: plugins/hosts/resources/partial/index.html:8
+msgid "Aliases"
+msgstr "Alias"
+
+#: plugins/hosts/resources/partial/index.html:59
+msgid "Aliases:"
+msgstr "Alias:"
+
+#: plugins/hosts/resources/partial/index.html:75
+#: plugins/hosts/resources/js/controllers/index.controller.es:59
 msgid "Cancel"
 msgstr "Annuler"
 
-#: plugins/fstab/resources/partial/index.html:30
-#: plugins/fstab/resources/partial/index.html:8
-msgid "Device"
-msgstr "Périphérique"
-
-#: plugins/fstab/resources/partial/index.html:65
-msgid "Device:"
-msgstr "Périphérique:"
-
-#: plugins/fstab/resources/partial/index.html:97
-msgid "Frequency:"
-msgstr "Fréquence:"
-
-#: plugins/fstab/resources/partial/index.html:57
+#: plugins/hosts/resources/partial/index.html:35
 msgid "Modify"
 msgstr "Modifier"
 
-#: plugins/fstab/resources/partial/index.html:5
-msgid "Mounted"
-msgstr "Montés"
+#: plugins/hosts/resources/partial/index.html:6
+msgid "Name"
+msgstr "Nom"
 
-#: plugins/fstab/resources/partial/index.html:31
-#: plugins/fstab/resources/partial/index.html:9
-msgid "Mountpoint"
-msgstr "Point de montage"
+#: plugins/hosts/resources/partial/index.html:43
+msgid "Name:"
+msgstr "Nom :"
 
-#: plugins/fstab/resources/partial/index.html:73
-msgid "Mountpoint:"
-msgstr "Point de montage:"
-
-#: plugins/fstab/resources/partial/index.html:81
-msgid "Options:"
-msgstr "Options :"
-
-#: plugins/fstab/resources/partial/index.html:105
-msgid "Pass:"
-msgstr "Passage :"
-
-#: plugins/fstab/resources/partial/index.html:116
-#: plugins/fstab/resources/partial/index.html:117
+#: plugins/hosts/resources/partial/index.html:76
+#: plugins/hosts/resources/partial/index.html:77
 msgid "Save"
-msgstr "Sauvegarder"
+msgstr "Enregistrer"
 
-#: plugins/fstab/resources/partial/index.html:11
-msgid "Size"
-msgstr "Taille"
+#: plugins/hosts/resources/js/controllers/index.controller.es:2
+msgid "Hosts"
+msgstr "Hôtes"
 
-#: plugins/fstab/resources/partial/index.html:32
-msgid "Type"
-msgstr "Type"
+#: plugins/hosts/resources/js/controllers/index.controller.es:22
+msgid "Hosts successfully saved!"
+msgstr "Hôtes enregistrés avec succès !"
 
-#: plugins/fstab/resources/partial/index.html:89
-msgid "Type:"
-msgstr "Type:"
-
-#: plugins/fstab/resources/partial/index.html:12
-msgid "Usage"
-msgstr "Utilisation"
-
-#: plugins/fstab/resources/partial/index.html:10
-msgid "Used"
-msgstr "Utilisé"
-
-#: plugins/fstab/resources/js/controllers/index.controller.es:2
-msgid "Fstab"
-msgstr "Fstab"
-
-#: plugins/fstab/resources/js/controllers/index.controller.es:13
-msgid "Device successfully unmounted!"
-msgstr "Périphérique démonté avec succès !"
-
-#: plugins/fstab/resources/js/controllers/index.controller.es:31
-msgid "Fstab successfully saved!"
-msgstr "Fstab enregistré avec succès !"
-
-#: plugins/fstab/resources/js/controllers/index.controller.es:56
+#: plugins/hosts/resources/js/controllers/index.controller.es:57
 msgid "Do you really want to permanently delete this entry?"
 msgstr "Souhaitez-vous vraiment supprimer cette entrée ?"
 
-#: plugins/fstab/resources/js/controllers/index.controller.es:57
+#: plugins/hosts/resources/js/controllers/index.controller.es:58
 msgid "Delete"
 msgstr "Supprimer"
 

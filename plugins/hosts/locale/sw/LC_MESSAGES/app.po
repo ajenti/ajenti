@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-06 13:10+0200\n"
-"PO-Revision-Date: 2020-09-06 11:22\n"
+"POT-Creation-Date: 2020-10-03 11:58+0200\n"
+"PO-Revision-Date: 2020-10-03 10:06\n"
 "Last-Translator: \n"
 "Language-Team: Swahili\n"
 "Language: sw_KE\n"
@@ -14,102 +14,68 @@ msgstr ""
 "X-Crowdin-Project: ajenti\n"
 "X-Crowdin-Project-ID: 18127\n"
 "X-Crowdin-Language: sw\n"
-"X-Crowdin-File: /2.0/fstab.po\n"
-"X-Crowdin-File-ID: 68\n"
+"X-Crowdin-File: /2.0/hosts.po\n"
+"X-Crowdin-File-ID: 70\n"
 
-#: plugins/fstab/resources/partial/index.html:52
+#: plugins/hosts/resources/partial/index.html:31
 msgid "Add"
 msgstr ""
 
-#: plugins/fstab/resources/partial/index.html:58
-msgid "Add new device"
+#: plugins/hosts/resources/partial/index.html:36
+msgid "Add new host"
 msgstr ""
 
-#: plugins/fstab/resources/partial/index.html:115
-#: plugins/fstab/resources/js/controllers/index.controller.es:58
+#: plugins/hosts/resources/partial/index.html:7
+msgid "Address"
+msgstr ""
+
+#: plugins/hosts/resources/partial/index.html:51
+msgid "Address:"
+msgstr ""
+
+#: plugins/hosts/resources/partial/index.html:8
+msgid "Aliases"
+msgstr ""
+
+#: plugins/hosts/resources/partial/index.html:59
+msgid "Aliases:"
+msgstr ""
+
+#: plugins/hosts/resources/partial/index.html:75
+#: plugins/hosts/resources/js/controllers/index.controller.es:59
 msgid "Cancel"
 msgstr ""
 
-#: plugins/fstab/resources/partial/index.html:30
-#: plugins/fstab/resources/partial/index.html:8
-msgid "Device"
-msgstr ""
-
-#: plugins/fstab/resources/partial/index.html:65
-msgid "Device:"
-msgstr ""
-
-#: plugins/fstab/resources/partial/index.html:97
-msgid "Frequency:"
-msgstr ""
-
-#: plugins/fstab/resources/partial/index.html:57
+#: plugins/hosts/resources/partial/index.html:35
 msgid "Modify"
 msgstr ""
 
-#: plugins/fstab/resources/partial/index.html:5
-msgid "Mounted"
+#: plugins/hosts/resources/partial/index.html:6
+msgid "Name"
 msgstr ""
 
-#: plugins/fstab/resources/partial/index.html:31
-#: plugins/fstab/resources/partial/index.html:9
-msgid "Mountpoint"
+#: plugins/hosts/resources/partial/index.html:43
+msgid "Name:"
 msgstr ""
 
-#: plugins/fstab/resources/partial/index.html:73
-msgid "Mountpoint:"
-msgstr ""
-
-#: plugins/fstab/resources/partial/index.html:81
-msgid "Options:"
-msgstr ""
-
-#: plugins/fstab/resources/partial/index.html:105
-msgid "Pass:"
-msgstr ""
-
-#: plugins/fstab/resources/partial/index.html:116
-#: plugins/fstab/resources/partial/index.html:117
+#: plugins/hosts/resources/partial/index.html:76
+#: plugins/hosts/resources/partial/index.html:77
 msgid "Save"
 msgstr ""
 
-#: plugins/fstab/resources/partial/index.html:11
-msgid "Size"
+#: plugins/hosts/resources/js/controllers/index.controller.es:2
+msgid "Hosts"
 msgstr ""
 
-#: plugins/fstab/resources/partial/index.html:32
-msgid "Type"
+#: plugins/hosts/resources/js/controllers/index.controller.es:22
+msgid "Hosts successfully saved!"
 msgstr ""
 
-#: plugins/fstab/resources/partial/index.html:89
-msgid "Type:"
-msgstr ""
-
-#: plugins/fstab/resources/partial/index.html:12
-msgid "Usage"
-msgstr ""
-
-#: plugins/fstab/resources/partial/index.html:10
-msgid "Used"
-msgstr ""
-
-#: plugins/fstab/resources/js/controllers/index.controller.es:2
-msgid "Fstab"
-msgstr ""
-
-#: plugins/fstab/resources/js/controllers/index.controller.es:13
-msgid "Device successfully unmounted!"
-msgstr ""
-
-#: plugins/fstab/resources/js/controllers/index.controller.es:31
-msgid "Fstab successfully saved!"
-msgstr ""
-
-#: plugins/fstab/resources/js/controllers/index.controller.es:56
+#: plugins/hosts/resources/js/controllers/index.controller.es:57
 msgid "Do you really want to permanently delete this entry?"
 msgstr ""
 
-#: plugins/fstab/resources/js/controllers/index.controller.es:57
+#: plugins/hosts/resources/js/controllers/index.controller.es:58
 msgid "Delete"
 msgstr ""
 
