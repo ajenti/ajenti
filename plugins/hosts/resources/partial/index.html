@@ -1,0 +1,80 @@
+<br/>
+
+<div>
+    <table class="table">
+        <tr>
+            <th translate>Name</th>
+            <th translate>Address</th>
+            <th translate>Aliases</th>
+            <th translate> </th>
+            <th translate> </th>
+        </tr>
+        <tr ng:repeat="host in hosts">
+            <td>{{host.name}}</td>
+            <td>{{host.address}}</td>
+            <td>
+                <span ng:repeat="alias in host.aliases"> {{alias.name}} </span>
+            </td>
+            <td class="list-group">
+                <button class="btn btn-default" ng:click="edit(host)">
+                    <i class="fas fa-pen"></i>
+                </button>
+            </td>
+            <td>
+                <button class="btn btn-default" ng:click="remove(host)">
+                    <i class="fa fa-remove"></i>
+                </button>
+            </td>
+        </tr>
+    </table>
+
+    <button class="btn btn-default" ng:click="add()" translate>Add</button>
+
+    <dialog ng:show="showDetails">
+        <div class="modal-header">
+            <h4 ng:show="!$parent.add_new"><span translate>Modify</span> {{$parent.edit_host.name}}</h4>
+            <h4 ng:show="$parent.add_new"><span translate>Add new host</span></h4>
+        </div>
+        <div class="modal-body">
+            <form class="form-group" ng:submit="save()">
+                <table class="table">
+                    <tr>
+                        <td>
+                            <span translate>Name: </span>
+                        </td>
+                        <td>
+                            <input class="form-control" type="text" ng:model="$parent.edit_host.name">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span translate>Address: </span>
+                        </td>
+                        <td>
+                            <input class="form-control" type="text" ng:model="$parent.edit_host.address">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span translate>Aliases: </span>
+                            <br />
+                            <a class="btn btn-default" ng:click="add_alias($parent.edit_host)">
+                                <i class="fas fa-plus"></i>
+                            </a>
+                        </td>
+                        <td>
+                            <div ng:repeat="alias in $parent.edit_host.aliases">
+                                <input class="form-control" type="text" ng:model="alias.name">
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="reset" ng:click="reset()" class="btn btn-default btn-flat pull-right" translate>Cancel</button>
+            <button type="submit" ng:click="save()" class="btn btn-default btn-flat pull-right" ng:show="!$parent.add_new" translate>Save</button>
+            <button type="submit" ng:click="saveNew()" class="btn btn-default btn-flat pull-right" ng:show="$parent.add_new" translate>Save</button>
+        </div>
+    </dialog>
+</div>
