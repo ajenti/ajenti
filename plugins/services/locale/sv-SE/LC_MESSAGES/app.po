@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-27 12:11+0200\n"
-"PO-Revision-Date: 2020-10-03 10:06\n"
+"PO-Revision-Date: 2020-10-25 10:22\n"
 "Last-Translator: \n"
 "Language-Team: Swedish\n"
 "Language: sv_SE\n"
@@ -19,32 +19,32 @@ msgstr ""
 
 #: plugins/services/resources/partial/index.html:2
 msgid "Filter services"
-msgstr ""
+msgstr "Filtrera tjänster"
 
 #: plugins/services/resources/partial/widget.config.html:3
 msgid "Manager"
-msgstr ""
+msgstr "Hanterare"
 
 #: plugins/services/resources/partial/widget.config.html:7
 #: plugins/services/widget.py:9
 msgid "Service"
-msgstr ""
+msgstr "Tjänst"
 
 #: plugins/services/main.py:26
 #: plugins/services/resources/js/controllers/index.controller.es:2
 msgid "Services"
-msgstr ""
+msgstr "Tjänster"
 
 #: plugins/services/main.py:39
 msgid "Manage system services"
-msgstr ""
+msgstr "Hantera systemtjänster"
 
 #: plugins/services/resources/js/controllers/widget.controller.es:14
 #: plugins/services/resources/js/controllers/index.controller.es:27
 msgid "Service operation failed"
-msgstr ""
+msgstr "Åtgärden misslyckades"
 
 #: plugins/services/resources/js/controllers/index.controller.es:24
 msgid "Done"
-msgstr ""
+msgstr "Klar"
 
