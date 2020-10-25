@@ -1,6 +1,7 @@
 # core
 cookies
 distro
+greenlet==0.4.16
 gevent==1.3.7
 gevent-socketio-hartwork>=0.3.6
 gevent-websocket
