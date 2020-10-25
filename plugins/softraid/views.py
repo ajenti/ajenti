@@ -1,9 +1,9 @@
 from jadi import component
 
 from aj.api.http import url, HttpPlugin
-from aj.auth import authorize
+# from aj.auth import authorize
 from aj.api.endpoint import endpoint, EndpointError
-from aj.plugins.softraid.softraid import *
+from aj.plugins.softraid.softraid import RAIDManager
 
 @component(HttpPlugin)
 class Handler(HttpPlugin):
@@ -11,7 +11,7 @@ class Handler(HttpPlugin):
         self.context = context
 
     @url(r'/api/softraid')
-    #@authorize('softraid:show')
+    # @authorize('softraid:show')
     @endpoint(api=True)
     def handle_api_get_softraid(self, http_context):
 
@@ -19,6 +19,6 @@ class Handler(HttpPlugin):
             try:
                 raid = RAIDManager()
                 return raid.arrays
-            except Exception as e:
+            except:
                 return []
 

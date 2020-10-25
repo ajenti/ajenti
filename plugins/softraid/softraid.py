@@ -12,10 +12,14 @@ class RAIDArray():
     def __init__(self):
         self.name = ''
         self.type = ''
+        self.state = ''
+        self.active = ''
         self.blocks = 0
         self.chunk = 0
+        self.size = 0
         self.superblock = ''
         self.devices = []
+        self.devices_down = 0
         self.recovery = False
         self.recovery_progress = 0
         self.recovery_remaining = ''
@@ -27,7 +31,8 @@ class RAIDManager():
 
     def refresh(self):
         self.arrays = []
-        ll = open('/proc/mdstat').read().splitlines()
+        with open('/proc/mdstat') as f:
+            ll = f.read().splitlines()
         while ll:
             l = ll.pop(0)
             if l.startswith('Personalities'):
@@ -61,7 +66,7 @@ class RAIDManager():
 
                 self.arrays.append(array.__dict__)
 
-                for i, device_str in enumerate(devices):
+                for device_str in devices:
                     device = RAIDDevice()
                     device.name = device_str.split('[')[0]
                     device.index = int(device_str.split('[')[1].split(']')[0])
