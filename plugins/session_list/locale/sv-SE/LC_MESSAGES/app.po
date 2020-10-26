@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-23 10:30+0200\n"
-"PO-Revision-Date: 2020-10-03 10:06\n"
+"PO-Revision-Date: 2020-10-25 10:22\n"
 "Last-Translator: \n"
 "Language-Team: Swedish\n"
 "Language: sv_SE\n"
@@ -19,33 +19,33 @@ msgstr ""
 
 #: plugins/session_list/resources/partial/widget.html:3
 msgid "Authenticated users"
-msgstr ""
+msgstr "Autentiserade användare"
 
 #: plugins/session_list/resources/partial/index.html:9
 msgid "IP"
-msgstr ""
+msgstr "IP"
 
 #: plugins/session_list/resources/partial/index.html:10
 msgid "Logged in"
-msgstr ""
+msgstr "Inloggad"
 
 #: plugins/session_list/resources/partial/index.html:11
 msgid "Timeout"
-msgstr ""
+msgstr "Timeout"
 
 #: plugins/session_list/resources/partial/index.html:8
 msgid "User <span class=\"badge\">{{number}}</span>"
-msgstr ""
+msgstr "Användare <span class=\"badge\">{{number}}</span>"
 
 #: plugins/session_list/widget.py:8
 msgid "Sessions"
-msgstr ""
+msgstr "Sessioner"
 
 #: plugins/session_list/main.py:17
 msgid "Session list"
-msgstr ""
+msgstr "Session lista"
 
 #: plugins/session_list/resources/js/controllers/index.controller.coffee:2
 msgid "List all sessions"
-msgstr ""
+msgstr "Visa alla sessioner"
 
