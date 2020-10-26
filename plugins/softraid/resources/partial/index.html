@@ -1,7 +1,7 @@
 <br/>
 
 <div>
-    <div class="alert alert-info" ng:show="raid.length == 0" translate>No array detected !</div>
+    <div class="alert alert-info" ng:show="raid.length == 0" translate>No array detected!</div>
     <table class="table" ng:show="raid.length > 0">
         <tr>
             <th translate>Name</th>
@@ -16,14 +16,14 @@
                 {{raid_array.name}}
                 <br />
                 <div class="text-danger" ng:show="raid_array.devices_down">
-                    <span translate>Devices down: </span>{{raid_array.devices_down}}
+                    <span translate>Devices down: </span> {{raid_array.devices_down}}
                 </div>
                 <div class="text-success" ng:show="raid_array.recovery">
-                    <span translate>Progress :  </span>{{raid_array.recovery_progress}} %
+                    <span translate>Progress: </span> {{raid_array.recovery_progress}}%
                     <br />
-                    <span translate>Remaining :  </span>{{raid_array.recovery_remaining}}
+                    <span translate>Remaining: </span> {{raid_array.recovery_remaining}}
                     <br />
-                    <span translate>Speed :  </span>{{raid_array.recovery_speed}}
+                    <span translate>Speed: </span> {{raid_array.recovery_speed}}
                 </div>
             </td>
             <td>{{raid_array.state}}</td>
@@ -31,9 +31,9 @@
             <td>
                 <div ng:repeat="device in raid_array.devices">
                     <div style="display:inline-block; width:15px;margin-right:10px;">
-                        <i class="fas fa-check text-success" ng:show="device.up"></i>
-                        <i class="fas fa-times text-danger" ng:show="device.failed"></i>
-                        <i class="far fa-star text-primary" style="width:15px;" ng:show="device.spared"></i>
+                        <i class="fas fa-fw fa-check text-success" ng:show="device.up"></i>
+                        <i class="fas fa-fw fa-times text-danger" ng:show="device.failed"></i>
+                        <i class="far fa-fw fa-star text-primary" style="width:15px;" ng:show="device.spared"></i>
                     </div>
                     <span>{{device.name}}</span>
                 </div>
@@ -48,7 +48,7 @@
                     <span translate>Superblock: </span>{{raid_array.superblock}}
                 </div>
                 <div ng:show="raid_array.chunk">
-                    <span translate>Chunk :</span>{{raid_array.chunk}}
+                    <span translate>Chunk: </span>{{raid_array.chunk}}
                 </div>
             </td>
         </tr>
