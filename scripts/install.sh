@@ -110,6 +110,7 @@ After=network.target
 Type=forking
 PIDFile=/var/run/ajenti.pid
 ExecStart=$PYTHON3 $PANEL -d
+ExecStartPost=/bin/sleep 5
 
 [Install]
 WantedBy=multi-user.target
