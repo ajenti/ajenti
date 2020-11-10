@@ -1,4 +1,15 @@
-Ajenti 2.1.36 - Dev
+Ajenti 2.1.37 - Dev
+
+- Fix requirement problem with greenlet,
+- Fix install in CentOS 8,
+- Fix PID error with systemd,
+- Some Python3 fixs,
+- Add refresh with click on sidebar entry,
+- Add fstab plugin,
+- Add host plugin,
+- Add softraid plugin.
+
+Ajenti 2.1.36 - 25/06/2020
 
 - Remove six module,
 - Add session list plugin,
