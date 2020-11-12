@@ -22,17 +22,9 @@ rundevlogin:
 runprod:
 	cd ajenti-panel && ./ajenti-panel --plugins ../plugins $(CONFIGFILE)
 
-run3:
-	cd ajenti-panel && python3 ./ajenti-panel -v --autologin --plugins ../plugins $(CONFIGFILE)
+rund:
+	cd ajenti-panel && ./ajenti-panel --plugins ../plugins -d $(CONFIGFILE)
 
-rundev3:
-	cd ajenti-panel && python3 ./ajenti-panel -v --autologin --plugins ../plugins --dev $(CONFIGFILE)
-
-rundevlogin3:
-	cd ajenti-panel && python3 ./ajenti-panel -v --plugins ../plugins --dev $(CONFIGFILE)
-
-runprod3:
-	cd ajenti-panel && python3 ./ajenti-panel --plugins ../plugins $(CONFIGFILE)
 
 clean:
 	find | grep \.pyc | xargs rm || true
