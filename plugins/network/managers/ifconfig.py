@@ -15,7 +15,7 @@ def ifconfig_get_ip(iface):
 def ifconfig_get_up(iface):
     if subprocess.call(['ifconfig', iface]) != 0:
         return False
-    return 'UP' in subprocess.check_output(['ifconfig', iface])
+    return b'UP' in subprocess.check_output(['ifconfig', iface])
 
 
 def ifconfig_up(iface):
