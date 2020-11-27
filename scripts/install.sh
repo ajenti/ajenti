@@ -6,6 +6,7 @@ fi
 
 DISTRO=
 OS=
+PYTHON3=$(which python3)
 
 if grep 'Debian' /etc/issue > /dev/null 2>&1 ; then
     OS=debian
@@ -50,7 +51,7 @@ echo ":: Distro: $DISTRO"
 if [ "$OS" == "rhel" ] ; then
     echo ":: Installing prerequisites"
     dnf install -y epel-release
-    dnf install -y gcc python3-devel python3-pip python3-pillow python3-augeas python3-dbus openssl-devel chrony || exit 1
+    dnf install -y gcc python3-devel python3-pip python3-pillow python3-augeas python3-dbus openssl-devel chrony redhat-lsb-core || exit 1
 fi
 
 
@@ -67,14 +68,18 @@ fi
 
 
 echo ":: Upgrading PIP"
-rm /usr/lib/`which python3`/dist-packages/setuptools.egg-info || true # for debian 7
-`which python3` -m pip install -U pip wheel setuptools
-`which python3` -m pip uninstall -y gevent-socketio gevent-socketio-hartwork
+rm /usr/lib/$PYTHON3/dist-packages/setuptools.egg-info || true # for debian 7
+$PYTHON3 -m pip install -U pip wheel setuptools
+$PYTHON3 -m pip uninstall -y gevent-socketio gevent-socketio-hartwork
 
 echo ":: Installing Ajenti"
-`which python3` -m pip install ajenti-panel ajenti.plugin.core ajenti.plugin.dashboard ajenti.plugin.settings ajenti.plugin.plugins ajenti.plugin.notepad ajenti.plugin.terminal ajenti.plugin.filemanager ajenti.plugin.packages ajenti.plugin.services || exit 1
+$PYTHON3 -m pip install ajenti-panel ajenti.plugin.core ajenti.plugin.dashboard ajenti.plugin.settings ajenti.plugin.plugins ajenti.plugin.notepad ajenti.plugin.terminal ajenti.plugin.filemanager ajenti.plugin.packages ajenti.plugin.services || exit 1
 
 # ----------------
+
+# Ensure /usr/local/bin is in $PATH
+export PATH=$PATH:/usr/local/bin
+PANEL=$(which ajenti-panel)
 
 echo ":: Installing initscript"
 
@@ -90,7 +95,7 @@ respawn limit 10 5
 
 expect daemon
 
-exec $(which ajenti-panel) -d
+exec $PANEL -d
 EOF
     start ajenti
 
@@ -104,7 +109,8 @@ After=network.target
 [Service]
 Type=forking
 PIDFile=/var/run/ajenti.pid
-ExecStart=$(which python3) $(which ajenti-panel) -d
+ExecStart=$PYTHON3 $PANEL -d
+ExecStartPost=/bin/sleep 5
 
 [Install]
 WantedBy=multi-user.target
@@ -154,7 +160,6 @@ else
 fi
 
 NAME=Ajenti
-DAEMON=$(which ajenti-panel)
 PIDFILE=/var/run/ajenti.pid
 
 case "\$1" in
@@ -162,7 +167,7 @@ case "\$1" in
         echo "Starting \$NAME:"
         export LC_CTYPE=en_US.UTF8
 
-        if pidofproc -p \$PIDFILE \$DAEMON > /dev/null; then
+        if pidofproc -p \$PIDFILE \$PANEL > /dev/null; then
             log_failure "already running"
             exit 1
         fi
@@ -174,8 +179,8 @@ case "\$1" in
         ;;
     stop)
         echo "Stopping \$NAME:"
-        if pidofproc -p \$PIDFILE \$DAEMON > /dev/null; then
-            killproc -p \$PIDFILE \$DAEMON
+        if pidofproc -p \$PIDFILE \$PANEL > /dev/null; then
+            killproc -p \$PIDFILE \$PANEL
             /bin/rm -rf \$PIDFILE
             log_success "stopped"
         else
@@ -186,7 +191,7 @@ case "\$1" in
         \$0 stop && sleep 2 && \$0 start
         ;;
     status)
-        if pidofproc -p \$PIDFILE \$DAEMON > /dev/null; then
+        if pidofproc -p \$PIDFILE \$PANEL > /dev/null; then
             log_success "\$NAME is running"
         else
             log_success "\$NAME is not running"

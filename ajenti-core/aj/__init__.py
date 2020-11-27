@@ -148,6 +148,9 @@ def detect_platform_string():
         return subprocess.check_output(['lsb_release', '-sd']).strip().decode()
     except subprocess.CalledProcessError as e:
         return subprocess.check_output(['uname', '-mrs']).strip().decode()
+    except FileNotFoundError:
+        logging.warning('Please install lsb_release to detect the platform!')
+        return subprocess.check_output(['uname', '-mrs']).strip().decode()
 
 
 def init():

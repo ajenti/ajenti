@@ -38,7 +38,7 @@ class ResourcesHandler(HttpPlugin):
                 for plugin in self.mgr:
                     path = self.mgr.get_content_path(plugin, 'resources/build/all.%s' % type)
                     if os.path.exists(path):
-                        file_content = open(path).read()
+                        file_content = open(path, encoding="utf-8").read()
                         if type == 'js':
                             file_content = self.__wrap_js(path, file_content)
                         content += file_content
