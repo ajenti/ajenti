@@ -1,6 +1,7 @@
 import daemon
 import logging
 import traceback
+from datetime import datetime
 
 import aj
 import aj.log
@@ -47,19 +48,19 @@ def start(daemonize=False, log_level=logging.INFO, dev_mode=False, **kwargs):
 
 def handle_crash(exc):
     # todo rework this
+    now = datetime.now().strftime('%Y-%m-%d-%Hh%M')
     logging.error('Fatal crash occured')
     traceback.print_exc()
     exc.traceback = traceback.format_exc()
-    report_path = '/root/%s-crash.txt' % aj.product
+    report_path = '/var/log/ajenti/crash-%s.txt' % now
     try:
         report = open(report_path, 'w')
     except Exception as e:
-        report_path = './%s-crash.txt' % aj.product
+        report_path = './crash-%s.txt' % now
         report = open(report_path, 'w')
 
     from aj.util import make_report
     report.write(make_report(exc))
     report.close()
     logging.error('Crash report written to %s', report_path)
-    # TODO message
-    # logging.error('Please submit it to https://github.com/ajenti/ajenti/issues/new')
+    logging.error('Please submit it to https://github.com/ajenti/ajenti/issues/new')
