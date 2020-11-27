@@ -1,4 +1,6 @@
-Ajenti 2.1.37 - Dev
+Ajenti 2.1.38 - Dev
+
+Ajenti 2.1.37 - 11/2020
 
 - Fix requirement problem with greenlet,
 - Fix install in CentOS 8,

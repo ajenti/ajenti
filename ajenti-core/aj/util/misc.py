@@ -68,10 +68,10 @@ psutil | %s
             """ % (
             version,
             platform, platform_unmapped, platform_string,
-            subprocess.check_output(['uname', '-mp']).strip(),
+            subprocess.check_output(['uname', '-m']).strip().decode(),
             '.'.join(str(x) for x in _platform.python_version_tuple()),
             debug,
-            ', '.join(sorted(PluginManager.get(aj.context).get_loaded_plugins_list())),
+            ', '.join(sorted(PluginManager.get(aj.context).get_loaded_plugins_list())) if aj.context else 'None',
 
             gevent.__version__,
             greenlet.__version__,
