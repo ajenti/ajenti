@@ -53,11 +53,14 @@ check:
 	ajenti-dev-multitool --find-outdated
 
 upload:
+	rm ajenti-core/dist/* ajenti-panel/dist/* || true
 	cd ajenti-core && ./setup.py sdist && twine upload dist/*.tar.gz -i "Ajenti Packagers" -s
 	cd ajenti-panel && ./setup.py sdist && twine upload dist/*.tar.gz -i "Ajenti Packagers" -s
 
 upload-plugins: build
-	ajenti-dev-multitool --setuppy 'sdist upload --sign --identity "Ajenti Packagers"'
+	rm plugins/dist/* || true
+	ajenti-dev-multitool --setuppy 'sdist'
+	twine upload plugins/*/dist/*.tar.gz -i "Ajenti Packagers" -s --skip-existing
 
 test:
 	cd e2e && ./run
