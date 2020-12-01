@@ -17,7 +17,7 @@ config_path = '%s/config.yml' % etcdir
 config = yaml.load(open(config_path), Loader=yaml.Loader)
 
 if not config['ssl']['enable']:
-    print 'SSL is not enabled in config.yml'
+    print('SSL is not enabled in config.yml')
     sys.exit(2)
 
 cn = '%s@%s' % (username, socket.gethostname())
