@@ -6,7 +6,7 @@ import yaml
 from OpenSSL.crypto import dump_certificate, dump_privatekey, FILETYPE_PEM, PKey, TYPE_RSA, X509
 
 if len(sys.argv) < 2:
-    print 'Usage: ajenti-ssl-gen <hostname> [-f]'
+    print('Usage: ajenti-ssl-gen <hostname> [-f]')
     sys.exit(1)
 
 host = sys.argv[1]
@@ -18,7 +18,7 @@ config = yaml.load(open(config_path), Loader=yaml.Loader)
 
 if len(sys.argv) == 2:
     if config['ssl']['certificate']:
-        print ':: SSL is already configured'
+        print(':: SSL is already configured')
         sys.exit(1)
 
 key = PKey()
