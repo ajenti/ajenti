@@ -23,10 +23,10 @@ class UsersAuthenticationProvider(AuthenticationProvider):
         """
         :rtype: str
         """
-        password = password.encode('utf-8')
+        password = password.decode('utf-8')
         if not salt:
             salt = self.get_salt()
-        return scrypt.encrypt(salt, password, maxtime=1).encode('hex')
+        return scrypt.encrypt(salt, password, maxtime=1).hex()
 
     def authenticate(self, username, password):
         self.context.worker.reload_master_config()
