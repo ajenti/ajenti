@@ -11,6 +11,7 @@ Installing
     * Ubuntu Bionic or later
     * CentOS 8 or later
     * RHEL 8 or later
+    * blackPanther OS v18.1 or later
 
     Other Linux-based systems *might* work, but you'll have to use manual installation method.
 
@@ -25,6 +26,10 @@ Automatic Installation
 
 Manual Installation
 ===================
+
+Automatic dependencies for: blackPanther OS > v18.1
+----------------------------------
+    installing ajenti
 
 Native dependencies: Debian/Ubuntu
 ----------------------------------

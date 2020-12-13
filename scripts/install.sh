@@ -33,6 +33,11 @@ if grep 'CentOS' /etc/os-release > /dev/null 2>&1 ; then
     DISTRO=centos
 fi
 
+if grep 'blackPanther' /etc/os-release > /dev/null 2>&1 ; then
+    OS=blackPanther
+    DISTRO=$(lsb_release -sc)
+fi
+
 if grep 'Red' /etc/issue > /dev/null 2>&1 ; then
     OS=rhel
     DISTRO=rhel
@@ -54,6 +59,11 @@ if [ "$OS" == "rhel" ] ; then
     dnf install -y gcc python3-devel python3-pip python3-pillow python3-augeas python3-dbus openssl-devel chrony redhat-lsb-core || exit 1
 fi
 
+if [ "$OS" == "blackPanther" ] ; then
+    echo ":: Dependencies Info for development:"
+    echo "   updating repos"
+    echo "   installing --auto gcc python3-devel python3-pip python3-pillow python3-augeas python3-dbus openssl-devel"
+fi
 
 if [ "$DISTRO" == "ubuntu" ] ; then
     echo ":: Enabling universe repository"
@@ -66,7 +76,7 @@ if [ "$OS" == "debian" ] ; then
     DEBIAN_FRONTEND='noninteractive' apt-get install -y build-essential python3-pip python3-dev python3-lxml python3-dbus python3-augeas libssl-dev python3-apt ntpdate || exit 1
 fi
 
-
+if [ "$OS" != "blackPanther" ];then
 echo ":: Upgrading PIP"
 rm /usr/lib/$PYTHON3/dist-packages/setuptools.egg-info || true # for debian 7
 $PYTHON3 -m pip install -U pip wheel setuptools
@@ -74,13 +84,21 @@ $PYTHON3 -m pip uninstall -y gevent-socketio gevent-socketio-hartwork
 
 echo ":: Installing Ajenti"
 $PYTHON3 -m pip install ajenti-panel ajenti.plugin.core ajenti.plugin.dashboard ajenti.plugin.settings ajenti.plugin.plugins ajenti.plugin.notepad ajenti.plugin.terminal ajenti.plugin.filemanager ajenti.plugin.packages ajenti.plugin.services || exit 1
-
 # ----------------
 
 # Ensure /usr/local/bin is in $PATH
 export PATH=$PATH:/usr/local/bin
+else
+echo ":: Update repositories"
+updating repos
+echo ":: Installing Ajenti"
+# autoinstall and configure for blackPanther OS
+installing --auto ajenti
+
+fi
 PANEL=$(which ajenti-panel)
 
+if [ "$OS" != "blackPanther" ];then
 echo ":: Installing initscript"
 
 if [ -e /etc/init ] && which start ; then # Upstart
@@ -207,8 +225,8 @@ EOF
         chmod +x $INITSCRIPT
         $INITSCRIPT start
     fi
+  fi
 fi
-
 echo ':: Complete'
 echo
 echo 'Ajenti will be listening at HTTP port 8000'
