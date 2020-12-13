@@ -74,6 +74,7 @@ def detect_python():
 
 def detect_platform():
     base_mapping = {
+        'blackpanther': 'rhel',
         'gentoo base system': 'gentoo',
         'centos linux': 'centos',
         'mandriva linux': 'mandriva',
