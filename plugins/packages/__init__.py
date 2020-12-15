@@ -10,6 +10,11 @@ except ImportError:
     pass
 
 try:
+    from .managers.dnf_manager import *
+except ImportError:
+    pass
+
+try:
     from .managers.yum_manager import *
 except ImportError:
     pass
