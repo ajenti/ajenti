@@ -27,8 +27,12 @@ class DNFPackageManager(PackageManager):
         self.dnf = dnf.Base()
         self.dnf.read_all_repos()
         self.dnf.fill_sack()
+        q = self.dnf.sack.query()
+        self.installed_packages = q.installed()
+        self.available_packages = q.available()
+        self.available_packages = self.available_packages.union(self.installed_packages)
 
-    def __make_package(self, pkg, pkg_is_installed, available_packages):
+    def __make_package(self, pkg, pkg_is_installed=False):
 
         p = Package(self)
         p.id = '%s.%s' % (pkg.name, pkg.arch)
@@ -45,7 +49,7 @@ class DNFPackageManager(PackageManager):
 
         if p.is_installed:
 
-            for apkg in (available_packages.filter(name=pkg.name) or [None]):
+            for apkg in (self.available_packages.filter(name=pkg.name) or [None]):
                 apgk_version = ""
         
                 if apkg:
@@ -60,23 +64,16 @@ class DNFPackageManager(PackageManager):
         return p
 
     def list(self, query=None):
-        print (" ::: 1")
-        time.sleep(1)
-        q = self.dnf.sack.query()
-        installed_packages = q.installed()
-        a = q.available()
-        a = a.union(installed_packages)
-        w = [str(x) for x in installed_packages]
-        for pkg in a:
-            pkg_is_installed = False
-            if pkg.installed :
-                pkg_is_installed = True
+        print (" ::: 1", query)
+#        time.sleep(1)
+        w = [str(x) for x in self.installed_packages]
+        for pkg in self.available_packages.filter(name__substr=query):
             if pkg.installed or str(pkg) not in w:
-                yield self.__make_package(pkg, pkg_is_installed, a)
+                yield self.__make_package(pkg, pkg.installed)
 
     def get_package(self, _id):
-        pkg = (self.dnf.sack.query().available().filter(names=[_id]) or [None])[0]
-        print ('GET', _id, 'PK',pkg)
+        pkg = (self.available_packages.filter(names=[_id]) or [None])[0]
+#        print ('GET', _id, 'PK',pkg)
         return self.__make_package(pkg)
 
     def update_lists(self, progress_callback):
