@@ -75,6 +75,11 @@ class HttpPlugin():
         :returns: reponse data
         """
 
+        try:
+            http_context.path = http_context.path.encode("latin1").decode("utf-8")
+        except:
+            pass        
+        
         for name, method in self.__class__.__dict__.items():
             if hasattr(method, 'url_pattern'):
                 method = getattr(self, name)
