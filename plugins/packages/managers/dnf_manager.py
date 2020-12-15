@@ -64,10 +64,10 @@ class DNFPackageManager(PackageManager):
         return p
 
     def list(self, query=None):
-        print (" ::: 1")
+        print (" ::: 1", query)
 #        time.sleep(1)
         w = [str(x) for x in self.installed_packages]
-        for pkg in self.available_packages:
+        for pkg in self.available_packages.filter(name__substr=query):
             if pkg.installed or str(pkg) not in w:
                 yield self.__make_package(pkg, pkg.installed)
 
