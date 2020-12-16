@@ -59,7 +59,10 @@ class Handler(HttpPlugin):
 
         conf_data = aj.config.data.copy()
         for user in list(conf_data["auth"]["users"]):
-            del conf_data["auth"]["users"][user]["password"]
+            try:
+                del conf_data["auth"]["users"][user]["password"]
+            except:
+                pass
    
         content = open(path).read() % {
             'prefix': http_context.prefix,
