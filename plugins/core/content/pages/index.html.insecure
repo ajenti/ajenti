@@ -178,13 +178,13 @@
         </div>
 
         <script>
-            angular.module('core').constant('urlPrefix', '');
-            angular.module('core').constant('ajentiPlugins', '');
-            angular.module('core').constant('initialConfigContent', '');
-            angular.module('core').constant('ajentiPlatform', '');
-            angular.module('core').constant('ajentiPlatformUnmapped', '');
-            angular.module('core').constant('ajentiVersion', '');
-            angular.module('core').constant('ajentiBootstrapColor', '');
+            angular.module('core').constant('urlPrefix', '%(prefix)s');
+            angular.module('core').constant('ajentiPlugins', %(plugins)s);
+            angular.module('core').constant('initialConfigContent', %(config)s);
+            angular.module('core').constant('ajentiPlatform', '%(platform)s');
+            angular.module('core').constant('ajentiPlatformUnmapped', '%(platformUnmapped)s');
+            angular.module('core').constant('ajentiVersion', '%(version)s');
+            angular.module('core').constant('ajentiBootstrapColor', '%(bootstrapColor)s');
 
             angular.element(document).ready(ajentiBootstrap);
         </script>
