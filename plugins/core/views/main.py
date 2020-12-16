@@ -56,12 +56,17 @@ class Handler(HttpPlugin):
 
         manager = PluginManager.get(aj.context)
         path = manager.get_content_path('core', 'content/pages/index.html')
+
+        conf_data = aj.config.data.copy()
+        for user in list(conf_data["auth"]["users"]):
+            del conf_data["auth"]["users"][user]["password"]
+   
         content = open(path).read() % {
             'prefix': http_context.prefix,
             'plugins': json.dumps(
                 {manager[n]['info']['name']:manager[n]['info']['title'] for n in manager}
             ),
-            'config': json.dumps(aj.config.data),
+            'config': json.dumps(conf_data),
             'version': str(aj.version),
             'platform': aj.platform,
             'platformUnmapped': aj.platform_unmapped,
