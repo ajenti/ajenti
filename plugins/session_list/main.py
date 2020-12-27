@@ -16,7 +16,7 @@ class ItemProvider(SidebarItemProvider):
                 'id': 'session_list',
                 'name': _('Session list'),
                 'icon': 'fas fa-network-wired',
-                'url': '/view/session_list/',
+                'url': '/view/session_list',
                 'children': [],
             }
         ]
