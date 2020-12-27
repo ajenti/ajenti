@@ -61,6 +61,9 @@ def endpoint(page=False, api=False, auth=True):
     def decorator(fx):
         @wraps(fx)
         def wrapper(self, context, *args, **kwargs):
+            fx.api = api
+            fx.auth = auth
+            fx.page = page
             if auth and not self.context.identity:
                 context.respond(401)
                 return ''
