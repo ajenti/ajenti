@@ -1,3 +1,7 @@
+"""
+This module handles server and client certificates for ajenti.
+"""
+
 import json
 import random
 import socket
@@ -18,6 +22,16 @@ class Handler(HttpPlugin):
     @url(r'/api/settings/generate-client-certificate')
     @endpoint(api=True)
     def handle_api_generate_client_certificate(self, http_context):
+        """
+        Generate new client certificate based on settings informations.
+        Method POST.
+
+        :param http_context: HttpContext
+        :type http_context: HttpContext
+        :return: Certificates informations (serial, digest, ...)
+        :rtype: dict
+        """
+
         data = json.loads(http_context.body.decode())
 
         key = PKey()
@@ -51,6 +65,15 @@ class Handler(HttpPlugin):
     @url(r'/api/settings/generate-server-certificate')
     @endpoint(api=True)
     def handle_api_generate_server_certificate(self, http_context):
+        """
+        Generate a new server certificate for a SSL connection to ajenti server.
+
+        :param http_context: HttpContext
+        :type http_context: HttpContext
+        :return: Certificate path commonly /etc/ajenti/ajenti.pem
+        :rtype: dict
+        """
+
         etc_dir = '/etc/ajenti'
         certificate_path = '%s/ajenti.pem' % etc_dir
 
@@ -78,6 +101,16 @@ class Handler(HttpPlugin):
     @url(r'/api/settings/test-certificate/')
     @endpoint(api=True)
     def handle_test_certificate(self, http_context):
+        """
+        Try to load the specified certificate in order to test if it is valid
+        or not.
+
+        :param http_context: HttpContext
+        :type http_context: HttpContext
+        :return: Certificate path, commonly in /etc/ajenti
+        :rtype: dict
+        """
+
         if http_context.method == 'POST':
             data = http_context.json_body()
             certificate_path = data['certificate']
