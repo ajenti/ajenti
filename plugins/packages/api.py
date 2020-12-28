@@ -2,6 +2,10 @@ from jadi import interface
 
 
 class Package():
+    """
+    Basic container class for package informations.
+    """
+
     def __init__(self, manager):
         self.manager = manager
         self.id = None
@@ -15,6 +19,11 @@ class Package():
 
 @interface
 class PackageManager():
+    """
+    Abstract interface for all managers. Managers are defined in the
+    directory managers.
+    """
+
     id = None
     name = None
     update_command = None

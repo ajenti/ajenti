@@ -1,3 +1,7 @@
+"""
+Tools to handle files, directories and uploads.
+"""
+
 import errno
 import grp
 import json

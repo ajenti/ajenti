@@ -6,6 +6,10 @@ from aj.plugins.packages.api import PackageManager, Package
 
 @component(PackageManager)
 class YUMPackageManager(PackageManager):
+    """
+    Manager to handle rpm packages.
+    """
+
     id = 'yum'
     name = 'YUM'
 
@@ -23,6 +27,15 @@ class YUMPackageManager(PackageManager):
         self.yum.doGenericSetup(cache=1)
 
     def __make_package(self, pkg):
+        """
+        Convert yum package object in package object.
+
+        :param apt_package: Yum package object from apt module
+        :type apt_package: Yum package object from apt module
+        :return: Package object
+        :rtype: Package object
+        """
+
         pkg_installed = (self.yum.rpmdb.searchNames(names=[pkg.name]) or [None])[0]
         p = Package(self)
         p.id = '%s.%s' % (pkg.name, pkg.arch)
@@ -36,14 +49,39 @@ class YUMPackageManager(PackageManager):
         return p
 
     def list(self, query=None):
+        """
+        Generator for all packages.
+
+        :param query: Search string
+        :type query: string
+        :return: Package object
+        :rtype:Package object
+        """
+
         for pkg in self.yum.pkgSack.returnPackages():
             yield self.__make_package(pkg)
 
     def get_package(self, _id):
+        """
+        Get package informations.
+
+        :param _id: Package name
+        :type _id: string
+        :return: Package object
+        :rtype: Package object
+        """
+
         pkg = (self.yum.searchNames(names=[_id]) or [None])[0]
         return self.__make_package(pkg)
 
     def update_lists(self, progress_callback):
+        """
+        Refresh list of packages.
+
+        :param progress_callback: Callback function to follow progress
+        :type progress_callback: function
+        """
+
         class Progress():
             def __init__(self):
                 self.size = 0
@@ -71,6 +109,15 @@ class YUMPackageManager(PackageManager):
         y.repos.populateSack()
 
     def get_apply_cmd(self, selection):
+        """
+        Prepare command to apply.
+
+        :param selection: Dict of packages an actions
+        :type selection: dict
+        :return: Command for terminal use
+        :rtype: string
+        """
+
         to_install = [
             sel['package']['id']
             for sel in selection
