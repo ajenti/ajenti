@@ -21,12 +21,32 @@ class Handler(HttpPlugin):
     @authorize('filesystem:read')
     @endpoint(api=True)
     def handle_api_fs_mountpoints(self, http_context):
+        """
+        List all mountpoints.
+
+        :param http_context: HttpContext
+        :type http_context: HttpContext
+        :return: List of partitions
+        :rtype: list of strings
+        """
+
         return [x.mountpoint for x in psutil.disk_partitions()]
 
     @url(r'/api/filesystem/read/(?P<path>.+)')
     @authorize('filesystem:read')
     @endpoint(api=True)
     def handle_api_fs_read(self, http_context, path=None):
+        """
+        Return the content of a file on the filesystem.
+
+        :param http_context: HttpContext
+        :type http_context: HttpContext
+        :param path: Path of the file
+        :type path: string
+        :return: Content of the file
+        :rtype: string
+        """
+
         if not os.path.exists(path):
             http_context.respond_not_found()
             return 'File not found'
@@ -45,6 +65,16 @@ class Handler(HttpPlugin):
     @authorize('filesystem:write')
     @endpoint(api=True)
     def handle_api_fs_write(self, http_context, path=None):
+        """
+        Write content (method post) to a specific file given with path.
+        Method POST.
+
+        :param http_context: HttpContext
+        :type http_context: HttpContext
+        :param path: Path of the file
+        :type path: string
+        """
+
         try:
             content = http_context.body
             if http_context.query:
@@ -60,6 +90,15 @@ class Handler(HttpPlugin):
     @authorize('filesystem:write')
     @endpoint(page=True)
     def handle_api_fs_upload_chunk(self, http_context):
+        """
+        Write a chunk part of an upload in /tmp/upload*/<index>.
+        If method get is called, verify if the chunk part is present.
+        Method GET.
+
+        :param http_context: HttpContext
+        :type http_context: HttpContext
+        """
+
         id = http_context.query['flowIdentifier']
         chunk_index = http_context.query['flowChunkNumber']
         chunk_dir = '/tmp/upload-%s' % id
@@ -84,6 +123,16 @@ class Handler(HttpPlugin):
     @authorize('filesystem:write')
     @endpoint(api=True)
     def handle_api_fs_finish_upload(self, http_context):
+        """
+        Build all chunk parts from an uploaded file together and return it.
+        Clean the tmp directory.
+
+        :param http_context: HttpContext
+        :type http_context: HttpContext
+        :return: Path of file
+        :rtype: string
+        """
+
         name = http_context.json_body()['name']
         path = http_context.json_body()['path']
         id = http_context.json_body()['id']
@@ -101,6 +150,18 @@ class Handler(HttpPlugin):
     @authorize('filesystem:read')
     @endpoint(api=True)
     def handle_api_fs_list(self, http_context, path=None):
+        """
+        Return a list of objects (files, directories, ...) in a specific
+        directory, and their informations.
+
+        :param http_context: HttpContext
+        :type http_context: HttpContext
+        :param path: Directory path
+        :type path: string
+        :return: All items with informations
+        :rtype: dict
+        """
+
         if not os.path.exists(path):
             raise EndpointReturn(404)
         try:
@@ -143,6 +204,17 @@ class Handler(HttpPlugin):
     @authorize('filesystem:read')
     @endpoint(api=True)
     def handle_api_fs_stat(self, http_context, path=None):
+        """
+        Get all informations from a specific path.
+
+        :param http_context: HttpContext
+        :type http_context: HttpContext
+        :param path: Path of file/directory
+        :type path: string
+        :return: POSIX permissions, size, type, ...
+        :rtype: dict
+        """
+
         if not os.path.exists(path):
             raise EndpointReturn(404)
         data = {
@@ -186,6 +258,15 @@ class Handler(HttpPlugin):
     @authorize('filesystem:write')
     @endpoint(api=True)
     def handle_api_fs_chmod(self, http_context, path=None):
+        """
+        Change mode for a specific file.
+
+        :param http_context: HttpContext
+        :type http_context: HttpContext
+        :param path: Path of file
+        :type path: string
+        """
+
         if not os.path.exists(path):
             raise EndpointReturn(404)
         data = json.loads(http_context.body.decode())
@@ -198,6 +279,15 @@ class Handler(HttpPlugin):
     @authorize('filesystem:write')
     @endpoint(api=True)
     def handle_api_fs_create_file(self, http_context, path=None):
+        """
+        Create empty file on specified path.
+
+        :param http_context: HttpContext
+        :type http_context: HttpContext
+        :param path: Path of file
+        :type path: string
+        """
+
         try:
             os.mknod(path, int('644', 8))
         except OSError as e:
@@ -207,6 +297,15 @@ class Handler(HttpPlugin):
     @authorize('filesystem:write')
     @endpoint(api=True)
     def handle_api_fs_create_directory(self, http_context, path=None):
+        """
+        Create empty directory on specified path.
+
+        :param http_context: HttpContext
+        :type http_context: HttpContext
+        :param path: Path of directory
+        :type path: string
+        """
+
         try:
             os.makedirs(path)
         except OSError as e:
