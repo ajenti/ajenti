@@ -1,4 +1,8 @@
 class RAIDDevice():
+    """
+    Basic class to store raid devices details.
+    """
+
     def __init__(self):
         self.name = ''
         self.up = False
@@ -9,6 +13,10 @@ class RAIDDevice():
 
 
 class RAIDArray():
+    """
+    Basic class to store raid arrays details.
+    """
+
     def __init__(self):
         self.name = ''
         self.type = ''
@@ -26,10 +34,19 @@ class RAIDArray():
         self.recovery_speed = ''
 
 class RAIDManager():
+    """
+    Global object to parse raid arrays and devices from /proc/mdstat.
+    """
+
     def __init__(self):
         self.refresh()
 
     def refresh(self):
+        """
+        Update the self.arrays list of arrays through parsing the /proc/mdstat
+        file, and store RAIDArray and RAIDdevices objects.
+        """
+
         self.arrays = []
         with open('/proc/mdstat') as f:
             ll = f.read().splitlines()
