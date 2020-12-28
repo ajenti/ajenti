@@ -1,3 +1,8 @@
+"""
+Utility wrapper module for augeas : create endpoints and set the environment to
+facilitate the use of augeas.
+"""
+
 import json
 from jadi import component
 
@@ -13,6 +18,15 @@ class Handler(HttpPlugin):
         self.context = context
 
     def __get_augeas_endpoint(self, id):
+        """
+        Select the right endpoint in the augeas endpoint interface.
+
+        :param id: Augeas endpoint id
+        :type id: string
+        :return: AugeasEndpoint object
+        :rtype: AugeasEndpoint
+        """
+
         for a in AugeasEndpoint.all(self.context):
             if a.id == id:
                 return a
@@ -20,6 +34,17 @@ class Handler(HttpPlugin):
     @url(r'/api/augeas/endpoint/get/(?P<id>.+)')
     @endpoint(api=True)
     def handle_api_get(self, http_context, id=None):
+        """
+        Get file content and informations through augeas endpoint.
+
+        :param http_context: HttpContext
+        :type http_context: HttpContext
+        :param id: Id of augeas endpoint, e.g. hosts
+        :type id: string
+        :return: Data and file informations
+        :rtype: dict
+        """
+
         ep = self.__get_augeas_endpoint(id)
         if not ep:
             raise EndpointReturn(404)
@@ -47,6 +72,16 @@ class Handler(HttpPlugin):
     @url(r'/api/augeas/endpoint/set/(?P<id>.+)')
     @endpoint(api=True)
     def handle_api_set(self, http_context, id=None):
+        """
+        Save the data to config file using augeas endpoint.
+        Method POST.
+
+        :param http_context: HttpContext
+        :type http_context: HttpContext
+        :param id: Augeas endpoint id, e.g. hosts
+        :type id: string
+        """
+
         data = json.loads(http_context.body.decode())
 
         ep = self.__get_augeas_endpoint(id)
