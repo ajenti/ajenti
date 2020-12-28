@@ -2,6 +2,10 @@ from jadi import interface
 
 
 class Service():
+    """
+    Basic class to store service informations.
+    """
+
     def __init__(self, manager):
         self.id = None
         self.name = None
@@ -11,6 +15,10 @@ class Service():
 
 
 class ServiceOperationError(Exception):
+    """
+    Exception class for services.
+    """
+
     def __init__(self, inner):
         self.inner = inner
 
@@ -20,6 +28,10 @@ class ServiceOperationError(Exception):
 
 @interface
 class ServiceManager():
+    """
+    Abstract interface for all managers.
+    """
+
     id = None
     name = None
 
