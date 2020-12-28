@@ -1,3 +1,4 @@
-# Ajenti plugin template
+# Hosts plugin
 
-This is the plugin template used by ajenti-dev-multitool
+Manage the content of the file /etc/hosts.
+
