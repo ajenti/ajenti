@@ -1,3 +1,7 @@
+"""
+User authentication provider based on the ajenti config file and permissions management.
+"""
+
 from jadi import component
 
 import aj
@@ -16,6 +20,16 @@ class Handler(HttpPlugin):
     @url(r'/api/auth-users/set-password/(?P<username>.+)')
     @endpoint(api=True)
     def handle_api_set_password(self, http_context, username):
+        """
+        Set user password in ajenti config file.
+        Method POST.
+
+        :param http_context: HttpContext
+        :type http_context: HttpContext
+        :param username: Username
+        :type username: string
+        """
+
         password = http_context.body
         self.context.worker.reload_master_config()
         aj.config.data.setdefault('auth', {}).setdefault('users', {}).setdefault(username, {})['password'] = self.manager.hash_password(password)
