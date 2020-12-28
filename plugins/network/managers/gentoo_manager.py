@@ -15,12 +15,26 @@ class GentooNetworkManager(NetworkManager):
 
     @classmethod
     def __verify__(cls):
+        """
+        Verify if this manager is relevant.
+
+        :return: bool
+        :rtype: bool
+        """
+
         return aj.platform in ['gentoo']
 
     def __init__(self, context):
         NetworkManager.__init__(self, context)
 
     def get_augeas(self):
+        """
+        Read the content of interfaces config files through augeas.
+
+        :return: Augeas object
+        :rtype: augeas
+        """
+
         aug = Augeas(modules=[{
             'name': 'Shellvars',
             'lens': 'Shellvars.lns',
@@ -32,6 +46,13 @@ class GentooNetworkManager(NetworkManager):
         return aug
 
     def get_config(self):
+        """
+        Parse the content of interfaces config files through augeas.
+
+        :return: List of iface informations, one iface per dict
+        :rtype: list of dict
+        """
+
         ifaces = []
         aug = self.get_augeas()
         for key in aug.match('%s/*' % self.aug_path):
@@ -66,6 +87,13 @@ class GentooNetworkManager(NetworkManager):
         return ifaces
 
     def set_config(self, config):
+        """
+        Set the new config in the config file through augeas.
+
+        :param config: List of iface informations, one dict per iface
+        :type config: list of dict
+        """
+
         aug = self.get_augeas()
         for iface in config:
             if iface['addressing'] == 'dhcp':
@@ -88,23 +116,60 @@ class GentooNetworkManager(NetworkManager):
         aug.save()
 
     def get_state(self, iface):
+        """
+        Get ip and status for an iface.
+
+        :param iface: Network interface, e.g. eth0
+        :type iface: string
+        :return: Ip and status
+        :rtype: dict
+        """
+
         return {
             'address': ifconfig_get_ip(iface),
             'up': ifconfig_get_up(iface),
         }
 
     def up(self, iface):
+        """
+        Bring an iface up.
+
+        :param iface: Network interface, e.g. eth0
+        :type iface: string
+        """
+
         subprocess.call(['/etc/init.d/net.%s' % iface, 'restart'])
         subprocess.call(['rc-update', 'add', 'net.%s' % iface, 'default'])
 
     def down(self, iface):
+        """
+        Bring an iface down.
+
+        :param iface: Network interface, e.g. eth0
+        :type iface: string
+        """
+
         subprocess.call(['/etc/init.d/net.%s' % iface, 'stop'])
         subprocess.call(['rc-update', 'delete', 'net.%s' % iface, 'default'])
 
     def get_hostname(self):
+        """
+        Get hostname value.
+
+        :return: Hostname
+        :rtype: string
+        """
+
         return subprocess.check_output('hostname', encoding='utf-8')
 
     def set_hostname(self, value):
+        """
+        Write new hostname in /etc/hostname.
+
+        :param value: Hostname name
+        :type value: string
+        """
+
         with open('/etc/hostname', 'w') as f:
             f.write(value)
         subprocess.check_call(['hostname', value])
