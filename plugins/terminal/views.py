@@ -1,3 +1,7 @@
+"""
+Module to generate virtual shell terminals and interact with the server.
+"""
+
 from PIL import Image, ImageDraw
 
 from io import BytesIO
@@ -21,6 +25,16 @@ class Handler(HttpPlugin):
     @authorize('terminal:scripts')
     @endpoint(api=True)
     def handle_script(self, http_context):
+        """
+        Run a script on the server and return the output.
+        Method POST.
+
+        :param http_context: HttpContext
+        :type http_context: HttpContext
+        :return: Return codes (output, errors) from shell
+        :rtype: dict
+        """
+
         data = http_context.json_body()
         try:
             p = subprocess.Popen(
@@ -43,6 +57,17 @@ class Handler(HttpPlugin):
     @url('/api/terminal/is_dead/(?P<terminal_id>.+)')
     @endpoint(api=True)
     def handle_test_dead(self, http_context, terminal_id=None):
+        """
+        Test if a terminal is still open.
+
+        :param http_context: HttpContext
+        :type http_context: HttpContext
+        :param terminal_id: Terminal id
+        :type terminal_id: hex
+        :return: Alive or not
+        :rtype: bool
+        """
+
         if terminal_id in self.mgr:
             return self.mgr[terminal_id].dead
         return True
@@ -50,18 +75,48 @@ class Handler(HttpPlugin):
     @url('/api/terminal/list')
     @endpoint(api=True)
     def handle_list(self, http_context):
+        """
+        Return the list of opened terminals.
+
+        :param http_context: HttpContext
+        :type http_context: HttpContext
+        :return: List of terminals ids
+        :rtype: list of hex
+        """
+
         return self.mgr.list()
 
     @url('/api/terminal/create')
     @authorize('terminal:open')
     @endpoint(api=True)
     def handle_create(self, http_context):
+        """
+        Launch a new virtual terminal with given options.
+        Method POST.
+
+        :param http_context: HttpContext
+        :type http_context: HttpContext
+        :return: Id of the new terminal
+        :rtype: hex
+        """
+
         options = http_context.json_body()
         return self.mgr.create(**options)
 
     @url(r'/api/terminal/kill/(?P<terminal_id>.+)')
     @endpoint(api=True)
     def handle_kill(self, http_context, terminal_id=None):
+        """
+        Kill a specified terminal.
+
+        :param http_context: HttpContext
+        :type http_context: HttpContext
+        :param terminal_id: Id of the terminal
+        :type terminal_id: hex
+        :return: Url to redirect
+        :rtype: string
+        """
+
         if terminal_id in self.mgr:
             redirect = self.mgr[terminal_id].redirect
             self.mgr.kill(terminal_id)
@@ -71,6 +126,17 @@ class Handler(HttpPlugin):
     @url(r'/api/terminal/full/(?P<terminal_id>.+)')
     @endpoint(api=True)
     def handle_full(self, http_context, terminal_id=None):
+        """
+        Launch a full reload of the terminal.
+
+        :param http_context: HttpContext
+        :type http_context: HttpContext
+        :param terminal_id: Id of the terminal
+        :type terminal_id: hex
+        :return: Terminal content
+        :rtype: dict
+        """
+
         if terminal_id in self.mgr:
             return self.mgr[terminal_id].format(full=True)
         else:
@@ -91,6 +157,17 @@ class Handler(HttpPlugin):
     @url(r'/api/terminal/preview/(?P<terminal_id>.+)')
     @endpoint(page=True)
     def handle_preview(self, http_context, terminal_id):
+        """
+        Generate a thumbnail as png for a opened terminal.
+
+        :param http_context: HttpContext
+        :type http_context: HttpContext
+        :param terminal_id: Id of the terminal
+        :type terminal_id: hex
+        :return: PNG image
+        :rtype: png
+        """
+
         terminal = self.mgr[terminal_id]
 
         img = Image.new('RGB', (terminal.width, terminal.height * 2))

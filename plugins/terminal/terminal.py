@@ -17,7 +17,28 @@ from aj.util import BroadcastQueue
 
 
 class Terminal():
+    """
+    Terminal emulator based on pyte.
+    """
+
     def __init__(self, manager=None, id=None, command=None, autoclose=False, autoclose_retain=5, redirect=None):
+        """
+        Setup the environment for a new terminal.
+
+        :param manager: TerminalManager object
+        :type manager: TerminalManager
+        :param id: Id fo the terminal
+        :type id: hex
+        :param command: Command to run
+        :type command: string
+        :param autoclose: Parameter to close the terminal after the command
+        :type autoclose: bool
+        :param autoclose_retain: Time to wait before closing in seconds
+        :type autoclose_retain: integer
+        :param redirect: Default redirect URL after closing
+        :type redirect: string
+        """
+
         self.width = 80
         self.height = 25
         self.id = id
@@ -77,6 +98,10 @@ class Terminal():
         self.reader = gevent.spawn(self.reader_fn)
 
     def reader_fn(self):
+        """
+        Infinite reader of the file descriptor associated with the shell.
+        """
+
         while True:
             wait_read(self.fd)
             self.run_single_read()
@@ -85,6 +110,10 @@ class Terminal():
                 return
 
     def run_single_read(self):
+        """
+        Propagate the new data read in the file descriptor.
+        """
+
         try:
             data = self.stream_in.read()
         except IOError:
@@ -98,9 +127,17 @@ class Terminal():
                 pass
 
     def broadcast_update(self):
+        """
+        Send the new formated data to the broadcast queue.
+        """
+
         self.output.broadcast(self.format())
 
     def _check(self):
+        """
+        Check if a child process of the shell pid is available.
+        """
+
         try:
             pid, status = os.waitpid(self.pid, os.WNOHANG)
         except OSError:
@@ -110,6 +147,13 @@ class Terminal():
             self.on_died(code=status)
 
     def on_died(self, code=0):
+        """
+        Change terminal status to dead, broadcast new status and autoclose it.
+
+        :param code: Status code of the pid
+        :type code: integer
+        """
+
         if self.dead:
             return
 
@@ -136,11 +180,27 @@ class Terminal():
         """
 
     def has_updates(self):
+        """
+        Test if the user made some changes.
+
+        :return: Bool
+        :rtype: bool
+        """
+
         if self.last_cursor_position != (self.screen.cursor.x, self.screen.cursor.y):
             return True
         return len(self.screen.dirty) > 0
 
     def format(self, full=False):
+        """
+        Prepare the terminal content and attributes to send to the frontend.
+
+        :param full: To send the full buffer
+        :type full: bool
+        :return: Attributes and content of the terminal
+        :rtype: dict
+        """
+
         def compress(line):
             return [[tok or 0 for tok in ch] for _, ch in line.items()]
 
@@ -169,11 +229,27 @@ class Terminal():
         return r
 
     def feed(self, data):
+        """
+        Write input data into the file descriptor.
+
+        :param data: New data from the user
+        :type data: string
+        """
+
         wait_write(self.fd)
         self.stream_out.write(data.encode('utf-8'))
         self.stream_out.flush()
 
     def resize(self, w, h):
+        """
+        Resize terminal to new width and height.
+
+        :param w: Width
+        :type w: integer
+        :param h: Height
+        :type h: integer
+        """
+
         if self.dead:
             return
         if (h, w) == (self.screen.lines, self.screen.columns):
@@ -188,6 +264,10 @@ class Terminal():
         fcntl.ioctl(self.fd, termios.TIOCSWINSZ, winsize)
 
     def kill(self):
+        """
+        Kill this terminal through killing the process associated with the pid.
+        """
+
         self.reader.kill(block=False)
 
         logging.info('Killing subprocess PID %s', self.pid)
