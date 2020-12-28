@@ -6,10 +6,23 @@ from jadi import service
 
 @service
 class PowerManager():
+    """
+    Utility class for power management.
+    """
+
     def __init__(self, context):
         self.context = context
 
     def __parse_acpi_value(self, v):
+        """
+        Extract the right energy value.
+
+        :param v: Energy value with unit, e.g. 10 wh
+        :type v: string
+        :return: Only the value
+        :rtype: float
+        """
+
         value, unit = v.split()
         value = float(value)
         if unit.startswith('m'):
@@ -17,6 +30,13 @@ class PowerManager():
         return value
 
     def get_batteries(self):
+        """
+        Parse directory /proc/acpi/battery for systems running on battery.
+
+        :return: All batteries informations
+        :rtype: list of dict
+        """
+
         batteries = []
         battery_dir = '/proc/acpi/battery'
         if not os.path.exists(battery_dir):
@@ -46,6 +66,13 @@ class PowerManager():
         return batteries
 
     def get_adapters(self):
+        """
+        Read the list of adapters from /proc/acpi/ac_adapter.
+
+        :return: List of adapters, one per dict
+        :rtype: list of dict
+        """
+
         adapters = []
         adapter_dir = '/proc/acpi/ac_adapter'
         if not os.path.exists(adapter_dir):
@@ -65,13 +92,29 @@ class PowerManager():
         return adapters
 
     def poweroff(self):
+        """
+        Basically power off the system.
+        """
+
         subprocess.check_call(['poweroff'])
 
     def reboot(self):
+        """
+        Basically reboot the system.
+        """
+
         subprocess.check_call(['reboot'])
 
     def suspend(self):
+        """
+        Basically suspend the system.
+        """
+
         subprocess.check_call(['pm-suspend'])
 
     def hibernate(self):
+        """
+        Basically hibernate the system.
+        """
+
         subprocess.check_call(['pm-hibernate'])
