@@ -8,6 +8,10 @@ from aj.plugins.datetime.api import TZManager
 
 @component(TZManager)
 class DebianTZManager(TZManager):
+    """
+    Time zone manager for debian, ubuntu and gentoo.
+    """
+
     @classmethod
     def __verify__(cls):
         return aj.platform in ['debian', 'gentoo']
