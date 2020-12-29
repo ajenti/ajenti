@@ -138,5 +138,11 @@ Platforms
    ref/aj.plugins.core.api.sidebar
    ref/aj.plugins.core.api.tasks
    ref/aj.plugins.augeas.api
+   ref/aj.plugins.auth-users.api
    ref/aj.plugins.dashboard.api
+   ref/aj.plugins.check_certificates.api
+   ref/aj.plugins.datetime.api
+   ref/aj.plugins.network.api
+   ref/aj.plugins.packages.api
+   ref/aj.plugins.power.api
    ref/aj.plugins.services.api
