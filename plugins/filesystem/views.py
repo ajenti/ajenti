@@ -130,25 +130,32 @@ class Handler(HttpPlugin):
         """
         Build all chunk parts from an uploaded file together and return it.
         Clean the tmp directory.
+        Method POST.
 
         :param http_context: HttpContext
         :type http_context: HttpContext
-        :return: Path of file
-        :rtype: string
+        :return: Path of files
+        :rtype: list of string
         """
 
-        name = http_context.json_body()['name']
-        path = http_context.json_body()['path']
-        id = http_context.json_body()['id']
-        chunk_dir = '/tmp/upload-%s' % id
+        # files should be a list of dict
+        files = http_context.json_body()
+        targets = []
 
-        target = os.path.join(path, name.replace('/', ''))
-        with open(target, 'wb') as f:
-            for i in range(len(os.listdir(chunk_dir))):
-                f.write(open(os.path.join(chunk_dir, str(i + 1)), 'rb').read())
+        for file in files:
+            name = file['name']
+            path = file['path']
+            id = file['id']
+            chunk_dir = '/tmp/upload-%s' % id
 
-        shutil.rmtree(chunk_dir)
-        return target
+            target = os.path.join(path, name.replace('/', ''))
+            with open(target, 'wb') as f:
+                for i in range(len(os.listdir(chunk_dir))):
+                    f.write(open(os.path.join(chunk_dir, str(i + 1)), 'rb').read())
+
+            shutil.rmtree(chunk_dir)
+            targets.append(target)
+        return targets
 
     @url(r'/api/filesystem/list/(?P<path>.+)')
     @authorize('filesystem:read')
