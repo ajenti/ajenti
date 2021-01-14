@@ -4,6 +4,10 @@ from aj.plugins.core.api.sidebar import SidebarItemProvider
 
 @service
 class Navbox():
+    """
+    Object to handle search queries through navbox.
+    """
+
     def __init__(self, context):
         self.context = context
 

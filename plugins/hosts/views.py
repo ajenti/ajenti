@@ -1,3 +1,7 @@
+"""
+Module to handle the /etc/hosts file with the help of the reconfigure module.
+"""
+
 from jadi import component
 import subprocess
 import os
@@ -16,6 +20,17 @@ class Handler(HttpPlugin):
     @url(r'/api/hosts')
     @endpoint(api=True)
     def handle_api_hosts(self, http_context):
+        """
+        Load (through get) or save ( through post) the hosts file, and always
+        make a backup before saving.
+        Method GET.
+        Method POST.
+
+        :param http_context: HttpContext
+        :type http_context: HttpContext
+        :return: File content in load mode, success or error in save mode
+        :rtype: dict in load mode, bool or throw error in save mode
+        """
 
         if http_context.method == 'GET':
             self.hosts_config = HostsConfig(path='/etc/hosts')

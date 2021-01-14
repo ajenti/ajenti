@@ -8,6 +8,10 @@ from aj.plugins.datetime.api import TZManager
 
 @component(TZManager)
 class CentOSTZManager(TZManager):
+    """
+    Time zone manager for CentOS.
+    """
+
     @classmethod
     def __verify__(cls):
         return aj.platform in ['centos']

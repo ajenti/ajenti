@@ -3,6 +3,10 @@ from jadi import interface
 
 @interface
 class NetworkManager():
+    """
+    Abstract interface to manage all network managers.
+    """
+
     def __init__(self, context):
         self.context = context
 

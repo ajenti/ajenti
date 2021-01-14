@@ -59,6 +59,10 @@ def endpoint(page=False, api=False, auth=True):
     :type  api: bool
     """
     def decorator(fx):
+        fx.api = api
+        fx.auth = auth
+        fx.page = page
+
         @wraps(fx)
         def wrapper(self, context, *args, **kwargs):
             if auth and not self.context.identity:

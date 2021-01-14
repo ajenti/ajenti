@@ -7,7 +7,17 @@ from OpenSSL import crypto
 now = datetime.now()
 
 def CertLimitSSL(hostname, port):
-    """Return standard SSL cert from hostname:port"""
+    """
+    Get the SSL certificate from a host.
+
+    :param hostname: Hostname
+    :type hostname: string
+    :param port: Port
+    :type port: integer
+    :return: OpenSSL cert
+    :rtype: OpenSSL cert
+    """
+
     ctx = ssl.create_default_context()
     s = ctx.wrap_socket(socket.socket(), server_hostname=hostname)
     s.connect((hostname, port))
@@ -16,7 +26,15 @@ def CertLimitSSL(hostname, port):
     return cert
 
 def CertLimitSTARTTLS(hostname):
-    """Return SSL cert from STARTTLS connection at hostname:587"""
+    """
+    Get the SSL certificate from host with STARTTLS connection on port 587.
+
+    :param hostname: Hostname
+    :type hostname: string
+    :return: OpenSSL cert
+    :rtype: OpenSSL cert
+    """
+
     connection = smtplib.SMTP()
     connection.connect(hostname,587)
     connection.starttls()
@@ -25,6 +43,21 @@ def CertLimitSTARTTLS(hostname):
     return cert
 
 def checkOnDom(hostname, port='443'):
+    """
+    Store all details from a certificate into a dict and add a status attribute
+    to display a bootstrap class for the time remaining before renew :
+    - renew the next 7 days : danger
+    - renew the next 14 days: warning
+    - renew the next 28 days : info
+    - or success
+
+    :param hostname: Hostname
+    :type hostname: string
+    :param port: Port to test, default 443
+    :type port: string
+    :return: Dict with all details from the certificate
+    :rtype: dict
+    """
 
     port = int(port)
     certDetails = {

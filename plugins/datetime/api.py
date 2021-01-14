@@ -4,6 +4,11 @@ from jadi import interface
 
 @interface
 class TZManager():
+    """
+    Abstract interface class for time zone management.
+    All subclasses are stored in the directory managers.
+    """
+
     def __init__(self, context):
         self.context = context
 

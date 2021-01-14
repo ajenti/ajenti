@@ -19,6 +19,17 @@ class Handler(HttpPlugin):
     @url(r'/api/core/config')
     @endpoint(api=True)
     def handle_api_config(self, http_context):
+        """
+        Load (method get) and save (method post) the ajenti config file.
+        Method GET.
+        Method POST.
+
+        :param http_context: HttpContext
+        :type http_context: HttpContext
+        :return: Content of the ajenti config file
+        :rtype: dict
+        """
+
         if os.getuid() != 0:
             raise EndpointReturn(403)
         if http_context.method == 'GET':
@@ -36,6 +47,17 @@ class Handler(HttpPlugin):
     @url(r'/api/core/user-config')
     @endpoint(api=True)
     def handle_api_user_config(self, http_context):
+        """
+        Load (method get) and save (method post) the user config file.
+        Method GET.
+        Method POST.
+
+        :param http_context: HttpContext
+        :type http_context: HttpContext
+        :return: Content of the ajenti config file
+        :rtype: dict
+        """
+
         if http_context.method == 'GET':
             return UserConfigService.get(self.context).get_provider().data
         if http_context.method == 'POST':
@@ -47,6 +69,15 @@ class Handler(HttpPlugin):
     @url(r'/api/core/authentication-providers')
     @endpoint(api=True)
     def handle_api_auth_providers(self, http_context):
+        """
+        Load all authentication methods.
+
+        :param http_context: HttpContext
+        :type http_context: HttpContext
+        :return: List of authenticator, one per dict
+        :rtype: list of dict
+        """
+
         r = []
         for p in AuthenticationProvider.all(self.context):
             r.append({
@@ -58,6 +89,15 @@ class Handler(HttpPlugin):
     @url(r'/api/core/permissions')
     @endpoint(api=True)
     def handle_api_permissions(self, http_context):
+        """
+        Load all permissions ( api and sidebar ).
+
+        :param http_context: HttpContext
+        :type http_context: HttpContext
+        :return: List of permissions
+        :rtype: List of dict
+        """
+
         r = []
         for p in PermissionProvider.all(self.context):
             r += p.provide()

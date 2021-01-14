@@ -17,6 +17,17 @@ class ResourcesHandler(HttpPlugin):
         self.mgr = PluginManager.get(aj.context)
 
     def __wrap_js(self, name, js):
+        """
+        Wrap the content with exception handler.
+
+        :param name: File path
+        :type name: string
+        :param js: Content of the resource
+        :type js: string
+        :return: Wrapped content
+        :rtype: string
+        """
+
         return '''
             try {
                 %s
@@ -30,6 +41,17 @@ class ResourcesHandler(HttpPlugin):
     @url(r'/resources/all\.(?P<type>.+)')
     @endpoint(page=True, auth=False)
     def handle_build(self, http_context, type=None):
+        """
+        Deliver all extern resources for the current page.
+
+        :param http_context: HttpContext
+        :type http_context: HttpContext
+        :param type: File extension, e.g. css, js ...
+        :type type: string
+        :return: Compressed content with gzip
+        :rtype: gzip
+        """
+
         if self.use_cache and type in self.cache:
             content = self.cache[type]
         else:
@@ -106,6 +128,19 @@ class ResourcesHandler(HttpPlugin):
     @url(r'/resources/(?P<plugin>\w+)/(?P<path>.+)')
     @endpoint(page=True, auth=False)
     def handle_file(self, http_context, plugin=None, path=None):
+        """
+        Connector to get a specific file from plugin.
+
+        :param http_context: HttpContext
+        :type http_context: HttpContext
+        :param plugin: Plugin name
+        :type plugin: string
+        :param path: Path of the file
+        :type path: string
+        :return: Compressed content of the file
+        :rtype: gzip
+        """
+
         if '..' in path:
             return http_context.respond_not_found()
         return http_context.file(PluginManager.get(aj.context).get_content_path(plugin, path))

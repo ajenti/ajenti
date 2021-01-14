@@ -1,3 +1,7 @@
+"""
+Module to handle an user crontab file.
+"""
+
 from jadi import component
 
 from aj.api.http import url, HttpPlugin
@@ -13,6 +17,16 @@ class Handler(HttpPlugin):
     @url(r'/api/get_crontab')
     @endpoint(api=True)
     def handle_api_get_crontab(self, http_context):
+        """
+        Get the cron content through ConManager and store it in a dict.
+        Method GET.
+
+        :param http_context: HttpContext
+        :type http_context: HttpContext
+        :return: Cron jobs
+        :rtype: dict
+        """
+
         if http_context.method == 'GET':
             user = self.context.identity
             crontab = CronManager.get(self.context).load_tab(user)
@@ -21,6 +35,16 @@ class Handler(HttpPlugin):
     @url(r'/api/save_crontab')
     @endpoint(api=True)
     def handle_api_save_crontab(self, http_context):
+        """
+        Store cron data from frontend in a cron file through CronManager.
+        Method POST.
+
+        :param http_context: HttpContext
+        :type http_context: HttpContext
+        :return: True if successfull
+        :rtype: bool
+        """
+
         if http_context.method == 'POST':
             def setTask(obj, values):
                 for k,v in values.items():

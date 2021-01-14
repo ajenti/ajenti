@@ -1,3 +1,3 @@
-# Ajenti plugin template
+# Fstab plugin 
 
-This is the plugin template used by ajenti-dev-multitool
+Manipulate the fstab file and show mounted devices.

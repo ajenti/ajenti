@@ -21,6 +21,15 @@ class Handler(HttpPlugin):
     @url('/')
     @endpoint(page=True, auth=False)
     def handle_root(self, http_context):
+        """
+        Root url and redirect to login if user has no session.
+
+        :param http_context: HttpContext
+        :type http_context: HttpContext
+        :return: Empty string
+        :rtype: string
+        """
+
         if self.context.identity:
             return http_context.redirect('/view/')
         else:
@@ -29,6 +38,17 @@ class Handler(HttpPlugin):
     @url('/view/.*')
     @endpoint(page=True, auth=False)
     def handle_view(self, http_context):
+        """
+        Catch all for all not handled url. Generate an appropriate page and reload all
+        extern resources if ajenti is used in dev mode.
+        This function is also called when a page is refreshed through F5.
+
+        :param http_context: HttpContext
+        :type http_context: HttpContext
+        :return: Page content
+        :rtype: string
+        """
+
         if aj.dev:
             restricted_user = aj.config.data['restricted_user']
             if os.getuid() != pwd.getpwnam(restricted_user).pw_uid:

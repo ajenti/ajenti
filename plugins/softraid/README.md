@@ -1,3 +1,4 @@
-# Ajenti plugin template
+# Softraid plugin
 
-This is the plugin template used by ajenti-dev-multitool
+Read and parse the content of /proc/mdstat in order to show the details on the frontend.
+

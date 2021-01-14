@@ -4,6 +4,7 @@ angular.module('ajenti.filemanager').controller('FileManagerIndexController', fu
     $scope.newDirectoryDialogVisible = false;
     $scope.newFileDialogVisible = false;
     $scope.clipboardVisible = false;
+    $scope.uploadDialogVisible = false;
 
     $scope.load = (path) => {
         $scope.loading = true;
@@ -145,14 +146,14 @@ angular.module('ajenti.filemanager').controller('FileManagerIndexController', fu
     };
 
     $scope.onUploadBegin = async ($flow) => {
-        msg = messagebox.show({progress: true})
+        $scope.uploadDialogVisible = true;
         filesystem.startFlowUpload($flow, $scope.path).then(() => {
             notify.success(gettext('Uploaded'))
             $scope.refresh()
-            msg.close()
+            $scope.uploadDialogVisible = false;
         }, null, (progress) => {
           console.log(progress)
-            msg.messagebox.title = `Uploading: ${Math.floor(100 * progress)}%`
+            $scope.uploadProgress = progress.sort((a,b) => {a.name > b.name});
         })
     }
 

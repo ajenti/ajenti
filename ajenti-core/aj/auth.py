@@ -4,6 +4,7 @@ import pexpect
 import pwd
 import subprocess
 import syslog
+from functools import wraps
 from jadi import component, service, interface
 
 import aj
@@ -226,6 +227,8 @@ class authorize():
             raise SecurityError(self.permission_id)
 
     def __call__(self, fx):
+        fx.permission_id = self.permission_id
+        @wraps(fx)
         def wrapper(*args, **kwargs):
             self.check()
             return fx(*args, **kwargs)

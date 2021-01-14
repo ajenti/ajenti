@@ -1,3 +1,7 @@
+"""
+Module to parse the content of /proc/mdstat and show actual sotraid configuration.
+"""
+
 from jadi import component
 
 from aj.api.http import url, HttpPlugin
@@ -14,6 +18,15 @@ class Handler(HttpPlugin):
     # @authorize('softraid:show')
     @endpoint(api=True)
     def handle_api_get_softraid(self, http_context):
+        """
+        Connector to the manager in order to retrieve a list of arrays.
+        Method GET.
+
+        :param http_context: HttpContext
+        :type http_context: HttpContext
+        :return: List of arrays
+        :rtype: list
+        """
 
         if http_context.method == 'GET':
             try:

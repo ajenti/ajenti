@@ -1,3 +1,7 @@
+"""
+Module to handle the fstab file with the help of the reconfigure module.
+"""
+
 from jadi import component
 import subprocess
 import os
@@ -16,6 +20,15 @@ class Handler(HttpPlugin):
     @url(r'/api/get_mounted')
     @endpoint(api=True)
     def handle_api_mounted(self, http_context):
+        """
+        Parse the output of the df command to generate a dict of mount devices.
+        Method GET.
+
+        :param http_context: HttpContext
+        :type http_context: HttpContext
+        :return: Details of mounted devices
+        :rtype: dict
+        """
 
         if http_context.method == 'GET':
             filesystems = []
@@ -43,6 +56,15 @@ class Handler(HttpPlugin):
     @url(r'/api/umount')
     @endpoint(api=True)
     def handle_api_umount(self, http_context):
+        """
+        Umount some device.
+        Method POST.
+
+        :param http_context: HttpContext
+        :type http_context: HttpContext
+        :return: Success or not
+        :rtype: bool or throw error
+        """
 
         if http_context.method == 'POST':
             mountpoint = http_context.json_body()['mountpoint']
@@ -55,6 +77,17 @@ class Handler(HttpPlugin):
     @url(r'/api/fstab')
     @endpoint(api=True)
     def handle_api_fstab(self, http_context):
+        """
+        Load (through get) and write (through post) the fstab file.
+        Make a backup when save a new fstab file.
+        Method GET.
+        Method POST.
+
+        :param http_context: HttpContext
+        :type http_context: HttpContext
+        :return: Fstab as dict in load mode, success or not in save mode
+        :rtype: dict in load mode, bool or throw error in save mode
+        """
 
         if http_context.method == 'GET':
             self.fstab_config = FSTabConfig(path='/etc/fstab')

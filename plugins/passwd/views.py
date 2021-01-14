@@ -1,3 +1,7 @@
+"""
+Handle user and passwords stored in /etc/shadow.
+"""
+
 import pwd
 import subprocess
 
@@ -15,6 +19,15 @@ class Handler(HttpPlugin):
     @url(r'/api/passwd/list')
     @endpoint(api=True)
     def handle_api_passwd_list(self, http_context):
+        """
+        Provide a dict of user from the /etc/shadow file.
+
+        :param http_context: HttpContext
+        :type http_context: HttpContext
+        :return: List of user, one per dict
+        :rtype:list of dict
+        """
+
         return [
             {
                 'uid': x.pw_uid,
@@ -30,6 +43,14 @@ class Handler(HttpPlugin):
     @url(r'/api/passwd/set')
     @endpoint(api=True)
     def handle_api_passwd_set(self, http_context):
+        """
+        Set new password for the selected user.
+        Method POST.
+
+        :param http_context: HttpContext
+        :type http_context: HttpContext
+        """
+
         data = http_context.json_body()
         p = subprocess.Popen(['chpasswd'], stdin=subprocess.PIPE)
         p.communicate('%s:%s' % (data['user'], data['password']))

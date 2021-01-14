@@ -117,4 +117,15 @@
             <a ng:click="hideClipboard()" class="btn btn-default btn-flat" test-bind="clipboardDialogCancel" translate>Close</a>
         </div>
     </dialog>
+    <dialog ng:show="uploadDialogVisible">
+        <div class="modal-header">
+            <h4 translate>Uploading ...</h4>
+        </div>
+        <div class="modal-body">
+            <div ng-repeat="f in uploadProgress">
+                <span>{{f.name}} ({{f.progress}} %) </span>
+                <smart-progress type="success" max="100" value="f.progress"></smart-progress>
+            </div>
+        </div>
+    </dialog>
 </div>

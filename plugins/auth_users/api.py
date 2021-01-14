@@ -9,6 +9,10 @@ from aj.auth import AuthenticationProvider
 
 @component(AuthenticationProvider)
 class UsersAuthenticationProvider(AuthenticationProvider):
+    """
+    Alternate authentication provider based on ajenti config file.
+    """
+
     id = 'users'
     name = _('Custom users')
 

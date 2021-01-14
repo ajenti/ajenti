@@ -1,3 +1,7 @@
+"""
+Manage a widget page and refresh all values automatically.
+"""
+
 import json
 from jadi import component
 
@@ -16,6 +20,15 @@ class Handler(HttpPlugin):
     @url(r'/api/dashboard/widgets')
     @endpoint(api=True)
     def handle_api_widgets(self, http_context):
+        """
+        Connector to get all available widgets values.
+
+        :param http_context: HttpContext
+        :type http_context: HttpContext
+        :return: Data widgets as dict in a list
+        :rtype: list of dict
+        """
+
         return [
             {
                 'id': w.id,
@@ -28,6 +41,16 @@ class Handler(HttpPlugin):
     @url(r'/api/dashboard/get-values')
     @endpoint(api=True)
     def handle_api_get_values(self, http_context):
+        """
+        Refresh data values for all widgets.
+        Method POST.
+
+        :param http_context: HttpContext
+        :type http_context: HttpContext
+        :return: List of values as dict
+        :rtype: list of dict
+        """
+
         data = http_context.json_body()
         return [
             {
