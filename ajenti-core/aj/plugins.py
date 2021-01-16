@@ -89,7 +89,10 @@ class PluginCrashed(PluginLoadError):
 
 
 @public
-class Dependency():
+class Dependency(yaml.YAMLObject):
+    yaml_loader = yaml.SafeLoader
+    yaml_tag = u'!Dependency'
+
     class Unsatisfied(PluginLoadError):
         def __init__(self):
             PluginLoadError.__init__(self, None)
@@ -122,6 +125,7 @@ class Dependency():
 @public
 class ModuleDependency(Dependency):
     description = 'Python module'
+    yaml_tag = u'!ModuleDependency'
 
     class Unsatisfied(Dependency.Unsatisfied):
         def reason(self):
@@ -146,6 +150,7 @@ class ModuleDependency(Dependency):
 @public
 class PluginDependency(Dependency):
     description = 'Plugin'
+    yaml_tag = u'!PluginDependency'
 
     class Unsatisfied(Dependency.Unsatisfied):
         def reason(self):
@@ -164,6 +169,7 @@ class PluginDependency(Dependency):
 @public
 class OptionalPluginDependency(Dependency):
     description = 'Plugin'
+    yaml_tag = u'!OptionalPluginDependency'
 
     class Unsatisfied(Dependency.Unsatisfied):
         def reason(self):
@@ -182,6 +188,7 @@ class OptionalPluginDependency(Dependency):
 @public
 class BinaryDependency(Dependency):
     description = 'Application binary'
+    yaml_tag = u'!BinaryDependency'
 
     class Unsatisfied(Dependency.Unsatisfied):
         def reason(self):
@@ -200,6 +207,7 @@ class BinaryDependency(Dependency):
 @public
 class FileDependency(Dependency):
     description = 'File'
+    yaml_tag = u'!FileDependency'
 
     class Unsatisfied(Dependency.Unsatisfied):
         def reason(self):
@@ -263,7 +271,7 @@ class PluginManager():
 
         self.__plugin_info = {}
         for path in found:
-            yml_info = yaml.load(open(os.path.join(path, 'plugin.yml')), Loader=yaml.Loader)
+            yml_info = yaml.load(open(os.path.join(path, 'plugin.yml')), Loader=yaml.SafeLoader)
             yml_info['resources'] = [
                 ({'path': x} if isinstance(x, str) else x)
                 for x in yml_info.get('resources', [])

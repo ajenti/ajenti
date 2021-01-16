@@ -7,7 +7,7 @@ title: 'fstab'
 icon: hdd
 
 dependencies:
-    - !!python/object:aj.plugins.PluginDependency {
+    - !PluginDependency {
         plugin_name: core
     }
 resources:

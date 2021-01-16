@@ -46,7 +46,7 @@ class UbuntuNetworkManager(NetworkManager):
         ifaces = []
         netplan_files = [join(self.path,f) for f in os.listdir(self.path) if isfile(join(self.path, f))]
         for path in netplan_files:
-            config = yaml.load(open(path), Loader=yaml.Loader)['network']['ethernets']
+            config = yaml.load(open(path), Loader=yaml.SafeLoader)['network']['ethernets']
             for key in config:
                 iface = {
                     'name': key,

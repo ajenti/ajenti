@@ -6,9 +6,9 @@ version: '0.38'
 title: 'Terminal'
 icon: terminal
 dependencies:
-    - !!python/object:aj.plugins.PluginDependency { plugin_name: core }
-    - !!python/object:aj.plugins.PluginDependency { plugin_name: ace }
-    - !!python/object:aj.plugins.OptionalPluginDependency { plugin_name: dashboard }
+    - !PluginDependency { plugin_name: core }
+    - !PluginDependency { plugin_name: ace }
+    - !OptionalPluginDependency { plugin_name: dashboard }
 resources:
     - 'resources/css/terminal.less'
     - 'resources/js/module.es'

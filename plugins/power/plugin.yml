@@ -6,8 +6,8 @@ version: '0.21'
 title: 'Power management'
 icon: bolt
 dependencies:
-    - !!python/object:aj.plugins.PluginDependency { plugin_name: core }
-    - !!python/object:aj.plugins.OptionalPluginDependency { plugin_name: dashboard }
+    - !PluginDependency { plugin_name: core }
+    - !OptionalPluginDependency { plugin_name: dashboard }
 resources:
     - 'resources/js/module.es'
     - 'resources/js/routing.es'

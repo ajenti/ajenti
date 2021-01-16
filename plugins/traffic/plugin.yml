@@ -6,8 +6,8 @@ version: '0.14'
 title: 'Traffic Widget'
 icon: exchange
 dependencies:
-    - !!python/object:aj.plugins.PluginDependency { plugin_name: core }
-    - !!python/object:aj.plugins.PluginDependency { plugin_name: dashboard }
+    - !PluginDependency { plugin_name: core }
+    - !PluginDependency { plugin_name: dashboard }
 resources:
     - 'resources/js/module.es'
     - 'resources/js/controllers/widget.controller.es'
