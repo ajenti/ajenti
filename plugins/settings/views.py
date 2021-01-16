@@ -6,6 +6,7 @@ import json
 import random
 import socket
 import OpenSSL.crypto
+import base64
 
 import aj
 from jadi import component
@@ -53,13 +54,15 @@ class Handler(HttpPlugin):
         pkcs = OpenSSL.crypto.PKCS12()
         pkcs.set_certificate(cert)
         pkcs.set_privatekey(key)
-        pkcs.set_friendlyname(data['cn'])
+        pkcs.set_friendlyname(bytes(data['cn'], encoding="utf-8"))
 
         return {
-            'digest': cert.digest('sha1'),
-            'name': ','.join('%s=%s' % x for x in cert.get_subject().get_components()),
+            'digest': cert.digest('sha1').decode('utf-8'),
+            'name': ','.join(b'='.join(x).decode('utf-8')
+                             for x in cert.get_subject().get_components()
+                             ),
             'serial': str(cert.get_serial_number()),
-            'b64certificate': pkcs.export().encode('base64'),
+            'b64certificate': base64.b64encode(pkcs.export()).decode('utf-8'),
         }
 
     @url(r'/api/settings/generate-server-certificate')
@@ -115,8 +118,8 @@ class Handler(HttpPlugin):
             data = http_context.json_body()
             certificate_path = data['certificate']
             try:
-                certificate = OpenSSL.crypto.load_certificate(OpenSSL.crypto.FILETYPE_PEM, open(certificate_path).read())
-                private_key = OpenSSL.crypto.load_privatekey(OpenSSL.crypto.FILETYPE_PEM, open(certificate_path).read())
+                OpenSSL.crypto.load_certificate(OpenSSL.crypto.FILETYPE_PEM, open(certificate_path).read())
+                OpenSSL.crypto.load_privatekey(OpenSSL.crypto.FILETYPE_PEM, open(certificate_path).read())
             except Exception as e:
                 raise EndpointError(None, message=str(e))    
                 
