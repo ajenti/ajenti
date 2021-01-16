@@ -5,7 +5,7 @@ This module handles server and client certificates for ajenti.
 import json
 import random
 import socket
-from OpenSSL.crypto import *
+import OpenSSL.crypto
 
 import aj
 from jadi import component
@@ -34,11 +34,11 @@ class Handler(HttpPlugin):
 
         data = json.loads(http_context.body.decode())
 
-        key = PKey()
-        key.generate_key(TYPE_RSA, 4096)
-        ca_key = load_privatekey(FILETYPE_PEM, open(aj.config.data['ssl']['certificate']).read())
-        ca_cert = load_certificate(FILETYPE_PEM, open(aj.config.data['ssl']['certificate']).read())
-        cert = X509()
+        key = OpenSSL.crypto.PKey()
+        key.generate_key(OpenSSL.crypto.TYPE_RSA, 4096)
+        ca_key = OpenSSL.crypto.load_privatekey(OpenSSL.crypto.FILETYPE_PEM, open(aj.config.data['ssl']['certificate']).read())
+        ca_cert = OpenSSL.crypto.load_certificate(OpenSSL.crypto.FILETYPE_PEM, open(aj.config.data['ssl']['certificate']).read())
+        cert = OpenSSL.crypto.X509()
         cert.get_subject().countryName = data['c']
         cert.get_subject().stateOrProvinceName = data['st']
         cert.get_subject().organizationName = data['o']
@@ -50,10 +50,10 @@ class Handler(HttpPlugin):
         cert.set_issuer(ca_cert.get_subject())
         cert.sign(ca_key, 'sha1')
 
-        pkcs = PKCS12()
+        pkcs = OpenSSL.crypto.PKCS12()
         pkcs.set_certificate(cert)
         pkcs.set_privatekey(key)
-        pkcs.set_friendlyname(str(data['cn']))
+        pkcs.set_friendlyname(data['cn'])
 
         return {
             'digest': cert.digest('sha1'),
@@ -77,9 +77,9 @@ class Handler(HttpPlugin):
         etc_dir = '/etc/ajenti'
         certificate_path = '%s/ajenti.pem' % etc_dir
 
-        key = PKey()
-        key.generate_key(TYPE_RSA, 4096)
-        cert = X509()
+        key = OpenSSL.crypto.PKey()
+        key.generate_key(OpenSSL.crypto.TYPE_RSA, 4096)
+        cert = OpenSSL.crypto.X509()
         cert.get_subject().countryName = 'NA'
         cert.get_subject().organizationName = socket.gethostname()
         cert.get_subject().commonName = 'ajenti'
@@ -91,8 +91,8 @@ class Handler(HttpPlugin):
         cert.sign(key, 'sha1')
 
         with open(certificate_path, 'wb') as f:
-            f.write(dump_privatekey(FILETYPE_PEM, key))
-            f.write(dump_certificate(FILETYPE_PEM, cert))
+            f.write(OpenSSL.crypto.dump_privatekey(OpenSSL.crypto.FILETYPE_PEM, key))
+            f.write(OpenSSL.crypto.dump_certificate(OpenSSL.crypto.FILETYPE_PEM, cert))
 
         return {
             'path': certificate_path,
@@ -115,8 +115,8 @@ class Handler(HttpPlugin):
             data = http_context.json_body()
             certificate_path = data['certificate']
             try:
-                certificate = load_certificate(FILETYPE_PEM, open(certificate_path).read())
-                private_key = load_privatekey(FILETYPE_PEM, open(certificate_path).read())
+                certificate = OpenSSL.crypto.load_certificate(OpenSSL.crypto.FILETYPE_PEM, open(certificate_path).read())
+                private_key = OpenSSL.crypto.load_privatekey(OpenSSL.crypto.FILETYPE_PEM, open(certificate_path).read())
             except Exception as e:
                 raise EndpointError(None, message=str(e))    
                 
