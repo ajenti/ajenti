@@ -9,10 +9,10 @@ MSG_SIZE_LIMIT = 1024 * 1024 * 128  # 128 MB
 MSG_CONTINUATION_MARKER = '\x00\x00\x00continued\x00\x00\x00'
 
 
-def _seq_split(object):
-    while object:
-        yield object[:MSG_SIZE_LIMIT] + (MSG_CONTINUATION_MARKER if len(object) > MSG_SIZE_LIMIT else '')
-        object = object[MSG_SIZE_LIMIT:]
+def _seq_split(to_split):
+    while to_split:
+        yield to_split[:MSG_SIZE_LIMIT] + (MSG_CONTINUATION_MARKER if len(to_split) > MSG_SIZE_LIMIT else '')
+        to_split = to_split[MSG_SIZE_LIMIT:]
 
 
 def _seq_is_continued(part):
@@ -20,11 +20,11 @@ def _seq_is_continued(part):
 
 
 def _seq_combine(parts):
-    object = ''
+    full_object = ''
     for part in parts[:-1]:
-        object += part[len(MSG_CONTINUATION_MARKER):]
-    object += parts[-1]
-    return object
+        full_object += part[len(MSG_CONTINUATION_MARKER):]
+    full_object += parts[-1]
+    return full_object
 
 
 class GateStreamRequest():

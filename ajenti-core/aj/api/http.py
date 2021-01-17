@@ -86,8 +86,8 @@ class HttpPlugin():
                         data = data.encode('utf-8')
                     if isinstance(data, types.GeneratorType):
                         return data
-                    else:
-                        return [data]
+
+                    return [data]
 
 
 @interface

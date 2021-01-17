@@ -31,8 +31,7 @@ class Handler(HttpPlugin):
 
         if self.context.identity:
             return http_context.redirect('/view/')
-        else:
-            return http_context.redirect('/view/login/normal')
+        return http_context.redirect('/view/login/normal')
 
     @url('/view/.*')
     @endpoint(page=True, auth=False)

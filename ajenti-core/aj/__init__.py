@@ -104,13 +104,13 @@ def detect_platform():
         return res, res
 
     dist = ''
-    (maj, min, _) = pyplatform.python_version_tuple()
-    maj = int(maj)
-    min = int(min)
-    if (maj * 10 + min) >= 36:
+    (major, minor, _) = pyplatform.python_version_tuple()
+    major = int(major)
+    minor = int(minor)
+    if (major * 10 + minor) >= 36:
         import distro
         dist = distro.linux_distribution()[0].split()[0]
-    elif (maj * 10 + min) >= 26:
+    elif (major * 10 + minor) >= 26:
         dist = pyplatform.linux_distribution()[0]
     else:
         dist = pyplatform.dist()[0]
@@ -164,7 +164,7 @@ def init():
     aj.platform_string = detect_platform_string()
     aj.python_version = detect_python()
 
-
+# skipcq: PYL-W0622
 def exit():
     os.kill(os.getpid(), signal.SIGQUIT)
 

@@ -30,9 +30,9 @@ class DiskWidget(Widget):
                 'free': usage[mountpoint].free,
                 'used': usage[mountpoint].used,
             }
-        else:
-            return {
-                'total': None,
-                'free': None,
-                'used': None,
-            }
+
+        return {
+            'total': None,
+            'free': None,
+            'used': None,
+        }

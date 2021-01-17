@@ -38,33 +38,33 @@ class ResourcesHandler(HttpPlugin):
             }
         ''' % (js, name)
 
-    @url(r'/resources/all\.(?P<type>.+)')
+    @url(r'/resources/all\.(?P<group>.+)')
     @endpoint(page=True, auth=False)
-    def handle_build(self, http_context, type=None):
+    def handle_build(self, http_context, group=None):
         """
         Deliver all extern resources for the current page.
 
         :param http_context: HttpContext
         :type http_context: HttpContext
-        :param type: File extension, e.g. css, js ...
-        :type type: string
+        :param group: File extension/type, e.g. css, js ...
+        :type group: string
         :return: Compressed content with gzip
         :rtype: gzip
         """
 
-        if self.use_cache and type in self.cache:
-            content = self.cache[type]
+        if self.use_cache and group in self.cache:
+            content = self.cache[group]
         else:
             content = ''
-            if type in ['js', 'css', 'vendor.js', 'vendor.css']:
+            if group in ['js', 'css', 'vendor.js', 'vendor.css']:
                 for plugin in self.mgr:
-                    path = self.mgr.get_content_path(plugin, 'resources/build/all.%s' % type)
+                    path = self.mgr.get_content_path(plugin, 'resources/build/all.%s' % group)
                     if os.path.exists(path):
                         file_content = open(path, encoding="utf-8").read()
-                        if type == 'js':
+                        if group == 'js':
                             file_content = self.__wrap_js(path, file_content)
                         content += file_content
-            if type == 'init.js':
+            if group == 'init.js':
                 ng_modules = {}
                 for plugin in self.mgr:
                     for resource in self.mgr[plugin]['info']['resources']:
@@ -73,7 +73,7 @@ class ResourcesHandler(HttpPlugin):
                 content = '''
                     window.__ngModules = %s;
                 ''' % json.dumps(ng_modules)
-            if type == 'locale.js':
+            if group == 'locale.js':
                 lang = http_context.query.get('lang', None)
                 if lang:
                     js_locale = {}
@@ -85,7 +85,7 @@ class ResourcesHandler(HttpPlugin):
                     content = json.dumps(js_locale)
                 else:
                     content = ''
-            if type == 'partials.js':
+            if group == 'partials.js':
                 content = '''
                     angular.module("core.templates", []);
                     angular.module("core.templates").run(
@@ -110,7 +110,7 @@ class ResourcesHandler(HttpPlugin):
                     }]);
                 '''
 
-            self.cache[type] = content
+            self.cache[group] = content
 
         http_context.add_header('Content-Type', {
             'css': 'text/css',
@@ -120,7 +120,7 @@ class ResourcesHandler(HttpPlugin):
             'init.js': 'application/javascript; charset=utf-8',
             'locale.js': 'application/javascript; charset=utf-8',
             'partials.js': 'application/javascript; charset=utf-8',
-        }[type])
+        }[group])
         http_context.respond_ok()
 
         return http_context.gzip(content=content.encode('utf-8'))

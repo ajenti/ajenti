@@ -28,7 +28,6 @@ pygments_style = 'sphinx'
 
 
 # ReadTheDocs
-import os
 on_rtd = os.environ.get('READTHEDOCS', None) == 'True'
 
 if not on_rtd:  # only import and set the theme if we're building docs locally
@@ -86,12 +85,13 @@ class Mock():
     def __getattr__(cls, name):
         if name in ('__file__', '__path__'):
             return '/dev/null'
-        elif name[0] == name[0].upper():
+
+        if name[0] == name[0].upper():
             mockType = type(name, (), {})
             mockType.__module__ = __name__
             return mockType
-        else:
-            return Mock()
+
+        return Mock()
 
 MOCK_MODULES = [
     'augeas',
@@ -130,7 +130,6 @@ for mod_name in MOCK_MODULES:
 
 
 
-import aj
 import aj.api
 import aj.config
 import aj.core

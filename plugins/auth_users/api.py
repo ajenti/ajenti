@@ -36,9 +36,9 @@ class UsersAuthenticationProvider(AuthenticationProvider):
         self.context.worker.reload_master_config()
         password = password.encode('utf-8')
         if username in aj.config.data['auth']['users']:
-            hash = aj.config.data['auth']['users'][username]['password']
+            user_hash = aj.config.data['auth']['users'][username]['password']
             try:
-                scrypt.decrypt(hash.decode('hex'), password, maxtime=15)
+                scrypt.decrypt(user_hash.decode('hex'), password, maxtime=15)
                 return True
             except scrypt.error as e:
                 logging.debug('Auth failed: %s' % e)
