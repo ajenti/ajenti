@@ -6,8 +6,8 @@ version: '0.46'
 title: 'Filesystem API'
 icon: cog
 dependencies:
-    - !!python/object:aj.plugins.PluginDependency { plugin_name: core }
-    - !!python/object:aj.plugins.OptionalPluginDependency { plugin_name: dashboard }
+    - !PluginDependency { plugin_name: core }
+    - !OptionalPluginDependency { plugin_name: dashboard }
 resources:
     - resources/vendor/ng-flow/dist/ng-flow-standalone.min.js
     - resources/js/module.es

@@ -5,7 +5,7 @@ import aj
 from aj.plugins.augeas.api import Augeas
 from aj.plugins.network.api import NetworkManager
 
-from .ifconfig import ifconfig_up, ifconfig_down, ifconfig_get_ip, ifconfig_get_up
+from .ifconfig import ifconfig_get_ip, ifconfig_get_up
 
 
 @component(NetworkManager)

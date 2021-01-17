@@ -1,4 +1,3 @@
-import json
 import logging
 import pexpect
 import pwd
@@ -119,8 +118,7 @@ class OSAuthenticationProvider(AuthenticationProvider):
             return False
         if result == 0:
             return False
-        else:
-            return True
+        return True
 
     def authorize(self, username, permission):
         return True
@@ -221,8 +219,7 @@ class authorize():
             if permission['id'] == self.permission_id:
                 if provider.authorize(username, permission):
                     break
-                else:
-                    raise SecurityError(self.permission_id)
+                raise SecurityError(self.permission_id)
         else:
             raise SecurityError(self.permission_id)
 

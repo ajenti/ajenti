@@ -6,7 +6,7 @@ version: '0.2'
 title: 'cron'
 icon: 'clock-o'
 dependencies:
-    - !!python/object:aj.plugins.PluginDependency {
+    - !PluginDependency {
         plugin_name: core
     }
 resources:

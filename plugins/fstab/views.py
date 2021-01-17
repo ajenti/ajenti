@@ -101,8 +101,8 @@ class Handler(HttpPlugin):
 
             for filesystem in config:
                 device = FilesystemData()
-                for property, value in filesystem.items():
-                    setattr(device, property, value)
+                for prop, value in filesystem.items():
+                    setattr(device, prop, value)
                 new_fstab.tree.filesystems.append(device)
 
             data = new_fstab.save()[None]

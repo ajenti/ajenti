@@ -5,8 +5,8 @@ Module to check if some certificates are still valid or not.
 from jadi import component
 
 from aj.api.http import url, HttpPlugin
-from aj.auth import authorize
-from aj.api.endpoint import endpoint, EndpointError
+# from aj.auth import authorize
+from aj.api.endpoint import endpoint
 from .api import checkOnDom
 import simplejson as json
 

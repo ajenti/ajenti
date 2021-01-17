@@ -6,9 +6,9 @@ version: '0.29'
 title: 'Settings'
 icon: wrench
 dependencies:
-    - !!python/object:aj.plugins.PluginDependency { plugin_name: core }
-    - !!python/object:aj.plugins.PluginDependency { plugin_name: filesystem }
-    - !!python/object:aj.plugins.PluginDependency { plugin_name: passwd }
+    - !PluginDependency { plugin_name: core }
+    - !PluginDependency { plugin_name: filesystem }
+    - !PluginDependency { plugin_name: passwd }
 resources:
     - 'resources/js/module.es'
     - 'resources/js/routing.es'

@@ -12,7 +12,7 @@ passlib
 pexpect
 psutil>=2.2.1
 pyOpenSSL==19.1.0
-python-daemon-3k
+python-daemon
 pyyaml
 requests>=2
 setproctitle

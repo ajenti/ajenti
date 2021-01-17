@@ -51,7 +51,7 @@ class SystemdServiceManager(ServiceManager):
                 if len(unit) > 0:
                     svc = Service(self)
                     svc.id = unit['Id']
-                    svc.name, type = svc.id.rsplit('.', 1)
+                    svc.name, _ = svc.id.rsplit('.', 1)
 
                     svc.name = svc.name.replace('\\x2d', '\x2d')
                     svc.running = unit['SubState'] == 'running'

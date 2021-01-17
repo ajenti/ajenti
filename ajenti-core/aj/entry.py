@@ -3,8 +3,6 @@ import logging
 import traceback
 from datetime import datetime
 
-import aj
-import aj.log
 from aj.util.pidfile import PidFile
 
 

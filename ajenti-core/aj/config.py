@@ -106,7 +106,7 @@ class UserConfig(UserConfigProvider):
             self.data = {}
 
     def load(self):
-        self.data = yaml.load(open(self.path), Loader=yaml.Loader)
+        self.data = yaml.load(open(self.path), Loader=yaml.SafeLoader)
 
     def harden(self):
         os.chmod(self.path, stat.S_IRWXU)

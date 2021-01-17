@@ -3,7 +3,6 @@ Module to handle the /etc/hosts file with the help of the reconfigure module.
 """
 
 from jadi import component
-import subprocess
 import os
 
 from aj.api.http import url, HttpPlugin
@@ -44,15 +43,15 @@ class Handler(HttpPlugin):
 
             for host in config:
                 new_host = HostData()
-                for property, value in host.items():
-                    if property == 'aliases':
+                for prop, value in host.items():
+                    if prop == 'aliases':
                         for alias in value:
                             if alias['name'] != '':
                                 new_alias = AliasData()
                                 new_alias.name = alias['name']
                                 new_host.aliases.append(new_alias)
                     else:
-                        setattr(new_host, property, value)
+                        setattr(new_host, prop, value)
                 new_hosts.tree.hosts.append(new_host)
 
             data = new_hosts.save()[None]

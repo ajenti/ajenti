@@ -139,8 +139,7 @@ class Handler(HttpPlugin):
 
         if terminal_id in self.mgr:
             return self.mgr[terminal_id].format(full=True)
-        else:
-            return None
+        return None
 
     colors = {
         'black': '#073642',

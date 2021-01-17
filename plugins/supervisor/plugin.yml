@@ -6,11 +6,11 @@ version: '0.17'
 title: 'Supervisor'
 icon: play
 dependencies:
-    - !!python/object:aj.plugins.PluginDependency { plugin_name: core }
-    - !!python/object:aj.plugins.PluginDependency { plugin_name: augeas }
-    - !!python/object:aj.plugins.PluginDependency { plugin_name: services }
-    - !!python/object:aj.plugins.PluginDependency { plugin_name: passwd }
-    - !!python/object:aj.plugins.BinaryDependency { binary_name: supervisorctl }
+    - !PluginDependency { plugin_name: core }
+    - !PluginDependency { plugin_name: augeas }
+    - !PluginDependency { plugin_name: services }
+    - !PluginDependency { plugin_name: passwd }
+    - !BinaryDependency { binary_name: supervisorctl }
 resources:
     - 'resources/js/module.es'
     - 'resources/js/routing.es'

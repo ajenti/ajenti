@@ -90,10 +90,10 @@ class Worker():
 
         if os.getuid() == uid:
             return
-        else:
-            if os.getuid() != 0:
-                logging.warning('Running as a limited user, setuid() unavailable!')
-                return
+
+        if os.getuid() != 0:
+            logging.warning('Running as a limited user, setuid() unavailable!')
+            return
 
         logging.info(
             'Worker %s is demoting to UID %s / GID %s...',

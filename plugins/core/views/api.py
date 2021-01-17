@@ -2,9 +2,7 @@ import gevent
 import simplejson as json
 import os
 import socket
-import traceback
 from jadi import component
-from datetime import timedelta
 from time import time
 
 import aj
@@ -105,12 +103,13 @@ class Handler(HttpPlugin):
                     'success': True,
                     'username': username,
                 }
-            else:
-                gevent.sleep(3)
-                return {
-                    'success': False,
-                    'error': None,
-                }
+
+            gevent.sleep(3)
+            return {
+                'success': False,
+                'error': None,
+            }
+
         elif mode == 'sudo':
             target = 'root'
             try:
@@ -120,12 +119,12 @@ class Handler(HttpPlugin):
                         'success': True,
                         'username': target,
                     }
-                else:
-                    gevent.sleep(3)
-                    return {
-                        'success': False,
-                        'error': _('Authorization failed'),
-                    }
+
+                gevent.sleep(3)
+                return {
+                    'success': False,
+                    'error': _('Authorization failed'),
+                }
             except SudoError as e:
                 gevent.sleep(3)
                 return {
@@ -230,12 +229,12 @@ class Handler(HttpPlugin):
 
         if aj.dev_autologin:
             return 86400
-        else:
-            self.context.worker.update_sessionlist()
-            # Wait until the new values propagate
-            gevent.sleep(0.01)
-            session_max_time = aj.config.data['session_max_time'] if aj.config.data['session_max_time'] else 3600
-            timestamp = 0
-            if self.context.session.key in aj.sessions.keys():
-                timestamp = aj.sessions[self.context.session.key]['timestamp']
-            return int(timestamp + session_max_time - time())
+
+        self.context.worker.update_sessionlist()
+        # Wait until the new values propagate
+        gevent.sleep(0.01)
+        session_max_time = aj.config.data['session_max_time'] if aj.config.data['session_max_time'] else 3600
+        timestamp = 0
+        if self.context.session.key in aj.sessions.keys():
+            timestamp = aj.sessions[self.context.session.key]['timestamp']
+        return int(timestamp + session_max_time - time())

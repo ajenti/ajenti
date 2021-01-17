@@ -20,6 +20,7 @@ def CertLimitSSL(hostname, port):
 
     ctx = ssl.create_default_context()
     s = ctx.wrap_socket(socket.socket(), server_hostname=hostname)
+    s.settimeout(10)
     s.connect((hostname, port))
     cert = crypto.load_certificate(crypto.FILETYPE_ASN1, s.getpeercert(binary_form=True))
     s.close()
@@ -87,8 +88,17 @@ def checkOnDom(hostname, port='443'):
         certDetails['issuer'] = dict(cert.get_issuer().get_components())
         certDetails['subject'] = dict(cert.get_subject().get_components())
 
-    except ConnectionRefusedError as e:
-        certDetails['notAfter'] = 'No reponse from host !'
+    except TimeoutError:
+        certDetails['notAfter'] = 'Timeout from host !'
+        return certDetails
+    except socket.timeout:
+        certDetails['notAfter'] = 'Timeout from host !'
+        return certDetails
+    except ssl.SSLCertVerificationError:
+        certDetails['notAfter'] = 'Certificate is nos valid !'
+        return certDetails
+    except ConnectionRefusedError:
+        certDetails['notAfter'] = 'Host refuse the connection !'
         return certDetails
 
     if remainingDays <= 7:

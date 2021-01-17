@@ -7,7 +7,7 @@ import subprocess
 import json
 
 from aj.api.http import url, HttpPlugin
-from aj.auth import authorize
+# from aj.auth import authorize
 from aj.api.endpoint import endpoint, EndpointError
 
 @component(HttpPlugin)
