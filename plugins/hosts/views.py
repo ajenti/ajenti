@@ -3,7 +3,6 @@ Module to handle the /etc/hosts file with the help of the reconfigure module.
 """
 
 from jadi import component
-import subprocess
 import os
 
 from aj.api.http import url, HttpPlugin

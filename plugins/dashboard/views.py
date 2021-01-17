@@ -2,7 +2,6 @@
 Manage a widget page and refresh all values automatically.
 """
 
-import json
 from jadi import component
 
 from aj.api.http import url, HttpPlugin

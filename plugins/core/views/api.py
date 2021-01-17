@@ -2,9 +2,7 @@ import gevent
 import simplejson as json
 import os
 import socket
-import traceback
 from jadi import component
-from datetime import timedelta
 from time import time
 
 import aj
