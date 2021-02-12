@@ -51,6 +51,14 @@ class BaseConfig():
         self.data['ssl']['client_auth'].setdefault('force', False)
         self.data['ssl']['client_auth'].setdefault('certificates', {})
 
+    def get_non_sensitive_data(self):
+        return {
+            'color': self.data['color'],
+            'language': self.data['language'],
+            'name': self.data['name']
+        }
+
+
 @interface
 class UserConfigProvider():
     id = None

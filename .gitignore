@@ -1,3 +1,7 @@
+/**/.DS_Store
+/**/bower_components
+/**/node_modules
+/**/.idea
 *.sublime-*
 .~lock.*
 *~
@@ -12,4 +16,3 @@ docs/build
 *.mo
 .idea*
 .crowdin.key
-node_modules
