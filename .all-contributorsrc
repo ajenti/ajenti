@@ -225,6 +225,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "daniel-schulz",
+      "name": "Daniel Schulz",
+      "avatar_url": "https://avatars.githubusercontent.com/u/8694700?v=4",
+      "profile": "https://www.daniel-schulz-software.de",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
