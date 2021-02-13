@@ -79,7 +79,7 @@ class Handler(HttpPlugin):
             'plugins': json.dumps(
                 {manager[n]['info']['name']:manager[n]['info']['title'] for n in manager}
             ),
-            'config': json.dumps(aj.config.data),
+            'config': json.dumps(aj.config.get_non_sensitive_data()),
             'version': str(aj.version),
             'platform': aj.platform,
             'platformUnmapped': aj.platform_unmapped,
