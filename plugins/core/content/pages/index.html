@@ -105,6 +105,7 @@
         <div class="container" ng:show="appReady">
             <div class="row">
                 <div class="col-md-3 sidebar hide-tablet hide-phone" ng:show="showSidebar && navigationPresent">
+                    <a ng:if="devMode" ng:click="restart_panel()" class="btn btn-danger center-block">Reload Python</a>
                     <ng:include src="'/core:resources/partial/sidebarTasks.html'"></ng:include>
                     <core:sidebar></core:sidebar>
                 </div>
@@ -183,6 +184,7 @@
             angular.module('core').constant('ajentiPlatform', '%(platform)s');
             angular.module('core').constant('ajentiPlatformUnmapped', '%(platformUnmapped)s');
             angular.module('core').constant('ajentiVersion', '%(version)s');
+            angular.module('core').constant('devMode', '%(devMode)s');
             angular.module('core').constant('ajentiBootstrapColor', '%(bootstrapColor)s');
 
             angular.element(document).ready(ajentiBootstrap);

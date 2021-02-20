@@ -83,6 +83,7 @@ class Handler(HttpPlugin):
             'version': str(aj.version),
             'platform': aj.platform,
             'platformUnmapped': aj.platform_unmapped,
+            'devMode': aj.dev,
             'bootstrapColor': aj.config.data.get('color', None),
         }
         http_context.add_header('Content-Type', 'text/html')
