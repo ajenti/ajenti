@@ -14,7 +14,7 @@ from aj.api.endpoint import endpoint, EndpointError
 class Handler(HttpPlugin):
     def __init__(self, context):
         self.context = context
-        self.docker = ['docker']
+        self.docker = 'docker'
 
     @url(r'/api/docker/which')
     @endpoint(api=True)
@@ -43,7 +43,7 @@ class Handler(HttpPlugin):
         :rtype: list of json
         """
 
-        command = self.docker + ['stats', '--format', '\'{{json .}}\'', '--no-stream', '-a']
+        command = [self.docker, 'stats', '--format', '\'{{json .}}\'', '--no-stream', '-a']
         return [json.loads(line) for line in subprocess.check_output(command).decode().splitlines()]
 
     @url(r'/api/docker/get_details')

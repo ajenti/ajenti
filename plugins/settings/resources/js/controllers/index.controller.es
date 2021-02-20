@@ -1,9 +1,6 @@
 angular.module('ajenti.settings').controller('SettingsIndexController', ($scope, $http, $sce, notify, pageTitle, identity, messagebox, passwd, config, core, locale, gettext) => {
     pageTitle.set(gettext('Settings'));
 
-    $scope.config = config;
-    $scope.oldCertificate = config.data.ssl.certificate;
-
     $scope.availableColors = [
         'default',
         'bluegrey',
@@ -34,7 +31,12 @@ angular.module('ajenti.settings').controller('SettingsIndexController', ($scope,
     });
 
     config.load().then(
-        () => config.getAuthenticationProviders(config), () => notify.error(gettext('Could not load config'))
+        () => {
+            $scope.config = config;
+            $scope.oldCertificate = $scope.config.data.ssl.certificate;
+            config.getAuthenticationProviders(config);
+        },
+        () => notify.error(gettext('Could not load config'))
     ).then(p =>
         $scope.authenticationProviders = p
     ).catch(() =>

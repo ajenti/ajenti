@@ -1,4 +1,4 @@
-angular.module('core').controller('CoreRootController', function($scope, $rootScope, $location, $localStorage, $log, $timeout, $q, $interval, $http, $window, identity, customization, urlPrefix, ajentiPlugins, ajentiVersion, ajentiPlatform, ajentiPlatformUnmapped, favicon, feedback, locale, config) {
+angular.module('core').controller('CoreRootController', function($scope, $rootScope, $location, $localStorage, $log, $timeout, $q, $interval, $http, $window, identity, customization, urlPrefix, ajentiPlugins, ajentiVersion, ajentiPlatform, ajentiPlatformUnmapped, devMode, favicon, feedback, locale, core, config) {
     $rootScope.identity = identity;
     $rootScope.$location = $location;
     $rootScope.location = location;
@@ -6,13 +6,14 @@ angular.module('core').controller('CoreRootController', function($scope, $rootSc
     $rootScope.feedback = feedback;
     $rootScope.ajentiVersion = ajentiVersion;
     $rootScope.ajentiPlugins = ajentiPlugins;
+    $rootScope.devMode = (devMode == "True") ? "dev mode" : '';
     $rootScope.customization = customization;
 
     // todo figure this out, used in settings template
     $rootScope.keys = function(x) { if (x) { return Object.keys(x); } else { return []; } };
 
     console.group('Welcome');
-    console.info('Ajenti', ajentiVersion);
+    console.info('Ajenti', ajentiVersion, $rootScope.devMode);
     console.log('Running on', ajentiPlatform, '/', ajentiPlatformUnmapped);
     if (urlPrefix) {
         console.log('URL prefix', urlPrefix);
@@ -120,5 +121,7 @@ angular.module('core').controller('CoreRootController', function($scope, $rootSc
         seconds = ('00' + rest % 60).slice(-2);
         return [hours, minutes, seconds]
     };
+
+    $scope.restart_panel = function() {core.forceRestart();};
 
 });
