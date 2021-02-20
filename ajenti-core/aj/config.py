@@ -58,6 +58,23 @@ class BaseConfig():
             'name': self.data['name']
         }
 
+class AjentiUsers(BaseConfig):
+    def __init__(self, path):
+        BaseConfig.__init__(self)
+        self.data = None
+        self.path = os.path.abspath(path)
+
+    def __str__(self):
+        return self.path
+
+    def load(self):
+        if os.geteuid() == 0:
+            os.chmod(self.path, 384)  # 0o600
+        self.data = yaml.load(open(self.path), Loader=yaml.SafeLoader)
+
+    def save(self):
+        with open(self.path, 'w') as f:
+            f.write(yaml.safe_dump(self.data, default_flow_style=False, encoding='utf-8', allow_unicode=True).decode('utf-8'))
 
 @interface
 class UserConfigProvider():

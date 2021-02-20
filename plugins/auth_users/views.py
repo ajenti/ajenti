@@ -2,12 +2,15 @@
 User authentication provider based on the ajenti config file and permissions management.
 """
 
+import os
+import json
 from jadi import component
 
 import aj
+from aj.auth import authorize
 from aj.api.http import url, HttpPlugin
 
-from aj.api.endpoint import endpoint
+from aj.api.endpoint import endpoint, EndpointReturn
 from aj.plugins.auth_users.api import UsersAuthenticationProvider
 
 
@@ -32,5 +35,35 @@ class Handler(HttpPlugin):
 
         password = http_context.body
         self.context.worker.reload_master_config()
-        aj.config.data.setdefault('auth', {}).setdefault('users', {}).setdefault(username, {})['password'] = self.manager.hash_password(password)
-        aj.config.save()
+        aj.users.data.setdefault('users', {}).setdefault(username, {})['password'] = self.manager.hash_password(password)
+        aj.users.save()
+
+    @url(r'/api/auth-users/config')
+    @endpoint(api=True)
+    def handle_api_users(self, http_context):
+        """
+        Load (method get) and save (method post) the ajenti users config file.
+        Method GET.
+        Method POST.
+
+        :param http_context: HttpContext
+        :type http_context: HttpContext
+        :return: Content of the ajenti users config file
+        :rtype: dict
+        """
+
+        if os.getuid() != 0:
+            raise EndpointReturn(403)
+        if http_context.method == 'GET':
+            with authorize('core:config:read'):
+                # TODO
+                # self.context.worker.reload_master_config()
+                return aj.users.data
+        if http_context.method == 'POST':
+            with authorize('core:config:write'):
+                data = json.loads(http_context.body.decode())
+                aj.users.data.update(data)
+                aj.users.save()
+                # TODO
+                # self.context.worker.reload_master_config()
+                return aj.users.data
