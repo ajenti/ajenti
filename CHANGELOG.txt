@@ -1,5 +1,12 @@
 Ajenti 2.1.38 - Dev
 
+- Update Gevent 1.5 and gipc 1.1.1,
+- Move to python-daemon
+- Hotfix : prevent config leakage,
+- Diverses little fixs in the plugins and DeepSource,
+- Doctrings for all plugins,
+- Add support for multiple uploads.
+
 Ajenti 2.1.37 - 11/2020
 
 - Fix requirement problem with greenlet,
