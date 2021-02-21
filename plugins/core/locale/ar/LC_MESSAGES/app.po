@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-27 12:10+0200\n"
-"PO-Revision-Date: 2020-10-25 10:21\n"
+"POT-Creation-Date: 2021-02-21 15:47+0100\n"
+"PO-Revision-Date: 2021-02-21 14:53\n"
 "Last-Translator: \n"
 "Language-Team: Arabic\n"
 "Language: ar_SA\n"
@@ -31,7 +31,7 @@ msgstr "<span>\n"
 "                </span>\n"
 "                لم يتم العثور على URL {{url}} على هذا الخادم."
 
-#: plugins/core/content/pages/index.html:149
+#: plugins/core/content/pages/index.html:150
 msgid "A bootstrap error has occured"
 msgstr "حدث خطأ في التمهيد"
 
@@ -43,7 +43,7 @@ msgstr "مُصادقة"
 msgid "Elevate"
 msgstr "رفع"
 
-#: plugins/core/content/pages/index.html:132
+#: plugins/core/content/pages/index.html:133
 msgid "Enter"
 msgstr "ادخال"
 
@@ -55,7 +55,7 @@ msgstr "تسجيل الدخول"
 msgid "Log out"
 msgstr "تسجيل الخروج"
 
-#: plugins/core/content/pages/index.html:173
+#: plugins/core/content/pages/index.html:174
 msgid "OK"
 msgstr "موافق"
 
@@ -63,12 +63,12 @@ msgstr "موافق"
 msgid "Password"
 msgstr "كلمة المرور"
 
-#: plugins/core/content/pages/index.html:152
+#: plugins/core/content/pages/index.html:153
 #: plugins/core/resources/js/core/module.es:32
 msgid "Please see browser console"
 msgstr "يرجى مشاهدة وحدة تحكم المتصفح"
 
-#: plugins/core/content/pages/index.html:128
+#: plugins/core/content/pages/index.html:129
 msgid "Quick search"
 msgstr "البحث السريع"
 
@@ -108,7 +108,7 @@ msgstr "قراءة ملف التكوين"
 msgid "Write configuration file"
 msgstr "كتابة ملف التكوين"
 
-#: plugins/core/views/api.py:99
+#: plugins/core/views/api.py:126
 msgid "Authorization failed"
 msgstr "فشل التفويض"
 

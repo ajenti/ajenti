@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-27 12:10+0200\n"
-"PO-Revision-Date: 2020-10-25 10:22\n"
+"POT-Creation-Date: 2021-02-21 15:47+0100\n"
+"PO-Revision-Date: 2021-02-21 14:53\n"
 "Last-Translator: \n"
 "Language-Team: Italian\n"
 "Language: it_IT\n"
@@ -31,7 +31,7 @@ msgstr "<span>\n"
 "</span>\n"
 " Il link {{url}} non è stato trovato su questo server."
 
-#: plugins/core/content/pages/index.html:149
+#: plugins/core/content/pages/index.html:150
 msgid "A bootstrap error has occured"
 msgstr "Si è verificato un errore di sistema"
 
@@ -43,7 +43,7 @@ msgstr "Autenticati"
 msgid "Elevate"
 msgstr "Aumenta"
 
-#: plugins/core/content/pages/index.html:132
+#: plugins/core/content/pages/index.html:133
 msgid "Enter"
 msgstr "Entra"
 
@@ -55,7 +55,7 @@ msgstr "Accedi"
 msgid "Log out"
 msgstr "Esci"
 
-#: plugins/core/content/pages/index.html:173
+#: plugins/core/content/pages/index.html:174
 msgid "OK"
 msgstr "OK"
 
@@ -63,12 +63,12 @@ msgstr "OK"
 msgid "Password"
 msgstr "Password"
 
-#: plugins/core/content/pages/index.html:152
+#: plugins/core/content/pages/index.html:153
 #: plugins/core/resources/js/core/module.es:32
 msgid "Please see browser console"
 msgstr "Si prega di controllare la console del browser"
 
-#: plugins/core/content/pages/index.html:128
+#: plugins/core/content/pages/index.html:129
 msgid "Quick search"
 msgstr "Ricerca rapida"
 
@@ -108,7 +108,7 @@ msgstr "Lettura del file di configurazione"
 msgid "Write configuration file"
 msgstr "Scrittura del file di configurazione"
 
-#: plugins/core/views/api.py:99
+#: plugins/core/views/api.py:126
 msgid "Authorization failed"
 msgstr "Autorizzazione non riuscita"
 

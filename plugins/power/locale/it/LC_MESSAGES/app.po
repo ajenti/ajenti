@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-27 12:11+0200\n"
-"PO-Revision-Date: 2020-10-25 10:22\n"
+"PO-Revision-Date: 2021-02-21 14:53\n"
 "Last-Translator: \n"
 "Language-Team: Italian\n"
 "Language: it_IT\n"
@@ -90,51 +90,51 @@ msgstr "Arresto e riavvio del sistema"
 
 #: plugins/power/resources/js/controllers/index.controller.es:2
 msgid "Power management"
-msgstr ""
+msgstr "Gestione alimentazione"
 
 #: plugins/power/resources/js/controllers/index.controller.es:20
 #: plugins/power/resources/js/controllers/index.controller.es:30
 #: plugins/power/resources/js/controllers/index.controller.es:43
 #: plugins/power/resources/js/controllers/index.controller.es:53
 msgid "Warning"
-msgstr ""
+msgstr "Attenzione"
 
 #: plugins/power/resources/js/controllers/index.controller.es:21
 msgid "Are you sure you want to shutdown the system now?"
-msgstr ""
+msgstr "Sei sicuro di voler arrestare ora il sistema?"
 
 #: plugins/power/resources/js/controllers/index.controller.es:22
 msgid "Shutdown"
-msgstr ""
+msgstr "Arresta"
 
 #: plugins/power/resources/js/controllers/index.controller.es:23
 #: plugins/power/resources/js/controllers/index.controller.es:33
 #: plugins/power/resources/js/controllers/index.controller.es:46
 #: plugins/power/resources/js/controllers/index.controller.es:56
 msgid "Cancel"
-msgstr ""
+msgstr "Annulla"
 
 #: plugins/power/resources/js/controllers/index.controller.es:31
 msgid "Are you sure you want to reboot the system now?"
-msgstr ""
+msgstr "Sei sicuro di voler riavviare ora il sistema?"
 
 #: plugins/power/resources/js/controllers/index.controller.es:37
 msgid "System is rebooting. We will try to reconnect with it."
-msgstr ""
+msgstr "Riavvio di sistema. Proveremo a riconnetterci."
 
 #: plugins/power/resources/js/controllers/index.controller.es:44
 msgid "Are you sure you want to suspend the system now?"
-msgstr ""
+msgstr "Sei sicuro di voler sospendere ora il sistema?"
 
 #: plugins/power/resources/js/controllers/index.controller.es:48
 msgid "System is suspending"
-msgstr ""
+msgstr "Sospensione del sistema"
 
 #: plugins/power/resources/js/controllers/index.controller.es:54
 msgid "Are you sure you want to hibernate the system now?"
-msgstr ""
+msgstr "Sei sicuro di voler ibernare ora il sistema?"
 
 #: plugins/power/resources/js/controllers/index.controller.es:58
 msgid "System is hibernating"
-msgstr ""
+msgstr "Ibernazione del sistema"
 

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-27 12:10+0200\n"
-"PO-Revision-Date: 2020-10-25 10:22\n"
+"POT-Creation-Date: 2021-02-21 15:47+0100\n"
+"PO-Revision-Date: 2021-02-21 14:53\n"
 "Last-Translator: \n"
 "Language-Team: Ukrainian\n"
 "Language: uk_UA\n"
@@ -28,7 +28,7 @@ msgid "<span>\n"
 "                The URL {{url}} was not found on this server."
 msgstr ""
 
-#: plugins/core/content/pages/index.html:149
+#: plugins/core/content/pages/index.html:150
 msgid "A bootstrap error has occured"
 msgstr ""
 
@@ -40,7 +40,7 @@ msgstr "Авторизація"
 msgid "Elevate"
 msgstr "Піднятися"
 
-#: plugins/core/content/pages/index.html:132
+#: plugins/core/content/pages/index.html:133
 msgid "Enter"
 msgstr "Ввести"
 
@@ -52,7 +52,7 @@ msgstr "Увійти"
 msgid "Log out"
 msgstr "Вийти"
 
-#: plugins/core/content/pages/index.html:173
+#: plugins/core/content/pages/index.html:174
 msgid "OK"
 msgstr "ОК"
 
@@ -60,12 +60,12 @@ msgstr "ОК"
 msgid "Password"
 msgstr "Пароль"
 
-#: plugins/core/content/pages/index.html:152
+#: plugins/core/content/pages/index.html:153
 #: plugins/core/resources/js/core/module.es:32
 msgid "Please see browser console"
 msgstr "Будь ласка, дивіться консоль в браузері"
 
-#: plugins/core/content/pages/index.html:128
+#: plugins/core/content/pages/index.html:129
 msgid "Quick search"
 msgstr "Швидкий пошук"
 
@@ -105,7 +105,7 @@ msgstr "Переглянути файл конфігурації"
 msgid "Write configuration file"
 msgstr ""
 
-#: plugins/core/views/api.py:99
+#: plugins/core/views/api.py:126
 msgid "Authorization failed"
 msgstr "Помилка авторизації"
 

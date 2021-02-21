@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-27 12:10+0200\n"
-"PO-Revision-Date: 2020-10-25 10:22\n"
+"PO-Revision-Date: 2021-02-21 14:53\n"
 "Last-Translator: \n"
 "Language-Team: Swedish\n"
 "Language: sv_SE\n"
@@ -19,45 +19,45 @@ msgstr ""
 
 #: plugins/notepad/resources/partial/index.html:31
 msgid "Bookmark this"
-msgstr ""
+msgstr "Lägg till bokmärke"
 
 #: plugins/notepad/resources/partial/index.html:36
 msgid "Bookmarks"
-msgstr ""
+msgstr "Bokmärken"
 
 #: plugins/notepad/resources/partial/index.html:48
 msgid "New"
-msgstr ""
+msgstr "Ny"
 
 #: plugins/notepad/resources/partial/index.html:49
 msgid "Open"
-msgstr ""
+msgstr "Öppna"
 
 #: plugins/notepad/resources/partial/index.html:50
 msgid "Save"
-msgstr ""
+msgstr "Spara"
 
 #: plugins/notepad/resources/partial/index.html:51
 msgid "Save As..."
-msgstr ""
+msgstr "Spara som..."
 
 #: plugins/notepad/resources/partial/index.html:27
 msgid "Tab"
-msgstr ""
+msgstr "Flik"
 
 #: plugins/notepad/main.py:15
 msgid "Notepad"
-msgstr ""
+msgstr "Anteckningsblock"
 
 #: plugins/notepad/resources/js/controllers/index.controller.es:6
 msgid "Current file will be closed. Continue?"
-msgstr ""
+msgstr "Aktuell fil kommer att stängas. Vill du fortsätta?"
 
 #: plugins/notepad/resources/js/controllers/index.controller.es:31
 msgid "Could not open the file"
-msgstr ""
+msgstr "Kunde inte öppna filen"
 
 #: plugins/notepad/resources/js/controllers/index.controller.es:49
 msgid "Could not save the file"
-msgstr ""
+msgstr "Kunde inte spara filen."
 

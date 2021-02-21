@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-27 12:10+0200\n"
-"PO-Revision-Date: 2020-10-25 10:22\n"
+"POT-Creation-Date: 2021-02-21 15:47+0100\n"
+"PO-Revision-Date: 2021-02-21 14:53\n"
 "Last-Translator: \n"
 "Language-Team: Swedish\n"
 "Language: sv_SE\n"
@@ -19,59 +19,59 @@ msgstr ""
 
 #: plugins/datetime/resources/partial/index.html:17
 msgid "Date &amp; time"
-msgstr ""
+msgstr "Datum &amp; tid"
 
 #: plugins/datetime/resources/partial/index.html:26
 msgid "Set time"
-msgstr ""
+msgstr "Ställ in tid"
 
 #: plugins/datetime/resources/partial/index.html:9
 msgid "Set timezone"
-msgstr ""
+msgstr "Ange tidszon"
 
 #: plugins/datetime/resources/partial/index.html:31
 msgid "Sync time from the Internet"
-msgstr ""
+msgstr "Synkronisera tiden med Internet"
 
 #: plugins/datetime/resources/partial/index.html:5
 msgid "Time zone"
-msgstr ""
+msgstr "Tidszon"
 
-#: plugins/datetime/views.py:59
+#: plugins/datetime/views.py:117
 msgid "ntpdate utility is not installed"
-msgstr ""
+msgstr "ntpdate verktyget är inte installerat"
 
 #: plugins/datetime/main.py:17
 msgid "Date & time"
-msgstr ""
+msgstr "Datum & tid"
 
 #: plugins/datetime/main.py:31
 msgid "Change date and time"
-msgstr ""
+msgstr "Ange datum och tid"
 
 #: plugins/datetime/resources/js/controllers/index.controller.es:2
 msgid "Date & Time"
-msgstr ""
+msgstr "Datum & tid"
 
 #: plugins/datetime/resources/js/controllers/index.controller.es:24
 msgid "Timezone set"
-msgstr ""
+msgstr "Tidszon inställd"
 
 #: plugins/datetime/resources/js/controllers/index.controller.es:26
 #: plugins/datetime/resources/js/controllers/index.controller.es:30
 #: plugins/datetime/resources/js/controllers/index.controller.es:37
 msgid "Failed"
-msgstr ""
+msgstr "Misslyckades"
 
 #: plugins/datetime/resources/js/controllers/index.controller.es:30
 msgid "Time set"
-msgstr ""
+msgstr "Tid inställd"
 
 #: plugins/datetime/resources/js/controllers/index.controller.es:33
 msgid "Synchronizing..."
-msgstr ""
+msgstr "Synkroniserar …"
 
 #: plugins/datetime/resources/js/controllers/index.controller.es:36
 msgid "Time synchronized"
-msgstr ""
+msgstr "Tid synkroniserad"
 

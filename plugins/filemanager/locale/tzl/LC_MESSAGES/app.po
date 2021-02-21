@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-27 12:10+0200\n"
-"PO-Revision-Date: 2020-10-25 10:22\n"
+"POT-Creation-Date: 2021-02-21 15:48+0100\n"
+"PO-Revision-Date: 2021-02-21 14:53\n"
 "Last-Translator: \n"
 "Language-Team: Talossan\n"
 "Language: tzl_TZL\n"
@@ -32,7 +32,7 @@ msgstr ""
 #: plugins/filemanager/resources/partial/index.html:76
 #: plugins/filemanager/resources/partial/index.html:89
 #: plugins/filemanager/resources/partial/properties.html:188
-#: plugins/filemanager/resources/js/controllers/index.controller.es:88
+#: plugins/filemanager/resources/js/controllers/index.controller.es:89
 msgid "Cancel"
 msgstr "Niþiliçarh"
 
@@ -66,7 +66,7 @@ msgid "DIRECTORY"
 msgstr ""
 
 #: plugins/filemanager/resources/partial/index.html:64
-#: plugins/filemanager/resources/js/controllers/index.controller.es:87
+#: plugins/filemanager/resources/js/controllers/index.controller.es:88
 msgid "Delete"
 msgstr "Zeletarh"
 
@@ -173,6 +173,10 @@ msgstr ""
 msgid "Upload"
 msgstr ""
 
+#: plugins/filemanager/resources/partial/index.html:122
+msgid "Uploading ..."
+msgstr ""
+
 #: plugins/filemanager/resources/partial/properties.html:137
 msgid "User"
 msgstr ""
@@ -197,23 +201,23 @@ msgstr ""
 msgid "File mode saved"
 msgstr ""
 
-#: plugins/filemanager/resources/js/controllers/index.controller.es:15
+#: plugins/filemanager/resources/js/controllers/index.controller.es:16
 msgid "Could not load directory"
 msgstr ""
 
-#: plugins/filemanager/resources/js/controllers/index.controller.es:86
+#: plugins/filemanager/resources/js/controllers/index.controller.es:87
 msgid "Delete selected items?"
 msgstr ""
 
-#: plugins/filemanager/resources/js/controllers/index.controller.es:123
+#: plugins/filemanager/resources/js/controllers/index.controller.es:124
 msgid "Could not create file"
 msgstr ""
 
-#: plugins/filemanager/resources/js/controllers/index.controller.es:143
+#: plugins/filemanager/resources/js/controllers/index.controller.es:144
 msgid "Could not create directory"
 msgstr ""
 
-#: plugins/filemanager/resources/js/controllers/index.controller.es:150
+#: plugins/filemanager/resources/js/controllers/index.controller.es:151
 msgid "Uploaded"
 msgstr ""
 
