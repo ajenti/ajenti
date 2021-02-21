@@ -74,7 +74,7 @@ def run(config=None, plugin_providers=None, product_name='ajenti', dev_mode=Fals
     aj.config.ensure_structure()
 
     logging.info('Loading users from %s', '/etc/ajenti/users.yml')
-    aj.users = AjentiUsers('/etc/ajenti/users.yml')
+    aj.users = AjentiUsers(aj.config.data['auth']['users_file'])
     aj.users.load()
 
     if aj.debug:

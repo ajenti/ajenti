@@ -2,6 +2,7 @@ import os
 import pwd
 import stat
 import yaml
+import logging
 from jadi import interface, component, service
 import aj
 from aj.util import public
@@ -42,6 +43,7 @@ class BaseConfig():
         self.data['auth'].setdefault('emails', {})
         self.data['auth'].setdefault('provider', 'os')
         self.data['auth'].setdefault('user_config', 'os')
+        self.data['auth'].setdefault('users_file', '/etc/ajenti/users.yml')
         self.data.setdefault('ssl', {})
         self.data['ssl'].setdefault('enable', False)
         self.data['ssl'].setdefault('certificate', None)
@@ -50,6 +52,11 @@ class BaseConfig():
         self.data['ssl']['client_auth'].setdefault('enable', False)
         self.data['ssl']['client_auth'].setdefault('force', False)
         self.data['ssl']['client_auth'].setdefault('certificates', {})
+
+        # Before Ajenti 2.1.38 where the users stored in config.yml
+        if 'users' in self.data['auth'].keys():
+            logging.warning("Users should be stored in %s, the auth_users plugin will not work", self.data['auth']['users_file'])
+
 
     def get_non_sensitive_data(self):
         return {
@@ -68,6 +75,18 @@ class AjentiUsers(BaseConfig):
         return self.path
 
     def load(self):
+        # Find default users file
+        if not self.path:
+            # Check for users file in /etc/ajenti/users.yml
+            if os.path.isfile('/etc/ajenti/users.yml'):
+                config_path = '/etc/ajenti/users.yml'
+            elif os.path.isfile(os.path.join(sys.path[0], 'users.yml')):
+                # Try local users file
+                config_path = os.path.join(sys.path[0], 'users.yml')
+
+        if not os.path.exists(self.path):
+            logging.error('Users file "%s" not found', self.path)
+
         if os.geteuid() == 0:
             os.chmod(self.path, 384)  # 0o600
         self.data = yaml.load(open(self.path), Loader=yaml.SafeLoader)
