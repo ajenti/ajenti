@@ -4,7 +4,6 @@ import scrypt
 from jadi import component
 
 import aj
-from aj.config import AjentiUsers
 from aj.auth import AuthenticationProvider
 
 
@@ -20,8 +19,6 @@ class UsersAuthenticationProvider(AuthenticationProvider):
     def __init__(self, context):
         self.context = context
         aj.config.data['auth'].setdefault('users', {})
-        aj.users = AjentiUsers('/etc/ajenti/users.yml')
-        aj.users.load()
 
     def get_salt(self):
         return os.urandom(256)
@@ -41,7 +38,7 @@ class UsersAuthenticationProvider(AuthenticationProvider):
         if username in aj.users.data['users']:
             user_hash = aj.users.data['users'][username]['password']
             try:
-                scrypt.decrypt(user_hash.decode('hex'), password, maxtime=15)
+                scrypt.decrypt(bytes.fromhex(user_hash), password, maxtime=15, encoding=None)
                 return True
             except scrypt.error as e:
                 logging.debug('Auth failed: %s' % e)
@@ -53,6 +50,9 @@ class UsersAuthenticationProvider(AuthenticationProvider):
 
     def get_isolation_uid(self, username):
         return aj.users.data['users'][username]['uid']
+
+    def get_isolation_gid(self, username):
+        return None
 
     def get_profile(self, username):
         if not username:

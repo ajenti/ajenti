@@ -56,14 +56,12 @@ class Handler(HttpPlugin):
             raise EndpointReturn(403)
         if http_context.method == 'GET':
             with authorize('core:config:read'):
-                # TODO
-                # self.context.worker.reload_master_config()
+                self.context.worker.reload_master_config()
                 return aj.users.data
         if http_context.method == 'POST':
             with authorize('core:config:write'):
                 data = json.loads(http_context.body.decode())
                 aj.users.data.update(data)
                 aj.users.save()
-                # TODO
-                # self.context.worker.reload_master_config()
+                self.context.worker.reload_master_config()
                 return aj.users.data
