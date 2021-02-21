@@ -53,9 +53,25 @@ class BaseConfig():
         self.data['ssl']['client_auth'].setdefault('force', False)
         self.data['ssl']['client_auth'].setdefault('certificates', {})
 
-        # Before Ajenti 2.1.38 where the users stored in config.yml
+        # Before Ajenti 2.1.38, the users were stored in config.yml
         if 'users' in self.data['auth'].keys():
-            logging.warning("Users should be stored in %s, the auth_users plugin will not work", self.data['auth']['users_file'])
+            logging.warning("Users should be stored in %s, migrating it ...", self.data['auth']['users_file'])
+            self.migrate_users_to_own_configfile()
+
+    def migrate_users_to_own_configfile(self):
+        users_path = self.data['auth']['users_file']
+
+        if os.path.isfile(users_path):
+            logging.info("%s already existing, backing it up", users_path)
+            os.rename(users_path, users_path + '.bak')
+
+        to_write = {'users': self.data['auth']['users']}
+        with open(users_path, 'w') as f:
+           f.write(yaml.safe_dump(to_write, default_flow_style=False, encoding='utf-8', allow_unicode=True).decode('utf-8'))
+
+        del self.data['auth']['users']
+        self.save()
+        logging.info("%s correctly written", users_path)
 
 
     def get_non_sensitive_data(self):

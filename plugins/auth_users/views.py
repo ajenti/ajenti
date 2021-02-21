@@ -57,7 +57,6 @@ class Handler(HttpPlugin):
         if http_context.method == 'GET':
             with authorize('core:config:read'):
                 self.context.worker.reload_master_config()
-                aj.users.data["users_in_oldconfig"] = 'users' in aj.config.data['auth'].keys()
                 return aj.users.data
         if http_context.method == 'POST':
             with authorize('core:config:write'):

@@ -5,9 +5,6 @@ angular.module('ajenti.auth.users').controller('AuthUsersIndexController', funct
 
     users.load().then(() => {
         $scope.users = users;
-        if (users.data.users_in_oldconfig) {
-            return;
-        }
         if (users.data.users == null) {
             users.data.users = {
                 root: {
