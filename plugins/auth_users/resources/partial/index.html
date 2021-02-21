@@ -1,6 +1,10 @@
 <br/>
 
-<div root-access>
+<div class="alert alert-danger" ng:show="users.data.users_in_oldconfig">
+    <i class="fa fa-warning"></i> <span translate>In the new config tree, the users have to be stored in /etc/ajenti/users.yml, not in /etc/ajenti/config.yml. Please move the users tree from config.yml to users.yml before using this plugin.</span>
+</div>
+
+<div root-access ng:show="!users.data.users_in_oldconfig">
     <progress-spinner ng:hide="users.data != null"></progress-spinner>
 
     <div class="list-group">

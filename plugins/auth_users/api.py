@@ -18,7 +18,7 @@ class UsersAuthenticationProvider(AuthenticationProvider):
 
     def __init__(self, context):
         self.context = context
-        aj.config.data['auth'].setdefault('users', {})
+        aj.users.data.setdefault('users', {})
 
     def get_salt(self):
         return os.urandom(256)
