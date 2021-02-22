@@ -5,7 +5,8 @@ Ajenti 2.1.38 - Dev
 - Hotfix : prevent config leakage,
 - Diverses little fixs in the plugins and DeepSource,
 - Doctrings for all plugins,
-- Add support for multiple uploads.
+- Add support for multiple uploads,
+- Split users list from config file and updated auth_users plugin.
 
 Ajenti 2.1.37 - 11/2020
 
