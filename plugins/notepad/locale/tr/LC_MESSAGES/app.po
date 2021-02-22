@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-27 12:10+0200\n"
-"PO-Revision-Date: 2020-10-25 10:22\n"
+"PO-Revision-Date: 2021-02-21 14:53\n"
 "Last-Translator: \n"
 "Language-Team: Turkish\n"
 "Language: tr_TR\n"
@@ -51,13 +51,13 @@ msgstr "Notepad"
 
 #: plugins/notepad/resources/js/controllers/index.controller.es:6
 msgid "Current file will be closed. Continue?"
-msgstr ""
+msgstr "Bu dosyayı kapatmak istediğinize emin misiniz?"
 
 #: plugins/notepad/resources/js/controllers/index.controller.es:31
 msgid "Could not open the file"
-msgstr ""
+msgstr "Dosya açılamadı"
 
 #: plugins/notepad/resources/js/controllers/index.controller.es:49
 msgid "Could not save the file"
-msgstr ""
+msgstr "Dosya kaydedilemedi"
 

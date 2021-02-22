@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-27 12:10+0200\n"
-"PO-Revision-Date: 2020-10-25 10:21\n"
+"POT-Creation-Date: 2021-02-21 15:47+0100\n"
+"PO-Revision-Date: 2021-02-21 14:53\n"
 "Last-Translator: \n"
 "Language-Team: Arabic\n"
 "Language: ar_SA\n"
@@ -19,7 +19,7 @@ msgstr ""
 
 #: plugins/datetime/resources/partial/index.html:17
 msgid "Date &amp; time"
-msgstr ""
+msgstr "التاريخ و الوقت"
 
 #: plugins/datetime/resources/partial/index.html:26
 msgid "Set time"
@@ -37,9 +37,9 @@ msgstr "مزامنة الوقت من الإنترنت"
 msgid "Time zone"
 msgstr "المنطقة الزمنية"
 
-#: plugins/datetime/views.py:59
+#: plugins/datetime/views.py:117
 msgid "ntpdate utility is not installed"
-msgstr ""
+msgstr "لم يتم تثبيت أداة ntpdate"
 
 #: plugins/datetime/main.py:17
 msgid "Date & time"
@@ -51,27 +51,27 @@ msgstr "تغيير التاريخ والوقت"
 
 #: plugins/datetime/resources/js/controllers/index.controller.es:2
 msgid "Date & Time"
-msgstr ""
+msgstr "التاريخ و الوقت"
 
 #: plugins/datetime/resources/js/controllers/index.controller.es:24
 msgid "Timezone set"
-msgstr ""
+msgstr "تعيين المنطقة الزمنية"
 
 #: plugins/datetime/resources/js/controllers/index.controller.es:26
 #: plugins/datetime/resources/js/controllers/index.controller.es:30
 #: plugins/datetime/resources/js/controllers/index.controller.es:37
 msgid "Failed"
-msgstr ""
+msgstr "فشل"
 
 #: plugins/datetime/resources/js/controllers/index.controller.es:30
 msgid "Time set"
-msgstr ""
+msgstr "الوقت المحدد"
 
 #: plugins/datetime/resources/js/controllers/index.controller.es:33
 msgid "Synchronizing..."
-msgstr ""
+msgstr "جاري المزامنة..."
 
 #: plugins/datetime/resources/js/controllers/index.controller.es:36
 msgid "Time synchronized"
-msgstr ""
+msgstr "تم مزامنة الوقت"
 

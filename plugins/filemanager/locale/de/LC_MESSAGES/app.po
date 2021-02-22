@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-27 12:10+0200\n"
-"PO-Revision-Date: 2020-10-25 10:22\n"
+"POT-Creation-Date: 2021-02-21 15:48+0100\n"
+"PO-Revision-Date: 2021-02-21 14:53\n"
 "Last-Translator: \n"
 "Language-Team: German\n"
 "Language: de_DE\n"
@@ -32,7 +32,7 @@ msgstr "Anwenden"
 #: plugins/filemanager/resources/partial/index.html:76
 #: plugins/filemanager/resources/partial/index.html:89
 #: plugins/filemanager/resources/partial/properties.html:188
-#: plugins/filemanager/resources/js/controllers/index.controller.es:88
+#: plugins/filemanager/resources/js/controllers/index.controller.es:89
 msgid "Cancel"
 msgstr "Abbrechen"
 
@@ -66,7 +66,7 @@ msgid "DIRECTORY"
 msgstr "VERZEICHNIS"
 
 #: plugins/filemanager/resources/partial/index.html:64
-#: plugins/filemanager/resources/js/controllers/index.controller.es:87
+#: plugins/filemanager/resources/js/controllers/index.controller.es:88
 msgid "Delete"
 msgstr "Löschen"
 
@@ -173,6 +173,10 @@ msgstr "Eine Ebene nach oben"
 msgid "Upload"
 msgstr "Hochladen"
 
+#: plugins/filemanager/resources/partial/index.html:122
+msgid "Uploading ..."
+msgstr "Lade hoch..."
+
 #: plugins/filemanager/resources/partial/properties.html:137
 msgid "User"
 msgstr "Benutzer"
@@ -197,23 +201,23 @@ msgstr "Dateiinformationen konnten nicht gelesen werden"
 msgid "File mode saved"
 msgstr "Datei-Modus gespeichert"
 
-#: plugins/filemanager/resources/js/controllers/index.controller.es:15
+#: plugins/filemanager/resources/js/controllers/index.controller.es:16
 msgid "Could not load directory"
 msgstr "Verzeichnis konnte nicht geladen werden"
 
-#: plugins/filemanager/resources/js/controllers/index.controller.es:86
+#: plugins/filemanager/resources/js/controllers/index.controller.es:87
 msgid "Delete selected items?"
 msgstr "Ausgewählte Elemente löschen?"
 
-#: plugins/filemanager/resources/js/controllers/index.controller.es:123
+#: plugins/filemanager/resources/js/controllers/index.controller.es:124
 msgid "Could not create file"
 msgstr "Datei konnte nicht erstellt werden"
 
-#: plugins/filemanager/resources/js/controllers/index.controller.es:143
+#: plugins/filemanager/resources/js/controllers/index.controller.es:144
 msgid "Could not create directory"
 msgstr "Verzeichnis konnte nicht erstellt werden"
 
-#: plugins/filemanager/resources/js/controllers/index.controller.es:150
+#: plugins/filemanager/resources/js/controllers/index.controller.es:151
 msgid "Uploaded"
 msgstr "Hochgeladen"
 

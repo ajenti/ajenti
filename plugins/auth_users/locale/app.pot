@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-25 11:13+0100\n"
+"POT-Creation-Date: 2021-02-21 15:47+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,73 +17,80 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: plugins/auth_users/resources/partial/index.html:11
+#: plugins/auth_users/resources/partial/index.html:15
 msgid "Configure"
 msgstr ""
 
-#: plugins/auth_users/resources/partial/index.html:31
+#: plugins/auth_users/resources/partial/index.html:35
 msgid "Create"
 msgstr ""
 
-#: plugins/auth_users/resources/partial/index.html:42
+#: plugins/auth_users/resources/partial/index.html:46
 msgid "Default root password is <code>admin</code>"
 msgstr ""
 
-#: plugins/auth_users/resources/partial/index.html:90
+#: plugins/auth_users/resources/partial/index.html:94
 msgid "Filesystem root"
 msgstr ""
 
-#: plugins/auth_users/resources/partial/index.html:64
+#: plugins/auth_users/resources/partial/index.html:4
+msgid ""
+"In the new config tree, the users have to be stored in /etc/ajenti/users."
+"yml, not in /etc/ajenti/config.yml. Please move the users tree from config."
+"yml to users.yml before using this plugin."
+msgstr ""
+
+#: plugins/auth_users/resources/partial/index.html:68
 msgid "New password"
 msgstr ""
 
-#: plugins/auth_users/resources/partial/index.html:29
+#: plugins/auth_users/resources/partial/index.html:33
 msgid "New user name"
 msgstr ""
 
-#: plugins/auth_users/resources/partial/index.html:97
+#: plugins/auth_users/resources/partial/index.html:101
 msgid "OK"
 msgstr ""
 
-#: plugins/auth_users/resources/partial/index.html:83
+#: plugins/auth_users/resources/partial/index.html:87
 msgid "Permissions"
 msgstr ""
 
-#: plugins/auth_users/resources/partial/index.html:48
+#: plugins/auth_users/resources/partial/index.html:52
 msgid "Save"
 msgstr ""
 
-#: plugins/auth_users/resources/partial/index.html:73
+#: plugins/auth_users/resources/partial/index.html:77
 msgid "Sidebar entries"
 msgstr ""
 
-#: plugins/auth_users/resources/partial/index.html:57
+#: plugins/auth_users/resources/partial/index.html:61
 msgid "System account"
 msgstr ""
 
-#: plugins/auth_users/resources/partial/index.html:76
+#: plugins/auth_users/resources/partial/index.html:80
 msgid ""
 "This only affects appearance of the sidebar. Disable actual permissions "
 "under the <b>Permissions</b> tab."
 msgstr ""
 
-#: plugins/auth_users/resources/partial/index.html:60
+#: plugins/auth_users/resources/partial/index.html:64
 msgid ""
 "This user will be constrained by POSIX permissions for the selected system "
 "account."
 msgstr ""
 
-#: plugins/auth_users/resources/partial/index.html:68
+#: plugins/auth_users/resources/partial/index.html:72
 msgid "Update password"
 msgstr ""
 
-#: plugins/auth_users/resources/partial/index.html:38
+#: plugins/auth_users/resources/partial/index.html:42
 msgid ""
 "You have no users mapped to <b>root</b> system account. Saving this "
 "configuration will prevent any administrative access."
 msgstr ""
 
-#: plugins/auth_users/api.py:13
+#: plugins/auth_users/api.py:17
 msgid "Custom users"
 msgstr ""
 
@@ -91,6 +98,6 @@ msgstr ""
 msgid "Users"
 msgstr ""
 
-#: plugins/auth_users/resources/js/controllers/index.controller.es:70
+#: plugins/auth_users/resources/js/controllers/index.controller.es:86
 msgid "Password updated"
 msgstr ""

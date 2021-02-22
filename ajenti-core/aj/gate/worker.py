@@ -155,7 +155,8 @@ class Worker():
 
                 if rq.object['type'] == 'config-data':
                     logging.debug('Received a config update')
-                    aj.config.data = rq.object['data']
+                    aj.config.data = rq.object['data']['config']
+                    aj.users.data = rq.object['data']['users']
                     self._master_config_reloaded.set()
 
                 if rq.object['type'] == 'session-list':

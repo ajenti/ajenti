@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-27 12:11+0200\n"
-"PO-Revision-Date: 2020-10-25 10:22\n"
+"PO-Revision-Date: 2021-02-21 14:53\n"
 "Last-Translator: \n"
 "Language-Team: Swedish\n"
 "Language: sv_SE\n"
@@ -19,122 +19,122 @@ msgstr ""
 
 #: plugins/power/resources/partial/index.html:72
 msgid "Adapters"
-msgstr ""
+msgstr "Adaptrar"
 
 #: plugins/power/resources/partial/index.html:32
 msgid "Batteries"
-msgstr ""
+msgstr "Batterier"
 
 #: plugins/power/resources/partial/index.html:55
 msgid "Charging"
-msgstr ""
+msgstr "Laddar"
 
 #: plugins/power/resources/partial/index.html:58
 msgid "Discharging at {{battery.rate}} W"
-msgstr ""
+msgstr "Urladdning med {{battery.rate}} W"
 
 #: plugins/power/resources/partial/index.html:22
 #: plugins/power/resources/js/controllers/index.controller.es:55
 msgid "Hibernate"
-msgstr ""
+msgstr "Viloläge"
 
 #: plugins/power/resources/partial/index.html:75
 msgid "No adapters detected"
-msgstr ""
+msgstr "Inga adaptrar upptäckta"
 
 #: plugins/power/resources/partial/index.html:35
 msgid "No batteries detected"
-msgstr ""
+msgstr "Inga batterier upptäckta"
 
 #: plugins/power/resources/partial/index.html:92
 msgid "Not available"
-msgstr ""
+msgstr "Inte tillgänglig"
 
 #: plugins/power/resources/partial/index.html:89
 msgid "Plugged in"
-msgstr ""
+msgstr "Inkopplad"
 
 #: plugins/power/resources/partial/widget.html:2 plugins/power/main.py:16
 msgid "Power"
-msgstr ""
+msgstr "Kraft"
 
 #: plugins/power/resources/partial/index.html:13
 msgid "Power off"
-msgstr ""
+msgstr "Stäng av"
 
 #: plugins/power/resources/partial/index.html:16
 #: plugins/power/resources/js/controllers/index.controller.es:32
 msgid "Reboot"
-msgstr ""
+msgstr "Starta om"
 
 #: plugins/power/resources/partial/index.html:19
 #: plugins/power/resources/js/controllers/index.controller.es:45
 msgid "Suspend"
-msgstr ""
+msgstr "Suspendera"
 
 #: plugins/power/resources/partial/index.html:6
 msgid "System uptime"
-msgstr ""
+msgstr "Systemets drifttid"
 
 #: plugins/power/resources/partial/index.html:61
 msgid "{{battery.voltage}} V"
-msgstr ""
+msgstr "{{battery.voltage}} V"
 
 #: plugins/power/widget.py:9
 msgid "Power state"
-msgstr ""
+msgstr "Strömläge"
 
 #: plugins/power/main.py:30
 msgid "Shutdown and reboot the system"
-msgstr ""
+msgstr "Stäng av och starta om systemet"
 
 #: plugins/power/resources/js/controllers/index.controller.es:2
 msgid "Power management"
-msgstr ""
+msgstr "Energialternativ"
 
 #: plugins/power/resources/js/controllers/index.controller.es:20
 #: plugins/power/resources/js/controllers/index.controller.es:30
 #: plugins/power/resources/js/controllers/index.controller.es:43
 #: plugins/power/resources/js/controllers/index.controller.es:53
 msgid "Warning"
-msgstr ""
+msgstr "Varning"
 
 #: plugins/power/resources/js/controllers/index.controller.es:21
 msgid "Are you sure you want to shutdown the system now?"
-msgstr ""
+msgstr "Är du säker på att du vill stänga av systemet nu?"
 
 #: plugins/power/resources/js/controllers/index.controller.es:22
 msgid "Shutdown"
-msgstr ""
+msgstr "Stäng av"
 
 #: plugins/power/resources/js/controllers/index.controller.es:23
 #: plugins/power/resources/js/controllers/index.controller.es:33
 #: plugins/power/resources/js/controllers/index.controller.es:46
 #: plugins/power/resources/js/controllers/index.controller.es:56
 msgid "Cancel"
-msgstr ""
+msgstr "Avbryt"
 
 #: plugins/power/resources/js/controllers/index.controller.es:31
 msgid "Are you sure you want to reboot the system now?"
-msgstr ""
+msgstr "Är du säker på att du vill starta om systemet nu?"
 
 #: plugins/power/resources/js/controllers/index.controller.es:37
 msgid "System is rebooting. We will try to reconnect with it."
-msgstr ""
+msgstr "Systemet startas om. Vi kommer att försöka återansluta till det."
 
 #: plugins/power/resources/js/controllers/index.controller.es:44
 msgid "Are you sure you want to suspend the system now?"
-msgstr ""
+msgstr "Är du säker på att du vill stänga av systemet nu?"
 
 #: plugins/power/resources/js/controllers/index.controller.es:48
 msgid "System is suspending"
-msgstr ""
+msgstr "Systemet är avstängt"
 
 #: plugins/power/resources/js/controllers/index.controller.es:54
 msgid "Are you sure you want to hibernate the system now?"
-msgstr ""
+msgstr "Är du säker på att du vill sätta systemet i viloläge nu?"
 
 #: plugins/power/resources/js/controllers/index.controller.es:58
 msgid "System is hibernating"
-msgstr ""
+msgstr "Systemet är i viloläge"
 

@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-27 12:10+0200\n"
-"PO-Revision-Date: 2020-10-25 10:22\n"
+"PO-Revision-Date: 2021-02-21 14:53\n"
 "Last-Translator: \n"
 "Language-Team: Swedish\n"
 "Language: sv_SE\n"
@@ -19,247 +19,247 @@ msgstr ""
 
 #: plugins/network/resources/partial/index.html:28
 msgid "Activate (up) interface"
-msgstr ""
+msgstr "Aktivera (upp) gränssnitt"
 
 #: plugins/network/resources/partial/index.html:212
 #: plugins/network/resources/partial/index.html:261
 #: plugins/network/resources/partial/index.html:312
 msgid "Add"
-msgstr ""
+msgstr "Lägg till"
 
 #: plugins/network/resources/partial/index.html:103
 msgid "Address"
-msgstr ""
+msgstr "Adress"
 
 #: plugins/network/resources/partial/index.html:92
 msgid "Addressing"
-msgstr ""
+msgstr "Adressering"
 
 #: plugins/network/resources/partial/index.html:293
 msgid "Aliases"
-msgstr ""
+msgstr "Alias"
 
 #: plugins/network/resources/partial/index.html:277
 msgid "Canonical hostname"
-msgstr ""
+msgstr "Kanoniskt värdnamn"
 
 #: plugins/network/resources/partial/index.html:55
 msgid "Checking status..."
-msgstr ""
+msgstr "Kontrollerar status..."
 
 #: plugins/network/resources/partial/index.html:122
 msgid "Client ID"
-msgstr ""
+msgstr "Klient-ID"
 
 #: plugins/network/resources/partial/index.html:184
 #: plugins/network/resources/partial/index.html:319
 msgid "Close"
-msgstr ""
+msgstr "Stäng"
 
 #: plugins/network/resources/partial/index.html:233
 msgid "Configure"
-msgstr ""
+msgstr "Konfigurera"
 
 #: plugins/network/resources/partial/index.html:191
 msgid "DNS"
-msgstr ""
+msgstr "DNS"
 
 #: plugins/network/resources/partial/index.html:210
 msgid "DNS server address"
-msgstr ""
+msgstr "DNS-serveradress"
 
 #: plugins/network/resources/partial/index.html:31
 msgid "Deactivate (down) interface"
-msgstr ""
+msgstr "Inaktivera (ner) gränssnittet"
 
 #: plugins/network/resources/partial/index.html:172
 msgid "Down script"
-msgstr ""
+msgstr "Ner skript"
 
 #: plugins/network/resources/partial/index.html:83
 msgid "Family"
-msgstr ""
+msgstr "Familj"
 
 #: plugins/network/resources/partial/index.html:111
 msgid "Gateway"
-msgstr ""
+msgstr "Gateway"
 
 #: plugins/network/resources/partial/index.html:8
 msgid "Hostname"
-msgstr ""
+msgstr "Värdnamn"
 
 #: plugins/network/resources/partial/index.html:225
 msgid "Hosts"
-msgstr ""
+msgstr "Värdar"
 
 #: plugins/network/resources/partial/index.html:285
 msgid "IP address"
-msgstr ""
+msgstr "IP-adress"
 
 #: plugins/network/resources/partial/index.html:19
 msgid "Interfaces"
-msgstr ""
+msgstr "Gränssnitt"
 
 #: plugins/network/resources/partial/index.html:107
 msgid "Mask"
-msgstr ""
+msgstr "Mask"
 
 #: plugins/network/resources/partial/index.html:115
 msgid "Metric"
-msgstr ""
+msgstr "Metrik"
 
 #: plugins/network/resources/partial/index.html:4 plugins/network/main.py:17
 #: plugins/network/resources/js/controllers/index.controller.es:2
 msgid "Network"
-msgstr ""
+msgstr "Nätverk"
 
 #: plugins/network/resources/partial/index.html:310
 msgid "New alias"
-msgstr ""
+msgstr "Nytt alias"
 
 #: plugins/network/resources/partial/index.html:259
 msgid "New host name"
-msgstr ""
+msgstr "Nytt värdnamn"
 
 #: plugins/network/resources/partial/index.html:255
 #: plugins/network/resources/partial/index.html:295
 msgid "No hosts defined"
-msgstr ""
+msgstr "Inga värdar definierade"
 
 #: plugins/network/resources/partial/index.html:206
 msgid "No nameservers defined"
-msgstr ""
+msgstr "Inga namnservrar definierade"
 
 #: plugins/network/resources/partial/index.html:177
 msgid "Post-down script"
-msgstr ""
+msgstr "Efter-ner skript"
 
 #: plugins/network/resources/partial/index.html:162
 msgid "Post-up script"
-msgstr ""
+msgstr "Efter-up skript"
 
 #: plugins/network/resources/partial/index.html:167
 msgid "Pre-down script"
-msgstr ""
+msgstr "Före-ner skript"
 
 #: plugins/network/resources/partial/index.html:152
 msgid "Pre-up script"
-msgstr ""
+msgstr "Före-upp skript"
 
 #: plugins/network/resources/partial/index.html:196
 #: plugins/network/resources/partial/index.html:230
 #: plugins/network/resources/partial/index.html:299
 msgid "Remove"
-msgstr ""
+msgstr "Ta bort"
 
 #: plugins/network/resources/partial/index.html:34
 msgid "Restart interface"
-msgstr ""
+msgstr "Starta om gränssnittet"
 
 #: plugins/network/resources/partial/index.html:183
 #: plugins/network/resources/partial/index.html:219
 #: plugins/network/resources/partial/index.html:268
 #: plugins/network/resources/partial/index.html:318
 msgid "Save"
-msgstr ""
+msgstr "Spara"
 
 #: plugins/network/resources/partial/index.html:129
 msgid "Scope"
-msgstr ""
+msgstr "Omfång"
 
 #: plugins/network/resources/partial/index.html:77
 msgid "Unknown addressing"
-msgstr ""
+msgstr "Okänd adress"
 
 #: plugins/network/resources/partial/index.html:74
 msgid "Unknown family"
-msgstr ""
+msgstr "Okänd familj"
 
 #: plugins/network/resources/partial/index.html:157
 msgid "Up script"
-msgstr ""
+msgstr "Upp skript"
 
 #: plugins/network/resources/partial/index.html:12
 msgid "Update hostname"
-msgstr ""
+msgstr "Uppdatera värdnamn"
 
 #: plugins/network/main.py:31
 msgid "Configure network interfaces"
-msgstr ""
+msgstr "Konfigurera nätverksgränssnitt"
 
 #: plugins/network/main.py:36
 msgid "Activate/deactivate network interfaces"
-msgstr ""
+msgstr "Aktivera/inaktivera nätverksgränssnitt"
 
 #: plugins/network/resources/js/controllers/hosts.controller.es:20
 #: plugins/network/resources/js/controllers/dns.controller.es:11
 msgid "Saved"
-msgstr ""
+msgstr "Sparat"
 
 #: plugins/network/resources/js/controllers/hosts.controller.es:22
 #: plugins/network/resources/js/controllers/dns.controller.es:13
 msgid "Could not save"
-msgstr ""
+msgstr "Kunde inte spara"
 
 #: plugins/network/resources/js/controllers/index.controller.es:10
 msgid "Static"
-msgstr ""
+msgstr "Statisk"
 
 #: plugins/network/resources/js/controllers/index.controller.es:11
 msgid "Auto"
-msgstr ""
+msgstr "Auto"
 
 #: plugins/network/resources/js/controllers/index.controller.es:13
 msgid "Manual"
-msgstr ""
+msgstr "Manuell"
 
 #: plugins/network/resources/js/controllers/index.controller.es:14
 msgid "Loopback"
-msgstr ""
+msgstr "Loopback"
 
 #: plugins/network/resources/js/controllers/index.controller.es:41
 msgid "Interface activated"
-msgstr ""
+msgstr "Gränssnitt aktiverat"
 
 #: plugins/network/resources/js/controllers/index.controller.es:47
 #: plugins/network/resources/js/controllers/index.controller.es:60
 msgid "Warning"
-msgstr ""
+msgstr "Varning"
 
 #: plugins/network/resources/js/controllers/index.controller.es:48
 msgid "Deactivating a network interface can lock you out of the remote session"
-msgstr ""
+msgstr "Inaktivera ett nätverksgränssnitt kan låsa ut dig från fjärrsessionen"
 
 #: plugins/network/resources/js/controllers/index.controller.es:49
 msgid "Deactivate"
-msgstr ""
+msgstr "Inaktivera"
 
 #: plugins/network/resources/js/controllers/index.controller.es:50
 #: plugins/network/resources/js/controllers/index.controller.es:63
 msgid "Cancel"
-msgstr ""
+msgstr "Avbryt"
 
 #: plugins/network/resources/js/controllers/index.controller.es:53
 msgid "Interface deactivated"
-msgstr ""
+msgstr "Gränssnitt inaktiverad"
 
 #: plugins/network/resources/js/controllers/index.controller.es:61
 msgid "Restarting a network interface can lock you out of the remote session"
-msgstr ""
+msgstr "Inaktivera ett nätverksgränssnitt kan låsa ut dig från fjärrsessionen"
 
 #: plugins/network/resources/js/controllers/index.controller.es:62
 msgid "Restart"
-msgstr ""
+msgstr "Starta om"
 
 #: plugins/network/resources/js/controllers/index.controller.es:67
 msgid "Interface reactivated"
-msgstr ""
+msgstr "Gränssnitt återaktiverad"
 
 #: plugins/network/resources/js/controllers/index.controller.es:75
 msgid "Hostname changed"
-msgstr ""
+msgstr "Värdnamn ändrat"
 
 #: plugins/network/resources/js/controllers/index.controller.es:77
 msgid "Failed"
-msgstr ""
+msgstr "Misslyckades"
 

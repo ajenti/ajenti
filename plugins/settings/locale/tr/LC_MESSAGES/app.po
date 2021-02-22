@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-27 12:11+0200\n"
-"PO-Revision-Date: 2020-10-25 10:22\n"
+"POT-Creation-Date: 2021-02-21 15:48+0100\n"
+"PO-Revision-Date: 2021-02-21 14:53\n"
 "Last-Translator: \n"
 "Language-Team: Turkish\n"
 "Language: tr_TR\n"
@@ -30,7 +30,7 @@ msgid "Binding"
 msgstr "Bağlayıcı"
 
 #: plugins/settings/resources/partial/index.html:205
-#: plugins/settings/resources/js/controllers/index.controller.es:76
+#: plugins/settings/resources/js/controllers/index.controller.es:78
 msgid "Cancel"
 msgstr "İptal"
 
@@ -63,7 +63,7 @@ msgid "Enable client authentication"
 msgstr "İstemci kimlik doğrulamasını etkinleştir"
 
 #: plugins/settings/resources/partial/index.html:204
-#: plugins/settings/resources/js/controllers/index.controller.es:75
+#: plugins/settings/resources/js/controllers/index.controller.es:77
 msgid "Generate"
 msgstr "Oluştur"
 
@@ -72,7 +72,7 @@ msgid "Generate a self-signed certificate"
 msgstr "Kendinden imzalı sertifika oluştur"
 
 #: plugins/settings/resources/partial/index.html:169
-#: plugins/settings/resources/js/controllers/index.controller.es:79
+#: plugins/settings/resources/js/controllers/index.controller.es:81
 msgid "Generating certificate"
 msgstr "Sertifika oluştur"
 
@@ -169,45 +169,45 @@ msgstr "Bu işlem birkaç saniye sürebilir"
 msgid "Settings"
 msgstr "Ayarlar"
 
-#: plugins/settings/resources/js/controllers/index.controller.es:37
+#: plugins/settings/resources/js/controllers/index.controller.es:39
 msgid "Could not load config"
 msgstr ""
 
-#: plugins/settings/resources/js/controllers/index.controller.es:41
+#: plugins/settings/resources/js/controllers/index.controller.es:43
 msgid "Could not load authentication provider list"
 msgstr ""
 
-#: plugins/settings/resources/js/controllers/index.controller.es:60
-#: plugins/settings/resources/js/controllers/index.controller.es:65
-msgid "Saved"
-msgstr ""
-
-#: plugins/settings/resources/js/controllers/index.controller.es:61
-msgid "SSL Error"
-msgstr ""
-
+#: plugins/settings/resources/js/controllers/index.controller.es:62
 #: plugins/settings/resources/js/controllers/index.controller.es:67
-msgid "Could not save config"
-msgstr ""
+msgid "Saved"
+msgstr "Kaydedildi"
 
-#: plugins/settings/resources/js/controllers/index.controller.es:73
+#: plugins/settings/resources/js/controllers/index.controller.es:63
+msgid "SSL Error"
+msgstr "SSL Hatası"
+
+#: plugins/settings/resources/js/controllers/index.controller.es:69
+msgid "Could not save config"
+msgstr "Yapılandırma kaydedilemedi"
+
+#: plugins/settings/resources/js/controllers/index.controller.es:75
 msgid "Self-signed certificate"
 msgstr ""
 
-#: plugins/settings/resources/js/controllers/index.controller.es:74
+#: plugins/settings/resources/js/controllers/index.controller.es:76
 msgid "Generating a new certificate will void all existing client authentication certificates!"
 msgstr ""
 
-#: plugins/settings/resources/js/controllers/index.controller.es:79
-msgid "Please wait"
-msgstr ""
-
 #: plugins/settings/resources/js/controllers/index.controller.es:81
+msgid "Please wait"
+msgstr "Lütfen bekleyin"
+
+#: plugins/settings/resources/js/controllers/index.controller.es:83
 msgid "Certificate successfully generated"
 msgstr ""
 
-#: plugins/settings/resources/js/controllers/index.controller.es:87
-#: plugins/settings/resources/js/controllers/index.controller.es:106
+#: plugins/settings/resources/js/controllers/index.controller.es:89
+#: plugins/settings/resources/js/controllers/index.controller.es:108
 msgid "Certificate generation failed"
 msgstr ""
 

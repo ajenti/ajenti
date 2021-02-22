@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-09-06 13:10+0200\n"
-"PO-Revision-Date: 2020-10-25 10:22\n"
+"PO-Revision-Date: 2021-02-21 14:53\n"
 "Last-Translator: \n"
 "Language-Team: Swedish\n"
 "Language: sv_SE\n"
@@ -19,97 +19,97 @@ msgstr ""
 
 #: plugins/fstab/resources/partial/index.html:52
 msgid "Add"
-msgstr ""
+msgstr "Lägg till"
 
 #: plugins/fstab/resources/partial/index.html:58
 msgid "Add new device"
-msgstr ""
+msgstr "Lägg till ny enhet"
 
 #: plugins/fstab/resources/partial/index.html:115
 #: plugins/fstab/resources/js/controllers/index.controller.es:58
 msgid "Cancel"
-msgstr ""
+msgstr "Avbryt"
 
 #: plugins/fstab/resources/partial/index.html:30
 #: plugins/fstab/resources/partial/index.html:8
 msgid "Device"
-msgstr ""
+msgstr "Enhet"
 
 #: plugins/fstab/resources/partial/index.html:65
 msgid "Device:"
-msgstr ""
+msgstr "Enhet:"
 
 #: plugins/fstab/resources/partial/index.html:97
 msgid "Frequency:"
-msgstr ""
+msgstr "Frekvens"
 
 #: plugins/fstab/resources/partial/index.html:57
 msgid "Modify"
-msgstr ""
+msgstr "Ändra"
 
 #: plugins/fstab/resources/partial/index.html:5
 msgid "Mounted"
-msgstr ""
+msgstr "Monterad"
 
 #: plugins/fstab/resources/partial/index.html:31
 #: plugins/fstab/resources/partial/index.html:9
 msgid "Mountpoint"
-msgstr ""
+msgstr "Monteringspunkt"
 
 #: plugins/fstab/resources/partial/index.html:73
 msgid "Mountpoint:"
-msgstr ""
+msgstr "Monteringspunkt:"
 
 #: plugins/fstab/resources/partial/index.html:81
 msgid "Options:"
-msgstr ""
+msgstr "Alternativ:"
 
 #: plugins/fstab/resources/partial/index.html:105
 msgid "Pass:"
-msgstr ""
+msgstr "Pass:"
 
 #: plugins/fstab/resources/partial/index.html:116
 #: plugins/fstab/resources/partial/index.html:117
 msgid "Save"
-msgstr ""
+msgstr "Spara"
 
 #: plugins/fstab/resources/partial/index.html:11
 msgid "Size"
-msgstr ""
+msgstr "Storlek"
 
 #: plugins/fstab/resources/partial/index.html:32
 msgid "Type"
-msgstr ""
+msgstr "Typ"
 
 #: plugins/fstab/resources/partial/index.html:89
 msgid "Type:"
-msgstr ""
+msgstr "Typ:"
 
 #: plugins/fstab/resources/partial/index.html:12
 msgid "Usage"
-msgstr ""
+msgstr "Användning"
 
 #: plugins/fstab/resources/partial/index.html:10
 msgid "Used"
-msgstr ""
+msgstr "Används"
 
 #: plugins/fstab/resources/js/controllers/index.controller.es:2
 msgid "Fstab"
-msgstr ""
+msgstr "Fstab"
 
 #: plugins/fstab/resources/js/controllers/index.controller.es:13
 msgid "Device successfully unmounted!"
-msgstr ""
+msgstr "Enheten har avmonterats!"
 
 #: plugins/fstab/resources/js/controllers/index.controller.es:31
 msgid "Fstab successfully saved!"
-msgstr ""
+msgstr "Fstab har sparats!"
 
 #: plugins/fstab/resources/js/controllers/index.controller.es:56
 msgid "Do you really want to permanently delete this entry?"
-msgstr ""
+msgstr "Vill du verkligen permanent ta bort denna post?"
 
 #: plugins/fstab/resources/js/controllers/index.controller.es:57
 msgid "Delete"
-msgstr ""
+msgstr "Radera"
 
