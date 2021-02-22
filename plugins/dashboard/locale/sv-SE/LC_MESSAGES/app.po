@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-27 12:10+0200\n"
-"PO-Revision-Date: 2020-10-25 10:22\n"
+"PO-Revision-Date: 2021-02-21 14:53\n"
 "Last-Translator: \n"
 "Language-Team: Swedish\n"
 "Language: sv_SE\n"
@@ -19,93 +19,93 @@ msgstr ""
 
 #: plugins/dashboard/resources/partial/widgets/loadavg.html:3
 msgid "1 min"
-msgstr ""
+msgstr "1 minut"
 
 #: plugins/dashboard/resources/partial/widgets/loadavg.html:19
 msgid "15 min"
-msgstr ""
+msgstr "15 min"
 
 #: plugins/dashboard/resources/partial/widgets/loadavg.html:11
 msgid "5 min"
-msgstr ""
+msgstr "5 min"
 
 #: plugins/dashboard/resources/partial/widgets/cpu.html:4
 msgid "Active cores"
-msgstr ""
+msgstr "Aktiva kärnor"
 
 #: plugins/dashboard/resources/partial/index.html:12
 msgid "Add"
-msgstr ""
+msgstr "Lägg till"
 
 #: plugins/dashboard/resources/partial/index.html:40
 msgid "Add widget"
-msgstr ""
+msgstr "Lägg till widget"
 
 #: plugins/dashboard/resources/partial/widgets/cpu.html:10
 #: plugins/dashboard/widgets/cpu.py:10
 msgid "CPU usage"
-msgstr ""
+msgstr "CPU-användning"
 
 #: plugins/dashboard/resources/partial/widget.html:1
 msgid "Configure"
-msgstr ""
+msgstr "Konfigurera"
 
 #: plugins/dashboard/resources/partial/widgets/hostname.html:2
 #: plugins/dashboard/widgets/hostname.py:10
 msgid "Hostname"
-msgstr ""
+msgstr "Värdnamn"
 
 #: plugins/dashboard/resources/partial/widgets/memory.html:10
 #: plugins/dashboard/widgets/memory.py:10
 msgid "Memory usage"
-msgstr ""
+msgstr "Minnesanvändning"
 
 #: plugins/dashboard/resources/partial/index.html:22
 #: plugins/dashboard/resources/partial/widget.html:7
 #: plugins/dashboard/resources/js/controllers/index.controller.es:83
 msgid "Remove"
-msgstr ""
+msgstr "Ta bort"
 
 #: plugins/dashboard/resources/partial/index.html:17
 msgid "Rename"
-msgstr ""
+msgstr "Byt namn"
 
 #: plugins/dashboard/resources/partial/index.html:82
 msgid "Save"
-msgstr ""
+msgstr "Spara"
 
 #: plugins/dashboard/resources/partial/index.html:8
 msgid "Tabs"
-msgstr ""
+msgstr "Flikar"
 
 #: plugins/dashboard/resources/partial/widgets/memory.html:4
 msgid "Total"
-msgstr ""
+msgstr "Totalt"
 
 #: plugins/dashboard/resources/partial/widgets/uptime.html:2
 #: plugins/dashboard/widgets/uptime.py:11
 msgid "Uptime"
-msgstr ""
+msgstr "Upptid"
 
 #: plugins/dashboard/main.py:15
 #: plugins/dashboard/resources/js/controllers/index.controller.es:2
 msgid "Dashboard"
-msgstr ""
+msgstr "Kontrollpanel"
 
 #: plugins/dashboard/resources/js/controllers/index.controller.es:67
 #: plugins/dashboard/resources/js/controllers/index.controller.es:93
 msgid "New name"
-msgstr ""
+msgstr "Nytt namn"
 
 #: plugins/dashboard/resources/js/controllers/index.controller.es:82
 msgid "${$scope.userConfig.dashboard.tabs[index].name}"
-msgstr ""
+msgstr "${$scope.userConfig.dashboard.tabs[index].name}"
 
 #: plugins/dashboard/resources/js/controllers/index.controller.es:84
 msgid "Cancel"
-msgstr ""
+msgstr "Avbryt"
 
 #: plugins/dashboard/widgets/loadavg.py:12
 msgid "Load average"
-msgstr ""
+msgstr "Genomsnittlig belastning"
 

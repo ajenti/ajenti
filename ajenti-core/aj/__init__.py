@@ -14,6 +14,10 @@ product = None
 """ Custom product name """
 
 config = None
+""" Configuration dict"""
+
+users = None
+""" Users list for auth plugin """
 
 version = None
 """ Ajenti version """

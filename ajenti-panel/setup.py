@@ -13,15 +13,19 @@ import aj
 
 def _post_install(scripts_dir):
     config_path = '/etc/ajenti/config.yml'
+    users_file = '/etc/ajenti/users.yml'
+
     if not os.path.exists('/etc/ajenti'):
         os.makedirs('/etc/ajenti')
     if not os.path.exists(config_path):
-        open(config_path, 'w').write('''
+        with open(config_path, 'w') as c:
+            c.write('''
 auth:
   allow_sudo: true
   emails: {}
   provider: os
   user_config: os
+  users_file: %s
 bind:
   host: 0.0.0.0
   mode: tcp
@@ -38,8 +42,12 @@ ssl:
     enable: false
     force: false
   enable: false
-''' % socket.gethostname())
+''' % (users_file, socket.gethostname())
+    if not os.path.exists(users_file):
+        with open(users_file, 'w') as u:
+            u.write("users: null")
     subprocess.call([sys.executable, 'ajenti-ssl-gen', socket.gethostname()], cwd=scripts_dir)
+
 
 
 class install(_install):

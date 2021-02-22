@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-27 12:10+0200\n"
-"PO-Revision-Date: 2020-10-25 10:22\n"
+"POT-Creation-Date: 2021-02-21 15:47+0100\n"
+"PO-Revision-Date: 2021-02-21 14:53\n"
 "Last-Translator: \n"
 "Language-Team: Turkish\n"
 "Language: tr_TR\n"
@@ -37,7 +37,7 @@ msgstr "Internet üzerinden tarihi eşitle"
 msgid "Time zone"
 msgstr "Zaman dilimi"
 
-#: plugins/datetime/views.py:59
+#: plugins/datetime/views.py:117
 msgid "ntpdate utility is not installed"
 msgstr "ntpdate programı yüklü değil"
 
@@ -51,7 +51,7 @@ msgstr "Tarihi ve saati değiştir"
 
 #: plugins/datetime/resources/js/controllers/index.controller.es:2
 msgid "Date & Time"
-msgstr ""
+msgstr "Tarih & Saat"
 
 #: plugins/datetime/resources/js/controllers/index.controller.es:24
 msgid "Timezone set"
@@ -69,7 +69,7 @@ msgstr ""
 
 #: plugins/datetime/resources/js/controllers/index.controller.es:33
 msgid "Synchronizing..."
-msgstr ""
+msgstr "Senkronize ediliyor..."
 
 #: plugins/datetime/resources/js/controllers/index.controller.es:36
 msgid "Time synchronized"

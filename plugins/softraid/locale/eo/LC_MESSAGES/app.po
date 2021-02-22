@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-25 11:10+0100\n"
-"PO-Revision-Date: 2020-10-25 10:21\n"
+"POT-Creation-Date: 2021-02-21 15:48+0100\n"
+"PO-Revision-Date: 2021-02-21 14:53\n"
 "Last-Translator: \n"
 "Language-Team: Esperanto\n"
 "Language: eo_UY\n"
@@ -22,7 +22,7 @@ msgid "Blocks"
 msgstr ""
 
 #: plugins/softraid/resources/partial/index.html:51
-msgid "Chunk :"
+msgid "Chunk:"
 msgstr ""
 
 #: plugins/softraid/resources/partial/index.html:10
@@ -42,19 +42,19 @@ msgid "Name"
 msgstr ""
 
 #: plugins/softraid/resources/partial/index.html:4
-msgid "No array detected !"
+msgid "No array detected!"
 msgstr ""
 
 #: plugins/softraid/resources/partial/index.html:22
-msgid "Progress :"
+msgid "Progress:"
 msgstr ""
 
 #: plugins/softraid/resources/partial/index.html:24
-msgid "Remaining :"
+msgid "Remaining:"
 msgstr ""
 
 #: plugins/softraid/resources/partial/index.html:26
-msgid "Speed :"
+msgid "Speed:"
 msgstr ""
 
 #: plugins/softraid/resources/partial/index.html:8

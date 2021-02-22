@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-27 12:10+0200\n"
-"PO-Revision-Date: 2020-10-25 10:22\n"
+"POT-Creation-Date: 2021-02-21 15:47+0100\n"
+"PO-Revision-Date: 2021-02-21 14:53\n"
 "Last-Translator: \n"
 "Language-Team: Turkish\n"
 "Language: tr_TR\n"
@@ -19,7 +19,7 @@ msgstr ""
 
 #: plugins/core/resources/partial/404.html:4
 msgid "404 - Page not found"
-msgstr ""
+msgstr "404 - Sayfa bulunamadı"
 
 #: plugins/core/resources/partial/404.html:7
 msgid "<span>\n"
@@ -28,7 +28,7 @@ msgid "<span>\n"
 "                The URL {{url}} was not found on this server."
 msgstr ""
 
-#: plugins/core/content/pages/index.html:149
+#: plugins/core/content/pages/index.html:150
 msgid "A bootstrap error has occured"
 msgstr "Bir önyükleme hatası oluştu"
 
@@ -40,7 +40,7 @@ msgstr "Kimlik doğrula"
 msgid "Elevate"
 msgstr "Yükseltmek"
 
-#: plugins/core/content/pages/index.html:132
+#: plugins/core/content/pages/index.html:133
 msgid "Enter"
 msgstr "Giriş"
 
@@ -52,7 +52,7 @@ msgstr "Giriş"
 msgid "Log out"
 msgstr "Çıkış"
 
-#: plugins/core/content/pages/index.html:173
+#: plugins/core/content/pages/index.html:174
 msgid "OK"
 msgstr "Tamam"
 
@@ -60,12 +60,12 @@ msgstr "Tamam"
 msgid "Password"
 msgstr "Parola"
 
-#: plugins/core/content/pages/index.html:152
+#: plugins/core/content/pages/index.html:153
 #: plugins/core/resources/js/core/module.es:32
 msgid "Please see browser console"
 msgstr "Lütfen tarayıcı konsolu bakınız"
 
-#: plugins/core/content/pages/index.html:128
+#: plugins/core/content/pages/index.html:129
 msgid "Quick search"
 msgstr "Hızlı Arama"
 
@@ -105,25 +105,25 @@ msgstr "Konfigürasyon dosyasını okuyunuz"
 msgid "Write configuration file"
 msgstr "Konfigürasyon dosyasını düzenle"
 
-#: plugins/core/views/api.py:99
+#: plugins/core/views/api.py:126
 msgid "Authorization failed"
 msgstr "Yetkilendirme başarısız oldu"
 
 #: plugins/core/resources/js/core/interceptors.es:5
 msgid "Security error"
-msgstr ""
+msgstr "Güvenlik hatası"
 
 #: plugins/core/resources/js/core/interceptors.es:8
 msgid "Server error"
-msgstr ""
+msgstr "Sunucu hatası"
 
 #: plugins/core/resources/js/core/interceptors.es:12
 msgid "Close"
-msgstr ""
+msgstr "Kapat"
 
 #: plugins/core/resources/js/core/interceptors.es:20
 msgid "Your session has expired"
-msgstr ""
+msgstr "Oturumunuzun süresi doldu"
 
 #: plugins/core/resources/js/core/module.es:32
 msgid "Unhandled error occurred"
@@ -131,31 +131,31 @@ msgstr ""
 
 #: plugins/core/resources/js/core/filters.es:7
 msgid "0 bytes"
-msgstr ""
+msgstr "0 bayt"
 
 #: plugins/core/resources/js/core/filters.es:13
 msgid "bytes"
-msgstr ""
+msgstr "bayt"
 
 #: plugins/core/resources/js/core/filters.es:14
 msgid "KB"
-msgstr ""
+msgstr "KB"
 
 #: plugins/core/resources/js/core/filters.es:15
 msgid "MB"
-msgstr ""
+msgstr "MB"
 
 #: plugins/core/resources/js/core/filters.es:16
 msgid "GB"
-msgstr ""
+msgstr "GB"
 
 #: plugins/core/resources/js/core/filters.es:17
 msgid "TB"
-msgstr ""
+msgstr "TB"
 
 #: plugins/core/resources/js/core/filters.es:18
 msgid "PB"
-msgstr ""
+msgstr "PB"
 
 #: plugins/core/resources/js/core/filters.es:40
 msgid "th"
@@ -175,35 +175,35 @@ msgstr ""
 
 #: plugins/core/resources/js/core/services/core.service.es:6
 msgid "Restart"
-msgstr ""
+msgstr "Yeniden başlat"
 
 #: plugins/core/resources/js/core/services/core.service.es:7
 msgid "Restart the panel?"
-msgstr ""
+msgstr "Panel yeniden başlatılsın mı?"
 
 #: plugins/core/resources/js/core/services/core.service.es:8
 msgid "Yes"
-msgstr ""
+msgstr "Evet"
 
 #: plugins/core/resources/js/core/services/core.service.es:9
 msgid "No"
-msgstr ""
+msgstr "Hayır"
 
 #: plugins/core/resources/js/core/services/core.service.es:15
 msgid "Restarting"
-msgstr ""
+msgstr "Yeniden başlatılıyor"
 
 #: plugins/core/resources/js/core/services/core.service.es:19
 msgid "Restarted"
-msgstr ""
+msgstr "Yeniden başlatıldı"
 
 #: plugins/core/resources/js/core/services/core.service.es:19
 msgid "Please wait"
-msgstr ""
+msgstr "Lütfen bekleyin"
 
 #: plugins/core/resources/js/core/services/core.service.es:29
 msgid "Could not restart"
-msgstr ""
+msgstr "Yeniden başlatılamadı"
 
 #: plugins/core/resources/js/core/services/tasks.service.es:26
 msgid "Done"

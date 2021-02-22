@@ -14,6 +14,7 @@ from importlib import reload
 import aj
 import aj.plugins
 # from aj.auth import AuthenticationService # Test for callback with certificate
+from aj.config import AjentiUsers
 from aj.http import HttpRoot, HttpMiddlewareAggregator
 from aj.gate.middleware import GateMiddleware
 from aj.plugins import PluginManager
@@ -71,6 +72,10 @@ def run(config=None, plugin_providers=None, product_name='ajenti', dev_mode=Fals
     logging.info('Loading config from %s', aj.config)
     aj.config.load()
     aj.config.ensure_structure()
+
+    logging.info('Loading users from %s', '/etc/ajenti/users.yml')
+    aj.users = AjentiUsers(aj.config.data['auth']['users_file'])
+    aj.users.load()
 
     if aj.debug:
         logging.warning('Debug mode')

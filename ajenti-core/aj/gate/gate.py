@@ -77,7 +77,7 @@ class WorkerGate():
         logging.debug('Sending a config update to %s', self.name)
         self.stream.send({
             'type': 'config-data',
-            'data': aj.config.data,
+            'data': {'config': aj.config.data, 'users': aj.users.data}
         })
 
     def send_sessionlist(self):
@@ -106,6 +106,7 @@ class WorkerGate():
                     self.gateway_middleware.broadcast_sessionlist()
                 if resp.object['type'] == 'reload-config':
                     aj.config.load()
+                    aj.users.load()
                     aj.config.ensure_structure()
                     self.gateway_middleware.broadcast_config_data()
                 if resp.object['type'] == 'log':

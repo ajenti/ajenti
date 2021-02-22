@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-09-06 13:09+0200\n"
-"PO-Revision-Date: 2020-10-25 10:22\n"
+"PO-Revision-Date: 2021-02-21 14:53\n"
 "Last-Translator: \n"
 "Language-Team: Turkish\n"
 "Language: tr_TR\n"
@@ -21,91 +21,91 @@ msgstr ""
 #: plugins/cron/resources/partial/index.html:65
 #: plugins/cron/resources/partial/index.html:92
 msgid "Add"
-msgstr ""
+msgstr "Ekle"
 
 #: plugins/cron/resources/partial/index.html:129
 #: plugins/cron/resources/partial/index.html:145
 #: plugins/cron/resources/partial/index.html:161
 #: plugins/cron/resources/js/controllers/index.controller.es:47
 msgid "Cancel"
-msgstr ""
+msgstr "Vazgeç"
 
 #: plugins/cron/resources/partial/index.html:121
 #: plugins/cron/resources/partial/index.html:137
 #: plugins/cron/resources/partial/index.html:15
 #: plugins/cron/resources/partial/index.html:46
 msgid "Command"
-msgstr ""
+msgstr "Komut"
 
 #: plugins/cron/resources/partial/index.html:125
 #: plugins/cron/resources/partial/index.html:141
 #: plugins/cron/resources/partial/index.html:157
 msgid "Comment"
-msgstr ""
+msgstr "Yorum"
 
 #: plugins/cron/resources/partial/index.html:12
 msgid "Day (month)"
-msgstr ""
+msgstr "Gün (ay)"
 
 #: plugins/cron/resources/partial/index.html:14
 msgid "Day (week)"
-msgstr ""
+msgstr "Gün (hafta)"
 
 #: plugins/cron/resources/partial/index.html:109
 msgid "Day of the month"
-msgstr ""
+msgstr "Ayın günü"
 
 #: plugins/cron/resources/partial/index.html:117
 msgid "Day of the week"
-msgstr ""
+msgstr "Haftanın günü"
 
 #: plugins/cron/resources/partial/index.html:67
 msgid "Environment variables"
-msgstr ""
+msgstr "Ortam değişkenleri"
 
 #: plugins/cron/resources/partial/index.html:105
 #: plugins/cron/resources/partial/index.html:11
 msgid "Hour"
-msgstr ""
+msgstr "Saat"
 
 #: plugins/cron/resources/partial/index.html:5
 msgid "Jobs"
-msgstr ""
+msgstr "İşler"
 
 #: plugins/cron/resources/partial/index.html:10
 #: plugins/cron/resources/partial/index.html:101
 msgid "Minute"
-msgstr ""
+msgstr "Dakika"
 
 #: plugins/cron/resources/partial/index.html:97
 msgid "Modify"
-msgstr ""
+msgstr "Düzenle"
 
 #: plugins/cron/resources/partial/index.html:113
 #: plugins/cron/resources/partial/index.html:13
 msgid "Month"
-msgstr ""
+msgstr "Ay"
 
 #: plugins/cron/resources/partial/index.html:149
 #: plugins/cron/resources/partial/index.html:72
 msgid "Name"
-msgstr ""
+msgstr "İsim"
 
 #: plugins/cron/resources/partial/index.html:130
 #: plugins/cron/resources/partial/index.html:146
 #: plugins/cron/resources/partial/index.html:162
 msgid "OK"
-msgstr ""
+msgstr "Tamam"
 
 #: plugins/cron/resources/partial/index.html:167
 msgid "Save"
-msgstr ""
+msgstr "Kaydet"
 
 #: plugins/cron/resources/partial/index.html:133
 #: plugins/cron/resources/partial/index.html:40
 #: plugins/cron/resources/partial/index.html:45
 msgid "Special"
-msgstr ""
+msgstr "Özel"
 
 #: plugins/cron/resources/partial/index.html:7
 msgid "There is no cronjob."
@@ -122,7 +122,7 @@ msgstr ""
 #: plugins/cron/resources/partial/index.html:153
 #: plugins/cron/resources/partial/index.html:73
 msgid "Value"
-msgstr ""
+msgstr "Değer"
 
 #: plugins/cron/resources/js/controllers/index.controller.es:2
 #: plugins/cron/resources/js/controllers/index.controller.es:4
@@ -131,15 +131,15 @@ msgstr ""
 
 #: plugins/cron/resources/js/controllers/index.controller.es:32
 msgid "normal task"
-msgstr ""
+msgstr "normal görev"
 
 #: plugins/cron/resources/js/controllers/index.controller.es:33
 msgid "special task"
-msgstr ""
+msgstr "özel görev"
 
 #: plugins/cron/resources/js/controllers/index.controller.es:34
 msgid "environment variable"
-msgstr ""
+msgstr "ortam değişkeni"
 
 #: plugins/cron/resources/js/controllers/index.controller.es:45
 msgid "Do you really want to permanently delete this entry?"
@@ -147,7 +147,7 @@ msgstr ""
 
 #: plugins/cron/resources/js/controllers/index.controller.es:46
 msgid "Delete"
-msgstr ""
+msgstr "Sil"
 
 #: plugins/cron/resources/js/controllers/index.controller.es:76
 msgid "Crontab successfully saved !"

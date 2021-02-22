@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-27 12:10+0200\n"
+"POT-Creation-Date: 2021-02-21 15:47+0100\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
@@ -26,7 +26,7 @@ msgstr ""
 msgid "Time zone"
 msgstr ""
 
-#: plugins/datetime/views.py:59
+#: plugins/datetime/views.py:117
 msgid "ntpdate utility is not installed"
 msgstr ""
 

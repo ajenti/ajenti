@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-25 11:10+0100\n"
-"PO-Revision-Date: 2020-10-25 10:22\n"
+"POT-Creation-Date: 2021-02-21 15:48+0100\n"
+"PO-Revision-Date: 2021-02-21 14:53\n"
 "Last-Translator: \n"
 "Language-Team: Turkish\n"
 "Language: tr_TR\n"
@@ -19,15 +19,15 @@ msgstr ""
 
 #: plugins/softraid/resources/partial/index.html:11
 msgid "Blocks"
-msgstr ""
+msgstr "Bloklar"
 
 #: plugins/softraid/resources/partial/index.html:51
-msgid "Chunk :"
+msgid "Chunk:"
 msgstr ""
 
 #: plugins/softraid/resources/partial/index.html:10
 msgid "Devices"
-msgstr ""
+msgstr "Aygıtlar"
 
 #: plugins/softraid/resources/partial/index.html:19
 msgid "Devices down:"
@@ -35,31 +35,31 @@ msgstr ""
 
 #: plugins/softraid/resources/partial/index.html:12
 msgid "Metadata"
-msgstr ""
+msgstr "Meta veri"
 
 #: plugins/softraid/resources/partial/index.html:7
 msgid "Name"
-msgstr ""
+msgstr "İsim"
 
 #: plugins/softraid/resources/partial/index.html:4
-msgid "No array detected !"
+msgid "No array detected!"
 msgstr ""
 
 #: plugins/softraid/resources/partial/index.html:22
-msgid "Progress :"
+msgid "Progress:"
 msgstr ""
 
 #: plugins/softraid/resources/partial/index.html:24
-msgid "Remaining :"
+msgid "Remaining:"
 msgstr ""
 
 #: plugins/softraid/resources/partial/index.html:26
-msgid "Speed :"
+msgid "Speed:"
 msgstr ""
 
 #: plugins/softraid/resources/partial/index.html:8
 msgid "State"
-msgstr ""
+msgstr "Durum"
 
 #: plugins/softraid/resources/partial/index.html:48
 msgid "Superblock:"
@@ -67,7 +67,7 @@ msgstr ""
 
 #: plugins/softraid/resources/partial/index.html:9
 msgid "Type"
-msgstr ""
+msgstr "Tür"
 
 #: plugins/softraid/resources/js/controllers/index.controller.es:2
 msgid "Softraid"

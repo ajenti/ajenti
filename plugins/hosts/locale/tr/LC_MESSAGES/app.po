@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-10-03 11:58+0200\n"
-"PO-Revision-Date: 2020-10-25 10:22\n"
+"PO-Revision-Date: 2021-02-21 14:53\n"
 "Last-Translator: \n"
 "Language-Team: Turkish\n"
 "Language: tr_TR\n"
@@ -19,63 +19,63 @@ msgstr ""
 
 #: plugins/hosts/resources/partial/index.html:31
 msgid "Add"
-msgstr ""
+msgstr "Ekle"
 
 #: plugins/hosts/resources/partial/index.html:36
 msgid "Add new host"
-msgstr ""
+msgstr "Yeni host ekle"
 
 #: plugins/hosts/resources/partial/index.html:7
 msgid "Address"
-msgstr ""
+msgstr "Adres"
 
 #: plugins/hosts/resources/partial/index.html:51
 msgid "Address:"
-msgstr ""
+msgstr "Adres:"
 
 #: plugins/hosts/resources/partial/index.html:8
 msgid "Aliases"
-msgstr ""
+msgstr "Takma adlar"
 
 #: plugins/hosts/resources/partial/index.html:59
 msgid "Aliases:"
-msgstr ""
+msgstr "Takma adlar:"
 
 #: plugins/hosts/resources/partial/index.html:75
 #: plugins/hosts/resources/js/controllers/index.controller.es:59
 msgid "Cancel"
-msgstr ""
+msgstr "Vazgeç"
 
 #: plugins/hosts/resources/partial/index.html:35
 msgid "Modify"
-msgstr ""
+msgstr "Düzenle"
 
 #: plugins/hosts/resources/partial/index.html:6
 msgid "Name"
-msgstr ""
+msgstr "İsim"
 
 #: plugins/hosts/resources/partial/index.html:43
 msgid "Name:"
-msgstr ""
+msgstr "İsim:"
 
 #: plugins/hosts/resources/partial/index.html:76
 #: plugins/hosts/resources/partial/index.html:77
 msgid "Save"
-msgstr ""
+msgstr "Kaydet"
 
 #: plugins/hosts/resources/js/controllers/index.controller.es:2
 msgid "Hosts"
-msgstr ""
+msgstr "Sunucular"
 
 #: plugins/hosts/resources/js/controllers/index.controller.es:22
 msgid "Hosts successfully saved!"
-msgstr ""
+msgstr "Sunucular başarıyla kaydedildi!"
 
 #: plugins/hosts/resources/js/controllers/index.controller.es:57
 msgid "Do you really want to permanently delete this entry?"
-msgstr ""
+msgstr "Gerçekten bu girdiyi silmek istiyor musun?"
 
 #: plugins/hosts/resources/js/controllers/index.controller.es:58
 msgid "Delete"
-msgstr ""
+msgstr "Sil"
 
