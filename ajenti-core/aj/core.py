@@ -194,8 +194,8 @@ def run(config=None, plugin_providers=None, product_name='ajenti', dev_mode=Fals
             return
         cleanup.started = True
         logging.info('Process %s exiting normally', os.getpid())
-        gevent.signal.signal(signal.SIGINT, lambda: None)
-        gevent.signal.signal(signal.SIGTERM, lambda: None)
+        gevent.signal_handler(signal.SIGINT, lambda: None)
+        gevent.signal_handler(signal.SIGTERM, lambda: None)
         if aj.master:
             gateway.destroy()
 
@@ -207,12 +207,12 @@ def run(config=None, plugin_providers=None, product_name='ajenti', dev_mode=Fals
             except OSError:
                 pass
 
-    def signal_handler(signal, frame):
+    def signal_handler():
         cleanup()
         sys.exit(0)
 
-    gevent.signal.signal(signal.SIGINT, signal_handler)
-    gevent.signal.signal(signal.SIGTERM, signal_handler)
+    gevent.signal_handler(signal.SIGINT, signal_handler)
+    gevent.signal_handler(signal.SIGTERM, signal_handler)
 
     aj.server.serve_forever()
 
