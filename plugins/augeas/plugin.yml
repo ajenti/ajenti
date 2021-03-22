@@ -2,7 +2,7 @@ name: augeas
 author: Ajenti project
 email: e@ajenti.org
 url: https://ajenti.org
-version: '0.17'
+version: '0.18'
 title: 'Augeas API'
 icon: cog
 dependencies:

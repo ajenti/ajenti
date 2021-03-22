@@ -2,7 +2,7 @@ name: terminal
 author: Ajenti project
 email: e@ajenti.org
 url: https://ajenti.org
-version: '0.38'
+version: '0.39'
 title: 'Terminal'
 icon: terminal
 dependencies:

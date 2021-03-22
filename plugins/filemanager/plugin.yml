@@ -2,7 +2,7 @@ name: filemanager
 author: Ajenti project
 email: e@ajenti.org
 url: https://ajenti.org
-version: '0.26'
+version: '0.27'
 title: 'File Manager'
 icon: folder-o
 dependencies:

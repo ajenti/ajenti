@@ -2,7 +2,7 @@ name: check_certificates
 author: Arnaud Kientz
 email: arnaud@unpeud.info
 url: https://ajenti.org
-version: '0.5'
+version: '0.6'
 title: 'Check certificates'
 icon: certificate
 dependencies:
