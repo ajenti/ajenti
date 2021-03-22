@@ -42,12 +42,12 @@ ssl:
     enable: false
     force: false
   enable: false
-''' % (users_file, socket.gethostname())
+        ''' % (users_file, socket.gethostname()))
+
     if not os.path.exists(users_file):
         with open(users_file, 'w') as u:
             u.write("users: null")
     subprocess.call([sys.executable, 'ajenti-ssl-gen', socket.gethostname()], cwd=scripts_dir)
-
 
 
 class install(_install):

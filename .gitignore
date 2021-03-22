@@ -16,3 +16,4 @@ docs/build
 *.mo
 .idea*
 .crowdin.key
+.mypy_cache
