@@ -2,10 +2,10 @@
 cookies
 distro
 greenlet==0.4.16
-gevent==1.3.7
+gevent==1.5.0
 gevent-socketio-hartwork>=0.3.6
 gevent-websocket
-gipc
+gipc==1.1.1
 jadi>=1.0.3
 lxml>=2.2.4
 passlib
