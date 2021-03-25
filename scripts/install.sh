@@ -75,10 +75,7 @@ $PYTHON3 -m pip uninstall -y gevent-socketio gevent-socketio-hartwork
 
 echo ":: Installing Ajenti"
 
-$PYTHON3 -m pip install cookies distro greenlet==0.4.16 gevent==1.3.7 "gevent-socketio-hartwork>=0.3.6" gevent-websocket gipc "jadi>=1.0.3" "lxml>=2.2.4" passlib pexpect "psutil>=2.2.1" pyOpenSSL==19.1.0 python-daemon pyyaml "requests>=2" setproctitle simplejson "six>=1.9.0" termcolor "pip>=20" "setuptools>=41" Pillow python-augeas pytz pyte==0.8.0 scrypt setproctitle reconfigure upstart-new || exit 1
-$PYTHON3 -m pip install --no-deps aj ajenti-panel || exit 1
-$PYTHON3 -m pip install --no-deps ajenti.plugin.core ajenti.plugin.dashboard ajenti.plugin.settings ajenti.plugin.plugins ajenti.plugin.notepad ajenti.plugin.terminal ajenti.plugin.filemanager ajenti.plugin.packages ajenti.plugin.services || exit 1
-# $PYTHON3 -m pip install ajenti-panel ajenti.plugin.core ajenti.plugin.dashboard ajenti.plugin.settings ajenti.plugin.plugins ajenti.plugin.notepad ajenti.plugin.terminal ajenti.plugin.filemanager ajenti.plugin.packages ajenti.plugin.services || exit 1
+$PYTHON3 -m pip install ajenti-panel ajenti.plugin.core ajenti.plugin.dashboard ajenti.plugin.settings ajenti.plugin.plugins ajenti.plugin.notepad ajenti.plugin.terminal ajenti.plugin.filemanager ajenti.plugin.packages ajenti.plugin.services || exit 1
 
 # ----------------
 
