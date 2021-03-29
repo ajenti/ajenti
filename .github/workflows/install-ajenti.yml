@@ -2,9 +2,9 @@ name: Build Ajenti and test
 
 on:
   push:
-    branches: [ gh-actions ]
+    branches: '**'
   pull_request:
-    branches: [ gh-actions ]
+    branches: '**'
 
 jobs:
   build:
