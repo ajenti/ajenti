@@ -1,0 +1,59 @@
+name: Build Ajenti and test
+
+on:
+  push:
+    branches: '**'
+  pull_request:
+    branches: '**'
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, ubuntu-18.04]
+        python-version: [3.6, 3.7, 3.8, 3.9]
+        node-version: [14.x, 15.x]
+    runs-on: ${{ matrix.os }}
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v2
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Installing Apt packages
+      run: |
+        sudo apt install python3-lxml python3-dbus python3-lxml python3-pip libaugeas-dev augeas-tools
+    - name: Set up Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - name: Install npm dependencies
+      run: |
+        sudo npm install -g npm
+        sudo npm install -g bower babel-cli babel-preset-es2015 babel-plugin-external-helpers less coffee-script
+        sudo npm install babel-cli babel-preset-es2015 babel-plugin-external-helpers
+    - name: Install python dependencies
+      run: |
+        sudo python3 -m pip install --upgrade pip
+        sudo python3 -m pip install wheel setuptools
+    - name: Install Ajenti
+      run: |
+        sudo python3 -m pip install -r ajenti-core/requirements.txt
+        sudo python3 -m pip install -r plugins/core/requirements.txt
+        sudo python3 -m pip install -r plugins/augeas/requirements.txt
+        sudo python3 -m pip install -r plugins/auth_users/requirements.txt
+        sudo python3 -m pip install -r plugins/datetime/requirements.txt
+        sudo python3 -m pip install -r plugins/services/requirements.txt
+        sudo python3 -m pip install -r plugins/terminal/requirements.txt
+        sudo python3 -m pip install ajenti-dev-multitool
+        sudo python3 -m pip install nose
+    - name: Install Bower components
+      run: |
+        sudo ajenti-dev-multitool --bower install || exit 1
+        sudo ajenti-dev-multitool --build || exit 1
+    - name: Running Nose tests
+      run: |
+        cd tests-nose
+        sudo nosetests tests || exit 1
+        cd ..
