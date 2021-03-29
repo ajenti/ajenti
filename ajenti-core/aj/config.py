@@ -102,10 +102,11 @@ class AjentiUsers(BaseConfig):
 
         if not os.path.exists(self.path):
             logging.error('Users file "%s" not found', self.path)
-
-        if os.geteuid() == 0:
-            os.chmod(self.path, 384)  # 0o600
-        self.data = yaml.load(open(self.path), Loader=yaml.SafeLoader)
+            self.data = {'users': {}}
+        else:
+            if os.geteuid() == 0:
+                os.chmod(self.path, 384)  # 0o600
+            self.data = yaml.load(open(self.path), Loader=yaml.SafeLoader)
 
     def save(self):
         with open(self.path, 'w') as f:
