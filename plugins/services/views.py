@@ -106,7 +106,7 @@ class Handler(HttpPlugin):
         :rtype: dict
         """
 
-        if operation not in ['start', 'stop', 'restart']:
+        if operation not in ['start', 'stop', 'restart', 'kill']:
             return
         try:
             getattr(self.managers[manager_id], operation)(service_id)
