@@ -117,6 +117,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://stackoverflow.com/story/catrielmuller"><img src="https://avatars1.githubusercontent.com/u/2272323?v=4?s=75" width="75px;" alt=""/><br /><sub><b>Catriel Müller</b></sub></a><br /><a href="https://github.com/ajenti/ajenti/commits?author=catrielmuller" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/UnicronNL"><img src="https://avatars1.githubusercontent.com/u/1267745?v=4?s=75" width="75px;" alt=""/><br /><sub><b>Kim</b></sub></a><br /><a href="https://github.com/ajenti/ajenti/commits?author=UnicronNL" title="Code">💻</a></td>
     <td align="center"><a href="https://www.daniel-schulz-software.de"><img src="https://avatars.githubusercontent.com/u/8694700?v=4?s=75" width="75px;" alt=""/><br /><sub><b>Daniel Schulz</b></sub></a><br /><a href="https://github.com/ajenti/ajenti/commits?author=daniel-schulz" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/dendilz"><img src="https://avatars.githubusercontent.com/u/33727631?v=4?s=75" width="75px;" alt=""/><br /><sub><b>dendilz</b></sub></a><br /><a href="https://github.com/ajenti/ajenti/commits?author=dendilz" title="Code">💻</a></td>
   </tr>
 </table>
 
