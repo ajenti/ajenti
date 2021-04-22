@@ -49,3 +49,6 @@ class ServiceManager():
 
     def restart(self, _id):
         raise NotImplementedError
+
+    def kill(self, _id):
+        raise NotImplementedError

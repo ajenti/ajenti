@@ -108,3 +108,13 @@ class SystemdServiceManager(ServiceManager):
         """
 
         subprocess.check_call(['systemctl', 'restart', _id], close_fds=True)
+
+    def kill(self, _id):
+        """
+        Basically kill a service.
+
+        :param _id: Service name
+        :type _id: string
+        """
+
+        subprocess.check_call(['systemctl', 'kill -s SIGKILL', _id], close_fds=True)
