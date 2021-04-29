@@ -112,7 +112,8 @@ class WorkerGate():
                 if resp.object['type'] == 'log':
                     method = {
                         'info': logging.info,
-                        'warn': logging.warn,
+                        'warn': logging.warning,
+                        'warning': logging.warning,
                         'debug': logging.debug,
                         'error': logging.error,
                         'critical': logging.critical,
