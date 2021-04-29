@@ -3,86 +3,64 @@ import logging
 import os
 import pwd
 import random
-import socketio
 import time
+import gevent
+from socketio import Namespace
 from cookies import Cookies
 from gevent.timeout import Timeout
-from socketio.namespace import BaseNamespace
-from socketio.mixins import BroadcastMixin
 from jadi import service
 
 import aj
-from aj.api.http import BaseHttpHandler
 from aj.gate.gate import WorkerGate
 from aj.gate.session import Session
 from aj.gate.worker import WorkerError
 from aj.util import str_fsize
 
-
-class SocketIONamespace(BaseNamespace, BroadcastMixin):
-    name = '/socket'
-    """ Endpoint ID """
-
-    def __init__(self, context, env, *args, **kwargs):
-        BaseNamespace.__init__(self, env, *args, **kwargs)
-        BroadcastMixin.__init__(self)
-        self.context = context
-        self.env = env
-        self.gate = None
-
-    def get_initial_acl(self):
-        return ['recv_connect']
+class SocketIOQueue():
+    def __init__(self, sid, gate, namespace):
+        self.sid = sid
+        self.gate = gate
+        self.namespace = namespace
+        self.queue = self.gate.q_socket_messages.register()
+        gevent.spawn(self._stream_reader)
 
     def _stream_reader(self):
-        q = self.gate.q_socket_messages.register()
         while True:
-            resp = q.get()
-            self.emit('message', resp.object['message'])
+            resp = self.queue.get()
+            self.namespace.emit('message', resp.object['message'], room=self.sid)
 
-    def _send_worker_event(self, event, message=None):
-        if self.gate:
-            self.gate.stream.send({
+class SocketIONamespace(Namespace):
+
+    def __init__(self, context):
+        Namespace.__init__(self, namespace="/socket")
+        self.context = context
+
+    def _send_worker_event(self, sid, event, message=None):
+        gate = self.get_session(sid).get('gate', None)
+        if gate:
+            gate.stream.send({
                 'type': 'socket',
                 'event': event,
                 'namespace': id(self),
                 'message': message,
             })
 
-    def recv_connect(self):
-        logging.debug('Socket %s connected', id(self))
-        session = GateMiddleware.get(self.context).obtain_session(self.env)
+    def on_connect(self, sid, environ):
+        logging.debug('Socket %s connected, SID %s', id(self), sid)
+        session = GateMiddleware.get(self.context).obtain_session(environ)
         if session:
-            self.gate = session.gate
-            self.spawn(self._stream_reader)
-            self.add_acl_method('on_message')
-            self.add_acl_method('recv_message')
-            self.add_acl_method('recv_disconnect')
-            self._send_worker_event('connect')
+            queue = SocketIOQueue(sid, session.gate, self)
+            self.save_session(sid, {'gate': session.gate, 'queue': queue})
+            self._send_worker_event(sid, 'connect')
 
-    def recv_disconnect(self):
+    def on_disconnect(self, sid):
         logging.debug('Socket %s disconnected', id(self))
-        self._send_worker_event('disconnect')
-        self.disconnect(silent=True)
+        self._send_worker_event(sid, 'disconnect')
+        self.disconnect(sid)
 
-    def on_message(self, message, *args):
+    def on_message(self, sid, message):
         logging.debug('Socket %s message: %s', id(self), repr(message))
-        self._send_worker_event('message', message)
-
-
-@service
-class SocketIORouteHandler(BaseHttpHandler):
-    def __init__(self, context):
-        self.namespaces = {
-            '/socket': lambda *args, **kwargs: SocketIONamespace(
-                context, *args, **kwargs
-            )
-        }
-
-    def handle(self, context):
-        return bytes(socketio.socketio_manage(
-            context.env, self.namespaces, context
-        ) or b'')
-
+        self._send_worker_event(sid, 'message', message)
 
 @service
 class GateMiddleware():
@@ -190,11 +168,6 @@ class GateMiddleware():
             gate = session.gate
         else:
             gate = self.restricted_gate
-
-        if http_context.path.startswith('/socket'):
-            http_context.fallthrough(SocketIORouteHandler.get(self.context))
-            http_context.respond_ok()
-            return 'Socket closed'
 
         request_object = {
             'type': 'http',

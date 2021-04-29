@@ -16,7 +16,7 @@ import aj.plugins
 # from aj.auth import AuthenticationService # Test for callback with certificate
 from aj.config import AjentiUsers
 from aj.http import HttpRoot, HttpMiddlewareAggregator
-from aj.gate.middleware import GateMiddleware
+from aj.gate.middleware import GateMiddleware, SocketIONamespace
 from aj.plugins import PluginManager
 from aj.wsgi import RequestHandler
 
@@ -35,7 +35,8 @@ threading.Event = Event
 
 import aj.compat
 
-from socketio.server import SocketIOServer
+from gevent import pywsgi
+import socketio
 
 
 def run(config=None, plugin_providers=None, product_name='ajenti', dev_mode=False,
@@ -131,25 +132,19 @@ def run(config=None, plugin_providers=None, product_name='ajenti', dev_mode=Fals
             logging.error('Could not bind: %s', str(e))
             sys.exit(1)
 
-    # Fix stupid socketio bug (it tries to do *args[0][0])
-    socket.socket.__getitem__ = lambda x, y: None
-
     listener.listen(10)
 
     gateway = GateMiddleware.get(aj.context)
-    application = HttpRoot(HttpMiddlewareAggregator([gateway])).dispatch
+    sio = socketio.Server(async_mode='gevent')
+    application = socketio.WSGIApp(sio, HttpRoot(HttpMiddlewareAggregator([gateway])).dispatch)
+    sio.register_namespace(SocketIONamespace(context=aj.context))
 
-    aj.server = SocketIOServer(
+    aj.server = pywsgi.WSGIServer(
         listener,
         log=open(os.devnull, 'w'),
         application=application,
         handler_class=RequestHandler,
         policy_server=False,
-        transports=[
-            str('websocket'),
-            str('xhr-polling'),
-            str('jsonp-polling'),
-        ],
     )
 
     if aj.config.data['ssl']['enable'] and aj.config.data['bind']['mode'] == 'tcp':
