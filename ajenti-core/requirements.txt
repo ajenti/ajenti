@@ -3,7 +3,8 @@ cookies
 distro
 greenlet<=0.4.16
 gevent==1.5.0
-gevent-socketio-hartwork>=0.3.6
+python-socketio==5.2.1
+python-engineio==4.1.0
 gevent-websocket
 gipc==1.1.1
 jadi>=1.0.3
