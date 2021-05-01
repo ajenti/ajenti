@@ -28,15 +28,15 @@ class ResourcesHandler(HttpPlugin):
         :rtype: string
         """
 
-        return '''
-            try {
-                %s
-            } catch (err) {
+        return f'''
+            try {{
+                {js}
+            }} catch (err) {{
                 console.warn('Plugin load error:');
-                console.warn(' * %s');
+                console.warn(' * {name}');
                 console.error('  ', err);
-            }
-        ''' % (js, name)
+            }}
+        '''
 
     @url(r'/resources/all\.(?P<group>.+)')
     @endpoint(page=True, auth=False)
@@ -58,7 +58,7 @@ class ResourcesHandler(HttpPlugin):
             content = ''
             if group in ['js', 'css', 'vendor.js', 'vendor.css']:
                 for plugin in self.mgr:
-                    path = self.mgr.get_content_path(plugin, 'resources/build/all.%s' % group)
+                    path = self.mgr.get_content_path(plugin, f'resources/build/all.{group}')
                     if os.path.exists(path):
                         file_content = open(path, encoding="utf-8").read()
                         if group == 'js':
@@ -70,9 +70,9 @@ class ResourcesHandler(HttpPlugin):
                     for resource in self.mgr[plugin]['info']['resources']:
                         if resource['path'].startswith('ng:'):
                             ng_modules.setdefault(plugin, []).append(resource['path'].split(':')[-1])
-                content = '''
-                    window.__ngModules = %s;
-                ''' % json.dumps(ng_modules)
+                content = f'''
+                    window.__ngModules = {json.dumps(ng_modules)};
+                '''
             if group == 'locale.js':
                 lang = http_context.query.get('lang', None)
                 if lang:
@@ -94,18 +94,15 @@ class ResourcesHandler(HttpPlugin):
                 for plugin in self.mgr:
                     for resource in self.mgr[plugin]['info']['resources']:
                         path = resource['path']
-                        name = resource.get('overrides', '%s:%s' % (plugin, path))
+                        name = resource.get('overrides', f'{plugin}:{path}')
 
                         if name.endswith('.html'):
                             path = self.mgr.get_content_path(plugin, path)
                             if os.path.exists(path):
                                 template = open(path).read()
-                                content += '''
-                                      $templateCache.put("%s", %s);
-                                ''' % (
-                                    '%s/%s' % (http_context.prefix, name),
-                                    json.dumps(template)
-                                )
+                                content += f'''
+                                      $templateCache.put("{http_context.prefix}/{name}", {json.dumps(template)});
+                                '''
                 content += '''
                     }]);
                 '''

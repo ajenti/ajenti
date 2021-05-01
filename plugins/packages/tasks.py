@@ -14,7 +14,7 @@ class UpdateLists(Task):
                 self.manager = mgr
                 break
         else:
-            logging.error('Package manager %s not found', manager_id)
+            logging.error(f'Package manager {manager_id} not found')
 
     def run(self):
         self.manager.update_lists(self.report_progress)

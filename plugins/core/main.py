@@ -54,7 +54,7 @@ class Permissions (PermissionProvider):
     def provide(self):
         sidebar_perms = [
             {
-                'id': 'sidebar:view:%s' % item['url'],
+                'id': f'sidebar:view:{item["url"]}',
                 'name': item['name'],
                 'default': True,
             }

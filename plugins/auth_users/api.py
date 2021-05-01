@@ -41,7 +41,7 @@ class UsersAuthenticationProvider(AuthenticationProvider):
                 scrypt.decrypt(bytes.fromhex(user_hash), password, maxtime=15, encoding=None)
                 return True
             except scrypt.error as e:
-                logging.debug('Auth failed: %s' % e)
+                logging.debug(f'Auth failed: {e}')
                 return False
         return False
 

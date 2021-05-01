@@ -46,7 +46,7 @@ class SocketIONamespace(Namespace):
             })
 
     def on_connect(self, sid, environ):
-        logging.debug('Socket %s connected, SID %s', id(self), sid)
+        logging.debug(f'Socket {id(self)} connected')
         session = GateMiddleware.get(self.context).obtain_session(environ)
         if session:
             queue = SocketIOQueue(sid, session.gate, self)
@@ -54,12 +54,12 @@ class SocketIONamespace(Namespace):
             self._send_worker_event(sid, 'connect')
 
     def on_disconnect(self, sid):
-        logging.debug('Socket %s disconnected', id(self))
+        logging.debug(f'Socket {id(self)} disconnected')
         self._send_worker_event(sid, 'disconnect')
         self.disconnect(sid)
 
     def on_message(self, sid, message):
-        logging.debug('Socket %s message: %s', id(self), repr(message))
+        logging.debug(f'Socket {id(self)} message: {repr(message)}')
         self._send_worker_event(sid, 'message', message)
 
 @service
@@ -105,7 +105,7 @@ class GateMiddleware():
         if max_sessions and len(self.sessions) >= max_sessions:
             candidates = sorted(self.sessions.keys(), key=lambda k: -self.sessions[k].get_age())
             victim = self.sessions[candidates[0]]
-            logging.info("Closing session %s due to pool overflow" % victim.id)
+            logging.info(f"Closing session {victim.id} due to pool overflow")
             victim.deactivate()
             self.vacuum()
 
@@ -156,7 +156,7 @@ class GateMiddleware():
 
         if not session and aj.dev_autologin:
             username = pwd.getpwuid(os.geteuid()).pw_name
-            logging.warning('Opening an autologin session for user %s', username)
+            logging.warning(f'Opening an autologin session for user {username}')
             session = self.open_session(
                 http_context.env,
                 initial_identity=username
@@ -202,7 +202,7 @@ class GateMiddleware():
         if 'X-Session-Redirect' in headers:
             # new authenticated session
             username = headers['X-Session-Redirect']
-            logging.info('Opening a session for user %s', username)
+            logging.info(f'Opening a session for user {username}')
             session = self.open_session(
                 http_context.env,
                 initial_identity=username,
@@ -214,13 +214,12 @@ class GateMiddleware():
         content = resp.object['content']
 
         end_time = time.time()
+        duration = end_time - start_time
+        size = str_fsize(len(content[0] if content else []))
+        status = str(http_context.status).split()[0]
         logging.debug(
-            '%.03fs %12s   %s %s %s',
-            end_time - start_time,
-            str_fsize(len(content[0] if content else [])),
-            str(http_context.status).split()[0],
-            http_context.env['REQUEST_METHOD'],
-            http_context.path
+                f'{duration:.3f} {size:>12}'
+                f'   {status} {http_context.env["REQUEST_METHOD"]} {http_context.path}'
         )
 
         for index, item in enumerate(content):

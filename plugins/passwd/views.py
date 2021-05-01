@@ -53,4 +53,4 @@ class Handler(HttpPlugin):
 
         data = http_context.json_body()
         p = subprocess.Popen(['chpasswd'], stdin=subprocess.PIPE)
-        p.communicate('%s:%s' % (data['user'], data['password']))
+        p.communicate(f'{data["users"]}:{data["password"]}')

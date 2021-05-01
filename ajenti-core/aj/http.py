@@ -14,7 +14,8 @@ from aj.api.http import BaseHttpHandler
 
 
 def _validate_origin(env):
-    valid_origin = '%s://%s' % ('https' if env['SSL'] else 'http', env['HTTP_HOST'])
+    protocol = 'https' if env['SSL'] else 'http'
+    valid_origin = f'{protocol}://{env["HTTP_HOST"]}'
     request_origin = env.get('HTTP_ORIGIN', '').strip('/')
     if request_origin:
         if request_origin != valid_origin:
@@ -162,7 +163,7 @@ class HttpContext():
         return json.loads(self.body.decode('utf-8'))
 
     def dump_env(self):
-        print('\n'.join('%s = %s' % (x, self.env[x]) for x in sorted(list(self.env))))
+        print('\n'.join(f'{x} = {self.env[x]}') for x in sorted(list(self.env)))
 
     def get_cleaned_env(self):
         env = self.env.copy()
@@ -233,7 +234,7 @@ class HttpContext():
 
         status = self.status
         if isinstance(status, int):
-            status = '%s ' % status
+            status = f'{status} '
         self.start_response(
             str(status),
             [(str(x), str(y)) for x, y in self.headers]
@@ -377,14 +378,15 @@ class HttpContext():
         name = name or os.path.split(path)[-1].encode()
 
         if inline:
-            self.add_header('Content-Disposition', (b'inline; filename=%s' % name).decode())
+            self.add_header('Content-Disposition', (f'inline; filename={name.decode()}'))
         else:
-            self.add_header('Content-Disposition', (b'attachment; filename=%s' % name).decode())
+            self.add_header('Content-Disposition', (f'attachment; filename={name.decode()}'))
 
         if stream:
             if range_from:
                 self.add_header('Content-Length', str(range_to - range_from + 1))
-                self.add_header('Content-Range', 'bytes %i-%i/%i' % (range_from, range_to, rsize))
+                self.add_header('Content-Range',
+                                f'bytes {range_from:d}-{range_to:d}/{rsize}')
                 self.respond('206 Partial Content')
             else:
                 self.respond_ok()

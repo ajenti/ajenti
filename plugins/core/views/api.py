@@ -64,12 +64,12 @@ class Handler(HttpPlugin):
 
         return {
             'short_name': aj.config.data['name'],
-            'name': '%s (%s)' % (aj.config.data['name'], socket.gethostname()),
-            'start_url': '%s/#app' % http_context.prefix,
+            'name': f'{aj.config.data["name"]} ({socket.gethostname()})',
+            'start_url': f'{http_context.prefix}/#app',
             'display': 'standalone',
             'icons': [
                 {
-                    'src': '%s/resources/core/resources/images/icon.png' % http_context.prefix,
+                    'src': f'{http_context.prefix}/resources/core/resources/images/icon.png',
                     'sizes': '1024x1024',
                     'type': 'image/png',
                 }

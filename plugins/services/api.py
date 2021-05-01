@@ -23,7 +23,7 @@ class ServiceOperationError(Exception):
         self.inner = inner
 
     def __unicode__(self):
-        return '[ServiceOperationError %s]' % self.inner
+        return f'[ServiceOperationError {self.inner}]'
 
 
 @interface

@@ -75,25 +75,21 @@ class Task():
     def _worker(self, pipe=None):
         self.pipe = pipe
         setproctitle.setproctitle(
-            '%s task %s #%i' % (
-                sys.argv[0],
-                self.__class__.__name__,
-                os.getpid()
-            )
+            f'{sys.argv[0]} task {self.__class.__name__} #{os.getpid():d}'
         )
         set_log_params(tag='task')
         init_log_forwarding(self.send_log_event)
-        logging.info('Starting task %s (%s)', self.id, self.__class__.__name__)
+        logging.info(f'Starting task {self.id} ({self.__class__.__name__})')
         try:
             self.run()
             self.pipe.put({'type': 'done'})
         # pylint: disable=W0703
         except Exception as e:
-            logging.error('Exception in task %s', self.id)
+            logging.error(f'Exception in task {self.id}')
             logging.error(str(e))
             traceback.print_exc()
             self.pipe.put({'type': 'exception', 'exception': str(e)})
-        logging.info('Task %s finished', self.id)
+        logging.info(f'Task {self.id} finished')
 
     def _reader(self):
         while True:
@@ -102,13 +98,13 @@ class Task():
             except EOFError:
                 self.running = False
                 self.finished = time.time()
-                logging.debug('Task %s pipe was closed', self.id)
+                logging.debug(f'Task {self.id} pipe was closed')
                 self.service.remove(self.id)
                 self.service.notify()
                 return
             if msg['type'] == 'exception':
                 self.exception = msg['exception']
-                logging.debug('Task %s reports exception: %s', self.id, msg['exception'])
+                logging.debug(f'Task {self.id} reports exception: {msg["exception"]}')
                 self.service.notify({
                     'type': 'exception',
                     'exception': self.exception,
@@ -122,14 +118,12 @@ class Task():
             if msg['type'] == 'progress':
                 self.progress = msg['progress']
                 logging.debug(
-                    'Task %s reports progress: %s %s/%s',
-                    self.id,
-                    self.progress['message'],
-                    self.progress['done'],
-                    self.progress['total'],
+                    f'Task {self.id} reports progress: '
+                    f'{self.progress["message"]} '
+                    f'{self.progress["done"]}/{self.progress["total"]}'
                 )
             if msg['type'] == 'done':
-                logging.debug('Task %s reports completion', self.id)
+                logging.debug(f'Task {self.id} reports completion')
                 self.service.notify({
                     'type': 'done',
                     'task': {
@@ -142,10 +136,7 @@ class Task():
             if msg['type'] == 'push':
                 Push.get(self.context).push(msg['plugin'], msg['message'])
                 logging.debug(
-                    'Task %s sends a push message: %s %s',
-                    self.id,
-                    msg['plugin'],
-                    msg['message'],
+                    f'Task {self.id} sends a push message: {msg["plugin"]} {msg["message"]}'
                 )
             if msg['type'] == 'log':
                 self.context.worker.send_to_upstream(msg)

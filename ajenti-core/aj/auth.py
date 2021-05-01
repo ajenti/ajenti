@@ -26,7 +26,7 @@ class SudoError(Exception):
 class SecurityError(Exception):
     def __init__(self, permission):
         Exception.__init__(self)
-        self.message = 'Permission "%s" is required' % permission
+        self.message = f'Permission "{permission}" is required'
 
     def __str__(self):
         return self.message
@@ -46,9 +46,8 @@ class AuthenticationMiddleware(BaseHttpHandler):
             if not self.context.identity:
                 username = http_context.env['SSL_CLIENT_USER']
                 logging.info(
-                    'SSL client certificate %s verified as %s',
-                    http_context.env['SSL_CLIENT_DIGEST'],
-                    username
+                    f'SSL client certificate {http_context.env["SSL_CLIENT_DIGEST"]}'
+                    f' verified as {username}'
                 )
                 try:
                     pwd.getpwnam(username)
@@ -107,14 +106,18 @@ class OSAuthenticationProvider(AuthenticationProvider):
         from shlex import quote
 
         try:
-            child = pexpect.spawn('/bin/sh', ['-c', '/bin/su -c "/bin/echo SUCCESS" - %s' % quote(username)], timeout=25)
+            child = pexpect.spawn(
+                '/bin/sh',
+                ['-c', f'/bin/su -c "/bin/echo SUCCESS" - {quote(username)}'],
+                timeout=25
+            )
             child.expect('.*:')
             child.sendline(password)
             result = child.expect(['su: .*', 'SUCCESS'])
         except Exception as err:
             if child and child.isalive():
                 child.close()
-            logging.error('Error checking password: %s', err)
+            logging.error(f'Error checking password: {err}')
             return False
         if result == 0:
             return False
@@ -141,7 +144,7 @@ class AuthenticationService():
         for provider in AuthenticationProvider.all(self.context):
             if provider.id == provider_id:
                 return provider
-        raise AuthenticationError('Authentication provider %s is unavailable' % provider_id)
+        raise AuthenticationError(f'Authentication provider {provider_id} is unavailable')
 
     def check_password(self, username, password):
         return self.get_provider().authenticate(username, password)
@@ -172,19 +175,17 @@ class AuthenticationService():
         return self.context.identity
 
     def login(self, username, demote=True):
-        logging.info('Authenticating session as %s', username)
-        syslog.syslog(syslog.LOG_NOTICE | syslog.LOG_AUTH, '%s has logged in from %s' % (
-            username,
-            self.context.session.client_info['address'],
-        ))
+        logging.info(f'Authenticating session as {username}')
+        syslog.syslog(
+            syslog.LOG_NOTICE | syslog.LOG_AUTH,
+            f'{username} has logged in from {self.context.session.client_info["address"]}'
+        )
         if demote:
             uid = self.get_provider().get_isolation_uid(username)
             gid = self.get_provider().get_isolation_gid(username)
-            logging.debug('Authentication provider "%s" maps "%s" -> %i' % (
-                self.get_provider().name,
-                username,
-                uid,
-            ))
+            logging.debug(
+                f'Authentication provider "{self.get_provider().name}" maps "{username}" -> {uid:d}'
+            )
             self.context.worker.demote(uid, gid)
         self.context.identity = username
 

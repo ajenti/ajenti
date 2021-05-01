@@ -36,10 +36,10 @@ class Augeas(augeas.Augeas):
     def __init__(self, modules=[], loadpath=None):
         augeas.Augeas.__init__(self, loadpath=loadpath, flags=augeas.Augeas.NO_MODL_AUTOLOAD | augeas.Augeas.NO_LOAD)
         for module in modules:
-            path = '/augeas/load/%s' % module['name']
-            self.set(path + '/lens', module['lens'])
+            path = f'/augeas/load/{module["name"]}'
+            self.set(f'{path}/lens', module['lens'])
             for index, incl in enumerate(module['incl']):
-                self.set(path + '/incl[%i]' % (index + 1), incl)
+                self.set(f'{path}/incl[{index+1}]', incl)
 
     def __enc(self, v):
         return v

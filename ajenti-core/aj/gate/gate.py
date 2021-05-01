@@ -44,29 +44,29 @@ class WorkerGate():
             }
         )
 
-        logging.debug('Started child process %s', self.process.pid)
+        logging.debug(f'Started child process {self.process.pid}')
 
         self.stream_reader = gevent.spawn(self._stream_reader)
 
     def stop(self):
-        logging.debug('Stopping child process %s', self.process.pid)
+        logging.debug(f'Stopping child process {self.process.pid}')
 
         try:
             os.killpg(self.process.pid, signal.SIGTERM)
         except OSError as e:
-            logging.debug('Child process %s is already dead: %s', self.process.pid, e)
+            logging.debug(f'Child process {self.process.pid} is already dead: {e}')
             return
 
         self.process.terminate()
         self.process.join(0.125)
         try:
             os.kill(self.process.pid, 0)
-            logging.debug('Child process %s did not stop, killing', self.process.pid)
+            logging.debug(f'Child process {self.process.pid} did not stop, killing')
             os.kill(self.process.pid, signal.SIGKILL)
             os.killpg(self.process.pid, signal.SIGKILL)
 
             os.kill(self.process.pid, 0)
-            logging.error('Child process %s did not stop after SIGKILL!', self.process.pid)
+            logging.error(f'Child process {self.process.pid} did not stop after SIGKILL!')
         except OSError:
             pass
 
@@ -74,14 +74,14 @@ class WorkerGate():
         self.stream_reader.kill(block=False)
 
     def send_config_data(self):
-        logging.debug('Sending a config update to %s', self.name)
+        logging.debug(f'Sending a config update to {self.name}')
         self.stream.send({
             'type': 'config-data',
             'data': {'config': aj.config.data, 'users': aj.users.data}
         })
 
     def send_sessionlist(self):
-        logging.debug('Sending a session list update to %s', self.name)
+        logging.debug(f'Sending a session list update to {self.name}')
         self.stream.send({
             'type': 'session-list',
             'data': {key:session.serialize() for key,session in self.gateway_middleware.sessions.items()},
@@ -119,7 +119,7 @@ class WorkerGate():
                         'critical': logging.critical,
                     }.get(resp.object['method'], None)
                     if method:
-                        method('%s', resp.object['message'], extra=resp.object['kwargs'])
+                        method(f"{resp.object['message']}", extra=resp.object['kwargs'])
         except greenlet.GreenletExit:
             pass
 

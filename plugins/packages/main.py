@@ -15,16 +15,18 @@ class ItemProvider(SidebarItemProvider):
             'attach': 'packages',
             'name': mgr.name,
             'icon': 'gift',
-            'url': '/view/packages/%s' % mgr.id,
+            'url': f'/view/packages/{mgr.id}',
             'children': [],
         } for mgr in PackageManager.all(self.context)]
+
+        first_manager = PackageManager.all(self.context, ignore_exceptions=True)[0].id
         return [
             {
                 'attach': 'category:system',
                 'id': 'packages',
                 'name': _('Packages'),
                 'icon': 'gift',
-                'url': '/view/packages/%s' % PackageManager.all(self.context, ignore_exceptions=True)[0].id,
+                'url': f'/view/packages/{first_manager}',
                 'children': children,
             }
         ]

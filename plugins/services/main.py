@@ -16,7 +16,7 @@ class ItemProvider(SidebarItemProvider):
             'attach': 'services',
             'name': mgr.name,
             'icon': 'cog',
-            'url': '/view/services/%s' % mgr.id,
+            'url': f'/view/services/{mgr.id}',
             'children': [],
         } for mgr in ServiceManager.all(self.context)]
 

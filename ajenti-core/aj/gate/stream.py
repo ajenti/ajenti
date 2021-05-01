@@ -77,7 +77,7 @@ class GateStreamServerEndpoint():
             for part in _seq_split(json.dumps(rq.serialize())):
                 self.pipe.put(part)
         if self.log:
-            logging.debug('%s: >> %s', self, rq.id)
+            logging.debug(f'{self}: >> {rq.id}')
         return rq
 
     def recv_single(self, timeout):
@@ -102,7 +102,7 @@ class GateStreamServerEndpoint():
                     return
                 resp = GateStreamResponse.deserialize(data)
                 if self.log:
-                    logging.debug('%s: << %s', self, resp.id)
+                    logging.debug(f'{self}: << {resp.id}')
                 self.buffer[resp.id] = resp
                 return resp
         except IOError:
@@ -132,7 +132,7 @@ class GateStreamWorkerEndpoint():
         resp = GateStreamResponse(request.id if request else None, obj)
         self.pipe.put(resp.serialize())
         if self.log:
-            logging.debug('%s: >> %s', self, resp.id)
+            logging.debug(f'{self}: >> {resp.id}')
 
     def recv(self):
         parts = [self.pipe.get()]
@@ -141,5 +141,5 @@ class GateStreamWorkerEndpoint():
 
         rq = GateStreamRequest.deserialize(json.loads(_seq_combine(parts)))
         if self.log:
-            logging.debug('%s: << %s', self, rq.id)
+            logging.debug(f'{self}: << {rq.id}')
         return rq

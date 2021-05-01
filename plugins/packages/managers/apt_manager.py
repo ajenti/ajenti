@@ -78,10 +78,8 @@ class APTPackageManager(PackageManager):
 
         class Progress(AcquireProgress):
             def fetch(self, item):
-                message = '%s%% %s' % (
-                    int(100 * self.current_items / self.total_items),
-                    item.shortdesc
-                )
+                progress = int(100 * self.current_items / self.total_items)
+                message = f'{progress}%% {item.shortdesc}'
                 progress_callback(message=message, done=self.current_items, total=self.total_items)
 
             def stop(self):

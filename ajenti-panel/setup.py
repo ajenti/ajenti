@@ -19,13 +19,13 @@ def _post_install(scripts_dir):
         os.makedirs('/etc/ajenti')
     if not os.path.exists(config_path):
         with open(config_path, 'w') as c:
-            c.write('''
+            c.write(f'''
 auth:
   allow_sudo: true
-  emails: {}
+  emails: {{}}
   provider: os
   user_config: os
-  users_file: %s
+  users_file: {users_file}
 bind:
   host: 0.0.0.0
   mode: tcp
@@ -33,7 +33,7 @@ bind:
 color: default
 max_sessions: 9
 session_max_time: 3600
-name: %s
+name: {socket.gethostname()}
 ssl:
   certificate:
   fqdn_certificate:
@@ -42,7 +42,7 @@ ssl:
     enable: false
     force: false
   enable: false
-        ''' % (users_file, socket.gethostname()))
+        ''')
 
     if not os.path.exists(users_file):
         with open(users_file, 'w') as u:
@@ -61,7 +61,7 @@ setup(
     version=aj.__version__,
     python_requires='>=3',
     install_requires=[
-        'aj==%s' % aj.__version__,
+        f'aj=={aj.__version__}',
         'pyyaml',
         'requests',
     ],

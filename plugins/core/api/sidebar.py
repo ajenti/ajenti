@@ -59,13 +59,13 @@ class Sidebar():
             for item in provider.provide():
                 if 'url' in item:
                     try:
-                        authorize('sidebar:view:%s' % item['url']).check()
+                        authorize(f'sidebar:view:{item["url"]}').check()
                     except SecurityError:
                         continue
 
                 attach_to = find_id(item['attach'])
                 if not attach_to:
-                    raise Exception('Attachment point not found: %s' % item['attach'])
+                    raise Exception(f'Attachment point not found: {item["attach"]}')
                 attach_to['children'].append(item)
 
         return sidebar

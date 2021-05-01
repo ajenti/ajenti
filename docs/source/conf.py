@@ -13,8 +13,8 @@ source_suffix = '.rst'
 
 master_doc = 'index'
 
-project = u'Ajenti'
-copyright = u'%i, Eugene Pankov' % datetime.datetime.now().year
+project = 'Ajenti'
+copyright = f'{datetime.datetime.now().year}, Eugene Pankov'
 
 import aj
 version = aj.__version__

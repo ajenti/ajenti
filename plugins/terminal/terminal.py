@@ -73,14 +73,14 @@ class Terminal():
         args = ['sh', '-c', self.command]
         exe = 'sh'
 
-        logging.info('Activating new terminal: %s', self.command)
+        logging.info(f'Activating new terminal: {self.command}')
 
         self.pid, self.fd = pty.fork()
         if self.pid == 0:
-            setproctitle.setproctitle('%s terminal session #%i' % (sys.argv[0], os.getpid()))
+            setproctitle.setproctitle(f'{sys.argv[0]} terminal session #{os.getpid():d}')
             os.execvpe(exe, args, env)
 
-        logging.info('Subprocess PID %s', self.pid)
+        logging.info(f'Subprocess PID {self.pid}')
 
         self.dead = False
 
@@ -157,13 +157,13 @@ class Terminal():
         if self.dead:
             return
 
-        logging.info('Terminal %s has died', self.id)
+        logging.info(f'Terminal {self.id} has died')
         self.dead = True
 
         if code:
-            self.pyte_stream.feed(u'\n\n * ' + u'Process has exited with status %i' % code)
+            self.pyte_stream.feed('\n\n * ' + f'Process has exited with status {code}')
         else:
-            self.pyte_stream.feed(u'\n\n * ' + u'Process has exited successfully')
+            self.pyte_stream.feed('\n\n * ' + 'Process has exited successfully')
 
         self.broadcast_update()
 
@@ -258,7 +258,7 @@ class Terminal():
             return
         self.width = w
         self.height = h
-        logging.debug('Resizing terminal to %sx%s', w, h)
+        logging.debug(f'Resizing terminal to {w}x{h}')
         self.screen.resize(h, w)
         winsize = struct.pack("HHHH", h, w, 0, 0)
         fcntl.ioctl(self.fd, termios.TIOCSWINSZ, winsize)
@@ -270,7 +270,7 @@ class Terminal():
 
         self.reader.kill(block=False)
 
-        logging.info('Killing subprocess PID %s', self.pid)
+        logging.info(f'Killing subprocess PID {self.pid}')
         try:
             os.killpg(self.pid, signal.SIGTERM)
         except OSError:

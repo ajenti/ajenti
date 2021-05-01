@@ -18,7 +18,7 @@ def url(pattern):
     """
 
     def decorator(f):
-        f.url_pattern = re.compile('^%s$' % pattern)
+        f.url_pattern = re.compile(f'^{pattern}$')
         return f
     return decorator
 
@@ -58,7 +58,7 @@ class HttpPlugin():
             def get_page(self, http_context, name=None):
                 context.add_header('Content-Type', 'text/plain')
                 context.respond_ok()
-                return 'Hello, %s!' % name
+                return 'Hello, f"{name}"!'
 
     """
 
@@ -133,9 +133,7 @@ class SocketEndpoint():
         :param target: target function
         """
         logging.debug(
-            'Spawning sub-Socket Greenlet (in a namespace): %s' % (
-                target.__name__
-            )
+            f'Spawning sub-Socket Greenlet (in a namespace): {target.__name__}'
         )
         greenlet = gevent.spawn(target, *args, **kwargs)
         self.greenlets.append(greenlet)

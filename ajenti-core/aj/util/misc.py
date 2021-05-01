@@ -43,39 +43,30 @@ def make_report(e):
     import psutil
     from aj.plugins import PluginManager
 
-    return """Ajenti bug report
+    architecture = subprocess.check_output(['uname', '-m']).strip().decode()
+    python = '.'.join(str(x) for x in _platform.python_version_tuple())
+    plugins = ', '.join(sorted(PluginManager.get(aj.context).get_loaded_plugins_list())) if aj.context else 'None'
+
+    return f"""Ajenti bug report
 --------------------
 
 
 Info | Value
 ----- | -----
-Ajenti | %s
-Platform | %s / %s / %s
-Architecture | %s
-Python | %s
-Debug | %s
-Loaded plugins | %s
+Ajenti | {version}
+Platform | {platform} / {platform_unmapped} / {platform_string}
+Architecture | {architecture}
+Python | {python}
+Debug | {debug}
+Loaded plugins | {plugins}
 
 Library | Version
 ------- | -------
-gevent | %s
-greenlet | %s
-psutil | %s
+gevent | {gevent.__version__}
+greenlet | {gevent.__version__}
+psutil | {psutil.__version__}
 
 
-%s
+{tb}
 
-            """ % (
-            version,
-            platform, platform_unmapped, platform_string,
-            subprocess.check_output(['uname', '-m']).strip().decode(),
-            '.'.join(str(x) for x in _platform.python_version_tuple()),
-            debug,
-            ', '.join(sorted(PluginManager.get(aj.context).get_loaded_plugins_list())) if aj.context else 'None',
-
-            gevent.__version__,
-            greenlet.__version__,
-            psutil.__version__,
-
-            tb,
-        )
+            """
