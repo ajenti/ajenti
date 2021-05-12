@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-27 12:11+0200\n"
-"PO-Revision-Date: 2021-02-21 14:53\n"
+"PO-Revision-Date: 2021-05-12 07:00\n"
 "Last-Translator: \n"
 "Language-Team: Romanian\n"
 "Language: ro_RO\n"
@@ -19,218 +19,218 @@ msgstr ""
 
 #: plugins/plugins/resources/partial/index.html:14
 msgid "Ajenti core {{ajentiVersion}}, no upgrades available."
-msgstr ""
+msgstr "Ajenti core {{ajentiVersion}}, nu sunt disponibile actualizări."
 
 #: plugins/plugins/resources/partial/index.html:20
 msgid "Ajenti core {{ajentiVersion}}. An upgrade to {{coreUpgradeAvailable}} is available."
-msgstr ""
+msgstr "Ajenti core {{ajentiVersion}}. O actualizare la {{coreUpgradeAvailable}} este disponibilă."
 
 #: plugins/plugins/resources/partial/index.html:135
 #: plugins/plugins/resources/partial/index.html:190
 #: plugins/plugins/resources/partial/repo-plugin.html:47
 msgid "Author"
-msgstr ""
+msgstr "Autor"
 
 #: plugins/plugins/resources/partial/index.html:47
 msgid "Available plugins"
-msgstr ""
+msgstr "Suplimente disponibile"
 
 #: plugins/plugins/resources/partial/index.html:154
 #: plugins/plugins/resources/partial/index.html:206
 msgid "Close"
-msgstr ""
+msgstr "Închidere"
 
 #: plugins/plugins/resources/partial/index.html:70
 msgid "Community"
-msgstr ""
+msgstr "Comunitate"
 
 #: plugins/plugins/resources/partial/index.html:10
 msgid "Core"
-msgstr ""
+msgstr "Nucleu"
 
 #: plugins/plugins/resources/partial/index.html:184
 msgid "Downloads in the last month"
-msgstr ""
+msgstr "Descărcări în ultima lună"
 
 #: plugins/plugins/resources/partial/repo-plugin.html:39
 msgid "Downloads this month"
-msgstr ""
+msgstr "Descărcări luna aceasta"
 
 #: plugins/plugins/resources/partial/index.html:103
 msgid "Error"
-msgstr ""
+msgstr "Eroare"
 
 #: plugins/plugins/resources/partial/index.html:114
 msgid "Exception: <code>{{selectedInstalledPlugin.crash.cls}}</code>"
-msgstr ""
+msgstr "Excepție: <code>{{selectedInstalledPlugin.crash.cls}}</code>"
 
 #: plugins/plugins/resources/partial/index.html:71
 msgid "Filter"
-msgstr ""
+msgstr "Filtru"
 
 #: plugins/plugins/resources/partial/index.html:142
 #: plugins/plugins/resources/partial/repo-plugin.html:55
 msgid "Homepage"
-msgstr ""
+msgstr "Pagină de start"
 
 #: plugins/plugins/resources/partial/index.html:203
 #: plugins/plugins/resources/partial/index.html:56
 #: plugins/plugins/resources/partial/index.html:74
 msgid "Install"
-msgstr ""
+msgstr "Instalare"
 
 #: plugins/plugins/resources/partial/index.html:24
 msgid "Installed plugins"
-msgstr ""
+msgstr "Suplimente  instalate"
 
 #: plugins/plugins/resources/partial/index.html:41
 msgid "Loading error"
-msgstr ""
+msgstr "Eroare la încărcare"
 
 #: plugins/plugins/resources/partial/index.html:129
 msgid "Location"
-msgstr ""
+msgstr "Locație"
 
 #: plugins/plugins/resources/partial/index.html:117
 msgid "Message: <code>{{selectedInstalledPlugin.crash.message}}</code>"
-msgstr ""
+msgstr "Mesaj: <code>{{selectedInstalledPlugin.crash.message}}</code>"
 
 #: plugins/plugins/resources/partial/index.html:166
 #: plugins/plugins/resources/partial/index.html:97
 #: plugins/plugins/resources/partial/repo-plugin.html:7
 msgid "Name"
-msgstr ""
+msgstr "Nume"
 
 #: plugins/plugins/resources/partial/index.html:53
 msgid "Official"
-msgstr ""
+msgstr "Oficial"
 
 #: plugins/plugins/resources/partial/index.html:215
 msgid "Restart panel"
-msgstr ""
+msgstr "Reporniți panoul"
 
 #: plugins/plugins/resources/partial/index.html:112
 msgid "This plugin crashed with the following error:"
-msgstr ""
+msgstr "Acest supliment s-a oprit cu următoarea eroare:"
 
 #: plugins/plugins/resources/partial/index.html:107
 msgid "This plugin requires application binary <code>{{selectedInstalledPlugin.crash.binaryName}}</code>, which was unavailable during startup."
-msgstr ""
+msgstr "Acest supliment necesită aplicația binară <code>{{selectedInstalledPlugin.crash.binaryName}}</code>, care a fost indisponibilă la pornire."
 
 #: plugins/plugins/resources/partial/index.html:104
 msgid "This plugin requires plugin <code>{{selectedInstalledPlugin.crash.pluginName}}</code>, which was unavailable during startup."
-msgstr ""
+msgstr "Acest supliment necesită suplimentul <code>{{selectedInstalledPlugin.crash.pluginName}}</code>, care nu a fost disponibil la pornire."
 
 #: plugins/plugins/resources/partial/repo-plugin.html:15
 msgid "Title"
-msgstr ""
+msgstr "Titlu"
 
 #: plugins/plugins/resources/partial/index.html:151
 #: plugins/plugins/resources/partial/index.html:30
 #: plugins/plugins/resources/js/controllers/index.controller.es:174
 #: plugins/plugins/resources/js/controllers/index.controller.es:176
 msgid "Uninstall"
-msgstr ""
+msgstr "Dezinstalare"
 
 #: plugins/plugins/resources/partial/index.html:148
 msgid "Update"
-msgstr ""
+msgstr "Actualizare"
 
 #: plugins/plugins/resources/partial/index.html:6
 msgid "Update everything"
-msgstr ""
+msgstr "Actualizați tot"
 
 #: plugins/plugins/resources/partial/index.html:3
 msgid "Updates"
-msgstr ""
+msgstr "Actualizări"
 
 #: plugins/plugins/resources/partial/index.html:38
 msgid "Upgradeable to {{getUpgrade(plugin).version}}"
-msgstr ""
+msgstr "Actualizabil la {{getUpgrade(plugin).version}}"
 
 #: plugins/plugins/resources/partial/index.html:123
 #: plugins/plugins/resources/partial/index.html:172
 #: plugins/plugins/resources/partial/repo-plugin.html:23
 msgid "Version"
-msgstr ""
+msgstr "Versiune"
 
 #: plugins/plugins/main.py:15
 msgid "Plugins"
-msgstr ""
+msgstr "Module"
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:19
 msgid "Could not load repository version for ajenti-panel."
-msgstr ""
+msgstr "Nu s-a putut încărca versiunea depozitului pentru ajenti-panel."
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:56
 msgid "Could not load plugin repository"
-msgstr ""
+msgstr "Nu s-a putut încărca depozitul suplimentului"
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:59
 msgid "Could not load the installed plugin list"
-msgstr ""
+msgstr "Nu s-a putut încărca lista cu suplimente instalate"
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:105
 msgid "All plugins updated"
-msgstr ""
+msgstr "Toate suplimentele sunt actualizate"
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:107
 #: plugins/plugins/resources/js/controllers/index.controller.es:147
 #: plugins/plugins/resources/js/controllers/index.controller.es:183
 msgid "Done"
-msgstr ""
+msgstr "Efectuat"
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:108
 #: plugins/plugins/resources/js/controllers/index.controller.es:147
 msgid "Installed. A panel restart is required."
-msgstr ""
+msgstr "Instalat. Este necesară o repornire a panoului."
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:109
 #: plugins/plugins/resources/js/controllers/index.controller.es:147
 #: plugins/plugins/resources/js/controllers/index.controller.es:185
 msgid "Restart now"
-msgstr ""
+msgstr "Reporniţi acum"
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:110
 #: plugins/plugins/resources/js/controllers/index.controller.es:147
 #: plugins/plugins/resources/js/controllers/index.controller.es:186
 msgid "Later"
-msgstr ""
+msgstr "Mai târziu"
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:114
 msgid "Some plugins failed to update"
-msgstr ""
+msgstr "Unele suplimente nu au putut fi actualizate"
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:150
 msgid "Install failed"
-msgstr ""
+msgstr "Instalare eșuată"
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:158
 msgid "Warning"
-msgstr ""
+msgstr "Avertizare"
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:159
 msgid "This will remove the Plugins plugin. You can reinstall it later using PIP."
-msgstr ""
+msgstr "Acest lucru va elimina suplimentul Module. Îl puteţi reinstala mai târziu folosind PIP."
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:160
 msgid "Continue"
-msgstr ""
+msgstr "Continuare"
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:161
 #: plugins/plugins/resources/js/controllers/index.controller.es:177
 msgid "Cancel"
-msgstr ""
+msgstr "Anulare"
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:179
 msgid "Uninstalling"
-msgstr ""
+msgstr "Dezinstalare"
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:184
 msgid "Uninstalled. A panel restart is required."
-msgstr ""
+msgstr "Dezinstalat. Este necesară o repornire a panoului."
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:191
 msgid "Uninstall failed"
-msgstr ""
+msgstr "Dezinstalare eșuată"
 

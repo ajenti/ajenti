@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-02-21 15:48+0100\n"
-"PO-Revision-Date: 2021-02-21 14:53\n"
+"PO-Revision-Date: 2021-05-12 07:00\n"
 "Last-Translator: \n"
 "Language-Team: Romanian\n"
 "Language: ro_RO\n"
@@ -94,7 +94,7 @@ msgstr "Numele mașinii"
 
 #: plugins/settings/resources/partial/index.html:37
 msgid "Max session time"
-msgstr ""
+msgstr "Timpul maxim al sesiunii"
 
 #: plugins/settings/resources/partial/index.html:159
 msgid "New certificate"
@@ -126,7 +126,7 @@ msgstr "Reporniți panoul"
 
 #: plugins/settings/resources/partial/index.html:111
 msgid "SSL FQDN certificate file"
-msgstr ""
+msgstr "Fișier certificat SSL FQDN"
 
 #: plugins/settings/resources/partial/index.html:100
 msgid "SSL certificate file"
@@ -171,43 +171,43 @@ msgstr "Setări"
 
 #: plugins/settings/resources/js/controllers/index.controller.es:39
 msgid "Could not load config"
-msgstr ""
+msgstr "Configurația nu a putut fi încărcată"
 
 #: plugins/settings/resources/js/controllers/index.controller.es:43
 msgid "Could not load authentication provider list"
-msgstr ""
+msgstr "Nu s-a putut încărca lista furnizorilor de autentificare"
 
 #: plugins/settings/resources/js/controllers/index.controller.es:62
 #: plugins/settings/resources/js/controllers/index.controller.es:67
 msgid "Saved"
-msgstr ""
+msgstr "Salvat"
 
 #: plugins/settings/resources/js/controllers/index.controller.es:63
 msgid "SSL Error"
-msgstr ""
+msgstr "Eroare SSL"
 
 #: plugins/settings/resources/js/controllers/index.controller.es:69
 msgid "Could not save config"
-msgstr ""
+msgstr "Configurația nu a putut fi salvată"
 
 #: plugins/settings/resources/js/controllers/index.controller.es:75
 msgid "Self-signed certificate"
-msgstr ""
+msgstr "Certificat auto-semnat"
 
 #: plugins/settings/resources/js/controllers/index.controller.es:76
 msgid "Generating a new certificate will void all existing client authentication certificates!"
-msgstr ""
+msgstr "Generarea unui certificat nou va anula toate certificatele de autentificare ale clienților!"
 
 #: plugins/settings/resources/js/controllers/index.controller.es:81
 msgid "Please wait"
-msgstr ""
+msgstr "Așteptați"
 
 #: plugins/settings/resources/js/controllers/index.controller.es:83
 msgid "Certificate successfully generated"
-msgstr ""
+msgstr "Certificat generat cu succes"
 
 #: plugins/settings/resources/js/controllers/index.controller.es:89
 #: plugins/settings/resources/js/controllers/index.controller.es:108
 msgid "Certificate generation failed"
-msgstr ""
+msgstr "Generarea certificatului a eșuat"
 

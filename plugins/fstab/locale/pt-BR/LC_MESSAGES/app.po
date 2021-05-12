@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-09-06 13:10+0200\n"
-"PO-Revision-Date: 2021-02-21 14:53\n"
+"PO-Revision-Date: 2021-05-12 07:00\n"
 "Last-Translator: \n"
 "Language-Team: Portuguese, Brazilian\n"
 "Language: pt_BR\n"
@@ -19,50 +19,50 @@ msgstr ""
 
 #: plugins/fstab/resources/partial/index.html:52
 msgid "Add"
-msgstr ""
+msgstr "Adicionar"
 
 #: plugins/fstab/resources/partial/index.html:58
 msgid "Add new device"
-msgstr ""
+msgstr "Adicionar novo dispositivo"
 
 #: plugins/fstab/resources/partial/index.html:115
 #: plugins/fstab/resources/js/controllers/index.controller.es:58
 msgid "Cancel"
-msgstr ""
+msgstr "Cancelar"
 
 #: plugins/fstab/resources/partial/index.html:30
 #: plugins/fstab/resources/partial/index.html:8
 msgid "Device"
-msgstr ""
+msgstr "Dispositivo"
 
 #: plugins/fstab/resources/partial/index.html:65
 msgid "Device:"
-msgstr ""
+msgstr "Dispositivo:"
 
 #: plugins/fstab/resources/partial/index.html:97
 msgid "Frequency:"
-msgstr ""
+msgstr "Frequência:"
 
 #: plugins/fstab/resources/partial/index.html:57
 msgid "Modify"
-msgstr ""
+msgstr "Modificar"
 
 #: plugins/fstab/resources/partial/index.html:5
 msgid "Mounted"
-msgstr ""
+msgstr "Montado"
 
 #: plugins/fstab/resources/partial/index.html:31
 #: plugins/fstab/resources/partial/index.html:9
 msgid "Mountpoint"
-msgstr ""
+msgstr "Ponto de montagem"
 
 #: plugins/fstab/resources/partial/index.html:73
 msgid "Mountpoint:"
-msgstr ""
+msgstr "Ponto de montagem:"
 
 #: plugins/fstab/resources/partial/index.html:81
 msgid "Options:"
-msgstr ""
+msgstr "Opções:"
 
 #: plugins/fstab/resources/partial/index.html:105
 msgid "Pass:"
@@ -71,45 +71,45 @@ msgstr ""
 #: plugins/fstab/resources/partial/index.html:116
 #: plugins/fstab/resources/partial/index.html:117
 msgid "Save"
-msgstr ""
+msgstr "Salvar"
 
 #: plugins/fstab/resources/partial/index.html:11
 msgid "Size"
-msgstr ""
+msgstr "Tamanho"
 
 #: plugins/fstab/resources/partial/index.html:32
 msgid "Type"
-msgstr ""
+msgstr "Tipo"
 
 #: plugins/fstab/resources/partial/index.html:89
 msgid "Type:"
-msgstr ""
+msgstr "Tipo:"
 
 #: plugins/fstab/resources/partial/index.html:12
 msgid "Usage"
-msgstr ""
+msgstr "Uso"
 
 #: plugins/fstab/resources/partial/index.html:10
 msgid "Used"
-msgstr ""
+msgstr "Usado"
 
 #: plugins/fstab/resources/js/controllers/index.controller.es:2
 msgid "Fstab"
-msgstr ""
+msgstr "Fstab"
 
 #: plugins/fstab/resources/js/controllers/index.controller.es:13
 msgid "Device successfully unmounted!"
-msgstr ""
+msgstr "Dispositivo desmontado com sucesso!"
 
 #: plugins/fstab/resources/js/controllers/index.controller.es:31
 msgid "Fstab successfully saved!"
-msgstr ""
+msgstr "Fstab salvo com sucesso!"
 
 #: plugins/fstab/resources/js/controllers/index.controller.es:56
 msgid "Do you really want to permanently delete this entry?"
-msgstr ""
+msgstr "Você realmente quer excluir esta entrada permanentemente?"
 
 #: plugins/fstab/resources/js/controllers/index.controller.es:57
 msgid "Delete"
-msgstr ""
+msgstr "Excluir"
 

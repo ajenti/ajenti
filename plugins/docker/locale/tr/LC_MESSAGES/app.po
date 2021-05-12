@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-02-21 15:47+0100\n"
-"PO-Revision-Date: 2021-02-21 14:53\n"
+"PO-Revision-Date: 2021-05-12 07:00\n"
 "Last-Translator: \n"
 "Language-Team: Turkish\n"
 "Language: tr_TR\n"
@@ -39,7 +39,7 @@ msgstr "Docker bu sunucuda kurulu değil."
 
 #: plugins/docker/resources/partial/index.html:43
 msgid "Full id"
-msgstr ""
+msgstr "Tam kimlik"
 
 #: plugins/docker/resources/partial/index.html:51
 msgid "IP"
@@ -71,7 +71,7 @@ msgstr "Portlar"
 
 #: plugins/docker/resources/partial/index.html:73
 msgid "Repository"
-msgstr ""
+msgstr "Kaynak"
 
 #: plugins/docker/resources/partial/index.html:76
 msgid "Size"

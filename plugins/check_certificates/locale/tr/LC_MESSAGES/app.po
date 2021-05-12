@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-23 10:30+0200\n"
-"PO-Revision-Date: 2021-02-21 14:53\n"
+"PO-Revision-Date: 2021-05-12 07:00\n"
 "Last-Translator: \n"
 "Language-Team: Turkish\n"
 "Language: tr_TR\n"
@@ -19,12 +19,13 @@ msgstr ""
 
 #: plugins/check_certificates/resources/partial/index.html:25
 msgid "({{h.restTime}} days)"
-msgstr ""
+msgstr "({{h.restTime}} günler)"
 
 #: plugins/check_certificates/resources/partial/widget.html:4
 msgid "<i class=\"fas fa-check\"></i>\n"
 "            All certificates are up to date !"
-msgstr ""
+msgstr "<i class=\"fas fa-check\"></i>\n"
+"            Tüm sertifikalar güncel !"
 
 #: plugins/check_certificates/resources/partial/index.html:34
 msgid "Add host"
@@ -32,24 +33,24 @@ msgstr "Host ekle"
 
 #: plugins/check_certificates/resources/partial/index.html:19
 msgid "Certificate end :"
-msgstr ""
+msgstr "Sertifika sonu :"
 
 #: plugins/check_certificates/resources/partial/index.html:18
 msgid "Certificate start :"
-msgstr ""
+msgstr "Sertifika başlangıcı :"
 
 #: plugins/check_certificates/resources/partial/widget.html:3
 msgid "Certificates to be renewed"
-msgstr ""
+msgstr "Yenilenecek sertifikalar"
 
 #: plugins/check_certificates/widget.py:8
 msgid "Certificates"
-msgstr ""
+msgstr "Sertifikalar"
 
 #: plugins/check_certificates/main.py:17
 #: plugins/check_certificates/resources/js/controllers/index.controller.coffee:2
 msgid "Check certificates"
-msgstr ""
+msgstr "Sertifikaları kontrol edin"
 
 #: plugins/check_certificates/resources/js/controllers/index.controller.coffee:14
 msgid "New url"

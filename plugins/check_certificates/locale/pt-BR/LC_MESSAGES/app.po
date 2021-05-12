@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-23 10:30+0200\n"
-"PO-Revision-Date: 2021-02-21 14:53\n"
+"PO-Revision-Date: 2021-05-12 07:00\n"
 "Last-Translator: \n"
 "Language-Team: Portuguese, Brazilian\n"
 "Language: pt_BR\n"
@@ -28,7 +28,7 @@ msgstr ""
 
 #: plugins/check_certificates/resources/partial/index.html:34
 msgid "Add host"
-msgstr ""
+msgstr "Adicionar host"
 
 #: plugins/check_certificates/resources/partial/index.html:19
 msgid "Certificate end :"
@@ -40,30 +40,30 @@ msgstr ""
 
 #: plugins/check_certificates/resources/partial/widget.html:3
 msgid "Certificates to be renewed"
-msgstr ""
+msgstr "Certificados a serem renovados"
 
 #: plugins/check_certificates/widget.py:8
 msgid "Certificates"
-msgstr ""
+msgstr "Certificados"
 
 #: plugins/check_certificates/main.py:17
 #: plugins/check_certificates/resources/js/controllers/index.controller.coffee:2
 msgid "Check certificates"
-msgstr ""
+msgstr "Verificar certificados"
 
 #: plugins/check_certificates/resources/js/controllers/index.controller.coffee:14
 msgid "New url"
-msgstr ""
+msgstr "Nova url"
 
 #: plugins/check_certificates/resources/js/controllers/index.controller.coffee:25
 msgid "Remove the url "
-msgstr ""
+msgstr "Remover a url"
 
 #: plugins/check_certificates/resources/js/controllers/index.controller.coffee:26
 msgid "Remove"
-msgstr ""
+msgstr "Remover"
 
 #: plugins/check_certificates/resources/js/controllers/index.controller.coffee:27
 msgid "Cancel"
-msgstr ""
+msgstr "Cancelar"
 

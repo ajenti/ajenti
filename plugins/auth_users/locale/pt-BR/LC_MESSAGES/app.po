@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-02-21 15:47+0100\n"
-"PO-Revision-Date: 2021-02-21 14:53\n"
+"PO-Revision-Date: 2021-05-12 07:00\n"
 "Last-Translator: \n"
 "Language-Team: Portuguese, Brazilian\n"
 "Language: pt_BR\n"
@@ -35,7 +35,7 @@ msgstr "Sistema de arquivos root"
 
 #: plugins/auth_users/resources/partial/index.html:4
 msgid "In the new config tree, the users have to be stored in /etc/ajenti/users.yml, not in /etc/ajenti/config.yml. Please move the users tree from config.yml to users.yml before using this plugin."
-msgstr ""
+msgstr "Na nova árvore de configurações, os usuários devem ser armazenados em /etc/ajenti/users.yml, não em /etc/ajenti/config. ml. Por favor, mova a árvore dos usuários do config.yml para users.yml antes de usar este plugin."
 
 #: plugins/auth_users/resources/partial/index.html:68
 msgid "New password"
@@ -91,5 +91,5 @@ msgstr "Usuários"
 
 #: plugins/auth_users/resources/js/controllers/index.controller.es:86
 msgid "Password updated"
-msgstr ""
+msgstr "Senha atualizada"
 

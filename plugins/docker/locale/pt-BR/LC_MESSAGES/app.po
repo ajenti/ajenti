@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-02-21 15:47+0100\n"
-"PO-Revision-Date: 2021-02-21 14:53\n"
+"PO-Revision-Date: 2021-05-12 07:00\n"
 "Last-Translator: \n"
 "Language-Team: Portuguese, Brazilian\n"
 "Language: pt_BR\n"
@@ -19,23 +19,23 @@ msgstr ""
 
 #: plugins/docker/resources/partial/index.html:65
 msgid "Close"
-msgstr ""
+msgstr "Fechar"
 
 #: plugins/docker/resources/partial/index.html:14
 msgid "Cpu usage"
-msgstr ""
+msgstr "Uso de CPU"
 
 #: plugins/docker/resources/partial/index.html:74
 msgid "Created"
-msgstr ""
+msgstr "Criado"
 
 #: plugins/docker/resources/partial/index.html:47
 msgid "Created at"
-msgstr ""
+msgstr "Criado em"
 
 #: plugins/docker/resources/partial/index.html:6
 msgid "Docker is not installed on this host."
-msgstr ""
+msgstr "O Docker não está instalado neste host."
 
 #: plugins/docker/resources/partial/index.html:43
 msgid "Full id"
@@ -43,19 +43,19 @@ msgstr ""
 
 #: plugins/docker/resources/partial/index.html:51
 msgid "IP"
-msgstr ""
+msgstr "IP"
 
 #: plugins/docker/resources/partial/index.html:13
 msgid "Memory usage"
-msgstr ""
+msgstr "Uso de memória"
 
 #: plugins/docker/resources/partial/index.html:12
 msgid "Name (Hash)"
-msgstr ""
+msgstr "Nome (Hash)"
 
 #: plugins/docker/resources/partial/index.html:15
 msgid "Network used"
-msgstr ""
+msgstr "Rede usada"
 
 #: plugins/docker/resources/partial/index.html:9
 msgid "No container on this host."
@@ -63,35 +63,35 @@ msgstr ""
 
 #: plugins/docker/resources/partial/index.html:70
 msgid "No docker images on this host."
-msgstr ""
+msgstr "Nenhuma imagem docker neste host."
 
 #: plugins/docker/resources/partial/index.html:55
 msgid "Ports"
-msgstr ""
+msgstr "Portas"
 
 #: plugins/docker/resources/partial/index.html:73
 msgid "Repository"
-msgstr ""
+msgstr "Repositório"
 
 #: plugins/docker/resources/partial/index.html:76
 msgid "Size"
-msgstr ""
+msgstr "Tamanho"
 
 #: plugins/docker/resources/partial/index.html:75
 msgid "Tag"
-msgstr ""
+msgstr "Etiqueta"
 
 #: plugins/docker/resources/partial/index.html:59
 msgid "Volumes"
-msgstr ""
+msgstr "Volume"
 
 #: plugins/docker/views.py:32
 msgid "Docker is not installed on this host"
-msgstr ""
+msgstr "O Docker não está instalado neste host"
 
 #: plugins/docker/resources/js/controllers/index.controller.es:41
 msgid "Stop command successfully sent."
-msgstr ""
+msgstr "Comando de parada enviado com sucesso."
 
 #: plugins/docker/resources/js/controllers/index.controller.es:46
 msgid "Start command successfully sent."
@@ -99,24 +99,24 @@ msgstr ""
 
 #: plugins/docker/resources/js/controllers/index.controller.es:51
 msgid "Really remove this container?"
-msgstr ""
+msgstr "Deseja realmente remover este contêiner?"
 
 #: plugins/docker/resources/js/controllers/index.controller.es:52
 #: plugins/docker/resources/js/controllers/index.controller.es:72
 msgid "Remove"
-msgstr ""
+msgstr "Remover"
 
 #: plugins/docker/resources/js/controllers/index.controller.es:53
 #: plugins/docker/resources/js/controllers/index.controller.es:73
 msgid "Cancel"
-msgstr ""
+msgstr "Cancelar"
 
 #: plugins/docker/resources/js/controllers/index.controller.es:56
 #: plugins/docker/resources/js/controllers/index.controller.es:76
 msgid "Remove command successfully sent."
-msgstr ""
+msgstr "Comando de remoção enviado com sucesso."
 
 #: plugins/docker/resources/js/controllers/index.controller.es:71
 msgid "Really remove this image?"
-msgstr ""
+msgstr "Quer realmente remover esta imagem?"
 
