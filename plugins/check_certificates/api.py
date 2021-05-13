@@ -72,10 +72,6 @@ def checkOnDom(hostname, port='443'):
         'subject': None,
         'notBefore': None
     }
-    
-    ## Locale EN to fix
-    import locale
-    locale.setlocale(locale.LC_ALL, 'en_GB.UTF-8')
 
     try:
         if port == 587:
