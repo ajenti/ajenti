@@ -81,7 +81,9 @@ def checkOnDom(hostname, port='443'):
         remainingDays = (datetime.strptime(cert.get_notAfter().decode(),"%Y%m%d%H%M%SZ")-now).days
         certDetails['notAfter'] = str(datetime.strptime(cert.get_notAfter().decode(),"%Y%m%d%H%M%SZ"))
         certDetails['notBefore'] = str(datetime.strptime(cert.get_notBefore().decode(),"%Y%m%d%H%M%SZ"))
-        certDetails['issuer'] = dict(cert.get_issuer().get_components())
+
+        issuer = cert.get_issuer().get_components()
+        certDetails['issuer'] = b"/".join([b"=".join(e) for e in issuer]).decode()
         certDetails['subject'] = dict(cert.get_subject().get_components())
 
     except TimeoutError:

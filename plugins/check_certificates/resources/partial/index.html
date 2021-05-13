@@ -10,13 +10,13 @@
                     <i class="fas fa-info-circle" ng-if="h.status == 'info'" style="font-size: 20px;"></i>
                     <i class="fas fa-skull-crossbones" ng-if="h.status == 'danger'" style="font-size: 20px;"></i>
                 </td>
-                <th style="width:25%;">
+                <th style="width:30%;">
                     {{h.url}}<br />
-                    {{h.issuer.CN}}
+                    {{h.issuer}}
                 </th>
-                <td style="width:20%;">
-                    <span ng:show="h.notAfter.slice(0,2) != 'No'" translate>Certificate start : </span><br />
-                    <span ng:show="h.notAfter.slice(0,2) != 'No'" translate>Certificate end : </span>
+                <td>
+                    <span ng:show="h.notAfter.slice(0,2) != 'No'" translate>Start : </span><br />
+                    <span ng:show="h.notAfter.slice(0,2) != 'No'" translate>End : </span>
                 </td>
                 <td>
                     <span ng:show="h.notAfter.slice(0,2) == 'No'" style="font-weight:bold;" >{{h.notAfter}}</span>
