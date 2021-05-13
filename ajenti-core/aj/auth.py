@@ -155,7 +155,7 @@ class AuthenticationService():
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
         )
-        o, e = sudo.communicate(password + '\n')
+        o, e = sudo.communicate(password.encode('utf-8') + b'\n')
         if sudo.returncode != 0:
             raise SudoError((o + e).splitlines()[-1].strip())
         return True
