@@ -16,7 +16,6 @@ import aj.plugins
 # from aj.auth import AuthenticationService # Test for callback with certificate
 from aj.config import AjentiUsers
 from aj.http import HttpRoot, HttpMiddlewareAggregator
-from aj.gate.middleware import GateMiddleware, SocketIONamespace
 from aj.plugins import PluginManager
 from aj.wsgi import RequestHandler
 
@@ -34,6 +33,7 @@ threading.Event = Event
 # ----------------------------------------
 
 import aj.compat
+from aj.gate.middleware import GateMiddleware, SocketIONamespace
 
 from gevent import pywsgi
 import socketio
