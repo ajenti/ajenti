@@ -73,15 +73,15 @@ class filesystem_test (base):
         with open(self.path('1'), 'w') as f:
             f.write('file 1')
 
-        rq = self.session.get(url + '/api/filesystem/read/%s?encoding=utf-8' % self.path('1'))
+        rq = self.session.get(f'{url}/api/filesystem/read/{self.path("1")}?encoding=utf-8')
         eq_(rq.text, '"file 1"')
-        rq = self.session.get(url + '/api/filesystem/read/%s' % self.path('3'))
+        rq = self.session.get(f'{url}/api/filesystem/read/{self.path("3")}')
         eq_(rq.status_code, 404)
 
     def write_test(self):
         content = 'file 2'
         rq = self.session.post(
-            url + '/api/filesystem/write/%s?encoding=utf-8' % self.path('2'),
+            f'{url}/api/filesystem/write/{self.path("2")}?encoding=utf-8',
             data=content
         )
         eq_(rq.status_code, 200)
@@ -92,7 +92,7 @@ class filesystem_test (base):
     #     with open(self.path('4'), 'w') as f:
     #         f.write(content)
     #     rq = self.session.post(
-    #         url + '/api/filesystem/upload/%s' % self.path('2'),
+    #         f'{url}/api/filesystem/upload/{self.path("2")}',
     #         files={'upload': open(self.path('4'))}
     #     )
     #     eq_(rq.status_code, 200)
@@ -103,7 +103,7 @@ class filesystem_test (base):
         path = self.path('list/file')
         open(path, 'w').close()
         os.chmod(path, 0o765)
-        rq = self.session.get(url + '/api/filesystem/list/%s' % self.path('list'))
+        rq = self.session.get(f'{url}/api/filesystem/list/{self.path("list")}')
         eq_(rq.status_code, 200)
 
         data = rq.json()['items']
@@ -126,7 +126,7 @@ class filesystem_test (base):
         path = self.path('file')
         open(path, 'w').close()
         os.chmod(path, 0o765)
-        rq = self.session.get(url + '/api/filesystem/stat/%s' % path)
+        rq = self.session.get(f'{url}/api/filesystem/stat/{path}')
         eq_(rq.status_code, 200)
 
         data = rq.json()
@@ -144,20 +144,23 @@ class filesystem_test (base):
         path = self.path('file')
         open(path, 'w').close()
         os.chmod(path, 0o765)
-        rq = self.session.post(url + '/api/filesystem/chmod/%s' % path, data=json.dumps({'mode': 0o767}))
+        rq = self.session.post(
+            f'{url}/api/filesystem/chmod/{path}',
+            data=json.dumps({'mode': 0o767})
+        )
         eq_(rq.status_code, 200)
         eq_(os.stat(path).st_mode, 0o100767)
 
     def create_file_test(self):
         path = self.path('create_file_test')
         ok_(not os.path.exists(path))
-        rq = self.session.post(url + '/api/filesystem/create-file/%s' % path)
+        rq = self.session.post(f'{url}/api/filesystem/create-file/{path}')
         eq_(rq.status_code, 200)
         ok_(os.path.isfile(path))
 
     def create_dir_test(self):
         path = self.path('create_dir_test')
         ok_(not os.path.exists(path))
-        rq = self.session.post(url + '/api/filesystem/create-directory/%s' % path)
+        rq = self.session.post(f'{url}/api/filesystem/create-directory/{path}')
         eq_(rq.status_code, 200)
         ok_(os.path.isdir(path))

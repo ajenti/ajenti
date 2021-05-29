@@ -22,7 +22,7 @@ class WorkerSocketNamespace():
     def __init__(self, context, _id):
         self.context = context
         self.id = _id
-        logging.debug('Socket namespace %s created', self.id)
+        logging.debug(f'Socket namespace {self.id} created')
         self.endpoints = [
             cls(self.context)
             for cls in SocketEndpoint.classes()
@@ -33,14 +33,14 @@ class WorkerSocketNamespace():
             if not msg or msg['plugin'] in ['*', endpoint.plugin]:
                 data = msg['data'] if msg else None
                 try:
-                    getattr(endpoint, 'on_%s' % event)(data)
+                    getattr(endpoint, f'on_{event}')(data)
                 # pylint: disable=W0703
                 except Exception:
                     logging.error('Exception in socket event handler')
                     traceback.print_exc()
 
     def destroy(self):
-        logging.debug('Socket namespace %s is being destroyed', self.id)
+        logging.debug(f'Socket namespace {self.id} is being destroyed')
         for endpoint in self.endpoints:
             endpoint.destroy()
 
@@ -52,21 +52,13 @@ class Worker():
         self.gate = gate
         aj.master = False
         os.setpgrp()
-        setproctitle.setproctitle(
-            '%s worker [%s]' % (
-                sys.argv[0],
-                self.gate.name
-            )
-        )
+        setproctitle.setproctitle(f'{sys.argv[0]} worker [{self.gate.name}]')
         set_log_params(tag=self.gate.log_tag)
         init_log_forwarding(self.send_log_event)
 
         logging.info(
-            'New worker "%s" PID %s, EUID %s, EGID %s',
-            self.gate.name,
-            os.getpid(),
-            os.geteuid(),
-            os.getegid(),
+            f'New worker "{self.gate.name}" PID {os.getpid()}, '
+            f'EUID {os.geteuid()}, EGID {os.getegid()}'
         )
 
         self.context = Context(parent=aj.context)
@@ -96,10 +88,7 @@ class Worker():
             return
 
         logging.info(
-            'Worker %s is demoting to UID %s / GID %s...',
-            os.getpid(),
-            uid,
-            gid
+            f'Worker {os.getpid()} is demoting to UID {uid} / GID {gid}...'
         )
 
         groups = [
@@ -110,11 +99,7 @@ class Worker():
         os.setgroups(groups)
         os.setgid(gid)
         os.setuid(uid)
-        logging.info(
-            '...done, new EUID %s EGID %s',
-            os.geteuid(),
-            os.getegid()
-        )
+        logging.info(f'...done, new EUID {os.geteuid()} EGID {os.getegid()}')
 
     def run(self):
         if self.gate.restricted:
@@ -206,9 +191,7 @@ class Worker():
         try:
             http_context = HttpContext.deserialize(rq.object['context'].encode())
             logging.debug(
-                '                    ... %s %s',
-                http_context.method,
-                http_context.path
+                f'                    ... {http_context.method} {http_context.path}'
             )
 
             # Generate response

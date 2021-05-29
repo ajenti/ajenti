@@ -15,25 +15,25 @@ class Transfer(Task):
 
     @authorize('filesystem:write')
     def run(self):
-        logging.info('Transferring %s items into %s', len(self.items), self.destination)
+        logging.info(f'Transferring {len(self.items)} items into {self.destination}')
         self.destination = self.destination.rstrip('/')
 
         for idx, item in enumerate(self.items):
             self.report_progress(message=item['item']['name'], done=idx, total=len(self.items))
             if item['mode'] == 'move':
-                logging.info('Moving %s', item['item']['path'])
+                logging.info(f"Moving {item['item']['path']}")
                 r = subprocess.call([
                     'mv', item['item']['path'], self.destination
                 ])
                 if r != 0:
-                    logging.warning('mv exited with code %i', r)
+                    logging.warning(f'mv exited with code {r:d}')
             if item['mode'] == 'copy':
-                logging.info('Copying %s', item['item']['path'])
+                logging.info(f"Copying {item['item']['path']}")
                 r = subprocess.call([
                     'cp', '-a', item['item']['path'], self.destination
                 ])
                 if r != 0:
-                    logging.warning('cp exited with code %i', r)
+                    logging.warning(f'cp exited with code {r:d}')
 
         self.push('filesystem', 'refresh')
 
@@ -47,15 +47,15 @@ class Delete(Task):
 
     @authorize('filesystem:write')
     def run(self):
-        logging.info('Deleting %s items', len(self.items))
+        logging.info(f'Deleting {len(self.items)} items')
 
         for idx, item in enumerate(self.items):
             self.report_progress(message=item['name'], done=idx, total=len(self.items))
-            logging.info('Deleting %s', item['path'])
+            logging.info(f'Deleting {item["path"]}')
             r = subprocess.call([
                 'rm', '-r', '-f', item['path'],
             ])
             if r != 0:
-                logging.warning('rm exited with code %i', r)
+                logging.warning(f'rm exited with code {r:d}')
 
         self.push('filesystem', 'refresh')

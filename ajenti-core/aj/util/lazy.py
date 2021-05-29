@@ -8,7 +8,7 @@ class LazyModule():
         self._loaded = False
 
     def __load(self):
-        logging.debug('Lazy-loading module %s', self._module)
+        logging.debug(f'Lazy-loading module {self._module}')
         target = __import__(self._module, fromlist=[str(self._module)])
         if self._object:
             target = getattr(target, self._object)

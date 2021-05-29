@@ -92,7 +92,8 @@ def init_console(log_level=logging.INFO):
 class LoggerWriter:
     def write(self, message):
         if message != '\n':
-            logging.warning('stdout: %s', message.strip('\n'))
+            message = message.strip("\n")
+            logging.warning(f'stdout: {message}')
 
     def flush(self):
         pass

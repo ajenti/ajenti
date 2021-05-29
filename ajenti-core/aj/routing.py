@@ -14,7 +14,9 @@ class DeniedRouteHandler(BaseHttpHandler):
         pass
 
     def handle(self, http_context):
-        logging.warning('Invalid client certificate : %s', http_context.env['SSL_CLIENT_DIGEST'])
+        logging.warning(f'Invalid client certificate : '
+                        f'{http_context.env["SSL_CLIENT_DIGEST"]}'
+        )
         http_context.respond_unauthenticated()
 
         return ["""
@@ -41,26 +43,26 @@ class InvalidRouteHandler(BaseHttpHandler):
         pass
 
     def handle(self, http_context):
-        logging.warning('URL not found: %s', http_context.path)
+        logging.warning(f'URL not found: {http_context.path}')
         http_context.respond_not_found()
         
         with open(os.path.dirname(__file__)+'/static/images/error.jpeg', "rb") as error_image:
             error_encoded = base64.b64encode(error_image.read()).decode()
             
-        return ["""
+        return [f"""
         <!DOCTYPE html>
         <html>
             <body>
 
                 <style>
-                    body {
+                    body {{
                         font-family: sans-serif;
                         color: #888;
                         text-align: center;
-                    }
+                    }}
                 </style>
                 
-                <img src="data:image/png;base64, %s" alt="Error image" />
+                <img src="data:image/png;base64, {error_encoded}" alt="Error image" />
                 <br/>
                 <p>
                     404 - URL not found
@@ -70,7 +72,7 @@ class InvalidRouteHandler(BaseHttpHandler):
                 </p>
             </body>
         </html>
-        """ % error_encoded]
+        """]
 
 @service
 class CentralDispatcher(BaseHttpHandler):
@@ -105,31 +107,31 @@ class CentralDispatcher(BaseHttpHandler):
         with open(os.path.dirname(__file__)+'/static/images/error.jpeg', "rb") as error_image:
             error_encoded = base64.b64encode(error_image.read()).decode()
         
-        return """
+        return f"""
         <html>
             <body>
 
                 <style>
-                    body {
+                    body {{
                         font-family: sans-serif;
                         color: #888;
                         text-align: center;
-                    }
+                    }}
 
-                    body pre {
+                    body pre {{
                         width: 600px;
                         text-align: left;
                         margin: auto;
                         font-family: monospace;
-                    }
+                    }}
                 </style>
 
-                <img src="data:image/png;base64, %s" alt="Error image" />
+                <img src="data:image/png;base64, {error_encoded}" alt="Error image" />
                 <br/>
                 <p>
                     Server error
                 </p>
-                <pre>%s</pre>
+                <pre>{cgi.escape(stack)}</pre>
             </body>
         </html>
-        """ % (error_encoded, cgi.escape(stack))
+        """

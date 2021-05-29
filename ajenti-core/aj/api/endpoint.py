@@ -40,7 +40,7 @@ class EndpointReturn(Exception):
         self.data = data
 
     def __str__(self):
-        return '[EndpointReturn: %s]' % self.code
+        return f'[EndpointReturn: {self.code}]'
 
 
 def endpoint(page=False, api=False, auth=True):
@@ -80,11 +80,11 @@ def endpoint(page=False, api=False, auth=True):
                 if page:
                     return result
             except EndpointReturn as e:
-                logging.debug('Endpoint return at %s: %s', context.path, e.code)
+                logging.debug(f'Endpoint return at {context.path}: {e.code}')
                 status = e.code
                 result = e.data
             except (EndpointError, SecurityError) as e:
-                logging.warning('Endpoint error at %s: %s', context.path, e.message)
+                logging.warning(f'Endpoint error at {context.path}: {e.message}')
                 if page:
                     raise
                 status = 500
@@ -95,7 +95,7 @@ def endpoint(page=False, api=False, auth=True):
                 }
             # pylint: disable=W0703
             except Exception as e:
-                logging.error('Unhandled endpoint error at %s', context.path)
+                logging.error(f'Unhandled endpoint error at {context.path}')
                 traceback.print_exc()
                 if page:
                     raise

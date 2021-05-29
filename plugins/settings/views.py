@@ -78,7 +78,7 @@ class Handler(HttpPlugin):
         """
 
         etc_dir = '/etc/ajenti'
-        certificate_path = '%s/ajenti.pem' % etc_dir
+        certificate_path = f'{etc_dir}/ajenti.pem'
 
         key = OpenSSL.crypto.PKey()
         key.generate_key(OpenSSL.crypto.TYPE_RSA, 4096)

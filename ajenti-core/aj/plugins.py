@@ -64,7 +64,7 @@ class PythonPathPluginProvider(PluginProvider):
         found_plugins = []
         for path in sys.path:
             if os.path.isdir(path):
-                logging.debug('Looking for plugins in %s', path)
+                logging.debug(f'Looking for plugins in {path}')
                 found_plugins += DirectoryPluginProvider(path).provide()
         return found_plugins
 
@@ -82,10 +82,10 @@ class PluginCrashed(PluginLoadError):
         self.traceback = traceback.format_exc()
 
     def describe(self):
-        return 'Crashed: %s' % repr(self.exception)
+        return f'Crashed: {repr(self.exception)}'
 
     def __str__(self):
-        return 'crashed: %s' % repr(self.exception)
+        return f'crashed: {repr(self.exception)}'
 
 
 @public
@@ -105,7 +105,7 @@ class Dependency(yaml.YAMLObject):
             return 'Dependency unsatisfied'
 
         def __str__(self):
-            return '%s (%s)' % (self.dependency.__class__.__name__, self.reason())
+            return f'{self.dependency.__class__.__name__} ({self.reason()})'
 
     def build_exception(self):
         exception = self.Unsatisfied()
@@ -129,7 +129,7 @@ class ModuleDependency(Dependency):
 
     class Unsatisfied(Dependency.Unsatisfied):
         def reason(self):
-            return '%s' % self.dependency.module_name
+            return f'{self.dependency.module_name}'
 
     def __init__(self, module_name=None):
         self.module_name = module_name
@@ -154,7 +154,7 @@ class PluginDependency(Dependency):
 
     class Unsatisfied(Dependency.Unsatisfied):
         def reason(self):
-            return '%s' % self.dependency.plugin_name
+            return f'{self.dependency.plugin_name}'
 
     def __init__(self, plugin_name=None):
         self.plugin_name = plugin_name
@@ -173,7 +173,7 @@ class OptionalPluginDependency(Dependency):
 
     class Unsatisfied(Dependency.Unsatisfied):
         def reason(self):
-            return '%s' % self.dependency.plugin_name
+            return f'{self.dependency.plugin_name}'
 
     def __init__(self, plugin_name=None):
         self.plugin_name = plugin_name
@@ -192,7 +192,7 @@ class BinaryDependency(Dependency):
 
     class Unsatisfied(Dependency.Unsatisfied):
         def reason(self):
-            return '%s' % self.dependency.binary_name
+            return f'{self.dependency.binary_name}'
 
     def __init__(self, binary_name=None):
         self.binary_name = binary_name
@@ -211,7 +211,7 @@ class FileDependency(Dependency):
 
     class Unsatisfied(Dependency.Unsatisfied):
         def reason(self):
-            return '%s' % self.dependency.file_name
+            return f'{self.dependency.file_name}'
 
     def __init__(self, file_name=None):
         self.file_name = file_name
@@ -282,7 +282,7 @@ class PluginManager():
                 'imported': False,
             }
 
-        logging.info('Discovered %i plugins', len(self.__plugin_info))
+        logging.info(f'Discovered {len(self.__plugin_info):d} plugins')
 
         self.load_order = []
         to_load = list(self.__plugin_info.values())
@@ -318,7 +318,7 @@ class PluginManager():
             for dep in plugin['info']['dependencies']:
                 if isinstance(dep, PluginDependency) and dep.plugin_name not in self.load_order:
                     self.__crashes[plugin['info']['name']] = dep.build_exception()
-                    logging.warning('Not loading [%s] because [%s] is unavailable', plugin['info']['name'], dep.plugin_name)
+                    logging.warning(f"Not loading [{plugin['info']['name']}] because [{dep.plugin_name}] is unavailable")
 
         for name in list(self.load_order):
             try:
@@ -327,17 +327,17 @@ class PluginManager():
                         dependency.check()
             except Dependency.Unsatisfied as e:
                 self.__crashes[name] = e
-                logging.warning('Not loading [%s] because dependency failed: %s', name, e)
+                logging.warning(f'Not loading [{name}] because dependency failed: {e}')
                 self.load_order.remove(name)
 
-        logging.debug('Resolved load order for %i plugins: %s', len(self.load_order), self.load_order)
+        logging.debug(f'Resolved load order for {len(self.load_order):d} plugins: {self.load_order}')
 
         for name in list(self.load_order):
             try:
                 self.__import_plugin_module(name, self[name])
             except Exception as e:
                 self.__crashes[name] = PluginCrashed(e)
-                logging.error('[%s]: plugin import failed: %s', name, e)
+                logging.error(f'[{name}]: plugin import failed: {e}')
                 logging.error(traceback.format_exc())
                 self.load_order.remove(name)
 
@@ -346,24 +346,24 @@ class PluginManager():
                 self.__init_plugin_module(name, self[name])
             except Exception as e:
                 self.__crashes[name] = PluginCrashed(e)
-                logging.error('[%s]: plugin init failed: %s', name, e)
+                logging.error(f'[{name}]: plugin init failed: {e}')
                 logging.error(traceback.format_exc())
                 self.load_order.remove(name)
 
-        logging.info('Loaded %i plugins', len(self.load_order))
+        logging.info(f'Loaded {len(self.load_order):d} plugins')
 
     def __import_plugin_module(self, name, info):
-        logging.debug('Importing plugin "%s"', name)
+        logging.debug(f'Importing plugin "{name}"')
         module_path, module_name = os.path.split(info['path'])
 
         info['module'] = imp.load_module(
-            'aj.plugins.%s' % name,
+            f'aj.plugins.{name}',
             *imp.find_module(module_name, [module_path])
         )
         info['imported'] = True
 
     def __init_plugin_module(self, name, info):
-        logging.debug('Initializing plugin "%s"', name)
+        logging.debug(f'Initializing plugin "{name}"')
         mod = info['module']
         if hasattr(mod, 'init'):
             mod.init(self)

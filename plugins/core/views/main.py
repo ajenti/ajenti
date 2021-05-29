@@ -54,7 +54,7 @@ class Handler(HttpPlugin):
 
                 for provider in aj.plugin_providers:
                     if isinstance(provider, DirectoryPluginProvider):
-                        logging.debug('Building resources in %s', provider.path)
+                        logging.debug(f'Building resources in {provider.path}')
                         if rebuild_all:
                             cmd = ['ajenti-dev-multitool', '--rebuild']
                         else:
@@ -70,7 +70,7 @@ class Handler(HttpPlugin):
                             logging.error('Resource compilation failed')
                             logging.error(o+e)
             else:
-                logging.warning("Cannot build resources as restricted user %s", restricted_user)
+                logging.warning(f"Cannot build resources as restricted user {restricted_user}")
 
         manager = PluginManager.get(aj.context)
         path = manager.get_content_path('core', 'content/pages/index.html')

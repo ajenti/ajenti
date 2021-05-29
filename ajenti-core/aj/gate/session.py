@@ -23,19 +23,22 @@ class Session():
         self.touch()
         self.active = True
         logging.info(
-            'Opening a new worker gate for session %s, client %s',
-            self.id,
-            self.client_info['address'],
+            f"Opening a new worker gate for session {self.id}, "
+            f"client {self.client_info['address']}"
         )
         self.gate = WorkerGate(
-            self, gateway_middleware=gateway_middleware, name='session %i' % self.id, log_tag='worker', **kwargs
+            self,
+            gateway_middleware=gateway_middleware,
+            name=f'session {self.id:d}',
+            log_tag='worker',
+            **kwargs
         )
         self.session_max_time = session_max_time
         self.gate.start()
-        logging.debug('New session %s', self.id)
+        logging.debug(f'New session {self.id}')
 
     def destroy(self):
-        logging.debug('Destroying session %s', self.id)
+        logging.debug(f'Destroying session {self.id}')
         self.gate.stop()
 
     def deactivate(self):

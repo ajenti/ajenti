@@ -97,7 +97,7 @@ class DebianNetworkManager(NetworkManager):
 
         aug = self.get_augeas()
         for index, iface in enumerate(config):
-            path = self.aug_path + ('/iface[%i]' % (index + 1))
+            path = f'{self.aug_path}/iface[{index + 1}]'
             aug.setd(path + '/family', iface['family'])
             aug.setd(path + '/method', iface['addressing'])
             aug.setd(path + '/address', iface['address'])

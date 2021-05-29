@@ -70,11 +70,11 @@ def run(config=None, plugin_providers=None, product_name='ajenti', dev_mode=Fals
     aj.context = Context()
     aj.config = config
     aj.plugin_providers = plugin_providers or []
-    logging.info('Loading config from %s', aj.config)
+    logging.info(f'Loading config from {aj.config}')
     aj.config.load()
     aj.config.ensure_structure()
 
-    logging.info('Loading users from %s', '/etc/ajenti/users.yml')
+    logging.info('Loading users from /etc/ajenti/users.myl')
     aj.users = AjentiUsers(aj.config.data['auth']['users_file'])
     aj.users.load()
 
@@ -92,10 +92,10 @@ def run(config=None, plugin_providers=None, product_name='ajenti', dev_mode=Fals
     # and _() is here only for string extraction
     __builtins__['_'] = lambda x: x
 
-    logging.info('Ajenti Core %s', aj.version)
-    logging.info('Master PID - %s', os.getpid())
-    logging.info('Detected platform: %s / %s', aj.platform, aj.platform_string)
-    logging.info('Python version: %s', aj.python_version)
+    logging.info(f'Ajenti Core {aj.version}')
+    logging.info(f'Master PID - {os.getpid()}')
+    logging.info(f'Detected platform: {aj.platform} / {aj.platform_string}')
+    logging.info(f'Python version: {aj.python_version}')
 
     # Load plugins
     PluginManager.get(aj.context).load_all_from(aj.plugin_providers)
@@ -110,7 +110,7 @@ def run(config=None, plugin_providers=None, product_name='ajenti', dev_mode=Fals
         try:
             listener.bind(path)
         except OSError:
-            logging.error('Could not bind to %s', path)
+            logging.error(f'Could not bind to {path}')
             sys.exit(1)
 
     if aj.config.data['bind']['mode'] == 'tcp':
@@ -125,11 +125,11 @@ def run(config=None, plugin_providers=None, product_name='ajenti', dev_mode=Fals
             except socket.error:
                 logging.warning('Could not set TCP_CORK')
         listener.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-        logging.info('Binding to [%s]:%s', host, port)
+        logging.info(f'Binding to [{host}]:{port}')
         try:
             listener.bind((host, port))
         except socket.error as e:
-            logging.error('Could not bind: %s', str(e))
+            logging.error(f'Could not bind: {str(e)}')
             sys.exit(1)
 
     listener.listen(10)
@@ -188,7 +188,7 @@ def run(config=None, plugin_providers=None, product_name='ajenti', dev_mode=Fals
         if hasattr(cleanup, 'started'):
             return
         cleanup.started = True
-        logging.info('Process %s exiting normally', os.getpid())
+        logging.info(f'Process {os.getpid()} exiting normally')
         gevent.signal_handler(signal.SIGINT, lambda: None)
         gevent.signal_handler(signal.SIGTERM, lambda: None)
         if aj.master:
@@ -223,7 +223,7 @@ def run(config=None, plugin_providers=None, product_name='ajenti', dev_mode=Fals
         while fd > 2:
             try:
                 os.close(fd)
-                logging.debug('Closed descriptor #%i', fd)
+                logging.debug(f'Closed descriptor #{fd:d}')
             except OSError:
                 pass
             fd -= 1

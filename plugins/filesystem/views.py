@@ -105,7 +105,7 @@ class Handler(HttpPlugin):
 
         id = http_context.query['flowIdentifier']
         chunk_index = http_context.query['flowChunkNumber']
-        chunk_dir = '/tmp/upload-%s' % id
+        chunk_dir = f'/tmp/upload-{id}'
         try:
             os.makedirs(chunk_dir)
         except Exception as e:
@@ -146,7 +146,7 @@ class Handler(HttpPlugin):
             name = file['name']
             path = file['path']
             id = file['id']
-            chunk_dir = '/tmp/upload-%s' % id
+            chunk_dir = f'/tmp/upload-{id}'
 
             target = os.path.join(path, name.replace('/', ''))
             with open(target, 'wb') as f:

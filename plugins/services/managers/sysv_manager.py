@@ -6,8 +6,6 @@ from aj.plugins.services.api import ServiceManager, Service
 
 
 INIT_D = '/etc/init.d'
-UPSTART_PATTERN = '/etc/init/%s.conf'
-
 
 @component(ServiceManager)
 class SysVServiceManager(ServiceManager):
@@ -48,7 +46,7 @@ class SysVServiceManager(ServiceManager):
                 continue
             if os.path.islink(path):
                 continue
-            if os.path.exists(UPSTART_PATTERN % _id):
+            if os.path.exists(f'/etc/init/{_id}.conf'):
                 continue
             yield self.get_service(_id)
 

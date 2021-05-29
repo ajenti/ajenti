@@ -38,7 +38,7 @@ class YUMPackageManager(PackageManager):
 
         pkg_installed = (self.yum.rpmdb.searchNames(names=[pkg.name]) or [None])[0]
         p = Package(self)
-        p.id = '%s.%s' % (pkg.name, pkg.arch)
+        p.id = f'{pkg.name}.{pkg.arch}'
         p.name = pkg.name
         p.version = pkg.version
         p.description = pkg.arch  # nothing better
@@ -98,7 +98,8 @@ class YUMPackageManager(PackageManager):
 
             def update(self, amount_read, now=None):
                 self.done = amount_read
-                message = '%s%% %s' % (int(100 * self.done / self.size), self.name)
+                progress = int(100 * self.done / self.size)
+                message = f'{progress}%% {self.name}'
                 progress_callback(message=message, done=self.done, total=self.size)
 
         progress_callback(message='Preparing')

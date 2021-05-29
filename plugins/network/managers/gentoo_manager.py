@@ -55,7 +55,7 @@ class GentooNetworkManager(NetworkManager):
 
         ifaces = []
         aug = self.get_augeas()
-        for key in aug.match('%s/*' % self.aug_path):
+        for key in aug.match(f'{self.aug_path}/*'):
             if 'config_' not in key:
                 continue
             iface_name = key.split('_')[-1]
@@ -77,7 +77,7 @@ class GentooNetworkManager(NetworkManager):
                         iface['mask'] = value
             ifaces.append(iface)
 
-            route_key = '%s/routes_%s' % (self.aug_path, iface_name)
+            route_key = f'{self.aug_path}/routes_{iface_name}'
             if aug.match(route_key):
                 routes = aug.get(route_key).strip('"').splitlines()
                 for route in routes:
@@ -101,18 +101,19 @@ class GentooNetworkManager(NetworkManager):
             else:
                 value = iface['address']
                 if iface.get('mask', None):
-                    value += ' netmask %s' % iface['mask']
-            aug.set('%s/config_%s' % (self.aug_path, iface['name']), '"%s"' % value)
+                    value += f' netmask {iface["mask"]}'
+            aug.set(f'{self.aug_path}/config_{iface["name"]}', f'"{value}"')
 
-            route_key = '%s/routes_%s' % (self.aug_path, iface['name'])
+            route_key = f'{self.aug_path}/routes_{iface["name"]}'
             if aug.match(route_key):
                 routes = aug.get(route_key).strip('"').splitlines()
                 routes = [route for route in routes if 'default via' not in route]
             else:
                 routes = []
             if iface.get('gateway', None):
-                routes.append('default via %s' % iface['gateway'])
-            aug.set(route_key, '"%s"' % '\n'.join(routes))
+                routes.append(f'default via {iface["gateway"]}')
+            route_join = '\n'.join(routes)
+            aug.set(route_key, f'"{route_join}"')
         aug.save()
 
     def get_state(self, iface):
@@ -138,8 +139,8 @@ class GentooNetworkManager(NetworkManager):
         :type iface: string
         """
 
-        subprocess.call(['/etc/init.d/net.%s' % iface, 'restart'])
-        subprocess.call(['rc-update', 'add', 'net.%s' % iface, 'default'])
+        subprocess.call([f'/etc/init.d/net.{iface}', 'restart'])
+        subprocess.call(['rc-update', 'add', f'net.{iface}', 'default'])
 
     def down(self, iface):
         """
@@ -149,8 +150,8 @@ class GentooNetworkManager(NetworkManager):
         :type iface: string
         """
 
-        subprocess.call(['/etc/init.d/net.%s' % iface, 'stop'])
-        subprocess.call(['rc-update', 'delete', 'net.%s' % iface, 'default'])
+        subprocess.call([f'/etc/init.d/net.{iface}', 'stop'])
+        subprocess.call(['rc-update', 'delete', f'net.{iface}', 'default'])
 
     def get_hostname(self):
         """

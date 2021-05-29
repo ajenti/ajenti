@@ -85,7 +85,7 @@ class CentOSNetworkManager(NetworkManager):
 
         for index, iface in enumerate(config):
             aug = self.get_augeas(iface['name'])
-            file = 'ifcfg-%s' % iface
+            file = f'ifcfg-{iface}'
             aug_path = os.path.join(self.aug_path, file)
             if iface['family'] == 'inet':
                 aug.remove(aug_path + '/IPV6INIT')

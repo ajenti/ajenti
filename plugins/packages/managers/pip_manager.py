@@ -34,7 +34,7 @@ class PIPPackageManager(PackageManager):
         """
 
         p = Package(self)
-        p.id = '%s==%s' % (dist.key, dist.version)
+        p.id = f'{dist.key}=={dist.version}'
         p.name = dist.key
         p.version = dist.version
         p.description = None
@@ -53,7 +53,7 @@ class PIPPackageManager(PackageManager):
         """
 
         p = Package(self)
-        p.id = '%s==%s' % (dist['name'], dist['version'])
+        p.id = f'{dist["name"]}=={dist["version"]}'
         p.name = dist['name']
         p.version = dist['version']
         p.description = dist['summary']

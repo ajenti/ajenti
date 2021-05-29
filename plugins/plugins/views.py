@@ -122,7 +122,7 @@ class Handler(HttpPlugin):
 
         # TODO replaced with a task
         try:
-            subprocess.call(['python3', '-m', 'pip', 'install', 'ajenti.plugin.%s==%s' % (name, version)])
+            subprocess.call(['python3', '-m', 'pip', 'install', f'ajenti.plugin.{name}=={version}'])
         except subprocess.CalledProcessError as e:
             raise EndpointError(e.output)
 
@@ -139,7 +139,7 @@ class Handler(HttpPlugin):
         """
 
         try:
-            subprocess.check_output(['python3', '-m', 'pip', 'uninstall', '-y', 'ajenti.plugin.%s' % name])
+            subprocess.check_output(['python3', '-m', 'pip', 'uninstall', '-y', f'ajenti.plugin.{name}'])
         except subprocess.CalledProcessError as e:
             raise EndpointError(e.output)
 
@@ -166,7 +166,7 @@ class Handler(HttpPlugin):
         :rtype: string
         """
 
-        url = 'https://pypi.python.org/pypi/%s/json' % 'ajenti-panel'
+        url = 'https://pypi.python.org/pypi/ajenti-panel/json'
         version = None
         try:
             data = requests.get(url).json()
@@ -222,7 +222,7 @@ class Handler(HttpPlugin):
             """
 
             try:
-                url = 'https://pypi.python.org/pypi/%s/json' % plugin
+                url = f'https://pypi.python.org/pypi/{plugin}/json'
                 data = requests.get(url).json()
                 plugin_list.append(filter_info(data))
             except Exception as e:

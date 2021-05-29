@@ -8,7 +8,7 @@ class InstallPlugin (Task):
 
     def __init__(self, context, name=None, version=None):
         Task.__init__(self, context)
-        self.spec = 'ajenti.plugin.%s==%s' % (name, version)
+        self.spec = f'ajenti.plugin.{name}=={version}'
 
     def run(self):
         subprocess.check_output(['python3', '-m', 'pip', 'install', self.spec])
