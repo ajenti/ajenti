@@ -35,13 +35,13 @@ cert.set_issuer(cert.get_subject())
 cert.sign(key, 'sha1')
 
 
-with open(certificate_path, 'w') as f:
+with open(certificate_path, 'wb') as f:
     f.write(dump_privatekey(FILETYPE_PEM, key))
     f.write(dump_certificate(FILETYPE_PEM, cert))
 
 
 config['ssl']['enable'] = True
 config['ssl']['certificate'] = certificate_path
-open(config_path, 'wb').write(
+open(config_path, 'w').write(
     yaml.safe_dump(config, default_flow_style=False, encoding='utf-8', allow_unicode=True).decode('utf-8')
 )
