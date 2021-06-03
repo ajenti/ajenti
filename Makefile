@@ -65,6 +65,8 @@ upload-plugins: build
 test:
 	cd e2e && ./run
 
+build_dev:
+	bash scripts/build_deb.sh
 
 webdriver:
 	cd e2e && node_modules/protractor/bin/webdriver-manager start

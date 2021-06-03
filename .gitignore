@@ -5,6 +5,7 @@
 *.sublime-*
 .~lock.*
 *~
+*.deb
 *.pyc
 *.gz
 *.whl
@@ -12,7 +13,7 @@
 *.asc
 .last-upload
 plugins/demo*
-docs/build
+/**/build
 *.mo
 .idea*
 .crowdin.key
