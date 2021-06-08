@@ -51,7 +51,7 @@ echo ":: Distro: $DISTRO"
 if [ "$OS" == "rhel" ] ; then
     echo ":: Installing prerequisites"
     dnf install -y epel-release
-    dnf install -y gcc python3-devel python3-pip python3-venv python3-pillow python3-augeas python3-dbus openssl-devel chrony redhat-lsb-core || exit 1
+    dnf install -y gcc python3-devel python3-pip python3-virtualenv python3-pillow python3-augeas python3-dbus openssl-devel chrony redhat-lsb-core || exit 1
 fi
 
 
