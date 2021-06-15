@@ -13,6 +13,14 @@ import aj.entry
 import aj.log
 import aj.plugins
 
+# Is the ajenti virtualenv installed ?
+panel_venv = '/opt/ajenti/bin/ajenti-panel'
+if os.path.isfile(panel_venv):
+    logging.info('Ajenti virtualenv detected, switching to it.')
+    try:
+        os.execv(panel_venv, sys.argv)
+    except Exception:
+        logging.error('Unable to start ajenti virtualenv, continuing with global python.')
 
 @six.python_2_unicode_compatible
 class AjentiConfig(aj.config.BaseConfig):

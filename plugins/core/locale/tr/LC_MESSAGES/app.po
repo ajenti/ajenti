@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-02-21 15:47+0100\n"
-"PO-Revision-Date: 2021-02-21 14:53\n"
+"PO-Revision-Date: 2021-05-12 07:00\n"
 "Last-Translator: \n"
 "Language-Team: Turkish\n"
 "Language: tr_TR\n"
@@ -26,7 +26,10 @@ msgid "<span>\n"
 "                    <i class=\"fa fa-exclamation-triangle\" style=\"color:red;\"></i>\n"
 "                </span>\n"
 "                The URL {{url}} was not found on this server."
-msgstr ""
+msgstr "<span>\n"
+"                    <i class=\"fa fa-exclamation-triangle\" style=\"color:red;\"></i>\n"
+"                </span>\n"
+"                URL {{url}} bu sunucuda bulunamadı."
 
 #: plugins/core/content/pages/index.html:150
 msgid "A bootstrap error has occured"
@@ -71,7 +74,7 @@ msgstr "Hızlı Arama"
 
 #: plugins/core/content/pages/index.html:101
 msgid "Session time : {{ counter[0] }}:{{ counter[1] }}:{{ counter[2] }}"
-msgstr ""
+msgstr "Oturum süresi : {{ counter[0] }}:{{ counter[1] }}:{{ counter[2] }}"
 
 #: plugins/core/resources/partial/login.html:19
 msgid "Username"
@@ -127,7 +130,7 @@ msgstr "Oturumunuzun süresi doldu"
 
 #: plugins/core/resources/js/core/module.es:32
 msgid "Unhandled error occurred"
-msgstr ""
+msgstr "İşlenmemiş hata oluştu"
 
 #: plugins/core/resources/js/core/filters.es:7
 msgid "0 bytes"
@@ -159,19 +162,19 @@ msgstr "PB"
 
 #: plugins/core/resources/js/core/filters.es:40
 msgid "th"
-msgstr ""
+msgstr "inci"
 
 #: plugins/core/resources/js/core/filters.es:41
 msgid "st"
-msgstr ""
+msgstr "inci"
 
 #: plugins/core/resources/js/core/filters.es:42
 msgid "nd"
-msgstr ""
+msgstr "inci"
 
 #: plugins/core/resources/js/core/filters.es:43
 msgid "rd"
-msgstr ""
+msgstr "inci"
 
 #: plugins/core/resources/js/core/services/core.service.es:6
 msgid "Restart"
@@ -207,9 +210,9 @@ msgstr "Yeniden başlatılamadı"
 
 #: plugins/core/resources/js/core/services/tasks.service.es:26
 msgid "Done"
-msgstr ""
+msgstr "Tamam"
 
 #: plugins/core/resources/js/core/controllers/login.controller.es:25
 msgid "Authentication failed"
-msgstr ""
+msgstr "Kimlik doğrulama başarısız oldu"
 

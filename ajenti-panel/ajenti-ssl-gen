@@ -35,7 +35,7 @@ cert.set_issuer(cert.get_subject())
 cert.sign(key, 'sha1')
 
 
-with open(certificate_path, 'w') as f:
+with open(certificate_path, 'wb') as f:
     f.write(dump_privatekey(FILETYPE_PEM, key))
     f.write(dump_certificate(FILETYPE_PEM, cert))
 
