@@ -68,7 +68,7 @@ fi
 
 echo ":: Setting up virtual env in /opt"
 
-$PYTHON3 -m venv /opt/ajenti
+$PYTHON3 -m venv /opt/ajenti --system-site-packages
 source /opt/ajenti/bin/activate
 PYTHON3=/opt/ajenti/bin/python3
 
