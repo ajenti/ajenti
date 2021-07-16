@@ -16,17 +16,14 @@
             <i class="fa fa-trash-o"></i>
         </a>
         <div class="list-group-main">
-            <div class="list-group-icon">
+            <div class="list-group-icon" ng:show="!package.isInstalled">
                 <i class="fa fa-gift"></i>
+            </div>
+            <div class="list-group-icon text-success" ng:show="package.isInstalled">
+                <i class="fa fa-fw fa-check"></i>
             </div>
             <h4 class="list-group-item-heading">
                 {{package.name}}
-                <span ng:show="package.isInstalled">
-                    &nbsp;
-                    <span class="label label-success" title="{{'Installed'|translate}}">
-                        <i class="fa fa-fw fa-check"></i>
-                    </span>
-                </span>
                 <span ng:show="package.isUpgradeable">
                     &nbsp;
                     <span class="label label-info" title="{{'Upgradeable'|translate}}">
@@ -36,6 +33,9 @@
                 &nbsp;
                 <span class="subtle">
                     {{package.version}}
+                </span>
+                <span ng:show="package.released" class="label label-default">
+                    {{package.released}}
                 </span>
             </h4>
             <p class="list-group-item-text">
