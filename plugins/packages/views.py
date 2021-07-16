@@ -32,6 +32,7 @@ class Handler(HttpPlugin):
             'name': package.name,
             'version': package.version,
             'description': package.description,
+            'released': package.released,
             'managerId': package.manager.id,
             'isInstalled': package.is_installed,
             'isUpgradeable': package.is_upgradeable,
