@@ -68,7 +68,7 @@ class Handler(HttpPlugin):
                         o, e = p.communicate()
                         if p.returncode != 0:
                             logging.error('Resource compilation failed')
-                            logging.error(o+e)
+                            logging.error((o+e).decode('utf-8'))
             else:
                 logging.warning("Cannot build resources as restricted user %s", restricted_user)
 
