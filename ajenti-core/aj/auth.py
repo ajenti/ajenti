@@ -157,7 +157,7 @@ class AuthenticationService():
         )
         o, e = sudo.communicate(password.encode('utf-8') + b'\n')
         if sudo.returncode != 0:
-            raise SudoError((o + e).splitlines()[-1].strip())
+            raise SudoError((o + e).decode('utf-8').splitlines()[-1].strip())
         return True
 
     def client_certificate_callback(self, connection, x509, errno, depth, result):
