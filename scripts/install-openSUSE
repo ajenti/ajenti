@@ -4,7 +4,7 @@ echo "This script must be run as root" 1>&2
 exit 1
 fi
 echo ':: Adding Ajenti repo'
-rpm -ivh http://repo.ajenti.org/ajenti-repo-1.0-1.noarch.rpm
+rpm -ivh https://repo.ajenti.org/ajenti-repo-1.0-1.noarch.rpm
 echo ':: Updating Repository'
 zypper up
 echo ':: Installing package'
