@@ -5,10 +5,10 @@ if [ "$(id -u)" != "0" ]; then
 fi
 
 echo ':: Adding EPEL repo'
-rpm -ivh http://download.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm 
+rpm -ivh https://download.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm 
 
 echo ':: Adding Ajenti repo'
-rpm -ivh http://repo.ajenti.org/ajenti-repo-1.0-1.noarch.rpm
+rpm -ivh https://repo.ajenti.org/ajenti-repo-1.0-1.noarch.rpm
 
 echo ':: Installing package'
 yum install ajenti -y
