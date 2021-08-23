@@ -19,7 +19,7 @@ angular.module('ajenti.ace').directive('aceEditor', ($timeout, $log) =>
         },
         controller($scope) {
             if ($scope.options == null)
-                $scope.options = {}
+                $scope.options = {};
             if ($scope.options.useWrapMode == null)
                 $scope.options.useWrapMode = true;
             if ($scope.options.showGutter == null)
@@ -44,6 +44,8 @@ angular.module('ajenti.ace').directive('aceEditor', ($timeout, $log) =>
                 $scope.ace = ace;
                 $scope.ace.$blockScrolling = Infinity;
                 $scope.ace.setOptions($scope.aceOptions);
+                if ($scope.aceOptions.readOnly)
+                    $scope.ace.setReadOnly(true);
                 return $scope.ace.resize();
             };
 

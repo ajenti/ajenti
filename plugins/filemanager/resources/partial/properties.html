@@ -119,8 +119,11 @@
             </div>
         </div>
         <div class="col-md-3">
-            <a ng:href="{{urlPrefix}}/view/notepad/{{info.path}}" ng:show="ajentiPlugins.notepad && info.isFile && info.size < (1024 * 1024 * 64)" class="btn btn-default btn-block">
+            <a ng:href="{{urlPrefix}}/view/notepad/{{info.path}}" ng:show="ajentiPlugins.notepad && info.isFile && info.size < (1024 * 1024 * 64) && info.writeAccess" class="btn btn-default btn-block">
                 <i class="fa fa-pencil"></i> <span translate>Edit in Notepad</span>
+            </a>
+            <a ng:href="{{urlPrefix}}/view/notepad/{{info.path}}" ng:show="ajentiPlugins.notepad && info.isFile && info.size < (1024 * 1024 * 64) && !info.writeAccess && info.readAccess" class="btn btn-default btn-block">
+                <i class="fa fa-pencil"></i> <span translate>Show in Notepad</span>
             </a>
             <br/>
         </div>
