@@ -67,4 +67,8 @@ class TerminalManager():
         :type _id: hex
         """
 
-        self.terminals.pop(_id)
+        try:
+            self.terminals.pop(_id)
+        except KeyError:
+            # Terminal already closed by other process
+            pass
