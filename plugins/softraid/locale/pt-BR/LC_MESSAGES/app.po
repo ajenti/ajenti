@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-02-21 15:48+0100\n"
-"PO-Revision-Date: 2021-05-12 07:00\n"
+"PO-Revision-Date: 2021-08-25 16:57\n"
 "Last-Translator: \n"
 "Language-Team: Portuguese, Brazilian\n"
 "Language: pt_BR\n"
@@ -23,7 +23,7 @@ msgstr "Blocos"
 
 #: plugins/softraid/resources/partial/index.html:51
 msgid "Chunk:"
-msgstr ""
+msgstr "Chunk:"
 
 #: plugins/softraid/resources/partial/index.html:10
 msgid "Devices"
@@ -31,7 +31,7 @@ msgstr "Dispositivos"
 
 #: plugins/softraid/resources/partial/index.html:19
 msgid "Devices down:"
-msgstr ""
+msgstr "Dispositivos inativos:"
 
 #: plugins/softraid/resources/partial/index.html:12
 msgid "Metadata"
@@ -43,7 +43,7 @@ msgstr "Nome"
 
 #: plugins/softraid/resources/partial/index.html:4
 msgid "No array detected!"
-msgstr ""
+msgstr "Nenhum array detectado!"
 
 #: plugins/softraid/resources/partial/index.html:22
 msgid "Progress:"
@@ -71,5 +71,5 @@ msgstr "Tipo"
 
 #: plugins/softraid/resources/js/controllers/index.controller.es:2
 msgid "Softraid"
-msgstr ""
+msgstr "Softraid"
 

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-21 15:47+0100\n"
-"PO-Revision-Date: 2021-05-12 07:00\n"
+"POT-Creation-Date: 2021-08-25 18:37+0200\n"
+"PO-Revision-Date: 2021-08-25 16:57\n"
 "Last-Translator: \n"
 "Language-Team: Portuguese, Brazilian\n"
 "Language: pt_BR\n"
@@ -17,67 +17,63 @@ msgstr ""
 "X-Crowdin-File: /2.0/auth_users.po\n"
 "X-Crowdin-File-ID: 25\n"
 
-#: plugins/auth_users/resources/partial/index.html:15
+#: plugins/auth_users/resources/partial/index.html:11
 msgid "Configure"
 msgstr "Configurar"
 
-#: plugins/auth_users/resources/partial/index.html:35
+#: plugins/auth_users/resources/partial/index.html:31
 msgid "Create"
 msgstr "Criar"
 
-#: plugins/auth_users/resources/partial/index.html:46
+#: plugins/auth_users/resources/partial/index.html:42
 msgid "Default root password is <code>admin</code>"
 msgstr "Senha root padrão é <code>admin</code>"
 
-#: plugins/auth_users/resources/partial/index.html:94
+#: plugins/auth_users/resources/partial/index.html:90
 msgid "Filesystem root"
 msgstr "Sistema de arquivos root"
 
-#: plugins/auth_users/resources/partial/index.html:4
-msgid "In the new config tree, the users have to be stored in /etc/ajenti/users.yml, not in /etc/ajenti/config.yml. Please move the users tree from config.yml to users.yml before using this plugin."
-msgstr "Na nova árvore de configurações, os usuários devem ser armazenados em /etc/ajenti/users.yml, não em /etc/ajenti/config. ml. Por favor, mova a árvore dos usuários do config.yml para users.yml antes de usar este plugin."
-
-#: plugins/auth_users/resources/partial/index.html:68
+#: plugins/auth_users/resources/partial/index.html:64
 msgid "New password"
 msgstr "Nova senha"
 
-#: plugins/auth_users/resources/partial/index.html:33
+#: plugins/auth_users/resources/partial/index.html:29
 msgid "New user name"
 msgstr "Novo nome de usuário"
 
-#: plugins/auth_users/resources/partial/index.html:101
+#: plugins/auth_users/resources/partial/index.html:97
 msgid "OK"
 msgstr "OK"
 
-#: plugins/auth_users/resources/partial/index.html:87
+#: plugins/auth_users/resources/partial/index.html:83
 msgid "Permissions"
 msgstr "Permissões"
 
-#: plugins/auth_users/resources/partial/index.html:52
+#: plugins/auth_users/resources/partial/index.html:48
 msgid "Save"
 msgstr "Salvar"
 
-#: plugins/auth_users/resources/partial/index.html:77
+#: plugins/auth_users/resources/partial/index.html:73
 msgid "Sidebar entries"
 msgstr "Entradas da barra lateral"
 
-#: plugins/auth_users/resources/partial/index.html:61
+#: plugins/auth_users/resources/partial/index.html:57
 msgid "System account"
 msgstr "Conta de sistema"
 
-#: plugins/auth_users/resources/partial/index.html:80
+#: plugins/auth_users/resources/partial/index.html:76
 msgid "This only affects appearance of the sidebar. Disable actual permissions under the <b>Permissions</b> tab."
 msgstr "Isso afeta somente a aparência da barra lateral. Desative as permissões reais sob a guia <b>Permissões</b>."
 
-#: plugins/auth_users/resources/partial/index.html:64
+#: plugins/auth_users/resources/partial/index.html:60
 msgid "This user will be constrained by POSIX permissions for the selected system account."
 msgstr "Este usuário será ser restringido por POSIX as permissões para a conta do sistema selecionado."
 
-#: plugins/auth_users/resources/partial/index.html:72
+#: plugins/auth_users/resources/partial/index.html:68
 msgid "Update password"
 msgstr "Atualizar senha"
 
-#: plugins/auth_users/resources/partial/index.html:42
+#: plugins/auth_users/resources/partial/index.html:38
 msgid "You have no users mapped to <b>root</b> system account. Saving this configuration will prevent any administrative access."
 msgstr "Você não tem nenhum usuário mapeado para a conta do sistema <b>root</b>. Salvando essa configuração impedirá qualquer acesso administrativo."
 
@@ -89,7 +85,7 @@ msgstr "Usuários personalizados"
 msgid "Users"
 msgstr "Usuários"
 
-#: plugins/auth_users/resources/js/controllers/index.controller.es:86
+#: plugins/auth_users/resources/js/controllers/index.controller.es:83
 msgid "Password updated"
 msgstr "Senha atualizada"
 

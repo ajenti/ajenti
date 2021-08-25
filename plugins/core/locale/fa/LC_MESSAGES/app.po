@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-21 15:47+0100\n"
-"PO-Revision-Date: 2021-02-21 14:53\n"
+"POT-Creation-Date: 2021-08-25 18:37+0200\n"
+"PO-Revision-Date: 2021-08-25 16:57\n"
 "Last-Translator: \n"
 "Language-Team: Persian\n"
 "Language: fa_IR\n"
@@ -19,7 +19,7 @@ msgstr ""
 
 #: plugins/core/resources/partial/404.html:4
 msgid "404 - Page not found"
-msgstr ""
+msgstr "404 - برگه یافت نشد"
 
 #: plugins/core/resources/partial/404.html:7
 msgid "<span>\n"
@@ -34,7 +34,7 @@ msgstr "پیغام خطای بوت استرپ رخ داده است"
 
 #: plugins/core/resources/partial/login.html:27
 msgid "Authenticate"
-msgstr "شناسايی"
+msgstr "احراز هویت"
 
 #: plugins/core/content/pages/index.html:86
 msgid "Elevate"
@@ -46,15 +46,15 @@ msgstr "ثبت"
 
 #: plugins/core/resources/partial/login.html:26
 msgid "Log in"
-msgstr ""
+msgstr "ورود به حساب"
 
 #: plugins/core/content/pages/index.html:91
 msgid "Log out"
-msgstr "خروج"
+msgstr "خروج از حساب"
 
 #: plugins/core/content/pages/index.html:174
 msgid "OK"
-msgstr "تایید"
+msgstr "باشه"
 
 #: plugins/core/resources/partial/login.html:22
 msgid "Password"
@@ -63,7 +63,7 @@ msgstr "گذرواژه"
 #: plugins/core/content/pages/index.html:153
 #: plugins/core/resources/js/core/module.es:32
 msgid "Please see browser console"
-msgstr "لطفا مرورگر کنسول را مشاهده کنید"
+msgstr "لطفاً کنسول مرورگر خود را بررسی کنید"
 
 #: plugins/core/content/pages/index.html:129
 msgid "Quick search"
@@ -105,7 +105,7 @@ msgstr "مشاهده فایل تنظیمات"
 msgid "Write configuration file"
 msgstr "نوشتن فایل تنظیمات"
 
-#: plugins/core/views/api.py:126
+#: plugins/core/views/api.py:127
 msgid "Authorization failed"
 msgstr "مجوز دسترسی رد شد"
 

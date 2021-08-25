@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-27 12:11+0200\n"
-"PO-Revision-Date: 2021-02-21 14:53\n"
+"PO-Revision-Date: 2021-08-25 16:57\n"
 "Last-Translator: \n"
 "Language-Team: Dutch\n"
 "Language: nl_NL\n"
@@ -66,37 +66,37 @@ msgstr "Terminal"
 
 #: plugins/terminal/main.py:30
 msgid "Run arbitrary scripts"
-msgstr ""
+msgstr "Willekeurige scripts uitvoeren"
 
 #: plugins/terminal/main.py:35
 msgid "Open shell terminals"
-msgstr ""
+msgstr "Open de Terminal."
 
 #: plugins/terminal/resources/js/directives/terminal.es:178
 msgid "Terminal was closed"
-msgstr ""
+msgstr "Terminal is gesloten"
 
 #: plugins/terminal/resources/js/services/terminals.service.es:20
 msgid "You will be redirect to the previous page."
-msgstr ""
+msgstr "Je wordt doorverwezen naar de vorige pagina."
 
 #: plugins/terminal/resources/js/controllers/view.controller.es:11
 msgid "Use exit or Ctrl+D to exit terminal."
-msgstr ""
+msgstr "Afsluiten of Ctrl+D gebruiken om de terminal af te sluiten."
 
 #: plugins/terminal/resources/js/controllers/widget.controller.es:7
 msgid "Starting the script"
-msgstr ""
+msgstr "script starten"
 
 #: plugins/terminal/resources/js/controllers/widget.controller.es:10
 msgid "Script has finished"
-msgstr ""
+msgstr "Script is voltooid"
 
 #: plugins/terminal/resources/js/controllers/widget.controller.es:12
 msgid "Script has failed"
-msgstr ""
+msgstr "Script is mislukt"
 
 #: plugins/terminal/resources/js/controllers/widget.controller.es:15
 msgid "Could not launch the script"
-msgstr ""
+msgstr "Kan het script niet starten"
 

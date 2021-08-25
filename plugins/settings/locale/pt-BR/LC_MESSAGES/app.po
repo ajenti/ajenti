@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-02-21 15:48+0100\n"
-"PO-Revision-Date: 2021-05-12 07:00\n"
+"PO-Revision-Date: 2021-08-25 16:57\n"
 "Last-Translator: \n"
 "Language-Team: Portuguese, Brazilian\n"
 "Language: pt_BR\n"
@@ -126,7 +126,7 @@ msgstr "Reiniciar painel"
 
 #: plugins/settings/resources/partial/index.html:111
 msgid "SSL FQDN certificate file"
-msgstr ""
+msgstr "Arquivo de certificado SSL FQDN"
 
 #: plugins/settings/resources/partial/index.html:100
 msgid "SSL certificate file"
@@ -175,7 +175,7 @@ msgstr "Não foi possível carregar a configuração"
 
 #: plugins/settings/resources/js/controllers/index.controller.es:43
 msgid "Could not load authentication provider list"
-msgstr ""
+msgstr "Não foi possível carregar a lista de provedores de autenticação"
 
 #: plugins/settings/resources/js/controllers/index.controller.es:62
 #: plugins/settings/resources/js/controllers/index.controller.es:67

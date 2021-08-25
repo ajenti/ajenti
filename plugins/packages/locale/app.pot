@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-21 15:48+0100\n"
+"POT-Creation-Date: 2021-08-25 18:56+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -27,10 +27,6 @@ msgstr ""
 
 #: plugins/packages/resources/partial/index.html:83
 msgid "Close"
-msgstr ""
-
-#: plugins/packages/resources/partial/index.html:26
-msgid "Installed"
 msgstr ""
 
 #: plugins/packages/resources/partial/index.html:12
@@ -57,7 +53,7 @@ msgstr ""
 msgid "Update package list"
 msgstr ""
 
-#: plugins/packages/resources/partial/index.html:32
+#: plugins/packages/resources/partial/index.html:29
 msgid "Upgradeable"
 msgstr ""
 

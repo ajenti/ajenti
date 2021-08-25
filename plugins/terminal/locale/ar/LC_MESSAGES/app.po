@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-27 12:11+0200\n"
-"PO-Revision-Date: 2021-02-21 14:53\n"
+"PO-Revision-Date: 2021-08-25 16:56\n"
 "Last-Translator: \n"
 "Language-Team: Arabic\n"
 "Language: ar_SA\n"
@@ -23,11 +23,11 @@ msgstr ""
 
 #: plugins/terminal/resources/partial/view.html:26
 msgid "Done"
-msgstr ""
+msgstr "اكتملت العملية"
 
 #: plugins/terminal/resources/partial/widget.config.html:3
 msgid "Name"
-msgstr ""
+msgstr "الاسم"
 
 #: plugins/terminal/resources/partial/index.html:29
 msgid "Open a new terminal"
@@ -35,7 +35,7 @@ msgstr ""
 
 #: plugins/terminal/resources/partial/widget.html:7
 msgid "Run"
-msgstr ""
+msgstr "تنفيذ"
 
 #: plugins/terminal/resources/partial/index.html:34
 msgid "Run a command..."
