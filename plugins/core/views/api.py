@@ -114,6 +114,7 @@ class Handler(HttpPlugin):
             target = 'root'
             try:
                 if auth.check_sudo_password(username, password):
+                    self.context.worker.terminate()
                     auth.prepare_session_redirect(http_context, target, None)
                     return {
                         'success': True,

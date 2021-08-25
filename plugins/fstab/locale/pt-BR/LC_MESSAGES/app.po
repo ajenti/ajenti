@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-09-06 13:10+0200\n"
-"PO-Revision-Date: 2021-05-12 07:00\n"
+"PO-Revision-Date: 2021-08-25 16:57\n"
 "Last-Translator: \n"
 "Language-Team: Portuguese, Brazilian\n"
 "Language: pt_BR\n"
@@ -66,7 +66,7 @@ msgstr "Opções:"
 
 #: plugins/fstab/resources/partial/index.html:105
 msgid "Pass:"
-msgstr ""
+msgstr "Senha:"
 
 #: plugins/fstab/resources/partial/index.html:116
 #: plugins/fstab/resources/partial/index.html:117

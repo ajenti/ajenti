@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-02-21 15:47+0100\n"
-"PO-Revision-Date: 2021-05-12 07:00\n"
+"PO-Revision-Date: 2021-08-25 16:57\n"
 "Last-Translator: \n"
 "Language-Team: Portuguese, Brazilian\n"
 "Language: pt_BR\n"
@@ -39,7 +39,7 @@ msgstr "O Docker não está instalado neste host."
 
 #: plugins/docker/resources/partial/index.html:43
 msgid "Full id"
-msgstr ""
+msgstr "Identificação completa"
 
 #: plugins/docker/resources/partial/index.html:51
 msgid "IP"
@@ -59,7 +59,7 @@ msgstr "Rede usada"
 
 #: plugins/docker/resources/partial/index.html:9
 msgid "No container on this host."
-msgstr ""
+msgstr "Sem contêiner neste host."
 
 #: plugins/docker/resources/partial/index.html:70
 msgid "No docker images on this host."
@@ -95,7 +95,7 @@ msgstr "Comando de parada enviado com sucesso."
 
 #: plugins/docker/resources/js/controllers/index.controller.es:46
 msgid "Start command successfully sent."
-msgstr ""
+msgstr "Comando de início enviado com sucesso."
 
 #: plugins/docker/resources/js/controllers/index.controller.es:51
 msgid "Really remove this container?"

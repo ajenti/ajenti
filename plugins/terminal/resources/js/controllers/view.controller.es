@@ -11,6 +11,12 @@ angular.module('ajenti.terminal').controller('TerminalViewController', ($scope, 
         notify.info(gettext('Use exit or Ctrl+D to exit terminal.'));
     }
 
+    $scope.check = () => {
+        terminals.is_dead($scope.id);
+    }
+
+    $scope.redirect_if_dead = $interval($scope.check, 4000, 0);
+
     hotkeys.on($scope, function(k, e) {
         if (k === 'C' && e.ctrlKey && e.shiftKey) {
             $scope.copyDialogVisible = true;
@@ -21,16 +27,11 @@ angular.module('ajenti.terminal').controller('TerminalViewController', ($scope, 
             return true;
         }
         if (k === 'D' && e.ctrlKey) {
+            $interval.cancel($scope.redirect_if_dead);
             terminals.kill($scope.id);
             return true;
         }
     });
-
-    $scope.check = () => {
-        terminals.is_dead($scope.id);
-    }
-
-    $scope.redirect_if_dead = $interval($scope.check, 4000, 0);
 
     $scope.$on('$destroy', function() {
         $interval.cancel($scope.redirect_if_dead);

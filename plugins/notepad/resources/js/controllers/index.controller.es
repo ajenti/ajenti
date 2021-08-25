@@ -24,6 +24,10 @@ angular.module('ajenti.notepad').controller('NotepadIndexController', function($
         $scope.path = path;
         pageTitle.set(path);
 
+        filesystem.stat($scope.path).then((data) => {
+            $scope.readOnly = !data.writeAccess;
+        });
+
         return filesystem.read($scope.path).then((content) => {
             $scope.content = content;
             $scope.$broadcast('ace:reload', $scope.path);

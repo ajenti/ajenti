@@ -26,11 +26,11 @@ class DebianNetworkManager(NetworkManager):
         :rtype: bool
         """
 
-        check_prior_ubuntu = False
+        check_prior_ubuntu = True
         if 'Ubuntu' in aj.platform_string:
             ubuntu_version = int(aj.platform_string[7:9])
             check_prior_ubuntu = ubuntu_version < 18
-        return aj.platform in ['debian'] or check_prior_ubuntu
+        return aj.platform in ['debian'] and check_prior_ubuntu
 
     def __init__(self, context):
         NetworkManager.__init__(self, context)

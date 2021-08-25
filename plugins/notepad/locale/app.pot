@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-21 15:48+0100\n"
+"POT-Creation-Date: 2021-08-25 18:56+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,31 +17,31 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: plugins/notepad/resources/partial/index.html:31
+#: plugins/notepad/resources/partial/index.html:32
 msgid "Bookmark this"
 msgstr ""
 
-#: plugins/notepad/resources/partial/index.html:36
+#: plugins/notepad/resources/partial/index.html:37
 msgid "Bookmarks"
 msgstr ""
 
-#: plugins/notepad/resources/partial/index.html:48
+#: plugins/notepad/resources/partial/index.html:49
 msgid "New"
 msgstr ""
 
-#: plugins/notepad/resources/partial/index.html:49
+#: plugins/notepad/resources/partial/index.html:50
 msgid "Open"
 msgstr ""
 
-#: plugins/notepad/resources/partial/index.html:50
+#: plugins/notepad/resources/partial/index.html:51
 msgid "Save"
 msgstr ""
 
-#: plugins/notepad/resources/partial/index.html:51
+#: plugins/notepad/resources/partial/index.html:52
 msgid "Save As..."
 msgstr ""
 
-#: plugins/notepad/resources/partial/index.html:27
+#: plugins/notepad/resources/partial/index.html:28
 msgid "Tab"
 msgstr ""
 
@@ -53,10 +53,10 @@ msgstr ""
 msgid "Current file will be closed. Continue?"
 msgstr ""
 
-#: plugins/notepad/resources/js/controllers/index.controller.es:31
+#: plugins/notepad/resources/js/controllers/index.controller.es:35
 msgid "Could not open the file"
 msgstr ""
 
-#: plugins/notepad/resources/js/controllers/index.controller.es:49
+#: plugins/notepad/resources/js/controllers/index.controller.es:53
 msgid "Could not save the file"
 msgstr ""

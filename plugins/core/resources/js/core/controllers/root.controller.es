@@ -106,7 +106,7 @@ angular.module('core').controller('CoreRootController', function($scope, $rootSc
         if ($rootScope.resttime <= 0) {
             $interval.cancel($scope.timeDown);
             $scope.timeDown = null;
-            $window.location.href = '/view/login/normal';
+            identity.logout();
         }
         else {
             $rootScope.resttime -= 1;

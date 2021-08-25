@@ -34,7 +34,6 @@ angular.module('core').service('identity', function($http, $location, $window, $
     this.login = () => $window.location.assign(`${urlPrefix}/view/login/normal/${$location.path()}`);
 
     this.elevate = function() {
-        $http.get('/api/core/logout');
         return $timeout(() => {
             $window.location.assign(`${urlPrefix}/view/login/sudo:${this.user}/${$location.path()}`);
         }, 1000);

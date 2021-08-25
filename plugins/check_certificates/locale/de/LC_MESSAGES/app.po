@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-23 10:30+0200\n"
-"PO-Revision-Date: 2021-02-21 14:53\n"
+"POT-Creation-Date: 2021-08-25 18:37+0200\n"
+"PO-Revision-Date: 2021-08-25 16:57\n"
 "Last-Translator: \n"
 "Language-Team: German\n"
 "Language: de_DE\n"
@@ -31,17 +31,17 @@ msgstr "<i class=\"fas fa-check\"></i>\n"
 msgid "Add host"
 msgstr "Host hinzufügen"
 
-#: plugins/check_certificates/resources/partial/index.html:19
-msgid "Certificate end :"
-msgstr "Zertifikatsende :"
-
-#: plugins/check_certificates/resources/partial/index.html:18
-msgid "Certificate start :"
-msgstr "Beginn des Zertifikats:"
-
 #: plugins/check_certificates/resources/partial/widget.html:3
 msgid "Certificates to be renewed"
 msgstr "Zu erneuernde Zertifikate"
+
+#: plugins/check_certificates/resources/partial/index.html:19
+msgid "End :"
+msgstr "Ende:"
+
+#: plugins/check_certificates/resources/partial/index.html:18
+msgid "Start :"
+msgstr "Beginn:"
 
 #: plugins/check_certificates/widget.py:8
 msgid "Certificates"

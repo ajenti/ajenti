@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-02-21 15:47+0100\n"
-"PO-Revision-Date: 2021-05-12 07:00\n"
+"PO-Revision-Date: 2021-08-25 16:57\n"
 "Last-Translator: \n"
 "Language-Team: Polish\n"
 "Language: pl_PL\n"
@@ -19,104 +19,104 @@ msgstr ""
 
 #: plugins/docker/resources/partial/index.html:65
 msgid "Close"
-msgstr ""
+msgstr "Zamknij"
 
 #: plugins/docker/resources/partial/index.html:14
 msgid "Cpu usage"
-msgstr ""
+msgstr "Użycie procesora"
 
 #: plugins/docker/resources/partial/index.html:74
 msgid "Created"
-msgstr ""
+msgstr "Utworzony"
 
 #: plugins/docker/resources/partial/index.html:47
 msgid "Created at"
-msgstr ""
+msgstr "Utworzono"
 
 #: plugins/docker/resources/partial/index.html:6
 msgid "Docker is not installed on this host."
-msgstr ""
+msgstr "Docker nie jest zainstalowany na tym serwerze."
 
 #: plugins/docker/resources/partial/index.html:43
 msgid "Full id"
-msgstr ""
+msgstr "Pełny identyfikator"
 
 #: plugins/docker/resources/partial/index.html:51
 msgid "IP"
-msgstr ""
+msgstr "IP"
 
 #: plugins/docker/resources/partial/index.html:13
 msgid "Memory usage"
-msgstr ""
+msgstr "Użycie pamięci"
 
 #: plugins/docker/resources/partial/index.html:12
 msgid "Name (Hash)"
-msgstr ""
+msgstr "Nazwa (Hash)"
 
 #: plugins/docker/resources/partial/index.html:15
 msgid "Network used"
-msgstr ""
+msgstr "Używana sieć"
 
 #: plugins/docker/resources/partial/index.html:9
 msgid "No container on this host."
-msgstr ""
+msgstr "Brak kontenera dla tego hosta."
 
 #: plugins/docker/resources/partial/index.html:70
 msgid "No docker images on this host."
-msgstr ""
+msgstr "Brak obrazów dockera na tym serwerze."
 
 #: plugins/docker/resources/partial/index.html:55
 msgid "Ports"
-msgstr ""
+msgstr "Porty"
 
 #: plugins/docker/resources/partial/index.html:73
 msgid "Repository"
-msgstr ""
+msgstr "Repozytorium"
 
 #: plugins/docker/resources/partial/index.html:76
 msgid "Size"
-msgstr ""
+msgstr "Rozmiar"
 
 #: plugins/docker/resources/partial/index.html:75
 msgid "Tag"
-msgstr ""
+msgstr "Tag"
 
 #: plugins/docker/resources/partial/index.html:59
 msgid "Volumes"
-msgstr ""
+msgstr "Objętości"
 
 #: plugins/docker/views.py:32
 msgid "Docker is not installed on this host"
-msgstr ""
+msgstr "Docker nie jest zainstalowany na tym serwerze."
 
 #: plugins/docker/resources/js/controllers/index.controller.es:41
 msgid "Stop command successfully sent."
-msgstr ""
+msgstr "Polecenie zatrzymania zostało wysłane."
 
 #: plugins/docker/resources/js/controllers/index.controller.es:46
 msgid "Start command successfully sent."
-msgstr ""
+msgstr "Polecenie rozpoczęcia zostało wysłane."
 
 #: plugins/docker/resources/js/controllers/index.controller.es:51
 msgid "Really remove this container?"
-msgstr ""
+msgstr "Naprawdę usunąć ten kontener?"
 
 #: plugins/docker/resources/js/controllers/index.controller.es:52
 #: plugins/docker/resources/js/controllers/index.controller.es:72
 msgid "Remove"
-msgstr ""
+msgstr "Usuń"
 
 #: plugins/docker/resources/js/controllers/index.controller.es:53
 #: plugins/docker/resources/js/controllers/index.controller.es:73
 msgid "Cancel"
-msgstr ""
+msgstr "Anuluj"
 
 #: plugins/docker/resources/js/controllers/index.controller.es:56
 #: plugins/docker/resources/js/controllers/index.controller.es:76
 msgid "Remove command successfully sent."
-msgstr ""
+msgstr "Polecenie usunięcia zostało wysłane."
 
 #: plugins/docker/resources/js/controllers/index.controller.es:71
 msgid "Really remove this image?"
-msgstr ""
+msgstr "Naprawdę usunąć to zdjęcie?"
 

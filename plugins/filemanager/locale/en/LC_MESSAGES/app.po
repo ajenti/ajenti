@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-21 15:48+0100\n"
+"POT-Creation-Date: 2021-08-25 18:37+0200\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
@@ -10,17 +10,17 @@ msgstr ""
 msgid "Access"
 msgstr ""
 
-#: plugins/filemanager/resources/partial/properties.html:161
+#: plugins/filemanager/resources/partial/properties.html:164
 msgid "All"
 msgstr ""
 
-#: plugins/filemanager/resources/partial/properties.html:187
+#: plugins/filemanager/resources/partial/properties.html:190
 msgid "Apply"
 msgstr ""
 
 #: plugins/filemanager/resources/partial/index.html:76
 #: plugins/filemanager/resources/partial/index.html:89
-#: plugins/filemanager/resources/partial/properties.html:188
+#: plugins/filemanager/resources/partial/properties.html:191
 #: plugins/filemanager/resources/js/controllers/index.controller.es:89
 msgid "Cancel"
 msgstr ""
@@ -71,7 +71,7 @@ msgstr ""
 msgid "Edit in Notepad"
 msgstr ""
 
-#: plugins/filemanager/resources/partial/properties.html:173
+#: plugins/filemanager/resources/partial/properties.html:176
 msgid "Extra"
 msgstr ""
 
@@ -88,7 +88,7 @@ msgid "Full path"
 msgstr ""
 
 #: plugins/filemanager/resources/partial/properties.html:100
-#: plugins/filemanager/resources/partial/properties.html:149
+#: plugins/filemanager/resources/partial/properties.html:152
 msgid "Group"
 msgstr ""
 
@@ -126,7 +126,7 @@ msgstr ""
 msgid "Paste here"
 msgstr ""
 
-#: plugins/filemanager/resources/partial/properties.html:132
+#: plugins/filemanager/resources/partial/properties.html:135
 msgid "Permission bits"
 msgstr ""
 
@@ -140,6 +140,10 @@ msgstr ""
 
 #: plugins/filemanager/resources/partial/index.html:116
 msgid "Remove all items"
+msgstr ""
+
+#: plugins/filemanager/resources/partial/properties.html:126
+msgid "Show in Notepad"
 msgstr ""
 
 #: plugins/filemanager/resources/partial/properties.html:76
@@ -166,7 +170,7 @@ msgstr ""
 msgid "Uploading ..."
 msgstr ""
 
-#: plugins/filemanager/resources/partial/properties.html:137
+#: plugins/filemanager/resources/partial/properties.html:140
 msgid "User"
 msgstr ""
 

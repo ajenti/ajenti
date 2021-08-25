@@ -14,7 +14,7 @@ class ItemProvider(SidebarItemProvider):
                 'attach': 'category:tools',
                 'name': _('File Manager'),
                 'icon': 'folder-o',
-                'url': '/view/filemanager//',
+                'url': '/view/filemanager/',
                 'children': [
                 ]
             }

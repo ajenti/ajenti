@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-10-03 11:58+0200\n"
-"PO-Revision-Date: 2021-05-12 07:00\n"
+"PO-Revision-Date: 2021-08-25 16:57\n"
 "Last-Translator: \n"
 "Language-Team: Polish\n"
 "Language: pl_PL\n"
@@ -19,63 +19,63 @@ msgstr ""
 
 #: plugins/hosts/resources/partial/index.html:31
 msgid "Add"
-msgstr ""
+msgstr "Dodaj"
 
 #: plugins/hosts/resources/partial/index.html:36
 msgid "Add new host"
-msgstr ""
+msgstr "Dodaj nowego hosta"
 
 #: plugins/hosts/resources/partial/index.html:7
 msgid "Address"
-msgstr ""
+msgstr "Adres"
 
 #: plugins/hosts/resources/partial/index.html:51
 msgid "Address:"
-msgstr ""
+msgstr "Adres:"
 
 #: plugins/hosts/resources/partial/index.html:8
 msgid "Aliases"
-msgstr ""
+msgstr "Aliasy"
 
 #: plugins/hosts/resources/partial/index.html:59
 msgid "Aliases:"
-msgstr ""
+msgstr "Aliasy:"
 
 #: plugins/hosts/resources/partial/index.html:75
 #: plugins/hosts/resources/js/controllers/index.controller.es:59
 msgid "Cancel"
-msgstr ""
+msgstr "Anuluj"
 
 #: plugins/hosts/resources/partial/index.html:35
 msgid "Modify"
-msgstr ""
+msgstr "Modyfikuj"
 
 #: plugins/hosts/resources/partial/index.html:6
 msgid "Name"
-msgstr ""
+msgstr "Nazwa"
 
 #: plugins/hosts/resources/partial/index.html:43
 msgid "Name:"
-msgstr ""
+msgstr "Nazwa:"
 
 #: plugins/hosts/resources/partial/index.html:76
 #: plugins/hosts/resources/partial/index.html:77
 msgid "Save"
-msgstr ""
+msgstr "Zapisz"
 
 #: plugins/hosts/resources/js/controllers/index.controller.es:2
 msgid "Hosts"
-msgstr ""
+msgstr "Hosts"
 
 #: plugins/hosts/resources/js/controllers/index.controller.es:22
 msgid "Hosts successfully saved!"
-msgstr ""
+msgstr "Hosts został pomyślnie zapisany!"
 
 #: plugins/hosts/resources/js/controllers/index.controller.es:57
 msgid "Do you really want to permanently delete this entry?"
-msgstr ""
+msgstr "Czy naprawdę chcesz trwale usunąć ten wpis?"
 
 #: plugins/hosts/resources/js/controllers/index.controller.es:58
 msgid "Delete"
-msgstr ""
+msgstr "Usuń"
 

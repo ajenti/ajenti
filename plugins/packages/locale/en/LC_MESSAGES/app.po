@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-27 12:10+0200\n"
+"POT-Creation-Date: 2021-08-25 18:37+0200\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
@@ -16,10 +16,6 @@ msgstr ""
 
 #: plugins/packages/resources/partial/index.html:83
 msgid "Close"
-msgstr ""
-
-#: plugins/packages/resources/partial/index.html:26
-msgid "Installed"
 msgstr ""
 
 #: plugins/packages/resources/partial/index.html:12
@@ -46,7 +42,7 @@ msgstr ""
 msgid "Update package list"
 msgstr ""
 
-#: plugins/packages/resources/partial/index.html:32
+#: plugins/packages/resources/partial/index.html:29
 msgid "Upgradeable"
 msgstr ""
 
