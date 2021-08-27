@@ -99,7 +99,9 @@ class WorkerGate():
                 if resp.object['type'] == 'http':
                     self.q_http_replies.broadcast(resp)
                 if resp.object['type'] == 'terminate':
-                    self.session.deactivate()
+                    if self.session != self.gateway_middleware:
+                        # Not the restricted session, we can disable it
+                        self.session.deactivate()
                 if resp.object['type'] == 'restart-master':
                     aj.restart()
                 if resp.object['type'] == 'update-sessionlist':
