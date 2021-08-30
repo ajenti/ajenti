@@ -2,11 +2,12 @@ Ajenti 2.1.42 - dev
 
 Ajenti 2.1.41 - 08/2021
 
+- Support for Python 3.9,
 - Fix sudo elevation,
 - Fix client certificate generation,
 - Workaround for pip packages search,
+- Open readonly file in readonly mode in notepad,
 - Some corrections for session handling and terminal.
-
 
 Ajenti 2.1.40 - 22/03/2021
 
