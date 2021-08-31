@@ -8,8 +8,6 @@ import socket
 import subprocess
 import sys
 
-import aj
-
 
 def _post_install(scripts_dir):
     config_path = '/etc/ajenti/config.yml'
@@ -58,10 +56,10 @@ class install(_install):
 
 setup(
     name='ajenti-panel',
-    version=aj.__version__,
+    version='2.1.41',
     python_requires='>=3',
     install_requires=[
-        'aj==%s' % aj.__version__,
+        'aj==2.1.41',
         'pyyaml',
         'requests',
     ],
