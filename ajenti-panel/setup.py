@@ -56,7 +56,7 @@ class install(_install):
 
 setup(
     name='ajenti-panel',
-    version='2.1.41',
+    version='2.1.42',
     python_requires='>=3',
     install_requires=[
         'aj==2.1.41',

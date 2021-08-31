@@ -4,7 +4,7 @@ import platform as pyplatform
 import signal
 import subprocess
 
-__version__ = '2.1.41'
+__version__ = '2.1.42'
 
 # Global state
 
