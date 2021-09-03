@@ -59,7 +59,7 @@ setup(
     version='2.1.42',
     python_requires='>=3',
     install_requires=[
-        'aj==2.1.41',
+        'aj==2.1.42',
         'pyyaml',
         'requests',
     ],
