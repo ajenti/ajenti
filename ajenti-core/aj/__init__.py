@@ -4,9 +4,7 @@ import platform as pyplatform
 import signal
 import subprocess
 
-# imported by installer, no 3rd party imports here!
-
-__version__ = '2.1.41'
+__version__ = '2.1.43'
 
 # Global state
 
