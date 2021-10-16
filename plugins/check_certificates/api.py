@@ -18,7 +18,7 @@ def CertLimitSSL(hostname, port):
     :rtype: OpenSSL cert
     """
 
-    ctx = ssl.create_default_context()
+    ctx = ssl.SSLContext(ssl.PROTOCOL_TLSv1_2)
     s = ctx.wrap_socket(socket.socket(), server_hostname=hostname)
     s.settimeout(10)
     s.connect((hostname, port))
