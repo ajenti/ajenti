@@ -2,6 +2,7 @@ import gevent
 import simplejson as json
 import os
 import socket
+import logging
 from jadi import component
 from time import time
 
@@ -103,6 +104,10 @@ class Handler(HttpPlugin):
                     'success': True,
                     'username': username,
                 }
+
+            # Log failed login for e.g. fail2ban
+            ip = http_context.env.get('REMOTE_ADDR', None)
+            logging.warning(f"Failed login from {username} at IP : {ip}")
 
             gevent.sleep(3)
             return {
