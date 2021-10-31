@@ -111,6 +111,11 @@ class OSAuthenticationProvider(AuthenticationProvider):
             child.expect('.*:')
             child.sendline(password)
             result = child.expect(['su: .*', 'SUCCESS'])
+        except pexpect.exceptions.EOF as err:
+            logging.error('Login error: %s', child.before.decode().strip())
+            if child and child.isalive():
+                child.close()
+            return False
         except Exception as err:
             if child and child.isalive():
                 child.close()
