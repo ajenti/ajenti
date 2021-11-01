@@ -34,13 +34,13 @@ angular.module('ajenti.settings').controller('SettingsIndexController', ($scope,
         () => {
             $scope.config = config;
             $scope.oldCertificate = $scope.config.data.ssl.certificate;
-            config.getAuthenticationProviders(config);
+            config.getAuthenticationProviders(config).then(p =>
+                $scope.authenticationProviders = p
+            ).catch(() =>
+                notify.error(gettext('Could not load authentication provider list'))
+            );
         },
         () => notify.error(gettext('Could not load config'))
-    ).then(p =>
-        $scope.authenticationProviders = p
-    ).catch(() =>
-        notify.error(gettext('Could not load authentication provider list'))
     )
 
     $scope.$watch('config.data.color', () => {
