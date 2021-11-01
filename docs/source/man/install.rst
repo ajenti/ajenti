@@ -22,6 +22,15 @@ Automatic Installation
 
     curl https://raw.githubusercontent.com/ajenti/ajenti/master/scripts/install.sh | sudo bash -s -
 
+Automatic Installation in  virtual environment
+==============================================
+
+.. CAUTION::
+    Please note that this install method is still under tests. Ajenti starts successfully on the previously mentionned supported operating systems, but all functionalities were not tested. Be kind  to report any problem with this install method as issue here : https://github.com/ajenti/ajenti/issues
+
+::
+
+    curl https://raw.githubusercontent.com/ajenti/ajenti/master/scripts/install-venv.sh | sudo bash -s -
 
 Manual Installation
 ===================
