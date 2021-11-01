@@ -109,6 +109,10 @@ angular.module('ajenti.settings').controller('SettingsIndexController', ($scope,
         });
     };
 
+    $scope.showSMTPPassword = false;
+
+    $scope.toggleShowSMTPPassword = () => $scope.showSMTPPassword = !$scope.showSMTPPassword;
+
     $scope.addEmail = (email, username) => {
         config.data.auth.emails[email] = username;
         $scope.newEmailDialogVisible = false;
