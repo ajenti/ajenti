@@ -29,3 +29,10 @@ ssl:
     enable: true
     force: false
   enable: false
+email:
+  enable: false
+  smtp:
+    password:
+    port:
+    server:
+    user:

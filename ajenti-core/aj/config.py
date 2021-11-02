@@ -52,6 +52,11 @@ class BaseConfig():
         self.data['ssl']['client_auth'].setdefault('enable', False)
         self.data['ssl']['client_auth'].setdefault('force', False)
         self.data['ssl']['client_auth'].setdefault('certificates', {})
+        self.data['email'].setdefault('enable', False)
+        self.data['email']['smtp'].setdefault('password', None)
+        self.data['email']['smtp'].setdefault('port', None)
+        self.data['email']['smtp'].setdefault('server', None)
+        self.data['email']['smtp'].setdefault('user', None)
 
         # Before Ajenti 2.1.38, the users were stored in config.yml
         if 'users' in self.data['auth'].keys():
