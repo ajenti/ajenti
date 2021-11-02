@@ -6,7 +6,7 @@ import aj
 from aj.auth import authorize
 from aj.api.http import url, HttpPlugin
 from aj.config import UserConfigService
-from aj.auth import AuthenticationProvider, PermissionProvider
+from aj.auth import AuthenticationProvider, PermissionProvider, AuthenticationService
 
 from aj.api.endpoint import endpoint, EndpointReturn
 
@@ -79,10 +79,12 @@ class Handler(HttpPlugin):
         """
 
         r = []
+        auth_service_id =AuthenticationService.get(self.context).get_provider().id
         for p in AuthenticationProvider.all(self.context):
             r.append({
                 'id': p.id,
                 'name': p.name,
+                'used': True if p.id == auth_service_id else False,
             })
         return r
 

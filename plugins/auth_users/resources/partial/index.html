@@ -2,6 +2,14 @@
 
 <div root-access>
     <progress-spinner ng:hide="users.data != null"></progress-spinner>
+    <div class="alert alert-warning" ng:show="otherAuthProv" translate>
+        <i class="fa fa-warning"></i>
+        <span>This module is currently not used to authenticate users.</span>
+    </div>
+    <div class="alert alert-success" ng:show="!otherAuthProv" translate>
+        <i class="fa fa-check"></i>
+        <span>This module is currently used to authenticate users.</span>
+    </div>
 
     <div class="list-group">
         <div ng:repeat="(username, user) in users.data.users" class="list-group-item list-group-item-large" ng:show="!user.hidden">

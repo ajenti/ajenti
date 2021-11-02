@@ -27,6 +27,14 @@ angular.module('ajenti.auth.users').controller('AuthUsersIndexController', funct
             return !safe;
         };
 
+        config.getAuthenticationProviders(config).then((data) => {
+            for (let auth_provider of data) {
+                if (auth_provider.id == 'users') {
+                    $scope.otherAuthProv = !auth_provider.used;
+                }
+            }
+        });
+
         config.getPermissions(config).then((data) => {
             $scope.permissions = data;
             let result = [];
