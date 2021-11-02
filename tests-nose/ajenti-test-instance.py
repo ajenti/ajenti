@@ -22,7 +22,10 @@ class TestConfig(aj.config.BaseConfig):
             'name': 'test',
             'ssl': {
                 'enable': False
-            }
+            },
+            'email': {
+                'enable': False
+            },
         }
 
     def load(self):

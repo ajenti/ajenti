@@ -52,6 +52,7 @@ class BaseConfig():
         self.data['ssl']['client_auth'].setdefault('enable', False)
         self.data['ssl']['client_auth'].setdefault('force', False)
         self.data['ssl']['client_auth'].setdefault('certificates', {})
+        self.data.setdefault('email', {})
         self.data['email'].setdefault('enable', False)
         self.data['email']['smtp'].setdefault('password', None)
         self.data['email']['smtp'].setdefault('port', None)
