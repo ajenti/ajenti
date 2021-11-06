@@ -1,4 +1,5 @@
 # core
+arrow
 cookies
 distro
 greenlet>=0.4.16

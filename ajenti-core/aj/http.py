@@ -1,4 +1,5 @@
 from datetime import datetime
+import arrow
 import base64
 import cgi
 import gevent
@@ -371,7 +372,9 @@ class HttpContext():
             range_from = 0
             range_to = 999999999
 
-        self.add_header('Last-Modified', mtime.strftime('%a, %b %d %Y %H:%M:%S GMT'))
+        # Ensure datetime don't use locale with non-latin chars
+        last_modified_date = arrow.get(mtime, 'GMT').format('ddd, MMM DD YYYY HH:mm:ss ZZZ')
+        self.add_header('Last-Modified', last_modified_date)
         self.add_header('Accept-Ranges', 'bytes')
 
         name = name or os.path.split(path)[-1].encode()
