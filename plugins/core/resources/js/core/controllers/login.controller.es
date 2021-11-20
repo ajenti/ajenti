@@ -2,6 +2,7 @@ angular.module('core').controller('CoreLoginController', function($scope, $log, 
     $rootScope.disableExpiredSessionInterceptor = true;
     $scope.working = false;
     $scope.success = false;
+    $scope.showPWReset = $rootScope.pwReset == 'True';
 
     if ($routeParams.mode.indexOf('sudo:') === 0) {
         $scope.mode = 'sudo';

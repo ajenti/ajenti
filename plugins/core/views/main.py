@@ -8,7 +8,7 @@ from jadi import component
 import aj
 from aj.api.http import url, HttpPlugin
 from aj.plugins import PluginManager, DirectoryPluginProvider
-
+from aj.auth import AuthenticationService
 from aj.api.endpoint import endpoint
 
 
@@ -84,6 +84,7 @@ class Handler(HttpPlugin):
             'platform': aj.platform,
             'platformUnmapped': aj.platform_unmapped,
             'devMode': aj.dev,
+            'pwReset': AuthenticationService.get(self.context).get_provider().pw_reset,
             'bootstrapColor': aj.config.data.get('color', None),
         }
         http_context.add_header('Content-Type', 'text/html')

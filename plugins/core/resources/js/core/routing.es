@@ -22,6 +22,16 @@ angular.module('core').config(($routeProvider, $locationProvider, urlPrefix) => 
         controller: 'CoreLoginController'
     });
 
+    $routeProvider.when('/view/send_password_reset', {
+        templateUrl: '/core:resources/partial/send_password_reset.html',
+        controller: 'CorePWResetMailController'
+    });
+
+    $routeProvider.when('/view/reset_password/:serial', {
+        templateUrl: '/core:resources/partial/reset_password.html',
+        controller: 'CorePWResetController'
+    });
+
     $routeProvider.when('/view/ui-test', {
         templateUrl: '/core:resources/partial/index.html'
     });

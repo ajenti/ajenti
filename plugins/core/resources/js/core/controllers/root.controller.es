@@ -1,4 +1,4 @@
-angular.module('core').controller('CoreRootController', function($scope, $rootScope, $location, $localStorage, $log, $timeout, $q, $interval, $http, $window, identity, customization, urlPrefix, ajentiPlugins, ajentiVersion, ajentiPlatform, ajentiPlatformUnmapped, devMode, favicon, feedback, locale, core, config) {
+angular.module('core').controller('CoreRootController', function($scope, $rootScope, $location, $localStorage, $log, $timeout, $q, $interval, $http, $window, identity, customization, urlPrefix, ajentiPlugins, ajentiVersion, ajentiPlatform, ajentiPlatformUnmapped, devMode, pwReset, favicon, feedback, locale, core, config) {
     $rootScope.identity = identity;
     $rootScope.$location = $location;
     $rootScope.location = location;
@@ -7,6 +7,7 @@ angular.module('core').controller('CoreRootController', function($scope, $rootSc
     $rootScope.ajentiVersion = ajentiVersion;
     $rootScope.ajentiPlugins = ajentiPlugins;
     $rootScope.devMode = (devMode == "True") ? "dev mode" : '';
+    $rootScope.pwReset = pwReset;
     $rootScope.customization = customization;
 
     // todo figure this out, used in settings template

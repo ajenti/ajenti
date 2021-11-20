@@ -100,6 +100,7 @@ class OSAuthenticationProvider(AuthenticationProvider):
     id = 'os'
     name = 'OS users'
     allows_sudo_elevation = True
+    pw_reset = False
 
     def authenticate(self, username, password):
         child = None
@@ -133,6 +134,12 @@ class OSAuthenticationProvider(AuthenticationProvider):
 
     def get_isolation_gid(self, username):
         return None
+
+    def check_mail(self, mail):
+        return False
+
+    def update_password(self):
+        pass
 
 
 @public
@@ -196,7 +203,6 @@ class AuthenticationService():
     def prepare_session_redirect(self, http_context, username, auth_info):
         http_context.add_header('X-Session-Redirect', username)
         http_context.add_header('X-Auth-Info', auth_info)
-
 
 @public
 @interface

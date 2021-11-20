@@ -5,13 +5,15 @@ import socket
 import logging
 from jadi import component
 from time import time
+from itsdangerous.url_safe import URLSafeTimedSerializer
 
 import aj
 from aj.api.http import url, HttpPlugin
+from aj.api.mail import notifications
 from aj.auth import AuthenticationService, SudoError
 from aj.plugins import PluginManager
 
-from aj.api.endpoint import endpoint
+from aj.api.endpoint import endpoint, EndpointError
 from aj.plugins.core.api.sidebar import Sidebar
 from aj.plugins.core.api.navbox import Navbox
 
@@ -244,3 +246,48 @@ class Handler(HttpPlugin):
         if self.context.session.key in aj.sessions.keys():
             timestamp = aj.sessions[self.context.session.key]['timestamp']
         return int(timestamp + session_max_time - time())
+
+
+    @url('/api/send_password_reset')
+    @endpoint(api=True, auth=False)
+    def handle_api_send_pw_reset(self, http_context):
+        """
+        Sends upstream a request to check if a given email exists, in order to
+        send a password reset link per email.
+
+        :param http_context: HttpContext
+        :type http_context: HttpContext
+        """
+
+        mail = json.loads(http_context.body.decode())['mail']
+        origin = http_context.env['HTTP_ORIGIN']
+        auth_provider = AuthenticationService.get(self.context).get_provider()
+        username = auth_provider.check_mail(mail)
+        if username:
+            serializer = URLSafeTimedSerializer("secret")
+            serial = serializer.dumps({'user': username, 'email': mail})
+            link = f'{origin}/view/reset_password/{serial}'
+            notifications.send_password_reset(mail, link)
+
+    @url('/api/check_pw_serial')
+    @endpoint(api=True, auth=False)
+    def handle_api_check_pw_serial(self, http_context):
+        """
+        Check if the serial in a given reset link is valid
+
+        :param http_context: HttpContext
+        :type http_context: HttpContext
+        """
+
+        serial = json.loads(http_context.body.decode())['serial']
+        if serial:
+            serializer = URLSafeTimedSerializer("secret")
+            try:
+                # Serial can not be used after 15 min
+                data = serializer.loads(serial, max_age=900)
+                return data
+            except itsdangerous.exc.SignatureExpired as err:
+                raise EndpointError(err)
+            except itsdangerous.exc.BadTimeSignature as err:
+                raise EndpointError(err)
+        return False
