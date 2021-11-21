@@ -6,6 +6,7 @@ import logging
 from jadi import component
 from time import time
 from itsdangerous.url_safe import URLSafeTimedSerializer
+from itsdangerous.exc import SignatureExpired, BadTimeSignature
 
 import aj
 from aj.api.http import url, HttpPlugin
@@ -288,8 +289,6 @@ class Handler(HttpPlugin):
                 # Serial can not be used after 15 min
                 data = serializer.loads(serial, max_age=900)
                 return data
-            except itsdangerous.exc.SignatureExpired as err:
-                raise EndpointError(err)
-            except itsdangerous.exc.BadTimeSignature as err:
+            except (SignatureExpired, BadTimeSignature) as err:
                 raise EndpointError(err)
         return False

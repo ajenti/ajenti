@@ -23,6 +23,7 @@ angular.module('core').controller('CoreRootController', function($scope, $rootSc
     console.groupEnd();
 
     $scope.navigationPresent = $location.path().indexOf('/view/login') === -1;
+    $scope.navigationPresent &= $location.path().indexOf('/view/reset_password') === -1;
 
     feedback.init();
 
