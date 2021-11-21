@@ -42,6 +42,7 @@ class BaseConfig():
         self.data.setdefault('auth', {})
         self.data['auth'].setdefault('emails', {})
         self.data['auth'].setdefault('provider', 'os')
+        self.data['auth'].setdefault('secret', '')
         self.data['auth'].setdefault('user_config', 'os')
         self.data['auth'].setdefault('users_file', '/etc/ajenti/users.yml')
         self.data.setdefault('ssl', {})

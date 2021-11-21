@@ -264,7 +264,8 @@ class Handler(HttpPlugin):
         auth_provider = AuthenticationService.get(self.context).get_provider()
         username = auth_provider.check_mail(mail)
         if username:
-            serializer = URLSafeTimedSerializer("secret")
+            secret = aj.config.data['auth']['secret']
+            serializer = URLSafeTimedSerializer(secret)
             serial = serializer.dumps({'user': username, 'email': mail})
             link = f'{origin}/view/reset_password/{serial}'
             notifications.send_password_reset(mail, link)
@@ -281,7 +282,8 @@ class Handler(HttpPlugin):
 
         serial = json.loads(http_context.body.decode())['serial']
         if serial:
-            serializer = URLSafeTimedSerializer("secret")
+            secret = aj.config.data['auth']['secret']
+            serializer = URLSafeTimedSerializer(secret)
             try:
                 # Serial can not be used after 15 min
                 data = serializer.loads(serial, max_age=900)

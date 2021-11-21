@@ -73,6 +73,11 @@ def run(config=None, plugin_providers=None, product_name='ajenti', dev_mode=Fals
     aj.config.load()
     aj.config.ensure_structure()
 
+    if not aj.config.data['auth']['secret']:
+        logging.info('No secret found, generating new and writing it in config.yml')
+        aj.config.data['auth']['secret'] = os.urandom(16).hex()
+        aj.config.save()
+
     logging.info('Loading users from %s', '/etc/ajenti/users.yml')
     aj.users = AjentiUsers(aj.config.data['auth']['users_file'])
     aj.users.load()
