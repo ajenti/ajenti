@@ -106,6 +106,8 @@ def init_log_directory():
 def init_log_file(log_level=logging.INFO):
     #sys.stderr = sys.stdout = LoggerWriter()
     log = logging.getLogger()
+    os.chmod(LOG_DIR, 0o640)
+    os.chmod(LOG_FILE, 0o640)
     try:
         handler = logging.handlers.TimedRotatingFileHandler(
             LOG_FILE,
