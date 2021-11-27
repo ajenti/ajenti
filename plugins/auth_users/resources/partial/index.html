@@ -69,6 +69,10 @@
                 </div>
             </div>
             <div class="form-group">
+                <div class="alert alert-warning" ng:show="!users.data.users[configuringUsername].password">
+                    <i class="fa fa-warning"></i>
+                    <span translate>No password set : the user will not be able to log in.</span>
+                </div>
                 <label translate>New password</label>
                 <div class="input-group">
                     <input ng:model="newPassword" ng:enter="setPassword(configuringUsername, newPassword)" class="form-control" />

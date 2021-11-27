@@ -36,7 +36,7 @@ class UsersAuthenticationProvider(AuthenticationProvider):
         self.context.worker.reload_master_config()
         password = password.encode('utf-8')
         if username in aj.users.data['users']:
-            user_hash = aj.users.data['users'][username]['password']
+            user_hash = aj.users.data['users'][username].get('password', '')
             try:
                 scrypt.decrypt(bytes.fromhex(user_hash), password, maxtime=15, encoding=None)
                 return True

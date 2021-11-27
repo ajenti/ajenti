@@ -97,6 +97,7 @@ angular.module('ajenti.auth.users').controller('AuthUsersIndexController', funct
     $scope.addUser = (username) => {
         users.data.users[username] = {uid: customization.plugins.auth_users.forceUID || 0};
         $scope.resetPermissions(username);
+        $scope.configuringUsername = username;
         $scope.newUsername = '';
     };
 
