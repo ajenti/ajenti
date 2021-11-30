@@ -5,12 +5,9 @@ import socket
 import logging
 from jadi import component
 from time import time
-from itsdangerous.url_safe import URLSafeTimedSerializer
-from itsdangerous.exc import SignatureExpired, BadTimeSignature
 
 import aj
 from aj.api.http import url, HttpPlugin
-from aj.api.mail import notifications
 from aj.auth import AuthenticationService, SudoError
 from aj.plugins import PluginManager
 
@@ -262,14 +259,8 @@ class Handler(HttpPlugin):
 
         mail = json.loads(http_context.body.decode())['mail']
         origin = http_context.env['HTTP_ORIGIN']
-        auth_provider = AuthenticationService.get(self.context).get_provider()
-        username = auth_provider.check_mail(mail)
-        if username:
-            secret = aj.config.data['auth']['secret']
-            serializer = URLSafeTimedSerializer(secret)
-            serial = serializer.dumps({'user': username, 'email': mail})
-            link = f'{origin}/view/reset_password/{serial}'
-            notifications.send_password_reset(mail, link)
+        gevent.spawn(self.context.worker.send_password_reset, *(mail, origin))
+        return
 
     @url('/api/check_pw_serial')
     @endpoint(api=True, auth=False)
@@ -281,14 +272,16 @@ class Handler(HttpPlugin):
         :type http_context: HttpContext
         """
 
-        serial = json.loads(http_context.body.decode())['serial']
-        if serial:
-            secret = aj.config.data['auth']['secret']
-            serializer = URLSafeTimedSerializer(secret)
-            try:
-                # Serial can not be used after 15 min
-                data = serializer.loads(serial, max_age=900)
-                return data
-            except (SignatureExpired, BadTimeSignature) as err:
-                raise EndpointError(err)
-        return False
+        pass
+
+    @url('/api/update_password')
+    @endpoint(api=True, auth=False)
+    def handle_api_update_password(self, http_context):
+        """
+        Update user's password in the auth provider.
+
+        :param http_context: HttpContext
+        :type http_context: HttpContext
+        """
+
+        pass

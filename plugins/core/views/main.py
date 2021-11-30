@@ -84,7 +84,7 @@ class Handler(HttpPlugin):
             'platform': aj.platform,
             'platformUnmapped': aj.platform_unmapped,
             'devMode': aj.dev,
-            'pwReset': AuthenticationService.get(self.context).get_provider().pw_reset,
+            'pwReset': getattr(AuthenticationService.get(self.context).get_provider(), 'pw_reset', False),
             'bootstrapColor': aj.config.data.get('color', None),
         }
         http_context.add_header('Content-Type', 'text/html')

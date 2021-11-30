@@ -66,5 +66,3 @@ To: {recipient}
         subject = _("Password reset request from ajenti")
         content = f"Password reset link : {link}"
         self.sendMail(subject, recipient, content)
-
-notifications = Mail()

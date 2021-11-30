@@ -173,6 +173,15 @@ class Worker():
             'type': 'terminate',
         })
 
+    def send_password_reset(self, mail, origin):
+        logging.warning("Send password reset")
+        gevent.sleep(30)
+        self.send_to_upstream({
+            'type': 'send-password-reset',
+            'mail': mail,
+            'origin': origin,
+        })
+
     def update_sessionlist(self):
         self.send_to_upstream({
             'type': 'update-sessionlist',

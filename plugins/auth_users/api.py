@@ -15,6 +15,7 @@ class UsersAuthenticationProvider(AuthenticationProvider):
 
     id = 'users'
     name = _('Custom users')
+    pw_reset = True
 
     def __init__(self, context):
         self.context = context
@@ -58,3 +59,16 @@ class UsersAuthenticationProvider(AuthenticationProvider):
         if not username:
             return {}
         return aj.users.data['users'][username]
+
+    def check_mail(self, mail):
+        for user, details in aj.users.data['users'].items():
+            email = details.get('email', None)
+            if email == mail:
+                return user
+        return False
+
+    def update_password(self, username, password):
+        hash = self.hash_password(password.encode('utf-8'))
+        aj.users.data['users'][username]['password'] = hash
+        aj.users.save()
+        return True

@@ -10,7 +10,7 @@ import aj
 from aj.gate.stream import GateStreamServerEndpoint, GateStreamWorkerEndpoint
 from aj.gate.worker import Worker
 from aj.util import BroadcastQueue
-
+from aj.security.pwreset import PasswordResetMiddleware
 
 class WorkerGate():
     def __init__(self, session, gateway_middleware, name=None, log_tag=None, restricted=False,
@@ -27,6 +27,9 @@ class WorkerGate():
         self.initial_identity = initial_identity
         self.q_http_replies = BroadcastQueue()
         self.q_socket_messages = BroadcastQueue()
+
+        if self.restricted:
+            self.pw_reset_middleware = PasswordResetMiddleware()
 
     def start(self):
         pipe_parent, pipe_child = gipc.pipe(
@@ -111,6 +114,12 @@ class WorkerGate():
                     aj.users.load()
                     aj.config.ensure_structure()
                     self.gateway_middleware.broadcast_config_data()
+                if resp.object['type'] == 'send-password-reset':
+                    logging.warning("Gate send password reset")
+                    self.pw_reset_middleware.send_password_reset(
+                        resp.object['mail'],
+                        resp.object['origin'],
+                    )
                 if resp.object['type'] == 'log':
                     method = {
                         'info': logging.info,

@@ -81,7 +81,7 @@ resources:
     - resources/js/core/services/tasks.service.es
     - resources/partial/index.html
     - resources/partial/login.html
-    - resources/partial/send_password_reset.html
+    - resources/partial/reset_password_send.html
     - resources/partial/reset_password.html
     - resources/partial/404.html
     - resources/partial/sidebarItem.html

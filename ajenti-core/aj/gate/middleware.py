@@ -5,6 +5,7 @@ import pwd
 import random
 import socketio
 import time
+import simplejson as json
 from cookies import Cookies
 from gevent.timeout import Timeout
 from socketio.namespace import BaseNamespace
@@ -200,6 +201,24 @@ class GateMiddleware():
             'type': 'http',
             'context': http_context.serialize(),
         }
+
+        if http_context.path.startswith('/api/check_pw_serial'):
+            serial = json.loads(http_context.body.decode())['serial']
+            request_object['serial_check'] = gate.pw_reset_middleware.check_serial(serial)
+            if not request_object['serial_check']:
+                http_context.respond_not_found()
+                return [b'Link not valid']
+
+        if http_context.path.startswith('/api/update_password'):
+            serial = json.loads(http_context.body.decode())['serial']
+            password = json.loads(http_context.body.decode())['password']
+            answer = gate.pw_reset_middleware.update_password(serial, password)
+            if not answer:
+                http_context.respond_forbidden()
+                return [b'403 Forbidden']
+            else:
+                http_context.respond_ok()
+                return [b'200 OK']
 
         # await response
 

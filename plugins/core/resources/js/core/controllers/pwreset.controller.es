@@ -1,14 +1,15 @@
-angular.module('core').controller('CorePWResetMailController', function($scope, $log, $rootScope, $routeParams, $http, identity, notify, gettext, customization) {
+angular.module('core').controller('CorePWResetMailController', function($scope, $log, $rootScope, $routeParams, $http, $window, identity, notify, gettext, customization) {
     $rootScope.disableExpiredSessionInterceptor = true;
     $scope.mail = '';
 
     $scope.send_email_reset = () => {
         notify.success(gettext("If the email exists, the user will get a reset email"));
         $http.post('/api/send_password_reset', {mail: $scope.mail});
+        $window.location.assign('/');
     }
 });
 
-angular.module('core').controller('CorePWResetController', function($scope, $log, $rootScope, $routeParams, $http, identity, notify, gettext, customization) {
+angular.module('core').controller('CorePWResetController', function($scope, $log, $rootScope, $routeParams, $window, $http, identity, notify, gettext, customization) {
     $rootScope.disableExpiredSessionInterceptor = true;
     $scope.password1 = '';
     $scope.password2 = '';
@@ -23,5 +24,14 @@ angular.module('core').controller('CorePWResetController', function($scope, $log
     }, (error) => {
         $scope.ready = true;
     });
+
+    $scope.save_password = () => {
+        $http.post('/api/update_password', {serial:$scope.serial,password:$scope.password2}).then((resp) => {
+            notify.success(gettext('Password successfully changed !'));
+            $window.location.assign('/');
+        }, (error) => {
+            notify.error(gettext('An error occured while changing the password'));
+        });
+    }
 });
 
