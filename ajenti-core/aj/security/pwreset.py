@@ -18,7 +18,6 @@ class PasswordResetMiddleware():
         self.auth_provider = AuthenticationService.get(self.context).get_provider()
         self.notifications = Mail()
         self.ensure_secret_key()
-        self.serializer = URLSafeTimedSerializer(self.secret)
 
     def ensure_secret_key(self):
         """
@@ -31,8 +30,8 @@ class PasswordResetMiddleware():
                 f.write(os.urandom(16).hex())
         else:
             with open(SECRET_FILE, 'r') as f:
-                self.secret = f.read().strip('\n')
-            if len(self.secret) < 32:
+                secret = f.read().strip('\n')
+            if len(secret) < 32:
                 logging.warning('Secret key is too weak, you need at least 32 chars')
         os.chmod(SECRET_FILE, 0o600)
 
@@ -47,7 +46,10 @@ class PasswordResetMiddleware():
 
         username = self.auth_provider.check_mail(mail)
         if username:
-            serial = self.serializer.dumps({'user': username, 'email': mail})
+            with open(SECRET_FILE, 'r') as f:
+                secret = f.read().strip('\n')
+                serializer = URLSafeTimedSerializer(secret)
+            serial = serializer.dumps({'user': username, 'email': mail})
             link = f'{origin}/view/reset_password/{serial}'
             self.notifications.send_password_reset(mail, link)
 
@@ -61,8 +63,11 @@ class PasswordResetMiddleware():
 
         if serial:
             try:
-                # Serial can not be used after 15 min
-                data = self.serializer.loads(serial, max_age=900)
+                with open(SECRET_FILE, 'r') as f:
+                    secret = f.read().strip('\n')
+                    serializer = URLSafeTimedSerializer(secret)
+                    # Serial can not be used after 15 min
+                data = serializer.loads(serial, max_age=900)
                 return data
             except (SignatureExpired, BadTimeSignature, BadSignature) as err:
                  logging.warning('Password reset link not valid or expired')
@@ -78,6 +83,9 @@ class PasswordResetMiddleware():
         :type http_context: HttpContext
         """
 
-        user = self.serializer.loads(serial, max_age=99900)['user']
+        with open(SECRET_FILE, 'r') as f:
+            secret = f.read().strip('\n')
+            serializer = URLSafeTimedSerializer(secret)
+        user = serializer.loads(serial, max_age=99900)['user']
         auth_provider = AuthenticationService.get(self.context).get_provider()
         return auth_provider.update_password(user, password)
