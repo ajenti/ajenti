@@ -18,7 +18,7 @@ angular.module('core').controller('CorePWResetController', function($scope, $log
 
     $scope.serial = '';
     $scope.serial = $routeParams.serial;
-    $http.post('/api/check_pw_serial', {serial:$scope.serial}).then((resp) => {
+    $http.post('/api/check_password_serial', {serial:$scope.serial}).then((resp) => {
         $scope.ready = true;
         $scope.serial_ok = true;
     }, (error) => {
