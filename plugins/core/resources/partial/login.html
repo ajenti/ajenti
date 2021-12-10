@@ -18,8 +18,13 @@
             <div ng:show="mode == 'normal'">
                 <input ng:model="username" ng:enter="login()" ng:disabled="working" type="text" placeholder="{{'Username'|translate}}" autofocus class="form-control" />
             </div>
-            <div>
-                <input ng:model="password" ng:enter="login()" ng:disabled="working" type="password" placeholder="{{'Password'|translate}}" class="form-control" />
+            <div ng:show="!showPassword" class="form-group has-feedback">
+                <input ng:model="password" type="password" class="form-control"placeholder="{{'Password'|translate}}"  />
+                <span ng:show="!showPassword" ng:click="toggleShowPassword()" class="fas fa-eye form-control-feedback" style="cursor: pointer; pointer-events: all; line-height:34px;"></span>
+            </div>
+            <div ng:show="showPassword" class="form-group has-feedback">
+                <input ng:model="password" type="text" class="form-control" placeholder="{{'Password'|translate}}" />
+                <span ng:show="showPassword" ng:click="toggleShowPassword()" class="fas fa-eye-slash form-control-feedback" style="cursor: pointer; pointer-events: all; line-height:34px;"></span>
             </div>
             <div>
                 <a ng:click="login()" ng:disabled="!username || !password || working" class="btn btn-primary btn-block">
