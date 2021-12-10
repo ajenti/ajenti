@@ -1,9 +1,8 @@
-angular.module('core').controller('CoreRootController', function($scope, $rootScope, $location, $localStorage, $log, $timeout, $q, $interval, $http, $window, identity, customization, urlPrefix, ajentiPlugins, ajentiVersion, ajentiPlatform, ajentiPlatformUnmapped, devMode, pwReset, favicon, feedback, locale, core, config) {
+angular.module('core').controller('CoreRootController', function($scope, $rootScope, $location, $localStorage, $log, $timeout, $q, $interval, $http, $window, identity, customization, urlPrefix, ajentiPlugins, ajentiVersion, ajentiPlatform, ajentiPlatformUnmapped, devMode, pwReset, favicon, locale, core, config) {
     $rootScope.identity = identity;
     $rootScope.$location = $location;
     $rootScope.location = location;
     $rootScope.urlPrefix = urlPrefix;
-    $rootScope.feedback = feedback;
     $rootScope.ajentiVersion = ajentiVersion;
     $rootScope.ajentiPlugins = ajentiPlugins;
     $rootScope.devMode = (devMode == "True") ? "dev mode" : '';
@@ -24,8 +23,6 @@ angular.module('core').controller('CoreRootController', function($scope, $rootSc
 
     $scope.navigationPresent = $location.path().indexOf('/view/login') === -1;
     $scope.navigationPresent &= $location.path().indexOf('/view/reset_password') === -1;
-
-    feedback.init();
 
     // ---
 
@@ -57,7 +54,6 @@ angular.module('core').controller('CoreRootController', function($scope, $rootSc
 
     $scope.$on('$routeChangeSuccess', function() {
         $scope.toggleOverlayNavigation(false)
-        feedback.emit('navigation', {url: $location.path()});
     })
 
     // ---
