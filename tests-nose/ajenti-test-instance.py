@@ -1,5 +1,6 @@
 import logging
 import sys
+import os
 sys.path.insert(0, '../ajenti-core')
 
 import aj
@@ -22,7 +23,10 @@ class TestConfig(aj.config.BaseConfig):
             'name': 'test',
             'ssl': {
                 'enable': False
-            }
+            },
+            'email': {
+                'enable': False
+            },
         }
 
     def load(self):
@@ -33,6 +37,9 @@ class TestConfig(aj.config.BaseConfig):
 
 
 aj.log.init_console(logging.WARN)
+
+# Ensure tree for secret key
+os.makedirs('/etc/ajenti', exist_ok=True)
 
 aj.entry.start(
     config=TestConfig(),

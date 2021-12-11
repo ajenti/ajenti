@@ -34,13 +34,13 @@ angular.module('ajenti.settings').controller('SettingsIndexController', ($scope,
         () => {
             $scope.config = config;
             $scope.oldCertificate = $scope.config.data.ssl.certificate;
-            config.getAuthenticationProviders(config);
+            config.getAuthenticationProviders(config).then(p =>
+                $scope.authenticationProviders = p
+            ).catch(() =>
+                notify.error(gettext('Could not load authentication provider list'))
+            );
         },
         () => notify.error(gettext('Could not load config'))
-    ).then(p =>
-        $scope.authenticationProviders = p
-    ).catch(() =>
-        notify.error(gettext('Could not load authentication provider list'))
     )
 
     $scope.$watch('config.data.color', () => {
@@ -108,6 +108,10 @@ angular.module('ajenti.settings').controller('SettingsIndexController', ($scope,
             notify.error(gettext('Certificate generation failed'), err.message);
         });
     };
+
+    $scope.showSMTPPassword = false;
+
+    $scope.toggleShowSMTPPassword = () => $scope.showSMTPPassword = !$scope.showSMTPPassword;
 
     $scope.addEmail = (email, username) => {
         config.data.auth.emails[email] = username;

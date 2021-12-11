@@ -20,3 +20,10 @@ ssl:
     force: false
   enable: false
   fqdn_certificate: null
+email:
+  enable: false
+  smtp:
+    password:
+    port:
+    server:
+    user:

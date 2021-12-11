@@ -47,6 +47,7 @@ Security
 * Pluggable authentication and authorization.
 * Stock authenticators: UNIX account, password, SSL client certificate and Mozilla Persona E-mail authentication.
 * Unprivileged sessions isolated in separate processes.
+* Fail2ban rule
 
 Frontend
 ========
@@ -76,7 +77,7 @@ Platforms
 
    man/install.rst
    man/run.rst
-
+   man/security.rst
 
 .. toctree::
    :maxdepth: 1

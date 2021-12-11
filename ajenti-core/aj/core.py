@@ -18,6 +18,7 @@ from aj.config import AjentiUsers
 from aj.http import HttpRoot, HttpMiddlewareAggregator
 from aj.plugins import PluginManager
 from aj.wsgi import RequestHandler
+from aj.security.pwreset import PasswordResetMiddleware
 
 import gevent
 import ssl
@@ -135,8 +136,13 @@ def run(config=None, plugin_providers=None, product_name='ajenti', dev_mode=Fals
     listener.listen(10)
 
     gateway = GateMiddleware.get(aj.context)
+    middleware_stack = [
+        PasswordResetMiddleware.get(aj.context),
+        gateway,
+    ]
+
     sio = socketio.Server(async_mode='gevent')
-    application = socketio.WSGIApp(sio, HttpRoot(HttpMiddlewareAggregator([gateway])).dispatch)
+    application = socketio.WSGIApp(sio, HttpRoot(HttpMiddlewareAggregator(middleware_stack)).dispatch)
     sio.register_namespace(SocketIONamespace(context=aj.context))
 
     aj.server = pywsgi.WSGIServer(

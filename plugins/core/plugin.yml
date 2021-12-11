@@ -2,7 +2,7 @@ name: core
 author: Ajenti project
 email: e@ajenti.org
 url: https://ajenti.org
-version: '0.98'
+version: '0.99'
 title: Core
 icon: link
 dependencies: []
@@ -34,8 +34,6 @@ resources:
     - resources/css/app.less
     - resources/css/responsive.less
     - resources/css/colors.less
-    - path: resources/extra-vendor/mixpanel.js
-      vendor: true
     - path: resources/extra-vendor/socket.io.js
       vendor: true
     - resources/js/js_extensions.es
@@ -47,6 +45,7 @@ resources:
     - resources/js/core/routing.es
     - resources/js/core/controllers/index.controller.es
     - resources/js/core/controllers/login.controller.es
+    - resources/js/core/controllers/pwreset.controller.es
     - resources/js/core/controllers/root.controller.es
     - resources/js/core/controllers/tasks.controller.es
     - resources/js/core/controllers/navbox.controller.es
@@ -68,7 +67,6 @@ resources:
     - resources/js/core/services/core.service.es
     - resources/js/core/services/customization.service.es
     - resources/js/core/services/favicon.service.es
-    - resources/js/core/services/feedback.service.es
     - resources/js/core/services/gettext.service.es
     - resources/js/core/services/hotkeys.service.es
     - resources/js/core/services/identity.service.es
@@ -80,6 +78,8 @@ resources:
     - resources/js/core/services/tasks.service.es
     - resources/partial/index.html
     - resources/partial/login.html
+    - resources/partial/reset_password_send.html
+    - resources/partial/reset_password.html
     - resources/partial/404.html
     - resources/partial/sidebarItem.html
     - resources/partial/sidebarTasks.html

@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 from setuptools import setup, find_packages
 import platform
-import aj
 
 __requires = list(filter(None, open('requirements.txt').read().splitlines()))
 if platform.python_implementation() == 'PyPy':
@@ -12,7 +11,7 @@ else:
 
 setup(
     name='aj',
-    version=aj.__version__,
+    version='2.1.43',
     python_requires='>=3',
     install_requires=__requires,
     description='Web UI base toolkit',
@@ -21,7 +20,7 @@ setup(
     url='https://ajenti.org/',
     packages=find_packages(),
     include_package_data=True,
-    package_data={                                                              
+    package_data={
         "aj": [
             "aj/static/images/*",
         ],

@@ -1,4 +1,5 @@
 # core
+arrow
 cookies
 distro
 python-socketio==5.2.1
@@ -7,6 +8,7 @@ greenlet>=0.4.16
 gevent>=1.5.0
 gevent-websocket
 gipc==1.3.0
+itsdangerous
 jadi>=1.0.3
 lxml>=2.2.4
 passlib

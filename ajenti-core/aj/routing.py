@@ -86,6 +86,10 @@ class CentralDispatcher(BaseHttpHandler):
         Dispatch the request to every HttpPlugin
         """
 
+        if http_context.path == '/robots.txt':
+            http_context.respond_ok()
+            return ['User-agent: *\nDisallow: /']
+
         if http_context.env['SSL_CLIENT_AUTH_FORCE'] and not http_context.env['SSL_CLIENT_VALID']:
             return http_context.fallthrough(self.denied)
 

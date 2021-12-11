@@ -102,10 +102,14 @@ class LoggerWriter:
 def init_log_directory():
     if not os.path.exists(LOG_DIR):
         os.mkdir(LOG_DIR)
+    os.chmod(LOG_DIR, 0o640)
 
 
 def init_log_file(log_level=logging.INFO):
     #sys.stderr = sys.stdout = LoggerWriter()
+    if not os.path.isfile(LOG_FILE):
+        os.mknod(LOG_FILE)
+    os.chmod(LOG_FILE, 0o640)
     log = logging.getLogger()
     try:
         handler = logging.handlers.TimedRotatingFileHandler(

@@ -1,4 +1,15 @@
-Ajenti 2.1.38 - Dev
+Ajenti 2.1.42 - dev
+
+Ajenti 2.1.41 - 08/2021
+
+- Support for Python 3.9,
+- Fix sudo elevation,
+- Fix client certificate generation,
+- Workaround for pip packages search,
+- Open readonly file in readonly mode in notepad,
+- Some corrections for session handling and terminal.
+
+Ajenti 2.1.40 - 22/03/2021
 
 - Update Gevent 1.5 and gipc 1.1.1,
 - Move to python-daemon
@@ -8,7 +19,7 @@ Ajenti 2.1.38 - Dev
 - Add support for multiple uploads,
 - Split users list from config file and updated auth_users plugin.
 
-Ajenti 2.1.37 - 11/2020
+Ajenti 2.1.37 - 27/11/2020
 
 - Fix requirement problem with greenlet,
 - Fix install in CentOS 8,

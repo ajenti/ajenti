@@ -11,7 +11,6 @@ from aj.gate.stream import GateStreamServerEndpoint, GateStreamWorkerEndpoint
 from aj.gate.worker import Worker
 from aj.util import BroadcastQueue
 
-
 class WorkerGate():
     def __init__(self, session, gateway_middleware, name=None, log_tag=None, restricted=False,
                  initial_identity=None):

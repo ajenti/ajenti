@@ -1,12 +1,12 @@
-angular.module('core').controller('CoreRootController', function($scope, $rootScope, $location, $localStorage, $log, $timeout, $q, $interval, $http, $window, identity, customization, urlPrefix, ajentiPlugins, ajentiVersion, ajentiPlatform, ajentiPlatformUnmapped, devMode, favicon, feedback, locale, core, config) {
+angular.module('core').controller('CoreRootController', function($scope, $rootScope, $location, $localStorage, $log, $timeout, $q, $interval, $http, $window, identity, customization, urlPrefix, ajentiPlugins, ajentiVersion, ajentiPlatform, ajentiPlatformUnmapped, devMode, pwReset, favicon, locale, core, config) {
     $rootScope.identity = identity;
     $rootScope.$location = $location;
     $rootScope.location = location;
     $rootScope.urlPrefix = urlPrefix;
-    $rootScope.feedback = feedback;
     $rootScope.ajentiVersion = ajentiVersion;
     $rootScope.ajentiPlugins = ajentiPlugins;
     $rootScope.devMode = (devMode == "True") ? "dev mode" : '';
+    $rootScope.pwReset = pwReset;
     $rootScope.customization = customization;
 
     // todo figure this out, used in settings template
@@ -22,8 +22,7 @@ angular.module('core').controller('CoreRootController', function($scope, $rootSc
     console.groupEnd();
 
     $scope.navigationPresent = $location.path().indexOf('/view/login') === -1;
-
-    feedback.init();
+    $scope.navigationPresent &= $location.path().indexOf('/view/reset_password') === -1;
 
     // ---
 
@@ -55,7 +54,6 @@ angular.module('core').controller('CoreRootController', function($scope, $rootSc
 
     $scope.$on('$routeChangeSuccess', function() {
         $scope.toggleOverlayNavigation(false)
-        feedback.emit('navigation', {url: $location.path()});
     })
 
     // ---
