@@ -39,11 +39,12 @@ Download the source::
 Install the dependencies::
 
     # Debian/Ubuntu
-    sudo apt-get install build-essential python3-pip python3-dev python3-lxml libffi-dev libssl-dev libjpeg-dev libpng-dev uuid-dev python3-dbus``
+    sudo apt-get install build-essential python3-pip python3-dev python3-lxml libffi-dev libssl-dev libjpeg-dev libpng-dev uuid-dev python3-dbus gettext
 
     # RHEL/CentOS
-    sudo dnf install gcc python3-devel python3-pip libxslt-devel libxml2-devel libffi-devel openssl-devel libjpeg-turbo-devel libpng-devel dbus-python
+    sudo dnf install gcc python3-devel python3-pip libxslt-devel libxml2-devel libffi-devel openssl-devel libjpeg-turbo-devel libpng-devel dbus-python gettext
 
+    cd ajenti
     sudo pip3 install -r ajenti-core/requirements.txt
     sudo pip3 install ajenti-dev-multitool
 
