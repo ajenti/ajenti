@@ -7,7 +7,7 @@ from os.path import isfile, join
 from jadi import component
 from aj.plugins.network.api import NetworkManager
 
-from .ip import ifconfig_up, ifconfig_down, ifconfig_get_ip, ifconfig_get_up
+from .ip import *
 
 @component(NetworkManager)
 class UbuntuNetworkManager(NetworkManager):
@@ -48,13 +48,21 @@ class UbuntuNetworkManager(NetworkManager):
         for path in netplan_files:
             config = yaml.load(open(path), Loader=yaml.SafeLoader)['network']['ethernets']
             for key in config:
+                addresses = config[key].get('adresses', None)
+                if addresses is None:
+                    # DHCP
+                    ip, mask = ifconfig_get_ip_mask(key)
+                    gateway = ifconfig_get_gateway(key)
+                else:
+                    ip, mask = config[key]['addresses'][0].split('/')
+                    gateway = config[key].get('gateway4', None)
                 iface = {
                     'name': key,
                     'family': None,
                     'addressing': None,
-                    'address': config[key]['addresses'][0],
-                    'mask': config[key]['addresses'][0].split('/')[1],
-                    'gateway': config[key]['gateway4'],
+                    'address': ip,
+                    'mask': mask,
+                    'gateway': gateway,
                     'hwaddress': None,
                     'mtu': None,
                     'scope': None,
@@ -69,6 +77,7 @@ class UbuntuNetworkManager(NetworkManager):
                 }
                 ifaces.append(iface)
         ## TODO : lo is not necessarily visible in an yaml config file
+        ## TODO : better handle dhcp
         return ifaces
 
     def set_config(self, config):
