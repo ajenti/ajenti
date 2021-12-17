@@ -13,7 +13,7 @@ jobs:
       matrix:
         os: [ubuntu-latest, ubuntu-18.04]
         python-version: [3.6, 3.7, 3.8, 3.9]
-        node-version: [14.x, 15.x]
+        node-version: [16.x, 17.x]
     runs-on: ${{ matrix.os }}
     steps:
     - uses: actions/checkout@v2
