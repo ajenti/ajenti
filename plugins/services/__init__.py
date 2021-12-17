@@ -2,11 +2,6 @@
 from .api import *
 from .managers.systemd_manager import *
 
-try:
-    from .managers.upstart_manager import *
-except ImportError:
-    pass
-
 from .managers.sysv_manager import *
 from .main import *
 from .views import *

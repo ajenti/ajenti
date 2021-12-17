@@ -1,5 +1,5 @@
 """
-Module to manage the init services programs (sysv init, systemd, and upstart).
+Module to manage the init services programs (sysv init and systemd).
 """
 
 from jadi import component
