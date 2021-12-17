@@ -28,9 +28,28 @@ Debian/Ubuntu extras:
 
   * python3-dbus (ubuntu)
 
+Automatic Installation
+======================
 
-Setting up
-==========
+The following script will perform a complete automatic installation under Debian or Ubuntu, using virtual environment with `Python`.
+The virtual environment is then located in `/opt/ajenti` and the cloned git repository in `/opt/ajenti/ajenti`.
+This install script will install a lot of dependencies, this may take several minutes.
+
+::
+
+    curl https://raw.githubusercontent.com/ajenti/ajenti/master/scripts/install-dev.sh | sudo bash -s -
+
+After a successful installation, do the following to activate the dev mode:
+
+ * Activate the virtual environment : `source /opt/ajenti/bin/activate`
+ * Navigate in the git repository : `cd /opt/ajenti/ajenti`
+ * Launch a rundev recipe : `make rundev` ( quit with Ctrl+ C )
+ * Call `https://localhost:8000` in your browser ( you will get some warnings because of the self-signed certificate, it's perfectly normal.
+
+Manual installation
+===================
+
+First, it's necessary to complete the install for plugin developpement mentioned here : :ref:`Dev getting started <dev-getting-started>`
 
 Download the source::
 
