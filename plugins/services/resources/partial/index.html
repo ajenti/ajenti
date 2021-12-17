@@ -3,7 +3,8 @@
     <progress-spinner ng:show="services.length == 0"></progress-spinner>
 
     <div class="list-group">
-        <div ng:repeat="service in services|filter:filter|orderBy:'name'" class="list-group-item list-group-item-small">
+        <div ng:repeat="service in services|filter:filter|orderBy:'name'" class="list-group-item list-group-item-small"
+        ng:style="!service.enabled && {'background-color': '#f2dede'}">
             <a class="list-group-btn subtle" ng:click="runOperation(service, 'stop')" ng:show="service.running">
                 <i class="fa fa-stop"></i>
             </a>
@@ -15,6 +16,12 @@
             </a>
             <a class="list-group-btn subtle" ng:click="runOperation(service, 'start')" ng:show="!service.running">
                 <i class="fa fa-play"></i>
+            </a>
+            <a class="list-group-btn subtle" ng:click="runOperation(service, 'disable')" ng:show="service.enabled && service.managerId == 'systemd'">
+                <i class="fas fa-ban"></i>
+            </a>
+            <a class="list-group-btn subtle" ng:click="runOperation(service, 'enable')" ng:show="!service.enabled && service.managerId == 'systemd'">
+                <i class="fas fa-check"></i>
             </a>
             <div class="list-group-main">
                 <span class="label" ng:class="{'label-success': service.running, 'label-warning': !service.running}">
