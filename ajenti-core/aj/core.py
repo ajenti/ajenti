@@ -141,6 +141,8 @@ def run(config=None, plugin_providers=None, product_name='ajenti', dev_mode=Fals
         gateway,
     ]
 
+    application = HttpRoot(HttpMiddlewareAggregator(middleware_stack)).dispatch
+
     sio = socketio.Server(async_mode='gevent')
     application = socketio.WSGIApp(sio, HttpRoot(HttpMiddlewareAggregator(middleware_stack)).dispatch)
     sio.register_namespace(SocketIONamespace(context=aj.context))

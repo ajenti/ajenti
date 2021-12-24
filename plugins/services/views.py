@@ -1,5 +1,5 @@
 """
-Module to manage the init services programs (sysv init, systemd, and upstart).
+Module to manage the init services programs (sysv init and systemd).
 """
 
 from jadi import component
@@ -31,6 +31,7 @@ class Handler(HttpPlugin):
             'state': svc.state,
             'running': svc.running,
             'managerId': svc.manager.id,
+            'enabled': svc.enabled,
         }
 
     @url(r'/api/services/managers')
@@ -106,7 +107,7 @@ class Handler(HttpPlugin):
         :rtype: dict
         """
 
-        if operation not in ['start', 'stop', 'restart', 'kill']:
+        if operation not in ['start', 'stop', 'restart', 'kill', 'disable', 'enable']:
             return
         try:
             getattr(self.managers[manager_id], operation)(service_id)

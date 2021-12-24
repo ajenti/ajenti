@@ -65,6 +65,7 @@ class SysVServiceManager(ServiceManager):
         try:
             svc.running = self._run_action(_id, 'status')
             svc.state = 'running' if svc.running else 'stopped'
+            svc.enabled = True
         except Exception as e:
             svc.running = False
         return svc

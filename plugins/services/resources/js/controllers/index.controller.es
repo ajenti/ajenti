@@ -2,6 +2,14 @@ angular.module('ajenti.services').controller('ServicesIndexController', function
     pageTitle.set(gettext('Services'));
 
     $scope.services = [];
+    $scope.titles = {
+        'stop': gettext("Stop service"),
+        'start': gettext("Start service"),
+        'restart': gettext("Restart service"),
+        'kill': gettext("Kill service"),
+        'enable': gettext("Enable service"),
+        'disable': gettext("Disable service"),
+    }
 
     services.getManagers().then((managers) => {
         $scope.managers = managers;
