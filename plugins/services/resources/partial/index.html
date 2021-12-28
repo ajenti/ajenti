@@ -31,9 +31,12 @@
                     <i ng:show="service.running" class="fa fa-fw fa-play"></i>
                     <i ng:show="!service.running" class="fa fa-fw fa-pause"></i>
                 </span>
-                &nbsp;
-                {{service.name}}
-                &nbsp;
+                <span ng:show="service.managerId == 'systemd'" ng:click="showStatus(service)" style="cursor:pointer">
+                    {{service.name}}
+                </span>
+                <span ng:show="service.managerId != 'systemd'">
+                    {{service.name}}
+                </span>
                 <span class="subtle" ng:show="{{service.static}}" translate>
                     Static
                 </span>

@@ -89,6 +89,25 @@ class Handler(HttpPlugin):
 
         return self.__service_to_json(self.managers[manager_id].get_service(service_id))
 
+    @url(r'/api/services/get_status/(?P<manager_id>\w+)/(?P<service_id>.+)')
+    @endpoint(api=True)
+    def handle_api_get_status(self, http_context, manager_id=None, service_id=None):
+        """
+        Retrieve the service informations for one specified service in one
+        specified manager.
+
+        :param http_context: HttpContext
+        :type http_context: HttpContext
+        :param manager_id: Manager id, e.g. systemd
+        :type manager_id: string
+        :param service_id: Service id, e.g. ssh
+        :type service_id: string
+        :return: Service informations
+        :rtype: dict
+        """
+
+        return self.managers[manager_id].get_status(service_id)
+
     @url(r'/api/services/do/(?P<operation>\w+)/(?P<manager_id>\w+)/(?P<service_id>.+)')
     @authorize('services:manage')
     @endpoint(api=True)

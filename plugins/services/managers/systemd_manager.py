@@ -81,6 +81,17 @@ class SystemdServiceManager(ServiceManager):
         for s in self.list(units=[_id]):
             return s
 
+    def get_status(selfself, _id):
+        """
+
+        :param _id: Service name
+        :type _id: string
+        :return: Service status
+        :rtype: string
+        """
+
+        return subprocess.check_output(['systemctl', 'status', _id, '--no-pager']).decode()
+
     def daemon_reload(self):
         """
         Basically restart a service.

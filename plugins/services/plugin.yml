@@ -15,6 +15,7 @@ resources:
     - 'resources/js/controllers/widget.controller.es'
     - 'resources/js/services/services.service.es'
     - 'resources/partial/index.html'
+    - 'resources/partial/systemd_status.modal.html'
     - 'resources/partial/widget.html'
     - 'resources/partial/widget.config.html'
     - 'ng:ajenti.services'
