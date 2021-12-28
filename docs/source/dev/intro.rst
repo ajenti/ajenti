@@ -11,7 +11,7 @@ Required knowledge
   * basic AngularJS knowledge (modules & controllers)
   * basic HTML skills
 
-Setting up development environent
+Setting up development environment
 =================================
 
 1. Install Ajenti
