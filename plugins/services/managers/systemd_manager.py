@@ -57,6 +57,7 @@ class SystemdServiceManager(ServiceManager):
                     svc.running = unit['SubState'] == 'running'
                     svc.state = 'running' if svc.running else 'stopped'
                     svc.enabled = unit['UnitFileState'] == 'enabled'
+                    svc.static = unit['UnitFileState'] == 'static'
 
                     if svc.name not in used_names:
                         yield svc

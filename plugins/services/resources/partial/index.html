@@ -4,15 +4,9 @@
 
     <div class="list-group">
         <div ng:repeat="service in services|filter:filter|orderBy:'name'" class="list-group-item list-group-item-small"
-        ng:class="{'list-group-item-danger': !service.enabled}">
+        ng:class="{'list-group-item-danger': !service.enabled && !service.static, 'list-group-item-warning': service.static}">
             <a class="list-group-btn" ng:click="runOperation(service, 'stop')" ng:show="service.running" title="{{titles.stop}}">
                 <i class="fa fa-stop"></i>
-            </a>
-            <a class="list-group-btn" ng:click="runOperation(service, 'restart')" ng:show="service.running" title="{{titles.restart}}">
-                <i class="fa fa-refresh"></i>
-            </a>
-            <a class="list-group-btn" ng:click="runOperation(service, 'kill')" ng:show="service.running" title="{{titles.kill}}">
-                <i class="fa fa-close"></i>
             </a>
             <a class="list-group-btn" ng:click="runOperation(service, 'start')" ng:show="!service.running" title="{{titles.start}}">
                 <i class="fa fa-play"></i>
@@ -20,8 +14,17 @@
             <a class="list-group-btn" ng:click="runOperation(service, 'disable')" ng:show="service.enabled && service.managerId == 'systemd'" title="{{titles.disable}}">
                 <i class="fas fa-ban"></i>
             </a>
-            <a class="list-group-btn" ng:click="runOperation(service, 'enable')" ng:show="!service.enabled && service.managerId == 'systemd'" title="{{titles.enable}}">
+            <a class="list-group-btn" ng:click="runOperation(service, 'enable')" ng:show="!service.static && !service.enabled && service.managerId == 'systemd'" title="{{titles.enable}}">
                 <i class="fas fa-check"></i>
+            </a>
+            <a class="list-group-btn" ng:show="service.static && service.managerId == 'systemd'">
+                &nbsp; <!-- Empty button to align items -->
+            </a>
+            <a class="list-group-btn" ng:click="runOperation(service, 'restart')" ng:show="service.running" title="{{titles.restart}}">
+                <i class="fa fa-refresh"></i>
+            </a>
+            <a class="list-group-btn" ng:click="runOperation(service, 'kill')" ng:show="service.running" title="{{titles.kill}}">
+                <i class="fa fa-close"></i>
             </a>
             <div class="list-group-main">
                 <span class="label" ng:class="{'label-success': service.running, 'label-warning': !service.running}">
@@ -31,8 +34,11 @@
                 &nbsp;
                 {{service.name}}
                 &nbsp;
-                <span class="subtle">
-                    {{service.managerId}}
+                <span class="subtle" ng:show="{{service.static}}" translate>
+                    Static
+                </span>
+                <span class="subtle" ng:show="{{!service.enabled && !service.static}}" translate>
+                    Disabled
                 </span>
             </div>
         </div>

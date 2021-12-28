@@ -32,6 +32,7 @@ class Handler(HttpPlugin):
             'running': svc.running,
             'managerId': svc.manager.id,
             'enabled': svc.enabled,
+            'static': svc.static,
         }
 
     @url(r'/api/services/managers')
