@@ -39,7 +39,7 @@ class SystemdServiceManager(ServiceManager):
 
         if not units:
             units = [x.split()[0] for x in subprocess.check_output(['systemctl', 'list-unit-files', '--no-legend', '--no-pager', '-la']).decode().splitlines() if x]
-            units = [x for x in units if x.endswith('.service') and '@' not in x]
+            units = [x for x in units if x.endswith('.service') and '@.service' not in x]
             units = list(set(units))
 
         cmd = ['systemctl', 'show', '-o', 'json', '--full', '--all'] + units
