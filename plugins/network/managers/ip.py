@@ -21,6 +21,41 @@ def ifconfig_get_ip(iface):
         return None
 
 
+def ifconfig_get_ip_mask(iface):
+    """
+    Get ipv4 and mask of an interface from the ip addr command.
+
+    :param iface: Network interface, e.g. eth0
+    :type iface: string
+    :return: ip,mask
+    :rtype: tuple
+    """
+
+    inet_line = subprocess.check_output(
+        f"ip -4 addr show {iface} | grep 'inet '",
+        shell=True,
+        encoding='utf-8'
+    )
+    return inet_line.strip().split()[1].split('/')
+
+
+def ifconfig_get_gateway(iface):
+    """
+    Get gateway of an interface from the ip addr command.
+
+    :param iface: Network interface, e.g. eth0
+    :type iface: string
+    :return: gateway
+    :rtype: string
+    """
+
+    return subprocess.check_output(
+        f"ip route | grep default | grep {iface} | cut -d' ' -f3",
+        shell=True,
+        encoding='utf-8'
+    )
+
+
 def ifconfig_get_up(iface):
     """
     Check the iface status.

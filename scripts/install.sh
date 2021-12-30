@@ -4,6 +4,15 @@ if [ "$(id -u)" != "0" ]; then
    exit 1
 fi
 
+msg()
+{
+    message=$1
+    echo
+    # Bold and green font
+    echo -e "\e[1m\e[92m$message\e[39m\e[0m"
+    echo
+}
+
 DISTRO=
 OS=
 PYTHON3=$(which python3)
@@ -39,41 +48,39 @@ if grep 'Red' /etc/issue > /dev/null 2>&1 ; then
 fi
 
 if [ ! $OS ] ; then
-    echo ":: Could not detect OS"
-    echo ":: Press Enter to continue"
+    msg ":: Could not detect OS\n:: Press Enter to continue"
     read -n1
 fi
 
 
-echo ":: OS: $OS"
-echo ":: Distro: $DISTRO"
+msg ":: OS: $OS:: Distro: $DISTRO"
 
 if [ "$OS" == "rhel" ] ; then
-    echo ":: Installing prerequisites"
+    msg ":: Installing prerequisites"
     dnf install -y epel-release
     dnf install -y gcc python3-devel python3-pip python3-pillow python3-augeas python3-dbus openssl-devel chrony redhat-lsb-core || exit 1
 fi
 
 
 if [ "$DISTRO" == "ubuntu" ] ; then
-    echo ":: Enabling universe repository"
-    add-apt-repository universe
+    msg ":: Enabling universe repository"
+    add-apt-repository -y universe
 fi
 
 if [ "$OS" == "debian" ] ; then
-    echo ":: Installing prerequisites"
+    msg ":: Installing prerequisites"
     apt-get update
     DEBIAN_FRONTEND='noninteractive' apt-get install -y build-essential python3-pip python3-dev python3-lxml python3-dbus python3-augeas libssl-dev python3-apt ntpdate || exit 1
 fi
 
 
-echo ":: Upgrading PIP"
+msg ":: Upgrading PIP"
 
 rm /usr/lib/$PYTHON3/dist-packages/setuptools.egg-info || true # for debian 7
 $PYTHON3 -m pip install -U pip wheel setuptools
 $PYTHON3 -m pip uninstall -y gevent-socketio gevent-socketio-hartwork
 
-echo ":: Installing Ajenti"
+msg ":: Installing Ajenti"
 
 $PYTHON3 -m pip install ajenti-panel ajenti.plugin.core ajenti.plugin.dashboard ajenti.plugin.settings ajenti.plugin.plugins ajenti.plugin.notepad ajenti.plugin.terminal ajenti.plugin.filemanager ajenti.plugin.packages ajenti.plugin.services || exit 1
 
@@ -83,7 +90,7 @@ $PYTHON3 -m pip install ajenti-panel ajenti.plugin.core ajenti.plugin.dashboard 
 export PATH=$PATH:/usr/local/bin
 PANEL=$(which ajenti-panel)
 
-echo ":: Installing initscript"
+msg ":: Installing initscript"
 
 if [ -e /etc/init ] && which start ; then # Upstart
     cat << EOF > /etc/init/ajenti.conf
@@ -211,7 +218,6 @@ EOF
     fi
 fi
 
-echo ':: Complete'
+msg ':: Complete'
 echo
-echo 'Ajenti will be listening at HTTP port 8000'
-echo 'Log in with your root password or another OS user'
+msg 'Ajenti will be listening at HTTP port 8000\nLog in with your root password or another OS user'

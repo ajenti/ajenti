@@ -28,9 +28,28 @@ Debian/Ubuntu extras:
 
   * python3-dbus (ubuntu)
 
+Automatic Installation
+======================
 
-Setting up
-==========
+The following script will perform a complete automatic installation under Debian or Ubuntu, using virtual environment with `Python`.
+The virtual environment is then located in `/opt/ajenti` and the cloned git repository in `/opt/ajenti/ajenti`.
+This install script will install a lot of dependencies, this may take several minutes.
+
+::
+
+    curl https://raw.githubusercontent.com/ajenti/ajenti/master/scripts/install-dev.sh | sudo bash -s -
+
+After a successful installation, do the following to activate the dev mode:
+
+ * Activate the virtual environment : `source /opt/ajenti/bin/activate`
+ * Navigate in the git repository : `cd /opt/ajenti/ajenti`
+ * Launch a rundev recipe : `make rundev` ( quit with Ctrl+ C )
+ * Call `https://localhost:8000` in your browser ( you will get some warnings because of the self-signed certificate, it's perfectly normal.
+
+Manual installation
+===================
+
+First, it's necessary to complete the install for plugin developpement mentioned here : :ref:`Dev getting started <dev-getting-started>`
 
 Download the source::
 
@@ -39,11 +58,12 @@ Download the source::
 Install the dependencies::
 
     # Debian/Ubuntu
-    sudo apt-get install build-essential python3-pip python3-dev python3-lxml libffi-dev libssl-dev libjpeg-dev libpng-dev uuid-dev python3-dbus``
+    sudo apt-get install build-essential python3-pip python3-dev python3-lxml libffi-dev libssl-dev libjpeg-dev libpng-dev uuid-dev python3-dbus gettext
 
     # RHEL/CentOS
-    sudo dnf install gcc python3-devel python3-pip libxslt-devel libxml2-devel libffi-devel openssl-devel libjpeg-turbo-devel libpng-devel dbus-python
+    sudo dnf install gcc python3-devel python3-pip libxslt-devel libxml2-devel libffi-devel openssl-devel libjpeg-turbo-devel libpng-devel dbus-python gettext
 
+    cd ajenti
     sudo pip3 install -r ajenti-core/requirements.txt
     sudo pip3 install ajenti-dev-multitool
 

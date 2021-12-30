@@ -39,7 +39,7 @@ class SystemdServiceManager(ServiceManager):
 
         if not units:
             units = [x.split()[0] for x in subprocess.check_output(['systemctl', 'list-unit-files', '--no-legend', '--no-pager', '-la']).decode().splitlines() if x]
-            units = [x for x in units if x.endswith('.service') and '@' not in x]
+            units = [x for x in units if x.endswith('.service') and '@.service' not in x]
             units = list(set(units))
 
         cmd = ['systemctl', 'show', '-o', 'json', '--full', '--all'] + units
@@ -56,6 +56,8 @@ class SystemdServiceManager(ServiceManager):
                     svc.name = svc.name.replace('\\x2d', '\x2d')
                     svc.running = unit['SubState'] == 'running'
                     svc.state = 'running' if svc.running else 'stopped'
+                    svc.enabled = unit['UnitFileState'] == 'enabled'
+                    svc.static = unit['UnitFileState'] == 'static'
 
                     if svc.name not in used_names:
                         yield svc
@@ -78,6 +80,24 @@ class SystemdServiceManager(ServiceManager):
 
         for s in self.list(units=[_id]):
             return s
+
+    def get_status(selfself, _id):
+        """
+
+        :param _id: Service name
+        :type _id: string
+        :return: Service status
+        :rtype: string
+        """
+
+        return subprocess.check_output(['systemctl', 'status', _id, '--no-pager']).decode()
+
+    def daemon_reload(self):
+        """
+        Basically restart a service.
+        """
+
+        subprocess.check_call(['systemctl', 'daemon-reload'], close_fds=True)
 
     def start(self, _id):
         """
@@ -118,3 +138,26 @@ class SystemdServiceManager(ServiceManager):
         """
 
         subprocess.check_call(['systemctl', 'kill -s SIGKILL', _id], close_fds=True)
+
+    def disable(self, _id):
+        """
+        Basically disable a service.
+
+        :param _id: Service name
+        :type _id: string
+        """
+
+        self.stop(_id)
+        subprocess.check_call(['systemctl', 'disable', _id], close_fds=True)
+        self.daemon_reload()
+
+    def enable(self, _id):
+        """
+        Basically enable a service.
+
+        :param _id: Service name
+        :type _id: string
+        """
+
+        subprocess.check_call(['systemctl', 'enable', _id], close_fds=True)
+        self.daemon_reload()

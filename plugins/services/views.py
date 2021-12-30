@@ -1,5 +1,5 @@
 """
-Module to manage the init services programs (sysv init, systemd, and upstart).
+Module to manage the init services programs (sysv init and systemd).
 """
 
 from jadi import component
@@ -31,6 +31,8 @@ class Handler(HttpPlugin):
             'state': svc.state,
             'running': svc.running,
             'managerId': svc.manager.id,
+            'enabled': svc.enabled,
+            'static': svc.static,
         }
 
     @url(r'/api/services/managers')
@@ -87,6 +89,25 @@ class Handler(HttpPlugin):
 
         return self.__service_to_json(self.managers[manager_id].get_service(service_id))
 
+    @url(r'/api/services/get_status/(?P<manager_id>\w+)/(?P<service_id>.+)')
+    @endpoint(api=True)
+    def handle_api_get_status(self, http_context, manager_id=None, service_id=None):
+        """
+        Retrieve the service informations for one specified service in one
+        specified manager.
+
+        :param http_context: HttpContext
+        :type http_context: HttpContext
+        :param manager_id: Manager id, e.g. systemd
+        :type manager_id: string
+        :param service_id: Service id, e.g. ssh
+        :type service_id: string
+        :return: Service informations
+        :rtype: dict
+        """
+
+        return self.managers[manager_id].get_status(service_id)
+
     @url(r'/api/services/do/(?P<operation>\w+)/(?P<manager_id>\w+)/(?P<service_id>.+)')
     @authorize('services:manage')
     @endpoint(api=True)
@@ -106,7 +127,7 @@ class Handler(HttpPlugin):
         :rtype: dict
         """
 
-        if operation not in ['start', 'stop', 'restart', 'kill']:
+        if operation not in ['start', 'stop', 'restart', 'kill', 'disable', 'enable']:
             return
         try:
             getattr(self.managers[manager_id], operation)(service_id)
