@@ -64,7 +64,6 @@ Platforms
 
 * Debian 9 or later
 * Ubuntu Bionic or later
-* CentOS 8 or later
 * RHEL 8 or later
 * Can be run on other Linux or BSD systems with minimal modifications.
 * Supports Python 3.5+.

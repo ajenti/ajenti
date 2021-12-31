@@ -9,7 +9,6 @@ Installing
 
     * Debian 9 or later
     * Ubuntu Bionic or later
-    * CentOS 8 or later
     * RHEL 8 or later
 
     Other Linux-based systems *might* work, but you'll have to use manual installation method.
@@ -46,8 +45,8 @@ Enable Universe repository (Ubuntu only)::
 
     sudo apt-get install build-essential python3-pip python3-dev python3-lxml libssl-dev python3-dbus python3-augeas python3-apt ntpdate
 
-Native dependencies: RHEL/CentOS
---------------------------------
+Native dependencies: RHEL
+-------------------------
 
 Enable EPEL repository::
 
