@@ -21,13 +21,13 @@ class PasswordResetMiddleware():
         self.ensure_secret_key()
 
     def handle(self, http_context):
-        if http_context.path == '/api/send_password_reset':
+        if http_context.path == '/api/master/send_password_reset':
             return self.send_password_reset(http_context)
 
-        if http_context.path == '/api/check_password_serial':
+        if http_context.path == '/api/master/check_password_serial':
             return self.check_serial(http_context)
 
-        if http_context.path == '/api/update_password':
+        if http_context.path == '/api/master/update_password':
             return self.update_password(http_context)
 
         return None
