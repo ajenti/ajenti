@@ -26,11 +26,15 @@ angular.module('core').controller('CorePWResetController', function($scope, $log
     });
 
     $scope.save_password = () => {
-        $http.post('/api/update_password', {serial:$scope.serial,password:$scope.password2}).then((resp) => {
-            notify.success(gettext('Password successfully changed !'));
-            $window.location.assign('/');
+        $http.post('/api/core/check_password_complexity', {password:$scope.password2}).then((resp) => {
+            $http.post('/api/update_password', {serial:$scope.serial,password:$scope.password2}).then((resp) => {
+                notify.success(gettext('Password successfully changed !'));
+                $window.location.assign('/');
+            }, (error) => {
+                    notify.error(gettext('An error occured while changing the password'));
+                });
         }, (error) => {
-            notify.error(gettext('An error occured while changing the password'));
+            notify.error(gettext('The password complexity does not match the system requirements : ') + error.data.message);
         });
     }
 });
