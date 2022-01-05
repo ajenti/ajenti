@@ -10,7 +10,6 @@ import aj
 from aj.api.http import BaseHttpHandler
 from aj.security.verifier import ClientCertificateVerificator
 from aj.util import public
-from aj.api.endpoint import EndpointError
 
 @public
 class SudoError(Exception):
