@@ -10,7 +10,7 @@ import aj
 from aj.api.http import BaseHttpHandler
 from aj.security.verifier import ClientCertificateVerificator
 from aj.util import public
-
+from aj.api.endpoint import EndpointError
 
 @public
 class SudoError(Exception):
@@ -137,6 +137,10 @@ class OSAuthenticationProvider(AuthenticationProvider):
 
     def check_mail(self, mail):
         return False
+
+    def check_password_complexity(self,password):
+        # TODO : add password policy
+        return True
 
     def update_password(self):
         pass
