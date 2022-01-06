@@ -3,16 +3,17 @@ import os
 import simplejson as json
 from itsdangerous.url_safe import URLSafeTimedSerializer
 from itsdangerous.exc import SignatureExpired, BadTimeSignature, BadSignature
-from jadi import service
 
+from jadi import component
 from aj.auth import AuthenticationService
 from aj.api.mail import Mail
+from aj.api.http import HttpMasterMiddleware
 
 
 SECRET_FILE = '/etc/ajenti/.secret'
 
-@service
-class PasswordResetMiddleware():
+@component(HttpMasterMiddleware)
+class PasswordResetMiddleware(HttpMasterMiddleware):
 
     def __init__(self, context):
         self.context = context

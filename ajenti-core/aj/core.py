@@ -19,6 +19,7 @@ from aj.http import HttpRoot, HttpMiddlewareAggregator
 from aj.gate.middleware import GateMiddleware
 from aj.plugins import PluginManager
 from aj.wsgi import RequestHandler
+from aj.api.http import HttpMasterMiddleware
 from aj.security.pwreset import PasswordResetMiddleware
 
 import gevent
@@ -138,10 +139,8 @@ def run(config=None, plugin_providers=None, product_name='ajenti', dev_mode=Fals
     listener.listen(10)
 
     gateway = GateMiddleware.get(aj.context)
-    middleware_stack = [
-        PasswordResetMiddleware.get(aj.context),
-        gateway,
-    ]
+    middleware_stack = HttpMasterMiddleware.all(aj.context) + [gateway]
+    print(middleware_stack)
 
     application = HttpRoot(HttpMiddlewareAggregator(middleware_stack)).dispatch
 
