@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-21 15:48+0100\n"
-"PO-Revision-Date: 2021-08-25 16:57\n"
+"POT-Creation-Date: 2022-01-06 18:10+0100\n"
+"PO-Revision-Date: 2022-01-06 17:19\n"
 "Last-Translator: \n"
 "Language-Team: Japanese\n"
 "Language: ja_JP\n"
@@ -62,6 +62,10 @@ msgstr ""
 msgid "Enable client authentication"
 msgstr ""
 
+#: plugins/settings/resources/partial/index.html:222
+msgid "Enable email relay for notification"
+msgstr ""
+
 #: plugins/settings/resources/partial/index.html:204
 #: plugins/settings/resources/js/controllers/index.controller.es:77
 msgid "Generate"
@@ -112,16 +116,29 @@ msgstr ""
 msgid "Organization"
 msgstr ""
 
+#: plugins/settings/resources/partial/index.html:234
 #: plugins/settings/resources/partial/index.html:62
 msgid "Port"
 msgstr ""
 
-#: plugins/settings/resources/partial/index.html:226
+#: plugins/settings/resources/partial/index.html:271
 msgid "Remove"
 msgstr ""
 
-#: plugins/settings/resources/partial/index.html:271
+#: plugins/settings/resources/partial/index.html:316
 msgid "Restart panel"
+msgstr ""
+
+#: plugins/settings/resources/partial/index.html:229
+msgid "SMTP host"
+msgstr ""
+
+#: plugins/settings/resources/partial/index.html:251
+msgid "SMTP password"
+msgstr ""
+
+#: plugins/settings/resources/partial/index.html:245
+msgid "SMTP user"
 msgstr ""
 
 #: plugins/settings/resources/partial/index.html:111
@@ -140,7 +157,7 @@ msgstr ""
 msgid "SSL client certificates"
 msgstr ""
 
-#: plugins/settings/resources/partial/index.html:270
+#: plugins/settings/resources/partial/index.html:315
 msgid "Save"
 msgstr ""
 
@@ -169,12 +186,12 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
-#: plugins/settings/resources/js/controllers/index.controller.es:39
-msgid "Could not load config"
+#: plugins/settings/resources/js/controllers/index.controller.es:40
+msgid "Could not load authentication provider list"
 msgstr ""
 
 #: plugins/settings/resources/js/controllers/index.controller.es:43
-msgid "Could not load authentication provider list"
+msgid "Could not load config"
 msgstr ""
 
 #: plugins/settings/resources/js/controllers/index.controller.es:62

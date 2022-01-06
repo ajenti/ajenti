@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-08-25 18:37+0200\n"
-"PO-Revision-Date: 2021-08-25 16:56\n"
+"PO-Revision-Date: 2022-01-06 17:18\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -155,7 +155,7 @@ msgstr "删除所有项目"
 
 #: plugins/filemanager/resources/partial/properties.html:126
 msgid "Show in Notepad"
-msgstr ""
+msgstr "在记事本中显示"
 
 #: plugins/filemanager/resources/partial/properties.html:76
 msgid "Size"
@@ -179,7 +179,7 @@ msgstr "上传"
 
 #: plugins/filemanager/resources/partial/index.html:122
 msgid "Uploading ..."
-msgstr ""
+msgstr "正在上传..."
 
 #: plugins/filemanager/resources/partial/properties.html:140
 msgid "User"
@@ -199,29 +199,29 @@ msgstr "文件管理器"
 
 #: plugins/filemanager/resources/js/controllers/properties.controller.es:15
 msgid "Could not read file information"
-msgstr ""
+msgstr "无法读取文件信息"
 
 #: plugins/filemanager/resources/js/controllers/properties.controller.es:29
 msgid "File mode saved"
-msgstr ""
+msgstr "文件模式已保存"
 
 #: plugins/filemanager/resources/js/controllers/index.controller.es:16
 msgid "Could not load directory"
-msgstr ""
+msgstr "无法加载目录"
 
 #: plugins/filemanager/resources/js/controllers/index.controller.es:87
 msgid "Delete selected items?"
-msgstr ""
+msgstr "是否删除所选的项目？"
 
 #: plugins/filemanager/resources/js/controllers/index.controller.es:124
 msgid "Could not create file"
-msgstr ""
+msgstr "无法创建文件"
 
 #: plugins/filemanager/resources/js/controllers/index.controller.es:144
 msgid "Could not create directory"
-msgstr ""
+msgstr "无法创建目录"
 
 #: plugins/filemanager/resources/js/controllers/index.controller.es:151
 msgid "Uploaded"
-msgstr ""
+msgstr "上传完成"
 

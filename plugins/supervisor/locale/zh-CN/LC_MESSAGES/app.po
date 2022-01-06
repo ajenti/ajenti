@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-27 12:11+0200\n"
-"PO-Revision-Date: 2021-08-25 16:56\n"
+"PO-Revision-Date: 2022-01-06 17:18\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -125,14 +125,14 @@ msgstr "主管"
 
 #: plugins/supervisor/resources/js/controllers/index.controller.es:19
 msgid "Saved"
-msgstr ""
+msgstr "已保存"
 
 #: plugins/supervisor/resources/js/controllers/index.controller.es:20
 msgid "Could not save"
-msgstr ""
+msgstr "无法保存"
 
 #: plugins/supervisor/resources/js/controllers/index.controller.es:34
 #: plugins/supervisor/resources/js/controllers/index.controller.es:39
 msgid "Failed"
-msgstr ""
+msgstr "失败"
 

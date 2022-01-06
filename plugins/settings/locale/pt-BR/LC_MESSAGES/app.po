@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-21 15:48+0100\n"
-"PO-Revision-Date: 2021-08-25 16:57\n"
+"POT-Creation-Date: 2022-01-06 18:10+0100\n"
+"PO-Revision-Date: 2022-01-06 17:19\n"
 "Last-Translator: \n"
 "Language-Team: Portuguese, Brazilian\n"
 "Language: pt_BR\n"
@@ -62,6 +62,10 @@ msgstr "Habilitar o SSL"
 msgid "Enable client authentication"
 msgstr "Habilitar a autenticação de cliente"
 
+#: plugins/settings/resources/partial/index.html:222
+msgid "Enable email relay for notification"
+msgstr ""
+
 #: plugins/settings/resources/partial/index.html:204
 #: plugins/settings/resources/js/controllers/index.controller.es:77
 msgid "Generate"
@@ -112,17 +116,30 @@ msgstr "Certificados não foram criados ainda."
 msgid "Organization"
 msgstr "Organização"
 
+#: plugins/settings/resources/partial/index.html:234
 #: plugins/settings/resources/partial/index.html:62
 msgid "Port"
 msgstr "Porta"
 
-#: plugins/settings/resources/partial/index.html:226
+#: plugins/settings/resources/partial/index.html:271
 msgid "Remove"
 msgstr "Remover"
 
-#: plugins/settings/resources/partial/index.html:271
+#: plugins/settings/resources/partial/index.html:316
 msgid "Restart panel"
 msgstr "Reiniciar painel"
+
+#: plugins/settings/resources/partial/index.html:229
+msgid "SMTP host"
+msgstr ""
+
+#: plugins/settings/resources/partial/index.html:251
+msgid "SMTP password"
+msgstr ""
+
+#: plugins/settings/resources/partial/index.html:245
+msgid "SMTP user"
+msgstr ""
 
 #: plugins/settings/resources/partial/index.html:111
 msgid "SSL FQDN certificate file"
@@ -140,7 +157,7 @@ msgstr "Autenticação de cliente SSL"
 msgid "SSL client certificates"
 msgstr "Certificados de cliente SSL"
 
-#: plugins/settings/resources/partial/index.html:270
+#: plugins/settings/resources/partial/index.html:315
 msgid "Save"
 msgstr "Salvar"
 
@@ -169,13 +186,13 @@ msgstr "Isto pode demorar alguns segundos"
 msgid "Settings"
 msgstr "Configurar"
 
-#: plugins/settings/resources/js/controllers/index.controller.es:39
-msgid "Could not load config"
-msgstr "Não foi possível carregar a configuração"
-
-#: plugins/settings/resources/js/controllers/index.controller.es:43
+#: plugins/settings/resources/js/controllers/index.controller.es:40
 msgid "Could not load authentication provider list"
 msgstr "Não foi possível carregar a lista de provedores de autenticação"
+
+#: plugins/settings/resources/js/controllers/index.controller.es:43
+msgid "Could not load config"
+msgstr "Não foi possível carregar a configuração"
 
 #: plugins/settings/resources/js/controllers/index.controller.es:62
 #: plugins/settings/resources/js/controllers/index.controller.es:67

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-25 18:37+0200\n"
-"PO-Revision-Date: 2021-08-25 16:56\n"
+"POT-Creation-Date: 2022-01-06 18:10+0100\n"
+"PO-Revision-Date: 2022-01-06 17:18\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -19,32 +19,39 @@ msgstr ""
 
 #: plugins/core/resources/partial/404.html:4
 msgid "404 - Page not found"
-msgstr ""
+msgstr "404 - 页面不存在"
 
 #: plugins/core/resources/partial/404.html:7
 msgid "<span>\n"
 "                    <i class=\"fa fa-exclamation-triangle\" style=\"color:red;\"></i>\n"
 "                </span>\n"
 "                The URL {{url}} was not found on this server."
-msgstr ""
+msgstr "<span>\n"
+"                    <i class=\"fa fa-exclamation-triangle\" style=\"color:red;\"></i>\n"
+"                </span>\n"
+"                在此服务器上找不到页面 {{url}}"
 
 #: plugins/core/content/pages/index.html:150
 msgid "A bootstrap error has occured"
-msgstr "引导错误"
+msgstr "启动时发生错误"
 
-#: plugins/core/resources/partial/login.html:27
+#: plugins/core/resources/partial/login.html:32
 msgid "Authenticate"
 msgstr "身份验证"
 
 #: plugins/core/content/pages/index.html:86
 msgid "Elevate"
-msgstr "提升"
+msgstr "获取管理员权限"
+
+#: plugins/core/resources/partial/reset_password_send.html:13
+msgid "Email"
+msgstr ""
 
 #: plugins/core/content/pages/index.html:133
 msgid "Enter"
 msgstr "输入"
 
-#: plugins/core/resources/partial/login.html:26
+#: plugins/core/resources/partial/login.html:31
 msgid "Log in"
 msgstr "登录"
 
@@ -52,13 +59,26 @@ msgstr "登录"
 msgid "Log out"
 msgstr "注销"
 
+#: plugins/core/resources/partial/reset_password.html:23
+msgid "New password"
+msgstr ""
+
 #: plugins/core/content/pages/index.html:174
 msgid "OK"
 msgstr "完成"
 
 #: plugins/core/resources/partial/login.html:22
+#: plugins/core/resources/partial/login.html:26
 msgid "Password"
 msgstr "密码"
+
+#: plugins/core/resources/partial/reset_password.html:26
+msgid "Please confirm the new password"
+msgstr ""
+
+#: plugins/core/resources/partial/reset_password.html:22
+msgid "Please enter the new password"
+msgstr ""
 
 #: plugins/core/content/pages/index.html:153
 #: plugins/core/resources/js/core/module.es:32
@@ -69,8 +89,24 @@ msgstr "请参阅浏览器控制台"
 msgid "Quick search"
 msgstr "快速搜索"
 
+#: plugins/core/resources/partial/reset_password.html:27
+msgid "Reenter the new password"
+msgstr ""
+
+#: plugins/core/resources/partial/reset_password.html:31
+msgid "Reset password"
+msgstr ""
+
+#: plugins/core/resources/partial/reset_password_send.html:17
+msgid "Send instructions to reset password"
+msgstr ""
+
 #: plugins/core/content/pages/index.html:101
 msgid "Session time : {{ counter[0] }}:{{ counter[1] }}:{{ counter[2] }}"
+msgstr "会话时长：{{ counter[0] }}:{{ counter[1] }}:{{ counter[2] }}"
+
+#: plugins/core/resources/partial/reset_password.html:10
+msgid "The used link is not valid or expired."
 msgstr ""
 
 #: plugins/core/resources/partial/login.html:19
@@ -105,57 +141,57 @@ msgstr "读取配置文件"
 msgid "Write configuration file"
 msgstr "写入配置文件"
 
-#: plugins/core/views/api.py:127
+#: plugins/core/views/api.py:132
 msgid "Authorization failed"
 msgstr "身份验证失败"
 
 #: plugins/core/resources/js/core/interceptors.es:5
 msgid "Security error"
-msgstr ""
+msgstr "安全错误"
 
 #: plugins/core/resources/js/core/interceptors.es:8
 msgid "Server error"
-msgstr ""
+msgstr "服务器错误"
 
 #: plugins/core/resources/js/core/interceptors.es:12
 msgid "Close"
-msgstr ""
+msgstr "关闭"
 
 #: plugins/core/resources/js/core/interceptors.es:20
 msgid "Your session has expired"
-msgstr ""
+msgstr "您的会话已过期"
 
 #: plugins/core/resources/js/core/module.es:32
 msgid "Unhandled error occurred"
-msgstr ""
+msgstr "发生了未经处理的异常"
 
 #: plugins/core/resources/js/core/filters.es:7
 msgid "0 bytes"
-msgstr ""
+msgstr "0 字节"
 
 #: plugins/core/resources/js/core/filters.es:13
 msgid "bytes"
-msgstr ""
+msgstr "字节"
 
 #: plugins/core/resources/js/core/filters.es:14
 msgid "KB"
-msgstr ""
+msgstr "KB"
 
 #: plugins/core/resources/js/core/filters.es:15
 msgid "MB"
-msgstr ""
+msgstr "MB"
 
 #: plugins/core/resources/js/core/filters.es:16
 msgid "GB"
-msgstr ""
+msgstr "GB"
 
 #: plugins/core/resources/js/core/filters.es:17
 msgid "TB"
-msgstr ""
+msgstr "TB"
 
 #: plugins/core/resources/js/core/filters.es:18
 msgid "PB"
-msgstr ""
+msgstr "PB"
 
 #: plugins/core/resources/js/core/filters.es:40
 msgid "th"
@@ -175,41 +211,57 @@ msgstr ""
 
 #: plugins/core/resources/js/core/services/core.service.es:6
 msgid "Restart"
-msgstr ""
+msgstr "重启面板"
 
 #: plugins/core/resources/js/core/services/core.service.es:7
 msgid "Restart the panel?"
-msgstr ""
+msgstr "您确定要重启面板吗？"
 
 #: plugins/core/resources/js/core/services/core.service.es:8
 msgid "Yes"
-msgstr ""
+msgstr "是"
 
 #: plugins/core/resources/js/core/services/core.service.es:9
 msgid "No"
-msgstr ""
+msgstr "否"
 
 #: plugins/core/resources/js/core/services/core.service.es:15
 msgid "Restarting"
-msgstr ""
+msgstr "正在重启面板..."
 
 #: plugins/core/resources/js/core/services/core.service.es:19
 msgid "Restarted"
-msgstr ""
+msgstr "面板已重启"
 
 #: plugins/core/resources/js/core/services/core.service.es:19
 msgid "Please wait"
-msgstr ""
+msgstr "请稍候"
 
 #: plugins/core/resources/js/core/services/core.service.es:29
 msgid "Could not restart"
-msgstr ""
+msgstr "重启面板失败"
 
 #: plugins/core/resources/js/core/services/tasks.service.es:26
 msgid "Done"
+msgstr "已完成"
+
+#: plugins/core/resources/js/core/controllers/login.controller.es:29
+msgid "Authentication failed"
+msgstr "身份验证失败"
+
+#: plugins/core/resources/js/core/controllers/pwreset.controller.es:6
+msgid "If the email exists, the user will get a reset email"
 msgstr ""
 
-#: plugins/core/resources/js/core/controllers/login.controller.es:25
-msgid "Authentication failed"
+#: plugins/core/resources/js/core/controllers/pwreset.controller.es:31
+msgid "Password successfully changed !"
+msgstr ""
+
+#: plugins/core/resources/js/core/controllers/pwreset.controller.es:34
+msgid "An error occured while changing the password"
+msgstr ""
+
+#: plugins/core/resources/js/core/controllers/pwreset.controller.es:37
+msgid "The password complexity does not match the system requirements : "
 msgstr ""
 

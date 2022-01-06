@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-27 12:11+0200\n"
+"POT-Creation-Date: 2022-01-06 18:10+0100\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
@@ -18,7 +18,6 @@ msgstr ""
 
 #: plugins/plugins/resources/partial/index.html:135
 #: plugins/plugins/resources/partial/index.html:190
-#: plugins/plugins/resources/partial/repo-plugin.html:47
 msgid "Author"
 msgstr ""
 
@@ -43,10 +42,6 @@ msgstr ""
 msgid "Downloads in the last month"
 msgstr ""
 
-#: plugins/plugins/resources/partial/repo-plugin.html:39
-msgid "Downloads this month"
-msgstr ""
-
 #: plugins/plugins/resources/partial/index.html:103
 msgid "Error"
 msgstr ""
@@ -60,7 +55,6 @@ msgid "Filter"
 msgstr ""
 
 #: plugins/plugins/resources/partial/index.html:142
-#: plugins/plugins/resources/partial/repo-plugin.html:55
 msgid "Homepage"
 msgstr ""
 
@@ -88,7 +82,6 @@ msgstr ""
 
 #: plugins/plugins/resources/partial/index.html:166
 #: plugins/plugins/resources/partial/index.html:97
-#: plugins/plugins/resources/partial/repo-plugin.html:7
 msgid "Name"
 msgstr ""
 
@@ -116,10 +109,6 @@ msgid ""
 "pluginName}}</code>, which was unavailable during startup."
 msgstr ""
 
-#: plugins/plugins/resources/partial/repo-plugin.html:15
-msgid "Title"
-msgstr ""
-
 #: plugins/plugins/resources/partial/index.html:151
 #: plugins/plugins/resources/partial/index.html:30
 #: plugins/plugins/resources/js/controllers/index.controller.es:174
@@ -145,7 +134,6 @@ msgstr ""
 
 #: plugins/plugins/resources/partial/index.html:123
 #: plugins/plugins/resources/partial/index.html:172
-#: plugins/plugins/resources/partial/repo-plugin.html:23
 msgid "Version"
 msgstr ""
 

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-21 15:48+0100\n"
-"PO-Revision-Date: 2021-08-25 16:57\n"
+"POT-Creation-Date: 2022-01-06 18:10+0100\n"
+"PO-Revision-Date: 2022-01-06 17:19\n"
 "Last-Translator: \n"
 "Language-Team: Korean\n"
 "Language: ko_KR\n"
@@ -62,6 +62,10 @@ msgstr "SSL 활성화"
 msgid "Enable client authentication"
 msgstr "클라이언트 인증 사용"
 
+#: plugins/settings/resources/partial/index.html:222
+msgid "Enable email relay for notification"
+msgstr ""
+
 #: plugins/settings/resources/partial/index.html:204
 #: plugins/settings/resources/js/controllers/index.controller.es:77
 msgid "Generate"
@@ -112,17 +116,30 @@ msgstr ""
 msgid "Organization"
 msgstr "조직"
 
+#: plugins/settings/resources/partial/index.html:234
 #: plugins/settings/resources/partial/index.html:62
 msgid "Port"
 msgstr "포트"
 
-#: plugins/settings/resources/partial/index.html:226
+#: plugins/settings/resources/partial/index.html:271
 msgid "Remove"
 msgstr "삭제"
 
-#: plugins/settings/resources/partial/index.html:271
+#: plugins/settings/resources/partial/index.html:316
 msgid "Restart panel"
 msgstr "패널을 다시 시작"
+
+#: plugins/settings/resources/partial/index.html:229
+msgid "SMTP host"
+msgstr ""
+
+#: plugins/settings/resources/partial/index.html:251
+msgid "SMTP password"
+msgstr ""
+
+#: plugins/settings/resources/partial/index.html:245
+msgid "SMTP user"
+msgstr ""
 
 #: plugins/settings/resources/partial/index.html:111
 msgid "SSL FQDN certificate file"
@@ -140,7 +157,7 @@ msgstr "SSL 클라이언트 인증"
 msgid "SSL client certificates"
 msgstr "SSL 클라이언트 인증서"
 
-#: plugins/settings/resources/partial/index.html:270
+#: plugins/settings/resources/partial/index.html:315
 msgid "Save"
 msgstr "저장"
 
@@ -169,13 +186,13 @@ msgstr "몇 초 걸릴 수 있습니다."
 msgid "Settings"
 msgstr "설정"
 
-#: plugins/settings/resources/js/controllers/index.controller.es:39
-msgid "Could not load config"
-msgstr "설정을 불러올 수 없습니다"
-
-#: plugins/settings/resources/js/controllers/index.controller.es:43
+#: plugins/settings/resources/js/controllers/index.controller.es:40
 msgid "Could not load authentication provider list"
 msgstr ""
+
+#: plugins/settings/resources/js/controllers/index.controller.es:43
+msgid "Could not load config"
+msgstr "설정을 불러올 수 없습니다"
 
 #: plugins/settings/resources/js/controllers/index.controller.es:62
 #: plugins/settings/resources/js/controllers/index.controller.es:67

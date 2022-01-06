@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-27 12:11+0200\n"
-"PO-Revision-Date: 2021-08-25 16:57\n"
+"POT-Creation-Date: 2022-01-06 18:10+0100\n"
+"PO-Revision-Date: 2022-01-06 17:19\n"
 "Last-Translator: \n"
 "Language-Team: Ukrainian\n"
 "Language: uk_UA\n"
@@ -27,7 +27,6 @@ msgstr ""
 
 #: plugins/plugins/resources/partial/index.html:135
 #: plugins/plugins/resources/partial/index.html:190
-#: plugins/plugins/resources/partial/repo-plugin.html:47
 msgid "Author"
 msgstr "Автор"
 
@@ -52,10 +51,6 @@ msgstr "Ядро"
 msgid "Downloads in the last month"
 msgstr "Завантаження минулого місяця"
 
-#: plugins/plugins/resources/partial/repo-plugin.html:39
-msgid "Downloads this month"
-msgstr "Завантаження цього місяця"
-
 #: plugins/plugins/resources/partial/index.html:103
 msgid "Error"
 msgstr "Помилка"
@@ -69,7 +64,6 @@ msgid "Filter"
 msgstr "Фільтр"
 
 #: plugins/plugins/resources/partial/index.html:142
-#: plugins/plugins/resources/partial/repo-plugin.html:55
 msgid "Homepage"
 msgstr "Домашня сторінка"
 
@@ -97,7 +91,6 @@ msgstr "Повідомлення: <code>{{selectedInstalledPlugin.crash.message}
 
 #: plugins/plugins/resources/partial/index.html:166
 #: plugins/plugins/resources/partial/index.html:97
-#: plugins/plugins/resources/partial/repo-plugin.html:7
 msgid "Name"
 msgstr "Назва"
 
@@ -119,10 +112,6 @@ msgstr ""
 
 #: plugins/plugins/resources/partial/index.html:104
 msgid "This plugin requires plugin <code>{{selectedInstalledPlugin.crash.pluginName}}</code>, which was unavailable during startup."
-msgstr ""
-
-#: plugins/plugins/resources/partial/repo-plugin.html:15
-msgid "Title"
 msgstr ""
 
 #: plugins/plugins/resources/partial/index.html:151
@@ -150,7 +139,6 @@ msgstr "Може бути оновлено до {{getUpgrade(plugin).version}}"
 
 #: plugins/plugins/resources/partial/index.html:123
 #: plugins/plugins/resources/partial/index.html:172
-#: plugins/plugins/resources/partial/repo-plugin.html:23
 msgid "Version"
 msgstr "Версія"
 

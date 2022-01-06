@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-27 12:11+0200\n"
-"PO-Revision-Date: 2021-08-25 16:57\n"
+"PO-Revision-Date: 2022-01-06 17:19\n"
 "Last-Translator: \n"
 "Language-Team: Romanian\n"
 "Language: ro_RO\n"
@@ -19,54 +19,54 @@ msgstr ""
 
 #: plugins/terminal/resources/partial/view.html:15
 msgid "Copy terminal content"
-msgstr ""
+msgstr "Copiază conținutul terminalului"
 
 #: plugins/terminal/resources/partial/view.html:26
 msgid "Done"
-msgstr ""
+msgstr "Efectuat"
 
 #: plugins/terminal/resources/partial/widget.config.html:3
 msgid "Name"
-msgstr ""
+msgstr "Nume"
 
 #: plugins/terminal/resources/partial/index.html:29
 msgid "Open a new terminal"
-msgstr ""
+msgstr "Deschide un terminal nou"
 
 #: plugins/terminal/resources/partial/widget.html:7
 msgid "Run"
-msgstr ""
+msgstr "Rulare"
 
 #: plugins/terminal/resources/partial/index.html:34
 msgid "Run a command..."
-msgstr ""
+msgstr "Rulează comanda..."
 
 #: plugins/terminal/resources/partial/widget.config.html:7
 #: plugins/terminal/resources/partial/widget.html:2
 #: plugins/terminal/widget.py:8
 msgid "Script"
-msgstr ""
+msgstr "Script"
 
 #: plugins/terminal/resources/partial/index.html:1
 #: plugins/terminal/resources/js/controllers/index.controller.es:2
 msgid "Terminals"
-msgstr ""
+msgstr "Terminale"
 
 #: plugins/terminal/resources/partial/index.html:9
 msgid "Terminate"
-msgstr ""
+msgstr "Terminare"
 
 #: plugins/terminal/resources/partial/widget.config.html:11
 msgid "stdin data"
-msgstr ""
+msgstr "stdin data"
 
 #: plugins/terminal/main.py:16
 msgid "Terminal"
-msgstr ""
+msgstr "Terminal"
 
 #: plugins/terminal/main.py:30
 msgid "Run arbitrary scripts"
-msgstr ""
+msgstr "Rulează script-uri arbitrare"
 
 #: plugins/terminal/main.py:35
 msgid "Open shell terminals"
@@ -74,11 +74,11 @@ msgstr ""
 
 #: plugins/terminal/resources/js/directives/terminal.es:178
 msgid "Terminal was closed"
-msgstr ""
+msgstr "Terminalul a fost închis"
 
 #: plugins/terminal/resources/js/services/terminals.service.es:20
 msgid "You will be redirect to the previous page."
-msgstr ""
+msgstr "Veți fi redirecționat către pagina anterioară."
 
 #: plugins/terminal/resources/js/controllers/view.controller.es:11
 msgid "Use exit or Ctrl+D to exit terminal."

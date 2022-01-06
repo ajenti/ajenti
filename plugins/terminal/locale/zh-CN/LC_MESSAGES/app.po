@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-27 12:11+0200\n"
-"PO-Revision-Date: 2021-08-25 16:56\n"
+"PO-Revision-Date: 2022-01-06 17:18\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -74,29 +74,29 @@ msgstr "打开 shell 终端"
 
 #: plugins/terminal/resources/js/directives/terminal.es:178
 msgid "Terminal was closed"
-msgstr ""
+msgstr "终端已关闭"
 
 #: plugins/terminal/resources/js/services/terminals.service.es:20
 msgid "You will be redirect to the previous page."
-msgstr ""
+msgstr "您将转向之前的页面"
 
 #: plugins/terminal/resources/js/controllers/view.controller.es:11
 msgid "Use exit or Ctrl+D to exit terminal."
-msgstr ""
+msgstr "要退出终端，请输入exit命令或按下Ctrl+D快捷方式。"
 
 #: plugins/terminal/resources/js/controllers/widget.controller.es:7
 msgid "Starting the script"
-msgstr ""
+msgstr "正在启动脚本"
 
 #: plugins/terminal/resources/js/controllers/widget.controller.es:10
 msgid "Script has finished"
-msgstr ""
+msgstr "脚本已完成运行"
 
 #: plugins/terminal/resources/js/controllers/widget.controller.es:12
 msgid "Script has failed"
-msgstr ""
+msgstr "脚本运行失败"
 
 #: plugins/terminal/resources/js/controllers/widget.controller.es:15
 msgid "Could not launch the script"
-msgstr ""
+msgstr "无法启动脚本"
 
