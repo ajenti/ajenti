@@ -50,6 +50,9 @@ class UsersAuthenticationProvider(AuthenticationProvider):
     def authorize(self, username, permission):
         return aj.users.data['users'].get(username, {}).get('permissions', {}).get(permission['id'], permission['default'])
 
+    def prepare_environment(self, username):
+        pass
+
     def get_isolation_uid(self, username):
         return aj.users.data['users'][username]['uid']
 

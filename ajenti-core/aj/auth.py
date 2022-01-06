@@ -128,6 +128,9 @@ class OSAuthenticationProvider(AuthenticationProvider):
     def authorize(self, username, permission):
         return True
 
+    def prepare_environment(self, username):
+        pass
+
     def get_isolation_uid(self, username):
         return pwd.getpwnam(username).pw_uid
 
@@ -192,6 +195,10 @@ class AuthenticationService():
             username,
             self.context.session.client_info['address'],
         ))
+
+        # Allow worker to perform operations as root before demoting
+        self.get_provider().prepare_environment(username)
+
         if demote:
             uid = self.get_provider().get_isolation_uid(username)
             gid = self.get_provider().get_isolation_gid(username)
