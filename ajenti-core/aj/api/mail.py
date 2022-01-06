@@ -1,6 +1,10 @@
+import os
 import smtplib
 import ssl
 import logging
+import base64
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
 
 import aj
 
@@ -33,11 +37,17 @@ class Mail:
             self.sendMail = lambda *args: None
 
     def _prepare_content(self, subject, recipient, content):
-        return f"""Subject: {subject}
-From: {self.user}
-To: {recipient}
+        message = MIMEMultipart("alternative")
+        message["Subject"] = subject
+        message["From"] = self.user
+        message["To"] = recipient
 
-{content}"""
+        html = MIMEText(content['html'], "html")
+        text = MIMEText(content['plain'], "plain")
+
+        message.attach(text)
+        message.attach(html)
+        return message.as_string()
 
     def _send_starttls(self, subject, recipient, content):
         message = self._prepare_content(subject, recipient, content)
@@ -64,5 +74,26 @@ To: {recipient}
 
     def send_password_reset(self, recipient, link):
         subject = _("Password reset request from ajenti")
-        content = f"Password reset link : {link}"
+        content = {'plain':'', 'html':''}
+
+        # TODO : make it configurable
+        static_path = os.path.dirname(__file__) + '/../static'
+        html_template = static_path + '/emails/reset_email.html'
+        plain_template = static_path + '/emails/reset_email.txt'
+        logo_path = static_path + '/images/Logo.png'
+
+        with open(logo_path, "rb") as image:
+            base64_logo = base64.b64encode(image.read()).decode()
+
+        with open(plain_template, 'r') as p:
+            plain = p.read()
+            plain = plain.replace('{{RESET_LINK}}', link)
+
+        with open(html_template, 'r') as h:
+            html = h.read()
+            html = html.replace('{{BASE64_LOGO}}', base64_logo)
+            html = html.replace('{{RESET_LINK}}', link)
+
+        content['html'] = html
+        content['plain'] = plain
         self.sendMail(subject, recipient, content)
