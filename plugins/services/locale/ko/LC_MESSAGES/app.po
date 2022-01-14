@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-27 12:11+0200\n"
-"PO-Revision-Date: 2021-08-25 16:57\n"
+"POT-Creation-Date: 2022-01-06 18:10+0100\n"
+"PO-Revision-Date: 2022-01-06 17:19\n"
 "Last-Translator: \n"
 "Language-Team: Korean\n"
 "Language: ko_KR\n"
@@ -16,6 +16,14 @@ msgstr ""
 "X-Crowdin-Language: ko\n"
 "X-Crowdin-File: /2.0/services.po\n"
 "X-Crowdin-File-ID: 37\n"
+
+#: plugins/services/resources/partial/systemd_status.modal.html:8
+msgid "Close"
+msgstr ""
+
+#: plugins/services/resources/partial/index.html:43
+msgid "Disabled"
+msgstr ""
 
 #: plugins/services/resources/partial/index.html:2
 msgid "Filter services"
@@ -30,6 +38,10 @@ msgstr "관리자"
 msgid "Service"
 msgstr "서비스"
 
+#: plugins/services/resources/partial/index.html:40
+msgid "Static"
+msgstr ""
+
 #: plugins/services/main.py:26
 #: plugins/services/resources/js/controllers/index.controller.es:2
 msgid "Services"
@@ -40,11 +52,35 @@ msgid "Manage system services"
 msgstr "시스템 서비스 관리"
 
 #: plugins/services/resources/js/controllers/widget.controller.es:14
-#: plugins/services/resources/js/controllers/index.controller.es:27
+#: plugins/services/resources/js/controllers/index.controller.es:55
 msgid "Service operation failed"
 msgstr ""
 
-#: plugins/services/resources/js/controllers/index.controller.es:24
+#: plugins/services/resources/js/controllers/index.controller.es:6
+msgid "Stop service"
+msgstr ""
+
+#: plugins/services/resources/js/controllers/index.controller.es:7
+msgid "Start service"
+msgstr ""
+
+#: plugins/services/resources/js/controllers/index.controller.es:8
+msgid "Restart service"
+msgstr ""
+
+#: plugins/services/resources/js/controllers/index.controller.es:9
+msgid "Kill service"
+msgstr ""
+
+#: plugins/services/resources/js/controllers/index.controller.es:10
+msgid "Enable service"
+msgstr ""
+
+#: plugins/services/resources/js/controllers/index.controller.es:11
+msgid "Disable service"
+msgstr ""
+
+#: plugins/services/resources/js/controllers/index.controller.es:52
 msgid "Done"
 msgstr "완료"
 

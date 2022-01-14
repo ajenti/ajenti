@@ -11,7 +11,6 @@ from aj.api.http import BaseHttpHandler
 from aj.security.verifier import ClientCertificateVerificator
 from aj.util import public
 
-
 @public
 class SudoError(Exception):
     def __init__(self, message):
@@ -132,6 +131,9 @@ class OSAuthenticationProvider(AuthenticationProvider):
     def authorize(self, username, permission):
         return True
 
+    def prepare_environment(self, username):
+        pass
+
     def get_isolation_uid(self, username):
         return pwd.getpwnam(username).pw_uid
 
@@ -140,6 +142,10 @@ class OSAuthenticationProvider(AuthenticationProvider):
 
     def check_mail(self, mail):
         return False
+
+    def check_password_complexity(self,password):
+        # TODO : add password policy
+        return True
 
     def update_password(self):
         pass
@@ -192,6 +198,10 @@ class AuthenticationService():
             syslog.LOG_NOTICE | syslog.LOG_AUTH,
             f'{username} has logged in from {self.context.session.client_info["address"]}'
         )
+
+        # Allow worker to perform operations as root before demoting
+        self.get_provider().prepare_environment(username)
+
         if demote:
             uid = self.get_provider().get_isolation_uid(username)
             gid = self.get_provider().get_isolation_gid(username)

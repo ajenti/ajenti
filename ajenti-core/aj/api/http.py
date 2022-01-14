@@ -46,6 +46,13 @@ class HttpMiddleware(BaseHttpHandler):
     def handle(self, http_context):
         pass
 
+@interface
+class HttpMasterMiddleware(BaseHttpHandler):
+    def __init__(self, context):
+        self.context = context
+
+    def handle(self, http_context):
+        pass
 
 @interface
 class HttpPlugin():

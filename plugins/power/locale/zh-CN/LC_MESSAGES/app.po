@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-27 12:11+0200\n"
-"PO-Revision-Date: 2021-08-25 16:56\n"
+"PO-Revision-Date: 2022-01-06 17:18\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -132,9 +132,9 @@ msgstr ""
 
 #: plugins/power/resources/js/controllers/index.controller.es:54
 msgid "Are you sure you want to hibernate the system now?"
-msgstr ""
+msgstr "你确定要休眠吗？"
 
 #: plugins/power/resources/js/controllers/index.controller.es:58
 msgid "System is hibernating"
-msgstr ""
+msgstr "系统正在休眠"
 

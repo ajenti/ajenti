@@ -244,3 +244,19 @@ class Handler(HttpPlugin):
         if self.context.session.key in aj.sessions.keys():
             timestamp = aj.sessions[self.context.session.key]['timestamp']
         return int(timestamp + session_max_time - time())
+
+
+    @url('/api/core/check_password_complexity')
+    @endpoint(api=True, auth=False)
+    def handle_api_check_password_complexity(self, http_context):
+        """
+        Check the password complexity requirements from the auth provider before saving a new password for the password reset functionality.
+
+        :param http_context: HttpContext
+        :type http_context: HttpContext
+        :return: Error if test failed
+        :rtype: basestring
+        """
+
+        password = http_context.json_body()['password']
+        return AuthenticationService.get(self.context).get_provider().check_password_complexity(password)

@@ -60,7 +60,7 @@ Install the dependencies::
     # Debian/Ubuntu
     sudo apt-get install build-essential python3-pip python3-dev python3-lxml libffi-dev libssl-dev libjpeg-dev libpng-dev uuid-dev python3-dbus gettext
 
-    # RHEL/CentOS
+    # RHEL
     sudo dnf install gcc python3-devel python3-pip libxslt-devel libxml2-devel libffi-devel openssl-devel libjpeg-turbo-devel libpng-devel dbus-python gettext
 
     cd ajenti

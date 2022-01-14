@@ -68,7 +68,13 @@ setup(
     author_email='e@ajenti.org',
     url='https://ajenti.org/',
     packages=find_packages(),
-    package_data={"":["static/images/error.jpeg"]},
+    package_data={
+        "": [
+            "static/images/error.jpeg",
+            "static/images/Logo.png",
+            "static/emails/reset_email.html",
+            "static/emails/reset_email.txt",
+        ]},
     scripts=['ajenti-panel', 'ajenti-ssl-gen', 'ajenti-client-ssl-gen', 'ajenti-upgrade'],
     cmdclass={'install': install},
 )

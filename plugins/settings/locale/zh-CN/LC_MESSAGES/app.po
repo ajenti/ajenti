@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-21 15:48+0100\n"
-"PO-Revision-Date: 2021-08-25 16:56\n"
+"POT-Creation-Date: 2022-01-06 18:10+0100\n"
+"PO-Revision-Date: 2022-01-06 17:18\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -62,6 +62,10 @@ msgstr "启用SSL"
 msgid "Enable client authentication"
 msgstr "启用客户端身份验证"
 
+#: plugins/settings/resources/partial/index.html:222
+msgid "Enable email relay for notification"
+msgstr ""
+
 #: plugins/settings/resources/partial/index.html:204
 #: plugins/settings/resources/js/controllers/index.controller.es:77
 msgid "Generate"
@@ -94,7 +98,7 @@ msgstr "机器名称"
 
 #: plugins/settings/resources/partial/index.html:37
 msgid "Max session time"
-msgstr ""
+msgstr "最大会话时间"
 
 #: plugins/settings/resources/partial/index.html:159
 msgid "New certificate"
@@ -112,21 +116,34 @@ msgstr "尚未创建任何证书。"
 msgid "Organization"
 msgstr "组织机构"
 
+#: plugins/settings/resources/partial/index.html:234
 #: plugins/settings/resources/partial/index.html:62
 msgid "Port"
 msgstr "端口"
 
-#: plugins/settings/resources/partial/index.html:226
+#: plugins/settings/resources/partial/index.html:271
 msgid "Remove"
 msgstr "删除"
 
-#: plugins/settings/resources/partial/index.html:271
+#: plugins/settings/resources/partial/index.html:316
 msgid "Restart panel"
 msgstr "重启面板"
 
+#: plugins/settings/resources/partial/index.html:229
+msgid "SMTP host"
+msgstr ""
+
+#: plugins/settings/resources/partial/index.html:251
+msgid "SMTP password"
+msgstr ""
+
+#: plugins/settings/resources/partial/index.html:245
+msgid "SMTP user"
+msgstr ""
+
 #: plugins/settings/resources/partial/index.html:111
 msgid "SSL FQDN certificate file"
-msgstr ""
+msgstr "SSL FQDN 证书文件"
 
 #: plugins/settings/resources/partial/index.html:100
 msgid "SSL certificate file"
@@ -140,7 +157,7 @@ msgstr "SSL 客户端身份验证"
 msgid "SSL client certificates"
 msgstr "SSL 客户端证书"
 
-#: plugins/settings/resources/partial/index.html:270
+#: plugins/settings/resources/partial/index.html:315
 msgid "Save"
 msgstr "保存"
 
@@ -169,45 +186,45 @@ msgstr "这可能需要几秒钟"
 msgid "Settings"
 msgstr "设置"
 
-#: plugins/settings/resources/js/controllers/index.controller.es:39
-msgid "Could not load config"
-msgstr ""
+#: plugins/settings/resources/js/controllers/index.controller.es:40
+msgid "Could not load authentication provider list"
+msgstr "无法加载身份验证提供者列表"
 
 #: plugins/settings/resources/js/controllers/index.controller.es:43
-msgid "Could not load authentication provider list"
-msgstr ""
+msgid "Could not load config"
+msgstr "无法加载配置"
 
 #: plugins/settings/resources/js/controllers/index.controller.es:62
 #: plugins/settings/resources/js/controllers/index.controller.es:67
 msgid "Saved"
-msgstr ""
+msgstr "已保存"
 
 #: plugins/settings/resources/js/controllers/index.controller.es:63
 msgid "SSL Error"
-msgstr ""
+msgstr "SSL错误"
 
 #: plugins/settings/resources/js/controllers/index.controller.es:69
 msgid "Could not save config"
-msgstr ""
+msgstr "无法保存配置"
 
 #: plugins/settings/resources/js/controllers/index.controller.es:75
 msgid "Self-signed certificate"
-msgstr ""
+msgstr "自签名证书"
 
 #: plugins/settings/resources/js/controllers/index.controller.es:76
 msgid "Generating a new certificate will void all existing client authentication certificates!"
-msgstr ""
+msgstr "生成新的证书将使所有现有的客户端证书失效！"
 
 #: plugins/settings/resources/js/controllers/index.controller.es:81
 msgid "Please wait"
-msgstr ""
+msgstr "请稍候"
 
 #: plugins/settings/resources/js/controllers/index.controller.es:83
 msgid "Certificate successfully generated"
-msgstr ""
+msgstr "证书已成功生成"
 
 #: plugins/settings/resources/js/controllers/index.controller.es:89
 #: plugins/settings/resources/js/controllers/index.controller.es:108
 msgid "Certificate generation failed"
-msgstr ""
+msgstr "证书生成失败"
 

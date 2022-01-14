@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-27 12:11+0200\n"
-"PO-Revision-Date: 2021-08-25 16:57\n"
+"POT-Creation-Date: 2022-01-06 18:10+0100\n"
+"PO-Revision-Date: 2022-01-06 17:19\n"
 "Last-Translator: \n"
 "Language-Team: Romanian\n"
 "Language: ro_RO\n"
@@ -27,7 +27,6 @@ msgstr "Ajenti core {{ajentiVersion}}. O actualizare la {{coreUpgradeAvailable}}
 
 #: plugins/plugins/resources/partial/index.html:135
 #: plugins/plugins/resources/partial/index.html:190
-#: plugins/plugins/resources/partial/repo-plugin.html:47
 msgid "Author"
 msgstr "Autor"
 
@@ -52,10 +51,6 @@ msgstr "Nucleu"
 msgid "Downloads in the last month"
 msgstr "Descărcări în ultima lună"
 
-#: plugins/plugins/resources/partial/repo-plugin.html:39
-msgid "Downloads this month"
-msgstr "Descărcări luna aceasta"
-
 #: plugins/plugins/resources/partial/index.html:103
 msgid "Error"
 msgstr "Eroare"
@@ -69,7 +64,6 @@ msgid "Filter"
 msgstr "Filtru"
 
 #: plugins/plugins/resources/partial/index.html:142
-#: plugins/plugins/resources/partial/repo-plugin.html:55
 msgid "Homepage"
 msgstr "Pagină de start"
 
@@ -97,7 +91,6 @@ msgstr "Mesaj: <code>{{selectedInstalledPlugin.crash.message}}</code>"
 
 #: plugins/plugins/resources/partial/index.html:166
 #: plugins/plugins/resources/partial/index.html:97
-#: plugins/plugins/resources/partial/repo-plugin.html:7
 msgid "Name"
 msgstr "Nume"
 
@@ -120,10 +113,6 @@ msgstr "Acest supliment necesită aplicația binară <code>{{selectedInstalledPl
 #: plugins/plugins/resources/partial/index.html:104
 msgid "This plugin requires plugin <code>{{selectedInstalledPlugin.crash.pluginName}}</code>, which was unavailable during startup."
 msgstr "Acest supliment necesită suplimentul <code>{{selectedInstalledPlugin.crash.pluginName}}</code>, care nu a fost disponibil la pornire."
-
-#: plugins/plugins/resources/partial/repo-plugin.html:15
-msgid "Title"
-msgstr "Titlu"
 
 #: plugins/plugins/resources/partial/index.html:151
 #: plugins/plugins/resources/partial/index.html:30
@@ -150,7 +139,6 @@ msgstr "Actualizabil la {{getUpgrade(plugin).version}}"
 
 #: plugins/plugins/resources/partial/index.html:123
 #: plugins/plugins/resources/partial/index.html:172
-#: plugins/plugins/resources/partial/repo-plugin.html:23
 msgid "Version"
 msgstr "Versiune"
 

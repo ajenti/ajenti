@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-08-25 18:37+0200\n"
-"PO-Revision-Date: 2021-08-25 16:57\n"
+"PO-Revision-Date: 2022-01-06 17:19\n"
 "Last-Translator: \n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
@@ -155,7 +155,7 @@ msgstr "Удалить все элементы"
 
 #: plugins/filemanager/resources/partial/properties.html:126
 msgid "Show in Notepad"
-msgstr ""
+msgstr "Показать в блокноте"
 
 #: plugins/filemanager/resources/partial/properties.html:76
 msgid "Size"
@@ -179,7 +179,7 @@ msgstr "Загрузить"
 
 #: plugins/filemanager/resources/partial/index.html:122
 msgid "Uploading ..."
-msgstr ""
+msgstr "Загрузка ..."
 
 #: plugins/filemanager/resources/partial/properties.html:140
 msgid "User"

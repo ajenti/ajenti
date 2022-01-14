@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-27 12:10+0200\n"
-"PO-Revision-Date: 2021-08-25 16:56\n"
+"PO-Revision-Date: 2022-01-06 17:18\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -194,16 +194,16 @@ msgstr "激活/停用网络接口"
 #: plugins/network/resources/js/controllers/hosts.controller.es:20
 #: plugins/network/resources/js/controllers/dns.controller.es:11
 msgid "Saved"
-msgstr ""
+msgstr "已保存"
 
 #: plugins/network/resources/js/controllers/hosts.controller.es:22
 #: plugins/network/resources/js/controllers/dns.controller.es:13
 msgid "Could not save"
-msgstr ""
+msgstr "无法保存"
 
 #: plugins/network/resources/js/controllers/index.controller.es:10
 msgid "Static"
-msgstr ""
+msgstr "静态"
 
 #: plugins/network/resources/js/controllers/index.controller.es:11
 msgid "Auto"

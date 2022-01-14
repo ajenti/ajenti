@@ -5,6 +5,7 @@ from jadi import component
 
 import aj
 from aj.auth import AuthenticationProvider
+from aj.api.endpoint import EndpointError
 
 
 @component(AuthenticationProvider)
@@ -49,6 +50,9 @@ class UsersAuthenticationProvider(AuthenticationProvider):
     def authorize(self, username, permission):
         return aj.users.data['users'].get(username, {}).get('permissions', {}).get(permission['id'], permission['default'])
 
+    def prepare_environment(self, username):
+        pass
+
     def get_isolation_uid(self, username):
         return aj.users.data['users'][username]['uid']
 
@@ -66,6 +70,10 @@ class UsersAuthenticationProvider(AuthenticationProvider):
             if email == mail:
                 return user
         return False
+
+    def check_password_complexity(self,password):
+        # TODO : add password policy
+        return True
 
     def update_password(self, username, password):
         hash = self.hash_password(password.encode('utf-8'))

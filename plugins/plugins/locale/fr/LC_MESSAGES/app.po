@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-27 12:11+0200\n"
-"PO-Revision-Date: 2021-08-25 16:57\n"
+"POT-Creation-Date: 2022-01-06 18:10+0100\n"
+"PO-Revision-Date: 2022-01-06 17:18\n"
 "Last-Translator: \n"
 "Language-Team: French\n"
 "Language: fr_FR\n"
@@ -27,7 +27,6 @@ msgstr "Noyau Ajenti {{ajentiVersion}}. Une mise à jour vers {{coreUpgradeAvail
 
 #: plugins/plugins/resources/partial/index.html:135
 #: plugins/plugins/resources/partial/index.html:190
-#: plugins/plugins/resources/partial/repo-plugin.html:47
 msgid "Author"
 msgstr "Auteur"
 
@@ -52,10 +51,6 @@ msgstr "Noyau"
 msgid "Downloads in the last month"
 msgstr "Téléchargements lors du dernier mois"
 
-#: plugins/plugins/resources/partial/repo-plugin.html:39
-msgid "Downloads this month"
-msgstr "Téléchargements de ce mois"
-
 #: plugins/plugins/resources/partial/index.html:103
 msgid "Error"
 msgstr "Erreur"
@@ -69,7 +64,6 @@ msgid "Filter"
 msgstr "Filtre"
 
 #: plugins/plugins/resources/partial/index.html:142
-#: plugins/plugins/resources/partial/repo-plugin.html:55
 msgid "Homepage"
 msgstr "Page d'accueil"
 
@@ -97,7 +91,6 @@ msgstr "Message: <code>{{selectedInstalledPlugin.crash.message}}</code>"
 
 #: plugins/plugins/resources/partial/index.html:166
 #: plugins/plugins/resources/partial/index.html:97
-#: plugins/plugins/resources/partial/repo-plugin.html:7
 msgid "Name"
 msgstr "Nom"
 
@@ -120,10 +113,6 @@ msgstr "Cette extension nécessite l'application binaire <code>{{selectedInstall
 #: plugins/plugins/resources/partial/index.html:104
 msgid "This plugin requires plugin <code>{{selectedInstalledPlugin.crash.pluginName}}</code>, which was unavailable during startup."
 msgstr "Cette extension nécessite l'extension <code>{{selectedInstalledPlugin.crash.pluginName}}</code>, qui n'était pas disponible lors du démarrage."
-
-#: plugins/plugins/resources/partial/repo-plugin.html:15
-msgid "Title"
-msgstr "Titre"
 
 #: plugins/plugins/resources/partial/index.html:151
 #: plugins/plugins/resources/partial/index.html:30
@@ -150,7 +139,6 @@ msgstr "Mise à jour possible vers {{getUpgrade(plugin).version}}"
 
 #: plugins/plugins/resources/partial/index.html:123
 #: plugins/plugins/resources/partial/index.html:172
-#: plugins/plugins/resources/partial/repo-plugin.html:23
 msgid "Version"
 msgstr "Version"
 

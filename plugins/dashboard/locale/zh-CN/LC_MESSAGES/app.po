@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-27 12:10+0200\n"
-"PO-Revision-Date: 2021-08-25 16:56\n"
+"PO-Revision-Date: 2022-01-06 17:18\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -31,7 +31,7 @@ msgstr "5 分钟"
 
 #: plugins/dashboard/resources/partial/widgets/cpu.html:4
 msgid "Active cores"
-msgstr "活跃的核心"
+msgstr "活跃CPU核心数"
 
 #: plugins/dashboard/resources/partial/index.html:12
 msgid "Add"
@@ -76,7 +76,7 @@ msgstr "保存"
 
 #: plugins/dashboard/resources/partial/index.html:8
 msgid "Tabs"
-msgstr "标签"
+msgstr "标签页"
 
 #: plugins/dashboard/resources/partial/widgets/memory.html:4
 msgid "Total"
@@ -95,15 +95,15 @@ msgstr "仪表板"
 #: plugins/dashboard/resources/js/controllers/index.controller.es:67
 #: plugins/dashboard/resources/js/controllers/index.controller.es:93
 msgid "New name"
-msgstr ""
+msgstr "新名称"
 
 #: plugins/dashboard/resources/js/controllers/index.controller.es:82
 msgid "${$scope.userConfig.dashboard.tabs[index].name}"
-msgstr ""
+msgstr "${$scope.userConfig.dashboard.tabs[index].name}"
 
 #: plugins/dashboard/resources/js/controllers/index.controller.es:84
 msgid "Cancel"
-msgstr ""
+msgstr "取消 "
 
 #: plugins/dashboard/widgets/loadavg.py:12
 msgid "Load average"

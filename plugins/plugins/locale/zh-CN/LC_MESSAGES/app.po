@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-27 12:11+0200\n"
-"PO-Revision-Date: 2021-08-25 16:56\n"
+"POT-Creation-Date: 2022-01-06 18:10+0100\n"
+"PO-Revision-Date: 2022-01-06 17:18\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -19,21 +19,20 @@ msgstr ""
 
 #: plugins/plugins/resources/partial/index.html:14
 msgid "Ajenti core {{ajentiVersion}}, no upgrades available."
-msgstr "Ajenti 内核 {{ajentiVersion}}，没有要更新的内容。"
+msgstr "Ajenti 核心版本：{{ajentiVersion}}（最新）"
 
 #: plugins/plugins/resources/partial/index.html:20
 msgid "Ajenti core {{ajentiVersion}}. An upgrade to {{coreUpgradeAvailable}} is available."
-msgstr "Ajenti 核心 {{ajentiVersion}}。可以更新到 {{coreUpgradeAvailable}} 。"
+msgstr "Ajenti 核心版本：{{ajentiVersion}} 新版本可用：{{coreUpgradeAvailable}} "
 
 #: plugins/plugins/resources/partial/index.html:135
 #: plugins/plugins/resources/partial/index.html:190
-#: plugins/plugins/resources/partial/repo-plugin.html:47
 msgid "Author"
 msgstr "作者"
 
 #: plugins/plugins/resources/partial/index.html:47
 msgid "Available plugins"
-msgstr "可用的插件"
+msgstr "可安装"
 
 #: plugins/plugins/resources/partial/index.html:154
 #: plugins/plugins/resources/partial/index.html:206
@@ -52,24 +51,19 @@ msgstr "核心"
 msgid "Downloads in the last month"
 msgstr "上个月的下载量"
 
-#: plugins/plugins/resources/partial/repo-plugin.html:39
-msgid "Downloads this month"
-msgstr "本月下载量"
-
 #: plugins/plugins/resources/partial/index.html:103
 msgid "Error"
 msgstr "错误"
 
 #: plugins/plugins/resources/partial/index.html:114
 msgid "Exception: <code>{{selectedInstalledPlugin.crash.cls}}</code>"
-msgstr "例外: <code>{{selectedInstalledPlugin.crash.cls}}</code>"
+msgstr "异常：<code>{{selectedInstalledPlugin.crash.cls}}</code>"
 
 #: plugins/plugins/resources/partial/index.html:71
 msgid "Filter"
-msgstr "过滤器"
+msgstr "搜索"
 
 #: plugins/plugins/resources/partial/index.html:142
-#: plugins/plugins/resources/partial/repo-plugin.html:55
 msgid "Homepage"
 msgstr "主页"
 
@@ -81,11 +75,11 @@ msgstr "安装"
 
 #: plugins/plugins/resources/partial/index.html:24
 msgid "Installed plugins"
-msgstr "已安装的插件"
+msgstr "已安装"
 
 #: plugins/plugins/resources/partial/index.html:41
 msgid "Loading error"
-msgstr "加载出错"
+msgstr "加载失败"
 
 #: plugins/plugins/resources/partial/index.html:129
 msgid "Location"
@@ -93,11 +87,10 @@ msgstr "位置"
 
 #: plugins/plugins/resources/partial/index.html:117
 msgid "Message: <code>{{selectedInstalledPlugin.crash.message}}</code>"
-msgstr "信息: <code>{{selectedInstalledPlugin.crash.message}}</code>"
+msgstr "信息：<code>{{selectedInstalledPlugin.crash.message}}</code>"
 
 #: plugins/plugins/resources/partial/index.html:166
 #: plugins/plugins/resources/partial/index.html:97
-#: plugins/plugins/resources/partial/repo-plugin.html:7
 msgid "Name"
 msgstr "名称"
 
@@ -111,19 +104,15 @@ msgstr "重启面板"
 
 #: plugins/plugins/resources/partial/index.html:112
 msgid "This plugin crashed with the following error:"
-msgstr "这个插件由于以下错误崩溃:"
+msgstr "插件已崩溃！报错如下："
 
 #: plugins/plugins/resources/partial/index.html:107
 msgid "This plugin requires application binary <code>{{selectedInstalledPlugin.crash.binaryName}}</code>, which was unavailable during startup."
-msgstr "插件启动所需要的程序组件不可用 <code>{{selectedInstalledPlugin.crash.binaryName}}</code>。"
+msgstr "该插件依赖于二进制程序 <code>{{selectedInstalledPlugin.crash.binaryName}}</code>，但该程序不可用"
 
 #: plugins/plugins/resources/partial/index.html:104
 msgid "This plugin requires plugin <code>{{selectedInstalledPlugin.crash.pluginName}}</code>, which was unavailable during startup."
-msgstr "该插件启动需要的插件不可用 <code>{{selectedInstalledPlugin.crash.pluginName}}</code>。"
-
-#: plugins/plugins/resources/partial/repo-plugin.html:15
-msgid "Title"
-msgstr "标题"
+msgstr "该插件依赖于插件 <code>{{selectedInstalledPlugin.crash.pluginName}}</code>，但该插件不可用"
 
 #: plugins/plugins/resources/partial/index.html:151
 #: plugins/plugins/resources/partial/index.html:30
@@ -146,11 +135,10 @@ msgstr "更新"
 
 #: plugins/plugins/resources/partial/index.html:38
 msgid "Upgradeable to {{getUpgrade(plugin).version}}"
-msgstr "可升级到 {{getUpgrade (plugin).version}}"
+msgstr "新版本可用：{{getUpgrade(plugin).version}}"
 
 #: plugins/plugins/resources/partial/index.html:123
 #: plugins/plugins/resources/partial/index.html:172
-#: plugins/plugins/resources/partial/repo-plugin.html:23
 msgid "Version"
 msgstr "版本"
 
@@ -160,54 +148,54 @@ msgstr "插件"
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:19
 msgid "Could not load repository version for ajenti-panel."
-msgstr ""
+msgstr "无法加载 Ajenti 面板的版本"
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:56
 msgid "Could not load plugin repository"
-msgstr ""
+msgstr "无法加载插件库"
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:59
 msgid "Could not load the installed plugin list"
-msgstr ""
+msgstr "无法加载已安装的插件列表"
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:105
 msgid "All plugins updated"
-msgstr ""
+msgstr "全部插件都已更新"
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:107
 #: plugins/plugins/resources/js/controllers/index.controller.es:147
 #: plugins/plugins/resources/js/controllers/index.controller.es:183
 msgid "Done"
-msgstr ""
+msgstr "完成"
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:108
 #: plugins/plugins/resources/js/controllers/index.controller.es:147
 msgid "Installed. A panel restart is required."
-msgstr ""
+msgstr "安装完成，请重启面板"
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:109
 #: plugins/plugins/resources/js/controllers/index.controller.es:147
 #: plugins/plugins/resources/js/controllers/index.controller.es:185
 msgid "Restart now"
-msgstr ""
+msgstr "重启面板"
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:110
 #: plugins/plugins/resources/js/controllers/index.controller.es:147
 #: plugins/plugins/resources/js/controllers/index.controller.es:186
 msgid "Later"
-msgstr ""
+msgstr "稍后"
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:114
 msgid "Some plugins failed to update"
-msgstr ""
+msgstr "某些插件更新失败"
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:150
 msgid "Install failed"
-msgstr ""
+msgstr "安装失败"
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:158
 msgid "Warning"
-msgstr ""
+msgstr "警告"
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:159
 msgid "This will remove the Plugins plugin. You can reinstall it later using PIP."
@@ -215,22 +203,22 @@ msgstr ""
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:160
 msgid "Continue"
-msgstr ""
+msgstr "继续"
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:161
 #: plugins/plugins/resources/js/controllers/index.controller.es:177
 msgid "Cancel"
-msgstr ""
+msgstr "取消"
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:179
 msgid "Uninstalling"
-msgstr ""
+msgstr "正在卸载"
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:184
 msgid "Uninstalled. A panel restart is required."
-msgstr ""
+msgstr "卸载完成，请重启面板"
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:191
 msgid "Uninstall failed"
-msgstr ""
+msgstr "卸载失败"
 

@@ -32,7 +32,7 @@ Build tools require NodeJS - you can use the NodeSource repositories for quick s
     curl -sL https://deb.nodesource.com/setup_17.x | bash -
     apt-get install -y nodejs
 
-    # Using RHEL or centos, as root
+    # Using RHEL, as root
     curl -sL https://rpm.nodesource.com/setup_17.x | bash -
 
 Now, install the build tools::
@@ -42,7 +42,7 @@ Now, install the build tools::
     # Ubuntu or Debian:
     apt-get install gettext
 
-    # RHEL or CentOS
+    # RHEL
     dnf install gettext
 
 
