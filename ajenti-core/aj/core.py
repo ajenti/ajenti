@@ -140,7 +140,6 @@ def run(config=None, plugin_providers=None, product_name='ajenti', dev_mode=Fals
 
     gateway = GateMiddleware.get(aj.context)
     middleware_stack = HttpMasterMiddleware.all(aj.context) + [gateway]
-    print(middleware_stack)
 
     application = HttpRoot(HttpMiddlewareAggregator(middleware_stack)).dispatch
 
