@@ -75,7 +75,7 @@ class Task():
     def _worker(self, pipe=None):
         self.pipe = pipe
         setproctitle.setproctitle(
-            f'{sys.argv[0]} task {self.__class.__name__} #{os.getpid():d}'
+            f'{sys.argv[0]} task {self.__class__.__name__} #{os.getpid():d}'
         )
         set_log_params(tag='task')
         init_log_forwarding(self.send_log_event)
