@@ -55,6 +55,7 @@ class BaseConfig():
         self.data.setdefault('email', {})
         self.data['email'].setdefault('enable', False)
         self.data['email'].setdefault('smtp', {})
+        self.data['email'].setdefault('templates', {})
         self.data['email']['smtp'].setdefault('password', None)
         self.data['email']['smtp'].setdefault('port', None)
         self.data['email']['smtp'].setdefault('server', None)

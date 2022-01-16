@@ -9,6 +9,9 @@ from email.mime.multipart import MIMEMultipart
 
 import aj
 
+DEFAULT_TEMPLATES = {
+    'reset_email': os.path.dirname(__file__) + '/../static/emails/reset_email.html',
+}
 
 class Mail:
     def __init__(self):
@@ -73,20 +76,33 @@ class Mail:
         except Exception as e:
             logging.error(f"Failed to send email : {e}")
 
-    def get_templates(self, template):
-        pass
+    def get_template(self, template):
+        """
+        Check if a template is configured in aj config files and use it.
+        If not, fallback to the entry in DEFAULT_TEMPLATES, i.e.
+        default templates in Ajenti.
 
-    def render_templates(self, template, vars=None):
+        :param template: Name of the template
+        :return: Path of template to use
+        """
+
+        template_path = aj.config.data['email']['templates'].get(template, 'default')
+
+        if template_path == 'default' or not os.path.isfile(template_path):
+            template_path = DEFAULT_TEMPLATES[template]
+
+        return template_path
+
+
+    def render_template(self, template, vars=None):
         pass
 
     def send_password_reset(self, recipient, link):
         subject = _("Password reset request from ajenti")
         content = {'plain':'', 'html':''}
 
-        # TODO : make it configurable
-        static_path = os.path.dirname(__file__) + '/../static'
-        html_template = static_path + '/emails/reset_email.html'
-        logo_path = static_path + '/images/Logo.png'
+        html_template = self.get_template('reset_email')
+        logo_path = os.path.dirname(__file__) + '/../static/images/Logo.png'
 
         with open(logo_path, "rb") as image:
             base64_logo = base64.b64encode(image.read()).decode()
