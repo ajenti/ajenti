@@ -3,6 +3,7 @@ import smtplib
 import ssl
 import logging
 import base64
+from bs4 import BeautifulSoup
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
@@ -72,6 +73,12 @@ class Mail:
         except Exception as e:
             logging.error(f"Failed to send email : {e}")
 
+    def get_templates(self, template):
+        pass
+
+    def render_templates(self, template, vars=None):
+        pass
+
     def send_password_reset(self, recipient, link):
         subject = _("Password reset request from ajenti")
         content = {'plain':'', 'html':''}
@@ -79,20 +86,25 @@ class Mail:
         # TODO : make it configurable
         static_path = os.path.dirname(__file__) + '/../static'
         html_template = static_path + '/emails/reset_email.html'
-        plain_template = static_path + '/emails/reset_email.txt'
         logo_path = static_path + '/images/Logo.png'
 
         with open(logo_path, "rb") as image:
             base64_logo = base64.b64encode(image.read()).decode()
 
-        with open(plain_template, 'r') as p:
-            plain = p.read()
-            plain = plain.replace('{{RESET_LINK}}', link)
-
         with open(html_template, 'r') as h:
             html = h.read()
             html = html.replace('{{BASE64_LOGO}}', base64_logo)
             html = html.replace('{{RESET_LINK}}', link)
+
+            soup = BeautifulSoup(html)
+
+        # Generating plain text source from html source
+        # The style tag and .link_button are removed
+        for style in soup.select('style,.link_button'):
+            style.extract()
+
+        # Only keep the text inside the tags
+        plain = ''.join(soup.findAll(text=True)).strip()
 
         content['html'] = html
         content['plain'] = plain
