@@ -112,7 +112,7 @@ class Mail:
             html = html.replace('{{BASE64_LOGO}}', base64_logo)
             html = html.replace('{{RESET_LINK}}', link)
 
-            soup = BeautifulSoup(html)
+            soup = BeautifulSoup(html, "html.parser")
 
         # Generating plain text source from html source
         # The style tag and .link_button are removed
