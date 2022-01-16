@@ -4,6 +4,7 @@ import ssl
 import logging
 import base64
 from bs4 import BeautifulSoup
+from jinja2 import Template
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
@@ -83,7 +84,9 @@ class Mail:
         default templates in Ajenti.
 
         :param template: Name of the template
+        :type template: basestring
         :return: Path of template to use
+        :rtype: basestring
         """
 
         template_path = aj.config.data['email']['templates'].get(template, 'default')
@@ -93,24 +96,24 @@ class Mail:
 
         return template_path
 
+    def render_template(self, template_path, vars=None):
+        """
+        Use Jinja2 template engine to render the HTML template.
+        Use BeautifulSoup to generate the plain text content with the html content.
 
-    def render_template(self, template, vars=None):
-        pass
+        :param template_path: Path to the HTML template
+        :type template_path: basestring
+        :param vars: All var to render with Jinja2
+        :type vars: dict
+        :return: HTML and plain text content to send per email
+        :rtype: dict
+        """
 
-    def send_password_reset(self, recipient, link):
-        subject = _("Password reset request from ajenti")
         content = {'plain':'', 'html':''}
 
-        html_template = self.get_template('reset_email')
-        logo_path = aj.config.data['logo']
-
-        with open(logo_path, "rb") as image:
-            base64_logo = base64.b64encode(image.read()).decode()
-
-        with open(html_template, 'r') as h:
-            html = h.read()
-            html = html.replace('{{BASE64_LOGO}}', base64_logo)
-            html = html.replace('{{RESET_LINK}}', link)
+        with open(template_path, 'r') as h:
+            template = Template(h.read())
+            html = template.render(vars)
 
             soup = BeautifulSoup(html, "html.parser")
 
@@ -124,4 +127,22 @@ class Mail:
 
         content['html'] = html
         content['plain'] = plain
+
+        return content
+
+    def send_password_reset(self, recipient, link):
+        subject = _("Password reset request from ajenti")
+        html_template = self.get_template('reset_email')
+        logo_path = aj.config.data['logo']
+
+        with open(logo_path, "rb") as image:
+            base64_logo = base64.b64encode(image.read()).decode()
+
+        vars = {
+            'BASE64_LOGO': base64_logo,
+            'RESET_LINK': link,
+        }
+
+        content = self.render_template(html_template, vars)
+
         self.sendMail(subject, recipient, content)
