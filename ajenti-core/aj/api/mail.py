@@ -102,7 +102,7 @@ class Mail:
         content = {'plain':'', 'html':''}
 
         html_template = self.get_template('reset_email')
-        logo_path = os.path.dirname(__file__) + '/../static/images/Logo.png'
+        logo_path = aj.config.data['logo']
 
         with open(logo_path, "rb") as image:
             base64_logo = base64.b64encode(image.read()).decode()

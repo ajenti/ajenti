@@ -34,16 +34,22 @@ class BaseConfig():
         raise NotImplementedError()
 
     def ensure_structure(self):
+        # Global options
         self.data.setdefault('name', None)
         self.data.setdefault('max_sessions', 99)
         self.data.setdefault('session_max_time', 3600)
         self.data.setdefault('language', 'en')
         self.data.setdefault('restricted_user', 'nobody')
+        self.data.setdefault('logo', os.path.dirname(__file__) + '/static/images/Logo.png')
+
+        # Authentication
         self.data.setdefault('auth', {})
         self.data['auth'].setdefault('emails', {})
         self.data['auth'].setdefault('provider', 'os')
         self.data['auth'].setdefault('user_config', 'os')
         self.data['auth'].setdefault('users_file', '/etc/ajenti/users.yml')
+
+        # SSL
         self.data.setdefault('ssl', {})
         self.data['ssl'].setdefault('enable', False)
         self.data['ssl'].setdefault('certificate', None)
@@ -52,6 +58,8 @@ class BaseConfig():
         self.data['ssl']['client_auth'].setdefault('enable', False)
         self.data['ssl']['client_auth'].setdefault('force', False)
         self.data['ssl']['client_auth'].setdefault('certificates', {})
+
+        # Emails
         self.data.setdefault('email', {})
         self.data['email'].setdefault('enable', False)
         self.data['email'].setdefault('smtp', {})
