@@ -73,7 +73,6 @@ setup(
             "static/images/error.jpeg",
             "static/images/Logo.png",
             "static/emails/reset_email.html",
-            "static/emails/reset_email.txt",
         ]},
     scripts=['ajenti-panel', 'ajenti-ssl-gen', 'ajenti-client-ssl-gen', 'ajenti-upgrade'],
     cmdclass={'install': install},

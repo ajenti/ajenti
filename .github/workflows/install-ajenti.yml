@@ -23,7 +23,8 @@ jobs:
         python-version: ${{ matrix.python-version }}
     - name: Installing Apt packages
       run: |
-        sudo apt install python3-lxml python3-dbus python3-lxml python3-pip libaugeas-dev augeas-tools
+        sudo apt update
+        sudo apt install python3-dbus python3-lxml python3-pip libaugeas-dev augeas-tools
     - name: Set up Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:

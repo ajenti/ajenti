@@ -1,5 +1,6 @@
 # core
 arrow
+bs4
 cookies
 distro
 python-socketio==5.2.1
@@ -10,6 +11,7 @@ gevent-websocket
 gipc==1.3.0
 itsdangerous
 jadi>=1.0.3
+jinja2
 lxml>=2.2.4
 passlib
 pexpect
