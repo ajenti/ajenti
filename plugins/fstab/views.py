@@ -33,14 +33,15 @@ class Handler(HttpPlugin):
         if http_context.method == 'GET':
             filesystems = []
 
-            mounted = subprocess.check_output(['df', '-P']).decode('utf-8')
+            mounted = subprocess.check_output(['df', '-PT']).decode('utf-8')
             for entry in mounted.splitlines()[1:]:
                 entry = entry.split()
 
                 device = entry[0]
-                mountpoint = entry[5] # Problem with mac os ?
-                used = int(entry[2]) * 1024
-                size = int(entry[1]) * 1024
+                fstype = entry[1]
+                mountpoint = entry[6] # Problem with mac os ?
+                used = int(entry[3]) * 1024
+                size = int(entry[2]) * 1024
                 usage = used / size
 
                 filesystems.append({
@@ -48,7 +49,8 @@ class Handler(HttpPlugin):
                     'mountpoint': mountpoint,
                     'used': used,
                     'size': size,
-                    'usage': usage
+                    'usage': usage,
+                    'fstype': fstype,
                 })
 
             return filesystems

@@ -6,6 +6,7 @@
             <table class="table">
                 <tr>
                     <th translate>Device</th>
+                    <th translate>FS Type</th>
                     <th translate>Mountpoint</th>
                     <th translate>Used</th>
                     <th translate>Size</th>
@@ -14,6 +15,7 @@
                 </tr>
                 <tr ng:repeat="entry in mounted">
                     <td>{{entry.device}}</td>
+                    <td>{{entry.fstype}}</td>
                     <td>{{entry.mountpoint}}</td>
                     <td>{{entry.used|bytes}}</td>
                     <td>{{entry.size|bytes}}</td>
