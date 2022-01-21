@@ -5,6 +5,7 @@ angular.module('ajenti.filemanager').controller('FileManagerPropertiesController
     $scope.permissionsDialogVisible = false;
 
     $scope.path = $routeParams.path;
+    $scope.parent = $scope.path.substring(0, $scope.path.lastIndexOf("/"));
     $scope.refresh = () =>
         filesystem.stat($scope.path).then((info) => {
             $scope.info = info;

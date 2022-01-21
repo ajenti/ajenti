@@ -24,8 +24,9 @@
                 </div>
                 <a ng:href="{{urlPrefix}}/view/filemanager{{item.isDir ? '' : '/properties'}}/{{item.path}}" class="list-group-main">
                     &nbsp;
-                    <i class="fa fa-fw fa-folder-o" ng:if="item.isDir"></i>
-                    <i class="fa fa-fw fa-file-o" ng:if="item.isFile"></i>
+                    <i class="fas fa-folder" ng:if="item.isDir"></i>
+                    <i class="fa fa-fw fa-file-o" ng:if="item.isFile && !item.isLink"></i>
+                    <i class="fas fa-reply" ng:if="item.isLink"></i>
                     &nbsp;
                     {{item.name}}
                     &nbsp;

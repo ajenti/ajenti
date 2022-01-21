@@ -3,26 +3,28 @@
 <div class="form-group">
     
         <table style="width:100%;" class="table">
-            <tr ng:repeat="h in status" class="text-{{h.status}}">
+            <tr>
+                <th translate>Domain</th>
+                <th translate>Port</th>
+                <th translate>Issuer</th>
+                <th translate>End</th>
+                <th translate>Status</th>
+                <th></th>
+            </tr>
+            <tr ng:repeat="h in status">
+                <th class="text-{{h.status}}" style="width:25%;">{{h.url}}</th>
+                <td>{{h.port}}</td>
+                <td>{{h.issuer}}</td>
                 <td>
+                    <span ng:show="h.notAfter.slice(0,2) == 'No'" style="font-weight:bold;" >{{h.notAfter}}</span>
+                    <span ng:show="h.notAfter.slice(0,2) != 'No'">{{h.notAfter| date:'dd MMM yyyy HH:mm:ss'}}</span>
+                    <span ng:show="h.restTime" style="font-weight:bold;" translate>({{h.restTime}} days)</span>
+                </td>
+                <td class="text-{{h.status}}">
                     <i class="fas fa-check" ng-if="h.status == 'success'" style="font-size: 20px;"></i>
                     <i class="fas fa-exclamation-triangle" ng-if="h.status == 'warning'" style="font-size: 20px;"></i>
                     <i class="fas fa-info-circle" ng-if="h.status == 'info'" style="font-size: 20px;"></i>
                     <i class="fas fa-skull-crossbones" ng-if="h.status == 'danger'" style="font-size: 20px;"></i>
-                </td>
-                <th style="width:30%;">
-                    {{h.url}}<br />
-                    {{h.issuer}}
-                </th>
-                <td>
-                    <span ng:show="h.notAfter.slice(0,2) != 'No'" translate>Start : </span><br />
-                    <span ng:show="h.notAfter.slice(0,2) != 'No'" translate>End : </span>
-                </td>
-                <td>
-                    <span ng:show="h.notAfter.slice(0,2) == 'No'" style="font-weight:bold;" >{{h.notAfter}}</span>
-                    <span ng:show="h.notAfter.slice(0,2) != 'No'">{{h.notBefore| date:'dd MMM yyyy HH:mm:ss'}}</span><br />
-                    <span ng:show="h.notAfter.slice(0,2) != 'No'">{{h.notAfter| date:'dd MMM yyyy HH:mm:ss'}}</span>
-                    <span ng:show="h.restTime" style="font-weight:bold;" translate>({{h.restTime}} days)</span>
                 </td>
                 <td width="1">
                     <button class="btn btn-default" ng:click="remove(h)" title="Remove">

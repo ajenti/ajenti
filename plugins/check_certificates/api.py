@@ -65,7 +65,7 @@ def checkOnDom(hostname, port='443'):
         'status': 'danger',
         'hostname': hostname,
         'port':port,
-        'url':hostname+":"+str(port),
+        'url':hostname,
         'notAfter': None,
         'restTime': '',
         'issuer': None,
@@ -83,7 +83,9 @@ def checkOnDom(hostname, port='443'):
         certDetails['notBefore'] = str(datetime.strptime(cert.get_notBefore().decode(),"%Y%m%d%H%M%SZ"))
 
         issuer = cert.get_issuer().get_components()
-        certDetails['issuer'] = b"/".join([b"=".join(e) for e in issuer]).decode()
+        # Issuer be like [(b'C', b'US'), (b'O', b"Let's Encrypt"), (b'CN', b'R3')]
+        # Extract Organization name
+        certDetails['issuer'] = [e[1] for e in issuer if e[0]==b'O'][0].decode()
         certDetails['subject'] = dict(cert.get_subject().get_components())
 
     except TimeoutError:

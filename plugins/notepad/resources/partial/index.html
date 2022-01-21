@@ -1,7 +1,7 @@
 <div class="row">
-    <ace-editor ng:if="readOnly" ng:model="content" options="{fullScreen: true}" ace-options="{readOnly: true}" >
+    <ace-editor ng:if="readOnly" ng:model="$parent.content" options="{fullScreen: true}" ace-options="{readOnly: true}" >
     </ace-editor>
-    <ace-editor ng:if="!readOnly" ng:model="content" options="{fullScreen: true}" ace-options="{readOnly: false}" >
+    <ace-editor ng:if="!readOnly" ng:model="$parent.content" options="{fullScreen: true}" ace-options="{readOnly: false}" >
 </div>
 
 <file-dialog
