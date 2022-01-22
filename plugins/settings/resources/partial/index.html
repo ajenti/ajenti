@@ -1,9 +1,10 @@
 <br/>
 
-<progress-spinner ng:show="!config.data"></progress-spinner>
+<div root-access>
 
-<div ng:show="config.data" root-access>
-    <div class="padded-container">
+    <progress-spinner ng:show="!config.data"></progress-spinner>
+
+    <div class="padded-container" ng:show="config.data">
         <div class="form-group" ng:show="!customization.plugins.settings.hideMachineSettings">
             <div class="row">
                 <div class="col-md-6" ng:show="!customization.plugins.settings.hideMachineName">
