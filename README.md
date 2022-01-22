@@ -127,3 +127,20 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+
+# Contributing
+
+Helpers are welcome ! There's many ways to help in Ajenti Project : 
+
+  * [Translations](https://docs.ajenti.org/en/latest/man/contributing.html)
+  * [Plugin development](https://docs.ajenti.org/en/latest/dev/intro.html)
+  * [Core development](https://docs.ajenti.org/en/latest/dev/intro-core.html)
+
+## Roadmap
+
+Actually big changes are planed and under development. A global roadmap is : 
+
+  * Migrating to [python-socketio](https://github.com/miguelgrinberg/python-socketio): almost done.
+  * Migrating from AngularJS to Angular 13: plugins core and dahsboard are almost done, but there's a lot of work to migrate all other plugins.
+  * Add a lot of new plugins: once the migration to Angular done, we can add a lot of plugins to manage services on the server ( like apache2, nginx, postfix, etc ... ).
+  * Migrating to [asyncio](https://docs.python.org/3/library/asyncio.html): concept tested, but migration not really started.
