@@ -53,7 +53,7 @@ if [ ! $OS ] ; then
 fi
 
 
-msg ":: OS: $OS:: Distro: $DISTRO"
+msg ":: OS: $OS\n:: Distro: $DISTRO"
 
 if [ "$OS" == "rhel" ] ; then
     msg ":: Installing prerequisites"
