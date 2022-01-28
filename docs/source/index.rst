@@ -77,6 +77,7 @@ Platforms
    man/install.rst
    man/run.rst
    man/security.rst
+   man/contributing.rst
 
 .. toctree::
    :maxdepth: 1

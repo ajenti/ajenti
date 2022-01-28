@@ -53,7 +53,7 @@ if [ ! $OS ] ; then
 fi
 
 
-msg ":: OS: $OS:: Distro: $DISTRO"
+msg ":: OS: $OS\n:: Distro: $DISTRO"
 
 if [ "$OS" == "rhel" ] ; then
     msg ":: Installing prerequisites"
@@ -218,6 +218,8 @@ EOF
     fi
 fi
 
+IPADDR=$(hostname -I | awk '{$1=$1};1')
+
 msg ':: Complete'
 echo
-msg 'Ajenti will be listening at HTTP port 8000\nLog in with your root password or another OS user'
+msg "Ajenti will be listening at https://$IPADDR:8000\nLog in with your root password or another OS user"
