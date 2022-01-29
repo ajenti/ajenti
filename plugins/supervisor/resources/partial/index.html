@@ -1,6 +1,6 @@
 <br/>
 
-<div class="list-group">
+<div class="list-group" root-access>
     <div ng:repeat="path in config.match('program:.*')" class="list-group-item list-group-item-large">
         <a class="list-group-btn" ng:click="config.remove(path)" title="{{'Remove'|translate}}">
             <i class="fa fa-trash-o"></i>
