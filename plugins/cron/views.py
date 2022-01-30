@@ -2,6 +2,8 @@
 Module to handle an user crontab file.
 """
 
+import os
+import pwd
 from jadi import component
 
 from aj.api.http import url, HttpPlugin
@@ -28,7 +30,7 @@ class Handler(HttpPlugin):
         """
 
         if http_context.method == 'GET':
-            user = self.context.identity
+            user = pwd.getpwuid(os.getuid()).pw_name
             crontab = CronManager.get(self.context).load_tab(user)
             return crontab.tree.to_dict()
 
