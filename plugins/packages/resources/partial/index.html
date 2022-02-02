@@ -1,10 +1,10 @@
 <br/>
 
-<input ng:model="searchQuery" ng:model-options="{debounce: 500}" type="search" autofocus class="form-control" placeholder="{{'Search packages'|translate}}" />
+<div class="list-group" root-access>
+	<input ng:model="searchQuery" ng:model-options="{debounce: 500}" type="search" autofocus class="form-control" placeholder="{{'Search packages'|translate}}" />
 
-<progress-spinner ng:hide="results != null"></progress-spinner>
+	<progress-spinner ng:hide="results != null"></progress-spinner>
 
-<div class="list-group">
     <div ng:repeat="package in results|orderBy:['name']" class="list-group-item list-group-item-large">
         <a class="list-group-btn subtle" ng:click="markForUpgrade(package)" ng:show="package.isUpgradeable" title="{{'Mark for upgrade'|translate}}">
             <i class="fa fa-arrow-up"></i>
