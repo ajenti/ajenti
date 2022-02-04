@@ -19,6 +19,7 @@ from aj.http import HttpRoot, HttpMiddlewareAggregator
 from aj.plugins import PluginManager
 from aj.wsgi import RequestHandler
 from aj.api.http import HttpMasterMiddleware
+# Dummy import to register middleware as component from HttpMasterMiddleware
 from aj.security.pwreset import PasswordResetMiddleware
 
 import gevent
