@@ -76,7 +76,7 @@ def run(config=None, plugin_providers=None, product_name='ajenti', dev_mode=Fals
     aj.config.load()
     aj.config.ensure_structure()
 
-    logging.info('Loading users from /etc/ajenti/users.myl')
+    logging.info('Loading users from /etc/ajenti/users.yml')
     aj.users = AjentiUsers(aj.config.data['auth']['users_file'])
     aj.users.load()
 
@@ -143,15 +143,14 @@ def run(config=None, plugin_providers=None, product_name='ajenti', dev_mode=Fals
     application = socketio.WSGIApp(sio, HttpRoot(HttpMiddlewareAggregator(middleware_stack)).dispatch)
     sio.register_namespace(SocketIONamespace(context=aj.context))
 
-    aj.server = pywsgi.WSGIServer(
-        listener,
-        log=open(os.devnull, 'w'),
-        application=application,
-        handler_class=RequestHandler,
-        policy_server=False,
-    )
-
     if aj.config.data['ssl']['enable'] and aj.config.data['bind']['mode'] == 'tcp':
+        aj.server = pywsgi.WSGIServer(
+            listener,
+            log=open(os.devnull, 'w'),
+            application=application,
+            handler_class=RequestHandler,
+            policy_server=False,
+        )
         aj.server.ssl_args = {'server_side': True}
         cert_path = aj.config.data['ssl']['certificate']
         if aj.config.data['ssl']['fqdn_certificate']:
@@ -178,6 +177,14 @@ def run(config=None, plugin_providers=None, product_name='ajenti', dev_mode=Fals
 
         aj.server.wrap_socket = lambda socket, **args:context.wrap_socket(sock=socket, server_side=True)
         logging.info('SSL enabled')
+    else:
+        # No policy_server argument for http
+        aj.server = pywsgi.WSGIServer(
+            listener,
+            log=open(os.devnull, 'w'),
+            application=application,
+            handler_class=RequestHandler,
+        )
 
     # auth.log
     try:
