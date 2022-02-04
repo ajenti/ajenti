@@ -100,7 +100,7 @@ Python3 modules
 
 List all modules from Ajenti::
 
-    sudo pip3 list | aj
+    sudo pip3 list | grep aj
 
 The result should be something like ( eventually more or less plugins )::
 
