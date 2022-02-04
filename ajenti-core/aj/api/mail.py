@@ -9,6 +9,11 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
 import aj
+from aj.config import SmtpConfig
+
+aj.smtp_config = SmtpConfig()
+aj.smtp_config.load()
+aj.smtp_config.ensure_structure()
 
 DEFAULT_TEMPLATES = {
     'reset_email': os.path.dirname(__file__) + '/../static/emails/reset_email.html',
@@ -20,17 +25,15 @@ class Mail:
 
         if self.enabled:
             try:
-                self.server = aj.config.data['email']['smtp']['server']
-                self.ssl = aj.config.data['email']['smtp']['port']
-                self.user = aj.config.data['email']['smtp']['user']
-                self.password = aj.config.data['email']['smtp']['password']
+                self.server = aj.smtp_config.data['smtp']['server']
+                self.ssl = aj.smtp_config.data['smtp']['port']
+                self.user = aj.smtp_config.data['smtp']['user']
                 logging.info("Notifications successfully initialized")
             except KeyError:
                 logging.error("Failed to initialize notification system, please verify your smtp settings.")
                 self.server = None
                 self.ssl = None
                 self.user = None
-                self.password = None
 
             if self.ssl == "ssl":
                 self.sendMail = self._send_ssl
@@ -61,7 +64,7 @@ class Mail:
             context = ssl.create_default_context()
             with smtplib.SMTP(self.server, 587) as server:
                 server.starttls(context=context)
-                server.login(self.user, self.password)
+                server.login(self.user, aj.smtp_config.get_smtp_password())
                 server.sendmail(self.user, recipient, message)
         except Exception as e:
             logging.error(f"Failed to send email : {e}")
@@ -72,7 +75,7 @@ class Mail:
         try:
             context = ssl.create_default_context()
             with smtplib.SMTP_SSL(self.server, 465, context=context) as server:
-                server.login(self.user, self.password)
+                server.login(self.user, aj.smtp_config.get_smtp_password())
                 server.sendmail(self.user, recipient, message)
         except Exception as e:
             logging.error(f"Failed to send email : {e}")
