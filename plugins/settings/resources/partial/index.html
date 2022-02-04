@@ -3,312 +3,322 @@
 <div root-access>
 
     <progress-spinner ng:show="!config.data"></progress-spinner>
+    <uib:tabset ng:show="config.data">
+        <uib:tab heading="{{'General' | translate}}">
+            <br />
 
-    <div class="padded-container" ng:show="config.data">
-        <div class="form-group" ng:show="!customization.plugins.settings.hideMachineSettings">
-            <div class="row">
-                <div class="col-md-6" ng:show="!customization.plugins.settings.hideMachineName">
-                    <label translate>Machine name</label>
-                    <div>
-                        <input ng:model="config.data.name" type="text" class="form-control" />
+            <div class="form-group" ng:show="!customization.plugins.settings.hideMachineSettings">
+                <div class="row">
+                    <div class="col-md-6" ng:show="!customization.plugins.settings.hideMachineName">
+                        <label translate>Machine name</label>
+                        <div>
+                            <input ng:model="config.data.name" type="text" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="col-md-6" ng:show="!customization.plugins.settings.hideMachineColor">
+                        <label translate>Color tag</label>
+                        <div>
+                            <div class="btn-group">
+                                <a ng:model="config.data.color" uib-btn-radio="x" ng:repeat="x in availableColors" class="btn btn-default btn-color-selector-{{x}}">
+                                    &nbsp;
+                                </a>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-6" ng:show="!customization.plugins.settings.hideMachineColor">
-                    <label translate>Color tag</label>
-                    <div>
-                        <div class="btn-group">
-                            <a ng:model="config.data.color" uib-btn-radio="x" ng:repeat="x in availableColors" class="btn btn-default btn-color-selector-{{x}}">
-                                &nbsp;
+            </div>
+
+            <div class="form-group" ng:show="!customization.plugins.settings.hideLanguageSettings">
+                <label translate>Language</label>
+                <div>
+                    <select ng:model="config.data.language" ng:options="x as x for x in languages" class="form-control"></select>
+                </div>
+            </div>
+
+
+            <hr ng:show="!customization.plugins.settings.hideMachineSettings" />
+
+            <div class="form-group" ng:show="!customization.plugins.settings.hideBindingSettings">
+                <label translate>Binding</label>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="btn-group btn-group-justified">
+                            <a ng:model="config.data.bind.mode" uib-btn-radio="'tcp'" class="btn btn-default">TCP</a>
+                            <a ng:model="config.data.bind.mode" uib-btn-radio="'unix'" class="btn btn-default">UNIX</a>
+                        </div>
+                    </div>
+                    <div class="col-sm-7">
+                        <div ng:show="config.data.bind.mode == 'tcp'" class="row">
+                            <div class="col-xs-8">
+                                <input ng:model="config.data.bind.host" type="text" placeholder="{{'Host / IP'|translate}}" class="form-control" />
+                            </div>
+                            <div class="col-xs-4">
+                                <input ng:model="config.data.bind.port" type="number" placeholder="{{'Port' | translate}}" class="form-control" />
+                            </div>
+                        </div>
+
+                        <div ng:show="config.data.bind.mode == 'unix'">
+                            <input ng:model="config.data.bind.socket" type="text" placeholder="{{'Socket path'|translate}}" class="form-control" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr ng:show="!customization.plugins.settings.hideBindingSettings" />
+        </uib:tab>
+        <uib:tab heading="{{'Security' | translate}}">
+            <br />
+
+            <div class="form-group" ng:show="!customization.plugins.settings.hideAuthSettings">
+                <label translate>Authentication provider</label>
+                <div>
+                    <select ng:model="config.data.auth.provider" ng:options="x.id as x.name for x in authenticationProviders" class="form-control"></select>
+                </div>
+            </div>
+
+            <div class="form-group" ng:show="!customization.plugins.settings.hideAuthSettings">
+                <label translate>Sudo</label>
+                <div>
+                    <span checkbox ng:model="config.data.auth.allow_sudo" text="{{'Allow sudo elevation for logged in users'|translate}}"></span>
+                </div>
+            </div>
+
+            <hr ng:show="!customization.plugins.settings.hideAuthSettings" />
+
+            <div class="form-group" ng:show="!customization.plugins.settings.hideSessionSettings">
+                <label translate>Max session time</label>
+                <div class="row">
+                    <div class="col-md-6">
+                        <input ng:model="config.data.session_max_time" class="form-control" type="number" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group" ng:show="config.data.bind.mode == 'tcp' && !customization.plugins.settings.hideSSLSettings">
+                <label>SSL</label>
+                <div>
+                    <span checkbox ng:model="config.data.ssl.enable" text="{{'Enable SSL'|translate}}"></span>
+                </div>
+            </div>
+
+            <div ng:show="config.data.bind.mode == 'tcp' && config.data.ssl.enable && !customization.plugins.settings.hideSSLSettings">
+                <div class="form-group">
+                    <label translate>SSL certificate file</label>
+                    <div class="row">
+                        <div class="col-md-8">
+                            <path-selector ng:model="config.data.ssl.certificate" type="text"></path-selector>
+                        </div>
+                        <div class="col-md-4">
+                            <a ng:click="createNewServerCertificate()" class="btn btn-default btn-block">
+                                <i class="fa fa-cog"></i> <span translate>Generate a self-signed certificate</span>
                             </a>
                         </div>
-                        <div class="clearfix"></div>
                     </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="form-group" ng:show="!customization.plugins.settings.hideLanguageSettings">
-            <label translate>Language</label>
-            <div>
-                <select ng:model="config.data.language" ng:options="x as x for x in languages" class="form-control"></select>
-            </div>
-        </div>
-
-        <div class="form-group" ng:show="!customization.plugins.settings.hideSessionSettings">
-            <label translate>Max session time</label>
-            <div class="row">
-                <div class="col-md-6">
-                    <input ng:model="config.data.session_max_time" class="form-control" type="number" />
-                </div>
-            </div>
-        </div>
-
-        <hr ng:show="!customization.plugins.settings.hideMachineSettings" />
-
-        <div class="form-group" ng:show="!customization.plugins.settings.hideBindingSettings">
-            <label translate>Binding</label>
-            <div class="row">
-                <div class="col-sm-3">
-                    <div class="btn-group btn-group-justified">
-                        <a ng:model="config.data.bind.mode" uib-btn-radio="'tcp'" class="btn btn-default">TCP</a>
-                        <a ng:model="config.data.bind.mode" uib-btn-radio="'unix'" class="btn btn-default">UNIX</a>
-                    </div>
-                </div>
-                <div class="col-sm-7">
-                    <div ng:show="config.data.bind.mode == 'tcp'" class="row">
-                        <div class="col-xs-8">
-                            <input ng:model="config.data.bind.host" type="text" placeholder="{{'Host / IP'|translate}}" class="form-control" />
+                    <label translate>SSL FQDN certificate file</label>
+                    <div class="row">
+                        <div class="col-md-8">
+                            <path-selector ng:model="config.data.ssl.fqdn_certificate" type="text"></path-selector>
                         </div>
-                        <div class="col-xs-4">
-                            <input ng:model="config.data.bind.port" type="number" placeholder="{{'Port' | translate}}" class="form-control" />
+                        <div class="col-md-4">
                         </div>
                     </div>
+                </div>
 
-                    <div ng:show="config.data.bind.mode == 'unix'">
-                        <input ng:model="config.data.bind.socket" type="text" placeholder="{{'Socket path'|translate}}" class="form-control" />
+                <hr/>
+
+                <div class="form-group" ng:show="!customization.plugins.settings.hideSSLClientAuthSettings">
+                    <label translate>SSL client authentication</label>
+                    <div>
+                        <span checkbox ng:model="config.data.ssl.client_auth.enable" text="{{'Enable client authentication'|translate}}"></span>
+                    </div>
+                    <div>
+                        <span checkbox ng:model="config.data.ssl.client_auth.force" text="{{'Deny other means of authentication'|translate}}"></span>
                     </div>
                 </div>
-            </div>
-        </div>
 
-        <hr ng:show="!customization.plugins.settings.hideBindingSettings" />
-
-        <div class="form-group" ng:show="!customization.plugins.settings.hideAuthSettings">
-            <label translate>Authentication provider</label>
-            <div>
-                <select ng:model="config.data.auth.provider" ng:options="x.id as x.name for x in authenticationProviders" class="form-control"></select>
-            </div>
-        </div>
-
-        <div class="form-group" ng:show="!customization.plugins.settings.hideAuthSettings">
-            <label translate>Sudo</label>
-            <div>
-                <span checkbox ng:model="config.data.auth.allow_sudo" text="{{'Allow sudo elevation for logged in users'|translate}}"></span>
-            </div>
-        </div>
-
-        <hr ng:show="!customization.plugins.settings.hideAuthSettings" />
-
-        <div class="form-group" ng:show="config.data.bind.mode == 'tcp' && !customization.plugins.settings.hideSSLSettings">
-            <label>SSL</label>
-            <div>
-                <span checkbox ng:model="config.data.ssl.enable" text="{{'Enable SSL'|translate}}"></span>
-            </div>
-        </div>
-
-        <div ng:show="config.data.bind.mode == 'tcp' && config.data.ssl.enable && !customization.plugins.settings.hideSSLSettings">
-            <div class="form-group">
-                <label translate>SSL certificate file</label>
-                <div class="row">
-                    <div class="col-md-8">
-                        <path-selector ng:model="config.data.ssl.certificate" type="text"></path-selector>
+                <div class="form-group" ng:show="config.data.ssl.client_auth.enable && !customization.plugins.settings.hideSSLClientAuthSettings">
+                    <label translate>SSL client certificates</label>
+                    <div class="alert alert-warning" ng:show="config.data.ssl.client_auth.certificates.length == 0">
+                        <i class="fa fa-warning"></i> <span translate>No certificates are created yet.</span>
                     </div>
-                    <div class="col-md-4">
-                        <a ng:click="createNewServerCertificate()" class="btn btn-default btn-block">
-                            <i class="fa fa-cog"></i> <span translate>Generate a self-signed certificate</span>
-                        </a>
-                    </div>
-                </div>
-                <label translate>SSL FQDN certificate file</label>
-                <div class="row">
-                    <div class="col-md-8">
-                        <path-selector ng:model="config.data.ssl.fqdn_certificate" type="text"></path-selector>
-                    </div>
-                    <div class="col-md-4">
-                    </div>
-                </div>
-            </div>
-
-            <hr/>
-
-            <div class="form-group" ng:show="!customization.plugins.settings.hideSSLClientAuthSettings">
-                <label translate>SSL client authentication</label>
-                <div>
-                    <span checkbox ng:model="config.data.ssl.client_auth.enable" text="{{'Enable client authentication'|translate}}"></span>
-                </div>
-                <div>
-                    <span checkbox ng:model="config.data.ssl.client_auth.force" text="{{'Deny other means of authentication'|translate}}"></span>
-                </div>
-            </div>
-
-            <div class="form-group" ng:show="config.data.ssl.client_auth.enable && !customization.plugins.settings.hideSSLClientAuthSettings">
-                <label translate>SSL client certificates</label>
-                <div class="alert alert-warning" ng:show="config.data.ssl.client_auth.certificates.length == 0">
-                    <i class="fa fa-warning"></i> <span translate>No certificates are created yet.</span>
-                </div>
-                <div>
-                    <div class="list-group">
-                        <div ng:repeat="certificate in config.data.ssl.client_auth.certificates" class="list-group-item list-group-item-large">
-                            <a class="list-group-btn" ng:click="config.data.ssl.client_auth.certificates.splice($index, 1)" title="Revoke">
-                                <i class="fa fa-trash-o"></i>
-                            </a>
-                            <div class="list-group-main">
-                                <div class="list-group-icon">
-                                    <i class="fa fa-key"></i>
+                    <div>
+                        <div class="list-group">
+                            <div ng:repeat="certificate in config.data.ssl.client_auth.certificates" class="list-group-item list-group-item-large">
+                                <a class="list-group-btn" ng:click="config.data.ssl.client_auth.certificates.splice($index, 1)" title="Revoke">
+                                    <i class="fa fa-trash-o"></i>
+                                </a>
+                                <div class="list-group-main">
+                                    <div class="list-group-icon">
+                                        <i class="fa fa-key"></i>
+                                    </div>
+                                    <h4 class="list-group-item-heading">
+                                        {{certificate.user}}
+                                    </h4>
+                                    <p class="list-group-item-text">
+                                        <code class="ellipsis">{{certificate.digest}}</code>
+                                    </p>
                                 </div>
-                                <h4 class="list-group-item-heading">
-                                    {{certificate.user}}
-                                </h4>
-                                <p class="list-group-item-text">
-                                    <code class="ellipsis">{{certificate.digest}}</code>
-                                </p>
                             </div>
                         </div>
                     </div>
-                </div>
-                <a ng:click="newClientCertificateDialogVisible = true" class="btn btn-default">
-                    <i class="fa fa-plus"></i> <span translate>New certificate</span>
-                </a>
+                    <a ng:click="newClientCertificateDialogVisible = true" class="btn btn-default">
+                        <i class="fa fa-plus"></i> <span translate>New certificate</span>
+                    </a>
 
-                <dialog ng:show="newClientCertificateDialogVisible">
-                    <div class="modal-header">
-                        <h4 translate>New client certificate</h4>
-                    </div>
-                    <div class="modal-body" ng:show="newClientCertificate.generating">
-                        <div class="text-center">
-                            <progress-spinner></progress-spinner>
-                            <h4 translate>Generating certificate</h4>
-                            <div translate>This might take a few seconds</div>
+                    <dialog ng:show="newClientCertificateDialogVisible">
+                        <div class="modal-header">
+                            <h4 translate>New client certificate</h4>
                         </div>
-                    </div>
-                    <div class="modal-body" ng:show="newClientCertificate.generated">
-                        <div class="text-center">
-                            <a download="{{newClientCertificate.user}}.p12" href="{{newClientCertificate.url}}" class="btn btn-primary">
-                                <i class="fa fa-download"></i> <span translate>Download certificate</span>
+                        <div class="modal-body" ng:show="newClientCertificate.generating">
+                            <div class="text-center">
+                                <progress-spinner></progress-spinner>
+                                <h4 translate>Generating certificate</h4>
+                                <div translate>This might take a few seconds</div>
+                            </div>
+                        </div>
+                        <div class="modal-body" ng:show="newClientCertificate.generated">
+                            <div class="text-center">
+                                <a download="{{newClientCertificate.user}}.p12" href="{{newClientCertificate.url}}" class="btn btn-primary">
+                                    <i class="fa fa-download"></i> <span translate>Download certificate</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="modal-body scrollable" ng:show="!newClientCertificate.generating && !newClientCertificate.generated">
+                            <div class="form-group">
+                                <label translate>Login as</label>
+                                <select ng:model="newClientCertificate.user" ng:options="x.name as x.name for x in availableUsers|orderBy:'name'" class="form-control"></select>
+                            </div>
+                            <div class="form-group">
+                                <label translate>Country</label>
+                                <input ng:model="newClientCertificate.c" class="form-control" type="text" />
+                            </div>
+                            <div class="form-group">
+                                <label translate>State</label>
+                                <input ng:model="newClientCertificate.st" class="form-control" type="text" />
+                            </div>
+                            <div class="form-group">
+                                <label translate>Organization</label>
+                                <input ng:model="newClientCertificate.o" class="form-control" type="text" />
+                            </div>
+                            <div class="form-group">
+                                <label translate>Common name</label>
+                                <input ng:model="newClientCertificate.cn" class="form-control" type="text" />
+                            </div>
+                        </div>
+                        <div class="modal-footer" ng:show="!newClientCertificate.generated">
+                            <div ng:hide="newClientCertificate.generating">
+                                <a ng:click="generateClientCertificate()" class="btn btn-default btn-flat" translate>Generate</a>
+                                <a ng:click="$parent.newClientCertificateDialogVisible = false" class="btn btn-default btn-flat" translate>Cancel</a>
+                            </div>
+                        </div>
+                        <div class="modal-footer" ng:show="newClientCertificate.generated">
+                            <a ng:click="save(); $parent.newClientCertificateDialogVisible = false; newClientCertificate.generated = false" class="btn btn-default btn-flat" translate>
+                                Save and Close
+                            </a>
+                        </div>
+                    </dialog>
+                </div>
+            </div>
+
+            <hr ng:show="!customization.plugins.settings.hideSSLSettings" />
+        </uib:tab>
+        <uib:tab heading="{{'Smtp relay' | translate}}">
+            <br />
+
+            <div class="form-group" ng:show="!customization.plugins.settings.hideEmailSettings">
+                <label>Email relay</label>
+                <div>
+                    <span checkbox ng:model="config.data.email.enable" text="{{'Enable email relay for notification'|translate}}"></span>
+                </div>
+            </div>
+
+            <div class="form-group" ng:show="config.data.email.enable && !customization.plugins.settings.hideEmailSmtpSettings">
+                <div class="form-row">
+                    <div class="col-md-6" ng:show="!customization.plugins.settings.hideEmailSmtpSettings">
+                        <label translate>SMTP host</label>
+                        <div>
+                            <input ng:model="config.data.email.smtp.server" type="text" class="form-control" />
+                        </div>
+                        <br />
+                        <label translate>Port</label>
+                        <div class="btn-group btn-group-justified">
+                            <a ng:model="config.data.email.smtp.port" uib-btn-radio="'starttls'" class="btn btn-default">
+                                TLS ( port 587 )
+                            </a>
+                            <a ng:model="config.data.email.smtp.port" uib-btn-radio="'ssl'" class="btn btn-default">
+                                SSL ( port 465 )
                             </a>
                         </div>
                     </div>
-                    <div class="modal-body scrollable" ng:show="!newClientCertificate.generating && !newClientCertificate.generated">
-                        <div class="form-group">
-                            <label translate>Login as</label>
-                            <select ng:model="newClientCertificate.user" ng:options="x.name as x.name for x in availableUsers|orderBy:'name'" class="form-control"></select>
+                    <div class="col-md-6" ng:show="!customization.plugins.settings.hideEmailSmtpSettings">
+                        <label translate>SMTP user</label>
+                        <div>
+                            <input ng:model="config.data.email.smtp.user" type="text" class="form-control" />
+                        </div
+                        >
+                        <br />
+                        <label translate>SMTP password</label>
+                        <div ng:show="!showSMTPPassword" class="form-group has-feedback">
+                            <input ng:model="config.data.email.smtp.password" type="password" class="form-control" />
+                            <span ng:show="!showSMTPPassword" ng:click="toggleShowSMTPPassword()" class="fas fa-eye form-control-feedback" style="cursor: pointer; pointer-events: all; line-height:34px;"></span>
                         </div>
-                        <div class="form-group">
-                            <label translate>Country</label>
-                            <input ng:model="newClientCertificate.c" class="form-control" type="text" />
-                        </div>
-                        <div class="form-group">
-                            <label translate>State</label>
-                            <input ng:model="newClientCertificate.st" class="form-control" type="text" />
-                        </div>
-                        <div class="form-group">
-                            <label translate>Organization</label>
-                            <input ng:model="newClientCertificate.o" class="form-control" type="text" />
-                        </div>
-                        <div class="form-group">
-                            <label translate>Common name</label>
-                            <input ng:model="newClientCertificate.cn" class="form-control" type="text" />
+                        <div ng:show="showSMTPPassword" class="form-group has-feedback">
+                            <input ng:model="config.data.email.smtp.password" type="text" class="form-control" />
+                            <span ng:show="showSMTPPassword" ng:click="toggleShowSMTPPassword()" class="fas fa-eye-slash form-control-feedback" style="cursor: pointer; pointer-events: all; line-height:34px;"></span>
                         </div>
                     </div>
-                    <div class="modal-footer" ng:show="!newClientCertificate.generated">
-                        <div ng:hide="newClientCertificate.generating">
-                            <a ng:click="generateClientCertificate()" class="btn btn-default btn-flat" translate>Generate</a>
-                            <a ng:click="$parent.newClientCertificateDialogVisible = false" class="btn btn-default btn-flat" translate>Cancel</a>
-                        </div>
-                    </div>
-                    <div class="modal-footer" ng:show="newClientCertificate.generated">
-                        <a ng:click="save(); $parent.newClientCertificateDialogVisible = false; newClientCertificate.generated = false" class="btn btn-default btn-flat" translate>
-                            Save and Close
+                </div>
+            </div>
+
+            <!--div class="form-group">
+                <label translate>E-mail authentication</label>
+                <div class="alert alert-warning" ng:show="keys(config.data.auth.emails).length == 0">
+                    <i class="fa fa-warning"></i> <span translate>No e-mail addresses added yet.</span>
+                </div>
+                <div class="list-group">
+                    <div ng:repeat="(email, username) in config.data.auth.emails" class="list-group-item list-group-item-large">
+                        <a class="list-group-btn" ng:click="removeEmail(email)" title="{{'Remove'|translate}}">
+                            <i class="fa fa-trash-o"></i>
                         </a>
+                        <div class="list-group-main">
+                            <div class="list-group-icon">
+                                <i class="fa fa-envelope"></i>
+                            </div>
+                            <h4 class="list-group-item-heading">
+                                {{email}}
+                            </h4>
+                            <p class="list-group-item-text">
+                                <i class="fa fa-user"></i> {{username}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <a ng:click="newEmailDialogVisible = true" class="btn btn-default">
+                    <i class="fa fa-plus"></i> <span translate>New address</span>
+                </a>
+                <dialog ng:show="newEmailDialogVisible">
+                    <div class="modal-header">
+                        <h4 translate>New e-mail address</h4>
+                    </div>
+                    <div class="modal-body" ng:form="form">
+                        <div class="form-group">
+                            <label translate>E-mail address</label>
+                            <input ng:model="newEmailAddress" required class="form-control" type="email" />
+                        </div>
+                        <div class="form-group">
+                            <label translate>User to log in</label>
+                            <select ng:model="newEmailUsername" required ng:options="x.name as x.name for x in availableUsers|orderBy:'name'" class="form-control"></select>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <a ng:click="addEmail(newEmailAddress, newEmailUsername)" ng:disabled="!form.$valid" class="btn btn-default btn-flat" translate>Add</a>
+                        <a ng:click="$parent.newEmailDialogVisible = false" class="btn btn-default btn-flat" translate>Cancel</a>
                     </div>
                 </dialog>
-            </div>
-        </div>
-
-        <hr ng:show="!customization.plugins.settings.hideSSLSettings" />
-
-        <div class="form-group" ng:show="!customization.plugins.settings.hideEmailSettings">
-            <label>Email relay</label>
-            <div>
-                <span checkbox ng:model="config.data.email.enable" text="{{'Enable email relay for notification'|translate}}"></span>
-            </div>
-        </div>
-
-        <div class="form-group" ng:show="config.data.email.enable && !customization.plugins.settings.hideEmailSmtpSettings">
-            <div class="form-row">
-                <div class="col-md-6" ng:show="!customization.plugins.settings.hideEmailSmtpSettings">
-                    <label translate>SMTP host</label>
-                    <div>
-                        <input ng:model="config.data.email.smtp.server" type="text" class="form-control" />
-                    </div>
-                    <br />
-                    <label translate>Port</label>
-                    <div class="btn-group btn-group-justified">
-                        <a ng:model="config.data.email.smtp.port" uib-btn-radio="'starttls'" class="btn btn-default">
-                            TLS ( port 587 )
-                        </a>
-                        <a ng:model="config.data.email.smtp.port" uib-btn-radio="'ssl'" class="btn btn-default">
-                            SSL ( port 465 )
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-6" ng:show="!customization.plugins.settings.hideEmailSmtpSettings">
-                    <label translate>SMTP user</label>
-                    <div>
-                        <input ng:model="config.data.email.smtp.user" type="text" class="form-control" />
-                    </div
-                    >
-                    <br />
-                    <label translate>SMTP password</label>
-                    <div ng:show="!showSMTPPassword" class="form-group has-feedback">
-                        <input ng:model="config.data.email.smtp.password" type="password" class="form-control" />
-                        <span ng:show="!showSMTPPassword" ng:click="toggleShowSMTPPassword()" class="fas fa-eye form-control-feedback" style="cursor: pointer; pointer-events: all; line-height:34px;"></span>
-                    </div>
-                    <div ng:show="showSMTPPassword" class="form-group has-feedback">
-                        <input ng:model="config.data.email.smtp.password" type="text" class="form-control" />
-                        <span ng:show="showSMTPPassword" ng:click="toggleShowSMTPPassword()" class="fas fa-eye-slash form-control-feedback" style="cursor: pointer; pointer-events: all; line-height:34px;"></span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!--div class="form-group">
-            <label translate>E-mail authentication</label>
-            <div class="alert alert-warning" ng:show="keys(config.data.auth.emails).length == 0">
-                <i class="fa fa-warning"></i> <span translate>No e-mail addresses added yet.</span>
-            </div>
-            <div class="list-group">
-                <div ng:repeat="(email, username) in config.data.auth.emails" class="list-group-item list-group-item-large">
-                    <a class="list-group-btn" ng:click="removeEmail(email)" title="{{'Remove'|translate}}">
-                        <i class="fa fa-trash-o"></i>
-                    </a>
-                    <div class="list-group-main">
-                        <div class="list-group-icon">
-                            <i class="fa fa-envelope"></i>
-                        </div>
-                        <h4 class="list-group-item-heading">
-                            {{email}}
-                        </h4>
-                        <p class="list-group-item-text">
-                            <i class="fa fa-user"></i> {{username}}
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <a ng:click="newEmailDialogVisible = true" class="btn btn-default">
-                <i class="fa fa-plus"></i> <span translate>New address</span>
-            </a>
-            <dialog ng:show="newEmailDialogVisible">
-                <div class="modal-header">
-                    <h4 translate>New e-mail address</h4>
-                </div>
-                <div class="modal-body" ng:form="form">
-                    <div class="form-group">
-                        <label translate>E-mail address</label>
-                        <input ng:model="newEmailAddress" required class="form-control" type="email" />
-                    </div>
-                    <div class="form-group">
-                        <label translate>User to log in</label>
-                        <select ng:model="newEmailUsername" required ng:options="x.name as x.name for x in availableUsers|orderBy:'name'" class="form-control"></select>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <a ng:click="addEmail(newEmailAddress, newEmailUsername)" ng:disabled="!form.$valid" class="btn btn-default btn-flat" translate>Add</a>
-                    <a ng:click="$parent.newEmailDialogVisible = false" class="btn btn-default btn-flat" translate>Cancel</a>
-                </div>
-            </dialog>
-        </div-->
-    </div>
+            </div-->
+        </uib:tab>
+    </uib:tabset>
 
     <div class="floating-toolbar-padder"></div>
 
