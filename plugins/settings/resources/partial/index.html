@@ -233,7 +233,15 @@
                 </div>
             </div>
 
+            <hr />
+
             <div class="form-group" ng:show="config.data.email.enable && !customization.plugins.settings.hideEmailSmtpSettings">
+                <div class="alert alert-info" ng:show="!smtp_config.smtp.server">
+                    <i class="fa fa-info-circle"></i>
+                    <span translate>
+                        The smtp.yml config file seems to be empty. Currently it's ont possible to send emails with this configuration.
+                    </span>
+                </div>
                 <div class="form-row">
                     <div class="col-md-6" ng:show="!customization.plugins.settings.hideEmailSmtpSettings">
                         <label translate>SMTP host</label>

@@ -95,7 +95,7 @@ class BaseConfig():
 class SmtpConfig(BaseConfig):
     def __init__(self):
         BaseConfig.__init__(self)
-        self.data = None
+        self.data = {}
         self.path = '/etc/ajenti/smtp.yml'
 
     def ensure_structure(self):
@@ -112,7 +112,6 @@ class SmtpConfig(BaseConfig):
     def load(self):
         if not os.path.exists(self.path):
             logging.error(f'Smtp credentials file "{self.path}" not found')
-            self.data = {'users': {}}
         else:
             if os.geteuid() == 0:
                 os.chmod(self.path, 384)  # 0o600
