@@ -2,7 +2,6 @@
 import getopt
 import logging
 import os
-import six
 import sys
 import yaml
 
@@ -22,7 +21,6 @@ if os.path.isfile(panel_venv):
     except Exception:
         logging.error('Unable to start ajenti virtualenv, continuing with global python.')
 
-@six.python_2_unicode_compatible
 class AjentiConfig(aj.config.BaseConfig):
     def __init__(self, path):
         aj.config.BaseConfig.__init__(self)
