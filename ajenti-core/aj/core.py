@@ -14,7 +14,7 @@ from importlib import reload
 import aj
 import aj.plugins
 # from aj.auth import AuthenticationService # Test for callback with certificate
-from aj.config import AjentiUsers
+from aj.config import AjentiUsers, SmtpConfig
 from aj.http import HttpRoot, HttpMiddlewareAggregator
 from aj.plugins import PluginManager
 from aj.wsgi import RequestHandler
@@ -80,6 +80,11 @@ def run(config=None, plugin_providers=None, product_name='ajenti', dev_mode=Fals
     logging.info('Loading users from /etc/ajenti/users.yml')
     aj.users = AjentiUsers(aj.config.data['auth']['users_file'])
     aj.users.load()
+
+    logging.info('Loading smtp config from /etc/ajenti/smtp.yml')
+    aj.smtp_config = SmtpConfig()
+    aj.smtp_config.load()
+    aj.smtp_config.ensure_structure()
 
     if aj.debug:
         logging.warning('Debug mode')

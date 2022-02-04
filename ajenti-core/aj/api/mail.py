@@ -9,11 +9,6 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
 import aj
-from aj.config import SmtpConfig
-
-aj.smtp_config = SmtpConfig()
-aj.smtp_config.load()
-aj.smtp_config.ensure_structure()
 
 DEFAULT_TEMPLATES = {
     'reset_email': os.path.dirname(__file__) + '/../static/emails/reset_email.html',
