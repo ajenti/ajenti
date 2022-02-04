@@ -62,12 +62,7 @@ class BaseConfig():
         # Emails
         self.data.setdefault('email', {})
         self.data['email'].setdefault('enable', False)
-        self.data['email'].setdefault('smtp', {})
         self.data['email'].setdefault('templates', {})
-        self.data['email']['smtp'].setdefault('password', None)
-        self.data['email']['smtp'].setdefault('port', None)
-        self.data['email']['smtp'].setdefault('server', None)
-        self.data['email']['smtp'].setdefault('user', None)
 
         # Before Ajenti 2.1.38, the users were stored in config.yml
         if 'users' in self.data['auth'].keys():
@@ -96,6 +91,46 @@ class BaseConfig():
             'language': self.data['language'],
             'name': self.data['name']
         }
+
+class SmtpConfig(BaseConfig):
+    def __init__(self):
+        BaseConfig.__init__(self)
+        self.data = None
+        self.path = '/etc/ajenti/smtp.yml'
+
+    def ensure_structure(self):
+        self.data.setdefault('smtp', {})
+        self.data['smtp'].setdefault('password', None)
+        self.data['smtp'].setdefault('port', None)
+        self.data['smtp'].setdefault('server', None)
+        self.data['smtp'].setdefault('user', None)
+
+    def get_smtp_password(self):
+       with open(self.path, 'r') as smtp:
+            return yaml.load(smtp, Loader=yaml.SafeLoader)['smtp']['password']
+
+    def load(self):
+        if not os.path.exists(self.path):
+            logging.error(f'Smtp credentials file "{self.path}" not found')
+            self.data = {'users': {}}
+        else:
+            if os.geteuid() == 0:
+                os.chmod(self.path, 384)  # 0o600
+            with open(self.path, 'r') as smtp:
+                self.data = yaml.load(smtp, Loader=yaml.SafeLoader)
+                # Prevent password leak
+                self.data['smtp']['password'] = ''
+
+    def save(self):
+        with open(self.path, 'w') as smtp:
+            smtp.write(
+                yaml.safe_dump(
+                    self.data,
+                    default_flow_style=False,
+                    encoding='utf-8',
+                    allow_unicode=True
+                ).decode('utf-8')
+            )
 
 class AjentiUsers(BaseConfig):
     def __init__(self, path):
