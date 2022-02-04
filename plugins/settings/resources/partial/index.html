@@ -223,7 +223,7 @@
 
             <hr ng:show="!customization.plugins.settings.hideSSLSettings" />
         </uib:tab>
-        <uib:tab heading="{{'Smtp relay' | translate}}">
+        <uib:tab heading="{{'Smtp relay' | translate}}" ng:click="getSmtpConfig()">
             <br />
 
             <div class="form-group" ng:show="!customization.plugins.settings.hideEmailSettings">
@@ -238,15 +238,15 @@
                     <div class="col-md-6" ng:show="!customization.plugins.settings.hideEmailSmtpSettings">
                         <label translate>SMTP host</label>
                         <div>
-                            <input ng:model="config.data.email.smtp.server" type="text" class="form-control" />
+                            <input ng:model="smtp_config.smtp.server" type="text" class="form-control" />
                         </div>
                         <br />
                         <label translate>Port</label>
                         <div class="btn-group btn-group-justified">
-                            <a ng:model="config.data.email.smtp.port" uib-btn-radio="'starttls'" class="btn btn-default">
+                            <a ng:model="smtp_config.smtp.port" uib-btn-radio="'starttls'" class="btn btn-default">
                                 TLS ( port 587 )
                             </a>
-                            <a ng:model="config.data.email.smtp.port" uib-btn-radio="'ssl'" class="btn btn-default">
+                            <a ng:model="smtp_config.smtp.port" uib-btn-radio="'ssl'" class="btn btn-default">
                                 SSL ( port 465 )
                             </a>
                         </div>
@@ -254,17 +254,17 @@
                     <div class="col-md-6" ng:show="!customization.plugins.settings.hideEmailSmtpSettings">
                         <label translate>SMTP user</label>
                         <div>
-                            <input ng:model="config.data.email.smtp.user" type="text" class="form-control" />
+                            <input ng:model="smtp_config.smtp.user" type="text" class="form-control" />
                         </div
                         >
                         <br />
                         <label translate>SMTP password</label>
                         <div ng:show="!showSMTPPassword" class="form-group has-feedback">
-                            <input ng:model="config.data.email.smtp.password" type="password" class="form-control" />
+                            <input ng:model="smtp_config.smtp.password" type="password" class="form-control" />
                             <span ng:show="!showSMTPPassword" ng:click="toggleShowSMTPPassword()" class="fas fa-eye form-control-feedback" style="cursor: pointer; pointer-events: all; line-height:34px;"></span>
                         </div>
                         <div ng:show="showSMTPPassword" class="form-group has-feedback">
-                            <input ng:model="config.data.email.smtp.password" type="text" class="form-control" />
+                            <input ng:model="smtp_config.smtp.password" type="text" class="form-control" />
                             <span ng:show="showSMTPPassword" ng:click="toggleShowSMTPPassword()" class="fas fa-eye-slash form-control-feedback" style="cursor: pointer; pointer-events: all; line-height:34px;"></span>
                         </div>
                     </div>

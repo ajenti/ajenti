@@ -32,10 +32,12 @@ class Handler(HttpPlugin):
 
         if os.getuid() != 0:
             raise EndpointReturn(403)
+
         if http_context.method == 'GET':
             with authorize('core:config:read'):
                 self.context.worker.reload_master_config()
                 return aj.config.data
+
         if http_context.method == 'POST':
             with authorize('core:config:write'):
                 data = json.loads(http_context.body.decode())
@@ -60,11 +62,38 @@ class Handler(HttpPlugin):
 
         if http_context.method == 'GET':
             return UserConfigService.get(self.context).get_provider().data
+
         if http_context.method == 'POST':
             data = json.loads(http_context.body.decode())
             config = UserConfigService.get(self.context).get_provider()
             config.data.update(data)
             config.save()
+
+    @url(r'/api/core/smtp-config')
+    @endpoint(api=True)
+    def handle_api_smtp_config(self, http_context):
+        """
+        Load (method get) and save (method post) the smtp config file without password.
+        Method GET.
+        Method POST.
+
+        :param http_context: HttpContext
+        :type http_context: HttpContext
+        :return: Content of the ajenti config file without password
+        :rtype: dict
+        """
+
+        if os.getuid() != 0:
+            raise EndpointReturn(403)
+
+        if http_context.method == 'GET':
+            with authorize('core:config:read'):
+                return aj.smtp_config.data
+
+        if http_context.method == 'POST':
+            with authorize('core:config:write'):
+                data = json.loads(http_context.body.decode())
+                aj.smtp_config.save(data)
 
     @url(r'/api/core/authentication-providers')
     @endpoint(api=True)

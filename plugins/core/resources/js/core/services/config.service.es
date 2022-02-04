@@ -10,6 +10,12 @@ angular.module('core').service('config', function($http, $q, initialConfigConten
     this.setUserConfig = (config) =>
         $http.post("/api/core/user-config", config).then(response => response.data);
 
+    this.getSmtpConfig = () =>
+        $http.get("/api/core/smtp-config").then(response => response.data);
+
+    this.setSmtpConfig = (config) =>
+        $http.post("/api/core/smtp-config", config).then(response => response.data);
+
     this.getAuthenticationProviders = (config) =>
         $http.post("/api/core/authentication-providers", config).then(response => response.data);
 

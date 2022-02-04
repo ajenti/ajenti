@@ -49,6 +49,10 @@ angular.module('ajenti.settings').controller('SettingsIndexController', ($scope,
         }
     });
 
+    $scope.getSmtpConfig = () => {
+        config.getSmtpConfig().then((smtpConfig) => $scope.smtp_config = smtpConfig);
+    };
+
     $scope.$watch('config.data.language', () => {
         if (config.data) {
             locale.setLanguage(config.data.language);
@@ -64,11 +68,16 @@ angular.module('ajenti.settings').controller('SettingsIndexController', ($scope,
         }
         else {
             config.save().then(data =>
-                notify.success(gettext('Saved'))
+                notify.success(gettext('Global config saved'))
             ).catch(() =>
-                notify.error(gettext('Could not save config')));
+                notify.error(gettext('Could not save global config')));
+        };
+
+        config.setSmtpConfig($scope.smtp_config).then(data =>
+            notify.success(gettext('Smtp config saved'))
+        ).catch(() =>
+            notify.error(gettext('Could not save smtp config')));
         }
-    };
 
     $scope.createNewServerCertificate = () =>
         messagebox.show({
