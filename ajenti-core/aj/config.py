@@ -93,6 +93,18 @@ class BaseConfig():
         }
 
 class SmtpConfig(BaseConfig):
+    """
+    Class to handle the smtp config file in order to store credentials of the email
+    server relay.
+    Config file is located at /etc/ajenti/smtp.yml and should have the following
+    structure :
+    smtp:
+      port: starttls or ssl
+      server: myserver.domain.com
+      user: user to authenticate
+      password: password of the mail user
+    """
+
     def __init__(self):
         BaseConfig.__init__(self)
         self.data = {}
@@ -135,6 +147,19 @@ class SmtpConfig(BaseConfig):
             )
 
 class AjentiUsers(BaseConfig):
+    """
+    Class to handle the users config file for the auth-user plugin.
+    Config file is located at /etc/ajenti/users.yml and should have the following
+    structure :
+    users:
+      username:
+        email: ...@...
+        password: hash
+        permissions: {}
+        uid: int
+        fs_root: file system root directory
+    """
+
     def __init__(self, path):
         BaseConfig.__init__(self)
         self.data = None
