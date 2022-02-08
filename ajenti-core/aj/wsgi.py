@@ -8,6 +8,13 @@ class RequestHandler(WebSocketHandler):
     def __init__(self, *args, **kwargs):
         WebSocketHandler.__init__(self, *args, **kwargs)
 
+    def run_application(self):
+        upgrade = self.environ.get('HTTP_UPGRADE', '')
+        if upgrade == 'websocket':
+            super(RequestHandler, self).run_application()
+        else:
+            super(WebSocketHandler, self).run_application()
+
     def get_environ(self):
         env = WebSocketHandler.get_environ(self)
         env['SSL'] = isinstance(self.socket, gevent.ssl.SSLSocket)
