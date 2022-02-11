@@ -84,10 +84,12 @@ angular.module('ajenti.settings').controller('SettingsIndexController', ($scope,
                 notify.error(gettext('Could not save global config')));
         };
 
-        config.setSmtpConfig($scope.smtp_config).then(data =>
-            notify.success(gettext('Smtp config saved'))
-        ).catch(() =>
-            notify.error(gettext('Could not save smtp config')));
+        if ($scope.smtp_config) {
+            config.setSmtpConfig($scope.smtp_config).then(data =>
+                notify.success(gettext('Smtp config saved'))
+            ).catch(() =>
+                notify.error(gettext('Could not save smtp config')));
+            }
         }
 
     $scope.createNewServerCertificate = () =>
