@@ -37,8 +37,12 @@ class Handler(HttpPlugin):
 
         key = OpenSSL.crypto.PKey()
         key.generate_key(OpenSSL.crypto.TYPE_RSA, 4096)
-        ca_key = OpenSSL.crypto.load_privatekey(OpenSSL.crypto.FILETYPE_PEM, open(aj.config.data['ssl']['certificate']).read())
-        ca_cert = OpenSSL.crypto.load_certificate(OpenSSL.crypto.FILETYPE_PEM, open(aj.config.data['ssl']['certificate']).read())
+
+        with open(aj.config.data['ssl']['certificate'], 'r') as certificate:
+            content = certificate.read()
+            ca_key = OpenSSL.crypto.load_privatekey(OpenSSL.crypto.FILETYPE_PEM, content)
+            ca_cert = OpenSSL.crypto.load_certificate(OpenSSL.crypto.FILETYPE_PEM, content)
+
         cert = OpenSSL.crypto.X509()
         cert.get_subject().countryName = data['c']
         cert.get_subject().stateOrProvinceName = data['st']
@@ -118,8 +122,10 @@ class Handler(HttpPlugin):
             data = http_context.json_body()
             certificate_path = data['certificate']
             try:
-                OpenSSL.crypto.load_certificate(OpenSSL.crypto.FILETYPE_PEM, open(certificate_path).read())
-                OpenSSL.crypto.load_privatekey(OpenSSL.crypto.FILETYPE_PEM, open(certificate_path).read())
+                with open(certificate_path, 'r') as certificate:
+                    content = certificate.read()
+                    OpenSSL.crypto.load_certificate(OpenSSL.crypto.FILETYPE_PEM, content)
+                    OpenSSL.crypto.load_privatekey(OpenSSL.crypto.FILETYPE_PEM, content)
             except Exception as e:
                 raise EndpointError(None, message=str(e))    
                 
