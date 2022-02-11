@@ -20,6 +20,17 @@ angular.module('ajenti.settings').controller('SettingsIndexController', ($scope,
         cn: ''
     };
 
+    $scope.help_certificate = gettext(
+        "This certificate is the default certificate used to create client certificate and to provide https connection.\n" +
+        "Using a Let's Encrypt certificate here will break the client certificate generator.\n" +
+        "Using a self-generated certificate is fine here."
+    );
+
+    $scope.help_fqdn_certificate = gettext(
+        "If you have a special certificate for your domain, like a Let's Encrypt certificate, put it there.\n" +
+        "If you are not sure, just use the same certificate as the one above."
+    );
+
     identity.promise.then(() => {
         $scope.newClientCertificate.o = identity.machine.name;
         passwd.list().then((data) => {

@@ -104,9 +104,10 @@
 
             <div ng:show="config.data.bind.mode == 'tcp' && config.data.ssl.enable && !customization.plugins.settings.hideSSLSettings">
                 <div class="form-group">
-                    <label translate>SSL certificate file</label>
                     <div class="row">
                         <div class="col-md-8">
+                            <i class="fas fa-question-circle pull-right" title="{{help_certificate}}"></i>
+                            <label translate>SSL certificate file</label>
                             <path-selector ng:model="config.data.ssl.certificate" type="text"></path-selector>
                         </div>
                         <div class="col-md-4">
@@ -115,9 +116,10 @@
                             </a>
                         </div>
                     </div>
-                    <label translate>SSL FQDN certificate file</label>
                     <div class="row">
                         <div class="col-md-8">
+                            <i class="fas fa-question-circle pull-right" title="{{help_fqdn_certificate}}"></i>
+                            <label translate>SSL FQDN certificate file</label>
                             <path-selector ng:model="config.data.ssl.fqdn_certificate" type="text"></path-selector>
                         </div>
                         <div class="col-md-4">
