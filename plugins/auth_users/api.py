@@ -1,11 +1,14 @@
 import logging
 import os
+import pwd
+import yaml
+import stat
 import scrypt
 from jadi import component
 
 import aj
 from aj.auth import AuthenticationProvider
-from aj.api.endpoint import EndpointError
+from aj.config import UserConfigProvider
 
 
 @component(AuthenticationProvider)
@@ -80,3 +83,38 @@ class UsersAuthenticationProvider(AuthenticationProvider):
         aj.users.data['users'][username]['password'] = hash
         aj.users.save()
         return True
+
+
+@component(UserConfigProvider)
+class UserAuthConfig(UserConfigProvider):
+    id = 'users'
+    name = 'Custom users'
+
+    def __init__(self, context):
+        UserConfigProvider.__init__(self, context)
+        os_user = pwd.getpwuid(os.getuid())[0]
+        try:
+            username = context.identity
+        except AttributeError:
+            username = None
+        _dir = os.path.expanduser(f'~{os_user}/.config/ajenti_auth_users')
+        if not os.path.exists(_dir):
+            os.makedirs(_dir)
+        self.path = os.path.join(_dir, f'userconfig_{username}.yml')
+        if os.path.exists(self.path):
+            self.load()
+        else:
+            self.data = {}
+
+    def load(self):
+        self.data = yaml.load(open(self.path), Loader=yaml.SafeLoader)
+
+    def harden(self):
+        os.chmod(self.path, stat.S_IRWXU)
+
+    def save(self):
+        with open(self.path, 'w') as f:
+            f.write(yaml.safe_dump(
+                self.data, default_flow_style=False, encoding='utf-8', allow_unicode=True
+            ).decode('utf-8'))
+        self.harden()
