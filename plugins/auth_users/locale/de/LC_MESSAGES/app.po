@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-06 18:10+0100\n"
-"PO-Revision-Date: 2022-01-06 17:19\n"
+"POT-Creation-Date: 2022-02-13 21:52+0100\n"
+"PO-Revision-Date: 2022-02-13 21:06\n"
 "Last-Translator: \n"
 "Language-Team: German\n"
 "Language: de_DE\n"
@@ -97,7 +97,7 @@ msgstr "Passwort aktualisieren"
 msgid "You have no users mapped to <b>root</b> system account. Saving this configuration will prevent any administrative access."
 msgstr "Sie haben kein Benutzer der <b>root</b> zugeordnet ist. Durch das speichern dieser Konfiguration werden alle administrativen Zugriffe verhindert."
 
-#: plugins/auth_users/api.py:18
+#: plugins/auth_users/api.py:21
 msgid "Custom users"
 msgstr "Benutzerdefinierte Benutzer"
 
@@ -108,4 +108,8 @@ msgstr "Benutzer"
 #: plugins/auth_users/resources/js/controllers/index.controller.es:91
 msgid "Password updated"
 msgstr "Passwort geändert"
+
+#: plugins/auth_users/resources/js/controllers/index.controller.es:99
+msgid "This username is already taken"
+msgstr "Dieser Benutzername ist bereits vergeben"
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-06 18:10+0100\n"
+"POT-Creation-Date: 2022-02-13 22:03+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -41,7 +41,7 @@ msgstr ""
 msgid "Mark for upgrade"
 msgstr ""
 
-#: plugins/packages/resources/partial/index.html:3
+#: plugins/packages/resources/partial/index.html:4
 msgid "Search packages"
 msgstr ""
 
@@ -61,12 +61,12 @@ msgstr ""
 msgid "pending"
 msgstr ""
 
-#: plugins/packages/main.py:25
+#: plugins/packages/main.py:27
 #: plugins/packages/resources/js/controllers/index.controller.es:2
 msgid "Packages"
 msgstr ""
 
-#: plugins/packages/main.py:39
+#: plugins/packages/main.py:41
 msgid "Install/remove packages"
 msgstr ""
 

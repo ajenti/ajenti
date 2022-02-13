@@ -2,11 +2,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-25 18:37+0200\n"
+"POT-Creation-Date: 2022-02-13 21:52+0100\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: plugins/check_certificates/resources/partial/index.html:25
+#: plugins/check_certificates/resources/partial/index.html:21
 msgid "({{h.restTime}} days)"
 msgstr ""
 
@@ -16,7 +16,7 @@ msgid ""
 "            All certificates are up to date !"
 msgstr ""
 
-#: plugins/check_certificates/resources/partial/index.html:34
+#: plugins/check_certificates/resources/partial/index.html:36
 msgid "Add host"
 msgstr ""
 
@@ -24,12 +24,24 @@ msgstr ""
 msgid "Certificates to be renewed"
 msgstr ""
 
-#: plugins/check_certificates/resources/partial/index.html:19
-msgid "End :"
+#: plugins/check_certificates/resources/partial/index.html:7
+msgid "Domain"
 msgstr ""
 
-#: plugins/check_certificates/resources/partial/index.html:18
-msgid "Start :"
+#: plugins/check_certificates/resources/partial/index.html:10
+msgid "End"
+msgstr ""
+
+#: plugins/check_certificates/resources/partial/index.html:9
+msgid "Issuer"
+msgstr ""
+
+#: plugins/check_certificates/resources/partial/index.html:8
+msgid "Port"
+msgstr ""
+
+#: plugins/check_certificates/resources/partial/index.html:11
+msgid "Status"
 msgstr ""
 
 #: plugins/check_certificates/widget.py:8

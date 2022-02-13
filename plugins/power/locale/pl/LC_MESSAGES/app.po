@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-27 12:11+0200\n"
-"PO-Revision-Date: 2022-01-06 17:19\n"
+"PO-Revision-Date: 2022-02-13 21:06\n"
 "Last-Translator: \n"
 "Language-Team: Polish\n"
 "Language: pl_PL\n"
@@ -27,11 +27,11 @@ msgstr "Baterie"
 
 #: plugins/power/resources/partial/index.html:55
 msgid "Charging"
-msgstr ""
+msgstr "Ładowanie"
 
 #: plugins/power/resources/partial/index.html:58
 msgid "Discharging at {{battery.rate}} W"
-msgstr ""
+msgstr "Rozładowanie na poziomie {{battery.rate}} W"
 
 #: plugins/power/resources/partial/index.html:22
 #: plugins/power/resources/js/controllers/index.controller.es:55
@@ -44,15 +44,15 @@ msgstr "Nie wykryto adapterów"
 
 #: plugins/power/resources/partial/index.html:35
 msgid "No batteries detected"
-msgstr ""
+msgstr "Nie wykryto baterii"
 
 #: plugins/power/resources/partial/index.html:92
 msgid "Not available"
-msgstr ""
+msgstr "Niedostępne"
 
 #: plugins/power/resources/partial/index.html:89
 msgid "Plugged in"
-msgstr ""
+msgstr "Podłączono"
 
 #: plugins/power/resources/partial/widget.html:2 plugins/power/main.py:16
 msgid "Power"
@@ -70,11 +70,11 @@ msgstr "Uruchom ponownie"
 #: plugins/power/resources/partial/index.html:19
 #: plugins/power/resources/js/controllers/index.controller.es:45
 msgid "Suspend"
-msgstr ""
+msgstr "Zawieś"
 
 #: plugins/power/resources/partial/index.html:6
 msgid "System uptime"
-msgstr ""
+msgstr "Czas pracy systemu"
 
 #: plugins/power/resources/partial/index.html:61
 msgid "{{battery.voltage}} V"
@@ -86,55 +86,55 @@ msgstr "Stan zasilania"
 
 #: plugins/power/main.py:30
 msgid "Shutdown and reboot the system"
-msgstr ""
+msgstr "Wyłącz i zrestartuj system"
 
 #: plugins/power/resources/js/controllers/index.controller.es:2
 msgid "Power management"
-msgstr ""
+msgstr "Zarządzanie zasilaniem"
 
 #: plugins/power/resources/js/controllers/index.controller.es:20
 #: plugins/power/resources/js/controllers/index.controller.es:30
 #: plugins/power/resources/js/controllers/index.controller.es:43
 #: plugins/power/resources/js/controllers/index.controller.es:53
 msgid "Warning"
-msgstr ""
+msgstr "Ostrzeżenie"
 
 #: plugins/power/resources/js/controllers/index.controller.es:21
 msgid "Are you sure you want to shutdown the system now?"
-msgstr ""
+msgstr "Czy na pewno chcesz teraz zamknąć system?"
 
 #: plugins/power/resources/js/controllers/index.controller.es:22
 msgid "Shutdown"
-msgstr ""
+msgstr "Zamknij"
 
 #: plugins/power/resources/js/controllers/index.controller.es:23
 #: plugins/power/resources/js/controllers/index.controller.es:33
 #: plugins/power/resources/js/controllers/index.controller.es:46
 #: plugins/power/resources/js/controllers/index.controller.es:56
 msgid "Cancel"
-msgstr ""
+msgstr "Anuluj"
 
 #: plugins/power/resources/js/controllers/index.controller.es:31
 msgid "Are you sure you want to reboot the system now?"
-msgstr ""
+msgstr "Czy na pewno chcesz uruchomić ponownie system teraz?"
 
 #: plugins/power/resources/js/controllers/index.controller.es:37
 msgid "System is rebooting. We will try to reconnect with it."
-msgstr ""
+msgstr "System jest restartowany. Spróbujemy się z nim połączyć ponownie."
 
 #: plugins/power/resources/js/controllers/index.controller.es:44
 msgid "Are you sure you want to suspend the system now?"
-msgstr ""
+msgstr "Czy na pewno chcesz teraz zawiesić system?"
 
 #: plugins/power/resources/js/controllers/index.controller.es:48
 msgid "System is suspending"
-msgstr ""
+msgstr "System w trakcie zawieszania"
 
 #: plugins/power/resources/js/controllers/index.controller.es:54
 msgid "Are you sure you want to hibernate the system now?"
-msgstr ""
+msgstr "Czy na pewno chcesz teraz hibernować system?"
 
 #: plugins/power/resources/js/controllers/index.controller.es:58
 msgid "System is hibernating"
-msgstr ""
+msgstr "System jest hibernowany"
 

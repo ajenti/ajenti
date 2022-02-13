@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-06 18:10+0100\n"
+"POT-Creation-Date: 2022-02-13 22:03+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -103,7 +103,7 @@ msgid ""
 "configuration will prevent any administrative access."
 msgstr ""
 
-#: plugins/auth_users/api.py:18
+#: plugins/auth_users/api.py:21
 msgid "Custom users"
 msgstr ""
 
@@ -113,4 +113,8 @@ msgstr ""
 
 #: plugins/auth_users/resources/js/controllers/index.controller.es:91
 msgid "Password updated"
+msgstr ""
+
+#: plugins/auth_users/resources/js/controllers/index.controller.es:99
+msgid "This username is already taken"
 msgstr ""

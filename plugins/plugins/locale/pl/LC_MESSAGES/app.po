@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-01-06 18:10+0100\n"
-"PO-Revision-Date: 2022-01-06 17:19\n"
+"PO-Revision-Date: 2022-02-13 21:06\n"
 "Last-Translator: \n"
 "Language-Team: Polish\n"
 "Language: pl_PL\n"
@@ -104,15 +104,15 @@ msgstr "Ponownie uruchomić panel"
 
 #: plugins/plugins/resources/partial/index.html:112
 msgid "This plugin crashed with the following error:"
-msgstr ""
+msgstr "Ta wtyczka uległa awarii z następującym błędem:"
 
 #: plugins/plugins/resources/partial/index.html:107
 msgid "This plugin requires application binary <code>{{selectedInstalledPlugin.crash.binaryName}}</code>, which was unavailable during startup."
-msgstr ""
+msgstr "Ta wtyczka wymaga danych binarnych <code>{{selectedInstalledPlugin.crash.binaryName}}</code>, które były niedostępne podczas uruchamiania."
 
 #: plugins/plugins/resources/partial/index.html:104
 msgid "This plugin requires plugin <code>{{selectedInstalledPlugin.crash.pluginName}}</code>, which was unavailable during startup."
-msgstr ""
+msgstr "Ta wtyczka wymaga wtyczki <code>{{selectedInstalledPlugin.crash.pluginName}}</code>, która była niedostępna podczas uruchamiania."
 
 #: plugins/plugins/resources/partial/index.html:151
 #: plugins/plugins/resources/partial/index.html:30
@@ -135,7 +135,7 @@ msgstr "Aktualizacje"
 
 #: plugins/plugins/resources/partial/index.html:38
 msgid "Upgradeable to {{getUpgrade(plugin).version}}"
-msgstr ""
+msgstr "Można ulepszyć do {{getUpgrade(plugin).version}}"
 
 #: plugins/plugins/resources/partial/index.html:123
 #: plugins/plugins/resources/partial/index.html:172
@@ -148,77 +148,77 @@ msgstr "Pluginy"
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:19
 msgid "Could not load repository version for ajenti-panel."
-msgstr ""
+msgstr "Nie można załadować wersji repozytorium dla panelu ajenti-panel."
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:56
 msgid "Could not load plugin repository"
-msgstr ""
+msgstr "Nie można załadować repozytorium wtyczki"
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:59
 msgid "Could not load the installed plugin list"
-msgstr ""
+msgstr "Nie można załadować listy zainstalowanych wtyczek"
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:105
 msgid "All plugins updated"
-msgstr ""
+msgstr "Wszystkie wtyczki zaktualizowane"
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:107
 #: plugins/plugins/resources/js/controllers/index.controller.es:147
 #: plugins/plugins/resources/js/controllers/index.controller.es:183
 msgid "Done"
-msgstr ""
+msgstr "Gotowe"
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:108
 #: plugins/plugins/resources/js/controllers/index.controller.es:147
 msgid "Installed. A panel restart is required."
-msgstr ""
+msgstr "Zainstalowane. Wymagane jest ponowne uruchomienie panelu."
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:109
 #: plugins/plugins/resources/js/controllers/index.controller.es:147
 #: plugins/plugins/resources/js/controllers/index.controller.es:185
 msgid "Restart now"
-msgstr ""
+msgstr "Uruchom ponownie teraz"
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:110
 #: plugins/plugins/resources/js/controllers/index.controller.es:147
 #: plugins/plugins/resources/js/controllers/index.controller.es:186
 msgid "Later"
-msgstr ""
+msgstr "Później"
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:114
 msgid "Some plugins failed to update"
-msgstr ""
+msgstr "Nie udało się zaktualizować niektórych wtyczek"
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:150
 msgid "Install failed"
-msgstr ""
+msgstr "Instalacja nieudana"
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:158
 msgid "Warning"
-msgstr ""
+msgstr "Ostrzeżenie"
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:159
 msgid "This will remove the Plugins plugin. You can reinstall it later using PIP."
-msgstr ""
+msgstr "Spowoduje to usunięcie wtyczki z Wtyczek. Możesz ją ponownie zainstalować później za pomocą PIP."
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:160
 msgid "Continue"
-msgstr ""
+msgstr "Kontynuuj"
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:161
 #: plugins/plugins/resources/js/controllers/index.controller.es:177
 msgid "Cancel"
-msgstr ""
+msgstr "Anuluj"
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:179
 msgid "Uninstalling"
-msgstr ""
+msgstr "Odinstalowywanie"
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:184
 msgid "Uninstalled. A panel restart is required."
-msgstr ""
+msgstr "Odinstalowane. Wymagane jest ponowne uruchomienie panelu."
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:191
 msgid "Uninstall failed"
-msgstr ""
+msgstr "Odinstalowanie nie powiodło się"
 

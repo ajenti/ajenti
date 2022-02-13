@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-06 18:10+0100\n"
+"POT-Creation-Date: 2022-02-13 22:03+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,6 +19,10 @@ msgstr ""
 
 #: plugins/core/resources/partial/404.html:4
 msgid "404 - Page not found"
+msgstr ""
+
+#: plugins/core/resources/partial/reset_password.html:30
+msgid "<small>The two entered passwords differ</small>"
 msgstr ""
 
 #: plugins/core/resources/partial/404.html:7
@@ -92,7 +96,7 @@ msgstr ""
 msgid "Reenter the new password"
 msgstr ""
 
-#: plugins/core/resources/partial/reset_password.html:31
+#: plugins/core/resources/partial/reset_password.html:34
 msgid "Reset password"
 msgstr ""
 

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-25 18:37+0200\n"
-"PO-Revision-Date: 2022-01-06 17:19\n"
+"POT-Creation-Date: 2022-02-13 21:52+0100\n"
+"PO-Revision-Date: 2022-02-13 21:06\n"
 "Last-Translator: \n"
 "Language-Team: Portuguese\n"
 "Language: pt_PT\n"
@@ -17,21 +17,25 @@ msgstr ""
 "X-Crowdin-File: /2.0/filemanager.po\n"
 "X-Crowdin-File-ID: 29\n"
 
+#: plugins/filemanager/resources/partial/properties.html:132
+msgid "< Back"
+msgstr ""
+
 #: plugins/filemanager/resources/partial/properties.html:49
 msgid "Access"
 msgstr "Acesso"
 
-#: plugins/filemanager/resources/partial/properties.html:164
+#: plugins/filemanager/resources/partial/properties.html:167
 msgid "All"
 msgstr "Todos"
 
-#: plugins/filemanager/resources/partial/properties.html:190
+#: plugins/filemanager/resources/partial/properties.html:193
 msgid "Apply"
 msgstr "Aplicar"
 
-#: plugins/filemanager/resources/partial/index.html:76
-#: plugins/filemanager/resources/partial/index.html:89
-#: plugins/filemanager/resources/partial/properties.html:191
+#: plugins/filemanager/resources/partial/index.html:77
+#: plugins/filemanager/resources/partial/index.html:90
+#: plugins/filemanager/resources/partial/properties.html:194
 #: plugins/filemanager/resources/js/controllers/index.controller.es:89
 msgid "Cancel"
 msgstr "Cancelar"
@@ -40,24 +44,24 @@ msgstr "Cancelar"
 msgid "Change permissions"
 msgstr "Alterar permissões"
 
-#: plugins/filemanager/resources/partial/index.html:95
+#: plugins/filemanager/resources/partial/index.html:96
 msgid "Clipboard"
 msgstr "Área de transferência"
 
-#: plugins/filemanager/resources/partial/index.html:117
+#: plugins/filemanager/resources/partial/index.html:118
 msgid "Close"
 msgstr "Fechar"
 
-#: plugins/filemanager/resources/partial/index.html:63
+#: plugins/filemanager/resources/partial/index.html:64
 msgid "Copy"
 msgstr "Copiar"
 
-#: plugins/filemanager/resources/partial/index.html:75
-#: plugins/filemanager/resources/partial/index.html:88
+#: plugins/filemanager/resources/partial/index.html:76
+#: plugins/filemanager/resources/partial/index.html:89
 msgid "Create"
 msgstr "Criar"
 
-#: plugins/filemanager/resources/partial/index.html:62
+#: plugins/filemanager/resources/partial/index.html:63
 msgid "Cut"
 msgstr "Cortar"
 
@@ -65,12 +69,12 @@ msgstr "Cortar"
 msgid "DIRECTORY"
 msgstr "DIRETÓRIO"
 
-#: plugins/filemanager/resources/partial/index.html:64
+#: plugins/filemanager/resources/partial/index.html:65
 #: plugins/filemanager/resources/js/controllers/index.controller.es:88
 msgid "Delete"
 msgstr "Eliminar"
 
-#: plugins/filemanager/resources/partial/index.html:85
+#: plugins/filemanager/resources/partial/index.html:86
 msgid "Directory name"
 msgstr "Nome do diretório"
 
@@ -82,7 +86,7 @@ msgstr "EXECUTAR"
 msgid "Edit in Notepad"
 msgstr "Editar no bloco de notas"
 
-#: plugins/filemanager/resources/partial/properties.html:176
+#: plugins/filemanager/resources/partial/properties.html:179
 msgid "Extra"
 msgstr "Extra"
 
@@ -90,7 +94,7 @@ msgstr "Extra"
 msgid "FILE"
 msgstr "ARQUIVO"
 
-#: plugins/filemanager/resources/partial/index.html:72
+#: plugins/filemanager/resources/partial/index.html:73
 msgid "File name"
 msgstr "Nome do ficheiro"
 
@@ -99,7 +103,7 @@ msgid "Full path"
 msgstr "Caminho completo"
 
 #: plugins/filemanager/resources/partial/properties.html:100
-#: plugins/filemanager/resources/partial/properties.html:152
+#: plugins/filemanager/resources/partial/properties.html:155
 msgid "Group"
 msgstr "Grupo"
 
@@ -119,13 +123,13 @@ msgstr "Modified"
 msgid "Name"
 msgstr "Nome"
 
-#: plugins/filemanager/resources/partial/index.html:46
-#: plugins/filemanager/resources/partial/index.html:82
+#: plugins/filemanager/resources/partial/index.html:47
+#: plugins/filemanager/resources/partial/index.html:83
 msgid "New directory"
 msgstr "Novo diretório"
 
-#: plugins/filemanager/resources/partial/index.html:45
-#: plugins/filemanager/resources/partial/index.html:69
+#: plugins/filemanager/resources/partial/index.html:46
+#: plugins/filemanager/resources/partial/index.html:70
 msgid "New file"
 msgstr "Novo ficheiro"
 
@@ -133,11 +137,11 @@ msgstr "Novo ficheiro"
 msgid "Owner"
 msgstr "Proprietário"
 
-#: plugins/filemanager/resources/partial/index.html:50
+#: plugins/filemanager/resources/partial/index.html:51
 msgid "Paste here"
 msgstr "Colar aqui"
 
-#: plugins/filemanager/resources/partial/properties.html:135
+#: plugins/filemanager/resources/partial/properties.html:138
 msgid "Permission bits"
 msgstr "Bits de permissão"
 
@@ -145,11 +149,11 @@ msgstr "Bits de permissão"
 msgid "READ"
 msgstr "LER"
 
-#: plugins/filemanager/resources/partial/index.html:100
+#: plugins/filemanager/resources/partial/index.html:101
 msgid "Remove"
 msgstr "Remover"
 
-#: plugins/filemanager/resources/partial/index.html:116
+#: plugins/filemanager/resources/partial/index.html:117
 msgid "Remove all items"
 msgstr "Remover todos os itens"
 
@@ -161,7 +165,7 @@ msgstr ""
 msgid "Size"
 msgstr "Tamanho"
 
-#: plugins/filemanager/resources/partial/index.html:53
+#: plugins/filemanager/resources/partial/index.html:54
 msgid "Tab"
 msgstr "Separador"
 
@@ -173,15 +177,15 @@ msgstr "Tipo"
 msgid "Up one level"
 msgstr "Um nível acima"
 
-#: plugins/filemanager/resources/partial/index.html:48
+#: plugins/filemanager/resources/partial/index.html:49
 msgid "Upload"
 msgstr "Carregar (upload)"
 
-#: plugins/filemanager/resources/partial/index.html:122
+#: plugins/filemanager/resources/partial/index.html:123
 msgid "Uploading ..."
 msgstr ""
 
-#: plugins/filemanager/resources/partial/properties.html:140
+#: plugins/filemanager/resources/partial/properties.html:143
 msgid "User"
 msgstr "Utilizador"
 
@@ -189,7 +193,7 @@ msgstr "Utilizador"
 msgid "WRITE"
 msgstr "ESCREVER"
 
-#: plugins/filemanager/resources/partial/index.html:59
+#: plugins/filemanager/resources/partial/index.html:60
 msgid "items selected"
 msgstr "itens selecionados"
 
@@ -197,11 +201,11 @@ msgstr "itens selecionados"
 msgid "File Manager"
 msgstr "Gestor ficheiros"
 
-#: plugins/filemanager/resources/js/controllers/properties.controller.es:15
+#: plugins/filemanager/resources/js/controllers/properties.controller.es:16
 msgid "Could not read file information"
 msgstr ""
 
-#: plugins/filemanager/resources/js/controllers/properties.controller.es:29
+#: plugins/filemanager/resources/js/controllers/properties.controller.es:30
 msgid "File mode saved"
 msgstr ""
 

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-06 18:10+0100\n"
-"PO-Revision-Date: 2022-01-06 17:19\n"
+"POT-Creation-Date: 2022-02-13 21:52+0100\n"
+"PO-Revision-Date: 2022-02-13 21:06\n"
 "Last-Translator: \n"
 "Language-Team: Portuguese, Brazilian\n"
 "Language: pt_BR\n"
@@ -20,6 +20,10 @@ msgstr ""
 #: plugins/core/resources/partial/404.html:4
 msgid "404 - Page not found"
 msgstr "404 - Página não encontrada"
+
+#: plugins/core/resources/partial/reset_password.html:30
+msgid "<small>The two entered passwords differ</small>"
+msgstr ""
 
 #: plugins/core/resources/partial/404.html:7
 msgid "<span>\n"
@@ -61,7 +65,7 @@ msgstr "Sair"
 
 #: plugins/core/resources/partial/reset_password.html:23
 msgid "New password"
-msgstr ""
+msgstr "Nova senha"
 
 #: plugins/core/content/pages/index.html:174
 msgid "OK"
@@ -74,11 +78,11 @@ msgstr "Senha"
 
 #: plugins/core/resources/partial/reset_password.html:26
 msgid "Please confirm the new password"
-msgstr ""
+msgstr "Por favor, confirme a nova senha"
 
 #: plugins/core/resources/partial/reset_password.html:22
 msgid "Please enter the new password"
-msgstr ""
+msgstr "Digite a nova senha"
 
 #: plugins/core/content/pages/index.html:153
 #: plugins/core/resources/js/core/module.es:32
@@ -91,15 +95,15 @@ msgstr "Busca rápida"
 
 #: plugins/core/resources/partial/reset_password.html:27
 msgid "Reenter the new password"
-msgstr ""
+msgstr "Redigite a nova senha"
 
-#: plugins/core/resources/partial/reset_password.html:31
+#: plugins/core/resources/partial/reset_password.html:34
 msgid "Reset password"
-msgstr ""
+msgstr "Redefinir senha"
 
 #: plugins/core/resources/partial/reset_password_send.html:17
 msgid "Send instructions to reset password"
-msgstr ""
+msgstr "Enviar instruções para redefinir a senha"
 
 #: plugins/core/content/pages/index.html:101
 msgid "Session time : {{ counter[0] }}:{{ counter[1] }}:{{ counter[2] }}"
@@ -107,7 +111,7 @@ msgstr "Tempo de sessão : {{ counter[0] }}:{{ counter[1] }}:{{ counter[2] }}"
 
 #: plugins/core/resources/partial/reset_password.html:10
 msgid "The used link is not valid or expired."
-msgstr ""
+msgstr "O link utilizado não é válido ou expirou."
 
 #: plugins/core/resources/partial/login.html:19
 msgid "Username"
@@ -143,7 +147,7 @@ msgstr "Escrever arquivo de configuração"
 
 #: plugins/core/views/api.py:132
 msgid "Authorization failed"
-msgstr "A autorização falhou"
+msgstr "Falha na autorização"
 
 #: plugins/core/resources/js/core/interceptors.es:5
 msgid "Security error"
@@ -163,7 +167,7 @@ msgstr "Sua sessão expirou"
 
 #: plugins/core/resources/js/core/module.es:32
 msgid "Unhandled error occurred"
-msgstr "Ocorreu um erro não tratado"
+msgstr "Ocorreu um erro desconhecido"
 
 #: plugins/core/resources/js/core/filters.es:7
 msgid "0 bytes"
@@ -247,21 +251,21 @@ msgstr "Concluído"
 
 #: plugins/core/resources/js/core/controllers/login.controller.es:29
 msgid "Authentication failed"
-msgstr "Autenticação falhou"
+msgstr "Falha na autenticação"
 
 #: plugins/core/resources/js/core/controllers/pwreset.controller.es:6
 msgid "If the email exists, the user will get a reset email"
-msgstr ""
+msgstr "Se o e-mail existir, o usuário receberá um e-mail de redefinição"
 
 #: plugins/core/resources/js/core/controllers/pwreset.controller.es:31
 msgid "Password successfully changed !"
-msgstr ""
+msgstr "Senha alterada com sucesso!"
 
 #: plugins/core/resources/js/core/controllers/pwreset.controller.es:34
 msgid "An error occured while changing the password"
-msgstr ""
+msgstr "Ocorreu um erro ao alterar a senha"
 
 #: plugins/core/resources/js/core/controllers/pwreset.controller.es:37
 msgid "The password complexity does not match the system requirements : "
-msgstr ""
+msgstr "A complexidade da senha não corresponde aos requisitos do sistema: "
 

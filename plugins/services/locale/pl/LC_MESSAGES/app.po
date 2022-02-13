@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-01-06 18:10+0100\n"
-"PO-Revision-Date: 2022-01-06 17:19\n"
+"PO-Revision-Date: 2022-02-13 21:06\n"
 "Last-Translator: \n"
 "Language-Team: Polish\n"
 "Language: pl_PL\n"
@@ -19,11 +19,11 @@ msgstr ""
 
 #: plugins/services/resources/partial/systemd_status.modal.html:8
 msgid "Close"
-msgstr ""
+msgstr "Zamknij"
 
 #: plugins/services/resources/partial/index.html:43
 msgid "Disabled"
-msgstr ""
+msgstr "Wyłączone"
 
 #: plugins/services/resources/partial/index.html:2
 msgid "Filter services"
@@ -40,47 +40,47 @@ msgstr "Usługa"
 
 #: plugins/services/resources/partial/index.html:40
 msgid "Static"
-msgstr ""
+msgstr "Statyczne"
 
 #: plugins/services/main.py:26
 #: plugins/services/resources/js/controllers/index.controller.es:2
 msgid "Services"
-msgstr ""
+msgstr "Usługi"
 
 #: plugins/services/main.py:39
 msgid "Manage system services"
-msgstr ""
+msgstr "Zarządzaj usługami systemowymi"
 
 #: plugins/services/resources/js/controllers/widget.controller.es:14
 #: plugins/services/resources/js/controllers/index.controller.es:55
 msgid "Service operation failed"
-msgstr ""
+msgstr "Operacja usługi nie powiodła się"
 
 #: plugins/services/resources/js/controllers/index.controller.es:6
 msgid "Stop service"
-msgstr ""
+msgstr "Zatrzymaj usługę"
 
 #: plugins/services/resources/js/controllers/index.controller.es:7
 msgid "Start service"
-msgstr ""
+msgstr "Uruchom usługę"
 
 #: plugins/services/resources/js/controllers/index.controller.es:8
 msgid "Restart service"
-msgstr ""
+msgstr "Uruchom ponownie usługę"
 
 #: plugins/services/resources/js/controllers/index.controller.es:9
 msgid "Kill service"
-msgstr ""
+msgstr "Zabij usługę"
 
 #: plugins/services/resources/js/controllers/index.controller.es:10
 msgid "Enable service"
-msgstr ""
+msgstr "Włącz usługę"
 
 #: plugins/services/resources/js/controllers/index.controller.es:11
 msgid "Disable service"
-msgstr ""
+msgstr "Wyłącz usługę"
 
 #: plugins/services/resources/js/controllers/index.controller.es:52
 msgid "Done"
-msgstr ""
+msgstr "Gotowe"
 

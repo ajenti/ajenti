@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-25 18:37+0200\n"
-"PO-Revision-Date: 2022-01-06 17:18\n"
+"POT-Creation-Date: 2022-02-13 21:52+0100\n"
+"PO-Revision-Date: 2022-02-13 21:06\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -17,21 +17,25 @@ msgstr ""
 "X-Crowdin-File: /2.0/filemanager.po\n"
 "X-Crowdin-File-ID: 29\n"
 
+#: plugins/filemanager/resources/partial/properties.html:132
+msgid "< Back"
+msgstr ""
+
 #: plugins/filemanager/resources/partial/properties.html:49
 msgid "Access"
 msgstr "访问"
 
-#: plugins/filemanager/resources/partial/properties.html:164
+#: plugins/filemanager/resources/partial/properties.html:167
 msgid "All"
 msgstr "全部"
 
-#: plugins/filemanager/resources/partial/properties.html:190
+#: plugins/filemanager/resources/partial/properties.html:193
 msgid "Apply"
 msgstr "应用"
 
-#: plugins/filemanager/resources/partial/index.html:76
-#: plugins/filemanager/resources/partial/index.html:89
-#: plugins/filemanager/resources/partial/properties.html:191
+#: plugins/filemanager/resources/partial/index.html:77
+#: plugins/filemanager/resources/partial/index.html:90
+#: plugins/filemanager/resources/partial/properties.html:194
 #: plugins/filemanager/resources/js/controllers/index.controller.es:89
 msgid "Cancel"
 msgstr "取消 "
@@ -40,24 +44,24 @@ msgstr "取消 "
 msgid "Change permissions"
 msgstr "更改权限"
 
-#: plugins/filemanager/resources/partial/index.html:95
+#: plugins/filemanager/resources/partial/index.html:96
 msgid "Clipboard"
 msgstr "剪贴板"
 
-#: plugins/filemanager/resources/partial/index.html:117
+#: plugins/filemanager/resources/partial/index.html:118
 msgid "Close"
 msgstr "关闭"
 
-#: plugins/filemanager/resources/partial/index.html:63
+#: plugins/filemanager/resources/partial/index.html:64
 msgid "Copy"
 msgstr "拷贝"
 
-#: plugins/filemanager/resources/partial/index.html:75
-#: plugins/filemanager/resources/partial/index.html:88
+#: plugins/filemanager/resources/partial/index.html:76
+#: plugins/filemanager/resources/partial/index.html:89
 msgid "Create"
 msgstr "创建"
 
-#: plugins/filemanager/resources/partial/index.html:62
+#: plugins/filemanager/resources/partial/index.html:63
 msgid "Cut"
 msgstr "剪切"
 
@@ -65,12 +69,12 @@ msgstr "剪切"
 msgid "DIRECTORY"
 msgstr "目录"
 
-#: plugins/filemanager/resources/partial/index.html:64
+#: plugins/filemanager/resources/partial/index.html:65
 #: plugins/filemanager/resources/js/controllers/index.controller.es:88
 msgid "Delete"
 msgstr "删除"
 
-#: plugins/filemanager/resources/partial/index.html:85
+#: plugins/filemanager/resources/partial/index.html:86
 msgid "Directory name"
 msgstr "目录名称"
 
@@ -82,7 +86,7 @@ msgstr "执行"
 msgid "Edit in Notepad"
 msgstr "在记事本中编辑"
 
-#: plugins/filemanager/resources/partial/properties.html:176
+#: plugins/filemanager/resources/partial/properties.html:179
 msgid "Extra"
 msgstr "额外"
 
@@ -90,7 +94,7 @@ msgstr "额外"
 msgid "FILE"
 msgstr "文件"
 
-#: plugins/filemanager/resources/partial/index.html:72
+#: plugins/filemanager/resources/partial/index.html:73
 msgid "File name"
 msgstr "文件名称"
 
@@ -99,7 +103,7 @@ msgid "Full path"
 msgstr "完整路径"
 
 #: plugins/filemanager/resources/partial/properties.html:100
-#: plugins/filemanager/resources/partial/properties.html:152
+#: plugins/filemanager/resources/partial/properties.html:155
 msgid "Group"
 msgstr "群组"
 
@@ -119,13 +123,13 @@ msgstr "已修改"
 msgid "Name"
 msgstr "名称"
 
-#: plugins/filemanager/resources/partial/index.html:46
-#: plugins/filemanager/resources/partial/index.html:82
+#: plugins/filemanager/resources/partial/index.html:47
+#: plugins/filemanager/resources/partial/index.html:83
 msgid "New directory"
 msgstr "新目录"
 
-#: plugins/filemanager/resources/partial/index.html:45
-#: plugins/filemanager/resources/partial/index.html:69
+#: plugins/filemanager/resources/partial/index.html:46
+#: plugins/filemanager/resources/partial/index.html:70
 msgid "New file"
 msgstr "新文件"
 
@@ -133,11 +137,11 @@ msgstr "新文件"
 msgid "Owner"
 msgstr "所有者"
 
-#: plugins/filemanager/resources/partial/index.html:50
+#: plugins/filemanager/resources/partial/index.html:51
 msgid "Paste here"
 msgstr "粘贴到这里"
 
-#: plugins/filemanager/resources/partial/properties.html:135
+#: plugins/filemanager/resources/partial/properties.html:138
 msgid "Permission bits"
 msgstr "权限位"
 
@@ -145,11 +149,11 @@ msgstr "权限位"
 msgid "READ"
 msgstr "阅读"
 
-#: plugins/filemanager/resources/partial/index.html:100
+#: plugins/filemanager/resources/partial/index.html:101
 msgid "Remove"
 msgstr "删除"
 
-#: plugins/filemanager/resources/partial/index.html:116
+#: plugins/filemanager/resources/partial/index.html:117
 msgid "Remove all items"
 msgstr "删除所有项目"
 
@@ -161,7 +165,7 @@ msgstr "在记事本中显示"
 msgid "Size"
 msgstr "大小"
 
-#: plugins/filemanager/resources/partial/index.html:53
+#: plugins/filemanager/resources/partial/index.html:54
 msgid "Tab"
 msgstr "选项卡"
 
@@ -173,15 +177,15 @@ msgstr "类型"
 msgid "Up one level"
 msgstr "上一级"
 
-#: plugins/filemanager/resources/partial/index.html:48
+#: plugins/filemanager/resources/partial/index.html:49
 msgid "Upload"
 msgstr "上传"
 
-#: plugins/filemanager/resources/partial/index.html:122
+#: plugins/filemanager/resources/partial/index.html:123
 msgid "Uploading ..."
 msgstr "正在上传..."
 
-#: plugins/filemanager/resources/partial/properties.html:140
+#: plugins/filemanager/resources/partial/properties.html:143
 msgid "User"
 msgstr "用户"
 
@@ -189,7 +193,7 @@ msgstr "用户"
 msgid "WRITE"
 msgstr "写"
 
-#: plugins/filemanager/resources/partial/index.html:59
+#: plugins/filemanager/resources/partial/index.html:60
 msgid "items selected"
 msgstr "选中项目"
 
@@ -197,11 +201,11 @@ msgstr "选中项目"
 msgid "File Manager"
 msgstr "文件管理器"
 
-#: plugins/filemanager/resources/js/controllers/properties.controller.es:15
+#: plugins/filemanager/resources/js/controllers/properties.controller.es:16
 msgid "Could not read file information"
 msgstr "无法读取文件信息"
 
-#: plugins/filemanager/resources/js/controllers/properties.controller.es:29
+#: plugins/filemanager/resources/js/controllers/properties.controller.es:30
 msgid "File mode saved"
 msgstr "文件模式已保存"
 

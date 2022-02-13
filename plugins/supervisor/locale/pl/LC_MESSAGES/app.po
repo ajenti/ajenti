@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-27 12:11+0200\n"
-"PO-Revision-Date: 2022-01-06 17:19\n"
+"PO-Revision-Date: 2022-02-13 21:06\n"
 "Last-Translator: \n"
 "Language-Team: Polish\n"
 "Language: pl_PL\n"
@@ -51,11 +51,11 @@ msgstr "Ogólne"
 
 #: plugins/supervisor/resources/partial/index.html:196
 msgid "Kill children"
-msgstr ""
+msgstr "Zabij podproces"
 
 #: plugins/supervisor/resources/partial/index.html:43
 msgid "New process name"
-msgstr ""
+msgstr "Nowa nazwa procesu"
 
 #: plugins/supervisor/resources/partial/index.html:158
 msgid "No"
@@ -71,11 +71,11 @@ msgstr "Liczba procesów"
 
 #: plugins/supervisor/resources/partial/index.html:157
 msgid "On crash"
-msgstr ""
+msgstr "W przypadku awarii"
 
 #: plugins/supervisor/resources/partial/index.html:85
 msgid "Process name template"
-msgstr ""
+msgstr "Szablon nazwy procesu"
 
 #: plugins/supervisor/resources/partial/index.html:26
 msgid "RUNNING"
@@ -83,7 +83,7 @@ msgstr "URUCHOMIONE"
 
 #: plugins/supervisor/resources/partial/index.html:5
 msgid "Remove"
-msgstr ""
+msgstr "Usuń"
 
 #: plugins/supervisor/resources/partial/index.html:216
 #: plugins/supervisor/resources/partial/index.html:53
@@ -100,19 +100,19 @@ msgstr "Sekund do zatrzymania"
 
 #: plugins/supervisor/resources/partial/index.html:203
 msgid "Start retries"
-msgstr ""
+msgstr "Rozpocznij ponawianie"
 
 #: plugins/supervisor/resources/partial/index.html:187
 msgid "Terminate children"
-msgstr ""
+msgstr "Zakończ pracę podprocesu"
 
 #: plugins/supervisor/resources/partial/index.html:95
 msgid "User account"
-msgstr ""
+msgstr "Konto użytkownika"
 
 #: plugins/supervisor/resources/partial/index.html:115
 msgid "Working directory"
-msgstr ""
+msgstr "Katalog roboczy"
 
 #: plugins/supervisor/resources/partial/index.html:156
 msgid "Yes"
@@ -125,14 +125,14 @@ msgstr "Supervisor"
 
 #: plugins/supervisor/resources/js/controllers/index.controller.es:19
 msgid "Saved"
-msgstr ""
+msgstr "Zapisane"
 
 #: plugins/supervisor/resources/js/controllers/index.controller.es:20
 msgid "Could not save"
-msgstr ""
+msgstr "Nie można zapisać"
 
 #: plugins/supervisor/resources/js/controllers/index.controller.es:34
 #: plugins/supervisor/resources/js/controllers/index.controller.es:39
 msgid "Failed"
-msgstr ""
+msgstr "Nie powiodło się"
 

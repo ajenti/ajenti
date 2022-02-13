@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-25 18:37+0200\n"
-"PO-Revision-Date: 2022-01-06 17:19\n"
+"POT-Creation-Date: 2022-02-13 21:52+0100\n"
+"PO-Revision-Date: 2022-02-13 21:06\n"
 "Last-Translator: \n"
 "Language-Team: Thai\n"
 "Language: th_TH\n"
@@ -17,21 +17,25 @@ msgstr ""
 "X-Crowdin-File: /2.0/filemanager.po\n"
 "X-Crowdin-File-ID: 29\n"
 
+#: plugins/filemanager/resources/partial/properties.html:132
+msgid "< Back"
+msgstr ""
+
 #: plugins/filemanager/resources/partial/properties.html:49
 msgid "Access"
 msgstr "การเข้าถึง"
 
-#: plugins/filemanager/resources/partial/properties.html:164
+#: plugins/filemanager/resources/partial/properties.html:167
 msgid "All"
 msgstr "ทั้งหมด"
 
-#: plugins/filemanager/resources/partial/properties.html:190
+#: plugins/filemanager/resources/partial/properties.html:193
 msgid "Apply"
 msgstr "นำไปใช้"
 
-#: plugins/filemanager/resources/partial/index.html:76
-#: plugins/filemanager/resources/partial/index.html:89
-#: plugins/filemanager/resources/partial/properties.html:191
+#: plugins/filemanager/resources/partial/index.html:77
+#: plugins/filemanager/resources/partial/index.html:90
+#: plugins/filemanager/resources/partial/properties.html:194
 #: plugins/filemanager/resources/js/controllers/index.controller.es:89
 msgid "Cancel"
 msgstr "ยกเลิก"
@@ -40,24 +44,24 @@ msgstr "ยกเลิก"
 msgid "Change permissions"
 msgstr "เปลี่ยนการกำหนดสิทธิ์"
 
-#: plugins/filemanager/resources/partial/index.html:95
+#: plugins/filemanager/resources/partial/index.html:96
 msgid "Clipboard"
 msgstr "คลิปบอร์ด"
 
-#: plugins/filemanager/resources/partial/index.html:117
+#: plugins/filemanager/resources/partial/index.html:118
 msgid "Close"
 msgstr "ปิด"
 
-#: plugins/filemanager/resources/partial/index.html:63
+#: plugins/filemanager/resources/partial/index.html:64
 msgid "Copy"
 msgstr "คัดลอก"
 
-#: plugins/filemanager/resources/partial/index.html:75
-#: plugins/filemanager/resources/partial/index.html:88
+#: plugins/filemanager/resources/partial/index.html:76
+#: plugins/filemanager/resources/partial/index.html:89
 msgid "Create"
 msgstr "สร้าง"
 
-#: plugins/filemanager/resources/partial/index.html:62
+#: plugins/filemanager/resources/partial/index.html:63
 msgid "Cut"
 msgstr "ตัด"
 
@@ -65,12 +69,12 @@ msgstr "ตัด"
 msgid "DIRECTORY"
 msgstr "ไดเรกทอรี"
 
-#: plugins/filemanager/resources/partial/index.html:64
+#: plugins/filemanager/resources/partial/index.html:65
 #: plugins/filemanager/resources/js/controllers/index.controller.es:88
 msgid "Delete"
 msgstr "ลบ"
 
-#: plugins/filemanager/resources/partial/index.html:85
+#: plugins/filemanager/resources/partial/index.html:86
 msgid "Directory name"
 msgstr "ชื่อไดเรกทอรี"
 
@@ -82,7 +86,7 @@ msgstr "ปฏิบัติการ"
 msgid "Edit in Notepad"
 msgstr "แก้ไขใน Notepad"
 
-#: plugins/filemanager/resources/partial/properties.html:176
+#: plugins/filemanager/resources/partial/properties.html:179
 msgid "Extra"
 msgstr "เพิ่มเติม"
 
@@ -90,7 +94,7 @@ msgstr "เพิ่มเติม"
 msgid "FILE"
 msgstr "ไฟล์"
 
-#: plugins/filemanager/resources/partial/index.html:72
+#: plugins/filemanager/resources/partial/index.html:73
 msgid "File name"
 msgstr "ชื่อไฟล์"
 
@@ -99,7 +103,7 @@ msgid "Full path"
 msgstr "พาธแบบเต็ม"
 
 #: plugins/filemanager/resources/partial/properties.html:100
-#: plugins/filemanager/resources/partial/properties.html:152
+#: plugins/filemanager/resources/partial/properties.html:155
 msgid "Group"
 msgstr "Group"
 
@@ -119,13 +123,13 @@ msgstr "แก้ไขเมื่อ"
 msgid "Name"
 msgstr "ชื่อ"
 
-#: plugins/filemanager/resources/partial/index.html:46
-#: plugins/filemanager/resources/partial/index.html:82
+#: plugins/filemanager/resources/partial/index.html:47
+#: plugins/filemanager/resources/partial/index.html:83
 msgid "New directory"
 msgstr "สร้างไดเรกทอรี"
 
-#: plugins/filemanager/resources/partial/index.html:45
-#: plugins/filemanager/resources/partial/index.html:69
+#: plugins/filemanager/resources/partial/index.html:46
+#: plugins/filemanager/resources/partial/index.html:70
 msgid "New file"
 msgstr "สร้างไฟล์"
 
@@ -133,11 +137,11 @@ msgstr "สร้างไฟล์"
 msgid "Owner"
 msgstr "Owner"
 
-#: plugins/filemanager/resources/partial/index.html:50
+#: plugins/filemanager/resources/partial/index.html:51
 msgid "Paste here"
 msgstr "วางที่นี่"
 
-#: plugins/filemanager/resources/partial/properties.html:135
+#: plugins/filemanager/resources/partial/properties.html:138
 msgid "Permission bits"
 msgstr "Permission bits"
 
@@ -145,11 +149,11 @@ msgstr "Permission bits"
 msgid "READ"
 msgstr "อ่าน"
 
-#: plugins/filemanager/resources/partial/index.html:100
+#: plugins/filemanager/resources/partial/index.html:101
 msgid "Remove"
 msgstr "ลบ"
 
-#: plugins/filemanager/resources/partial/index.html:116
+#: plugins/filemanager/resources/partial/index.html:117
 msgid "Remove all items"
 msgstr "ลบทั้งหมด"
 
@@ -161,7 +165,7 @@ msgstr ""
 msgid "Size"
 msgstr "ขนาด"
 
-#: plugins/filemanager/resources/partial/index.html:53
+#: plugins/filemanager/resources/partial/index.html:54
 msgid "Tab"
 msgstr "แท็บ"
 
@@ -173,15 +177,15 @@ msgstr "ชนิด"
 msgid "Up one level"
 msgstr "กลับไปก่อนหน้า"
 
-#: plugins/filemanager/resources/partial/index.html:48
+#: plugins/filemanager/resources/partial/index.html:49
 msgid "Upload"
 msgstr "อัปโหลด"
 
-#: plugins/filemanager/resources/partial/index.html:122
+#: plugins/filemanager/resources/partial/index.html:123
 msgid "Uploading ..."
 msgstr ""
 
-#: plugins/filemanager/resources/partial/properties.html:140
+#: plugins/filemanager/resources/partial/properties.html:143
 msgid "User"
 msgstr "User"
 
@@ -189,7 +193,7 @@ msgstr "User"
 msgid "WRITE"
 msgstr "เขียน"
 
-#: plugins/filemanager/resources/partial/index.html:59
+#: plugins/filemanager/resources/partial/index.html:60
 msgid "items selected"
 msgstr "รายการถูกเลือกแล้ว"
 
@@ -197,11 +201,11 @@ msgstr "รายการถูกเลือกแล้ว"
 msgid "File Manager"
 msgstr "ตัวจัดการไฟล์"
 
-#: plugins/filemanager/resources/js/controllers/properties.controller.es:15
+#: plugins/filemanager/resources/js/controllers/properties.controller.es:16
 msgid "Could not read file information"
 msgstr ""
 
-#: plugins/filemanager/resources/js/controllers/properties.controller.es:29
+#: plugins/filemanager/resources/js/controllers/properties.controller.es:30
 msgid "File mode saved"
 msgstr ""
 

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-25 18:37+0200\n"
+"POT-Creation-Date: 2022-02-13 21:52+0100\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
@@ -30,7 +30,7 @@ msgstr ""
 msgid "Mark for upgrade"
 msgstr ""
 
-#: plugins/packages/resources/partial/index.html:3
+#: plugins/packages/resources/partial/index.html:4
 msgid "Search packages"
 msgstr ""
 
@@ -50,12 +50,12 @@ msgstr ""
 msgid "pending"
 msgstr ""
 
-#: plugins/packages/main.py:25
+#: plugins/packages/main.py:27
 #: plugins/packages/resources/js/controllers/index.controller.es:2
 msgid "Packages"
 msgstr ""
 
-#: plugins/packages/main.py:39
+#: plugins/packages/main.py:41
 msgid "Install/remove packages"
 msgstr ""
 

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-06 18:10+0100\n"
-"PO-Revision-Date: 2022-01-06 17:19\n"
+"POT-Creation-Date: 2022-02-13 21:52+0100\n"
+"PO-Revision-Date: 2022-02-13 21:06\n"
 "Last-Translator: \n"
 "Language-Team: Polish\n"
 "Language: pl_PL\n"
@@ -20,6 +20,10 @@ msgstr ""
 #: plugins/core/resources/partial/404.html:4
 msgid "404 - Page not found"
 msgstr "404 - Nie znaleziono strony"
+
+#: plugins/core/resources/partial/reset_password.html:30
+msgid "<small>The two entered passwords differ</small>"
+msgstr ""
 
 #: plugins/core/resources/partial/404.html:7
 msgid "<span>\n"
@@ -45,7 +49,7 @@ msgstr "Podnieś poziom"
 
 #: plugins/core/resources/partial/reset_password_send.html:13
 msgid "Email"
-msgstr ""
+msgstr "Email"
 
 #: plugins/core/content/pages/index.html:133
 msgid "Enter"
@@ -61,7 +65,7 @@ msgstr "Wyloguj się"
 
 #: plugins/core/resources/partial/reset_password.html:23
 msgid "New password"
-msgstr ""
+msgstr "Nowe hasło"
 
 #: plugins/core/content/pages/index.html:174
 msgid "OK"
@@ -74,11 +78,11 @@ msgstr "Hasło"
 
 #: plugins/core/resources/partial/reset_password.html:26
 msgid "Please confirm the new password"
-msgstr ""
+msgstr "Potwierdź Twoje nowe hasło"
 
 #: plugins/core/resources/partial/reset_password.html:22
 msgid "Please enter the new password"
-msgstr ""
+msgstr "Proszę wprowadzić nowe hasło"
 
 #: plugins/core/content/pages/index.html:153
 #: plugins/core/resources/js/core/module.es:32
@@ -91,15 +95,15 @@ msgstr "Szybkie wyszukiwanie"
 
 #: plugins/core/resources/partial/reset_password.html:27
 msgid "Reenter the new password"
-msgstr ""
+msgstr "Powtórz nowe hasło"
 
-#: plugins/core/resources/partial/reset_password.html:31
+#: plugins/core/resources/partial/reset_password.html:34
 msgid "Reset password"
-msgstr ""
+msgstr "Resetuj hasło"
 
 #: plugins/core/resources/partial/reset_password_send.html:17
 msgid "Send instructions to reset password"
-msgstr ""
+msgstr "Wyślij instrukcje do zresetowania hasła"
 
 #: plugins/core/content/pages/index.html:101
 msgid "Session time : {{ counter[0] }}:{{ counter[1] }}:{{ counter[2] }}"
@@ -107,7 +111,7 @@ msgstr "Czas sesji: {{ counter[0] }}:{{ counter[1] }}:{{ counter[2] }}"
 
 #: plugins/core/resources/partial/reset_password.html:10
 msgid "The used link is not valid or expired."
-msgstr ""
+msgstr "Użyty link jest nieprawidłowy lub wygasł."
 
 #: plugins/core/resources/partial/login.html:19
 msgid "Username"
@@ -251,17 +255,17 @@ msgstr "Uwierzytelnianie nie powiodło się"
 
 #: plugins/core/resources/js/core/controllers/pwreset.controller.es:6
 msgid "If the email exists, the user will get a reset email"
-msgstr ""
+msgstr "Jeśli e-mail istnieje, użytkownik otrzyma e-mail resetujący hasło"
 
 #: plugins/core/resources/js/core/controllers/pwreset.controller.es:31
 msgid "Password successfully changed !"
-msgstr ""
+msgstr "Hasło zostało pomyślnie zmienione."
 
 #: plugins/core/resources/js/core/controllers/pwreset.controller.es:34
 msgid "An error occured while changing the password"
-msgstr ""
+msgstr "Wystąpił błąd podczas zmiany hasła"
 
 #: plugins/core/resources/js/core/controllers/pwreset.controller.es:37
 msgid "The password complexity does not match the system requirements : "
-msgstr ""
+msgstr "Złożoność hasła nie odpowiada wymaganiom systemowym: "
 

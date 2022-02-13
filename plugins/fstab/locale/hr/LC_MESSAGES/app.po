@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-06 13:10+0200\n"
-"PO-Revision-Date: 2022-01-06 17:18\n"
+"POT-Creation-Date: 2022-02-13 21:52+0100\n"
+"PO-Revision-Date: 2022-02-13 21:06\n"
 "Last-Translator: \n"
 "Language-Team: Croatian\n"
 "Language: hr_HR\n"
@@ -17,33 +17,37 @@ msgstr ""
 "X-Crowdin-File: /2.0/fstab.po\n"
 "X-Crowdin-File-ID: 68\n"
 
-#: plugins/fstab/resources/partial/index.html:52
+#: plugins/fstab/resources/partial/index.html:54
 msgid "Add"
 msgstr ""
 
-#: plugins/fstab/resources/partial/index.html:58
+#: plugins/fstab/resources/partial/index.html:60
 msgid "Add new device"
 msgstr ""
 
-#: plugins/fstab/resources/partial/index.html:115
+#: plugins/fstab/resources/partial/index.html:117
 #: plugins/fstab/resources/js/controllers/index.controller.es:58
 msgid "Cancel"
 msgstr ""
 
-#: plugins/fstab/resources/partial/index.html:30
+#: plugins/fstab/resources/partial/index.html:32
 #: plugins/fstab/resources/partial/index.html:8
 msgid "Device"
 msgstr ""
 
-#: plugins/fstab/resources/partial/index.html:65
+#: plugins/fstab/resources/partial/index.html:67
 msgid "Device:"
 msgstr ""
 
-#: plugins/fstab/resources/partial/index.html:97
+#: plugins/fstab/resources/partial/index.html:9
+msgid "FS Type"
+msgstr ""
+
+#: plugins/fstab/resources/partial/index.html:99
 msgid "Frequency:"
 msgstr ""
 
-#: plugins/fstab/resources/partial/index.html:57
+#: plugins/fstab/resources/partial/index.html:59
 msgid "Modify"
 msgstr ""
 
@@ -51,45 +55,45 @@ msgstr ""
 msgid "Mounted"
 msgstr ""
 
-#: plugins/fstab/resources/partial/index.html:31
-#: plugins/fstab/resources/partial/index.html:9
+#: plugins/fstab/resources/partial/index.html:10
+#: plugins/fstab/resources/partial/index.html:33
 msgid "Mountpoint"
 msgstr ""
 
-#: plugins/fstab/resources/partial/index.html:73
+#: plugins/fstab/resources/partial/index.html:75
 msgid "Mountpoint:"
 msgstr ""
 
-#: plugins/fstab/resources/partial/index.html:81
+#: plugins/fstab/resources/partial/index.html:83
 msgid "Options:"
 msgstr ""
 
-#: plugins/fstab/resources/partial/index.html:105
+#: plugins/fstab/resources/partial/index.html:107
 msgid "Pass:"
 msgstr ""
 
-#: plugins/fstab/resources/partial/index.html:116
-#: plugins/fstab/resources/partial/index.html:117
+#: plugins/fstab/resources/partial/index.html:118
+#: plugins/fstab/resources/partial/index.html:119
 msgid "Save"
 msgstr ""
 
-#: plugins/fstab/resources/partial/index.html:11
+#: plugins/fstab/resources/partial/index.html:12
 msgid "Size"
 msgstr ""
 
-#: plugins/fstab/resources/partial/index.html:32
+#: plugins/fstab/resources/partial/index.html:34
 msgid "Type"
 msgstr ""
 
-#: plugins/fstab/resources/partial/index.html:89
+#: plugins/fstab/resources/partial/index.html:91
 msgid "Type:"
 msgstr ""
 
-#: plugins/fstab/resources/partial/index.html:12
+#: plugins/fstab/resources/partial/index.html:13
 msgid "Usage"
 msgstr ""
 
-#: plugins/fstab/resources/partial/index.html:10
+#: plugins/fstab/resources/partial/index.html:11
 msgid "Used"
 msgstr ""
 
