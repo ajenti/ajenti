@@ -95,6 +95,10 @@ angular.module('ajenti.auth.users').controller('AuthUsersIndexController', funct
     };
 
     $scope.addUser = (username) => {
+        if (Object.keys(users.data.users).indexOf(username) > -1) {
+            notify.error(gettext('This username is already taken'));
+            return;
+        }
         users.data.users[username] = {uid: customization.plugins.auth_users.forceUID || 0};
         $scope.resetPermissions(username);
         $scope.configuringUsername = username;
