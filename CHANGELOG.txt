@@ -1,6 +1,18 @@
-Ajenti 2.1.42 - dev
+Ajenti 2.1.44 - dev
 
-Ajenti 2.1.41 - 08/2021
+- Migration to python-socketio
+- Email backend managed with jinja templates
+- Configuration of email templates
+- Settings for smtp relay
+- Support for emails in auth_users plugin
+- Separated user config in auth_users plugin
+- Password reset functionality
+- Stronger support for systemd in package plugin
+- Fix header as latin chars in non-latin languages
+- Support for robots.txt
+- Diverses security and bugs fixs
+
+Ajenti 2.1.43 - 03/09/2021
 
 - Support for Python 3.9,
 - Fix sudo elevation,
