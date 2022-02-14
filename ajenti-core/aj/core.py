@@ -8,6 +8,7 @@ import signal
 import socket
 import sys
 import syslog
+import subprocess
 from jadi import Context
 from importlib import reload
 
@@ -34,17 +35,27 @@ from gevent.event import Event
 import threading
 threading.Event = Event
 
-INVALID_SOCKETIO_MESSAGE = """
-Invalid socketio library detected. Be sure to have python-socketio installed and
-not gevent-socketio, otherwise can Ajenti not start properly.
-"""
+try:
+    # If Namespace is not provided, then the wrong socketio library is installed
+    from socketio import Namespace
+except ImportError:
+    logging.warning('Replacing gevent-socketio with python-socketio')
+    subprocess.check_call([sys.executable, '-m', 'pip', 'uninstall', '-y', 'gevent-socketio-hartwork'])
+    subprocess.check_call([sys.executable, '-m', 'pip', 'install', 'python-socketio'])
 
 try:
-    from socketio import Namespace, Server, WSGIApp
+    # If mixins is provided, then gevent-socketio-hartwork was overwritten by
+    # python-socketio and we need to clean this
+    from socketio import mixins
+    logging.warning('Removing gevent-socketio')
+    subprocess.check_call([sys.executable, '-m', 'pip', 'uninstall', '-y', 'gevent-socketio-hartwork', 'python-socketio'])
+    subprocess.check_call([sys.executable, '-m', 'pip', 'install', 'python-socketio'])
 except ImportError:
-    print(INVALID_SOCKETIO_MESSAGE, file=sys.stderr)
-    logging.error(INVALID_SOCKETIO_MESSAGE)
-    sys.exit(1)
+    # It's alright to have an error since we don't want to use gevent-socketio
+    # anymore.
+    pass
+
+from socketio import Server, WSGIApp
 # ----------------------------------------
 
 import aj.compat
