@@ -10,6 +10,7 @@ Ajenti 2.1.44 - dev
 - Stronger support for systemd in package plugin
 - Fix header as latin chars in non-latin languages
 - Support for robots.txt
+- Add fail2ban filter
 - Diverses security and bugs fixs
 
 Ajenti 2.1.43 - 03/09/2021
