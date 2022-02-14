@@ -33,13 +33,24 @@ monkey.patch_all(select=True, thread=True, aggressive=False, subprocess=True)
 from gevent.event import Event
 import threading
 threading.Event = Event
+
+INVALID_SOCKETIO_MESSAGE = """
+Invalid socketio library detected. Be sure to have python-socketio installed and
+not gevent-socketio, otherwise can Ajenti not start properly.
+"""
+
+try:
+    from socketio import Namespace, Server, WSGIApp
+except ImportError:
+    print(INVALID_SOCKETIO_MESSAGE, file=sys.stderr)
+    logging.error(INVALID_SOCKETIO_MESSAGE)
+    sys.exit(1)
 # ----------------------------------------
 
 import aj.compat
 from aj.gate.middleware import GateMiddleware, SocketIONamespace
 
 from gevent import pywsgi
-import socketio
 
 
 def run(config=None, plugin_providers=None, product_name='ajenti', dev_mode=False,
@@ -145,8 +156,8 @@ def run(config=None, plugin_providers=None, product_name='ajenti', dev_mode=Fals
     gateway = GateMiddleware.get(aj.context)
     middleware_stack = HttpMasterMiddleware.all(aj.context) + [gateway]
 
-    sio = socketio.Server(async_mode='gevent')
-    application = socketio.WSGIApp(sio, HttpRoot(HttpMiddlewareAggregator(middleware_stack)).dispatch)
+    sio = Server(async_mode='gevent')
+    application = WSGIApp(sio, HttpRoot(HttpMiddlewareAggregator(middleware_stack)).dispatch)
     sio.register_namespace(SocketIONamespace(context=aj.context))
 
     if aj.config.data['ssl']['enable'] and aj.config.data['bind']['mode'] == 'tcp':

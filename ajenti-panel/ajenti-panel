@@ -12,18 +12,6 @@ import aj.entry
 import aj.log
 import aj.plugins
 
-INVALID_SOCKETIO_MESSAGE = """
-Invalid socketio library detected. Be sure to have python-socketio installed and
-not gevent-socketio, otherwise can Ajenti not start properly.
-"""
-
-try:
-    from socketio import Namespace
-except ImportError:
-    print(INVALID_SOCKETIO_MESSAGE, file=sys.stderr)
-    logging.error(INVALID_SOCKETIO_MESSAGE)
-    sys.exit(1)
-
 
 # Is the ajenti virtualenv installed ?
 panel_venv = '/opt/ajenti/bin/ajenti-panel'
