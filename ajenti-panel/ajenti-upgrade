@@ -6,7 +6,7 @@ import subprocess
 PLUGIN_PREFIX = 'ajenti.plugin.'
 
 installed = {}
-for l in subprocess.check_output(['python3', '-m', 'pip', 'freeze']).decode().splitlines():
+for l in subprocess.check_output([sys.executable, '-m', 'pip', 'freeze']).decode().splitlines():
     if l:
         package = l.split('==')[0]
         version = l.split('==')[-1]
@@ -38,7 +38,7 @@ if sys.stdout.isatty():
 if len(sys.argv) == 1:
     for package, version in pending.items():
         print('Upgrading %s to %s' % (package, version))
-        subprocess.check_call(['python3', '-m', 'pip', 'install', '%s==%s' % (package, version)])
+        subprocess.check_call([sys.executable, '-m', 'pip', 'install', '%s==%s' % (package, version)])
 else:
     if sys.argv[1] == 'list':
         for package, version in pending.items():
