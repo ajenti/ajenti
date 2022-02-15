@@ -1,3 +1,4 @@
+import sys
 import pkg_resources
 import importlib
 from requests import Session
@@ -148,12 +149,12 @@ class PIPPackageManager(PackageManager):
             if sel['operation'] in ['install', 'upgrade']:
                 packages.append(sel['package']['id'])
         if packages:
-            cmd = 'python3 -m pip install ' + ' '.join(packages) + ' ;'
+            cmd = f'{sys.executable} -m pip install {" ".join(packages)} ;'
             packages = []
 
         for sel in selection:
             if sel['operation'] in ['remove']:
                 packages.append(sel['package']['name'])
         if packages:
-            cmd = 'python3 -m pip uninstall ' + ' '.join(packages)
+            cmd = f'{sys.executable} -m pip uninstall {" ".join(packages)}'
         return cmd
