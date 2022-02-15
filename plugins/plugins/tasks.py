@@ -1,3 +1,4 @@
+import sys
 import subprocess
 
 from aj.plugins.core.api.tasks import Task
@@ -11,7 +12,7 @@ class InstallPlugin (Task):
         self.spec = f'ajenti.plugin.{name}=={version}'
 
     def run(self):
-        subprocess.check_output(['python3', '-m', 'pip', 'install', self.spec])
+        subprocess.check_output([sys.executable, '-m', 'pip', 'install', self.spec])
 
 
 class UpgradeAll (Task):

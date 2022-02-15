@@ -3,6 +3,7 @@ Manage all Ajenti core and plugins versions. Check if updates are available and 
 """
 
 import os
+import sys
 import requests
 import shutil
 import subprocess
@@ -96,7 +97,7 @@ class Handler(HttpPlugin):
         """
 
         r = {}
-        for l in subprocess.check_output(['python3', '-m', 'pip', 'freeze']).splitlines():
+        for l in subprocess.check_output([sys.executable, '-m', 'pip', 'freeze']).splitlines():
             if l:
                 package = l.decode().split('=')[0]
                 if package:
@@ -122,7 +123,7 @@ class Handler(HttpPlugin):
 
         # TODO replaced with a task
         try:
-            subprocess.call(['python3', '-m', 'pip', 'install', f'ajenti.plugin.{name}=={version}'])
+            subprocess.call([sys.executable, '-m', 'pip', 'install', f'ajenti.plugin.{name}=={version}'])
         except subprocess.CalledProcessError as e:
             raise EndpointError(e.output)
 
@@ -139,7 +140,7 @@ class Handler(HttpPlugin):
         """
 
         try:
-            subprocess.check_output(['python3', '-m', 'pip', 'uninstall', '-y', f'ajenti.plugin.{name}'])
+            subprocess.check_output([sys.executable, '-m', 'pip', 'uninstall', '-y', f'ajenti.plugin.{name}'])
         except subprocess.CalledProcessError as e:
             raise EndpointError(e.output)
 
