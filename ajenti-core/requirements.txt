@@ -3,8 +3,8 @@ arrow
 bs4
 cookies
 distro
-python-socketio==5.2.1
-python-engineio==4.1.0
+python-socketio==5.5.2
+python-engineio==4.3.1
 greenlet>=0.4.16
 gevent>=1.5.0
 gevent-websocket
