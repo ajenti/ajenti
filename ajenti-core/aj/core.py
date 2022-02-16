@@ -35,13 +35,20 @@ from gevent.event import Event
 import threading
 threading.Event = Event
 
+def restart():
+    logging.warning('Will restart the process now')
+    if '-d' in sys.argv:
+        sys.argv.remove('-d')
+    os.execv(sys.argv[0], sys.argv)
+
 try:
     # If Namespace is not provided, then the wrong socketio library is installed
     from socketio import Namespace
 except ImportError:
     logging.warning('Replacing gevent-socketio with python-socketio')
-    subprocess.check_call([sys.executable, '-m', 'pip', 'uninstall', '-y', 'gevent-socketio-hartwork'])
+    subprocess.check_call([sys.executable, '-m', 'pip', 'uninstall', '-y', 'gevent-socketio-hartwork', 'python-socketio'])
     subprocess.check_call([sys.executable, '-m', 'pip', 'install', 'python-socketio'])
+    restart()
 
 try:
     # If mixins is provided, then gevent-socketio-hartwork was overwritten by
@@ -50,6 +57,7 @@ try:
     logging.warning('Removing gevent-socketio')
     subprocess.check_call([sys.executable, '-m', 'pip', 'uninstall', '-y', 'gevent-socketio-hartwork', 'python-socketio'])
     subprocess.check_call([sys.executable, '-m', 'pip', 'install', 'python-socketio'])
+    restart()
 except ImportError:
     # It's alright to have an error since we don't want to use gevent-socketio
     # anymore.
@@ -267,10 +275,7 @@ def run(config=None, plugin_providers=None, product_name='ajenti', dev_mode=Fals
                 pass
             fd -= 1
 
-        logging.warning('Will restart the process now')
-        if '-d' in sys.argv:
-            sys.argv.remove('-d')
-        os.execv(sys.argv[0], sys.argv)
+        restart()
     else:
         if aj.master:
             logging.debug('Server stopped')
