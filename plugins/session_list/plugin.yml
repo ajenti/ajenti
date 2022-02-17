@@ -2,7 +2,7 @@ name: session_list
 author: Arnaud Kientz
 email: arnaud@linuxmuster.net
 url: https://ajenti.org
-version: '0.4'
+version: '0.5'
 title: 'Session list'
 icon: network-wired
 dependencies:

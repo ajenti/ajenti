@@ -2,7 +2,7 @@ name: fstab
 author: Arnaud Kientz
 email: arnaud@linuxmuster.net
 url: https://ajenti.org
-version: '0.2'
+version: '0.3'
 title: 'fstab'
 icon: hdd
 

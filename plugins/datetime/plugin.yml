@@ -2,7 +2,7 @@ name: datetime
 author: Ajenti project
 email: e@ajenti.org
 url: https://ajenti.org
-version: '0.39'
+version: '0.40'
 title: 'Date & time'
 icon: clock-o
 dependencies:

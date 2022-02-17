@@ -2,7 +2,7 @@ name: services
 author: Ajenti project
 email: e@ajenti.org
 url: https://ajenti.org
-version: '0.31'
+version: '0.32'
 title: 'Services'
 icon: cogs
 dependencies:
