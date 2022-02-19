@@ -7,7 +7,8 @@ from jadi import interface
 
 def url(pattern):
     """
-    Exposes the decorated method of your :class:`HttpPlugin` via HTTP
+    Exposes the decorated method of your :class:`HttpPlugin` via HTTP.
+    Will be deprecated in favor of new decorators ( @get, @post, ... )
 
     :param pattern: URL regex (``^`` and ``$`` are implicit)
     :type  pattern: str
@@ -22,6 +23,40 @@ def url(pattern):
         return f
     return decorator
 
+def requests_decorator_generator(method):
+    """
+    Factorization to generate request decorators like @get or @post.
+
+    :param method: Request method decorator to generate, like get or post
+    :type method: basestring
+    :return:
+    :rtype:
+    """
+
+    def request_decorator(pattern):
+        """
+        Exposes the decorated method of your :class:`HttpPlugin` via HTTP
+
+        :param pattern: URL regex (``^`` and ``$`` are implicit)
+        :type  pattern: str
+        :rtype: function
+
+            Named capture groups will be fed to function as ``**kwargs``
+
+        """
+
+        def decorator(f):
+            # Request method involved, like get or post
+            f.method = method
+            f.url_pattern = re.compile(f'^{pattern}$')
+            return f
+        return decorator
+
+    return request_decorator
+
+# Decorators like @get and @post are defined here
+for method in ['get', 'post', 'delete', 'head', 'put', 'patch']:
+    globals()[method] = requests_decorator_generator(method)
 
 class BaseHttpHandler():
     """
@@ -74,27 +109,43 @@ class HttpPlugin():
 
     def handle(self, http_context):
         """
-        Finds and executes the handler for given request context (handlers are
-        methods decorated with :func:`url` )
+        Finds and executes the handler for given request context
+        (handlers were methods decorated with :func:`url` and will be
+        decorated with e.g. @get and @post in the future)
 
         :param http_context: HTTP context
         :type  http_context: :class:`aj.http.HttpContext`
         :returns: reponse data
         """
 
-        for name, method in self.__class__.__dict__.items():
-            if hasattr(method, 'url_pattern'):
-                method = getattr(self, name)
-                match = method.url_pattern.match(http_context.path)
+        for name, handle_function in self.__class__.__dict__.items():
+            if hasattr(handle_function, 'url_pattern'):
+                handle_function = getattr(self, name)
+                match = handle_function.url_pattern.match(http_context.path)
                 if match:
-                    http_context.route_data = match.groupdict()
-                    data = method(http_context, **http_context.route_data)
-                    if isinstance(data, str):
-                        data = data.encode('utf-8')
-                    if isinstance(data, types.GeneratorType):
-                        return data
+                    if hasattr(handle_function, 'method'):
+                        # Check if the requested method is supported by the
+                        # function, e.g. avoid accept a get request in a post method
+                        if handle_function.method == http_context.method.lower():
+                            http_context.route_data = match.groupdict()
+                            data = handle_function(http_context, **http_context.route_data)
+                            if isinstance(data, str):
+                                data = data.encode('utf-8')
+                            if isinstance(data, types.GeneratorType):
+                                return data
 
-                    return [data]
+                            return [data]
+                    else:
+                        # Ensure compatibility with old @url decorator
+                        logging.warning(f'Backward @url compatibility for {handle_function.__name__}')
+                        http_context.route_data = match.groupdict()
+                        data = handle_function(http_context, **http_context.route_data)
+                        if isinstance(data, str):
+                            data = data.encode('utf-8')
+                        if isinstance(data, types.GeneratorType):
+                            return data
+
+                        return [data]
 
 
 @interface
