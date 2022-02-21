@@ -35,7 +35,7 @@ msgid ""
 msgstr ""
 
 #: plugins/core/content/pages/index.html:150
-msgid "A bootstrap error has occured"
+msgid "A bootstrap error has occurred"
 msgstr ""
 
 #: plugins/core/resources/partial/login.html:32
