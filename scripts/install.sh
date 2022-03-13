@@ -42,6 +42,16 @@ if grep 'CentOS' /etc/os-release > /dev/null 2>&1 ; then
     DISTRO=centos
 fi
 
+if grep 'Rocky Linux' /etc/issue > /dev/null 2>&1 ; then
+    OS=rhel
+    DISTRO=rockylinux
+fi
+
+if grep 'Rocky Linux' /etc/os-release > /dev/null 2>&1 ; then
+    OS=rhel
+    DISTRO=rockylinux
+fi
+
 if grep 'Red' /etc/issue > /dev/null 2>&1 ; then
     OS=rhel
     DISTRO=rhel
