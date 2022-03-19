@@ -51,7 +51,7 @@ class UbuntuNetworkManager(NetworkManager):
                 addresses = config[key].get('adresses', None)
                 if addresses is None:
                     # DHCP
-                    ip, mask = ifconfig_get_ip_mask(key)
+                    ip, mask = ifconfig_get_ip4_mask(key)
                     gateway = ifconfig_get_gateway(key)
                 else:
                     ip, mask = config[key]['addresses'][0].split('/')

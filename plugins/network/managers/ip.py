@@ -21,7 +21,7 @@ def ifconfig_get_ip(iface):
         return None
 
 
-def ifconfig_get_ip_mask(iface):
+def ifconfig_get_ip4_mask(iface):
     """
     Get ipv4 and mask of an interface from the ip addr command.
 
@@ -31,13 +31,37 @@ def ifconfig_get_ip_mask(iface):
     :rtype: tuple
     """
 
-    inet_line = subprocess.check_output(
-        f"ip -4 addr show {iface} | grep 'inet '",
-        shell=True,
-        encoding='utf-8'
-    )
-    return inet_line.strip().split()[1].split('/')
+    try:
+        inet_line = subprocess.check_output(
+            f"ip -4 addr show {iface} | grep 'inet '",
+            shell=True,
+            encoding='utf-8'
+        )
+        return inet_line.strip().split()[1].split('/')
+    except subprocess.CalledProcessError as e:
+        # No ipv4 found
+        return ["Not configured"]*2
 
+def ifconfig_get_ip6_mask(iface):
+    """
+    Get ipv6 and mask of an interface from the ip addr command.
+
+    :param iface: Network interface, e.g. eth0
+    :type iface: string
+    :return: ip,mask
+    :rtype: tuple
+    """
+
+    try:
+        inet_line = subprocess.check_output(
+            f"ip -6 addr show {iface} | grep 'inet6 '",
+            shell=True,
+            encoding='utf-8'
+        )
+        return inet_line.strip().split()[1].split('/')
+    except subprocess.CalledProcessError as e:
+        # No ipv6 found
+        return ["Not configured"]*2
 
 def ifconfig_get_gateway(iface):
     """
