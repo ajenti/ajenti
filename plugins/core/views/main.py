@@ -48,8 +48,7 @@ class Handler(HttpPlugin):
         """
 
         if aj.dev:
-            restricted_user = aj.config.data['restricted_user']
-            if os.getuid() != pwd.getpwnam(restricted_user).pw_uid:
+            if os.getuid() == 0:
                 rebuild_all = http_context.env.get('HTTP_CACHE_CONTROL', None) == 'no-cache'
 
                 for provider in aj.plugin_providers:
@@ -70,7 +69,7 @@ class Handler(HttpPlugin):
                             logging.error('Resource compilation failed')
                             logging.error((o+e).decode('utf-8'))
             else:
-                logging.warning(f"Cannot build resources as restricted user {restricted_user}")
+                logging.warning("Cannot build resources without root permissions.")
 
         manager = PluginManager.get(aj.context)
         path = manager.get_content_path('core', 'content/pages/index.html')
