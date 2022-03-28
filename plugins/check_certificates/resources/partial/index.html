@@ -1,37 +1,43 @@
 <br/>
 
 <div class="form-group">
-    
-        <table style="width:100%;" class="table">
-            <tr>
-                <th translate>Domain</th>
-                <th translate>Port</th>
-                <th translate>Issuer</th>
-                <th translate>End</th>
-                <th translate>Status</th>
-                <th></th>
-            </tr>
-            <tr ng:repeat="h in status">
-                <th class="text-{{h.status}}" style="width:25%;">{{h.url}}</th>
-                <td>{{h.port}}</td>
-                <td>{{h.issuer}}</td>
-                <td>
-                    <span ng:show="h.notAfter.slice(0,2) == 'No'" style="font-weight:bold;" >{{h.notAfter}}</span>
-                    <span ng:show="h.notAfter.slice(0,2) != 'No'">{{h.notAfter| date:'dd MMM yyyy HH:mm:ss'}}</span>
-                    <span ng:show="h.restTime" style="font-weight:bold;" translate>({{h.restTime}} days)</span>
-                </td>
-                <td class="text-{{h.status}}">
-                    <i class="fas fa-check" ng-if="h.status == 'success'" style="font-size: 20px;"></i>
-                    <i class="fas fa-exclamation-triangle" ng-if="h.status == 'warning'" style="font-size: 20px;"></i>
-                    <i class="fas fa-info-circle" ng-if="h.status == 'info'" style="font-size: 20px;"></i>
-                    <i class="fas fa-skull-crossbones" ng-if="h.status == 'danger'" style="font-size: 20px;"></i>
-                </td>
-                <td width="1">
-                    <button class="btn btn-default" ng:click="remove(h)" title="Remove">
-                        <i class="fa fa-trash-o"></i>
-                    </button>
-                </td>
-            </tr>
-        </table>
+
+    <div class="alert alert-info" ng:show="status.length == 0" translate>
+        No host defined actually. Please first add an host.
+    </div>
+
+    <table style="width:100%;" class="table" ng:show="status.length > 0">
+        <tr>
+            <th translate>Domain</th>
+            <th translate>Port</th>
+            <th translate>Issuer</th>
+            <th translate>End</th>
+            <th translate>Status</th>
+            <th></th>
+        </tr>
+        <tr ng:repeat="h in status">
+            <th class="text-{{h.status}}" style="width:25%;">{{h.url}}</th>
+            <td>{{h.port}}</td>
+            <td>{{h.issuer}}</td>
+            <td>
+                <span ng:show="h.notAfter.slice(0,2) == 'No'" style="font-weight:bold;" >{{h.notAfter}}</span>
+                <span ng:show="h.notAfter.slice(0,2) != 'No'">{{h.notAfter| date:'dd MMM yyyy HH:mm:ss'}}</span>
+                <span ng:show="h.restTime" style="font-weight:bold;" translate>({{h.restTime}} days)</span>
+            </td>
+            <td class="text-{{h.status}}">
+                <i class="fas fa-check" ng-if="h.status == 'success'" style="font-size: 20px;"></i>
+                <i class="fas fa-exclamation-triangle" ng-if="h.status == 'warning'" style="font-size: 20px;"></i>
+                <i class="fas fa-info-circle" ng-if="h.status == 'info'" style="font-size: 20px;"></i>
+                <i class="fas fa-skull-crossbones" ng-if="h.status == 'danger'" style="font-size: 20px;"></i>
+            </td>
+            <td width="1">
+                <button class="btn btn-default" ng:click="remove(h)" title="Remove">
+                    <i class="fa fa-trash-o"></i>
+                </button>
+            </td>
+        </tr>
+    </table>
+
     <button class="btn btn-default" ng:click="add()" translate>Add host</button>
+
 </div>
