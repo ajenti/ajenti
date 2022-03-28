@@ -8,14 +8,14 @@ angular.module('ajenti.check_certificates').controller 'CertIndexController', ($
         $scope.userConfig.certificates = $scope.userConfig.certificates || {'domain': []}
 
         for url in $scope.userConfig.certificates.domain
-            $http.post('/api/check_cert/test', {url:url}).then (resp) ->
+            $http.post('/api/check_cert', {url:url}).then (resp) ->
                 $scope.status.push(resp.data)
 
     $scope.add = () ->
         messagebox.prompt(gettext('New url')).then (msg) -> 
             if (!msg.value)
                 return
-            $http.post('/api/check_cert/test', {url:msg.value}).then (resp) ->
+            $http.post('/api/check_cert', {url:msg.value}).then (resp) ->
                     $scope.status.push(resp.data)
             $scope.userConfig.certificates.domain.push(msg.value)
             $scope.save()
