@@ -98,7 +98,7 @@ def checkOnDom(hostname, port='443'):
         certDetails['notAfter'] = _('Timeout from host !')
         return certDetails
     except ssl.CertificateError:
-        certDetails['notAfter'] = _('Certificate is nos valid !')
+        certDetails['notAfter'] = _('Certificate is not valid !')
         return certDetails
     except ConnectionRefusedError:
         certDetails['notAfter'] = _('Host refuse the connection !')
