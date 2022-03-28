@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-13 22:03+0100\n"
+"POT-Creation-Date: 2022-03-28 11:05+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -35,7 +35,7 @@ msgid ""
 msgstr ""
 
 #: plugins/core/content/pages/index.html:150
-msgid "A bootstrap error has occured"
+msgid "A bootstrap error has occurred"
 msgstr ""
 
 #: plugins/core/resources/partial/login.html:32

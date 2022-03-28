@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-13 21:52+0100\n"
-"PO-Revision-Date: 2022-02-13 21:06\n"
+"POT-Creation-Date: 2022-03-28 11:04+0200\n"
+"PO-Revision-Date: 2022-03-28 09:08\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Traditional\n"
 "Language: zh_TW\n"
@@ -17,7 +17,7 @@ msgstr ""
 "X-Crowdin-File: /2.0/check_certificates.po\n"
 "X-Crowdin-File-ID: 64\n"
 
-#: plugins/check_certificates/resources/partial/index.html:21
+#: plugins/check_certificates/resources/partial/index.html:25
 msgid "({{h.restTime}} days)"
 msgstr ""
 
@@ -26,7 +26,7 @@ msgid "<i class=\"fas fa-check\"></i>\n"
 "            All certificates are up to date !"
 msgstr ""
 
-#: plugins/check_certificates/resources/partial/index.html:36
+#: plugins/check_certificates/resources/partial/index.html:41
 msgid "Add host"
 msgstr ""
 
@@ -34,23 +34,27 @@ msgstr ""
 msgid "Certificates to be renewed"
 msgstr ""
 
-#: plugins/check_certificates/resources/partial/index.html:7
+#: plugins/check_certificates/resources/partial/index.html:11
 msgid "Domain"
 msgstr ""
 
-#: plugins/check_certificates/resources/partial/index.html:10
+#: plugins/check_certificates/resources/partial/index.html:14
 msgid "End"
 msgstr ""
 
-#: plugins/check_certificates/resources/partial/index.html:9
+#: plugins/check_certificates/resources/partial/index.html:13
 msgid "Issuer"
 msgstr ""
 
-#: plugins/check_certificates/resources/partial/index.html:8
+#: plugins/check_certificates/resources/partial/index.html:5
+msgid "No host defined actually. Please first add an host."
+msgstr ""
+
+#: plugins/check_certificates/resources/partial/index.html:12
 msgid "Port"
 msgstr ""
 
-#: plugins/check_certificates/resources/partial/index.html:11
+#: plugins/check_certificates/resources/partial/index.html:15
 msgid "Status"
 msgstr ""
 
@@ -58,24 +62,40 @@ msgstr ""
 msgid "Certificates"
 msgstr ""
 
+#: plugins/check_certificates/api.py:92 plugins/check_certificates/api.py:98
+msgid "Timeout from host !"
+msgstr ""
+
+#: plugins/check_certificates/api.py:95
+msgid "Could not resolve hostname !"
+msgstr ""
+
+#: plugins/check_certificates/api.py:101
+msgid "Certificate is not valid !"
+msgstr ""
+
+#: plugins/check_certificates/api.py:104
+msgid "Host refuse the connection !"
+msgstr ""
+
 #: plugins/check_certificates/main.py:17
 #: plugins/check_certificates/resources/js/controllers/index.controller.coffee:2
 msgid "Check certificates"
 msgstr ""
 
-#: plugins/check_certificates/resources/js/controllers/index.controller.coffee:14
+#: plugins/check_certificates/resources/js/controllers/index.controller.coffee:15
 msgid "New url"
 msgstr ""
 
-#: plugins/check_certificates/resources/js/controllers/index.controller.coffee:25
+#: plugins/check_certificates/resources/js/controllers/index.controller.coffee:26
 msgid "Remove the url "
 msgstr ""
 
-#: plugins/check_certificates/resources/js/controllers/index.controller.coffee:26
+#: plugins/check_certificates/resources/js/controllers/index.controller.coffee:27
 msgid "Remove"
 msgstr ""
 
-#: plugins/check_certificates/resources/js/controllers/index.controller.coffee:27
+#: plugins/check_certificates/resources/js/controllers/index.controller.coffee:28
 msgid "Cancel"
 msgstr ""
 

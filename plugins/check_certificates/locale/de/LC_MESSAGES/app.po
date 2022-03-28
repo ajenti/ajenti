@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-13 21:52+0100\n"
-"PO-Revision-Date: 2022-02-13 21:06\n"
+"POT-Creation-Date: 2022-03-28 11:04+0200\n"
+"PO-Revision-Date: 2022-03-28 09:08\n"
 "Last-Translator: \n"
 "Language-Team: German\n"
 "Language: de_DE\n"
@@ -17,7 +17,7 @@ msgstr ""
 "X-Crowdin-File: /2.0/check_certificates.po\n"
 "X-Crowdin-File-ID: 64\n"
 
-#: plugins/check_certificates/resources/partial/index.html:21
+#: plugins/check_certificates/resources/partial/index.html:25
 msgid "({{h.restTime}} days)"
 msgstr "({{h.restTime}} Tage)"
 
@@ -27,7 +27,7 @@ msgid "<i class=\"fas fa-check\"></i>\n"
 msgstr "<i class=\"fas fa-check\"></i>\n"
 "            Alle Zertifikate sind aktuell !"
 
-#: plugins/check_certificates/resources/partial/index.html:36
+#: plugins/check_certificates/resources/partial/index.html:41
 msgid "Add host"
 msgstr "Host hinzufügen"
 
@@ -35,23 +35,27 @@ msgstr "Host hinzufügen"
 msgid "Certificates to be renewed"
 msgstr "Zu erneuernde Zertifikate"
 
-#: plugins/check_certificates/resources/partial/index.html:7
+#: plugins/check_certificates/resources/partial/index.html:11
 msgid "Domain"
 msgstr "Domäne"
 
-#: plugins/check_certificates/resources/partial/index.html:10
+#: plugins/check_certificates/resources/partial/index.html:14
 msgid "End"
 msgstr "Ende"
 
-#: plugins/check_certificates/resources/partial/index.html:9
+#: plugins/check_certificates/resources/partial/index.html:13
 msgid "Issuer"
 msgstr "Aussteller"
 
-#: plugins/check_certificates/resources/partial/index.html:8
+#: plugins/check_certificates/resources/partial/index.html:5
+msgid "No host defined actually. Please first add an host."
+msgstr "Kein Host definiert. Bitte zuerst einen Host hinzufügen."
+
+#: plugins/check_certificates/resources/partial/index.html:12
 msgid "Port"
 msgstr "Port"
 
-#: plugins/check_certificates/resources/partial/index.html:11
+#: plugins/check_certificates/resources/partial/index.html:15
 msgid "Status"
 msgstr "Status"
 
@@ -59,24 +63,40 @@ msgstr "Status"
 msgid "Certificates"
 msgstr "Zertifikate"
 
+#: plugins/check_certificates/api.py:92 plugins/check_certificates/api.py:98
+msgid "Timeout from host !"
+msgstr "Timeout vom Host !"
+
+#: plugins/check_certificates/api.py:95
+msgid "Could not resolve hostname !"
+msgstr "Hostname konnte nicht aufgelöst werden!"
+
+#: plugins/check_certificates/api.py:101
+msgid "Certificate is not valid !"
+msgstr "Zertifikat ist ungültig !"
+
+#: plugins/check_certificates/api.py:104
+msgid "Host refuse the connection !"
+msgstr "Host lehnt die Verbindung ab!"
+
 #: plugins/check_certificates/main.py:17
 #: plugins/check_certificates/resources/js/controllers/index.controller.coffee:2
 msgid "Check certificates"
 msgstr "Zertifikate prüfen"
 
-#: plugins/check_certificates/resources/js/controllers/index.controller.coffee:14
+#: plugins/check_certificates/resources/js/controllers/index.controller.coffee:15
 msgid "New url"
 msgstr "Neue URL"
 
-#: plugins/check_certificates/resources/js/controllers/index.controller.coffee:25
+#: plugins/check_certificates/resources/js/controllers/index.controller.coffee:26
 msgid "Remove the url "
 msgstr "URL entfernen "
 
-#: plugins/check_certificates/resources/js/controllers/index.controller.coffee:26
+#: plugins/check_certificates/resources/js/controllers/index.controller.coffee:27
 msgid "Remove"
 msgstr "Entfernen"
 
-#: plugins/check_certificates/resources/js/controllers/index.controller.coffee:27
+#: plugins/check_certificates/resources/js/controllers/index.controller.coffee:28
 msgid "Cancel"
 msgstr "Abbrechen"
 
