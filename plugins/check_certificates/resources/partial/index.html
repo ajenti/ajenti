@@ -38,6 +38,29 @@
         </tr>
     </table>
 
-    <button class="btn btn-default" ng:click="add()" translate>Add host</button>
+    <button class="btn btn-default" ng:click="openNew()" translate>Add host</button>
+
+    <dialog ng:show="addNewVisible">
+        <div class="modal-header">
+            <h4 translate>New hostname</h4>
+        </div>
+        <div class="modal-body">
+            <div class="form-group">
+                <label translate>URL</label>
+                <div class="row">
+                    <input ng:model="$parent.newUrl" class="form-control" type="text" />
+                </div>
+                <label translate>Port ( default is 443 if empty )</label>
+                <div class="row">
+                    <input ng:model="$parent.newPort" class="form-control" type="number" />
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <a ng:click="add()" ng:disabled="!$parent.newUrl" class="btn btn-default btn-flat" translate>Add</a>
+            <a ng:click="closeNew()" class="btn btn-default btn-flat" translate>Cancel</a>
+        </div
+
+    </dialog>
 
 </div>

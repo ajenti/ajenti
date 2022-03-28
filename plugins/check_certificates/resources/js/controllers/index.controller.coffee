@@ -2,6 +2,7 @@ angular.module('ajenti.check_certificates').controller 'CertIndexController', ($
     pageTitle.set(gettext('Check certificates'))
 
     $scope.status = []
+    $scope.addNewVisible = false
 
     config.getUserConfig().then (userConfig) ->
         $scope.userConfig = userConfig
@@ -11,14 +12,23 @@ angular.module('ajenti.check_certificates').controller 'CertIndexController', ($
             $http.post('/api/check_cert', {url:url}).then (resp) ->
                 $scope.status.push(resp.data)
 
+    $scope.openNew = () ->
+        $scope.addNewVisible = true
+        $scope.newUrl = ''
+        $scope.newPort = 443
+
+    $scope.closeNew = () ->
+        $scope.addNewVisible = false
+
     $scope.add = () ->
-        messagebox.prompt(gettext('New url')).then (msg) -> 
-            if (!msg.value)
-                return
-            $http.post('/api/check_cert', {url:msg.value}).then (resp) ->
-                    $scope.status.push(resp.data)
-            $scope.userConfig.certificates.domain.push(msg.value)
-            $scope.save()
+        if !$scope.newPort
+            $scope.newPort = 443
+        url = "#{$scope.newUrl}:#{$scope.newPort}"
+        $http.post('/api/check_cert', {url:url}).then (resp) ->
+                $scope.status.push(resp.data)
+        $scope.userConfig.certificates.domain.push(url)
+        $scope.closeNew()
+        $scope.save()
 
     $scope.remove = (status) ->
         url = status.url
