@@ -89,19 +89,19 @@ def checkOnDom(hostname, port='443'):
         certDetails['subject'] = dict(cert.get_subject().get_components())
 
     except TimeoutError:
-        certDetails['notAfter'] = 'Timeout from host !'
+        certDetails['notAfter'] = _('Timeout from host !')
         return certDetails
     except socket.gaierror:
-        certDetails['notAfter'] = 'Could not resolve hostname !'
+        certDetails['notAfter'] = _('Could not resolve hostname !')
         return certDetails
     except socket.timeout:
-        certDetails['notAfter'] = 'Timeout from host !'
+        certDetails['notAfter'] = _('Timeout from host !')
         return certDetails
     except ssl.CertificateError:
-        certDetails['notAfter'] = 'Certificate is nos valid !'
+        certDetails['notAfter'] = _('Certificate is nos valid !')
         return certDetails
     except ConnectionRefusedError:
-        certDetails['notAfter'] = 'Host refuse the connection !'
+        certDetails['notAfter'] = _('Host refuse the connection !')
         return certDetails
 
     if remainingDays <= 7:
