@@ -91,6 +91,9 @@ def checkOnDom(hostname, port='443'):
     except TimeoutError:
         certDetails['notAfter'] = 'Timeout from host !'
         return certDetails
+    except socket.gaierror:
+        certDetails['notAfter'] = 'Could not resolve hostname !'
+        return certDetails
     except socket.timeout:
         certDetails['notAfter'] = 'Timeout from host !'
         return certDetails
