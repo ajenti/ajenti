@@ -100,6 +100,9 @@ def checkOnDom(hostname, port='443'):
     except ssl.CertificateError:
         certDetails['notAfter'] = _('Certificate is not valid !')
         return certDetails
+    except ssl.SSLError:
+        certDetails['notAfter'] = _('Can not handle SSL on this port !')
+        return certDetails
     except ConnectionRefusedError:
         certDetails['notAfter'] = _('Host refuse the connection !')
         return certDetails
