@@ -12,7 +12,6 @@ auth:
   allow_sudo: true
   emails: {}
   provider: os
-  user_config: os
   users_file: /etc/ajenti/users.yml
 bind:
   host: 0.0.0.0

@@ -22,7 +22,6 @@ auth:
   allow_sudo: true
   emails: {{}}
   provider: os
-  user_config: os
   users_file: {users_file}
 bind:
   host: 0.0.0.0

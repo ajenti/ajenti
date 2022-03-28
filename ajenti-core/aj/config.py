@@ -46,7 +46,6 @@ class BaseConfig():
         self.data.setdefault('auth', {})
         self.data['auth'].setdefault('emails', {})
         self.data['auth'].setdefault('provider', 'os')
-        self.data['auth'].setdefault('user_config', 'os')
         self.data['auth'].setdefault('users_file', '/etc/ajenti/users.yml')
 
         # SSL
@@ -222,7 +221,7 @@ class UserConfigService():
         self.context = context
 
     def get_provider(self):
-        provider_id = aj.config.data['auth'].get('user_config', 'os')
+        provider_id = aj.config.data['auth'].get('provider', 'os')
         for provider in UserConfigProvider.all(self.context):
             if provider.id == provider_id:
                 return provider
