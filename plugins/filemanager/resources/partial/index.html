@@ -6,15 +6,22 @@
     <div class="row">
         <progress-spinner ng:show="loading"></progress-spinner>
         <div class="list-group" ng:hide="loading" keyboard-focus test-bind="fileList">
-            <div ng:show="parent" class="list-group-item list-group-item-small">
-                <div class="list-group-btn pull-left">
-                    <span checkbox ng:model="___" disabled></span>
-                </div>
-                <a ng:click="navigate(parent)" class="list-group-main" test-bind="up">
-                    &nbsp;
-                    <i class="fa fa-fw fa-level-up"></i> <span translate>Up one level</span>
-                </a>
-            </div>
+            <br />
+
+            <ol class="breadcrumb">
+                <li>
+                    <a href="#" ng:click="navigate('/')" translate>
+                        Root directory
+                    </a>
+                </li>
+                <li ng:repeat="item in splitted_path" ng:class="{'active':$last}">
+                    <a href="#" ng:click="navigate(item.path)" ng:if="!$last">{{item.name}}</a>
+                    <span ng:if="$last">{{item.name}}</span>
+                </li>
+            </ol>
+
+            <br />
+
             <div ng:repeat="item in items|orderBy:['-isDir', 'name']" class="list-group-item list-group-item-small" test-bind-item="{{item.name}}">
                 <a ng:href="{{urlPrefix}}/view/filemanager/properties/{{item.path}}" class="list-group-btn subtle" title="Properties">
                     <i class="fa fa-cog"></i>

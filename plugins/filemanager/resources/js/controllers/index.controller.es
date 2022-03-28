@@ -8,6 +8,15 @@ angular.module('ajenti.filemanager').controller('FileManagerIndexController', fu
 
     $scope.load = (path) => {
         $scope.loading = true;
+        $scope.splitted_path_items = path.split('/');
+        $scope.splitted_path = [];
+        progressive_path = '';
+        for (item of $scope.splitted_path_items) {
+            if (item != '') {
+                progressive_path = progressive_path + '/' + item;
+                $scope.splitted_path.push({'path': progressive_path, 'name': item});
+            }
+        }
         return filesystem.list(path).then((data) => {
             $scope.path = path;
             $scope.items = data.items;
