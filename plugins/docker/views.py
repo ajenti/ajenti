@@ -43,7 +43,7 @@ class Handler(HttpPlugin):
         :rtype: list of json
         """
 
-        command = [self.docker, 'stats', '--format', '\'{{json .}}\'', '--no-stream', '-a']
+        command = [self.docker, 'stats', '--format', '{{json .}}', '--no-stream', '-a']
         return [json.loads(line) for line in subprocess.check_output(command).decode().splitlines()]
 
     @url(r'/api/docker/get_details')
@@ -61,7 +61,7 @@ class Handler(HttpPlugin):
 
         if http_context.method == 'POST':
             container = http_context.json_body()['container']
-            command = self.docker + ['inspect', container, '--format', '\'{{json .}}\'']
+            command = self.docker + ['inspect', container, '--format', '{{json .}}']
             return json.loads(subprocess.check_output(command).decode())
 
     @url(r'/api/docker/container_command')
@@ -96,7 +96,7 @@ class Handler(HttpPlugin):
         :rtype: list of json
         """
 
-        command = self.docker + ['images', '--format', '\'{{json .}}\'', '--no-trunc', '-a']
+        command = self.docker + ['images', '--format', '{{json .}}', '--no-trunc', '-a']
         images = []
         for line in subprocess.check_output(command).decode().splitlines():
             image = json.loads(line)
