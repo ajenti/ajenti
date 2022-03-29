@@ -27,7 +27,7 @@ class Handler(HttpPlugin):
         """
 
         try:
-            self.docker = subprocess.check_output(['which', 'docker']).decode().strip()
+            self.docker = [subprocess.check_output(['which', 'docker']).decode().strip()]
         except subprocess.CalledProcessError as e:
             raise EndpointError(_('Docker is not installed on this host'))
 
@@ -43,7 +43,7 @@ class Handler(HttpPlugin):
         :rtype: list of json
         """
 
-        command = [self.docker, 'stats', '--format', '{{json .}}', '--no-stream', '-a']
+        command = self.docker + ['stats', '--format', '{{json .}}', '--no-stream', '-a']
         return [json.loads(line) for line in subprocess.check_output(command).decode().splitlines()]
 
     @url(r'/api/docker/get_details')
