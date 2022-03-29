@@ -88,7 +88,9 @@ class BaseConfig():
         return {
             'color': self.data['color'],
             'language': self.data['language'],
-            'name': self.data['name']
+            'name': self.data['name'],
+            'session_max_time': self.data['session_max_time'],
+
         }
 
 class SmtpConfig(BaseConfig):
