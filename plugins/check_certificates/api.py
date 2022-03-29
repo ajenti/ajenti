@@ -36,8 +36,7 @@ def CertLimitSTARTTLS(hostname):
     :rtype: OpenSSL cert
     """
 
-    connection = smtplib.SMTP()
-    connection.connect(hostname,587)
+    connection = smtplib.SMTP(hostname, 587)
     connection.starttls()
     cert = crypto.load_certificate(crypto.FILETYPE_ASN1, connection.sock.getpeercert(binary_form=True))
     connection.quit()
