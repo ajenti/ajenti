@@ -54,10 +54,11 @@ try:
     # If mixins is provided, then gevent-socketio-hartwork was overwritten by
     # python-socketio and we need to clean this
     from socketio import mixins
-    logging.warning('Removing gevent-socketio')
-    subprocess.check_call([sys.executable, '-m', 'pip', 'uninstall', '-y', 'gevent-socketio-hartwork', 'python-socketio'])
-    subprocess.check_call([sys.executable, '-m', 'pip', 'install', 'python-socketio'])
-    restart()
+    if 'BroadcastMixin' in dir(mixins):
+        logging.warning('Removing gevent-socketio')
+        subprocess.check_call([sys.executable, '-m', 'pip', 'uninstall', '-y', 'gevent-socketio-hartwork', 'python-socketio'])
+        subprocess.check_call([sys.executable, '-m', 'pip', 'install', 'python-socketio'])
+        restart()
 except ImportError:
     # It's alright to have an error since we don't want to use gevent-socketio
     # anymore.
