@@ -108,6 +108,7 @@ MOCK_MODULES = [
     'greenlet',
     'lxml',
     'lxml.etree',
+    'lxml.html',
     'pexpect',
     'Pillow',
     'psutil',
@@ -118,11 +119,6 @@ MOCK_MODULES = [
     'scrypt',
     'setproctitle',
     'socketio',
-    'socketio.handler',
-    'socketio.mixins',
-    'socketio.namespace',
-    'socketio.server',
-    'socketio.transports',
 ]
 for mod_name in MOCK_MODULES:
     sys.modules[mod_name] = Mock()
