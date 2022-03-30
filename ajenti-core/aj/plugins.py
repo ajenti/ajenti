@@ -1,4 +1,4 @@
-import imp
+import importlib.util
 import logging
 import os
 import subprocess
@@ -354,12 +354,14 @@ class PluginManager():
 
     def __import_plugin_module(self, name, info):
         logging.debug(f'Importing plugin "{name}"')
-        module_path, module_name = os.path.split(info['path'])
 
-        info['module'] = imp.load_module(
-            f'aj.plugins.{name}',
-            *imp.find_module(module_name, [module_path])
-        )
+        spec = importlib.util.spec_from_file_location(f'aj.plugins.{name}',f'{info["path"]}/__init__.py')
+        module = importlib.util.module_from_spec(spec)
+        sys.modules[f'{spec.name}'] = module
+        info['module'] = module
+
+        spec.loader.exec_module(module)
+
         info['imported'] = True
 
     def __init_plugin_module(self, name, info):
