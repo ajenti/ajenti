@@ -76,6 +76,7 @@ Platforms
 
    man/install.rst
    man/run.rst
+   man/config.rst
    man/security.rst
    man/contributing.rst
 
