@@ -12,7 +12,7 @@ Required knowledge
   * basic HTML skills
 
 Setting up development environment
-=================================
+==================================
 
 1. Install Ajenti
 -----------------

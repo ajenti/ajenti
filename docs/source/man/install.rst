@@ -88,7 +88,7 @@ Systemd
 
 
 SysVinit
--------
+--------
 
 ::
 

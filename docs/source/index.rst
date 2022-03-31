@@ -82,6 +82,30 @@ Platforms
 
 .. toctree::
    :maxdepth: 1
+   :caption: Plugins
+   :hidden:
+
+   plugins/check_certificates.rst
+   plugins/core.rst
+   plugins/cron.rst
+   plugins/dashboard.rst
+   plugins/datetime.rst
+   plugins/docker.rst
+   plugins/filemanager.rst
+   plugins/fstab.rst
+   plugins/network.rst
+   plugins/notepad.rst
+   plugins/packages.rst
+   plugins/plugins.rst
+   plugins/power.rst
+   plugins/services.rst
+   plugins/session_list.rst
+   plugins/settings.rst
+   plugins/terminal.rst
+   plugins/users.rst
+
+.. toctree::
+   :maxdepth: 1
    :caption: Plugin Developers
    :hidden:
 
@@ -94,11 +118,11 @@ Platforms
    dev/dash-widgets.rst
 
 .. toctree::
-  :maxdepth: 1
-  :caption: Core Developers
-  :hidden:
+   :maxdepth: 1
+   :caption: Core Developers
+   :hidden:
 
-  dev/intro-core.rst
+   dev/intro-core.rst
 
 
 .. toctree::
