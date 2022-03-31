@@ -10,4 +10,8 @@ Based on the `ACE editor <https://ace.c9.io>`_, you can:
  * save an existing file in another location,
  * manage all of these files with tabs.
 
+Hotkey:
+
+ * Ctrl + O : open file
+
 .. image:: ../../img/rd-notepad.png
