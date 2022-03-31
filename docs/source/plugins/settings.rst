@@ -7,6 +7,8 @@ This page gives access to the settings stored in ``/etc/ajenti/config.yml`` and 
 
 For a full description of the configuration files, please see :ref:`Configuration files <configuring>`.
 
+After changing the settings, it's necessary to restart the panel.
+
 Tab General
 ===========
 
