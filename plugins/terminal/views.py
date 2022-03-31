@@ -50,8 +50,8 @@ class Handler(HttpPlugin):
             raise EndpointError(e)
         return {
             'code': p.returncode,
-            'output': o,
-            'stderr': e,
+            'output': o.decode(),
+            'stderr': e.decode(),
         }
 
     @url('/api/terminal/is_dead/(?P<terminal_id>.+)')
