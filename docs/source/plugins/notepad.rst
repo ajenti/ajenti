@@ -13,5 +13,7 @@ Based on the `ACE editor <https://ace.c9.io>`_, you can:
 Hotkey:
 
  * Ctrl + O : open file
+ * Ctrl + N : new file
+ * Ctrl + S : save file
 
 .. image:: ../../img/rd-notepad.png
