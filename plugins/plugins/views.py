@@ -81,6 +81,7 @@ class Handler(HttpPlugin):
                 'icon': plugin['info']['icon'],
                 'version': plugin['info']['version'],
                 'title': plugin['info']['title'],
+                'documentation': plugin['info'].get('docs', ''),
             })
         return r
 
