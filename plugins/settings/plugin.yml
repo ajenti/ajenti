@@ -2,6 +2,7 @@ name: settings
 author: Ajenti project
 email: e@ajenti.org
 url: https://ajenti.org
+docs: https://docs.ajenti.org/en/latest/plugins/settings.html
 version: '0.31'
 title: 'Settings'
 icon: wrench

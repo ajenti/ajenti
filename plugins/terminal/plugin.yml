@@ -2,6 +2,7 @@ name: terminal
 author: Ajenti project
 email: e@ajenti.org
 url: https://ajenti.org
+docs: https://docs.ajenti.org/en/latest/plugins/terminal.html
 version: '0.41'
 title: 'Terminal'
 icon: terminal

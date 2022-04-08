@@ -2,6 +2,7 @@ name: cron
 author: Arnaud Kientz
 email: arnaud@linuxmuster.net
 url: https://ajenti.org
+docs: https://docs.ajenti.org/en/latest/plugins/cron.html
 version: '0.4'
 title: 'cron'
 icon: 'clock-o'
