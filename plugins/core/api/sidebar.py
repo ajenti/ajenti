@@ -67,5 +67,6 @@ class Sidebar():
                 if not attach_to:
                     raise Exception(f'Attachment point not found: {item["attach"]}')
                 attach_to['children'].append(item)
+                attach_to['children'].sort(key=lambda child: child.name)
 
         return sidebar

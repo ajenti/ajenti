@@ -1,0 +1,78 @@
+@import '../../../../styles/variables';
+
+.sidebar-item {
+  @accent: @brand-primary;
+  @item-height: 35px;
+
+  h5 {
+    color: @accent;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 13px;
+  }
+
+  & > div {
+    overflow: hidden;
+
+    .colors () {
+      color: @text-color;
+      text-decoration: none;
+
+      &:hover {
+        background: #ddd;
+      }
+
+      &:active {
+        background: #ccc;
+      }
+    }
+
+    & > .expander {
+      float: left;
+      display: block;
+      .colors();
+      line-height: @item-height;
+      padding: 0;
+    }
+
+    & > .link {
+      display: block;
+      .colors();
+      line-height: @item-height;
+      padding-left: 20px;
+      padding-right: 20px;
+
+      i {
+        padding-right: 15px;
+      }
+    }
+  }
+
+  &.active > div {
+    & > .expander, & > .link {
+      color: white;
+      background: @accent;
+    }
+  }
+
+  & > .children {
+    padding-left: 20px;
+  }
+
+
+  &.isRoot {
+    padding: 15px 25px 0;
+
+    > .children {
+      padding-left: 0;
+    }
+  }
+
+  &.isTopLevel {
+    padding: 0 0 10px;
+
+    > .children {
+      padding-left: 0;
+    }
+  }
+}

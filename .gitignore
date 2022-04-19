@@ -2,6 +2,8 @@
 /**/bower_components
 /**/node_modules
 /**/.idea
+/**/.vscode
+proxy.conf.json
 *.sublime-*
 .~lock.*
 *~

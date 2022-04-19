@@ -3,6 +3,8 @@
 Handling HTTP Requests
 **********************
 
+This page describes how to handle HTTP request on the backend side.
+
 Example
 =======
 

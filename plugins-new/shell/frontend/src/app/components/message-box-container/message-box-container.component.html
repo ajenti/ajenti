@@ -1,0 +1,50 @@
+<dialog
+  class="messagebox block-element animate-modal"
+  *ngFor="let messageBox of messageBoxes"
+>
+  <div class="modal">
+    <div class="modal-dialog ">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4>{{ messageBox.title | translate }}</h4>
+        </div>
+        <div class="modal-body" [ngClass]="{ 'scrollable': messageBox.scrollable }">
+          <div *ngIf="messageBox.inProgress">
+            <ajenti-progress-spinner></ajenti-progress-spinner>
+          </div>
+          {{ messageBox.text | translate }}
+         
+          <ng-container #templateComponent></ng-container>
+
+          <div *ngIf="messageBox.promptLabel">
+            <label>{{messageBox.promptLabel}}</label>
+            <input
+              [autofocus]="true"
+              type="text"
+              [(ngModel)]="messageBox.value"
+              (keyup.enter)="acceptButtonClicked(messageBox)"
+              class="form-control"
+
+            />
+          </div>
+        </div>
+        <div class="modal-footer">
+          <a
+            *ngIf="messageBox.acceptButtonLabel"
+            (click)="acceptButtonClicked(messageBox)"
+            class="positive btn btn-default btn-flat"
+          >
+            {{ messageBox.acceptButtonLabel | translate }}
+          </a>
+          <a
+            *ngIf="messageBox.cancelButtonLabel"
+            (click)="cancelButtonClicked(messageBox)"
+            class="negative btn btn-default btn-flat"
+          >
+            {{ messageBox.cancelButtonLabel | translate }}
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</dialog>

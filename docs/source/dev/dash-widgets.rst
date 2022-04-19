@@ -1,65 +1,68 @@
 Dashboard Widgets
 *****************
 
-Example
-=======
+The dashboard (plugin) provides a way how to extend dashboard with some extra widgets.
+This is done by implementing a new module containing the new widget(s).
 
-Basic example of a dynamic and configurable widget can be browsed and downloaded at https://github.com/ajenti/demo-plugins/tree/master/demo_5_widget
 
-Plugins can provide dashboard widgets by extending the :class:`aj.plugins.dashboard.api.Widget` abstract class::
+Example of a Traffic widget (located in the ``traffic`` module)
+
+.. image:: example-widget.png
+    :width: 550
+
+
+Example implementation
+======================
+Elements to be implemented
+    * Backend: Widget class
+    * Backend: Widget config endpoint (Optional)
+    * Frontend: WidgetComponent
+    * Frontend: Widget config component (Optional)
+
+
+Backend: Widget class
+---------------------
+This class must implement the ``aj.plugins.dashboard.widget``. It's used for the registration in the backend and as a provider for the widget data.
+Dashboard will issue periodic requests to your :class:`aj.plugins.dashboard.api.Widget` implementations.
+If user creates multiple widgets of same type, a single instance will be created to service their requests.
+
+Example widget class::
 
     @component(Widget)
-    class RandomWidget(Widget):
-        id = 'random'
+    class TrafficWidget(Widget):
+        id = 'traffic'
+        name = _('Traffic')
 
-        # display name
-        name = 'Random'
-
-        # template of the widget
-        template = '/demo_5_widget:resources/partial/widget.html'
-
-        # template of the configuration dialog
-        config_template = '/demo_5_widget:resources/partial/widget.config.html'
-
-        def __init__(self, context):
-            Widget.__init__(self, context)
+        ..
 
         def get_value(self, config):
-            # generate value based on widget's config
-            if 'bytes' not in config:
-                return 'Not configured'
-            return os.urandom(int(config['bytes'])).encode('hex')
+           ...
+
+           return { .. }
 
 
-There are some CSS classes available for the standard widget looks::
+Backend: Widget config endpoint (Optional)
+------------------------------------------
+This is required only if the widget is configurable.
+The endpoint is implemented as a handler from the ``HttpPlugin``
+The decorator ``@url`` will register the endpoint in the backend.::
+    @component(HttpPlugin)
+    class Handler(HttpPlugin):
+        ..
 
-    <div ng:controller="Demo5WidgetController">
-        <div class="widget-header">
-            Random
-        </div>
-        <div class="widget-value">
-            {{value || 'Unknown'}}
-        </div>
-    </div>
-
-
-
-The templates should reference appropriate controllers::
-
-    angular.module('ajenti.demo5').controller 'Demo5WidgetController', ($scope) ->
-        # $scope.widget is our widget descriptor here
-        $scope.$on 'widget-update', ($event, id, data) ->
-            if id != $scope.widget.id
-                return
-            $scope.value = data
+        @url(r'/api/traffic/interfaces')
+        @endpoint(api=True)
+        def handle_api_interfaces(self, http_context):
+            ..
+            return ..
 
 
-    angular.module('ajenti.demo5').controller 'Demo5WidgetConfigController', ($scope) ->
-        # $scope.configuredWidget is our widget descriptor here
-        # some defaults
-        $scope.configuredWidget.config.bytes ?= 4
+Frontend: WidgetComponent
+-------------------------
 
+This is the actual UI shown to the user. It's implemented as a Angular component.
+This component must be exposed in the ``webpack.config.js`` as part of the ModuleFederationPlugin.
 
-Initially, dashboard will create your widget with an empty (``{}``) config and show the configuration dialog you provided.
+Widget component implementation: https://github.com/ajenti/demo-plugins/tree/master/demo_5_widget/frontend/components/demowidget/
 
-Dashboard will issue periodic requests to your :class:`aj.plugins.dashboard.api.Widget` implementations. Your widget classes should not retain any state. If user creates multiple widgets of same type, a single instance will be created to service their requests.
+Webpack registration: https://github.com/ajenti/demo-plugins/tree/master/demo_5_widget//frontend/webpack.config.js#L35

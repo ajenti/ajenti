@@ -1,0 +1,23 @@
+@import '../../../../styles/variables';
+
+.smart-progress {
+  padding-top: 3px;
+  display: grid; // TODO: Check because it was 'block'.
+  overflow: hidden;
+
+  .progress {
+    height: 4px;
+    margin: 0 0 2px;
+    box-shadow: none;
+    background: #EEE;
+    border-radius: 0;
+
+    .progress-bar {
+      background: @brand-primary;
+    }
+  }
+
+  .values {
+    font-size: 10px;
+  }
+}

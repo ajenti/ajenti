@@ -1,0 +1,19 @@
+<div>
+  <div
+    class="task-status animate-list"
+    *ngFor="let task of tasks"
+  >
+    <div>
+      <div class="pull-left">
+        <ajenti-progress-spinner></ajenti-progress-spinner>
+      </div>
+      <h5>{{ task.name | translate }}</h5>
+      <ajenti-smart-progress
+        [animate]="true"
+        [max]="task.progress.total"
+        [value]="task.progress.done"
+        [text]="( task.progress.message | translate ) || '...'"
+      ></ajenti-smart-progress>
+    </div>
+  </div>
+</div>

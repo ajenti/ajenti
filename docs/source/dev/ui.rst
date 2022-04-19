@@ -6,16 +6,18 @@ User Interface
 Basics
 ======
 
-Ajenti frontend is a AngularJS-based single-page rich web application.
+Ajenti frontend is a Angular based single-page rich web application.
 
-Your plugins can extend it by adding new Angular components (services, controllers, directives) and routes (``ngRoute``).
+Your plugins can extend it by adding new Angular components and routes.
 
-Client-server communication is facilitated by AJAX requests to backend API (``$http``) and a Socket.IO connection (``socket`` and ``push`` Angular services).
+Client-server communication is facilitated by AJAX requests to backend API (``HttpClient``) and a Socket.IO connection (``socket`` and ``push`` Angular services).
 
-Client styling is based on a customized Twitter Bootstrap build.
+Client styling is based on a customized Bootstrap build.
 
 Example
 =======
+.. warning::
+    This part is obsolete. The demo-plugins repo must be converted from AngularJS to Angular.
 
 Basic UI example can be browsed and downloaded at https://github.com/ajenti/demo-plugins/tree/master/demo_2_ui
 

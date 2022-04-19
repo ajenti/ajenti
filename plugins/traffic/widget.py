@@ -16,6 +16,9 @@ class TrafficWidget(Widget):
         Widget.__init__(self, context)
 
     def get_value(self, config):
+        if not config:
+            return None
+
         info = psutil.net_io_counters(pernic=True).get(config.get('interface', None), None)
         if not info:
             return None

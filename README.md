@@ -1,6 +1,7 @@
 [![Logo](docs/img/Logo.png)](https://ajenti.org/)
 
-Ajenti is a Linux & BSD modular server admin panel. Ajenti 2 provides a new interface and a better architecture, developed with [Python3](https://www.python.org/) and [AngularJS](https://angularjs.org/).
+Ajenti is a Linux & BSD modular server admin panel. Ajenti 3 provides a new interface and a better architecture,
+developed with [Python3](https://www.python.org/) and [Angular](https://angular.io/).
 
 <p align="center">
     <a href="https://crowdin.net/project/ajenti">
@@ -18,15 +19,18 @@ Ajenti is a Linux & BSD modular server admin panel. Ajenti 2 provides a new inte
 
 # Feature highlights
 
-* **Easy installation** : Ajenti 2 can be easy installed [with pip and the provided script](https://docs.ajenti.org/en/latest/man/install.html#installing).
+* **Easy installation** : Ajenti 3 can be easy
+  installed [with pip and the provided script](https://docs.ajenti.org/en/latest/man/install.html#installing).
 
-* **Existing configuration** : Picks up your current configuration and works on your existing system as-is, without any preparation.
+* **Existing configuration** : Picks up your current configuration and works on your existing system as-is, without any
+  preparation.
 
 * **Caring** : Does not overwrite your config files, options and comments. All changes are non-destructive.
 
 * **Batteries included** : Includes lots of plugins for system and software configuration, monitoring and management.
 
-* **Extensible** : Ajenti 2 is easily extensible using Python. Plugin development is a quick and pleasant with Ajenti APIs. [Write your first plugin](https://docs.ajenti.org/en/latest/dev/intro.html#your-first-plugin).
+* **Extensible** : Ajenti 3 is easily extensible using Python. Plugin development is a quick and pleasant with Ajenti
+  APIs. [Write your first plugin](https://docs.ajenti.org/en/latest/dev/intro.html#your-first-plugin).
 
 * **Modern** : Pleasant to look at, satisfying to click and accessible anywhere from tablets and mobile.
 
@@ -126,8 +130,8 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
-This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
-
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification.
+Contributions of any kind welcome!
 # Contributing
 
 Helpers are welcome ! There's many ways to help in Ajenti Project : 

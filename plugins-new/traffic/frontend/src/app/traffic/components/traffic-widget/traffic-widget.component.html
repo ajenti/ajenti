@@ -1,0 +1,31 @@
+<div>
+  <div class="widget-header">
+    {{selectedInterface}}
+  </div>
+  <div class="widget-value">
+    <div class="row">
+      <div class="col-xs-1">
+        <i class="fa fa-arrow-down"></i>
+      </div>
+      <div class="col-xs-5">
+        {{bytesReceivedPerSecond|formatBytes}}<span translate>/s</span>
+        <div>
+          <small>
+            {{bytesReceivedTotal|formatBytes}}
+          </small>
+        </div>
+      </div>
+      <div class="col-xs-1">
+        <i class="fa fa-arrow-up"></i>
+      </div>
+      <div class="col-xs-5">
+        {{bytesSentPerSecond|formatBytes}}  <span translate>/s</span>
+        <div>
+          <small>
+            {{bytesSentTotal|formatBytes}}
+          </small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

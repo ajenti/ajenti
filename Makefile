@@ -3,34 +3,30 @@ CONFIGFILE := ''
 
 all: build
 
-bower:
-	ajenti-dev-multitool --bower install
-
 build:
 	ajenti-dev-multitool --msgfmt
-	ajenti-dev-multitool --build
+	ajenti-dev-multitool --build-frontend
 
 run:
-	cd ajenti-panel && ./ajenti-panel -v --autologin --plugins ../plugins $(CONFIGFILE)
+	cd ajenti-panel && ./ajenti-panel -v --autologin --plugins ../plugins-new $(CONFIGFILE)
 
 rundev:
-	cd ajenti-panel && ./ajenti-panel -v --autologin --plugins ../plugins --dev $(CONFIGFILE)
+	cd ajenti-panel && ./ajenti-panel -v --autologin --plugins ../plugins-new --dev $(CONFIGFILE)
 
 rundevlogin:
-	cd ajenti-panel && ./ajenti-panel -v --plugins ../plugins --dev $(CONFIGFILE)
+	cd ajenti-panel && ./ajenti-panel -v --plugins ../plugins-new --dev $(CONFIGFILE)
 
 runprod:
-	cd ajenti-panel && ./ajenti-panel --plugins ../plugins $(CONFIGFILE)
+	cd ajenti-panel && ./ajenti-panel --plugins ../plugins-new $(CONFIGFILE)
 
 rund:
-	cd ajenti-panel && ./ajenti-panel --plugins ../plugins -d $(CONFIGFILE)
-
+	cd ajenti-panel && ./ajenti-panel --plugins ../plugins-new -d $(CONFIGFILE)
 
 clean:
 	find | grep \.pyc | xargs rm || true
-	rm -rf plugins/*/build || true
-	rm -rf plugins/*/dist || true
-	rm -rf plugins/*/.last-upload || true
+	rm -rf plugins-new/*/dist || true
+	rm -rf plugins-new/*/frontend/node_modules || true
+	rm -rf plugins-new/*/.last-upload || true
 
 
 doc:

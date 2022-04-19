@@ -1,0 +1,60 @@
+{
+  "name": "ajenti-dashboard-plugin",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build --single-bundle",
+    "test": "ng test",
+    "lint": "ng lint",
+    "e2e": "ng e2e"
+  },
+  "private": true,
+  "resolutions": {
+    "webpack": "^5.69.1"
+  },
+  "dependencies": {
+    "@angular-architects/module-federation": "^14.0.1",
+    "@angular/animations": "~13.1.1",
+    "@angular/cdk": "13.1.1",
+    "@angular/common": "~13.1.1",
+    "@angular/compiler": "~13.1.1",
+    "@angular/core": "~13.1.1",
+    "@angular/forms": "~13.1.1",
+    "@angular/localize": "~13.1.1",
+    "@angular/material": "13.1.1",
+    "@angular/platform-browser": "~13.1.1",
+    "@angular/platform-browser-dynamic": "~13.1.1",
+    "@angular/router": "~13.1.1",
+    "@ng-bootstrap/ng-bootstrap": "^11.0.0",
+    "@ngx-ajenti/core": "file:../../ngx-ajenti/dist/ngx-ajenti",
+    "@ngx-loading-bar/core": "^6.0.1",
+    "@ngx-loading-bar/http-client": "^6.0.1",
+    "@ngx-translate/core": "^14.0.0",
+    "bootstrap": "^4.6.1",
+    "ngx-build-plus": "^13.0.1",
+    "rxjs": "~7.4.0",
+    "socket.io-client": "^4.4.1",
+    "tslib": "^2.3.1",
+    "zone.js": "~0.11.4"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "~13.1.2",
+    "@angular/cli": "^13.1.2",
+    "@angular/compiler-cli": "~13.1.1",
+    "@types/jasmine": "~3.10.2",
+    "@types/node": "^17.0.2",
+    "codelyzer": "^6.0.2",
+    "jasmine-core": "~3.10.1",
+    "jasmine-spec-reporter": "~7.0.0",
+    "karma": "~6.3.9",
+    "karma-chrome-launcher": "~3.1.0",
+    "karma-coverage": "~2.1.0",
+    "karma-jasmine": "~4.0.0",
+    "karma-jasmine-html-reporter": "^1.7.0",
+    "protractor": "~7.0.0",
+    "ts-node": "~10.4.0",
+    "tslint": "~6.1.0",
+    "typescript": "~4.5.4"
+  }
+}

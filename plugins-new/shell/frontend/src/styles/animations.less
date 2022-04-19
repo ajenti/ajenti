@@ -1,0 +1,163 @@
+.animate-list {
+    border-spacing: none;
+    overflow: hidden;
+}
+
+.animate-list.ng-enter,
+.animate-list.ng-leave {
+    -webkit-transition: 500ms ease all;
+    -moz-transition: 500ms ease all;
+    -ms-transition: 500ms ease all;
+    -o-transition: 500ms ease all;
+    transition: 500ms ease all;
+    position: relative;
+    display: block;
+}
+
+.animate-list.ng-leave.animate-list.ng-leave-active,
+.animate-list.ng-enter {
+    max-height: 0px;
+    opacity: 0;
+}
+
+.animate-list.ng-enter.animate-list.ng-enter-active,
+.animate-list.ng-leave {
+    max-height: 100px;
+    opacity: 1;
+}
+
+
+.animate-sidebar {
+    transition: all ease 0.25s;
+    -moz-transition: all ease 0.25s;
+    -webkit-transition: all ease 0.25s;
+    left: 0 !important;
+    opacity: 1;
+}
+
+.animate-sidebar.ng-hide {
+    left: -300px !important;
+    opacity: 0;
+}
+
+
+.animate-modal {
+    transition: opacity ease 0.25s;
+    -moz-transition: opacity ease 0.25s;
+    -webkit-transition: opacity ease 0.25s;
+
+    &>.modal {
+        transition: margin ease 0.25s, opacity ease 0.25s;
+        -moz-transition: margin ease 0.25s, opacity ease 0.25s;
+        -webkit-transition: margin ease 0.25s, opacity ease 0.25s;
+        opacity: 1;
+    }
+}
+
+.animate-modal.ng-hide {
+    &>.modal {
+        margin-top: -50px;
+        opacity: 0;
+    }
+}
+
+
+.flip-cycle {
+    animation: flip-cycle-frames ease infinite 2s;
+    -moz-animation: flip-cycle-frames ease infinite 2s;
+    -webkit-animation: flip-cycle-frames ease infinite 2s;
+}
+
+.flip-cycle.halfstart {
+    animation-delay: -3s;
+    -moz-animation-delay: -3s;
+    -webkit-animation-delay: -3s;
+}
+
+.flipCycleFramesTpl() {
+    0% {
+        transform: rotateY(0deg);
+        -webkit-transform: rotateY(0deg);
+    }
+    25% {
+        transform: rotateY(180deg);
+        -webkit-transform: rotateY(180deg);
+    }
+    50% {
+        transform: rotateY(180deg);
+        -webkit-transform: rotateY(180deg);
+    }
+    75% {
+        transform: rotateY(360deg);
+        -webkit-transform: rotateY(360deg);
+    }
+    100% {
+        transform: rotateY(360deg);
+        -webkit-transform: rotateY(360deg);
+    }
+}
+
+@keyframes flip-cycle-frames { .flipCycleFramesTpl(); }
+@-moz-keyframes flip-cycle-frames { .flipCycleFramesTpl(); }
+@-webkit-keyframes flip-cycle-frames { .flipCycleFramesTpl(); }
+
+
+
+@-webkit-keyframes progress-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+            transform: rotate(359deg);
+  }
+}
+
+@keyframes progress-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+            transform: rotate(359deg);
+  }
+}
+
+
+.indeterminate .progress-bar {
+    animation: indeterminate-frames linear infinite 1s;
+    -moz-animation: indeterminate-frames linear infinite 1s;
+    -webkit-animation: indeterminate-frames linear infinite 1s;
+}
+
+.indeterminateFramesTpl() {
+    0% {
+        margin-left: 0;
+        width: 0;
+    }
+    33% {
+        margin-left: 0;
+        width: 50%;
+    }
+    66% {
+        margin-left: 50%;
+        width: 50%;
+    }
+    99% {
+        margin-left: 100%;
+        width: 0;
+    }
+    100% {
+        margin-left: 0;
+        width: 0;
+    }
+}
+
+@keyframes indeterminate-frames { .indeterminateFramesTpl(); }
+@-moz-keyframes indeterminate-frames { .indeterminateFramesTpl(); }
+@-webkit-keyframes indeterminate-frames { .indeterminateFramesTpl(); }
+
+
+

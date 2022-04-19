@@ -1,16 +1,21 @@
 .. .. seealso::
 ..   * :ref:`Installing <installing>`
-..   * :ref:`About Ajenti <man-about>`
-..   * :ref:`Plugin development <dev-getting-started>`
-..   * :ref:`Core development <dev-getting-started-core>`
+..   * :ref:`Architecture and how it works <architecture>`
+..   * :ref:`Extension plugins <setup-devenv-extension-plugins>`
+..   * :ref:`Core <setup-devenv-core>`
 
-Ajenti Web Interface Platform
------------------------------
+Ajenti
+------
 
-Ajenti platform includes following products:
+Ajenti is a highly extensible platform.
+The core of the platform provides HTTP server, Socket engine and Plugin container.
+The extensibility is implemented via a system of extension plugins.
 
-* **Ajenti Core**, a Python library, the platform itself including the HTTP server, socket engine and plugin container.
-* **Ajenti Panel**, a startup script and a set of stock plugins such as file manager, network configurator and service manager.
+The backend is written in Python (**Ajenti Core**).
+The frontend is written in Angular application hosted in the core plugin **shell**.
+
+For more information about the architecture see the :ref:`Architecture and how it works <architecture>`.
+
 
 Feature Overview
 ----------------
@@ -55,9 +60,9 @@ Frontend
 * Clean, modern and responsive UI. Single-page, no reloads.
 * Live data updates and streaming with Socket.IO support.
 * Full mobile and tablet support.
-* LESS and CSS, CoffeeScript and JavaScript auto-build support.
+* LESS support.
 * Numerous stock directives.
-* AngularJS templating.
+* Angular framework
 
 Platforms
 =========
@@ -106,24 +111,23 @@ Platforms
 
 .. toctree::
    :maxdepth: 1
-   :caption: Plugin Developers
+   :caption: Developers
    :hidden:
 
-   dev/about.rst
-   dev/intro.rst
+   dev/architecture.rst
    dev/multitool.rst
    dev/ui.rst
-   dev/resources.rst
    dev/http.rst
    dev/dash-widgets.rst
 
 .. toctree::
    :maxdepth: 1
-   :caption: Core Developers
+   :caption: Setup dev. environment
    :hidden:
 
-   dev/intro-core.rst
-
+   dev/setup-devenv-extension-plugins.rst
+   dev/setup-devenv-core.rst
+   dev/setup-devenv-build-tools.rst
 
 .. toctree::
    :maxdepth: 1
@@ -165,7 +169,7 @@ Platforms
    ref/aj.plugins.core.api.tasks
    ref/aj.plugins.augeas.api
    ref/aj.plugins.auth-users.api
-   ref/aj.plugins.dashboard.api
+   ref/aj.plugins.dashboard.widget
    ref/aj.plugins.check_certificates.api
    ref/aj.plugins.datetime.api
    ref/aj.plugins.network.api

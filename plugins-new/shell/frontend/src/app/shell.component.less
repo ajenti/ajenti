@@ -1,0 +1,28 @@
+@import '../styles/variables';
+
+.sidebar {
+  background: #eee;
+  min-height: 100vh;
+  box-shadow: @object-shadow;
+  z-index: @zindex-sidebar;
+  padding: @navbar-height 0 0;
+}
+
+.overlay-sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 100%;
+  width: 33%;
+  padding-top: @navbar-height;
+  overflow-y: auto;
+  box-shadow: 0 0 50px #000 !important;
+}
+
+.app-component > .container > .row > .content {
+  background: #fff;
+  box-shadow: @object-shadow;
+  overflow: hidden;
+  min-height: 100vh;
+  padding: @navbar-height 15px 0; // simlute col padding
+}

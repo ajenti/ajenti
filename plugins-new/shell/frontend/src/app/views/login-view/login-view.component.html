@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="row" id="login-form">
+    <div class="col-sm-4">
+    </div>
+    <div class="col-sm-4">
+      <div *ngIf="corePluginCustomizations.bigLogoURL" class="text-center">
+        <img [src]="corePluginCustomizations.bigLogoURL"/>
+      </div>
+      <h1 class="text-center" style="perspective: 75px">
+        <i *ngIf="!working" class="fa fa-lock"></i>
+        <span *ngIf="working && !success">
+          <i class="fa flip-cycle fa-lock"></i>
+        </span>
+        <span *ngIf="working && success">
+          <i class="fa flip-cycle fa-unlock-alt"></i>
+        </span>
+      </h1>
+      <div *ngIf="mode == 'normal'">
+        <input
+          [(ngModel)]="username"
+          (keyup.enter)="login()"
+          [attr.disabled]="working ? true : null"
+          type="text"
+          [placeholder]="'Username' | translate"
+          [autofocus]="!username"
+          class="form-control"
+        />
+      </div>
+      <div>
+        <input
+          [(ngModel)]="password"
+          (keyup.enter)="login()"
+          [attr.disabled]="working ? true : null"
+          [placeholder]="'Password' | translate"
+          [autofocus]="!!username"
+          type="password"
+          class="form-control"
+        />
+      </div>
+      <div>
+        <a
+          (click)="login()"
+          [attr.disabled]="(!username || !password || working) ? true : null"
+          class="btn btn-primary btn-block"
+        >
+          <span *ngIf="mode == 'normal'" translate>Log in</span>
+          <span *ngIf="mode == 'sudo'" translate>Authenticate</span>
+        </a>
+      </div>
+    </div>
+    <div class="col-sm-4">
+    </div>
+  </div>
+</div>

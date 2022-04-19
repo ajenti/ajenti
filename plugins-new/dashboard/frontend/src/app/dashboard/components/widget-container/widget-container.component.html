@@ -1,0 +1,20 @@
+<div class="widget border rounded">
+  <a class="widget-btn config-btn btn btn-default" (click)="openConfiguration()"
+     *ngIf="widgetConfigComponent"
+     title="{{'Configure'|translate}}">
+    <i class="fa fa-fw fa-wrench"></i>
+  </a>
+
+  <!--TODO: Add ngIf   ng:show="customization.plugins.dashboard.allowMove"   + What was this sv:handle -->
+  <a class="widget-btn move-btn btn btn-default"
+     cdkDragHandle>
+    <i class="fa fa-fw fa-arrows"></i>
+  </a>
+
+  <!--TODO add ngIf    ng:show="customization.plugins.dashboard.allowRemove">-->
+  <a class="widget-btn remove-btn btn btn-default" (click)="dashboardConfigService.removeWidget(widget)"
+     title="{{'Remove'|translate}}">
+    <i class="fa fa-fw fa-trash-o"></i>
+  </a>
+  <ng-template widgetHost></ng-template>
+</div>

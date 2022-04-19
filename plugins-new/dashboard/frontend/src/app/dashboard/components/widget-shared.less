@@ -1,0 +1,109 @@
+.widget {
+  padding: 10px 5px 0px 5px;
+  background: white;
+  position: relative;
+  height: 90px;
+
+  &.sv-helper {
+    box-shadow: 0 0 2px rgba(0, 0, 0, .25);
+  }
+
+  .widget-header {
+    font-size: 12px;
+    padding-bottom: 10px;
+  }
+
+  .widget-value {
+    font-size: 20px;
+
+    sup {
+      font-size: 10px;
+      top: -12px;
+    }
+  }
+
+  .widget-btn {
+    position: absolute;
+    top: 5px;
+    opacity: 0;
+    transition: all 0.5s;
+    z-index: 999;
+  }
+
+  &:hover .widget-btn {
+    opacity: 1;
+  }
+}
+
+.placeholder {
+  box-shadow: 0 0 2px rgba(0, 0, 0, .25);
+  opacity: .5;
+  height: 20px;
+}
+
+.trash-container {
+  padding: 20px 0;
+}
+
+.trash {
+  padding: 20px;
+  display: none;
+}
+
+&:hover .trash {
+  display: block;
+}
+
+
+&.sv-helper {
+  box-shadow: 0 0 2px rgba(0, 0, 0, .25);
+}
+
+.widget-header {
+  font-size: 12px;
+}
+
+.widget-value {
+  font-size: 20px;
+
+  sup {
+    font-size: 10px;
+    top: -12px;
+  }
+}
+
+.widget-btn {
+  position: absolute;
+  top: -15px;
+  opacity: 0;
+  transition: all 0.5s;
+}
+
+.config-btn {
+  right: 55px;
+}
+
+.move-btn {
+  right: 30px;
+}
+
+.remove-btn {
+  right: 5px;
+}
+
+&:hover .widget-btn {
+  opacity: 1;
+}
+
+.widgets {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  grid-gap: 8px;
+  margin-top: 8px;
+}
+
+.widget-item {
+  flex: 1 0 400px;
+
+}

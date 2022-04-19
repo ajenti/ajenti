@@ -1,0 +1,44 @@
+<!-- TODO: <div ng:bind-html="customization.plugins.core.sidebarUpperContent"></div> -->
+<div
+  *ngIf="!item.isTopLevel || item.hasChildren"
+  [class]="getCSSClasses()"
+>
+  <h5 class="headline" *ngIf="item.isTopLevel">
+    {{ item.name | translate }}
+  </h5>
+  <div *ngIf="!item.isRoot && !item.isTopLevel">
+    <a
+      *ngIf="item.hasChildren"
+      (click)="item.expanded = !item.expanded; $event.stopPropagation(); $event.preventDefault()"
+      class="expander"
+      href="#"
+    >
+      <i *ngIf="item.expanded" class="fa fa-fw fa-caret-down"></i>
+      <i *ngIf="!item.expanded" class="fa fa-fw fa-caret-right"></i>
+    </a>
+    <a
+      [routerLink]="[item.url]"
+      class="link"
+    >
+      <!--      (mouseup)="feedback.emit('sidebar', {id: item.id})"-->
+      <i
+        *ngIf="!item.icon?.includes(' ')"
+        class="fa fa-fw fa-{{ item.icon }}"
+      ></i>
+      <i
+        *ngIf="item.icon?.includes(' ')"
+        class="fa-fw {{ item.icon }}"
+      ></i>
+      {{ item.name | translate }}
+    </a>
+  </div>
+  <div
+    *ngIf="item.expanded && item.hasChildren"
+    class="children"
+  >
+    <div *ngFor="let child of item.children">
+      <app-side-bar-item [item]="child"></app-side-bar-item>
+    </div>
+  </div>
+</div>
+<!-- TODO: <div ng:bind-html="customization.plugins.core.sidebarLowerContent"></div> -->

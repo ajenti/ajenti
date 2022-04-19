@@ -1,0 +1,132 @@
+@import 'styles/variables';
+@import 'styles/animations';
+@import 'styles/overrides';
+@import 'styles/responsive';
+@import 'styles/colors';
+
+
+*, body, html {
+  font-family: "PT Sans", pt_sans, sans-serif;
+}
+
+html {
+  min-height: 100%;
+}
+
+body {
+  min-height: 100%;
+  cursor: default;
+  overflow-y: scroll;
+  background-color: @body-bg;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+.ellipsis {
+  .nowrap();
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.subtle {
+  opacity: .5;
+}
+
+.hidden {
+  display: none;
+}
+
+
+
+.app-component.widescreen-mode-on .container {
+  width: auto;
+}
+
+
+.floating-toolbar-padder {
+  height: 52px;
+}
+
+floating-toolbar {
+  display: block;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: @zindex-floating-toolbar;
+
+  .bar {
+    padding: 10px 20px 10px 20px;
+    line-height: 30px;
+    background: white;
+    box-shadow: 0 -1px 0px rgba(0, 0, 0, 0.125);
+  }
+
+  &.accented .bar {
+    background: @brand-primary;
+    color: white;
+
+    .btn-flat {
+      color: white !important;
+    }
+  }
+}
+
+.padded-container {
+  padding: 0 10px;
+}
+
+
+.navbox-overlay {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9000;
+  background: rgba(0, 0, 0, .5);
+
+  .navbox-box {
+    width: 400px;
+    margin: 50px auto;
+  }
+}
+
+*[root-access=small] .root-access-blocker {
+  * {
+    display: inline-block;
+    font-size: 14px;
+    margin: 5px 0;
+  }
+}
+
+
+.global-overlay {
+  background: rgba(255,255,255,.75);
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 99999;
+
+  &.global-bootstrap-error {
+    padding-top: 50px;
+
+    .header {
+      font-size: 100px;
+      color: #ddd;
+      text-shadow: 0 0 1px #fff;
+    }
+  }
+
+  &.global-loading-overlay {
+    padding-top: 200px;
+  }
+}
+
+.sv-helper {
+  position: fixed;
+}

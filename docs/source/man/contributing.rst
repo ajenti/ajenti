@@ -19,6 +19,5 @@ Developping
 -----------
 
 There's two main axes to develop Ajenti :
-
-  * :ref:`Plugin development <dev-getting-started>`: like e.g. a plugin to manage the fstab file,
-  * :ref:`Core development <dev-getting-started-core>`: improve Ajenti on server side.
+  * :ref:`Extension plugins <setup-devenv-extension-plugins>`: like e.g. a plugin to manage the fstab file,
+  * :ref:`Core <setup-devenv-core>`: improve Ajenti on server side.

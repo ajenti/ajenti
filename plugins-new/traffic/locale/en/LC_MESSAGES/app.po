@@ -1,0 +1,20 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-09-18 15:51+0200\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: plugins/traffic/resources/partial/widget.html:11
+#: plugins/traffic/resources/partial/widget.html:22
+msgid "/s"
+msgstr ""
+
+#: plugins/traffic/resources/partial/widget.config.html:3
+msgid "Interface"
+msgstr ""
+
+#: plugins/traffic/widget.py:11
+msgid "Traffic"
+msgstr ""

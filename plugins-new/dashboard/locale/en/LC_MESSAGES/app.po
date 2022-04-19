@@ -1,0 +1,110 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-04-27 12:10+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: plugins/dashboard/resources/partial/widgets/loadavg.html:3
+msgid "1 min"
+msgstr ""
+
+#: plugins/dashboard/resources/partial/widgets/loadavg.html:19
+msgid "15 min"
+msgstr ""
+
+#: plugins/dashboard/resources/partial/widgets/loadavg.html:11
+msgid "5 min"
+msgstr ""
+
+#: plugins/dashboard/resources/partial/widgets/cpu.html:4
+msgid "Active cores"
+msgstr ""
+
+#: plugins/dashboard/resources/partial/index.html:12
+msgid "Add"
+msgstr ""
+
+#: plugins/dashboard/resources/partial/index.html:40
+msgid "Add widget"
+msgstr ""
+
+#: plugins/dashboard/resources/partial/widgets/cpu.html:10
+#: plugins/dashboard/widgets/cpu.py:10
+msgid "CPU usage"
+msgstr ""
+
+#: plugins/dashboard/resources/partial/widget.html:1
+msgid "Configure"
+msgstr ""
+
+#: plugins/dashboard/resources/partial/widgets/hostname.html:2
+#: plugins/dashboard/widgets/hostname.py:10
+msgid "Hostname"
+msgstr ""
+
+#: plugins/dashboard/resources/partial/widgets/memory.html:10
+#: plugins/dashboard/widgets/memory.py:10
+msgid "Memory usage"
+msgstr ""
+
+#: plugins/dashboard/resources/partial/index.html:22
+#: plugins/dashboard/resources/partial/widget.html:7
+#: plugins/dashboard/resources/js/controllers/index.controller.es:83
+msgid "Remove"
+msgstr ""
+
+#: plugins/dashboard/resources/partial/index.html:17
+msgid "Rename"
+msgstr ""
+
+#: plugins/dashboard/resources/partial/index.html:82
+msgid "Save"
+msgstr ""
+
+#: plugins/dashboard/resources/partial/index.html:8
+msgid "Tabs"
+msgstr ""
+
+#: plugins/dashboard/resources/partial/widgets/memory.html:4
+msgid "Total"
+msgstr ""
+
+#: plugins/dashboard/resources/partial/widgets/uptime.html:2
+#: plugins/dashboard/widgets/uptime.py:11
+msgid "Uptime"
+msgstr ""
+
+#: plugins/dashboard/main.py:15
+#: plugins/dashboard/resources/js/controllers/index.controller.es:2
+msgid "Dashboard"
+msgstr ""
+
+#: plugins/dashboard/resources/js/controllers/index.controller.es:67
+#: plugins/dashboard/resources/js/controllers/index.controller.es:93
+msgid "New name"
+msgstr ""
+
+#: plugins/dashboard/resources/js/controllers/index.controller.es:82
+msgid "${$scope.userConfig.dashboard.tabs[index].name}"
+msgstr ""
+
+#: plugins/dashboard/resources/js/controllers/index.controller.es:84
+msgid "Cancel"
+msgstr ""
+
+#: plugins/dashboard/widgets/loadavg.py:12
+msgid "Load average"
+msgstr ""
