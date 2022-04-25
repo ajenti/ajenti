@@ -151,6 +151,7 @@ class Handler(HttpPlugin):
         :param http_context: HttpContext
         :type http_context: HttpContext
         """
+        AuthenticationService.get(self.context).get_provider().signout()
         self.context.worker.terminate()
 
     @url('/api/core/sidebar')
