@@ -90,8 +90,19 @@ class AuthenticationProvider():
         raise NotImplementedError
 
     def get_profile(self, username):
-        return {}
+        raise NotImplementedError
 
+    def check_mail(self, mail):
+        raise NotImplementedError
+
+    def check_password_complexity(self,password):
+        raise NotImplementedError
+
+    def update_password(self):
+        raise NotImplementedError
+
+    def signout(self):
+        raise NotImplementedError
 
 @component(AuthenticationProvider)
 class OSAuthenticationProvider(AuthenticationProvider):
@@ -140,14 +151,20 @@ class OSAuthenticationProvider(AuthenticationProvider):
     def get_isolation_gid(self, username):
         return None
 
-    def check_mail(self, mail):
-        return False
-
     def check_password_complexity(self,password):
         # TODO : add password policy
         return True
 
+    def get_profile(self, username):
+        return {}
+
+    def check_mail(self, mail):
+        return False
+
     def update_password(self):
+        pass
+
+    def signout(self):
         pass
 
 
