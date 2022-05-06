@@ -26,7 +26,7 @@ class ConsoleHandler(logging.StreamHandler):
 
         s = ''
         d = datetime.fromtimestamp(record.created)
-        s += colored(d.strftime("%d.%m.%Y %H:%M  "), 'white')
+        s += colored(d.strftime("%d.%m.%Y %H:%M:%S  "), 'white')
 
         params = {
             'tag': getattr(record, 'tag', 'master'),
