@@ -409,5 +409,6 @@ class HttpContext():
                     break
             os.close(fd)
         else:
-            content = open(path, 'rb').read()
+            with open(path, 'rb') as file_to_serve:
+                content = file_to_serve.read()
             yield self.gzip(content)
