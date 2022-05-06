@@ -76,7 +76,11 @@ class ConsoleHandler(logging.StreamHandler):
 
         s += padding
 
-        s += record.msg % record.args
+        try:
+            s += record.msg % record.args
+        except TypeError:
+            # Not enough arguments can be caused by encoded URL
+            s += record.msg
         s += '\n'
         self.stream.write(s)
 
