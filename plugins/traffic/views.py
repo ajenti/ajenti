@@ -5,7 +5,7 @@ Retrieve I/O stats for all network interfaces.
 import psutil
 
 from jadi import component
-from aj.api.http import url, HttpPlugin
+from aj.api.http import get, HttpPlugin
 from aj.api.endpoint import endpoint
 
 
@@ -14,7 +14,7 @@ class Handler(HttpPlugin):
     def __init__(self, context):
         self.context = context
 
-    @url(r'/api/traffic/interfaces')
+    @get(r'/api/traffic/interfaces')
     @endpoint(api=True)
     def handle_api_interfaces(self, http_context):
         """
