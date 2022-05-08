@@ -6,7 +6,7 @@ facilitate the use of augeas.
 import json
 from jadi import component
 
-from aj.api.http import url, HttpPlugin
+from aj.api.http import get, post, HttpPlugin
 
 from aj.api.endpoint import endpoint, EndpointReturn
 from aj.plugins.augeas.api import AugeasEndpoint
@@ -31,7 +31,7 @@ class Handler(HttpPlugin):
             if a.id == id:
                 return a
 
-    @url(r'/api/augeas/endpoint/get/(?P<id>.+)')
+    @get(r'/api/augeas/endpoint/(?P<id>.+)')
     @endpoint(api=True)
     def handle_api_get(self, http_context, id=None):
         """
@@ -69,7 +69,7 @@ class Handler(HttpPlugin):
         data = __wrap_tree(root_path)
         return data
 
-    @url(r'/api/augeas/endpoint/set/(?P<id>.+)')
+    @post(r'/api/augeas/endpoint/(?P<id>.+)')
     @endpoint(api=True)
     def handle_api_set(self, http_context, id=None):
         """
