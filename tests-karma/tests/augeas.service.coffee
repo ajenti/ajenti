@@ -1,7 +1,7 @@
 describe 'augeas service', () ->
     beforeEach () ->
         inject ($httpBackend) ->
-            $httpBackend.when('GET', '/api/augeas/endpoint/get/test').respond {
+            $httpBackend.when('GET', '/api/augeas/endpoint/test').respond {
                 value: 'test'
                 children: [
                     {
@@ -13,11 +13,11 @@ describe 'augeas service', () ->
                 ]
                 path: '/test'
             }
-            $httpBackend.when('POST', '/api/augeas/endpoint/set/test').respond()
+            $httpBackend.when('POST', '/api/augeas/endpoint/test').respond()
 
     it 'get()', (done) ->
         inject ($httpBackend, augeas) ->
-            $httpBackend.expectGET('/api/augeas/endpoint/get/test')
+            $httpBackend.expectGET('/api/augeas/endpoint/test')
             augeas.get('test').then (aug) ->
                 expect(aug.root.value).to.equal('test')
                 done()
@@ -25,8 +25,8 @@ describe 'augeas service', () ->
 
     it 'set()', (done) ->
         inject ($httpBackend, augeas) ->
-            $httpBackend.expectGET('/api/augeas/endpoint/set/test')
-            $httpBackend.expectPOST('/api/augeas/endpoint/set/test')
+            $httpBackend.expectGET('/api/augeas/endpoint/test')
+            $httpBackend.expectPOST('/api/augeas/endpoint/test')
             augeas.get('test').then (aug) ->
                 augeas.set('test', aug).then () ->
                     done()

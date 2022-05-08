@@ -51,7 +51,7 @@ angular.module('ajenti.cron').controller('CronIndexController', function($scope,
         })
     }
 
-    $http.get('/api/get_crontab').then( (resp) => {
+    $http.get('/api/crontab').then( (resp) => {
         $scope.crontab = resp.data;
     });
 
@@ -72,7 +72,7 @@ angular.module('ajenti.cron').controller('CronIndexController', function($scope,
     }
 
     $scope.save = () => {
-        $http.post('/api/save_crontab', {'crontab': $scope.crontab}).then((resp) => {
+        $http.post('/api/crontab', {'crontab': $scope.crontab}).then((resp) => {
             notify.success(gettext('Crontab successfully saved !'));
         }, error => {
             $log.log('Failed to save crontab', error);

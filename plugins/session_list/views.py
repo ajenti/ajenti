@@ -5,7 +5,7 @@ process and the root process.
 
 from jadi import component
 
-from aj.api.http import url, HttpPlugin
+from aj.api.http import get, HttpPlugin
 # from aj.auth import authorize
 from aj.api.endpoint import endpoint
 import aj
@@ -16,7 +16,7 @@ class Handler(HttpPlugin):
     def __init__(self, context):
         self.context = context
 
-    @url(r'/api/session_list/list')
+    @get(r'/api/session_list/sessions')
     @endpoint(api=True)
     def handle_api_list_sessions(self, http_context):
         """
@@ -30,8 +30,7 @@ class Handler(HttpPlugin):
         :rtype: dict
         """
 
-        if http_context.method == 'GET':
-            self.context.worker.update_sessionlist()
-            gevent.sleep(1)
-            return aj.sessions
+        self.context.worker.update_sessionlist()
+        gevent.sleep(1)
+        return aj.sessions
             

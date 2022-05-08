@@ -8,7 +8,7 @@ import time
 from datetime import datetime
 from jadi import component
 
-from aj.api.http import url, HttpPlugin
+from aj.api.http import get, post, HttpPlugin
 from aj.auth import authorize
 from aj.api.endpoint import endpoint, EndpointError
 from aj.plugins.datetime.api import TZManager
@@ -20,7 +20,7 @@ class Handler(HttpPlugin):
         self.context = context
         self.manager = TZManager.any(self.context)
 
-    @url(r'/api/datetime/tz/get')
+    @get(r'/api/datetime/timezone')
     @endpoint(api=True)
     def handle_api_tz_get(self, http_context):
         """
@@ -38,7 +38,7 @@ class Handler(HttpPlugin):
             'offset': self.manager.get_offset(),
         }
 
-    @url(r'/api/datetime/tz/set/(?P<tz>.+)')
+    @post(r'/api/datetime/timezone/(?P<tz>.+)')
     @authorize('datetime:write')
     @endpoint(api=True)
     def handle_api_tz_set(self, http_context, tz=None):
@@ -53,7 +53,7 @@ class Handler(HttpPlugin):
 
         return self.manager.set_tz(tz)
 
-    @url(r'/api/datetime/tz/list')
+    @get(r'/api/datetime/timezones')
     @endpoint(api=True)
     def handle_api_tz_list(self, http_context):
         """
@@ -67,7 +67,7 @@ class Handler(HttpPlugin):
 
         return self.manager.list_tz()
 
-    @url(r'/api/datetime/time/get')
+    @get(r'/api/datetime/time')
     @endpoint(api=True)
     def handle_api_time_get(self, http_context):
         """
@@ -81,7 +81,7 @@ class Handler(HttpPlugin):
 
         return int(time.time())
 
-    @url(r'/api/datetime/time/set/(?P<time>.+)')
+    @post(r'/api/datetime/time/(?P<time>\d+)')
     @authorize('datetime:write')
     @endpoint(api=True)
     def handle_api_time_set(self, http_context, time=None):
@@ -100,7 +100,7 @@ class Handler(HttpPlugin):
         except FileNotFoundError as e:
             logging.warning('No hwclock utility available, not setting hardware clock')
 
-    @url(r'/api/datetime/time/sync')
+    @post(r'/api/datetime/time/sync')
     @authorize('datetime:write')
     @endpoint(api=True)
     def handle_api_time_sync(self, http_context):

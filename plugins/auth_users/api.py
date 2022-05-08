@@ -84,6 +84,9 @@ class UsersAuthenticationProvider(AuthenticationProvider):
         aj.users.save()
         return True
 
+    def signout(self):
+        pass
+
 
 @component(UserConfigProvider)
 class UserAuthConfig(UserConfigProvider):

@@ -121,7 +121,7 @@ if __name__ == '__main__':
             config_path = os.path.join(sys.path[0], 'config.yml')
 
     if not os.path.exists(config_path):
-        logging.error('Config file "%s" not found', config_path)
+        logging.error(f'Config file "{config_path}" not found')
         sys.exit(1)
 
     aj.entry.start(

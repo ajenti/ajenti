@@ -26,7 +26,7 @@ class ConsoleHandler(logging.StreamHandler):
 
         s = ''
         d = datetime.fromtimestamp(record.created)
-        s += colored(d.strftime("%d.%m.%Y %H:%M  "), 'white')
+        s += colored(d.strftime("%d.%m.%Y %H:%M:%S  "), 'white')
 
         params = {
             'tag': getattr(record, 'tag', 'master'),
@@ -76,7 +76,11 @@ class ConsoleHandler(logging.StreamHandler):
 
         s += padding
 
-        s += record.msg % record.args
+        try:
+            s += record.msg % record.args
+        except TypeError:
+            # Not enough arguments can be caused by encoded URL
+            s += record.msg
         s += '\n'
         self.stream.write(s)
 

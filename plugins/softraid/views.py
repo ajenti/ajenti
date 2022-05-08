@@ -4,7 +4,7 @@ Module to parse the content of /proc/mdstat and show actual sotraid configuratio
 
 from jadi import component
 
-from aj.api.http import url, HttpPlugin
+from aj.api.http import get, HttpPlugin
 # from aj.auth import authorize
 from aj.api.endpoint import endpoint
 from aj.plugins.softraid.softraid import RAIDManager
@@ -14,13 +14,12 @@ class Handler(HttpPlugin):
     def __init__(self, context):
         self.context = context
 
-    @url(r'/api/softraid')
+    @get(r'/api/softraid/arrays')
     # @authorize('softraid:show')
     @endpoint(api=True)
     def handle_api_get_softraid(self, http_context):
         """
         Connector to the manager in order to retrieve a list of arrays.
-        Method GET.
 
         :param http_context: HttpContext
         :type http_context: HttpContext
@@ -28,10 +27,9 @@ class Handler(HttpPlugin):
         :rtype: list
         """
 
-        if http_context.method == 'GET':
-            try:
-                raid = RAIDManager()
-                return raid.arrays
-            except:
-                return []
+        try:
+            raid = RAIDManager()
+            return raid.arrays
+        except:
+            return []
 

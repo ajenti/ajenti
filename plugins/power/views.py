@@ -6,7 +6,7 @@ import psutil
 import time
 
 from jadi import component
-from aj.api.http import url, HttpPlugin
+from aj.api.http import get, post, HttpPlugin
 from aj.auth import authorize
 from aj.api.endpoint import endpoint
 from aj.plugins.power.api import PowerManager
@@ -18,7 +18,7 @@ class Handler(HttpPlugin):
         self.context = context
         self.manager = PowerManager.get(self.context)
 
-    @url(r'/api/power/uptime')
+    @get(r'/api/power/uptime')
     @endpoint(api=True)
     def handle_api_uptime(self, http_context):
         """
@@ -32,7 +32,7 @@ class Handler(HttpPlugin):
 
         return time.time() - psutil.boot_time()
 
-    @url(r'/api/power/batteries')
+    @get(r'/api/power/batteries')
     @endpoint(api=True)
     def handle_api_batteries(self, http_context):
         """
@@ -46,7 +46,7 @@ class Handler(HttpPlugin):
 
         return self.manager.get_batteries()
 
-    @url(r'/api/power/adapters')
+    @get(r'/api/power/adapters')
     @endpoint(api=True)
     def handle_api_adapters(self, http_context):
         """
@@ -60,54 +60,21 @@ class Handler(HttpPlugin):
 
         return self.manager.get_adapters()
 
-    @url(r'/api/power/poweroff')
+    @post(r'/api/power/command_power')
     @authorize('power:manage')
     @endpoint(api=True)
     def handle_api_poweroff(self, http_context):
         """
-        Send power off signal to the manager.
+        Send command signal to the manager.
+        Valid commands are poweroff, reboot, suspend and hibernate.
 
         :param http_context: HttpContext
         :type http_context: HttpContext
         """
 
-        self.manager.poweroff()
-
-    @url(r'/api/power/reboot')
-    @authorize('power:manage')
-    @endpoint(api=True)
-    def handle_api_reboot(self, http_context):
-        """
-        Send reboot signal to the manager.
-
-        :param http_context: HttpContext
-        :type http_context: HttpContext
-        """
-
-        self.manager.reboot()
-
-    @url(r'/api/power/suspend')
-    @authorize('power:manage')
-    @endpoint(api=True)
-    def handle_api_suspend(self, http_context):
-        """
-        Send suspend signal to the manager.
-
-        :param http_context: HttpContext
-        :type http_context: HttpContext
-        """
-
-        self.manager.suspend()
-
-    @url(r'/api/power/hibernate')
-    @authorize('power:manage')
-    @endpoint(api=True)
-    def handle_api_hibernate(self, http_context):
-        """
-        Send hibernate signal to the manager.
-
-        :param http_context: HttpContext
-        :type http_context: HttpContext
-        """
-
-        self.manager.hibernate()
+        command = http_context.json_body()['command']
+        if command in ['poweroff', 'reboot', 'suspend', 'hibernate']:
+            method = getattr(self.manager, command)
+            method()
+        else:
+            http_context.respond_not_found()

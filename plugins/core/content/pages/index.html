@@ -109,7 +109,7 @@
                     <ng:include src="'/core:resources/partial/sidebarTasks.html'"></ng:include>
                     <core:sidebar></core:sidebar>
                 </div>
-                <div ng:view class="content" ng-swipe-right="toggleOverlayNavigation(true)" ng-swipe-left="toggleOverlayNavigation(false)">
+                <div ng:view autoscroll="true" class="content" ng-swipe-right="toggleOverlayNavigation(true)" ng-swipe-left="toggleOverlayNavigation(false)">
                 </div>
             </div>
 

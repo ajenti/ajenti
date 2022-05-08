@@ -10,6 +10,7 @@ import os
 from io import BytesIO
 import pickle
 import logging
+from urllib.parse import unquote
 
 from aj.api.http import BaseHttpHandler
 
@@ -152,7 +153,12 @@ class HttpContext():
             self.env['REQUEST_METHOD'] = 'GET'
             self.env['REQUEST_METHOD'] = self.method
 
-        self.url_cgi_query = cgi.FieldStorage(environ={'QUERY_STRING': self.env['QUERY_STRING']}, keep_blank_values=1)
+        self.url_cgi_query = cgi.FieldStorage(
+            environ={
+                'QUERY_STRING': unquote(self.env['QUERY_STRING'], encoding='latin-1')
+            },
+            keep_blank_values=1
+        )
 
         self.query = {}
         if self.form_cgi_query:
@@ -409,5 +415,6 @@ class HttpContext():
                     break
             os.close(fd)
         else:
-            content = open(path, 'rb').read()
+            with open(path, 'rb') as file_to_serve:
+                content = file_to_serve.read()
             yield self.gzip(content)

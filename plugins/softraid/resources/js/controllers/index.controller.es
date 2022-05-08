@@ -2,7 +2,7 @@ angular.module('ajenti.softraid').controller('SoftraidIndexController', function
     pageTitle.set(gettext('Softraid'));
 
     $scope.getResources = () => {
-        $http.get('/api/softraid').then((resp) => {
+        $http.get('/api/softraid/arrays').then((resp) => {
             $scope.raid = resp.data;
             $scope.start_refresh();
         });

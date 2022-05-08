@@ -6,7 +6,7 @@ from jadi import component
 import subprocess
 import os
 
-from aj.api.http import url, HttpPlugin
+from aj.api.http import get, post, HttpPlugin
 from aj.api.endpoint import endpoint, EndpointError
 from reconfigure.configs import FSTabConfig
 from reconfigure.items.fstab import FilesystemData
@@ -17,12 +17,11 @@ class Handler(HttpPlugin):
     def __init__(self, context):
         self.context = context
 
-    @url(r'/api/get_mounted')
+    @get(r'/api/fstab/mounts')
     @endpoint(api=True)
     def handle_api_mounted(self, http_context):
         """
         Parse the output of the df command to generate a dict of mount devices.
-        Method GET.
 
         :param http_context: HttpContext
         :type http_context: HttpContext
@@ -30,37 +29,35 @@ class Handler(HttpPlugin):
         :rtype: dict
         """
 
-        if http_context.method == 'GET':
-            filesystems = []
+        filesystems = []
 
-            mounted = subprocess.check_output(['df', '-PT']).decode('utf-8')
-            for entry in mounted.splitlines()[1:]:
-                entry = entry.split()
+        mounted = subprocess.check_output(['df', '-PT']).decode('utf-8')
+        for entry in mounted.splitlines()[1:]:
+            entry = entry.split()
 
-                device = entry[0]
-                fstype = entry[1]
-                mountpoint = entry[6] # Problem with mac os ?
-                used = int(entry[3]) * 1024
-                size = int(entry[2]) * 1024
-                usage = used / size
+            device = entry[0]
+            fstype = entry[1]
+            mountpoint = entry[6] # Problem with mac os ?
+            used = int(entry[3]) * 1024
+            size = int(entry[2]) * 1024
+            usage = used / size
 
-                filesystems.append({
-                    'device':device,
-                    'mountpoint': mountpoint,
-                    'used': used,
-                    'size': size,
-                    'usage': usage,
-                    'fstype': fstype,
-                })
+            filesystems.append({
+                'device':device,
+                'mountpoint': mountpoint,
+                'used': used,
+                'size': size,
+                'usage': usage,
+                'fstype': fstype,
+            })
 
-            return filesystems
+        return filesystems
 
-    @url(r'/api/umount')
+    @post(r'/api/fstab/command_umount')
     @endpoint(api=True)
     def handle_api_umount(self, http_context):
         """
         Umount some device.
-        Method POST.
 
         :param http_context: HttpContext
         :type http_context: HttpContext
@@ -68,56 +65,60 @@ class Handler(HttpPlugin):
         :rtype: bool or throw error
         """
 
-        if http_context.method == 'POST':
-            mountpoint = http_context.json_body()['mountpoint']
-            try:
-                subprocess.check_output(['umount', mountpoint])
-                return True
-            except Exception as e:
-                raise EndpointError(e)
+        mountpoint = http_context.json_body()['mountpoint']
+        try:
+            subprocess.check_output(['umount', mountpoint])
+            return True
+        except Exception as e:
+            raise EndpointError(e)
 
-    @url(r'/api/fstab')
+    @get(r'/api/fstab')
     @endpoint(api=True)
-    def handle_api_fstab(self, http_context):
+    def handle_api_get_fstab(self, http_context):
         """
-        Load (through get) and write (through post) the fstab file.
-        Make a backup when save a new fstab file.
-        Method GET.
-        Method POST.
+        Load the fstab file.
 
         :param http_context: HttpContext
         :type http_context: HttpContext
-        :return: Fstab as dict in load mode, success or not in save mode
-        :rtype: dict in load mode, bool or throw error in save mode
+        :return: Fstab as dict
+        :rtype: dict in load mode
         """
 
-        if http_context.method == 'GET':
-            self.fstab_config = FSTabConfig(path='/etc/fstab')
-            self.fstab_config.load()
-            return self.fstab_config.tree.to_dict()
+        self.fstab_config = FSTabConfig(path='/etc/fstab')
+        self.fstab_config.load()
+        return self.fstab_config.tree.to_dict()
 
-        if http_context.method == 'POST':
-            config = http_context.json_body()['config']
-            new_fstab = FSTabConfig(content='')
-            new_fstab.load()
+    @post(r'/api/fstab')
+    @endpoint(api=True)
+    def handle_api_set_fstab(self, http_context):
+        """
+        Write the fstab file.
+        Make a backup when save a new fstab file.
 
-            for filesystem in config:
-                device = FilesystemData()
-                for prop, value in filesystem.items():
-                    setattr(device, prop, value)
-                new_fstab.tree.filesystems.append(device)
+        :param http_context: HttpContext
+        :type http_context: HttpContext
+        :return: Success or not
+        :rtype: bool or throw error in save mode
+        """
 
-            data = new_fstab.save()[None]
+        config = http_context.json_body()['config']
+        new_fstab = FSTabConfig(content='')
+        new_fstab.load()
 
-            # Always make a backup
-            os.rename('/etc/fstab', '/etc/fstab.bak')
+        for filesystem in config:
+            device = FilesystemData()
+            for prop, value in filesystem.items():
+                setattr(device, prop, value)
+            new_fstab.tree.filesystems.append(device)
 
-            try:
-                with open('/etc/fstab', 'w') as f:
-                    f.write(data)
-                return True
-            except Exception as e:
-                raise EndpointError(e)
+        data = new_fstab.save()[None]
 
+        # Always make a backup
+        os.rename('/etc/fstab', '/etc/fstab.bak')
 
-
+        try:
+            with open('/etc/fstab', 'w') as f:
+                f.write(data)
+            return True
+        except Exception as e:
+            raise EndpointError(e)
