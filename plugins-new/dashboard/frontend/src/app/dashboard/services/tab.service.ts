@@ -85,7 +85,7 @@ export class TabService {
     const messageBox = this.messageBoxService.show(messageboxTitle, undefined, undefined, undefined, positiveButtonTitle, negativeButtonTitle);
     messageBox.accepted = () => {
       this.setActiveTab(this._tabs[0].name);
-￼     this.dashboardConfigService.removeTab(indexTabToDelete);
+      this.dashboardConfigService.removeTab(indexTabToDelete);
     };
   }
 
