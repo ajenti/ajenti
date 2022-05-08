@@ -5,7 +5,7 @@ angular.module('ajenti.session_list').controller('SessionWidgetController', ($sc
         }
 
         if (data) {
-            $http.get('/api/session_list/list').then((resp) => {
+            $http.get('/api/session_list/sessions').then((resp) => {
                 $scope.sessions = resp.data;
                 for (let session in $scope.sessions)
                     session.date = new Date(session.timestamp);

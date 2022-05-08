@@ -2,7 +2,7 @@ angular.module('ajenti.session_list').controller 'SessionListIndexController', (
     pageTitle.set(gettext('List all sessions'))
 
     $scope.getList = () ->
-        $http.get('/api/session_list/list').then (resp) ->
+        $http.get('/api/session_list/sessions').then (resp) ->
             $scope.sessions = resp.data
             for session in $scope.sessions
                 session.date = new Date(session.timestamp)
