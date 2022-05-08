@@ -78,12 +78,14 @@ export class TabService {
       return;
     }
 
+    const indexTabToDelete = this.getIndexOfActiveTab();
     const messageboxTitle = this.translateService.instant('Remove the \'' + this.activeTabName + '\' tab?');
     const positiveButtonTitle = this.translateService.instant('Remove');
     const negativeButtonTitle = this.translateService.instant('Cancel');
     const messageBox = this.messageBoxService.show(messageboxTitle, undefined, undefined, undefined, positiveButtonTitle, negativeButtonTitle);
     messageBox.accepted = () => {
-      this.dashboardConfigService.removeTab(this.getIndexOfActiveTab());
+      this.setActiveTab(this._tabs[0].name);
+￼     this.dashboardConfigService.removeTab(indexTabToDelete);
     };
   }
 
