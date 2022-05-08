@@ -4,12 +4,12 @@ angular.module('ajenti.fstab').controller('FstabIndexController', function($scop
     $scope.showDetails = false;
     $scope.add_new = false;
 
-    $http.get('/api/get_mounted').then( (resp) => {
+    $http.get('/api/fstab/mounts').then( (resp) => {
 	    $scope.mounted = resp.data;
     });
 
     $scope.umount = (entry) => {
-        $http.post('/api/umount', {mountpoint: entry.mountpoint}).then( (resp) => {
+        $http.post('/api/fstab/command_umount', {mountpoint: entry.mountpoint}).then( (resp) => {
             notify.success(gettext('Device successfully unmounted!'));
             position = $scope.mounted.indexOf(entry);
             $scope.mounted.splice(position, 1);
