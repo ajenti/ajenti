@@ -6,8 +6,7 @@ import pwd
 import subprocess
 
 from jadi import component
-from aj.api.http import url, HttpPlugin
-
+from aj.api.http import get, post, HttpPlugin
 from aj.api.endpoint import endpoint
 
 
@@ -16,7 +15,7 @@ class Handler(HttpPlugin):
     def __init__(self, context):
         self.context = context
 
-    @url(r'/api/passwd/list')
+    @get(r'/api/passwds')
     @endpoint(api=True)
     def handle_api_passwd_list(self, http_context):
         """
@@ -40,12 +39,11 @@ class Handler(HttpPlugin):
             for x in pwd.getpwall()
         ]
 
-    @url(r'/api/passwd/set')
+    @post(r'/api/passwd')
     @endpoint(api=True)
     def handle_api_passwd_set(self, http_context):
         """
         Set new password for the selected user.
-        Method POST.
 
         :param http_context: HttpContext
         :type http_context: HttpContext
