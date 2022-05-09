@@ -122,7 +122,11 @@ class OSAuthenticationProvider(AuthenticationProvider):
                 ['-c', f'/bin/su -c "/bin/echo SUCCESS" - {quote(username)}'],
                 timeout=25
             )
-            child.expect('.*:')
+            child.expect([
+                b'.*:', # normal colon
+                b'.*\xef\xb9\x95', # small colon
+                b'.*\xef\xbc\x9a',  # fullwidth colon
+            ])
             child.sendline(password)
             result = child.expect(['su: .*', 'SUCCESS'])
         except pexpect.exceptions.EOF as err:
