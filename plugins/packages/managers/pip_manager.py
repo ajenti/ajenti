@@ -54,7 +54,7 @@ class PIPPackageManager(PackageManager):
         p.name = dist['name']
         p.version = dist['version']
         p.description = dist['summary']
-        p.released = dist['released']
+        p.created = dist['created']
         importlib.reload(pkg_resources)
         for d in pkg_resources.working_set:
             if d.key == p.name:
@@ -88,7 +88,7 @@ class PIPPackageManager(PackageManager):
 
         for snippet in snippets:
             package = {}
-            for value in ["name", "version", "released"]:
+            for value in ["name", "version", "created"]:
                 package[value] = snippet.select_one(f'span[class*="{value}"]').text.strip()
             package['summary'] = snippet.select_one(f'p[class*="description"]').text.strip()
             packages.append(package)
