@@ -108,43 +108,6 @@ class Handler(HttpPlugin):
                         r[name] = package
         return r
 
-    @post(r'/api/plugins/pypi/install/(?P<name>.+)/(?P<version>.+)')
-    @endpoint(api=True)
-    def handle_api_pypi_install(self, http_context, name=None, version=None):
-        """
-        Install ajenti packages with pip3.
-        Currently deprecated ( task is used to install plugins ).
-
-        :param http_context: HttpContext
-        :type http_context: HttpContext
-        :param name: Package name
-        :type name: string
-        :param version: Version number
-        :type version: string
-        """
-
-        try:
-            subprocess.call([sys.executable, '-m', 'pip', 'install', f'ajenti.plugin.{name}=={version}'])
-        except subprocess.CalledProcessError as e:
-            raise EndpointError(e.output)
-
-    @post(r'/api/plugins/pypi/uninstall/(?P<name>.+)')
-    @endpoint(api=True)
-    def handle_api_pypi_uninstall(self, http_context, name=None):
-        """
-        Uninstall ajenti packages with pip3.
-
-        :param http_context: HttpContext
-        :type http_context: HttpContext
-        :param name: Package name
-        :type name: string
-        """
-
-        try:
-            subprocess.check_output([sys.executable, '-m', 'pip', 'uninstall', '-y', f'ajenti.plugin.{name}'])
-        except subprocess.CalledProcessError as e:
-            raise EndpointError(e.output)
-
     @post(r'/api/plugins/core/check-upgrade')
     @endpoint(api=True)
     def handle_api_core_check_upgrade(self, http_context):
@@ -231,4 +194,3 @@ class Handler(HttpPlugin):
             return plugin_list
         except Exception as e:
             raise EndpointError(e)
-

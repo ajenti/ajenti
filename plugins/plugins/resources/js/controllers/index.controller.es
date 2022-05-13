@@ -180,21 +180,22 @@ angular.module('ajenti.plugins').controller('PluginsIndexController', function($
             positive: gettext('Uninstall'),
             negative: gettext('Cancel')
         }).then(() => {
-            let msg = messagebox.show({progress: true, title: gettext('Uninstalling')});
-            return $http.post(`/api/plugins/pypi/uninstall/${plugin.name}`).success(() => {
-                $scope.refresh();
-                return messagebox.show({
-                    title: gettext('Done'),
-                    text: gettext('Uninstalled. A panel restart is required.'),
-                    positive: gettext('Restart now'),
-                    negative: gettext('Later')
-                }).then(() => {
-                    core.forceRestart()
-                });
-            }, (err) => {
-                notify.error(gettext('Uninstall failed'), err.message)
-            }).finally(() => {
-                msg.close()
+            return tasks.start(
+                'aj.plugins.plugins.tasks.UnInstallPlugin',
+                [],
+                {name: plugin.name}
+            ).then((data) => {
+                data.promise.then(() => {
+                    $scope.refresh();
+                    messagebox.show({
+                        title: gettext('Done'),
+                        text: gettext('Uninstalled. A panel restart is required.'),
+                        positive: gettext('Restart now'),
+                        negative: gettext('Later')}).then(() => core.forceRestart());
+                    return null;
+                }, e => {
+                    notify.error(gettext('Uninstall failed'), e.error)
+                }).finally(() => msg.close())
             });
         });
     };
