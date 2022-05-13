@@ -42,12 +42,12 @@ angular.module('ajenti.plugins').controller('PluginsIndexController', function($
     }
 
     $scope.refresh = () => {
-        $http.get('/api/plugins/list/installed').success((data) => {
+        $http.get('/api/plugins/installed').success((data) => {
             $scope.installedPlugins = data;
             $scope.repoList = null;
             $scope.repoListOfficial = null;
             $scope.repoListCommunity = null;
-            $http.get('/api/plugins/getpypi/list').success((data) => {
+            $http.get('/api/plugins/pypi/ajenti-plugins').success((data) => {
                 $scope.repoList = data;
                 $scope.notInstalledRepoList = $scope.repoList.filter((x) => !$scope.isInstalled(x)).map((x) => x);
                 $scope.repoListOfficial = $scope.repoList.filter((x) => x.type === "official").map((x) => x);
@@ -59,10 +59,10 @@ angular.module('ajenti.plugins').controller('PluginsIndexController', function($
             notify.error(gettext('Could not load the installed plugin list'), err.message)
         });
 
-        $http.get('/api/plugins/core/check-upgrade').success(data => $scope.coreUpgradeAvailable = $scope.needUpgrade($rootScope.ajentiVersion,data));
+        $http.post('/api/plugins/core/check-upgrade').success(data => $scope.coreUpgradeAvailable = $scope.needUpgrade($rootScope.ajentiVersion,data));
 
         $scope.pypiList = null;
-        $http.get('/api/plugins/pypi/list').success(data => $scope.pypiList = data);
+        $http.get('/api/plugins/pypi/installed').success(data => $scope.pypiList = data);
     };
 
     $scope.refresh();
@@ -144,7 +144,11 @@ angular.module('ajenti.plugins').controller('PluginsIndexController', function($
         ).then((data) => {
             data.promise.then(() => {
                 $scope.refresh();
-                messagebox.show({title: gettext('Done'), text: gettext('Installed. A panel restart is required.'), positive: gettext('Restart now'), negative: gettext('Later')}).then(() => core.forceRestart());
+                messagebox.show({
+                    title: gettext('Done'),
+                    text: gettext('Installed. A panel restart is required.'),
+                    positive: gettext('Restart now'),
+                    negative: gettext('Later')}).then(() => core.forceRestart());
                 return null;
             }, e => {
                 notify.error(gettext('Install failed'), e.error)
@@ -177,7 +181,7 @@ angular.module('ajenti.plugins').controller('PluginsIndexController', function($
             negative: gettext('Cancel')
         }).then(() => {
             let msg = messagebox.show({progress: true, title: gettext('Uninstalling')});
-            return $http.get(`/api/plugins/pypi/uninstall/${plugin.name}`).success(() => {
+            return $http.post(`/api/plugins/pypi/uninstall/${plugin.name}`).success(() => {
                 $scope.refresh();
                 return messagebox.show({
                     title: gettext('Done'),
