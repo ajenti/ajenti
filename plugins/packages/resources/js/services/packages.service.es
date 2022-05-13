@@ -4,11 +4,11 @@ angular.module('ajenti.packages').service('packages', function($http, $q, tasks)
     };
 
     this.list = function(managerId, query) {
-        return $http.get(`/api/packages/list/${managerId}?query=${query}`).then(response => response.data)
+        return $http.get(`/api/packages/manager/${managerId}?query=${query}`).then(response => response.data)
     };
 
     this.get = function(managerId, packageId) {
-        return $http.get(`/api/packages/get/${managerId}/${packageId}`).then(response => response.data)
+        return $http.get(`/api/packages/manager/${managerId}/${packageId}`).then(response => response.data)
         .error(err => q.reject(err));
     };
 
