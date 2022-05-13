@@ -113,6 +113,7 @@ class Handler(HttpPlugin):
     def handle_api_pypi_install(self, http_context, name=None, version=None):
         """
         Install ajenti packages with pip3.
+        Currently deprecated ( task is used to install plugins ).
 
         :param http_context: HttpContext
         :type http_context: HttpContext
@@ -122,7 +123,6 @@ class Handler(HttpPlugin):
         :type version: string
         """
 
-        # TODO replaced with a task
         try:
             subprocess.call([sys.executable, '-m', 'pip', 'install', f'ajenti.plugin.{name}=={version}'])
         except subprocess.CalledProcessError as e:
