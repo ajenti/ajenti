@@ -4,7 +4,7 @@ angular.module('ajenti.terminal').service('terminals', function($http, $q, $loca
     };
 
     this.list = function() {
-        return $http.get("/api/terminal/list").then((response) => {
+        return $http.get("/api/terminals").then((response) => {
             for (let terminal of response.data) {
                 let cmd = terminal.command.split(' ')[0];
                 let tokens = cmd.split('/');
@@ -15,7 +15,7 @@ angular.module('ajenti.terminal').service('terminals', function($http, $q, $loca
     };
 
     this.kill = function(id) {
-        return $http.get(`/api/terminal/kill/${id}`).then((response) => {
+        return $http.post(`/api/terminal/kill/${id}`).then((response) => {
             let redirect = response.data;
             notify.info(gettext('You will be redirect to the previous page.'));
             return $timeout(() => $location.path(redirect), 3000);
