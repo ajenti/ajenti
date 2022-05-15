@@ -3,7 +3,7 @@ Manages the general widget HTTP requests.
 """
 
 from jadi import component
-from aj.api.http import url, HttpPlugin
+from aj.api.http import get, post, HttpPlugin
 from aj.api.endpoint import endpoint
 from aj.plugins.dashboard.widget import Widget
 
@@ -14,7 +14,7 @@ class Handler(HttpPlugin):
         self.context = context
         self.widgets = {x.id:x for x in Widget.all(self.context)}
 
-    @url(r'/api/dashboard/widget-types')
+    @get(r'/api/dashboard/widget-types')
     @endpoint(api=True)
     def handle_api_widget_types(self, http_context):
         """
@@ -33,7 +33,7 @@ class Handler(HttpPlugin):
             } for w in self.widgets.values()
         ]
 
-    @url(r'/api/dashboard/widget-values')
+    @post(r'/api/dashboard/widget-values')
     @endpoint(api=True)
     def handle_api_widget_values(self, http_context):
         """
