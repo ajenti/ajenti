@@ -73,7 +73,7 @@ angular.module('ajenti.settings').controller('SettingsIndexController', ($scope,
     $scope.save = () => {
         $scope.certificate = config.data.ssl.certificate;
         if ($scope.certificate != $scope.oldCertificate) {
-            return  $http.post('/api/settings/test-certificate/', {'certificate': $scope.certificate})
+            return  $http.post('/api/settings/test/ssl-certificate', {'certificate': $scope.certificate})
                     .then(data => { config.save().then(dt => notify.success(gettext('Saved')))})
                     .catch(err => { notify.error(gettext('SSL Error')), err.message});
         }
@@ -101,7 +101,7 @@ angular.module('ajenti.settings').controller('SettingsIndexController', ($scope,
         }).then(() => {
             config.data.ssl.client_auth.force = false;
             notify.info(gettext('Generating certificate'), gettext('Please wait'));
-            return $http.get('/api/settings/generate-server-certificate').success(function(data) {
+            return $http.post('/api/settings/generate/server-certificate').success(function(data) {
                 notify.success(gettext('Certificate successfully generated'));
                 config.data.ssl.enable = true;
                 config.data.ssl.certificate = data.path;
