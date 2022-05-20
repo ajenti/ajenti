@@ -3,7 +3,7 @@ import os
 from jadi import component
 
 import aj
-from aj.api.http import url, HttpPlugin
+from aj.api.http import get, HttpPlugin
 from aj.plugins import PluginManager
 
 from aj.api.endpoint import endpoint
@@ -38,7 +38,7 @@ class ResourcesHandler(HttpPlugin):
             }}
         '''
 
-    @url(r'/resources/all\.(?P<group>.+)')
+    @get(r'/resources/all\.(?P<group>.+)')
     @endpoint(page=True, auth=False)
     def handle_build(self, http_context, group=None):
         """
@@ -122,7 +122,7 @@ class ResourcesHandler(HttpPlugin):
 
         return http_context.gzip(content=content.encode('utf-8'))
 
-    @url(r'/resources/(?P<plugin>\w+)/(?P<path>.+)')
+    @get(r'/resources/(?P<plugin>\w+)/(?P<path>.+)')
     @endpoint(page=True, auth=False)
     def handle_file(self, http_context, plugin=None, path=None):
         """

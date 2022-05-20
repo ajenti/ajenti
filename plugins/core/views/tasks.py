@@ -1,7 +1,7 @@
 import json
 from jadi import component
 
-from aj.api.http import url, HttpPlugin
+from aj.api.http import get, HttpPlugin
 from aj.api.endpoint import endpoint
 from aj.plugins.core.api.tasks import TasksService
 
@@ -12,7 +12,7 @@ class Handler(HttpPlugin):
         self.context = context
         self.service = TasksService.get(self.context)
 
-    @url('/api/core/tasks/start')
+    @post('/api/core/tasks/start')
     @endpoint(api=True)
     def handle_api_tasks_start(self, http_context):
         data = json.loads(http_context.body.decode())
@@ -23,7 +23,7 @@ class Handler(HttpPlugin):
         self.service.start(task)
         return task.id
 
-    @url('/api/core/tasks/request-update')
+    @get('/api/core/tasks/request-update')
     @endpoint(api=True)
     def handle_api_tasks_request_update(self, http_context):
         self.service.send_update()

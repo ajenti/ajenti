@@ -7,7 +7,7 @@ from jadi import component
 from time import time
 
 import aj
-from aj.api.http import url, HttpPlugin
+from aj.api.http import get, post, HttpPlugin
 from aj.auth import AuthenticationService, SudoError
 from aj.plugins import PluginManager
 
@@ -21,7 +21,7 @@ class Handler(HttpPlugin):
     def __init__(self, context):
         self.context = context
 
-    @url('/api/core/identity')
+    @get('/api/core/identity')
     @endpoint(api=True, auth=False)
     def handle_api_identity(self, http_context):
         """
@@ -51,7 +51,7 @@ class Handler(HttpPlugin):
             'color': aj.config.data.get('color', None),
         }
 
-    @url('/api/core/web-manifest')
+    @get('/api/core/web-manifest')
     @endpoint(api=True, auth=False)
     def handle_api_web_manifest(self, http_context):
         """
@@ -77,7 +77,7 @@ class Handler(HttpPlugin):
             ]
         }
 
-    @url('/api/core/auth')
+    @post('/api/core/auth')
     @endpoint(api=True, auth=False)
     def handle_api_auth(self, http_context):
         """
@@ -142,7 +142,7 @@ class Handler(HttpPlugin):
             'error': 'Invalid mode',
         }
 
-    @url('/api/core/logout')
+    @post('/api/core/logout')
     @endpoint(api=True, auth=False)
     def handle_api_logout(self, http_context):
         """
@@ -151,10 +151,11 @@ class Handler(HttpPlugin):
         :param http_context: HttpContext
         :type http_context: HttpContext
         """
+
         AuthenticationService.get(self.context).get_provider().signout()
         self.context.worker.terminate()
 
-    @url('/api/core/sidebar')
+    @get('/api/core/sidebar')
     @endpoint(api=True)
     def handle_api_sidebar(self, http_context):
         """
@@ -170,7 +171,7 @@ class Handler(HttpPlugin):
             'sidebar': Sidebar.get(self.context).build(),
         }
 
-    @url('/api/core/navbox/(?P<query>.+)')
+    @get('/api/core/navbox/(?P<query>.+)')
     @endpoint(api=True)
     def handle_api_navbox(self, http_context, query=None):
         """
@@ -186,7 +187,7 @@ class Handler(HttpPlugin):
 
         return Navbox.get(self.context).search(query)
 
-    @url('/api/core/restart-master')
+    @post('/api/core/restart-master')
     @endpoint(api=True)
     def handle_api_restart_master(self, http_context):
         """
@@ -198,7 +199,7 @@ class Handler(HttpPlugin):
 
         self.context.worker.restart_master()
 
-    @url('/api/core/languages')
+    @get('/api/core/languages')
     @endpoint(api=True)
     def handle_api_languages(self, http_context):
         """
@@ -221,7 +222,7 @@ class Handler(HttpPlugin):
 
         return sorted(list(languages))
 
-    @url('/api/core/session-time')
+    @get('/api/core/session-time')
     @endpoint(api=True)
     def handle_api_sessiontime(self, http_context):
         """
@@ -247,7 +248,7 @@ class Handler(HttpPlugin):
         return int(timestamp + session_max_time - time())
 
 
-    @url('/api/core/check_password_complexity')
+    @post('/api/core/check_password_complexity')
     @endpoint(api=True, auth=False)
     def handle_api_check_password_complexity(self, http_context):
         """

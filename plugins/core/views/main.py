@@ -6,7 +6,7 @@ import pwd
 from jadi import component
 
 import aj
-from aj.api.http import url, HttpPlugin
+from aj.api.http import get, HttpPlugin
 from aj.plugins import PluginManager, DirectoryPluginProvider
 from aj.auth import AuthenticationService
 from aj.api.endpoint import endpoint
@@ -17,7 +17,7 @@ class Handler(HttpPlugin):
     def __init__(self, context):
         self.context = context
 
-    @url('/')
+    @get('/')
     @endpoint(page=True, auth=False)
     def handle_root(self, http_context):
         """
@@ -33,7 +33,7 @@ class Handler(HttpPlugin):
             return http_context.redirect('/view/')
         return http_context.redirect('/view/login/normal')
 
-    @url('/view/.*')
+    @get('/view/.*')
     @endpoint(page=True, auth=False)
     def handle_view(self, http_context):
         """
