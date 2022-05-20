@@ -47,31 +47,6 @@ class Handler(HttpPlugin):
         :rtype: string
         """
 
-        if aj.dev:
-            restricted_user = aj.config.data['restricted_user']
-            if os.getuid() != pwd.getpwnam(restricted_user).pw_uid:
-                rebuild_all = http_context.env.get('HTTP_CACHE_CONTROL', None) == 'no-cache'
-
-                for provider in aj.plugin_providers:
-                    if isinstance(provider, DirectoryPluginProvider):
-                        logging.debug('Building resources in %s', provider.path)
-                        if rebuild_all:
-                            cmd = ['ajenti-dev-multitool', '--rebuild']
-                        else:
-                            cmd = ['ajenti-dev-multitool', '--build']
-                        p = subprocess.Popen(
-                            cmd,
-                            cwd=provider.path,
-                            stdout=subprocess.PIPE,
-                            stderr=subprocess.PIPE
-                        )
-                        o, e = p.communicate()
-                        if p.returncode != 0:
-                            logging.error('Resource compilation failed')
-                            logging.error(o+e)
-            else:
-                logging.warning("Cannot build resources as restricted user %s", restricted_user)
-
         manager = PluginManager.get(aj.context)
         path = manager.get_content_path('core', 'resources/build/index.html')
         content = open(path).read()
