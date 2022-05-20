@@ -82,9 +82,9 @@ class ResourcesHandler(HttpPlugin):
                     for resource in self.mgr[plugin]['info']['resources']:
                         if resource['path'].startswith('ng:'):
                             ng_modules.setdefault(plugin, []).append(resource['path'].split(':')[-1])
-                content = '''
-                    window.__ngModules = %s;
-                ''' % json.dumps(ng_modules)
+                content = f'''
+                    window.__ngModules = {json.dumps(ng_modules)};
+                '''
             if type == 'locale.json':
                 lang = http_context.query.get('lang', None)
                 if lang:
@@ -106,18 +106,15 @@ class ResourcesHandler(HttpPlugin):
                 for plugin in self.mgr:
                     for resource in self.mgr[plugin]['info']['resources']:
                         path = resource['path']
-                        name = resource.get('overrides', '%s:%s' % (plugin, path))
+                        name = resource.get('overrides', f'{plugin}:{path}')
 
                         if name.endswith('.html'):
                             path = self.mgr.get_content_path(plugin, path)
                             if os.path.exists(path):
                                 template = open(path).read()
-                                content += '''
-                                      $templateCache.put("%s", %s);
-                                ''' % (
-                                    '%s/%s' % (http_context.prefix, name),
-                                    json.dumps(template)
-                                )
+                                content += f'''
+                                      $templateCache.put("{http_context.prefix}/{name}", {json.dumps(template)});
+                                '''
                 content += '''
                     }]);
                 '''
@@ -144,30 +141,24 @@ class ResourcesHandler(HttpPlugin):
             return http_context.respond_not_found()
         return http_context.file(PluginManager.get(aj.context).get_content_path(plugin, path))
 
-    @url('/resources/global.constants.js')
+    @get('/resources/global.constants.js')
     @endpoint(page=True, auth=False)
     def handle_global_constants(self, http_context):
         manager = PluginManager.get(aj.context)
-        content = '''
-window.globalConstants = {
-    'urlPrefix': '%(prefix)s',
-    'ajentiPlugins': %(plugins)s,
-    'initialConfigContent': %(config)s,
-    'ajentiPlatform': '%(platformUnmapped)s',
-    'ajentiPlatformUnmapped': '%(platform)s',
-    'ajentiVersion': '%(version)s',
-};
-        ''' % {
-            'prefix': http_context.prefix,
-            'plugins': json.dumps(
+        ajentiPlugins = json.dumps(
                 {manager[n]['info']['name']: manager[n]['info']['title'] for n in manager}
-            ),
-            'config': json.dumps(aj.config.get_non_sensitive_data()),
-            'version': str(aj.version),
-            'platform': aj.platform,
-            'platformUnmapped': aj.platform_unmapped,
-            'bootstrapColor': aj.config.data.get('color', None),
-        }
+            )
+        content = f'''
+window.globalConstants = {{
+    'urlPrefix': '{http_context.prefix}',
+    'ajentiPlugins': {ajentiPlugins},
+    'initialConfigContent': {json.dumps(aj.config.get_non_sensitive_data())},
+    'ajentiPlatform': '{aj.platform_unmapped}',
+    'ajentiPlatformUnmapped': '{aj.platform}',
+    'ajentiVersion': '{aj.version}',
+    'ajentiBootstrapColor': {aj.config.data.get('color', None)},
+}};
+        '''
 
         http_context.add_header('Content-Type', 'application/javascript; charset=utf-8')
         http_context.respond_ok()
@@ -179,7 +170,7 @@ window.globalConstants = {
     def get_plugins(self, http_context):
         manager = PluginManager.get(aj.context)
         content = '['
-        isFirstPlugin = True
+        separator = ''
         for plugin_name in manager:
             if plugin_name == 'core':
                 continue
@@ -195,30 +186,20 @@ window.globalConstants = {
                 widgetComponents = frontend_settings['widget-components']
 
             remote_entry = frontend_settings['remote-entry'] if not frontend_settings['remote-entry'] == '' \
-                else 'resources/%s/frontend/dist/remoteEntry.js' % plugin_name
+                else f'resources/{plugin_name}/frontend/dist/remoteEntry.js'
 
-            content += '''%(separator)s{
-    "remoteEntry": "%(remoteEntry)s",
-    "remoteName": "%(remoteName)s",
-    "exposedModule": "%(exposedModule)s",
-    "widgetComponents": %(widgetComponents)s,
-    "displayName": "%(displayName)s",
-    "routePath": "%(routePath)s",
-    "ngModuleName": "%(ngModuleName)s"
-}''' % {
-                'separator': '' if isFirstPlugin else ',',
-                'pluginName': plugin_info['name'],
-                'remoteEntry': remote_entry,
-                'remoteName': frontend_settings['remote-name'],
-                'exposedModule': frontend_settings['exposed-module'],
-                'widgetComponents': widgetComponents,
-                'displayName': frontend_settings['display-name'],
-                'routePath': frontend_settings['route-path'],
-                'ngModuleName': frontend_settings['ng-module-name']
-            }
+            content += f'''{separator}{{
+    "remoteEntry": "{remote_entry}",
+    "remoteName": "{frontend_settings['remote-name']}",
+    "exposedModule": "{frontend_settings['exposed-module']}",
+    "widgetComponents": {widgetComponents},
+    "displayName": "{frontend_settings['display-name']}",
+    "routePath": "{frontend_settings['route-path']}",
+    "ngModuleName": "{frontend_settings['ng-module-name']}",
+    "pluginName": "{plugin_info['name']}",
+}}'''
 
-            if isFirstPlugin:
-                isFirstPlugin = False
+            separator = ','
 
         content += ']'
 
