@@ -26,7 +26,7 @@
           class="form-control"
         />
       </div>
-      <div>
+      <div *ngIf="!showPassword" class="form-group has-feedback">
         <input
           [(ngModel)]="password"
           (keyup.enter)="login()"
@@ -36,6 +36,25 @@
           type="password"
           class="form-control"
         />
+        <span
+          (click)="toggleShowPassword()"
+          class="fas fa-eye form-control-feedback show-password-icon"
+        ></span>
+      </div>
+      <div *ngIf="showPassword" class="form-group has-feedback">
+        <input
+          [(ngModel)]="password"
+          (keyup.enter)="login()"
+          [attr.disabled]="working ? true : null"
+          [placeholder]="'Password' | translate"
+          [autofocus]="!!username"
+          type="text"
+          class="form-control"
+        />
+        <span
+          (click)="toggleShowPassword()"
+          class="fas fa-eye-slash form-control-feedback show-password-icon"
+        ></span>
       </div>
       <div>
         <a

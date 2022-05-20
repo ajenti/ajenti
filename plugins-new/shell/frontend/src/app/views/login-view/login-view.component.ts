@@ -22,6 +22,7 @@ export class LoginViewComponent implements OnInit {
   public password: string;
   public redirectPath?: string;
   public mode: AuthenticationModes;
+  public showPassword: boolean;
 
   constructor(
     private route: ActivatedRoute,
@@ -36,6 +37,7 @@ export class LoginViewComponent implements OnInit {
     this.username = '';
     this.password = '';
     this.mode = AuthenticationModes.Normal;
+    this.showPassword = false;
   }
 
   ngOnInit(): void {
@@ -73,6 +75,10 @@ export class LoginViewComponent implements OnInit {
       // TODO: notify.error(gettext('Authentication failed'));
       console.error(this.translateService.instant('Authentication failed'));
     }
+  }
+
+  public toggleShowPassword(): void {
+    this.showPassword = !this.showPassword;
   }
 
 }
