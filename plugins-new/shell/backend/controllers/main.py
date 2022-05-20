@@ -48,8 +48,10 @@ class Handler(HttpPlugin):
         """
 
         manager = PluginManager.get(aj.context)
+        # Path eventually need to be customizable
         path = manager.get_content_path('core', 'resources/build/index.html')
-        content = open(path).read()
+        with open(path, 'r') as index:
+            content = index.read()
         http_context.add_header('Content-Type', 'text/html')
         http_context.respond_ok()
         return content
