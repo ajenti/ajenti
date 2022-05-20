@@ -8,7 +8,7 @@ from io import BytesIO
 import subprocess
 
 from jadi import component
-from aj.api.http import url, HttpPlugin, SocketEndpoint
+from aj.api.http import get, post, HttpPlugin, SocketEndpoint
 from aj.auth import authorize
 from aj.api.endpoint import endpoint, EndpointError
 
@@ -21,13 +21,12 @@ class Handler(HttpPlugin):
         self.context = context
         self.mgr = TerminalManager.get(self.context)
 
-    @url('/api/terminal/script')
+    @post('/api/terminal/script')
     @authorize('terminal:scripts')
     @endpoint(api=True)
     def handle_script(self, http_context):
         """
         Run a script on the server and return the output.
-        Method POST.
 
         :param http_context: HttpContext
         :type http_context: HttpContext
@@ -54,7 +53,7 @@ class Handler(HttpPlugin):
             'stderr': e.decode(),
         }
 
-    @url('/api/terminal/is_dead/(?P<terminal_id>.+)')
+    @get('/api/terminal/is_dead/(?P<terminal_id>.+)')
     @endpoint(api=True)
     def handle_test_dead(self, http_context, terminal_id=None):
         """
@@ -72,7 +71,7 @@ class Handler(HttpPlugin):
             return self.mgr[terminal_id].dead
         return True
 
-    @url('/api/terminal/list')
+    @get('/api/terminals')
     @endpoint(api=True)
     def handle_list(self, http_context):
         """
@@ -86,13 +85,12 @@ class Handler(HttpPlugin):
 
         return self.mgr.list()
 
-    @url('/api/terminal/create')
+    @post('/api/terminal/create')
     @authorize('terminal:open')
     @endpoint(api=True)
     def handle_create(self, http_context):
         """
         Launch a new virtual terminal with given options.
-        Method POST.
 
         :param http_context: HttpContext
         :type http_context: HttpContext
@@ -103,7 +101,7 @@ class Handler(HttpPlugin):
         options = http_context.json_body()
         return self.mgr.create(**options)
 
-    @url(r'/api/terminal/kill/(?P<terminal_id>.+)')
+    @post(r'/api/terminal/kill/(?P<terminal_id>.+)')
     @endpoint(api=True)
     def handle_kill(self, http_context, terminal_id=None):
         """
@@ -123,7 +121,7 @@ class Handler(HttpPlugin):
             return redirect
         return '/view/terminal'
 
-    @url(r'/api/terminal/full/(?P<terminal_id>.+)')
+    @get(r'/api/terminal/full/(?P<terminal_id>.+)')
     @endpoint(api=True)
     def handle_full(self, http_context, terminal_id=None):
         """
@@ -153,7 +151,7 @@ class Handler(HttpPlugin):
         'cyan': '#2aa198',
     }
 
-    @url(r'/api/terminal/preview/(?P<terminal_id>.+)')
+    @get(r'/api/terminal/preview/(?P<terminal_id>.+)')
     @endpoint(page=True)
     def handle_preview(self, http_context, terminal_id):
         """

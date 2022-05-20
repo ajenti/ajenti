@@ -17,10 +17,10 @@ angular.module('core').service('config', function($http, $q, initialConfigConten
         $http.post("/api/core/smtp-config", config).then(response => response.data);
 
     this.getAuthenticationProviders = (config) =>
-        $http.post("/api/core/authentication-providers", config).then(response => response.data);
+        $http.get("/api/core/authentication-providers").then(response => response.data);
 
     this.getPermissions = (config) =>
-        $http.post("/api/core/permissions", config).then(response => response.data);
+        $http.get("/api/core/permissions").then(response => response.data);
 
     this.data = initialConfigContent;
 

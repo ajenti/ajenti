@@ -12,7 +12,7 @@ from concurrent import futures
 
 import aj
 from jadi import component
-from aj.api.http import url, HttpPlugin
+from aj.api.http import get, post, HttpPlugin
 from aj.plugins import PluginManager, PluginDependency, BinaryDependency
 
 from aj.api.endpoint import endpoint, EndpointError
@@ -54,7 +54,7 @@ class Handler(HttpPlugin):
 
         return d
 
-    @url(r'/api/plugins/list/installed')
+    @get(r'/api/plugins/installed')
     @endpoint(api=True)
     def handle_api_list_installed(self, http_context):
         """
@@ -85,7 +85,7 @@ class Handler(HttpPlugin):
             })
         return r
 
-    @url(r'/api/plugins/pypi/list')
+    @get(r'/api/plugins/pypi/installed')
     @endpoint(api=True)
     def handle_api_pypi_list(self, http_context):
         """
@@ -108,55 +108,7 @@ class Handler(HttpPlugin):
                         r[name] = package
         return r
 
-    @url(r'/api/plugins/pypi/install/(?P<name>.+)/(?P<version>.+)')
-    @endpoint(api=True)
-    def handle_api_pypi_install(self, http_context, name=None, version=None):
-        """
-        Install ajenti packages with pip3.
-
-        :param http_context: HttpContext
-        :type http_context: HttpContext
-        :param name: Package name
-        :type name: string
-        :param version: Version number
-        :type version: string
-        """
-
-        # TODO replaced with a task
-        try:
-            subprocess.call([sys.executable, '-m', 'pip', 'install', f'ajenti.plugin.{name}=={version}'])
-        except subprocess.CalledProcessError as e:
-            raise EndpointError(e.output)
-
-    @url(r'/api/plugins/pypi/uninstall/(?P<name>.+)')
-    @endpoint(api=True)
-    def handle_api_pypi_uninstall(self, http_context, name=None):
-        """
-        Uninstall ajenti packages with pip3.
-
-        :param http_context: HttpContext
-        :type http_context: HttpContext
-        :param name: Package name
-        :type name: string
-        """
-
-        try:
-            subprocess.check_output([sys.executable, '-m', 'pip', 'uninstall', '-y', f'ajenti.plugin.{name}'])
-        except subprocess.CalledProcessError as e:
-            raise EndpointError(e.output)
-
-    # Deprecated, replaced with handle_api_getpypi_list
-    # @url(r'/api/plugins/repo/list')
-    # @endpoint(api=True)
-    # def handle_api_repo_list(self, http_context):
-    #     if os.path.exists('/root/.cache/pip'):
-    #         shutil.rmtree('/root/.cache/pip')
-    #     try:
-    #         return requests.get('https://ajenti.org/plugins/list').json()
-    #     except Exception as e:
-    #         raise EndpointError(e)
-
-    @url(r'/api/plugins/core/check-upgrade')
+    @post(r'/api/plugins/core/check-upgrade')
     @endpoint(api=True)
     def handle_api_core_check_upgrade(self, http_context):
         """
@@ -177,7 +129,7 @@ class Handler(HttpPlugin):
             raise EndpointError(e)
         return version
 
-    @url(r'/api/plugins/getpypi/list')
+    @get(r'/api/plugins/pypi/ajenti-plugins')
     @endpoint(api=True)
     def handle_api_getpypi_list(self, http_context):
         """
@@ -242,4 +194,3 @@ class Handler(HttpPlugin):
             return plugin_list
         except Exception as e:
             raise EndpointError(e)
-

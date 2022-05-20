@@ -10,7 +10,7 @@ import base64
 
 import aj
 from jadi import component
-from aj.api.http import url, HttpPlugin
+from aj.api.http import get, post, HttpPlugin
 
 from aj.api.endpoint import endpoint
 
@@ -20,7 +20,7 @@ class Handler(HttpPlugin):
     def __init__(self, context):
         self.context = context
 
-    @url(r'/api/settings/generate-client-certificate')
+    @post(r'/api/settings/generate/client-certificate')
     @endpoint(api=True)
     def handle_api_generate_client_certificate(self, http_context):
         """
@@ -69,7 +69,7 @@ class Handler(HttpPlugin):
             'b64certificate': base64.b64encode(pkcs.export()).decode('utf-8'),
         }
 
-    @url(r'/api/settings/generate-server-certificate')
+    @post(r'/api/settings/generate/server-certificate')
     @endpoint(api=True)
     def handle_api_generate_server_certificate(self, http_context):
         """
@@ -105,7 +105,7 @@ class Handler(HttpPlugin):
             'path': certificate_path,
         }
 
-    @url(r'/api/settings/test-certificate/')
+    @post(r'/api/settings/test/ssl-certificate')
     @endpoint(api=True)
     def handle_test_certificate(self, http_context):
         """
@@ -118,15 +118,14 @@ class Handler(HttpPlugin):
         :rtype: dict
         """
 
-        if http_context.method == 'POST':
-            data = http_context.json_body()
-            certificate_path = data['certificate']
-            try:
-                with open(certificate_path, 'r') as certificate:
-                    content = certificate.read()
-                    OpenSSL.crypto.load_certificate(OpenSSL.crypto.FILETYPE_PEM, content)
-                    OpenSSL.crypto.load_privatekey(OpenSSL.crypto.FILETYPE_PEM, content)
-            except Exception as e:
-                raise EndpointError(None, message=str(e))    
-                
-            return {'path': certificate_path}
+        certificate_path = http_context.json_body()['certificate']
+
+        try:
+            with open(certificate_path, 'r') as certificate:
+                content = certificate.read()
+                OpenSSL.crypto.load_certificate(OpenSSL.crypto.FILETYPE_PEM, content)
+                OpenSSL.crypto.load_privatekey(OpenSSL.crypto.FILETYPE_PEM, content)
+        except Exception as e:
+            raise EndpointError(None, message=str(e))
+
+        return True

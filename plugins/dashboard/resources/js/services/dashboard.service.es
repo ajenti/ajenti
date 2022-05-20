@@ -4,7 +4,7 @@ angular.module('ajenti.dashboard').service('dashboard', function($http, $q) {
     };
 
     this.getValues = function(data) {
-        return $http.post("/api/dashboard/get-values", data, {ignoreLoadingBar: true}).then(response => response.data)
+        return $http.post("/api/dashboard/widgets-values", data, {ignoreLoadingBar: true}).then(response => response.data)
     };
 
     return this;

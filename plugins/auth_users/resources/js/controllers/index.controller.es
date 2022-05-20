@@ -87,7 +87,7 @@ angular.module('ajenti.auth.users').controller('AuthUsersIndexController', funct
 
     $scope.setPassword = (username, password) => {
         users.save().then(() =>
-            $http.post(`/api/auth-users/set-password/${username}`, password).then(function() {
+            $http.post(`/api/auth-users/password/${username}`, password).then(function() {
                 notify.success(gettext('Password updated'));
                 users.load();
             })

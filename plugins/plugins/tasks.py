@@ -23,3 +23,15 @@ class UpgradeAll (Task):
             subprocess.check_output(['ajenti-upgrade'])
         except FileNotFoundError as e:
             subprocess.check_output(['/usr/local/bin/ajenti-upgrade'])
+
+
+class UnInstallPlugin (Task):
+    name = 'Uninstalling plugin'
+
+    def __init__(self, context, name=None):
+        Task.__init__(self, context)
+        self.spec = f'ajenti.plugin.{name}'
+
+    def run(self):
+        subprocess.check_output([sys.executable, '-m', 'pip', 'uninstall', '-y', self.spec])
+

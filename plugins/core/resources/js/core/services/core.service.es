@@ -13,7 +13,7 @@ angular.module('core').service('core', function($timeout, $q, $http, $window, me
 
     this.forceRestart = () => {
         let msg = messagebox.show({progress: true, title: gettext('Restarting')});
-        return $http.get('/api/core/restart-master').then(() => {
+        return $http.post('/api/core/restart-master').then(() => {
             return $timeout(() => {
                 msg.close();
                 messagebox.show({title: gettext('Restarted'), text: gettext('Please wait')});

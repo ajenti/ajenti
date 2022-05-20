@@ -4,7 +4,7 @@ Manage a widget page and refresh all values automatically.
 
 from jadi import component
 
-from aj.api.http import url, HttpPlugin
+from aj.api.http import get, post, HttpPlugin
 
 from aj.api.endpoint import endpoint
 from aj.plugins.dashboard.api import Widget
@@ -16,7 +16,7 @@ class Handler(HttpPlugin):
         self.context = context
         self.widgets = {x.id:x for x in Widget.all(self.context)}
 
-    @url(r'/api/dashboard/widgets')
+    @get(r'/api/dashboard/widgets')
     @endpoint(api=True)
     def handle_api_widgets(self, http_context):
         """
@@ -37,7 +37,7 @@ class Handler(HttpPlugin):
             } for w in self.widgets.values()
         ]
 
-    @url(r'/api/dashboard/get-values')
+    @post(r'/api/dashboard/widgets-values')
     @endpoint(api=True)
     def handle_api_get_values(self, http_context):
         """

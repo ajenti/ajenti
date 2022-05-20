@@ -96,7 +96,7 @@ class HttpPlugin():
 
         @component
         class HelloHttp(HttpPlugin):
-            @url('/hello/(?P<name>.+)')
+            @get('/hello/(?P<name>.+)')
             def get_page(self, http_context, name=None):
                 context.add_header('Content-Type', 'text/plain')
                 context.respond_ok()

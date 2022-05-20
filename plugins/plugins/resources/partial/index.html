@@ -11,7 +11,7 @@
 
     <div ng:show="!coreUpgradeAvailable">
         <div class="alert alert-info">
-            <i class="fa fa-info-circle"></i> <span translate>Ajenti core {{ajentiVersion}}, no upgrades available.</span>
+            <i class="fa fa-info-circle"></i> <span translate>Ajenti Core version {{ajentiVersion}}, no upgrades available.</span>
         </div>
     </div>
 
@@ -31,7 +31,10 @@
                 <i class="fa fa-trash-o"></i>
             </a>
             <a ng:click="$parent.selectedInstalledPlugin = plugin" class="list-group-main">
-                <i class="fa fa-fw fa-{{plugin.icon}}"></i> {{plugin.title}}
+                <i class="fa fa-fw fa-{{plugin.icon}}" ng:show="plugin.icon.indexOf(' ') < 0"></i>
+                <i class="fa-fw {{plugin.icon}}" ng:show="plugin.icon.indexOf(' ') > 0"></i>
+
+                {{plugin.title}}
                 &nbsp;
                 <span class="subtle">{{plugin.name}} {{plugin.version}}</span>
                 &nbsp;

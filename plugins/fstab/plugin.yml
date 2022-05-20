@@ -4,7 +4,7 @@ email: arnaud@linuxmuster.net
 url: https://ajenti.org
 docs: https://docs.ajenti.org/en/latest/plugins/fstab.html
 version: '0.3'
-title: 'fstab'
+title: 'Fstab'
 icon: hdd
 
 dependencies:

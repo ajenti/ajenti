@@ -4,7 +4,7 @@ email: arnaud@linuxmuster.net
 url: https://ajenti.org
 docs: https://docs.ajenti.org/en/latest/plugins/cron.html
 version: '0.4'
-title: 'cron'
+title: 'Cron'
 icon: 'clock-o'
 dependencies:
     - !PluginDependency {

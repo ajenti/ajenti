@@ -40,7 +40,7 @@ angular.module('core').service('identity', function($http, $location, $window, $
     };
 
     this.logout = function() {
-        $http.get('/api/core/logout');
+        $http.post('/api/core/logout');
         return $timeout(function() {
             $window.location.assign(`${urlPrefix}/view/login/normal/${$location.path()}`);
         }, 1000);

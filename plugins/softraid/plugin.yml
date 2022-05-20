@@ -3,7 +3,7 @@ author: Arnaud Kientz
 email: arnaud@linuxmuster.net
 url: https://ajenti.org
 version: '0.3'
-title: 'softraid'
+title: 'Softraid'
 icon: hdd
 dependencies:
     - !PluginDependency {

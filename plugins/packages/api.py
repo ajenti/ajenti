@@ -12,7 +12,7 @@ class Package():
         self.name = None
         self.version = None
         self.description = None
-        self.released = None
+        self.created = None
         self.is_installed = None
         self.is_upgradeable = None
         self.installed_version = None
