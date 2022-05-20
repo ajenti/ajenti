@@ -4,9 +4,9 @@ from jadi import component
 
 import aj
 from aj.auth import authorize
-from aj.api.http import url, HttpPlugin
+from aj.api.http import get, post, HttpPlugin
 from aj.config import UserConfigService
-from aj.auth import AuthenticationProvider, PermissionProvider
+from aj.auth import AuthenticationProvider, PermissionProvider, AuthenticationService
 
 from aj.api.endpoint import endpoint, EndpointReturn
 
@@ -16,13 +16,11 @@ class Handler(HttpPlugin):
     def __init__(self, context):
         self.context = context
 
-    @url(r'/api/core/config')
+    @get(r'/api/core/config')
     @endpoint(api=True)
-    def handle_api_config(self, http_context):
+    def handle_api_get_config(self, http_context):
         """
-        Load (method get) and save (method post) the ajenti config file.
-        Method GET.
-        Method POST.
+        Load the ajenti config file.
 
         :param http_context: HttpContext
         :type http_context: HttpContext
@@ -32,25 +30,16 @@ class Handler(HttpPlugin):
 
         if os.getuid() != 0:
             raise EndpointReturn(403)
-        if http_context.method == 'GET':
-            with authorize('core:config:read'):
-                self.context.worker.reload_master_config()
-                return aj.config.data
-        if http_context.method == 'POST':
-            with authorize('core:config:write'):
-                data = json.loads(http_context.body.decode())
-                aj.config.data.update(data)
-                aj.config.save()
-                self.context.worker.reload_master_config()
-                return aj.config.data
 
-    @url(r'/api/core/user-config')
+        with authorize('core:config:read'):
+            self.context.worker.reload_master_config()
+            return aj.config.data
+
+    @post(r'/api/core/config')
     @endpoint(api=True)
-    def handle_api_user_config(self, http_context):
+    def handle_api_post_config(self, http_context):
         """
-        Load (method get) and save (method post) the user config file.
-        Method GET.
-        Method POST.
+        Save the ajenti config file.
 
         :param http_context: HttpContext
         :type http_context: HttpContext
@@ -58,15 +47,85 @@ class Handler(HttpPlugin):
         :rtype: dict
         """
 
-        if http_context.method == 'GET':
-            return UserConfigService.get(self.context).get_provider().data
-        if http_context.method == 'POST':
-            data = json.loads(http_context.body.decode())
-            config = UserConfigService.get(self.context).get_provider()
-            config.data.update(data)
-            config.save()
+        if os.getuid() != 0:
+            raise EndpointReturn(403)
 
-    @url(r'/api/core/authentication-providers')
+        with authorize('core:config:write'):
+            data = json.loads(http_context.body.decode())
+            aj.config.data.update(data)
+            aj.config.save()
+            self.context.worker.reload_master_config()
+            return aj.config.data
+
+    @get(r'/api/core/user-config')
+    @endpoint(api=True)
+    def handle_api_get_user_config(self, http_context):
+        """
+        Load the user config file.
+
+        :param http_context: HttpContext
+        :type http_context: HttpContext
+        :return: Content of the ajenti config file
+        :rtype: dict
+        """
+
+        return UserConfigService.get(self.context).get_provider().data
+
+    @post(r'/api/core/user-config')
+    @endpoint(api=True)
+    def handle_api_post_user_config(self, http_context):
+        """
+        Save the user config file.
+
+        :param http_context: HttpContext
+        :type http_context: HttpContext
+        :return: Content of the ajenti config file
+        :rtype: dict
+        """
+
+        data = json.loads(http_context.body.decode())
+        config = UserConfigService.get(self.context).get_provider()
+        config.data.update(data)
+        config.save()
+
+    @get(r'/api/core/smtp-config')
+    @endpoint(api=True)
+    def handle_api_get_smtp_config(self, http_context):
+        """
+        Load the smtp config file without password.
+
+        :param http_context: HttpContext
+        :type http_context: HttpContext
+        :return: Content of the ajenti config file without password
+        :rtype: dict
+        """
+
+        if os.getuid() != 0:
+            raise EndpointReturn(403)
+
+        with authorize('core:config:read'):
+            return aj.smtp_config.data
+
+    @post(r'/api/core/smtp-config')
+    @endpoint(api=True)
+    def handle_api_post_smtp_config(self, http_context):
+        """
+        Save the smtp config file without password.
+
+        :param http_context: HttpContext
+        :type http_context: HttpContext
+        :return: Content of the ajenti config file without password
+        :rtype: dict
+        """
+
+        if os.getuid() != 0:
+            raise EndpointReturn(403)
+
+        with authorize('core:config:write'):
+            data = json.loads(http_context.body.decode())
+            aj.smtp_config.save(data)
+
+    @get(r'/api/core/authentication-providers')
     @endpoint(api=True)
     def handle_api_auth_providers(self, http_context):
         """
@@ -79,14 +138,16 @@ class Handler(HttpPlugin):
         """
 
         r = []
+        auth_service_id =AuthenticationService.get(self.context).get_provider().id
         for p in AuthenticationProvider.all(self.context):
             r.append({
                 'id': p.id,
                 'name': p.name,
+                'used': True if p.id == auth_service_id else False,
             })
         return r
 
-    @url(r'/api/core/permissions')
+    @get(r'/api/core/permissions')
     @endpoint(api=True)
     def handle_api_permissions(self, http_context):
         """

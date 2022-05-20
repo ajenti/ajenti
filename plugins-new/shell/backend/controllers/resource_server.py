@@ -4,7 +4,7 @@ import os
 from jadi import component
 
 import aj
-from aj.api.http import url, HttpPlugin
+from aj.api.http import get, HttpPlugin
 from aj.plugins import PluginManager
 
 from aj.api.endpoint import endpoint
@@ -29,17 +29,17 @@ class ResourcesHandler(HttpPlugin):
         :rtype: string
         """
 
-        return '''
-            try {
-                %s
-            } catch (err) {
-                console.warn('Plugin load error:');
-                console.warn(' * %s');
-                console.error('  ', err);
-            }
-        ''' % (js, name)
+        return f'''
+                    try {{
+                        {js}
+                    }} catch (err) {{
+                        console.warn('Plugin load error:');
+                        console.warn(' * {name}');
+                        console.error('  ', err);
+                    }}
+                '''
 
-    @url(r'/resources/all\.(?P<type>.+)')
+    @get(r'/resources/all\.(?P<type>.+)')
     @endpoint(page=True, auth=False)
     def handle_build(self, http_context, type=None):
         if self.use_cache and type in self.cache:
@@ -137,7 +137,7 @@ class ResourcesHandler(HttpPlugin):
 
         return http_context.gzip(content=content.encode('utf-8'))
 
-    @url(r'/resources/(?P<plugin>\w+)/(?P<path>.+)')
+    @get(r'/resources/(?P<plugin>\w+)/(?P<path>.+)')
     @endpoint(page=True, auth=False)
     def handle_file(self, http_context, plugin=None, path=None):
         if '..' in path:
@@ -174,7 +174,7 @@ window.globalConstants = {
 
         return http_context.gzip(content=content.encode('utf-8'))
 
-    @url('/resources/plugins.json')
+    @get('/resources/plugins.json')
     @endpoint(page=True, auth=False)
     def get_plugins(self, http_context):
         manager = PluginManager.get(aj.context)

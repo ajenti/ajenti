@@ -151,7 +151,7 @@ export class IdentityService {
   private async _logout(): Promise<void> {
     const redirectPath = this.routerService.url;
 
-    await this.httpClient.get('/api/core/logout').toPromise();
+    await this.httpClient.post('/api/core/logout').toPromise();
     await this.updateIdentityData();
     await this.redirectToNormalLogin(redirectPath);
   }
