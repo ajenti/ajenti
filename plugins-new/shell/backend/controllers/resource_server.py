@@ -156,7 +156,7 @@ window.globalConstants = {{
     'ajentiPlatform': '{aj.platform_unmapped}',
     'ajentiPlatformUnmapped': '{aj.platform}',
     'ajentiVersion': '{aj.version}',
-    'ajentiBootstrapColor': {aj.config.data.get('color', None)},
+    'ajentiBootstrapColor': '{aj.config.data.get('color', None)}',
 }};
         '''
 
@@ -196,7 +196,7 @@ window.globalConstants = {{
     "displayName": "{frontend_settings['display-name']}",
     "routePath": "{frontend_settings['route-path']}",
     "ngModuleName": "{frontend_settings['ng-module-name']}",
-    "pluginName": "{plugin_info['name']}",
+    "pluginName": "{plugin_info['name']}"
 }}'''
 
             separator = ','
