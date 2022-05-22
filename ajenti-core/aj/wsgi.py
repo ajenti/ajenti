@@ -34,7 +34,11 @@ class RequestHandler(WebSocketHandler):
 
         env = WebSocketHandler.get_environ(self)
         env['SSL'] = isinstance(self.socket, gevent.ssl.SSLSocket)
-        env['SSL_CLIENT_AUTH_FORCE'] = aj.config.data['ssl']['client_auth']['force']
+        env['SSL_CLIENT_AUTH_FORCE'] = (
+            aj.config.data['ssl']['client_auth']['force']
+            and
+            aj.config.data['ssl']['client_auth']['enable']
+        )
         env['SSL_CLIENT_VALID'] = False
         env['SSL_CLIENT_USER'] = None
         if env['SSL']:
