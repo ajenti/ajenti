@@ -214,6 +214,12 @@ def run(config=None, plugin_providers=None, product_name='ajenti', dev_mode=Fals
 
         aj.server.wrap_socket = lambda socket, **args:context.wrap_socket(sock=socket, server_side=True)
         logging.info('SSL enabled')
+
+        if aj.config.data['ssl']['force']:
+            from aj.https_redirect import http_to_https
+            target_url = f'https://{aj.config.data["name"]}:{port}'
+            gevent.spawn(http_to_https, target_url)
+            logging.info(f'HTTP to HTTPS redirection activated to {target_url}')
     else:
         # No policy_server argument for http
         aj.server = pywsgi.WSGIServer(
