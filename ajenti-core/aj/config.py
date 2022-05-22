@@ -53,6 +53,7 @@ class BaseConfig():
         self.data['ssl'].setdefault('enable', False)
         self.data['ssl'].setdefault('certificate', None)
         self.data['ssl'].setdefault('fqdn_certificate', None)
+        self.data['ssl'].setdefault('force', False)
         self.data['ssl'].setdefault('client_auth', {})
         self.data['ssl']['client_auth'].setdefault('enable', False)
         self.data['ssl']['client_auth'].setdefault('force', False)
