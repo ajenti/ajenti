@@ -81,7 +81,7 @@ class GateMiddleware():
         h += env.get('REMOTE_ADDR', '')
         h += env.get('HTTP_USER_AGENT', '')
         h += env.get('HTTP_HOST', '')
-        return hashlib.sha1(h.encode('utf-8')).hexdigest()
+        return hashlib.sha256(h.encode('utf-8')).hexdigest()
 
     def vacuum(self):
         """
