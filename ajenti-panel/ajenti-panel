@@ -42,8 +42,8 @@ class AjentiConfig(aj.config.BaseConfig):
 
 
 def usage():
-    print("""
-Usage: %s [options]
+    print(f"""
+Usage: {sys.argv[0]} [options]
 Options:
     -c, --config <file> - Use given config file instead of default
     -v                  - Debug/verbose logging ( shortcut for --log debug )
@@ -54,7 +54,7 @@ Options:
     --autologin         - Log in automatically as the running user
     --log '<level>'     - Fix log level : debug, info, warning or error
     -h, --help          - This help
-    """ % sys.argv[0])
+    """)
 
 
 if __name__ == '__main__':
