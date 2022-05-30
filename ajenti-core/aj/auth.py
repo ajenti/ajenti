@@ -101,6 +101,9 @@ class AuthenticationProvider():
     def update_password(self):
         raise NotImplementedError
 
+    def prepare_environment(self, username):
+        raise NotImplementedError
+
     def signout(self):
         raise NotImplementedError
 

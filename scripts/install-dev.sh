@@ -135,6 +135,7 @@ session_max_time: 3600
 name: $(hostname)
 ssl:
   certificate:
+  force: false
   fqdn_certificate:
   client_auth:
     certificates: []

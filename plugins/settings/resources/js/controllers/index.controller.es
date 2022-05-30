@@ -114,7 +114,7 @@ angular.module('ajenti.settings').controller('SettingsIndexController', ($scope,
 
     $scope.generateClientCertificate = () => {
         $scope.newClientCertificate.generating = true;
-        return $http.post('/api/settings/generate-client-certificate', $scope.newClientCertificate).success(function(data) {
+        return $http.post('/api/settings/generate/client-certificate', $scope.newClientCertificate).success(function(data) {
             $scope.newClientCertificate.generating = false;
             $scope.newClientCertificate.generated = true;
             $scope.newClientCertificate.url = $sce.trustAsUrl(`data:application/x-pkcs12;base64,${data.b64certificate}`);

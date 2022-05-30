@@ -34,6 +34,7 @@ name: {socket.gethostname()}
 ssl:
   certificate:
   fqdn_certificate:
+  force: false
   client_auth:
     certificates: []
     enable: false

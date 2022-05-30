@@ -60,6 +60,7 @@ ssl block
       enable: true
       certificate: /etc/ajenti/mycert.pem
       fqdn_certificate: /etc/letsencrypt/ajenti.pem
+      force: false
       client_auth:
          enable: true
          force: true
@@ -74,6 +75,7 @@ Explanations:
   * **enable**: **true** or **false** to provide support for https. It's highly recommended to set it to **true**
   * **certificate**: full path to default global certificate, used to generate client certificates, and fot the https protocol, if the parameter ``fqdn_certificate`` is not set. The PEM file should contains the certificate itself, and the private key.
   * **fqdn_certificate**: full path certificate for your FQDN (e.g. ``/etc/ajenti/mycert.pem``). The PEM file should contains the certificate itself, and the private key.
+  * **force**: spawn a small listener on port 80 to enable a redirect from ``http://hostname`` to ``https://hostname:port``.
   * **client_auth**:
      * **enable**: **true** or **false** to enable client authentication via certificates
      * **force**: if **true**, only allows login with client certificate. If **false**, also permit authentication with password

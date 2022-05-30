@@ -11,8 +11,8 @@ if len(sys.argv) < 2:
 
 host = sys.argv[1]
 etcdir = '/etc/ajenti'
-certificate_path = '%s/ajenti.pem' % etcdir
-config_path = '%s/config.yml' % etcdir
+certificate_path = f'{etcdir}/ajenti.pem'
+config_path = f'{etcdir}/config.yml'
 
 config = yaml.load(open(config_path), Loader=yaml.Loader)
 
