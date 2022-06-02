@@ -57,7 +57,9 @@ class BaseConfig():
         self.data['ssl'].setdefault('client_auth', {})
         self.data['ssl']['client_auth'].setdefault('enable', False)
         self.data['ssl']['client_auth'].setdefault('force', False)
-        self.data['ssl']['client_auth'].setdefault('certificates', {})
+        self.data['ssl']['client_auth'].setdefault('certificates', [])
+        if self.data['ssl']['client_auth']['certificates'] is None:
+            self.data['ssl']['client_auth']['certificates'] = []
 
         # Emails
         self.data.setdefault('email', {})
