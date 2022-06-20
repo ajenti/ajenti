@@ -15,8 +15,9 @@ if not hasattr(subprocess, 'check_output'):
 old_Popen = subprocess.Popen.__init__
 
 
-def Popen(*args, **kwargs):
-    logging.debug(f'Popen: {args[1]}')
+def Popen(*args, sensitive=False, **kwargs):
+    if not sensitive:
+        logging.debug(f'Popen: {args[1]}')
     __null = open(os.devnull, 'w')
     return old_Popen(
         stdin=kwargs.pop('stdin', subprocess.PIPE),
