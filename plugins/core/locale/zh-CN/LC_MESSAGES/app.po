@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-28 11:01+0200\n"
-"PO-Revision-Date: 2022-03-28 09:08\n"
+"POT-Creation-Date: 2022-06-25 21:20+0200\n"
+"PO-Revision-Date: 2022-06-25 19:27\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -35,7 +35,7 @@ msgstr "<span>\n"
 "                </span>\n"
 "                在此服务器上找不到页面 {{url}}"
 
-#: plugins/core/content/pages/index.html:150
+#: plugins/core/content/pages/index.html:152
 msgid "A bootstrap error has occurred"
 msgstr ""
 
@@ -43,7 +43,7 @@ msgstr ""
 msgid "Authenticate"
 msgstr "身份验证"
 
-#: plugins/core/content/pages/index.html:86
+#: plugins/core/content/pages/index.html:89
 msgid "Elevate"
 msgstr "获取管理员权限"
 
@@ -51,7 +51,7 @@ msgstr "获取管理员权限"
 msgid "Email"
 msgstr ""
 
-#: plugins/core/content/pages/index.html:133
+#: plugins/core/content/pages/index.html:135
 msgid "Enter"
 msgstr "输入"
 
@@ -59,7 +59,7 @@ msgstr "输入"
 msgid "Log in"
 msgstr "登录"
 
-#: plugins/core/content/pages/index.html:91
+#: plugins/core/content/pages/index.html:94
 msgid "Log out"
 msgstr "注销"
 
@@ -67,7 +67,7 @@ msgstr "注销"
 msgid "New password"
 msgstr ""
 
-#: plugins/core/content/pages/index.html:174
+#: plugins/core/content/pages/index.html:176
 msgid "OK"
 msgstr "完成"
 
@@ -84,12 +84,12 @@ msgstr ""
 msgid "Please enter the new password"
 msgstr ""
 
-#: plugins/core/content/pages/index.html:153
+#: plugins/core/content/pages/index.html:155
 #: plugins/core/resources/js/core/module.es:32
 msgid "Please see browser console"
 msgstr "请参阅浏览器控制台"
 
-#: plugins/core/content/pages/index.html:129
+#: plugins/core/content/pages/index.html:131
 msgid "Quick search"
 msgstr "快速搜索"
 
@@ -105,7 +105,7 @@ msgstr ""
 msgid "Send instructions to reset password"
 msgstr ""
 
-#: plugins/core/content/pages/index.html:101
+#: plugins/core/content/pages/index.html:104
 msgid "Session time : {{ counter[0] }}:{{ counter[1] }}:{{ counter[2] }}"
 msgstr "会话时长：{{ counter[0] }}:{{ counter[1] }}:{{ counter[2] }}"
 

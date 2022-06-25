@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-28 11:01+0200\n"
-"PO-Revision-Date: 2022-03-28 09:08\n"
+"POT-Creation-Date: 2022-06-25 21:20+0200\n"
+"PO-Revision-Date: 2022-06-25 19:28\n"
 "Last-Translator: \n"
 "Language-Team: Portuguese, Brazilian\n"
 "Language: pt_BR\n"
@@ -35,7 +35,7 @@ msgstr "<span>\n"
 "                </span>\n"
 "                A URL {{url}} não foi encontrada neste servidor."
 
-#: plugins/core/content/pages/index.html:150
+#: plugins/core/content/pages/index.html:152
 msgid "A bootstrap error has occurred"
 msgstr ""
 
@@ -43,7 +43,7 @@ msgstr ""
 msgid "Authenticate"
 msgstr "Autenticar"
 
-#: plugins/core/content/pages/index.html:86
+#: plugins/core/content/pages/index.html:89
 msgid "Elevate"
 msgstr "Subir"
 
@@ -51,7 +51,7 @@ msgstr "Subir"
 msgid "Email"
 msgstr ""
 
-#: plugins/core/content/pages/index.html:133
+#: plugins/core/content/pages/index.html:135
 msgid "Enter"
 msgstr "Digite"
 
@@ -59,7 +59,7 @@ msgstr "Digite"
 msgid "Log in"
 msgstr "Fazer Login"
 
-#: plugins/core/content/pages/index.html:91
+#: plugins/core/content/pages/index.html:94
 msgid "Log out"
 msgstr "Sair"
 
@@ -67,7 +67,7 @@ msgstr "Sair"
 msgid "New password"
 msgstr "Nova senha"
 
-#: plugins/core/content/pages/index.html:174
+#: plugins/core/content/pages/index.html:176
 msgid "OK"
 msgstr "OK"
 
@@ -84,12 +84,12 @@ msgstr "Por favor, confirme a nova senha"
 msgid "Please enter the new password"
 msgstr "Digite a nova senha"
 
-#: plugins/core/content/pages/index.html:153
+#: plugins/core/content/pages/index.html:155
 #: plugins/core/resources/js/core/module.es:32
 msgid "Please see browser console"
 msgstr "Por favor consulte o console do navegador"
 
-#: plugins/core/content/pages/index.html:129
+#: plugins/core/content/pages/index.html:131
 msgid "Quick search"
 msgstr "Busca rápida"
 
@@ -105,7 +105,7 @@ msgstr "Redefinir senha"
 msgid "Send instructions to reset password"
 msgstr "Enviar instruções para redefinir a senha"
 
-#: plugins/core/content/pages/index.html:101
+#: plugins/core/content/pages/index.html:104
 msgid "Session time : {{ counter[0] }}:{{ counter[1] }}:{{ counter[2] }}"
 msgstr "Tempo de sessão : {{ counter[0] }}:{{ counter[1] }}:{{ counter[2] }}"
 

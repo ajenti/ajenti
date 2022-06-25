@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-06 18:10+0100\n"
-"PO-Revision-Date: 2022-03-28 09:08\n"
+"POT-Creation-Date: 2022-06-25 21:20+0200\n"
+"PO-Revision-Date: 2022-06-25 19:27\n"
 "Last-Translator: \n"
 "Language-Team: Slovak\n"
 "Language: sk_SK\n"
@@ -18,28 +18,28 @@ msgstr ""
 "X-Crowdin-File-ID: 35\n"
 
 #: plugins/plugins/resources/partial/index.html:14
-msgid "Ajenti core {{ajentiVersion}}, no upgrades available."
-msgstr "Jadro Ajenti {{ajentiVersion}}, žiadne dostupné aktualizácie."
+msgid "Ajenti Core version {{ajentiVersion}}, no upgrades available."
+msgstr ""
 
 #: plugins/plugins/resources/partial/index.html:20
 msgid "Ajenti core {{ajentiVersion}}. An upgrade to {{coreUpgradeAvailable}} is available."
 msgstr ""
 
-#: plugins/plugins/resources/partial/index.html:135
-#: plugins/plugins/resources/partial/index.html:190
+#: plugins/plugins/resources/partial/index.html:138
+#: plugins/plugins/resources/partial/index.html:196
 msgid "Author"
 msgstr "Autor"
 
-#: plugins/plugins/resources/partial/index.html:47
+#: plugins/plugins/resources/partial/index.html:50
 msgid "Available plugins"
 msgstr "Dostupné doplnky"
 
-#: plugins/plugins/resources/partial/index.html:154
-#: plugins/plugins/resources/partial/index.html:206
+#: plugins/plugins/resources/partial/index.html:160
+#: plugins/plugins/resources/partial/index.html:212
 msgid "Close"
 msgstr "Zavrieť"
 
-#: plugins/plugins/resources/partial/index.html:70
+#: plugins/plugins/resources/partial/index.html:73
 msgid "Community"
 msgstr "Komunita​"
 
@@ -47,29 +47,33 @@ msgstr "Komunita​"
 msgid "Core"
 msgstr "Jadro"
 
-#: plugins/plugins/resources/partial/index.html:184
+#: plugins/plugins/resources/partial/index.html:148
+msgid "Documentation"
+msgstr ""
+
+#: plugins/plugins/resources/partial/index.html:190
 msgid "Downloads in the last month"
 msgstr "Prevzatia za posledný mesiac"
 
-#: plugins/plugins/resources/partial/index.html:103
+#: plugins/plugins/resources/partial/index.html:106
 msgid "Error"
 msgstr "Chyba"
 
-#: plugins/plugins/resources/partial/index.html:114
+#: plugins/plugins/resources/partial/index.html:117
 msgid "Exception: <code>{{selectedInstalledPlugin.crash.cls}}</code>"
 msgstr ""
 
-#: plugins/plugins/resources/partial/index.html:71
+#: plugins/plugins/resources/partial/index.html:74
 msgid "Filter"
 msgstr "Filtrovať"
 
-#: plugins/plugins/resources/partial/index.html:142
+#: plugins/plugins/resources/partial/index.html:145
 msgid "Homepage"
 msgstr "Domovská stránka"
 
-#: plugins/plugins/resources/partial/index.html:203
-#: plugins/plugins/resources/partial/index.html:56
-#: plugins/plugins/resources/partial/index.html:74
+#: plugins/plugins/resources/partial/index.html:209
+#: plugins/plugins/resources/partial/index.html:59
+#: plugins/plugins/resources/partial/index.html:77
 msgid "Install"
 msgstr "Inštalovať"
 
@@ -77,51 +81,51 @@ msgstr "Inštalovať"
 msgid "Installed plugins"
 msgstr "Inštalované doplnky"
 
-#: plugins/plugins/resources/partial/index.html:41
+#: plugins/plugins/resources/partial/index.html:44
 msgid "Loading error"
 msgstr "Načítanie zlyhalo"
 
-#: plugins/plugins/resources/partial/index.html:129
+#: plugins/plugins/resources/partial/index.html:132
 msgid "Location"
 msgstr "Poloha"
 
-#: plugins/plugins/resources/partial/index.html:117
+#: plugins/plugins/resources/partial/index.html:120
 msgid "Message: <code>{{selectedInstalledPlugin.crash.message}}</code>"
 msgstr ""
 
-#: plugins/plugins/resources/partial/index.html:166
-#: plugins/plugins/resources/partial/index.html:97
+#: plugins/plugins/resources/partial/index.html:100
+#: plugins/plugins/resources/partial/index.html:172
 msgid "Name"
 msgstr "Meno"
 
-#: plugins/plugins/resources/partial/index.html:53
+#: plugins/plugins/resources/partial/index.html:56
 msgid "Official"
 msgstr "Oficiálne"
 
-#: plugins/plugins/resources/partial/index.html:215
+#: plugins/plugins/resources/partial/index.html:221
 msgid "Restart panel"
 msgstr "Reštartovať panel"
 
-#: plugins/plugins/resources/partial/index.html:112
+#: plugins/plugins/resources/partial/index.html:115
 msgid "This plugin crashed with the following error:"
 msgstr "Tento doplnok prestal pracovať z nasledujúceho dôvodu:"
 
-#: plugins/plugins/resources/partial/index.html:107
+#: plugins/plugins/resources/partial/index.html:110
 msgid "This plugin requires application binary <code>{{selectedInstalledPlugin.crash.binaryName}}</code>, which was unavailable during startup."
 msgstr ""
 
-#: plugins/plugins/resources/partial/index.html:104
+#: plugins/plugins/resources/partial/index.html:107
 msgid "This plugin requires plugin <code>{{selectedInstalledPlugin.crash.pluginName}}</code>, which was unavailable during startup."
 msgstr ""
 
-#: plugins/plugins/resources/partial/index.html:151
+#: plugins/plugins/resources/partial/index.html:157
 #: plugins/plugins/resources/partial/index.html:30
-#: plugins/plugins/resources/js/controllers/index.controller.es:174
-#: plugins/plugins/resources/js/controllers/index.controller.es:176
+#: plugins/plugins/resources/js/controllers/index.controller.es:178
+#: plugins/plugins/resources/js/controllers/index.controller.es:180
 msgid "Uninstall"
 msgstr ""
 
-#: plugins/plugins/resources/partial/index.html:148
+#: plugins/plugins/resources/partial/index.html:154
 msgid "Update"
 msgstr ""
 
@@ -133,12 +137,12 @@ msgstr ""
 msgid "Updates"
 msgstr ""
 
-#: plugins/plugins/resources/partial/index.html:38
+#: plugins/plugins/resources/partial/index.html:41
 msgid "Upgradeable to {{getUpgrade(plugin).version}}"
 msgstr ""
 
-#: plugins/plugins/resources/partial/index.html:123
-#: plugins/plugins/resources/partial/index.html:172
+#: plugins/plugins/resources/partial/index.html:126
+#: plugins/plugins/resources/partial/index.html:178
 msgid "Version"
 msgstr ""
 
@@ -163,25 +167,25 @@ msgid "All plugins updated"
 msgstr ""
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:107
-#: plugins/plugins/resources/js/controllers/index.controller.es:147
-#: plugins/plugins/resources/js/controllers/index.controller.es:183
+#: plugins/plugins/resources/js/controllers/index.controller.es:148
+#: plugins/plugins/resources/js/controllers/index.controller.es:191
 msgid "Done"
 msgstr ""
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:108
-#: plugins/plugins/resources/js/controllers/index.controller.es:147
+#: plugins/plugins/resources/js/controllers/index.controller.es:149
 msgid "Installed. A panel restart is required."
 msgstr ""
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:109
-#: plugins/plugins/resources/js/controllers/index.controller.es:147
-#: plugins/plugins/resources/js/controllers/index.controller.es:185
+#: plugins/plugins/resources/js/controllers/index.controller.es:150
+#: plugins/plugins/resources/js/controllers/index.controller.es:193
 msgid "Restart now"
 msgstr ""
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:110
-#: plugins/plugins/resources/js/controllers/index.controller.es:147
-#: plugins/plugins/resources/js/controllers/index.controller.es:186
+#: plugins/plugins/resources/js/controllers/index.controller.es:151
+#: plugins/plugins/resources/js/controllers/index.controller.es:194
 msgid "Later"
 msgstr ""
 
@@ -189,36 +193,32 @@ msgstr ""
 msgid "Some plugins failed to update"
 msgstr ""
 
-#: plugins/plugins/resources/js/controllers/index.controller.es:150
+#: plugins/plugins/resources/js/controllers/index.controller.es:154
 msgid "Install failed"
 msgstr ""
 
-#: plugins/plugins/resources/js/controllers/index.controller.es:158
+#: plugins/plugins/resources/js/controllers/index.controller.es:162
 msgid "Warning"
 msgstr ""
 
-#: plugins/plugins/resources/js/controllers/index.controller.es:159
+#: plugins/plugins/resources/js/controllers/index.controller.es:163
 msgid "This will remove the Plugins plugin. You can reinstall it later using PIP."
 msgstr ""
 
-#: plugins/plugins/resources/js/controllers/index.controller.es:160
+#: plugins/plugins/resources/js/controllers/index.controller.es:164
 msgid "Continue"
 msgstr ""
 
-#: plugins/plugins/resources/js/controllers/index.controller.es:161
-#: plugins/plugins/resources/js/controllers/index.controller.es:177
+#: plugins/plugins/resources/js/controllers/index.controller.es:165
+#: plugins/plugins/resources/js/controllers/index.controller.es:181
 msgid "Cancel"
 msgstr ""
 
-#: plugins/plugins/resources/js/controllers/index.controller.es:179
-msgid "Uninstalling"
-msgstr ""
-
-#: plugins/plugins/resources/js/controllers/index.controller.es:184
+#: plugins/plugins/resources/js/controllers/index.controller.es:192
 msgid "Uninstalled. A panel restart is required."
 msgstr ""
 
-#: plugins/plugins/resources/js/controllers/index.controller.es:191
+#: plugins/plugins/resources/js/controllers/index.controller.es:197
 msgid "Uninstall failed"
 msgstr ""
 

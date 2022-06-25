@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-28 11:01+0200\n"
-"PO-Revision-Date: 2022-03-28 09:08\n"
+"POT-Creation-Date: 2022-06-25 21:20+0200\n"
+"PO-Revision-Date: 2022-06-25 19:27\n"
 "Last-Translator: \n"
 "Language-Team: Polish\n"
 "Language: pl_PL\n"
@@ -35,7 +35,7 @@ msgstr "<span>\n"
 "                </span>\n"
 "                URL {{url}} nie został znaleziony na tym serwerze."
 
-#: plugins/core/content/pages/index.html:150
+#: plugins/core/content/pages/index.html:152
 msgid "A bootstrap error has occurred"
 msgstr ""
 
@@ -43,7 +43,7 @@ msgstr ""
 msgid "Authenticate"
 msgstr "Uwierzytelnij"
 
-#: plugins/core/content/pages/index.html:86
+#: plugins/core/content/pages/index.html:89
 msgid "Elevate"
 msgstr "Podnieś poziom"
 
@@ -51,7 +51,7 @@ msgstr "Podnieś poziom"
 msgid "Email"
 msgstr "Email"
 
-#: plugins/core/content/pages/index.html:133
+#: plugins/core/content/pages/index.html:135
 msgid "Enter"
 msgstr "Wejdź"
 
@@ -59,7 +59,7 @@ msgstr "Wejdź"
 msgid "Log in"
 msgstr "Zaloguj się"
 
-#: plugins/core/content/pages/index.html:91
+#: plugins/core/content/pages/index.html:94
 msgid "Log out"
 msgstr "Wyloguj się"
 
@@ -67,7 +67,7 @@ msgstr "Wyloguj się"
 msgid "New password"
 msgstr "Nowe hasło"
 
-#: plugins/core/content/pages/index.html:174
+#: plugins/core/content/pages/index.html:176
 msgid "OK"
 msgstr "OK"
 
@@ -84,12 +84,12 @@ msgstr "Potwierdź Twoje nowe hasło"
 msgid "Please enter the new password"
 msgstr "Proszę wprowadzić nowe hasło"
 
-#: plugins/core/content/pages/index.html:153
+#: plugins/core/content/pages/index.html:155
 #: plugins/core/resources/js/core/module.es:32
 msgid "Please see browser console"
 msgstr "Sprawdź proszę konsolę przeglądarki"
 
-#: plugins/core/content/pages/index.html:129
+#: plugins/core/content/pages/index.html:131
 msgid "Quick search"
 msgstr "Szybkie wyszukiwanie"
 
@@ -105,7 +105,7 @@ msgstr "Resetuj hasło"
 msgid "Send instructions to reset password"
 msgstr "Wyślij instrukcje do zresetowania hasła"
 
-#: plugins/core/content/pages/index.html:101
+#: plugins/core/content/pages/index.html:104
 msgid "Session time : {{ counter[0] }}:{{ counter[1] }}:{{ counter[2] }}"
 msgstr "Czas sesji: {{ counter[0] }}:{{ counter[1] }}:{{ counter[2] }}"
 

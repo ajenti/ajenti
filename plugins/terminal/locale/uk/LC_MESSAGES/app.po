@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-27 12:11+0200\n"
-"PO-Revision-Date: 2022-03-28 09:08\n"
+"PO-Revision-Date: 2022-06-25 19:27\n"
 "Last-Translator: \n"
 "Language-Team: Ukrainian\n"
 "Language: uk_UA\n"
@@ -19,7 +19,7 @@ msgstr ""
 
 #: plugins/terminal/resources/partial/view.html:15
 msgid "Copy terminal content"
-msgstr ""
+msgstr "Копіювати вміст терміналу"
 
 #: plugins/terminal/resources/partial/view.html:26
 msgid "Done"
@@ -31,7 +31,7 @@ msgstr "Ім’я"
 
 #: plugins/terminal/resources/partial/index.html:29
 msgid "Open a new terminal"
-msgstr ""
+msgstr "Відкрити новий термінал"
 
 #: plugins/terminal/resources/partial/widget.html:7
 msgid "Run"
@@ -58,7 +58,7 @@ msgstr "Завершити"
 
 #: plugins/terminal/resources/partial/widget.config.html:11
 msgid "stdin data"
-msgstr ""
+msgstr "дані stdin"
 
 #: plugins/terminal/main.py:16
 msgid "Terminal"
@@ -74,29 +74,29 @@ msgstr "Відкрийте Термінал"
 
 #: plugins/terminal/resources/js/directives/terminal.es:178
 msgid "Terminal was closed"
-msgstr ""
+msgstr "Термінал був закритий"
 
 #: plugins/terminal/resources/js/services/terminals.service.es:20
 msgid "You will be redirect to the previous page."
-msgstr ""
+msgstr "Ви будете перенаправлені на попередню сторінку."
 
 #: plugins/terminal/resources/js/controllers/view.controller.es:11
 msgid "Use exit or Ctrl+D to exit terminal."
-msgstr ""
+msgstr "Використовуйте вихід або Ctrl+D, щоб вийти з термінала."
 
 #: plugins/terminal/resources/js/controllers/widget.controller.es:7
 msgid "Starting the script"
-msgstr ""
+msgstr "Почати скрипт"
 
 #: plugins/terminal/resources/js/controllers/widget.controller.es:10
 msgid "Script has finished"
-msgstr ""
+msgstr "Скрипт завершено"
 
 #: plugins/terminal/resources/js/controllers/widget.controller.es:12
 msgid "Script has failed"
-msgstr ""
+msgstr "Невдала спроба виконання скрипта"
 
 #: plugins/terminal/resources/js/controllers/widget.controller.es:15
 msgid "Could not launch the script"
-msgstr ""
+msgstr "Не вдалося запустити скрипт"
 

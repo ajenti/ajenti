@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-02-21 15:47+0100\n"
-"PO-Revision-Date: 2022-03-28 09:08\n"
+"PO-Revision-Date: 2022-06-25 19:27\n"
 "Last-Translator: \n"
 "Language-Team: Ukrainian\n"
 "Language: uk_UA\n"
@@ -19,104 +19,104 @@ msgstr ""
 
 #: plugins/docker/resources/partial/index.html:65
 msgid "Close"
-msgstr ""
+msgstr "Закрити"
 
 #: plugins/docker/resources/partial/index.html:14
 msgid "Cpu usage"
-msgstr ""
+msgstr "Використання CPU"
 
 #: plugins/docker/resources/partial/index.html:74
 msgid "Created"
-msgstr ""
+msgstr "Створено"
 
 #: plugins/docker/resources/partial/index.html:47
 msgid "Created at"
-msgstr ""
+msgstr "Створено"
 
 #: plugins/docker/resources/partial/index.html:6
 msgid "Docker is not installed on this host."
-msgstr ""
+msgstr "Docker не встановлено на цьому хості"
 
 #: plugins/docker/resources/partial/index.html:43
 msgid "Full id"
-msgstr ""
+msgstr "Повний ID"
 
 #: plugins/docker/resources/partial/index.html:51
 msgid "IP"
-msgstr ""
+msgstr "IP"
 
 #: plugins/docker/resources/partial/index.html:13
 msgid "Memory usage"
-msgstr ""
+msgstr "Використання пам'яті"
 
 #: plugins/docker/resources/partial/index.html:12
 msgid "Name (Hash)"
-msgstr ""
+msgstr "Назва (Хеш)"
 
 #: plugins/docker/resources/partial/index.html:15
 msgid "Network used"
-msgstr ""
+msgstr "Мережа що використовується"
 
 #: plugins/docker/resources/partial/index.html:9
 msgid "No container on this host."
-msgstr ""
+msgstr "На цьому хості немає контейнера."
 
 #: plugins/docker/resources/partial/index.html:70
 msgid "No docker images on this host."
-msgstr ""
+msgstr "На цьому хості немає жодного образу в докері."
 
 #: plugins/docker/resources/partial/index.html:55
 msgid "Ports"
-msgstr ""
+msgstr "Порти"
 
 #: plugins/docker/resources/partial/index.html:73
 msgid "Repository"
-msgstr ""
+msgstr "Репозиторій"
 
 #: plugins/docker/resources/partial/index.html:76
 msgid "Size"
-msgstr ""
+msgstr "Розмір"
 
 #: plugins/docker/resources/partial/index.html:75
 msgid "Tag"
-msgstr ""
+msgstr "Тег"
 
 #: plugins/docker/resources/partial/index.html:59
 msgid "Volumes"
-msgstr ""
+msgstr "Томи"
 
 #: plugins/docker/views.py:32
 msgid "Docker is not installed on this host"
-msgstr ""
+msgstr "Docker не встановлено на цьому хості"
 
 #: plugins/docker/resources/js/controllers/index.controller.es:41
 msgid "Stop command successfully sent."
-msgstr ""
+msgstr "Запит на команду зупинки успішно відправлено."
 
 #: plugins/docker/resources/js/controllers/index.controller.es:46
 msgid "Start command successfully sent."
-msgstr ""
+msgstr "Запит на команду запуску успішно відправлено."
 
 #: plugins/docker/resources/js/controllers/index.controller.es:51
 msgid "Really remove this container?"
-msgstr ""
+msgstr "Ви дійсно хочете видалити цей контейнер?"
 
 #: plugins/docker/resources/js/controllers/index.controller.es:52
 #: plugins/docker/resources/js/controllers/index.controller.es:72
 msgid "Remove"
-msgstr ""
+msgstr "Видалити"
 
 #: plugins/docker/resources/js/controllers/index.controller.es:53
 #: plugins/docker/resources/js/controllers/index.controller.es:73
 msgid "Cancel"
-msgstr ""
+msgstr "Скасувати"
 
 #: plugins/docker/resources/js/controllers/index.controller.es:56
 #: plugins/docker/resources/js/controllers/index.controller.es:76
 msgid "Remove command successfully sent."
-msgstr ""
+msgstr "Запит на команду видалення успішно відправлено."
 
 #: plugins/docker/resources/js/controllers/index.controller.es:71
 msgid "Really remove this image?"
-msgstr ""
+msgstr "Ви дійсно хочете видалити цей образ?"
 

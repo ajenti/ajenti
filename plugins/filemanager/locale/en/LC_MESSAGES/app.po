@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-13 21:52+0100\n"
+"POT-Creation-Date: 2022-06-25 21:20+0200\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
@@ -22,10 +22,10 @@ msgstr ""
 msgid "Apply"
 msgstr ""
 
-#: plugins/filemanager/resources/partial/index.html:77
-#: plugins/filemanager/resources/partial/index.html:90
+#: plugins/filemanager/resources/partial/index.html:84
+#: plugins/filemanager/resources/partial/index.html:97
 #: plugins/filemanager/resources/partial/properties.html:194
-#: plugins/filemanager/resources/js/controllers/index.controller.es:89
+#: plugins/filemanager/resources/js/controllers/index.controller.es:98
 msgid "Cancel"
 msgstr ""
 
@@ -33,24 +33,24 @@ msgstr ""
 msgid "Change permissions"
 msgstr ""
 
-#: plugins/filemanager/resources/partial/index.html:96
+#: plugins/filemanager/resources/partial/index.html:103
 msgid "Clipboard"
 msgstr ""
 
-#: plugins/filemanager/resources/partial/index.html:118
+#: plugins/filemanager/resources/partial/index.html:125
 msgid "Close"
 msgstr ""
 
-#: plugins/filemanager/resources/partial/index.html:64
+#: plugins/filemanager/resources/partial/index.html:71
 msgid "Copy"
 msgstr ""
 
-#: plugins/filemanager/resources/partial/index.html:76
-#: plugins/filemanager/resources/partial/index.html:89
+#: plugins/filemanager/resources/partial/index.html:83
+#: plugins/filemanager/resources/partial/index.html:96
 msgid "Create"
 msgstr ""
 
-#: plugins/filemanager/resources/partial/index.html:63
+#: plugins/filemanager/resources/partial/index.html:70
 msgid "Cut"
 msgstr ""
 
@@ -58,12 +58,12 @@ msgstr ""
 msgid "DIRECTORY"
 msgstr ""
 
-#: plugins/filemanager/resources/partial/index.html:65
-#: plugins/filemanager/resources/js/controllers/index.controller.es:88
+#: plugins/filemanager/resources/partial/index.html:72
+#: plugins/filemanager/resources/js/controllers/index.controller.es:97
 msgid "Delete"
 msgstr ""
 
-#: plugins/filemanager/resources/partial/index.html:86
+#: plugins/filemanager/resources/partial/index.html:93
 msgid "Directory name"
 msgstr ""
 
@@ -83,7 +83,7 @@ msgstr ""
 msgid "FILE"
 msgstr ""
 
-#: plugins/filemanager/resources/partial/index.html:73
+#: plugins/filemanager/resources/partial/index.html:80
 msgid "File name"
 msgstr ""
 
@@ -112,13 +112,13 @@ msgstr ""
 msgid "Name"
 msgstr ""
 
-#: plugins/filemanager/resources/partial/index.html:47
-#: plugins/filemanager/resources/partial/index.html:83
+#: plugins/filemanager/resources/partial/index.html:54
+#: plugins/filemanager/resources/partial/index.html:90
 msgid "New directory"
 msgstr ""
 
-#: plugins/filemanager/resources/partial/index.html:46
-#: plugins/filemanager/resources/partial/index.html:70
+#: plugins/filemanager/resources/partial/index.html:53
+#: plugins/filemanager/resources/partial/index.html:77
 msgid "New file"
 msgstr ""
 
@@ -126,7 +126,7 @@ msgstr ""
 msgid "Owner"
 msgstr ""
 
-#: plugins/filemanager/resources/partial/index.html:51
+#: plugins/filemanager/resources/partial/index.html:58
 msgid "Paste here"
 msgstr ""
 
@@ -138,12 +138,16 @@ msgstr ""
 msgid "READ"
 msgstr ""
 
-#: plugins/filemanager/resources/partial/index.html:101
+#: plugins/filemanager/resources/partial/index.html:108
 msgid "Remove"
 msgstr ""
 
-#: plugins/filemanager/resources/partial/index.html:117
+#: plugins/filemanager/resources/partial/index.html:124
 msgid "Remove all items"
+msgstr ""
+
+#: plugins/filemanager/resources/partial/index.html:13
+msgid "Root directory"
 msgstr ""
 
 #: plugins/filemanager/resources/partial/properties.html:126
@@ -154,7 +158,7 @@ msgstr ""
 msgid "Size"
 msgstr ""
 
-#: plugins/filemanager/resources/partial/index.html:54
+#: plugins/filemanager/resources/partial/index.html:61
 msgid "Tab"
 msgstr ""
 
@@ -162,15 +166,11 @@ msgstr ""
 msgid "Type"
 msgstr ""
 
-#: plugins/filemanager/resources/partial/index.html:15
-msgid "Up one level"
-msgstr ""
-
-#: plugins/filemanager/resources/partial/index.html:49
+#: plugins/filemanager/resources/partial/index.html:56
 msgid "Upload"
 msgstr ""
 
-#: plugins/filemanager/resources/partial/index.html:123
+#: plugins/filemanager/resources/partial/index.html:130
 msgid "Uploading ..."
 msgstr ""
 
@@ -182,7 +182,7 @@ msgstr ""
 msgid "WRITE"
 msgstr ""
 
-#: plugins/filemanager/resources/partial/index.html:60
+#: plugins/filemanager/resources/partial/index.html:67
 msgid "items selected"
 msgstr ""
 
@@ -198,22 +198,22 @@ msgstr ""
 msgid "File mode saved"
 msgstr ""
 
-#: plugins/filemanager/resources/js/controllers/index.controller.es:16
+#: plugins/filemanager/resources/js/controllers/index.controller.es:25
 msgid "Could not load directory"
 msgstr ""
 
-#: plugins/filemanager/resources/js/controllers/index.controller.es:87
+#: plugins/filemanager/resources/js/controllers/index.controller.es:96
 msgid "Delete selected items?"
 msgstr ""
 
-#: plugins/filemanager/resources/js/controllers/index.controller.es:124
+#: plugins/filemanager/resources/js/controllers/index.controller.es:133
 msgid "Could not create file"
 msgstr ""
 
-#: plugins/filemanager/resources/js/controllers/index.controller.es:144
+#: plugins/filemanager/resources/js/controllers/index.controller.es:153
 msgid "Could not create directory"
 msgstr ""
 
-#: plugins/filemanager/resources/js/controllers/index.controller.es:151
+#: plugins/filemanager/resources/js/controllers/index.controller.es:160
 msgid "Uploaded"
 msgstr ""
