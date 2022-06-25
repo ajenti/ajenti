@@ -23,7 +23,6 @@ class UsersAuthenticationProvider(AuthenticationProvider):
 
     def __init__(self, context):
         self.context = context
-        aj.users.data.setdefault('users', {})
 
     def get_salt(self):
         return os.urandom(256)
@@ -57,13 +56,17 @@ class UsersAuthenticationProvider(AuthenticationProvider):
         pass
 
     def get_isolation_uid(self, username):
-        return aj.users.data['users'][username]['uid']
+        try:
+            uid = aj.users.data['users'][username]['uid']
+            return uid
+        except KeyError:
+            return pwd.getpwnam(aj.config.data['restricted_user']).pw_uid
 
     def get_isolation_gid(self, username):
         return None
 
     def get_profile(self, username):
-        if not username:
+        if not username or not username in aj.users.data['users']:
             return {}
         return aj.users.data['users'][username]
 
@@ -79,10 +82,12 @@ class UsersAuthenticationProvider(AuthenticationProvider):
         return True
 
     def update_password(self, username, password):
-        hash = self.hash_password(password.encode('utf-8'))
-        aj.users.data['users'][username]['password'] = hash
-        aj.users.save()
-        return True
+        if username in aj.users.data['users']:
+            hash = self.hash_password(password.encode('utf-8'))
+            aj.users.data['users'][username]['password'] = hash
+            aj.users.save()
+            return True
+        return False
 
     def signout(self):
         pass

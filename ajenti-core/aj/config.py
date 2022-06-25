@@ -190,6 +190,8 @@ class AjentiUsers(BaseConfig):
                 os.chmod(self.path, 384)  # 0o600
             with open(self.path, 'r') as users:
                 self.data = yaml.load(users, Loader=yaml.SafeLoader)
+            if self.data['users'] is None:
+                self.data['users'] = {}
 
     def save(self):
         with open(self.path, 'w') as f:
