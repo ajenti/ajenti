@@ -73,7 +73,11 @@
             <div class="form-group" ng:show="!customization.plugins.settings.hideAuthSettings">
                 <label translate>Authentication provider</label>
                 <div>
-                    <select ng:model="config.data.auth.provider" ng:options="x.id as x.name for x in authenticationProviders" class="form-control"></select>
+                    <select
+                            ng:model="config.data.auth.provider"
+                            ng:options="x.id as x.name for x in authenticationProviders"
+                            ng:change="provider_warning()"
+                            class="form-control"></select>
                 </div>
             </div>
 

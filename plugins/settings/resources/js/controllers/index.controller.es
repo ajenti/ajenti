@@ -31,6 +31,12 @@ angular.module('ajenti.settings').controller('SettingsIndexController', ($scope,
         "If you are not sure, just use the same certificate as the one above."
     );
 
+    $scope.provider_warning = () => {
+        if ($scope.config.data.auth.provider != 'os') {
+            notify.info(gettext('Please be sure to have at least one valid user in the authentication provider. When not, you will be lock out from Ajenti. '));
+        }
+    };
+
     identity.promise.then(() => {
         $scope.newClientCertificate.o = identity.machine.name;
         passwd.list().then((data) => {
