@@ -1,4 +1,18 @@
-Ajenti 2.1.44 - dev
+Ajenti 2.1.45 - dev
+
+- Add support for Rocky Linux
+- Replace @url decorator with @get, @post, @delete ...
+- Replace deprecated sha1 digest algorithm with sha256. It's necessary to replace all client certificates.
+- Full breadcrumb in filemanager plugin
+- New option 'redirect' in config to enable redirect from port 80 to https port
+- Replace deprecated imp with importlib
+- Upgrade to new versions of gipc, gevent and PyOpenSSL
+- Add signout method to perform actions on logout
+- Force latin-1 encoding in url to fix locales problems
+- Implement more shell colons for more languages support
+- Minor fixs in common plugins
+
+Ajenti 2.1.44 - 17/02/2022
 
 - Migration to python-socketio
 - Email backend managed with jinja templates
