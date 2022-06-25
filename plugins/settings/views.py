@@ -53,7 +53,7 @@ class Handler(HttpPlugin):
         cert.gmtime_adj_notBefore(0)
         cert.gmtime_adj_notAfter(10 * 365 * 24 * 60 * 60)
         cert.set_issuer(ca_cert.get_subject())
-        cert.sign(ca_key, 'sha1')
+        cert.sign(ca_key, 'sha256')
 
         pkcs = OpenSSL.crypto.PKCS12()
         pkcs.set_certificate(cert)
@@ -61,7 +61,7 @@ class Handler(HttpPlugin):
         pkcs.set_friendlyname(bytes(data['cn'], encoding="utf-8"))
 
         return {
-            'digest': cert.digest('sha1').decode('utf-8'),
+            'digest': cert.digest('sha256').decode('utf-8'),
             'name': ','.join(b'='.join(x).decode('utf-8')
                              for x in cert.get_subject().get_components()
                              ),
@@ -95,7 +95,7 @@ class Handler(HttpPlugin):
         cert.gmtime_adj_notBefore(0)
         cert.gmtime_adj_notAfter(10 * 365 * 24 * 60 * 60)
         cert.set_issuer(cert.get_subject())
-        cert.sign(key, 'sha1')
+        cert.sign(key, 'sha256')
 
         with open(certificate_path, 'wb') as f:
             f.write(OpenSSL.crypto.dump_privatekey(OpenSSL.crypto.FILETYPE_PEM, key))

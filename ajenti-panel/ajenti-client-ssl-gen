@@ -40,7 +40,7 @@ cert.set_serial_number(random.getrandbits(8 * 20))
 cert.gmtime_adj_notBefore(0)
 cert.gmtime_adj_notAfter(10 * 365 * 24 * 60 * 60)
 cert.set_issuer(ca_cert.get_subject())
-cert.sign(ca_key, 'sha1')
+cert.sign(ca_key, 'sha256')
 
 pkcs = PKCS12()
 #pkcs.set_ca_certificates([ca_cert])
@@ -49,7 +49,7 @@ pkcs.set_privatekey(key)
 pkcs.set_friendlyname(bytes(cn, encoding="utf-8"))
 
 cert_info = {
-    'digest': cert.digest('sha1').decode('utf-8'),
+    'digest': cert.digest('sha256').decode('utf-8'),
     'name': ','.join(b'='.join(x).decode('utf-8')
                         for x in cert.get_subject().get_components()
                     ),
