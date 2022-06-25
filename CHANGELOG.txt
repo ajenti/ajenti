@@ -4,7 +4,7 @@ Ajenti 2.1.45 - dev
 - Replace @url decorator with @get, @post, @delete ...
 - Replace deprecated sha1 digest algorithm with sha256. It's necessary to replace all client certificates.
 - Full breadcrumb in filemanager plugin
-- New option 'redirect' in config to enable redirect from port 80 to https port
+- New option 'force' in ssl config to enable redirect from port 80 to https port
 - Replace deprecated imp with importlib
 - Upgrade to new versions of gipc, gevent and PyOpenSSL
 - Add signout method to perform actions on logout
