@@ -35,6 +35,8 @@ Explanations:
   * **provider**: authentication method to use, **os** (users from the os) or **users**
   * **users_file**: if the users authentication provider is used, path to the users file (default **/etc/ajenti/users.yml**)
 
+The parameter **user_config** was used to specified where the user configuration was stored, but is now deprecated, since it's bound to the **provider** (**os** or **users**) to avoid duplicates entries.
+
 bind block
 ----------
 

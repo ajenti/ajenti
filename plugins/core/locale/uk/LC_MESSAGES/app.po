@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-28 11:01+0200\n"
-"PO-Revision-Date: 2022-03-28 09:08\n"
+"POT-Creation-Date: 2022-06-25 21:20+0200\n"
+"PO-Revision-Date: 2022-06-25 19:27\n"
 "Last-Translator: \n"
 "Language-Team: Ukrainian\n"
 "Language: uk_UA\n"
@@ -19,36 +19,39 @@ msgstr ""
 
 #: plugins/core/resources/partial/404.html:4
 msgid "404 - Page not found"
-msgstr ""
+msgstr "404 - Сторінка не знайдена"
 
 #: plugins/core/resources/partial/reset_password.html:30
 msgid "<small>The two entered passwords differ</small>"
-msgstr ""
+msgstr "<small>Два введені паролі відрізняються</small>"
 
 #: plugins/core/resources/partial/404.html:7
 msgid "<span>\n"
 "                    <i class=\"fa fa-exclamation-triangle\" style=\"color:red;\"></i>\n"
 "                </span>\n"
 "                The URL {{url}} was not found on this server."
-msgstr ""
+msgstr "<span>\n"
+"                    <i class=\"fa fa-exclamation-triangle\" style=\"color:red;\"></i>\n"
+"                </span>\n"
+"                URL-адреса {{url}} не була знайдена на цьому сервері."
 
-#: plugins/core/content/pages/index.html:150
+#: plugins/core/content/pages/index.html:152
 msgid "A bootstrap error has occurred"
-msgstr ""
+msgstr "Сталася помилка bootstrap"
 
 #: plugins/core/resources/partial/login.html:32
 msgid "Authenticate"
 msgstr "Авторизація"
 
-#: plugins/core/content/pages/index.html:86
+#: plugins/core/content/pages/index.html:89
 msgid "Elevate"
 msgstr "Піднятися"
 
 #: plugins/core/resources/partial/reset_password_send.html:13
 msgid "Email"
-msgstr ""
+msgstr "E-mail"
 
-#: plugins/core/content/pages/index.html:133
+#: plugins/core/content/pages/index.html:135
 msgid "Enter"
 msgstr "Ввести"
 
@@ -56,15 +59,15 @@ msgstr "Ввести"
 msgid "Log in"
 msgstr "Увійти"
 
-#: plugins/core/content/pages/index.html:91
+#: plugins/core/content/pages/index.html:94
 msgid "Log out"
 msgstr "Вийти"
 
 #: plugins/core/resources/partial/reset_password.html:23
 msgid "New password"
-msgstr ""
+msgstr "Новий пароль"
 
-#: plugins/core/content/pages/index.html:174
+#: plugins/core/content/pages/index.html:176
 msgid "OK"
 msgstr "ОК"
 
@@ -75,40 +78,40 @@ msgstr "Пароль"
 
 #: plugins/core/resources/partial/reset_password.html:26
 msgid "Please confirm the new password"
-msgstr ""
+msgstr "Будь ласка, підтвердіть новий пароль"
 
 #: plugins/core/resources/partial/reset_password.html:22
 msgid "Please enter the new password"
-msgstr ""
+msgstr "Будь ласка, введіть новий пароль"
 
-#: plugins/core/content/pages/index.html:153
+#: plugins/core/content/pages/index.html:155
 #: plugins/core/resources/js/core/module.es:32
 msgid "Please see browser console"
 msgstr "Будь ласка, дивіться консоль в браузері"
 
-#: plugins/core/content/pages/index.html:129
+#: plugins/core/content/pages/index.html:131
 msgid "Quick search"
 msgstr "Швидкий пошук"
 
 #: plugins/core/resources/partial/reset_password.html:27
 msgid "Reenter the new password"
-msgstr ""
+msgstr "Введіть новий пароль ще раз"
 
 #: plugins/core/resources/partial/reset_password.html:34
 msgid "Reset password"
-msgstr ""
+msgstr "Скинути пароль"
 
 #: plugins/core/resources/partial/reset_password_send.html:17
 msgid "Send instructions to reset password"
-msgstr ""
+msgstr "Надіслати інструкції для скидання пароля"
 
-#: plugins/core/content/pages/index.html:101
+#: plugins/core/content/pages/index.html:104
 msgid "Session time : {{ counter[0] }}:{{ counter[1] }}:{{ counter[2] }}"
-msgstr ""
+msgstr "Час сесії: {{ counter[0] }}:{{ counter[1] }}:{{ counter[2] }}"
 
 #: plugins/core/resources/partial/reset_password.html:10
 msgid "The used link is not valid or expired."
-msgstr ""
+msgstr "Використане посилання недійсне або застаріле."
 
 #: plugins/core/resources/partial/login.html:19
 msgid "Username"
@@ -140,7 +143,7 @@ msgstr "Переглянути файл конфігурації"
 
 #: plugins/core/main.py:73
 msgid "Write configuration file"
-msgstr ""
+msgstr "Записати файл конфігурації"
 
 #: plugins/core/views/api.py:132
 msgid "Authorization failed"
@@ -148,121 +151,121 @@ msgstr "Помилка авторизації"
 
 #: plugins/core/resources/js/core/interceptors.es:5
 msgid "Security error"
-msgstr ""
+msgstr "Помилка безпеки"
 
 #: plugins/core/resources/js/core/interceptors.es:8
 msgid "Server error"
-msgstr ""
+msgstr "Помилка сервера"
 
 #: plugins/core/resources/js/core/interceptors.es:12
 msgid "Close"
-msgstr ""
+msgstr "Закрити"
 
 #: plugins/core/resources/js/core/interceptors.es:20
 msgid "Your session has expired"
-msgstr ""
+msgstr "Час сесії минув"
 
 #: plugins/core/resources/js/core/module.es:32
 msgid "Unhandled error occurred"
-msgstr ""
+msgstr "Сталася необроблена помилка"
 
 #: plugins/core/resources/js/core/filters.es:7
 msgid "0 bytes"
-msgstr ""
+msgstr "0 байт"
 
 #: plugins/core/resources/js/core/filters.es:13
 msgid "bytes"
-msgstr ""
+msgstr "байт"
 
 #: plugins/core/resources/js/core/filters.es:14
 msgid "KB"
-msgstr ""
+msgstr "Кб"
 
 #: plugins/core/resources/js/core/filters.es:15
 msgid "MB"
-msgstr ""
+msgstr "Mб"
 
 #: plugins/core/resources/js/core/filters.es:16
 msgid "GB"
-msgstr ""
+msgstr "Гб"
 
 #: plugins/core/resources/js/core/filters.es:17
 msgid "TB"
-msgstr ""
+msgstr "Тб"
 
 #: plugins/core/resources/js/core/filters.es:18
 msgid "PB"
-msgstr ""
+msgstr "Пб"
 
 #: plugins/core/resources/js/core/filters.es:40
 msgid "th"
-msgstr ""
+msgstr "th"
 
 #: plugins/core/resources/js/core/filters.es:41
 msgid "st"
-msgstr ""
+msgstr "st"
 
 #: plugins/core/resources/js/core/filters.es:42
 msgid "nd"
-msgstr ""
+msgstr "nd"
 
 #: plugins/core/resources/js/core/filters.es:43
 msgid "rd"
-msgstr ""
+msgstr "rd"
 
 #: plugins/core/resources/js/core/services/core.service.es:6
 msgid "Restart"
-msgstr ""
+msgstr "Перезавантажити"
 
 #: plugins/core/resources/js/core/services/core.service.es:7
 msgid "Restart the panel?"
-msgstr ""
+msgstr "Перезапустити панель?"
 
 #: plugins/core/resources/js/core/services/core.service.es:8
 msgid "Yes"
-msgstr ""
+msgstr "Так"
 
 #: plugins/core/resources/js/core/services/core.service.es:9
 msgid "No"
-msgstr ""
+msgstr "Ні"
 
 #: plugins/core/resources/js/core/services/core.service.es:15
 msgid "Restarting"
-msgstr ""
+msgstr "Перезавантаження"
 
 #: plugins/core/resources/js/core/services/core.service.es:19
 msgid "Restarted"
-msgstr ""
+msgstr "Перезавантажено"
 
 #: plugins/core/resources/js/core/services/core.service.es:19
 msgid "Please wait"
-msgstr ""
+msgstr "Будь ласка, зачекайте"
 
 #: plugins/core/resources/js/core/services/core.service.es:29
 msgid "Could not restart"
-msgstr ""
+msgstr "Не вдалося перезапустити"
 
 #: plugins/core/resources/js/core/services/tasks.service.es:26
 msgid "Done"
-msgstr ""
+msgstr "Виконано"
 
 #: plugins/core/resources/js/core/controllers/login.controller.es:29
 msgid "Authentication failed"
-msgstr ""
+msgstr "Помилка аутентифікації"
 
 #: plugins/core/resources/js/core/controllers/pwreset.controller.es:6
 msgid "If the email exists, the user will get a reset email"
-msgstr ""
+msgstr "Якщо ця електронна пошта існує, користувач отримає лист з посиланням для скидання"
 
 #: plugins/core/resources/js/core/controllers/pwreset.controller.es:31
 msgid "Password successfully changed !"
-msgstr ""
+msgstr "Пароль успішно змінений!"
 
 #: plugins/core/resources/js/core/controllers/pwreset.controller.es:34
 msgid "An error occured while changing the password"
-msgstr ""
+msgstr "Сталася помилка під час зміни пароля"
 
 #: plugins/core/resources/js/core/controllers/pwreset.controller.es:37
 msgid "The password complexity does not match the system requirements : "
-msgstr ""
+msgstr "Складність пароля не відповідає системним вимогам: "
 

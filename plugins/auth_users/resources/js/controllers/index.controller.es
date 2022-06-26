@@ -5,13 +5,14 @@ angular.module('ajenti.auth.users').controller('AuthUsersIndexController', funct
 
     users.load().then(() => {
         $scope.users = users;
-        if (users.data.users == null) {
+        if (users.data.users == null || Object.keys(users.data.users).length == 0) {
             users.data.users = {
                 root: {
                     password: $scope.defaultRootPassword,
                     uid: 0
                 }
             };
+            notify.warning(gettext('No user actually saved. You should save this configuration to permit at least root login.'));
         }
 
         $scope.isDangerousSetup = () => {

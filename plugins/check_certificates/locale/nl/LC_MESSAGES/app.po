@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-28 11:04+0200\n"
-"PO-Revision-Date: 2022-03-28 09:08\n"
+"POT-Creation-Date: 2022-06-25 21:20+0200\n"
+"PO-Revision-Date: 2022-06-25 19:27\n"
 "Last-Translator: \n"
 "Language-Team: Dutch\n"
 "Language: nl_NL\n"
@@ -27,9 +27,18 @@ msgid "<i class=\"fas fa-check\"></i>\n"
 msgstr "<i class=\"fas fa-check\"></i>\n"
 "            Alle certificaten zijn up-to-dat!"
 
+#: plugins/check_certificates/resources/partial/index.html:60
+msgid "Add"
+msgstr ""
+
 #: plugins/check_certificates/resources/partial/index.html:41
 msgid "Add host"
 msgstr "Voeg host toe"
+
+#: plugins/check_certificates/resources/partial/index.html:61
+#: plugins/check_certificates/resources/js/controllers/index.controller.coffee:38
+msgid "Cancel"
+msgstr "Annuleren"
 
 #: plugins/check_certificates/resources/partial/widget.html:3
 msgid "Certificates to be renewed"
@@ -47,6 +56,10 @@ msgstr ""
 msgid "Issuer"
 msgstr ""
 
+#: plugins/check_certificates/resources/partial/index.html:45
+msgid "New hostname"
+msgstr ""
+
 #: plugins/check_certificates/resources/partial/index.html:5
 msgid "No host defined actually. Please first add an host."
 msgstr ""
@@ -55,27 +68,39 @@ msgstr ""
 msgid "Port"
 msgstr ""
 
+#: plugins/check_certificates/resources/partial/index.html:53
+msgid "Port ( default is 443 if empty )"
+msgstr ""
+
 #: plugins/check_certificates/resources/partial/index.html:15
 msgid "Status"
+msgstr ""
+
+#: plugins/check_certificates/resources/partial/index.html:49
+msgid "URL"
 msgstr ""
 
 #: plugins/check_certificates/widget.py:8
 msgid "Certificates"
 msgstr "Certificaten"
 
-#: plugins/check_certificates/api.py:92 plugins/check_certificates/api.py:98
+#: plugins/check_certificates/api.py:91 plugins/check_certificates/api.py:97
 msgid "Timeout from host !"
 msgstr ""
 
-#: plugins/check_certificates/api.py:95
+#: plugins/check_certificates/api.py:94
 msgid "Could not resolve hostname !"
 msgstr ""
 
-#: plugins/check_certificates/api.py:101
+#: plugins/check_certificates/api.py:100
 msgid "Certificate is not valid !"
 msgstr ""
 
-#: plugins/check_certificates/api.py:104
+#: plugins/check_certificates/api.py:103
+msgid "Can not handle SSL on this port !"
+msgstr ""
+
+#: plugins/check_certificates/api.py:106
 msgid "Host refuse the connection !"
 msgstr ""
 
@@ -84,19 +109,11 @@ msgstr ""
 msgid "Check certificates"
 msgstr "Certificaten controleren"
 
-#: plugins/check_certificates/resources/js/controllers/index.controller.coffee:15
-msgid "New url"
-msgstr "Nieuwe URL"
-
-#: plugins/check_certificates/resources/js/controllers/index.controller.coffee:26
+#: plugins/check_certificates/resources/js/controllers/index.controller.coffee:36
 msgid "Remove the url "
 msgstr "De URL verwijderen "
 
-#: plugins/check_certificates/resources/js/controllers/index.controller.coffee:27
+#: plugins/check_certificates/resources/js/controllers/index.controller.coffee:37
 msgid "Remove"
 msgstr "Verwijderen"
-
-#: plugins/check_certificates/resources/js/controllers/index.controller.coffee:28
-msgid "Cancel"
-msgstr "Annuleren"
 

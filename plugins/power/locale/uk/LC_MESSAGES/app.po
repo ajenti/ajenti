@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-27 12:11+0200\n"
-"PO-Revision-Date: 2022-03-28 09:08\n"
+"PO-Revision-Date: 2022-06-25 19:27\n"
 "Last-Translator: \n"
 "Language-Team: Ukrainian\n"
 "Language: uk_UA\n"
@@ -19,40 +19,40 @@ msgstr ""
 
 #: plugins/power/resources/partial/index.html:72
 msgid "Adapters"
-msgstr ""
+msgstr "Адаптер"
 
 #: plugins/power/resources/partial/index.html:32
 msgid "Batteries"
-msgstr ""
+msgstr "Акумулятори"
 
 #: plugins/power/resources/partial/index.html:55
 msgid "Charging"
-msgstr ""
+msgstr "Заряджання"
 
 #: plugins/power/resources/partial/index.html:58
 msgid "Discharging at {{battery.rate}} W"
-msgstr ""
+msgstr "Розряджається на {{battery.rate}} W"
 
 #: plugins/power/resources/partial/index.html:22
 #: plugins/power/resources/js/controllers/index.controller.es:55
 msgid "Hibernate"
-msgstr ""
+msgstr "Режим глибокого сну"
 
 #: plugins/power/resources/partial/index.html:75
 msgid "No adapters detected"
-msgstr ""
+msgstr "Не виявлено адаптерів"
 
 #: plugins/power/resources/partial/index.html:35
 msgid "No batteries detected"
-msgstr ""
+msgstr "Не виявлено акумуляторів"
 
 #: plugins/power/resources/partial/index.html:92
 msgid "Not available"
-msgstr ""
+msgstr "Недоступний"
 
 #: plugins/power/resources/partial/index.html:89
 msgid "Plugged in"
-msgstr ""
+msgstr "Підключено"
 
 #: plugins/power/resources/partial/widget.html:2 plugins/power/main.py:16
 msgid "Power"
@@ -60,7 +60,7 @@ msgstr "Живлення"
 
 #: plugins/power/resources/partial/index.html:13
 msgid "Power off"
-msgstr ""
+msgstr "Вимкнути живлення"
 
 #: plugins/power/resources/partial/index.html:16
 #: plugins/power/resources/js/controllers/index.controller.es:32
@@ -70,71 +70,71 @@ msgstr "Перезавантажити"
 #: plugins/power/resources/partial/index.html:19
 #: plugins/power/resources/js/controllers/index.controller.es:45
 msgid "Suspend"
-msgstr ""
+msgstr "Призупинення"
 
 #: plugins/power/resources/partial/index.html:6
 msgid "System uptime"
-msgstr ""
+msgstr "Системний аптайм"
 
 #: plugins/power/resources/partial/index.html:61
 msgid "{{battery.voltage}} V"
-msgstr ""
+msgstr "{{battery.voltage}} V"
 
 #: plugins/power/widget.py:9
 msgid "Power state"
-msgstr ""
+msgstr "Стан живлення"
 
 #: plugins/power/main.py:30
 msgid "Shutdown and reboot the system"
-msgstr ""
+msgstr "Вимкнення і перезавантаження системи"
 
 #: plugins/power/resources/js/controllers/index.controller.es:2
 msgid "Power management"
-msgstr ""
+msgstr "Енергоспоживання"
 
 #: plugins/power/resources/js/controllers/index.controller.es:20
 #: plugins/power/resources/js/controllers/index.controller.es:30
 #: plugins/power/resources/js/controllers/index.controller.es:43
 #: plugins/power/resources/js/controllers/index.controller.es:53
 msgid "Warning"
-msgstr ""
+msgstr "Застереження"
 
 #: plugins/power/resources/js/controllers/index.controller.es:21
 msgid "Are you sure you want to shutdown the system now?"
-msgstr ""
+msgstr "Ви дійсно хочете завершити роботу системи зараз?"
 
 #: plugins/power/resources/js/controllers/index.controller.es:22
 msgid "Shutdown"
-msgstr ""
+msgstr "Вимкнення"
 
 #: plugins/power/resources/js/controllers/index.controller.es:23
 #: plugins/power/resources/js/controllers/index.controller.es:33
 #: plugins/power/resources/js/controllers/index.controller.es:46
 #: plugins/power/resources/js/controllers/index.controller.es:56
 msgid "Cancel"
-msgstr ""
+msgstr "Скасувати"
 
 #: plugins/power/resources/js/controllers/index.controller.es:31
 msgid "Are you sure you want to reboot the system now?"
-msgstr ""
+msgstr "Ви впевнені, що хочете перезавантажити систему зараз?"
 
 #: plugins/power/resources/js/controllers/index.controller.es:37
 msgid "System is rebooting. We will try to reconnect with it."
-msgstr ""
+msgstr "Система перезавантажується. Ми спробуємо перепід'єднатися до неї."
 
 #: plugins/power/resources/js/controllers/index.controller.es:44
 msgid "Are you sure you want to suspend the system now?"
-msgstr ""
+msgstr "Ви впевнені, що хочете зупинити систему зараз?"
 
 #: plugins/power/resources/js/controllers/index.controller.es:48
 msgid "System is suspending"
-msgstr ""
+msgstr "Система призупиняється"
 
 #: plugins/power/resources/js/controllers/index.controller.es:54
 msgid "Are you sure you want to hibernate the system now?"
-msgstr ""
+msgstr "Ви впевнені, що ви хочете перевести систему в режим глибокого сну прямо зараз?"
 
 #: plugins/power/resources/js/controllers/index.controller.es:58
 msgid "System is hibernating"
-msgstr ""
+msgstr "Система впадає в режим глибокого сну"
 

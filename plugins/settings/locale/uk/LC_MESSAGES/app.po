@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-13 22:03+0100\n"
-"PO-Revision-Date: 2022-03-28 09:08\n"
+"POT-Creation-Date: 2022-06-25 21:21+0200\n"
+"PO-Revision-Date: 2022-06-25 19:27\n"
 "Last-Translator: \n"
 "Language-Team: Ukrainian\n"
 "Language: uk_UA\n"
@@ -17,20 +17,20 @@ msgstr ""
 "X-Crowdin-File: /2.0/settings.po\n"
 "X-Crowdin-File-ID: 38\n"
 
-#: plugins/settings/resources/partial/index.html:83
+#: plugins/settings/resources/partial/index.html:87
 msgid "Allow sudo elevation for logged in users"
 msgstr "Дозволити sudo підвищення рівня доступу для вхiдних користувачів"
 
 #: plugins/settings/resources/partial/index.html:74
 msgid "Authentication provider"
-msgstr ""
+msgstr "Провайдер автентифікації"
 
 #: plugins/settings/resources/partial/index.html:43
 msgid "Binding"
 msgstr "Зв'язування з"
 
-#: plugins/settings/resources/partial/index.html:214
-#: plugins/settings/resources/js/controllers/index.controller.es:100
+#: plugins/settings/resources/partial/index.html:223
+#: plugins/settings/resources/js/controllers/index.controller.es:106
 msgid "Cancel"
 msgstr "Скасувати"
 
@@ -38,49 +38,53 @@ msgstr "Скасувати"
 msgid "Color tag"
 msgstr "Тег коліру"
 
-#: plugins/settings/resources/partial/index.html:207
+#: plugins/settings/resources/partial/index.html:216
 msgid "Common name"
 msgstr "Загальне ім’я"
 
-#: plugins/settings/resources/partial/index.html:195
+#: plugins/settings/resources/partial/index.html:204
 msgid "Country"
 msgstr "Країна"
 
-#: plugins/settings/resources/partial/index.html:138
+#: plugins/settings/resources/partial/index.html:147
 msgid "Deny other means of authentication"
-msgstr ""
+msgstr "Відхилити інші засоби аутентифікації"
 
-#: plugins/settings/resources/partial/index.html:185
+#: plugins/settings/resources/partial/index.html:194
 msgid "Download certificate"
 msgstr "Завантажити сертифікат"
 
-#: plugins/settings/resources/partial/index.html:101
+#: plugins/settings/resources/partial/index.html:105
 msgid "Enable SSL"
 msgstr "Увімкнути протокол SSL"
 
-#: plugins/settings/resources/partial/index.html:135
+#: plugins/settings/resources/partial/index.html:144
 msgid "Enable client authentication"
 msgstr "Увімкнути ідентифікацію"
 
-#: plugins/settings/resources/partial/index.html:234
+#: plugins/settings/resources/partial/index.html:243
 msgid "Enable email relay for notification"
+msgstr "Увімкнути email-реле для сповіщень"
+
+#: plugins/settings/resources/partial/index.html:112
+msgid "Force SSL"
 msgstr ""
 
 #: plugins/settings/resources/partial/index.html:7
 msgid "General"
-msgstr ""
+msgstr "Загальні"
 
-#: plugins/settings/resources/partial/index.html:213
-#: plugins/settings/resources/js/controllers/index.controller.es:99
+#: plugins/settings/resources/partial/index.html:222
+#: plugins/settings/resources/js/controllers/index.controller.es:105
 msgid "Generate"
 msgstr "Згенерувати"
 
-#: plugins/settings/resources/partial/index.html:115
+#: plugins/settings/resources/partial/index.html:124
 msgid "Generate a self-signed certificate"
 msgstr "Створити самостійно підписаний сертифікат"
 
-#: plugins/settings/resources/partial/index.html:178
-#: plugins/settings/resources/js/controllers/index.controller.es:103
+#: plugins/settings/resources/partial/index.html:187
+#: plugins/settings/resources/js/controllers/index.controller.es:109
 msgid "Generating certificate"
 msgstr "Сгенерувати новий сертифікат"
 
@@ -92,7 +96,7 @@ msgstr "Хост / IP"
 msgid "Language"
 msgstr "Мова"
 
-#: plugins/settings/resources/partial/index.html:191
+#: plugins/settings/resources/partial/index.html:200
 msgid "Login as"
 msgstr "Увійти в якості"
 
@@ -100,106 +104,106 @@ msgstr "Увійти в якості"
 msgid "Machine name"
 msgstr "Ім'я комп'ютера"
 
-#: plugins/settings/resources/partial/index.html:90
+#: plugins/settings/resources/partial/index.html:94
 msgid "Max session time"
-msgstr ""
+msgstr "Максимальний час сеансу"
 
-#: plugins/settings/resources/partial/index.html:168
+#: plugins/settings/resources/partial/index.html:177
 msgid "New certificate"
 msgstr "Новий сертифікат"
 
-#: plugins/settings/resources/partial/index.html:173
+#: plugins/settings/resources/partial/index.html:182
 msgid "New client certificate"
 msgstr "Новий сертифікат клієнта"
 
-#: plugins/settings/resources/partial/index.html:145
+#: plugins/settings/resources/partial/index.html:154
 msgid "No certificates are created yet."
 msgstr "Жодного сертифiкату ще не було створено."
 
-#: plugins/settings/resources/partial/index.html:203
+#: plugins/settings/resources/partial/index.html:212
 msgid "Organization"
 msgstr "Організація"
 
-#: plugins/settings/resources/partial/index.html:254
+#: plugins/settings/resources/partial/index.html:263
 #: plugins/settings/resources/partial/index.html:57
 msgid "Port"
 msgstr "Порт"
 
-#: plugins/settings/resources/partial/index.html:302
+#: plugins/settings/resources/partial/index.html:311
 msgid "Remove"
 msgstr "Видалити"
 
-#: plugins/settings/resources/partial/index.html:348
+#: plugins/settings/resources/partial/index.html:357
 msgid "Restart panel"
 msgstr "Перезапустіть панель"
 
-#: plugins/settings/resources/partial/index.html:249
+#: plugins/settings/resources/partial/index.html:258
 msgid "SMTP host"
-msgstr ""
+msgstr "Хост SMTP"
 
-#: plugins/settings/resources/partial/index.html:271
+#: plugins/settings/resources/partial/index.html:280
 msgid "SMTP password"
-msgstr ""
+msgstr "Пароль SMTP"
 
-#: plugins/settings/resources/partial/index.html:265
+#: plugins/settings/resources/partial/index.html:274
 msgid "SMTP user"
-msgstr ""
+msgstr "Користувач SMTP "
 
-#: plugins/settings/resources/partial/index.html:122
+#: plugins/settings/resources/partial/index.html:131
 msgid "SSL FQDN certificate file"
-msgstr ""
+msgstr "Файл SSL FQDN сертифікату"
 
-#: plugins/settings/resources/partial/index.html:110
+#: plugins/settings/resources/partial/index.html:119
 msgid "SSL certificate file"
 msgstr "Файл SSL сертифікату"
 
-#: plugins/settings/resources/partial/index.html:133
+#: plugins/settings/resources/partial/index.html:142
 msgid "SSL client authentication"
 msgstr "Автентифікація клієнта SSL"
 
-#: plugins/settings/resources/partial/index.html:143
+#: plugins/settings/resources/partial/index.html:152
 msgid "SSL client certificates"
 msgstr "SSL сертифікат клієнта"
 
-#: plugins/settings/resources/partial/index.html:347
+#: plugins/settings/resources/partial/index.html:356
 msgid "Save"
 msgstr "Зберегти"
 
-#: plugins/settings/resources/partial/index.html:218
+#: plugins/settings/resources/partial/index.html:227
 msgid "Save and Close"
 msgstr "Зберегти та закрити"
 
 #: plugins/settings/resources/partial/index.html:70
 msgid "Security"
-msgstr ""
+msgstr "Безпека"
 
-#: plugins/settings/resources/partial/index.html:228
+#: plugins/settings/resources/partial/index.html:237
 msgid "Smtp relay"
-msgstr ""
+msgstr "Реле SMTP"
 
 #: plugins/settings/resources/partial/index.html:62
 msgid "Socket path"
-msgstr ""
+msgstr "Шлях до сокету"
 
-#: plugins/settings/resources/partial/index.html:199
+#: plugins/settings/resources/partial/index.html:208
 msgid "State"
 msgstr "Стан"
 
-#: plugins/settings/resources/partial/index.html:81
+#: plugins/settings/resources/partial/index.html:85
 msgid "Sudo"
 msgstr "Sudo"
 
-#: plugins/settings/resources/partial/index.html:287
+#: plugins/settings/resources/partial/index.html:296
 msgid "Template email reset"
-msgstr ""
+msgstr "Шаблону скидання електронної пошти"
 
-#: plugins/settings/resources/partial/index.html:243
+#: plugins/settings/resources/partial/index.html:252
 msgid "The smtp.yml config file seems to be empty. Currently it's not possible to send emails with this configuration."
-msgstr ""
+msgstr "Здається, файл налаштувань smtp.yml порожній. В даний час неможливо надіслати листи з цією конфігурацією."
 
-#: plugins/settings/resources/partial/index.html:179
+#: plugins/settings/resources/partial/index.html:188
 msgid "This might take a few seconds"
-msgstr ""
+msgstr "Це може зайняти кілька секунд"
 
 #: plugins/settings/main.py:15
 #: plugins/settings/resources/js/controllers/index.controller.es:2
@@ -210,63 +214,70 @@ msgstr "Налаштування"
 msgid "This certificate is the default certificate used to create client certificate and to provide https connection.\n"
 "Using a Let's Encrypt certificate here will break the client certificate generator.\n"
 "Using a self-generated certificate is fine here."
-msgstr ""
+msgstr "Цей сертифікат є сертифікатом за замовчуванням, який використовується для створення клієнтського сертифіката та забезпечення https з’єднання.\n"
+"Використання сертифікату Let's Encrypt тут призведе до поломки генератора сертифікатів клієнта.\n"
+". Використання самостійно створеного сертифіката рекомендується."
 
 #: plugins/settings/resources/js/controllers/index.controller.es:30
 msgid "If you have a special certificate for your domain, like a Let's Encrypt certificate, put it there.\n"
 "If you are not sure, just use the same certificate as the one above."
+msgstr "Якщо ваш домен має особливий сертифікат, наприклад сертифікат Let's Encrypt, залиште його.\n"
+"Якщо ви не впевнені, просто використайте той самий сертифікат, що і вище."
+
+#: plugins/settings/resources/js/controllers/index.controller.es:36
+msgid "Please be sure to have at least one valid user in the authentication provider. When not, you will be lock out from Ajenti. "
 msgstr ""
 
-#: plugins/settings/resources/js/controllers/index.controller.es:51
+#: plugins/settings/resources/js/controllers/index.controller.es:57
 msgid "Could not load authentication provider list"
-msgstr ""
+msgstr "Не вдалося завантажити список провайдерів автентифікації"
 
-#: plugins/settings/resources/js/controllers/index.controller.es:54
+#: plugins/settings/resources/js/controllers/index.controller.es:60
 msgid "Could not load config"
-msgstr ""
+msgstr "Не вдалося завантажити конфігурацію"
 
-#: plugins/settings/resources/js/controllers/index.controller.es:77
+#: plugins/settings/resources/js/controllers/index.controller.es:83
 msgid "Saved"
-msgstr ""
-
-#: plugins/settings/resources/js/controllers/index.controller.es:78
-msgid "SSL Error"
-msgstr ""
-
-#: plugins/settings/resources/js/controllers/index.controller.es:82
-msgid "Global config saved"
-msgstr ""
+msgstr "Збережено"
 
 #: plugins/settings/resources/js/controllers/index.controller.es:84
+msgid "SSL Error"
+msgstr "Помилка SSL"
+
+#: plugins/settings/resources/js/controllers/index.controller.es:88
+msgid "Global config saved"
+msgstr "Глобальна конфігурація збережена"
+
+#: plugins/settings/resources/js/controllers/index.controller.es:90
 msgid "Could not save global config"
-msgstr ""
+msgstr "Не вдалося зберегти глобальну конфігурацію"
 
-#: plugins/settings/resources/js/controllers/index.controller.es:89
+#: plugins/settings/resources/js/controllers/index.controller.es:95
 msgid "Smtp config saved"
-msgstr ""
-
-#: plugins/settings/resources/js/controllers/index.controller.es:91
-msgid "Could not save smtp config"
-msgstr ""
+msgstr "Налаштування SMTP збережено"
 
 #: plugins/settings/resources/js/controllers/index.controller.es:97
-msgid "Self-signed certificate"
-msgstr ""
-
-#: plugins/settings/resources/js/controllers/index.controller.es:98
-msgid "Generating a new certificate will void all existing client authentication certificates!"
-msgstr ""
+msgid "Could not save smtp config"
+msgstr "Не вдалося зберегти конфігурацію SMTP"
 
 #: plugins/settings/resources/js/controllers/index.controller.es:103
-msgid "Please wait"
-msgstr ""
+msgid "Self-signed certificate"
+msgstr "Само-підписаний сертифікат"
 
-#: plugins/settings/resources/js/controllers/index.controller.es:105
-msgid "Certificate successfully generated"
-msgstr ""
+#: plugins/settings/resources/js/controllers/index.controller.es:104
+msgid "Generating a new certificate will void all existing client authentication certificates!"
+msgstr "Створення нового сертифіката призведе до анулювання всіх існуючих сертифікатів аутентифікації клієнта!"
+
+#: plugins/settings/resources/js/controllers/index.controller.es:109
+msgid "Please wait"
+msgstr "Будь ласка, зачекайте"
 
 #: plugins/settings/resources/js/controllers/index.controller.es:111
-#: plugins/settings/resources/js/controllers/index.controller.es:130
+msgid "Certificate successfully generated"
+msgstr "Сертифікат успішно згенеровано"
+
+#: plugins/settings/resources/js/controllers/index.controller.es:117
+#: plugins/settings/resources/js/controllers/index.controller.es:136
 msgid "Certificate generation failed"
-msgstr ""
+msgstr "Генерування сертифікату не вдалося"
 

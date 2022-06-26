@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-13 21:52+0100\n"
-"PO-Revision-Date: 2022-03-28 09:08\n"
+"POT-Creation-Date: 2022-06-25 21:20+0200\n"
+"PO-Revision-Date: 2022-06-25 19:27\n"
 "Last-Translator: \n"
 "Language-Team: Korean\n"
 "Language: ko_KR\n"
@@ -103,11 +103,15 @@ msgstr ""
 msgid "Users"
 msgstr "사용자"
 
-#: plugins/auth_users/resources/js/controllers/index.controller.es:91
+#: plugins/auth_users/resources/js/controllers/index.controller.es:15
+msgid "No user actually saved. You should save this configuration to permit at least root login."
+msgstr ""
+
+#: plugins/auth_users/resources/js/controllers/index.controller.es:92
 msgid "Password updated"
 msgstr ""
 
-#: plugins/auth_users/resources/js/controllers/index.controller.es:99
+#: plugins/auth_users/resources/js/controllers/index.controller.es:100
 msgid "This username is already taken"
 msgstr ""
 

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-28 11:04+0200\n"
-"PO-Revision-Date: 2022-03-28 09:08\n"
+"POT-Creation-Date: 2022-06-25 21:20+0200\n"
+"PO-Revision-Date: 2022-06-25 19:27\n"
 "Last-Translator: \n"
 "Language-Team: Ukrainian\n"
 "Language: uk_UA\n"
@@ -19,83 +19,101 @@ msgstr ""
 
 #: plugins/check_certificates/resources/partial/index.html:25
 msgid "({{h.restTime}} days)"
-msgstr ""
+msgstr "({{h.restTime}} днів)"
 
 #: plugins/check_certificates/resources/partial/widget.html:4
 msgid "<i class=\"fas fa-check\"></i>\n"
 "            All certificates are up to date !"
+msgstr "<i class=\"fas fa-check\"></i>\n"
+"            Всі сертифікати в актуальному стані!"
+
+#: plugins/check_certificates/resources/partial/index.html:60
+msgid "Add"
 msgstr ""
 
 #: plugins/check_certificates/resources/partial/index.html:41
 msgid "Add host"
-msgstr ""
+msgstr "Додати хост"
+
+#: plugins/check_certificates/resources/partial/index.html:61
+#: plugins/check_certificates/resources/js/controllers/index.controller.coffee:38
+msgid "Cancel"
+msgstr "Скасувати"
 
 #: plugins/check_certificates/resources/partial/widget.html:3
 msgid "Certificates to be renewed"
-msgstr ""
+msgstr "Сертифікати підлягають поновленню"
 
 #: plugins/check_certificates/resources/partial/index.html:11
 msgid "Domain"
-msgstr ""
+msgstr "Домен"
 
 #: plugins/check_certificates/resources/partial/index.html:14
 msgid "End"
-msgstr ""
+msgstr "Кінець"
 
 #: plugins/check_certificates/resources/partial/index.html:13
 msgid "Issuer"
+msgstr "Видавець"
+
+#: plugins/check_certificates/resources/partial/index.html:45
+msgid "New hostname"
 msgstr ""
 
 #: plugins/check_certificates/resources/partial/index.html:5
 msgid "No host defined actually. Please first add an host."
-msgstr ""
+msgstr "Не визначений хост. Будь ласка, спочатку додайте хост."
 
 #: plugins/check_certificates/resources/partial/index.html:12
 msgid "Port"
+msgstr "Порт"
+
+#: plugins/check_certificates/resources/partial/index.html:53
+msgid "Port ( default is 443 if empty )"
 msgstr ""
 
 #: plugins/check_certificates/resources/partial/index.html:15
 msgid "Status"
+msgstr "Статус"
+
+#: plugins/check_certificates/resources/partial/index.html:49
+msgid "URL"
 msgstr ""
 
 #: plugins/check_certificates/widget.py:8
 msgid "Certificates"
-msgstr ""
+msgstr "Сертифікати"
 
-#: plugins/check_certificates/api.py:92 plugins/check_certificates/api.py:98
+#: plugins/check_certificates/api.py:91 plugins/check_certificates/api.py:97
 msgid "Timeout from host !"
-msgstr ""
+msgstr "Тайм-аут від хоста!"
 
-#: plugins/check_certificates/api.py:95
+#: plugins/check_certificates/api.py:94
 msgid "Could not resolve hostname !"
-msgstr ""
+msgstr "Не вдалося визначити доменне ім'я!"
 
-#: plugins/check_certificates/api.py:101
+#: plugins/check_certificates/api.py:100
 msgid "Certificate is not valid !"
+msgstr "Сертифікат не дійсний!"
+
+#: plugins/check_certificates/api.py:103
+msgid "Can not handle SSL on this port !"
 msgstr ""
 
-#: plugins/check_certificates/api.py:104
+#: plugins/check_certificates/api.py:106
 msgid "Host refuse the connection !"
-msgstr ""
+msgstr "Хост відмовляється від підключення!"
 
 #: plugins/check_certificates/main.py:17
 #: plugins/check_certificates/resources/js/controllers/index.controller.coffee:2
 msgid "Check certificates"
-msgstr ""
+msgstr "Перевірити сертифікати"
 
-#: plugins/check_certificates/resources/js/controllers/index.controller.coffee:15
-msgid "New url"
-msgstr ""
-
-#: plugins/check_certificates/resources/js/controllers/index.controller.coffee:26
+#: plugins/check_certificates/resources/js/controllers/index.controller.coffee:36
 msgid "Remove the url "
-msgstr ""
+msgstr "Видалити URL-адресу"
 
-#: plugins/check_certificates/resources/js/controllers/index.controller.coffee:27
+#: plugins/check_certificates/resources/js/controllers/index.controller.coffee:37
 msgid "Remove"
-msgstr ""
-
-#: plugins/check_certificates/resources/js/controllers/index.controller.coffee:28
-msgid "Cancel"
-msgstr ""
+msgstr "Видалити"
 

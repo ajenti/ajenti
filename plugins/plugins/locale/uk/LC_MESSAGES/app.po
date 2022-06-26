@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-06 18:10+0100\n"
-"PO-Revision-Date: 2022-03-28 09:08\n"
+"POT-Creation-Date: 2022-06-25 21:20+0200\n"
+"PO-Revision-Date: 2022-06-25 19:27\n"
 "Last-Translator: \n"
 "Language-Team: Ukrainian\n"
 "Language: uk_UA\n"
@@ -18,28 +18,28 @@ msgstr ""
 "X-Crowdin-File-ID: 35\n"
 
 #: plugins/plugins/resources/partial/index.html:14
-msgid "Ajenti core {{ajentiVersion}}, no upgrades available."
+msgid "Ajenti Core version {{ajentiVersion}}, no upgrades available."
 msgstr ""
 
 #: plugins/plugins/resources/partial/index.html:20
 msgid "Ajenti core {{ajentiVersion}}. An upgrade to {{coreUpgradeAvailable}} is available."
-msgstr ""
+msgstr "Ядро Ajenti {{ajentiVersion}}. Доступне оновлення до {{coreUpgradeAvailable}}."
 
-#: plugins/plugins/resources/partial/index.html:135
-#: plugins/plugins/resources/partial/index.html:190
+#: plugins/plugins/resources/partial/index.html:138
+#: plugins/plugins/resources/partial/index.html:196
 msgid "Author"
 msgstr "Автор"
 
-#: plugins/plugins/resources/partial/index.html:47
+#: plugins/plugins/resources/partial/index.html:50
 msgid "Available plugins"
 msgstr "Доступні плагіни"
 
-#: plugins/plugins/resources/partial/index.html:154
-#: plugins/plugins/resources/partial/index.html:206
+#: plugins/plugins/resources/partial/index.html:160
+#: plugins/plugins/resources/partial/index.html:212
 msgid "Close"
 msgstr "Закрити"
 
-#: plugins/plugins/resources/partial/index.html:70
+#: plugins/plugins/resources/partial/index.html:73
 msgid "Community"
 msgstr "Спільнота"
 
@@ -47,29 +47,33 @@ msgstr "Спільнота"
 msgid "Core"
 msgstr "Ядро"
 
-#: plugins/plugins/resources/partial/index.html:184
+#: plugins/plugins/resources/partial/index.html:148
+msgid "Documentation"
+msgstr ""
+
+#: plugins/plugins/resources/partial/index.html:190
 msgid "Downloads in the last month"
 msgstr "Завантаження минулого місяця"
 
-#: plugins/plugins/resources/partial/index.html:103
+#: plugins/plugins/resources/partial/index.html:106
 msgid "Error"
 msgstr "Помилка"
 
-#: plugins/plugins/resources/partial/index.html:114
+#: plugins/plugins/resources/partial/index.html:117
 msgid "Exception: <code>{{selectedInstalledPlugin.crash.cls}}</code>"
-msgstr ""
+msgstr "Виняток: <code>{{selectedInstalledPlugin.crash.cls}}</code>"
 
-#: plugins/plugins/resources/partial/index.html:71
+#: plugins/plugins/resources/partial/index.html:74
 msgid "Filter"
 msgstr "Фільтр"
 
-#: plugins/plugins/resources/partial/index.html:142
+#: plugins/plugins/resources/partial/index.html:145
 msgid "Homepage"
 msgstr "Домашня сторінка"
 
-#: plugins/plugins/resources/partial/index.html:203
-#: plugins/plugins/resources/partial/index.html:56
-#: plugins/plugins/resources/partial/index.html:74
+#: plugins/plugins/resources/partial/index.html:209
+#: plugins/plugins/resources/partial/index.html:59
+#: plugins/plugins/resources/partial/index.html:77
 msgid "Install"
 msgstr "Встановити"
 
@@ -77,51 +81,51 @@ msgstr "Встановити"
 msgid "Installed plugins"
 msgstr "Встановлені плагіни"
 
-#: plugins/plugins/resources/partial/index.html:41
+#: plugins/plugins/resources/partial/index.html:44
 msgid "Loading error"
 msgstr "Помилка завантаження"
 
-#: plugins/plugins/resources/partial/index.html:129
+#: plugins/plugins/resources/partial/index.html:132
 msgid "Location"
 msgstr "Розташування"
 
-#: plugins/plugins/resources/partial/index.html:117
+#: plugins/plugins/resources/partial/index.html:120
 msgid "Message: <code>{{selectedInstalledPlugin.crash.message}}</code>"
 msgstr "Повідомлення: <code>{{selectedInstalledPlugin.crash.message}}</code>"
 
-#: plugins/plugins/resources/partial/index.html:166
-#: plugins/plugins/resources/partial/index.html:97
+#: plugins/plugins/resources/partial/index.html:100
+#: plugins/plugins/resources/partial/index.html:172
 msgid "Name"
 msgstr "Назва"
 
-#: plugins/plugins/resources/partial/index.html:53
+#: plugins/plugins/resources/partial/index.html:56
 msgid "Official"
-msgstr ""
+msgstr "Офіційний"
 
-#: plugins/plugins/resources/partial/index.html:215
+#: plugins/plugins/resources/partial/index.html:221
 msgid "Restart panel"
-msgstr ""
+msgstr "Перезапустити панель"
 
-#: plugins/plugins/resources/partial/index.html:112
+#: plugins/plugins/resources/partial/index.html:115
 msgid "This plugin crashed with the following error:"
-msgstr ""
+msgstr "Цей плагін зазнав збою з наступною помилкою:"
+
+#: plugins/plugins/resources/partial/index.html:110
+msgid "This plugin requires application binary <code>{{selectedInstalledPlugin.crash.binaryName}}</code>, which was unavailable during startup."
+msgstr "Цей плагін вимагає бінарного програмного забезпечення <code>{{selectedInstalledPlugin.crash.binaryName}}</code>, що було недоступне під час запуску."
 
 #: plugins/plugins/resources/partial/index.html:107
-msgid "This plugin requires application binary <code>{{selectedInstalledPlugin.crash.binaryName}}</code>, which was unavailable during startup."
-msgstr ""
-
-#: plugins/plugins/resources/partial/index.html:104
 msgid "This plugin requires plugin <code>{{selectedInstalledPlugin.crash.pluginName}}</code>, which was unavailable during startup."
-msgstr ""
+msgstr "Цей плагін вимагає встановлення <code>{{selectedInstalledPlugin.crash.pluginName}}</code>, яке було недоступне під час запуску."
 
-#: plugins/plugins/resources/partial/index.html:151
+#: plugins/plugins/resources/partial/index.html:157
 #: plugins/plugins/resources/partial/index.html:30
-#: plugins/plugins/resources/js/controllers/index.controller.es:174
-#: plugins/plugins/resources/js/controllers/index.controller.es:176
+#: plugins/plugins/resources/js/controllers/index.controller.es:178
+#: plugins/plugins/resources/js/controllers/index.controller.es:180
 msgid "Uninstall"
 msgstr "Видалити"
 
-#: plugins/plugins/resources/partial/index.html:148
+#: plugins/plugins/resources/partial/index.html:154
 msgid "Update"
 msgstr "Оновити"
 
@@ -133,12 +137,12 @@ msgstr "Оновити все"
 msgid "Updates"
 msgstr "Оновлення"
 
-#: plugins/plugins/resources/partial/index.html:38
+#: plugins/plugins/resources/partial/index.html:41
 msgid "Upgradeable to {{getUpgrade(plugin).version}}"
 msgstr "Може бути оновлено до {{getUpgrade(plugin).version}}"
 
-#: plugins/plugins/resources/partial/index.html:123
-#: plugins/plugins/resources/partial/index.html:172
+#: plugins/plugins/resources/partial/index.html:126
+#: plugins/plugins/resources/partial/index.html:178
 msgid "Version"
 msgstr "Версія"
 
@@ -148,77 +152,73 @@ msgstr "Плагіни"
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:19
 msgid "Could not load repository version for ajenti-panel."
-msgstr ""
+msgstr "Не вдалося завантажити версію репозиторію для панелі Ajenti."
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:56
 msgid "Could not load plugin repository"
-msgstr ""
+msgstr "Не вдалося завантажити сховище плагінів"
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:59
 msgid "Could not load the installed plugin list"
-msgstr ""
+msgstr "Не вдалося завантажити список встановлених плагінів"
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:105
 msgid "All plugins updated"
-msgstr ""
+msgstr "Всі плагіни оновлено"
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:107
-#: plugins/plugins/resources/js/controllers/index.controller.es:147
-#: plugins/plugins/resources/js/controllers/index.controller.es:183
+#: plugins/plugins/resources/js/controllers/index.controller.es:148
+#: plugins/plugins/resources/js/controllers/index.controller.es:191
 msgid "Done"
-msgstr ""
+msgstr "Готово"
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:108
-#: plugins/plugins/resources/js/controllers/index.controller.es:147
+#: plugins/plugins/resources/js/controllers/index.controller.es:149
 msgid "Installed. A panel restart is required."
-msgstr ""
+msgstr "Встановлено. Необхідне перезавантаження панелі."
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:109
-#: plugins/plugins/resources/js/controllers/index.controller.es:147
-#: plugins/plugins/resources/js/controllers/index.controller.es:185
+#: plugins/plugins/resources/js/controllers/index.controller.es:150
+#: plugins/plugins/resources/js/controllers/index.controller.es:193
 msgid "Restart now"
-msgstr ""
+msgstr "Перезавантажити зараз"
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:110
-#: plugins/plugins/resources/js/controllers/index.controller.es:147
-#: plugins/plugins/resources/js/controllers/index.controller.es:186
+#: plugins/plugins/resources/js/controllers/index.controller.es:151
+#: plugins/plugins/resources/js/controllers/index.controller.es:194
 msgid "Later"
-msgstr ""
+msgstr "Пізніше"
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:114
 msgid "Some plugins failed to update"
-msgstr ""
+msgstr "Деякі плагіни не вдалося оновити"
 
-#: plugins/plugins/resources/js/controllers/index.controller.es:150
+#: plugins/plugins/resources/js/controllers/index.controller.es:154
 msgid "Install failed"
-msgstr ""
+msgstr "Встановлення не вдалося"
 
-#: plugins/plugins/resources/js/controllers/index.controller.es:158
+#: plugins/plugins/resources/js/controllers/index.controller.es:162
 msgid "Warning"
-msgstr ""
+msgstr "Застереження"
 
-#: plugins/plugins/resources/js/controllers/index.controller.es:159
+#: plugins/plugins/resources/js/controllers/index.controller.es:163
 msgid "This will remove the Plugins plugin. You can reinstall it later using PIP."
-msgstr ""
+msgstr "Це видалить плагін плагінів. Ви можете перевстановити його пізніше за допомогою PIP."
 
-#: plugins/plugins/resources/js/controllers/index.controller.es:160
+#: plugins/plugins/resources/js/controllers/index.controller.es:164
 msgid "Continue"
-msgstr ""
+msgstr "Продовжити"
 
-#: plugins/plugins/resources/js/controllers/index.controller.es:161
-#: plugins/plugins/resources/js/controllers/index.controller.es:177
+#: plugins/plugins/resources/js/controllers/index.controller.es:165
+#: plugins/plugins/resources/js/controllers/index.controller.es:181
 msgid "Cancel"
-msgstr ""
+msgstr "Скасувати"
 
-#: plugins/plugins/resources/js/controllers/index.controller.es:179
-msgid "Uninstalling"
-msgstr ""
-
-#: plugins/plugins/resources/js/controllers/index.controller.es:184
+#: plugins/plugins/resources/js/controllers/index.controller.es:192
 msgid "Uninstalled. A panel restart is required."
-msgstr ""
+msgstr "Видалено. Необхідно перезапустити панель."
 
-#: plugins/plugins/resources/js/controllers/index.controller.es:191
+#: plugins/plugins/resources/js/controllers/index.controller.es:197
 msgid "Uninstall failed"
-msgstr ""
+msgstr "Не вдалося видалити"
 

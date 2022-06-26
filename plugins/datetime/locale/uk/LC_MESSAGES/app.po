@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-02-21 15:47+0100\n"
-"PO-Revision-Date: 2022-03-28 09:08\n"
+"PO-Revision-Date: 2022-06-25 19:27\n"
 "Last-Translator: \n"
 "Language-Team: Ukrainian\n"
 "Language: uk_UA\n"
@@ -19,7 +19,7 @@ msgstr ""
 
 #: plugins/datetime/resources/partial/index.html:17
 msgid "Date &amp; time"
-msgstr ""
+msgstr "Дата й час"
 
 #: plugins/datetime/resources/partial/index.html:26
 msgid "Set time"
@@ -51,27 +51,27 @@ msgstr "Змінити дату та час"
 
 #: plugins/datetime/resources/js/controllers/index.controller.es:2
 msgid "Date & Time"
-msgstr ""
+msgstr "Дата та час"
 
 #: plugins/datetime/resources/js/controllers/index.controller.es:24
 msgid "Timezone set"
-msgstr ""
+msgstr "Часовий пояс встановлено"
 
 #: plugins/datetime/resources/js/controllers/index.controller.es:26
 #: plugins/datetime/resources/js/controllers/index.controller.es:30
 #: plugins/datetime/resources/js/controllers/index.controller.es:37
 msgid "Failed"
-msgstr ""
+msgstr "Невдало"
 
 #: plugins/datetime/resources/js/controllers/index.controller.es:30
 msgid "Time set"
-msgstr ""
+msgstr "Заданий час"
 
 #: plugins/datetime/resources/js/controllers/index.controller.es:33
 msgid "Synchronizing..."
-msgstr ""
+msgstr "Синхронізація..."
 
 #: plugins/datetime/resources/js/controllers/index.controller.es:36
 msgid "Time synchronized"
-msgstr ""
+msgstr "Час синхронізовано"
 

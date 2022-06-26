@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-13 21:52+0100\n"
-"PO-Revision-Date: 2022-03-28 09:08\n"
+"PO-Revision-Date: 2022-06-25 19:27\n"
 "Last-Translator: \n"
 "Language-Team: Ukrainian\n"
 "Language: uk_UA\n"
@@ -31,27 +31,27 @@ msgstr "Закрити"
 
 #: plugins/packages/resources/partial/index.html:12
 msgid "Mark for installation"
-msgstr ""
+msgstr "Позначити для встановлення"
 
 #: plugins/packages/resources/partial/index.html:15
 msgid "Mark for removal"
-msgstr ""
+msgstr "Позначити для видалення"
 
 #: plugins/packages/resources/partial/index.html:9
 msgid "Mark for upgrade"
-msgstr ""
+msgstr "Позначити для оновлення"
 
 #: plugins/packages/resources/partial/index.html:4
 msgid "Search packages"
-msgstr ""
+msgstr "Пошук пакетів"
 
 #: plugins/packages/resources/partial/index.html:64
 msgid "Selections"
-msgstr ""
+msgstr "Виділення"
 
 #: plugins/packages/resources/partial/index.html:51
 msgid "Update package list"
-msgstr ""
+msgstr "Оновити список пакунків"
 
 #: plugins/packages/resources/partial/index.html:29
 msgid "Upgradeable"
@@ -59,7 +59,7 @@ msgstr "Можливе оновлення"
 
 #: plugins/packages/resources/partial/index.html:56
 msgid "pending"
-msgstr ""
+msgstr "в очікуванні"
 
 #: plugins/packages/main.py:27
 #: plugins/packages/resources/js/controllers/index.controller.es:2
@@ -72,17 +72,17 @@ msgstr "Встановлення та вилучення пакунків"
 
 #: plugins/packages/resources/js/controllers/index.controller.es:18
 msgid "Could not find packages"
-msgstr ""
+msgstr "Не вдалося знайти пакунки"
 
 #: plugins/packages/resources/js/controllers/index.controller.es:25
 msgid "Package list update started"
-msgstr ""
+msgstr "Оновлення списку пакунків розпочато"
 
 #: plugins/packages/resources/js/controllers/index.controller.es:27
 msgid "Package list update failed"
-msgstr ""
+msgstr "Не вдалося оновити список пакунків"
 
 #: plugins/packages/resources/js/controllers/index.controller.es:61
 msgid "Could not apply changes"
-msgstr ""
+msgstr "Не вдалося застосувати зміни"
 

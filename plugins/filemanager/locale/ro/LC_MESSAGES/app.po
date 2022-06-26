@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-13 21:52+0100\n"
-"PO-Revision-Date: 2022-03-28 09:08\n"
+"POT-Creation-Date: 2022-06-25 21:20+0200\n"
+"PO-Revision-Date: 2022-06-25 19:27\n"
 "Last-Translator: \n"
 "Language-Team: Romanian\n"
 "Language: ro_RO\n"
@@ -33,10 +33,10 @@ msgstr "Toate"
 msgid "Apply"
 msgstr "Aplicare"
 
-#: plugins/filemanager/resources/partial/index.html:77
-#: plugins/filemanager/resources/partial/index.html:90
+#: plugins/filemanager/resources/partial/index.html:84
+#: plugins/filemanager/resources/partial/index.html:97
 #: plugins/filemanager/resources/partial/properties.html:194
-#: plugins/filemanager/resources/js/controllers/index.controller.es:89
+#: plugins/filemanager/resources/js/controllers/index.controller.es:98
 msgid "Cancel"
 msgstr "Anulare"
 
@@ -44,24 +44,24 @@ msgstr "Anulare"
 msgid "Change permissions"
 msgstr "Schimbare permisiuni"
 
-#: plugins/filemanager/resources/partial/index.html:96
+#: plugins/filemanager/resources/partial/index.html:103
 msgid "Clipboard"
 msgstr "Clipboard"
 
-#: plugins/filemanager/resources/partial/index.html:118
+#: plugins/filemanager/resources/partial/index.html:125
 msgid "Close"
 msgstr "Închide"
 
-#: plugins/filemanager/resources/partial/index.html:64
+#: plugins/filemanager/resources/partial/index.html:71
 msgid "Copy"
 msgstr "Copiere"
 
-#: plugins/filemanager/resources/partial/index.html:76
-#: plugins/filemanager/resources/partial/index.html:89
+#: plugins/filemanager/resources/partial/index.html:83
+#: plugins/filemanager/resources/partial/index.html:96
 msgid "Create"
 msgstr "Creare"
 
-#: plugins/filemanager/resources/partial/index.html:63
+#: plugins/filemanager/resources/partial/index.html:70
 msgid "Cut"
 msgstr "Decupare"
 
@@ -69,12 +69,12 @@ msgstr "Decupare"
 msgid "DIRECTORY"
 msgstr "DIRECTOR"
 
-#: plugins/filemanager/resources/partial/index.html:65
-#: plugins/filemanager/resources/js/controllers/index.controller.es:88
+#: plugins/filemanager/resources/partial/index.html:72
+#: plugins/filemanager/resources/js/controllers/index.controller.es:97
 msgid "Delete"
 msgstr "Ștergere"
 
-#: plugins/filemanager/resources/partial/index.html:86
+#: plugins/filemanager/resources/partial/index.html:93
 msgid "Directory name"
 msgstr "Nume director"
 
@@ -94,7 +94,7 @@ msgstr "Extra"
 msgid "FILE"
 msgstr "FIȘIER"
 
-#: plugins/filemanager/resources/partial/index.html:73
+#: plugins/filemanager/resources/partial/index.html:80
 msgid "File name"
 msgstr "Nume fișier"
 
@@ -123,13 +123,13 @@ msgstr "Modificat"
 msgid "Name"
 msgstr "Nume"
 
-#: plugins/filemanager/resources/partial/index.html:47
-#: plugins/filemanager/resources/partial/index.html:83
+#: plugins/filemanager/resources/partial/index.html:54
+#: plugins/filemanager/resources/partial/index.html:90
 msgid "New directory"
 msgstr "Director nou"
 
-#: plugins/filemanager/resources/partial/index.html:46
-#: plugins/filemanager/resources/partial/index.html:70
+#: plugins/filemanager/resources/partial/index.html:53
+#: plugins/filemanager/resources/partial/index.html:77
 msgid "New file"
 msgstr "Fișier nou"
 
@@ -137,7 +137,7 @@ msgstr "Fișier nou"
 msgid "Owner"
 msgstr "Proprietar"
 
-#: plugins/filemanager/resources/partial/index.html:51
+#: plugins/filemanager/resources/partial/index.html:58
 msgid "Paste here"
 msgstr "Lipiți aici"
 
@@ -149,13 +149,17 @@ msgstr "Biți de permisiuni"
 msgid "READ"
 msgstr "CITIRE"
 
-#: plugins/filemanager/resources/partial/index.html:101
+#: plugins/filemanager/resources/partial/index.html:108
 msgid "Remove"
 msgstr "Eliminare"
 
-#: plugins/filemanager/resources/partial/index.html:117
+#: plugins/filemanager/resources/partial/index.html:124
 msgid "Remove all items"
 msgstr "Eliminați toate elementele"
+
+#: plugins/filemanager/resources/partial/index.html:13
+msgid "Root directory"
+msgstr ""
 
 #: plugins/filemanager/resources/partial/properties.html:126
 msgid "Show in Notepad"
@@ -165,7 +169,7 @@ msgstr "Arată în Notepad"
 msgid "Size"
 msgstr "Dimensiune"
 
-#: plugins/filemanager/resources/partial/index.html:54
+#: plugins/filemanager/resources/partial/index.html:61
 msgid "Tab"
 msgstr "Filă"
 
@@ -173,15 +177,11 @@ msgstr "Filă"
 msgid "Type"
 msgstr "Tip"
 
-#: plugins/filemanager/resources/partial/index.html:15
-msgid "Up one level"
-msgstr "Un nivel mai sus"
-
-#: plugins/filemanager/resources/partial/index.html:49
+#: plugins/filemanager/resources/partial/index.html:56
 msgid "Upload"
 msgstr "Încărcare"
 
-#: plugins/filemanager/resources/partial/index.html:123
+#: plugins/filemanager/resources/partial/index.html:130
 msgid "Uploading ..."
 msgstr "Se încarcă ..."
 
@@ -193,7 +193,7 @@ msgstr "Utilizator"
 msgid "WRITE"
 msgstr "SCRIERE"
 
-#: plugins/filemanager/resources/partial/index.html:60
+#: plugins/filemanager/resources/partial/index.html:67
 msgid "items selected"
 msgstr "elemente selectate"
 
@@ -209,23 +209,23 @@ msgstr "Nu s-au putut citi informațiile fișierului"
 msgid "File mode saved"
 msgstr "Mod fișier salvat"
 
-#: plugins/filemanager/resources/js/controllers/index.controller.es:16
+#: plugins/filemanager/resources/js/controllers/index.controller.es:25
 msgid "Could not load directory"
 msgstr "Directorul nu a putut fi încărcat"
 
-#: plugins/filemanager/resources/js/controllers/index.controller.es:87
+#: plugins/filemanager/resources/js/controllers/index.controller.es:96
 msgid "Delete selected items?"
 msgstr "Ștergeți elementele selectate?"
 
-#: plugins/filemanager/resources/js/controllers/index.controller.es:124
+#: plugins/filemanager/resources/js/controllers/index.controller.es:133
 msgid "Could not create file"
 msgstr "Nu s-a putut crea fișierul"
 
-#: plugins/filemanager/resources/js/controllers/index.controller.es:144
+#: plugins/filemanager/resources/js/controllers/index.controller.es:153
 msgid "Could not create directory"
 msgstr "Directorul nu a putut fi creat"
 
-#: plugins/filemanager/resources/js/controllers/index.controller.es:151
+#: plugins/filemanager/resources/js/controllers/index.controller.es:160
 msgid "Uploaded"
 msgstr "Încărcat"
 

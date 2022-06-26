@@ -50,7 +50,7 @@ class RequestHandler(WebSocketHandler):
                     user = ClientCertificateVerificator.get(aj.context).verify(certificate)
                     env['SSL_CLIENT_VALID'] = bool(user)
                     env['SSL_CLIENT_USER'] = user
-                    env['SSL_CLIENT_DIGEST'] = certificate.digest('sha1')
+                    env['SSL_CLIENT_DIGEST'] = certificate.digest('sha256')
         return env
 
     def _sendall(self, data):
