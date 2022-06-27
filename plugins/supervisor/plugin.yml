@@ -2,7 +2,7 @@ name: supervisor
 author: Ajenti project
 email: e@ajenti.org
 url: https://ajenti.org
-version: '0.19'
+version: '0.20'
 title: 'Supervisor'
 icon: play
 dependencies:

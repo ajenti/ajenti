@@ -3,7 +3,7 @@ author: Ajenti project
 email: e@ajenti.org
 url: https://ajenti.org
 docs: https://docs.ajenti.org/en/latest/plugins/plugins.html
-version: '0.48'
+version: '0.49'
 title: 'Plugins'
 icon: th-large
 dependencies:

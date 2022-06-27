@@ -3,7 +3,7 @@ author: Arnaud Kientz
 email: arnaud@linuxmuster.net
 url: https://ajenti.org
 docs: https://docs.ajenti.org/en/latest/plugins/check_certificates.html
-version: '0.8'
+version: '0.9'
 title: 'Check certificates'
 icon: certificate
 dependencies:

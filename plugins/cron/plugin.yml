@@ -3,7 +3,7 @@ author: Arnaud Kientz
 email: arnaud@linuxmuster.net
 url: https://ajenti.org
 docs: https://docs.ajenti.org/en/latest/plugins/cron.html
-version: '0.4'
+version: '0.5'
 title: 'Cron'
 icon: 'clock-o'
 dependencies:
