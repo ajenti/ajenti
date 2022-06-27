@@ -157,6 +157,7 @@ window.globalConstants = {{
     'ajentiPlatformUnmapped': '{aj.platform}',
     'ajentiVersion': '{aj.version}',
     'ajentiBootstrapColor': '{aj.config.data.get('color', None)}',
+    'ajentiDevMode': '{aj.dev}',
 }};
         '''
 

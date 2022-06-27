@@ -7,6 +7,8 @@ export type GlobalConstants = {
   ajentiPlatform: string;
   ajentiPlatformUnmapped: string;
   ajentiVersion: string;
+  ajentiDevMode: boolean;
+  ajentiBootstrapColor: string;
 };
 
 declare global {
