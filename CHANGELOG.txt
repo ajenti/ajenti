@@ -1,4 +1,8 @@
-Ajenti 2.1.45 - dev
+Ajenti 2.2.1 - dev
+
+
+
+Ajenti 2.2.0 - 27/06/2022
 
 - Add support for Rocky Linux
 - Replace @url decorator with @get, @post, @delete ...
