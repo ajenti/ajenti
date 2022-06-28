@@ -122,7 +122,10 @@ class SmtpConfig(BaseConfig):
         self.data['smtp'].setdefault('user', None)
 
     def get_smtp_password(self):
-       with open(self.path, 'r') as smtp:
+        # if smtp.yml is not provided
+        if self.data['smtp']['password'] is None:
+            return ''
+        with open(self.path, 'r') as smtp:
             return yaml.load(smtp, Loader=yaml.SafeLoader)['smtp']['password']
 
     def load(self):
