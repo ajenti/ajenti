@@ -126,7 +126,8 @@ class SmtpConfig(BaseConfig):
         if self.data['smtp']['password'] is None:
             return ''
         with open(self.path, 'r') as smtp:
-            return yaml.load(smtp, Loader=yaml.SafeLoader)['smtp']['password']
+            smtp_config = yaml.load(smtp, Loader=yaml.SafeLoader).get('smtp', {})
+        return smtp_config.get('password', None)
 
     def load(self):
         if not os.path.exists(self.path):
