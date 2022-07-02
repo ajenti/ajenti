@@ -82,9 +82,9 @@ Explanations:
      * **enable**: **true** or **false** to enable client authentication via certificates
      * **force**: if **true**, only allows login with client certificate. If **false**, also permit authentication with password
      * **certificates**: this entry contains all client certifcates for an automatic login. It will be filled through the settings in Ajenti with the following structure:
-        * **digest**: digest of the certificat
-        * **name**: name of the certificat
-        * **serial**: serial of the certificat
+        * **digest**: digest of the certificate
+        * **name**: name of the certificate
+        * **serial**: serial of the certificate
         * **user**: username
 
 email block

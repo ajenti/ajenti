@@ -11,7 +11,7 @@ class ItemProvider(SidebarItemProvider):
     def provide(self):
         return [
             {
-                # category:tools, category:sofware, category:system, category:other
+                # category:tools, category:software, category:system, category:other
                 'attach': 'category:software',
                 'name': 'Docker',
                 'icon': 'fab fa-docker',
