@@ -15,7 +15,7 @@ class BaseConfig():
 
     .. py:attribute:: data
 
-        currenly loaded config content
+        currently loaded config content
 
     """
     def __init__(self):
