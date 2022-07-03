@@ -29,6 +29,10 @@ bind:
   port: 8000
 color: default
 max_sessions: 9
+trusted_domains: []
+proxy:
+  behind_proxy: false
+  trusted_proxies: []
 session_max_time: 3600
 name: {socket.gethostname()}
 ssl:

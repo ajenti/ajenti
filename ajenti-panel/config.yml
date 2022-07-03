@@ -14,6 +14,10 @@ color: bluegrey
 language: ru
 max_sessions: 9
 session_max_time: 3600
+trusted_domains: []
+proxy:
+  behind_proxy: false
+  trusted_proxies: []
 name: Test Box
 restricted_user: nobody
 ssl:

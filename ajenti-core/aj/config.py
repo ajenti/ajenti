@@ -36,6 +36,7 @@ class BaseConfig():
     def ensure_structure(self):
         # Global options
         self.data.setdefault('name', None)
+        self.data.setdefault('trusted_domains', [])
         self.data.setdefault('max_sessions', 99)
         self.data.setdefault('session_max_time', 3600)
         self.data.setdefault('language', 'en')
@@ -47,6 +48,11 @@ class BaseConfig():
         self.data['auth'].setdefault('emails', {})
         self.data['auth'].setdefault('provider', 'os')
         self.data['auth'].setdefault('users_file', '/etc/ajenti/users.yml')
+
+        # Proxy
+        self.data.setdefault('proxy', {})
+        self.data['proxy'].setdefault('behind_proxy', False)
+        self.data['proxy'].setdefault('trusted_proxies', [])
 
         # SSL
         self.data.setdefault('ssl', {})
