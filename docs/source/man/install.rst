@@ -81,10 +81,10 @@ Systemd
 
 ::
 
-    systemd stop ajenti.service
-    systemd disable ajenti.service
-    systemd daemon-reload
-    rm -f /lib/systemd/system/ajenti.service
+    sudo systemctl stop ajenti.service
+    sudo systemctl disable ajenti.service
+    sudo systemctl daemon-reload
+    sudo rm -f /lib/systemd/system/ajenti.service
 
 
 SysVinit
