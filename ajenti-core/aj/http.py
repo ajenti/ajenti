@@ -20,11 +20,7 @@ def _validate_origin(env):
     valid_origin = aj.config.data['trusted_domains'] + [f'{protocol}://{env["HTTP_HOST"]}']
     request_origin = env.get('HTTP_ORIGIN', '').strip('/')
     if request_origin:
-        for origin in valid_origin:
-            # At least one origin is trusted
-            if request_origin == origin:
-                return True
-        return False
+        return request_origin in valid_origin
     return True
 
 

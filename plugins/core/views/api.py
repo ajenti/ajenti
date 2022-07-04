@@ -107,8 +107,8 @@ class Handler(HttpPlugin):
 
             # Log failed login for e.g. fail2ban
             remote_addr = http_context.env.get('REMOTE_ADDR', None)
-            if aj.config.data['proxy']['behind_proxy']:
-                if remote_addr in aj.config.data['proxy']['trusted_proxies']:
+            if len(aj.config.data['trusted_proxies']) > 0:
+                if remote_addr in aj.config.data['trusted_proxies']:
                     ip = http_context.env.get('HTTP_X_FORWARDED_FOR', '').split(',')[0]
             else:
                 ip = remote_addr
