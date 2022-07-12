@@ -30,7 +30,7 @@
     </head>
     <body class="global-color-{{identity.color || 'default'}} widescreen-mode-{{isWidescreen ? 'on' : 'off'}} {{customization.plugins.core.bodyClass}}">
         <nav class="navbar navbar-default navbar-fixed-top" ng:show="appReady" ng:cloak>
-            <a ng:if="devMode" ng:click="restart_panel()" class="btn btn-danger navbar-btn pull-right">
+            <a ng:if="devMode && identity.user" ng:click="restart_panel()" class="btn btn-danger navbar-btn pull-right">
                 <i class="fas fa-redo"></i>
             </a>
 
