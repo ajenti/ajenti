@@ -44,6 +44,11 @@ class BaseConfig():
         self.data.setdefault('restricted_user', 'nobody')
         self.data.setdefault('logo', os.path.dirname(__file__) + '/static/images/Logo.png')
 
+        # Main view
+        self.data.setdefault('view', {})
+        self.data['view'].setdefault('plugin', 'core')
+        self.data['view'].setdefault('filepath', 'content/pages/index.html')
+
         # Authentication
         self.data.setdefault('auth', {})
         self.data['auth'].setdefault('emails', {})
