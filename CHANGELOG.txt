@@ -1,6 +1,11 @@
-Ajenti 2.2.1 - dev
+Ajenti 2.2.2 - dev
 
+Ajenti 2.2.1 - 18/07/2022
 
+- Add `trusted_proxies` and `trusted_domains` parameters to config file
+- Allow resources requests from trusted domains
+- Add view parameter for custom index.html
+- Fix config structure for `smtp.yml`
 
 Ajenti 2.2.0 - 27/06/2022
 
