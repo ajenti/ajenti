@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-25 21:20+0200\n"
-"PO-Revision-Date: 2022-06-25 19:27\n"
+"POT-Creation-Date: 2022-07-18 11:25+0200\n"
+"PO-Revision-Date: 2022-07-22 14:42\n"
 "Last-Translator: \n"
 "Language-Team: Spanish\n"
 "Language: es_ES\n"
@@ -23,18 +23,21 @@ msgstr "404 - Página no encontrada"
 
 #: plugins/core/resources/partial/reset_password.html:30
 msgid "<small>The two entered passwords differ</small>"
-msgstr ""
+msgstr "<small>Las contraseñas ingresadas son diferentes</small>"
 
 #: plugins/core/resources/partial/404.html:7
 msgid "<span>\n"
 "                    <i class=\"fa fa-exclamation-triangle\" style=\"color:red;\"></i>\n"
 "                </span>\n"
 "                The URL {{url}} was not found on this server."
-msgstr ""
+msgstr "<span>\n"
+"                    <i class=\"fa fa-exclamation-triangle\" style=\"color:red;\"></i>\n"
+"                </span>\n"
+"                La URL {{url}} no se encontró en este servidor"
 
 #: plugins/core/content/pages/index.html:152
 msgid "A bootstrap error has occurred"
-msgstr ""
+msgstr "Se ha producido un error de arranque"
 
 #: plugins/core/resources/partial/login.html:32
 msgid "Authenticate"
@@ -46,7 +49,7 @@ msgstr "Elevar"
 
 #: plugins/core/resources/partial/reset_password_send.html:13
 msgid "Email"
-msgstr ""
+msgstr "Email"
 
 #: plugins/core/content/pages/index.html:135
 msgid "Enter"
@@ -62,7 +65,7 @@ msgstr "Cerrar sesión"
 
 #: plugins/core/resources/partial/reset_password.html:23
 msgid "New password"
-msgstr ""
+msgstr "Nueva contraseña"
 
 #: plugins/core/content/pages/index.html:176
 msgid "OK"
@@ -75,11 +78,11 @@ msgstr "Contraseña"
 
 #: plugins/core/resources/partial/reset_password.html:26
 msgid "Please confirm the new password"
-msgstr ""
+msgstr "Por favor confirma la nueva contraseña"
 
 #: plugins/core/resources/partial/reset_password.html:22
 msgid "Please enter the new password"
-msgstr ""
+msgstr "Por favor ingresa la nueva contraseña"
 
 #: plugins/core/content/pages/index.html:155
 #: plugins/core/resources/js/core/module.es:32
@@ -92,23 +95,23 @@ msgstr "Búsqueda Rápida"
 
 #: plugins/core/resources/partial/reset_password.html:27
 msgid "Reenter the new password"
-msgstr ""
+msgstr "Vuelve a ingresar la nueva contraseña"
 
 #: plugins/core/resources/partial/reset_password.html:34
 msgid "Reset password"
-msgstr ""
+msgstr "Restablecer la contraseña"
 
 #: plugins/core/resources/partial/reset_password_send.html:17
 msgid "Send instructions to reset password"
-msgstr ""
+msgstr "Enviar instrucciones para restablecer la contraseña"
 
 #: plugins/core/content/pages/index.html:104
 msgid "Session time : {{ counter[0] }}:{{ counter[1] }}:{{ counter[2] }}"
-msgstr ""
+msgstr "Tiempo de sesión : {{ counter[0] }}:{{ counter[1] }}:{{ counter[2] }}"
 
 #: plugins/core/resources/partial/reset_password.html:10
 msgid "The used link is not valid or expired."
-msgstr ""
+msgstr "El enlace usado no es valido o ha expirado"
 
 #: plugins/core/resources/partial/login.html:19
 msgid "Username"
@@ -142,127 +145,127 @@ msgstr "Leer el archivo de configuración"
 msgid "Write configuration file"
 msgstr "Escribir el archivo de configuración"
 
-#: plugins/core/views/api.py:132
+#: plugins/core/views/api.py:137
 msgid "Authorization failed"
 msgstr "Ha fallado la autorización"
 
 #: plugins/core/resources/js/core/interceptors.es:5
 msgid "Security error"
-msgstr ""
+msgstr "Error de seguridad"
 
 #: plugins/core/resources/js/core/interceptors.es:8
 msgid "Server error"
-msgstr ""
+msgstr "Error del servidor"
 
 #: plugins/core/resources/js/core/interceptors.es:12
 msgid "Close"
-msgstr ""
+msgstr "Cerrar"
 
 #: plugins/core/resources/js/core/interceptors.es:20
 msgid "Your session has expired"
-msgstr ""
+msgstr "Tu sesión ha expirado"
 
 #: plugins/core/resources/js/core/module.es:32
 msgid "Unhandled error occurred"
-msgstr ""
+msgstr "Ocurrió un error no controlado"
 
 #: plugins/core/resources/js/core/filters.es:7
 msgid "0 bytes"
-msgstr ""
+msgstr "0 bytes"
 
 #: plugins/core/resources/js/core/filters.es:13
 msgid "bytes"
-msgstr ""
+msgstr "bytes"
 
 #: plugins/core/resources/js/core/filters.es:14
 msgid "KB"
-msgstr ""
+msgstr "KB"
 
 #: plugins/core/resources/js/core/filters.es:15
 msgid "MB"
-msgstr ""
+msgstr "MB"
 
 #: plugins/core/resources/js/core/filters.es:16
 msgid "GB"
-msgstr ""
+msgstr "GB"
 
 #: plugins/core/resources/js/core/filters.es:17
 msgid "TB"
-msgstr ""
+msgstr "TB"
 
 #: plugins/core/resources/js/core/filters.es:18
 msgid "PB"
-msgstr ""
+msgstr "PB"
 
 #: plugins/core/resources/js/core/filters.es:40
 msgid "th"
-msgstr ""
+msgstr "to"
 
 #: plugins/core/resources/js/core/filters.es:41
 msgid "st"
-msgstr ""
+msgstr "ro"
 
 #: plugins/core/resources/js/core/filters.es:42
 msgid "nd"
-msgstr ""
+msgstr "do"
 
 #: plugins/core/resources/js/core/filters.es:43
 msgid "rd"
-msgstr ""
+msgstr "ro"
 
 #: plugins/core/resources/js/core/services/core.service.es:6
 msgid "Restart"
-msgstr ""
+msgstr "Reiniciar"
 
 #: plugins/core/resources/js/core/services/core.service.es:7
 msgid "Restart the panel?"
-msgstr ""
+msgstr "¿Reiniciar el panel?"
 
 #: plugins/core/resources/js/core/services/core.service.es:8
 msgid "Yes"
-msgstr ""
+msgstr "Sí"
 
 #: plugins/core/resources/js/core/services/core.service.es:9
 msgid "No"
-msgstr ""
+msgstr "No"
 
 #: plugins/core/resources/js/core/services/core.service.es:15
 msgid "Restarting"
-msgstr ""
+msgstr "Reiniciando"
 
 #: plugins/core/resources/js/core/services/core.service.es:19
 msgid "Restarted"
-msgstr ""
+msgstr "Reiniciado"
 
 #: plugins/core/resources/js/core/services/core.service.es:19
 msgid "Please wait"
-msgstr ""
+msgstr "Por favor espera"
 
 #: plugins/core/resources/js/core/services/core.service.es:29
 msgid "Could not restart"
-msgstr ""
+msgstr "No se pudo reiniciar"
 
 #: plugins/core/resources/js/core/services/tasks.service.es:26
 msgid "Done"
-msgstr ""
+msgstr "Hecho"
 
 #: plugins/core/resources/js/core/controllers/login.controller.es:29
 msgid "Authentication failed"
-msgstr ""
+msgstr "Autenticación fallida"
 
 #: plugins/core/resources/js/core/controllers/pwreset.controller.es:6
 msgid "If the email exists, the user will get a reset email"
-msgstr ""
+msgstr "Si el email existe, el usuario recibirá un email de restablecimiento"
 
 #: plugins/core/resources/js/core/controllers/pwreset.controller.es:31
 msgid "Password successfully changed !"
-msgstr ""
+msgstr "Contraseña cambiada correctamente !"
 
 #: plugins/core/resources/js/core/controllers/pwreset.controller.es:34
 msgid "An error occured while changing the password"
-msgstr ""
+msgstr "Un error ocurrió cuando se cambiaba la contraseña"
 
 #: plugins/core/resources/js/core/controllers/pwreset.controller.es:37
 msgid "The password complexity does not match the system requirements : "
-msgstr ""
+msgstr "La complejidad de la contraseña no coincide con los requerimientos del sistema: "
 

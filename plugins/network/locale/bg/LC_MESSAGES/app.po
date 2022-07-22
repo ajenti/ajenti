@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-27 12:10+0200\n"
-"PO-Revision-Date: 2022-06-25 19:27\n"
+"PO-Revision-Date: 2022-07-22 14:42\n"
 "Last-Translator: \n"
 "Language-Team: Bulgarian\n"
 "Language: bg_BG\n"
@@ -25,48 +25,48 @@ msgstr ""
 #: plugins/network/resources/partial/index.html:261
 #: plugins/network/resources/partial/index.html:312
 msgid "Add"
-msgstr ""
+msgstr "Добавяне"
 
 #: plugins/network/resources/partial/index.html:103
 msgid "Address"
-msgstr ""
+msgstr "Адрес"
 
 #: plugins/network/resources/partial/index.html:92
 msgid "Addressing"
-msgstr ""
+msgstr "Адресиране"
 
 #: plugins/network/resources/partial/index.html:293
 msgid "Aliases"
-msgstr ""
+msgstr "Псевдоними"
 
 #: plugins/network/resources/partial/index.html:277
 msgid "Canonical hostname"
-msgstr ""
+msgstr "Канонично име на хоста"
 
 #: plugins/network/resources/partial/index.html:55
 msgid "Checking status..."
-msgstr ""
+msgstr "Състоянието се проверява..."
 
 #: plugins/network/resources/partial/index.html:122
 msgid "Client ID"
-msgstr ""
+msgstr "№ на клиентa"
 
 #: plugins/network/resources/partial/index.html:184
 #: plugins/network/resources/partial/index.html:319
 msgid "Close"
-msgstr ""
+msgstr "Затваряне"
 
 #: plugins/network/resources/partial/index.html:233
 msgid "Configure"
-msgstr ""
+msgstr "Конфигуриране"
 
 #: plugins/network/resources/partial/index.html:191
 msgid "DNS"
-msgstr ""
+msgstr "DNS"
 
 #: plugins/network/resources/partial/index.html:210
 msgid "DNS server address"
-msgstr ""
+msgstr "Адрес на DNS сървъра"
 
 #: plugins/network/resources/partial/index.html:31
 msgid "Deactivate (down) interface"
@@ -78,57 +78,57 @@ msgstr ""
 
 #: plugins/network/resources/partial/index.html:83
 msgid "Family"
-msgstr ""
+msgstr "Семейство"
 
 #: plugins/network/resources/partial/index.html:111
 msgid "Gateway"
-msgstr ""
+msgstr "Шлюз"
 
 #: plugins/network/resources/partial/index.html:8
 msgid "Hostname"
-msgstr ""
+msgstr "Име на хоста"
 
 #: plugins/network/resources/partial/index.html:225
 msgid "Hosts"
-msgstr ""
+msgstr "Хостове"
 
 #: plugins/network/resources/partial/index.html:285
 msgid "IP address"
-msgstr ""
+msgstr "IP адрес"
 
 #: plugins/network/resources/partial/index.html:19
 msgid "Interfaces"
-msgstr ""
+msgstr "Интерфейси"
 
 #: plugins/network/resources/partial/index.html:107
 msgid "Mask"
-msgstr ""
+msgstr "Маска"
 
 #: plugins/network/resources/partial/index.html:115
 msgid "Metric"
-msgstr ""
+msgstr "Метрика"
 
 #: plugins/network/resources/partial/index.html:4 plugins/network/main.py:17
 #: plugins/network/resources/js/controllers/index.controller.es:2
 msgid "Network"
-msgstr ""
+msgstr "Мрежа"
 
 #: plugins/network/resources/partial/index.html:310
 msgid "New alias"
-msgstr ""
+msgstr "Нов псевдоним"
 
 #: plugins/network/resources/partial/index.html:259
 msgid "New host name"
-msgstr ""
+msgstr "Ново име на хоста"
 
 #: plugins/network/resources/partial/index.html:255
 #: plugins/network/resources/partial/index.html:295
 msgid "No hosts defined"
-msgstr ""
+msgstr "Няма дефинирани хостове"
 
 #: plugins/network/resources/partial/index.html:206
 msgid "No nameservers defined"
-msgstr ""
+msgstr "Няма определени имена на сървъри"
 
 #: plugins/network/resources/partial/index.html:177
 msgid "Post-down script"
@@ -150,30 +150,30 @@ msgstr ""
 #: plugins/network/resources/partial/index.html:230
 #: plugins/network/resources/partial/index.html:299
 msgid "Remove"
-msgstr ""
+msgstr "Премахване"
 
 #: plugins/network/resources/partial/index.html:34
 msgid "Restart interface"
-msgstr ""
+msgstr "Рестартиране на интерфейса"
 
 #: plugins/network/resources/partial/index.html:183
 #: plugins/network/resources/partial/index.html:219
 #: plugins/network/resources/partial/index.html:268
 #: plugins/network/resources/partial/index.html:318
 msgid "Save"
-msgstr ""
+msgstr "Запазване"
 
 #: plugins/network/resources/partial/index.html:129
 msgid "Scope"
-msgstr ""
+msgstr "Обхват"
 
 #: plugins/network/resources/partial/index.html:77
 msgid "Unknown addressing"
-msgstr ""
+msgstr "Неизвестно адресиране"
 
 #: plugins/network/resources/partial/index.html:74
 msgid "Unknown family"
-msgstr ""
+msgstr "Неизвестно семейство"
 
 #: plugins/network/resources/partial/index.html:157
 msgid "Up script"
@@ -181,37 +181,37 @@ msgstr ""
 
 #: plugins/network/resources/partial/index.html:12
 msgid "Update hostname"
-msgstr ""
+msgstr "Осъвременяване на името на хоста"
 
 #: plugins/network/main.py:31
 msgid "Configure network interfaces"
-msgstr ""
+msgstr "Настройване на мрежовите интерфейси"
 
 #: plugins/network/main.py:36
 msgid "Activate/deactivate network interfaces"
-msgstr ""
+msgstr "Активиране/деактивиране на мрежовите интерфейси"
 
 #: plugins/network/resources/js/controllers/hosts.controller.es:20
 #: plugins/network/resources/js/controllers/dns.controller.es:11
 msgid "Saved"
-msgstr ""
+msgstr "Запазено"
 
 #: plugins/network/resources/js/controllers/hosts.controller.es:22
 #: plugins/network/resources/js/controllers/dns.controller.es:13
 msgid "Could not save"
-msgstr ""
+msgstr "Не може да се запази"
 
 #: plugins/network/resources/js/controllers/index.controller.es:10
 msgid "Static"
-msgstr ""
+msgstr "Статично"
 
 #: plugins/network/resources/js/controllers/index.controller.es:11
 msgid "Auto"
-msgstr ""
+msgstr "Автоматично"
 
 #: plugins/network/resources/js/controllers/index.controller.es:13
 msgid "Manual"
-msgstr ""
+msgstr "Ръчно"
 
 #: plugins/network/resources/js/controllers/index.controller.es:14
 msgid "Loopback"
@@ -219,47 +219,47 @@ msgstr ""
 
 #: plugins/network/resources/js/controllers/index.controller.es:41
 msgid "Interface activated"
-msgstr ""
+msgstr "Задействан интерфейс"
 
 #: plugins/network/resources/js/controllers/index.controller.es:47
 #: plugins/network/resources/js/controllers/index.controller.es:60
 msgid "Warning"
-msgstr ""
+msgstr "Предупреждение"
 
 #: plugins/network/resources/js/controllers/index.controller.es:48
 msgid "Deactivating a network interface can lock you out of the remote session"
-msgstr ""
+msgstr "Деактивирането на мрежовия интерфейс може да ви блокира от отдалечената сесия"
 
 #: plugins/network/resources/js/controllers/index.controller.es:49
 msgid "Deactivate"
-msgstr ""
+msgstr "Деактивиране"
 
 #: plugins/network/resources/js/controllers/index.controller.es:50
 #: plugins/network/resources/js/controllers/index.controller.es:63
 msgid "Cancel"
-msgstr ""
+msgstr "Отказ"
 
 #: plugins/network/resources/js/controllers/index.controller.es:53
 msgid "Interface deactivated"
-msgstr ""
+msgstr "Интерфейсът деактивиран"
 
 #: plugins/network/resources/js/controllers/index.controller.es:61
 msgid "Restarting a network interface can lock you out of the remote session"
-msgstr ""
+msgstr "Рестартирането на мрежовия интерфейс може да ви блокира от отдалечената сесия"
 
 #: plugins/network/resources/js/controllers/index.controller.es:62
 msgid "Restart"
-msgstr ""
+msgstr "Рестартиране"
 
 #: plugins/network/resources/js/controllers/index.controller.es:67
 msgid "Interface reactivated"
-msgstr ""
+msgstr "Интерфейсът задействан отново"
 
 #: plugins/network/resources/js/controllers/index.controller.es:75
 msgid "Hostname changed"
-msgstr ""
+msgstr "Променено име на хоста"
 
 #: plugins/network/resources/js/controllers/index.controller.es:77
 msgid "Failed"
-msgstr ""
+msgstr "Провал"
 

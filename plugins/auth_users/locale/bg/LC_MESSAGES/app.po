@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-06-25 21:20+0200\n"
-"PO-Revision-Date: 2022-06-25 19:27\n"
+"PO-Revision-Date: 2022-07-22 14:42\n"
 "Last-Translator: \n"
 "Language-Team: Bulgarian\n"
 "Language: bg_BG\n"
@@ -20,12 +20,14 @@ msgstr ""
 #: plugins/auth_users/resources/partial/index.html:9
 msgid "<i class=\"fa fa-check\"></i>\n"
 "        <span>This module is currently used to authenticate users.</span>"
-msgstr ""
+msgstr "<i class=\"fa fa-check\"></i>\n"
+"        <span>Модулът в момента се използва за удостоверяване на потребителите.</span>"
 
 #: plugins/auth_users/resources/partial/index.html:5
 msgid "<i class=\"fa fa-warning\"></i>\n"
 "        <span>This module is currently not used to authenticate users.</span>"
-msgstr ""
+msgstr "<i class=\"fa fa-warning\"></i>\n"
+"        <span>Модулът в момента не се използва за удостоверяване на потребителите.</span>"
 
 #: plugins/auth_users/resources/partial/index.html:19
 msgid "Configure"
@@ -41,11 +43,11 @@ msgstr "Паролата по подразбиране е <code>admin</code>"
 
 #: plugins/auth_users/resources/partial/index.html:85
 msgid "Email"
-msgstr ""
+msgstr "Имейл"
 
 #: plugins/auth_users/resources/partial/index.html:106
 msgid "Filesystem root"
-msgstr ""
+msgstr "Корен на файловата система"
 
 #: plugins/auth_users/resources/partial/index.html:76
 msgid "New password"
@@ -57,7 +59,7 @@ msgstr "Ново потребителско име"
 
 #: plugins/auth_users/resources/partial/index.html:74
 msgid "No password set : the user will not be able to log in."
-msgstr ""
+msgstr "Няма зададена парола : потребителят няма да може да влезе."
 
 #: plugins/auth_users/resources/partial/index.html:113
 msgid "OK"
@@ -109,9 +111,9 @@ msgstr ""
 
 #: plugins/auth_users/resources/js/controllers/index.controller.es:92
 msgid "Password updated"
-msgstr ""
+msgstr "Обновена парола"
 
 #: plugins/auth_users/resources/js/controllers/index.controller.es:100
 msgid "This username is already taken"
-msgstr ""
+msgstr "Потребителското име вече е заето"
 
