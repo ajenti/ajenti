@@ -10,6 +10,8 @@ import {
   PageTitleService,
   ScreenService,
   SessionService,
+  GlobalConstantsService,
+  RestartService,
 } from '@ngx-ajenti/core';
 
 
@@ -26,6 +28,7 @@ export class NavBarComponent implements OnInit {
   public showSessionTimer: boolean;
   public timeLeftInSeconds: number;
   public urlPrefix: string;
+  public devMode: boolean;
   public identity?: Identity | null;
   public machine?: MachineInfo | null;
 
@@ -38,6 +41,8 @@ export class NavBarComponent implements OnInit {
     private screenService: ScreenService,
     private sessionService: SessionService,
     private sideBarService: SideBarService,
+    private globalConstantsService: GlobalConstantsService,
+    private restartService: RestartService,
   ) {
     this.corePluginCustomizations = new CorePluginCustomizationSettings();
     this.isWidescreen = false;
@@ -47,6 +52,7 @@ export class NavBarComponent implements OnInit {
     this.urlPrefix = '';
     this.identity = null;
     this.machine = null;
+    this.devMode = this.globalConstantsService.constants.ajentiDevMode;
 
     this.sessionService.timeLeftInSeconds.subscribe(this.onSessionTimeInSecondsChanged);
     this.sessionService.sessionExpiresSoon.subscribe(this.onSessionExpiresSoonChanged);
@@ -117,6 +123,11 @@ export class NavBarComponent implements OnInit {
 
   public onToggleWidescreenClick(): void {
     this.screenService.toggleIsWidescreen();
+  };
+
+  public restart_panel() : void {
+    console.log("DevMode : " + this.devMode);
+    this.restartService.restart();
   };
 
   private onSessionTimeInSecondsChanged = (timeLeftInSeconds: number): void => {

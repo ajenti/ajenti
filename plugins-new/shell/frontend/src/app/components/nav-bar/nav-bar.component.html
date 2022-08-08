@@ -1,4 +1,11 @@
 <nav class="navbar navbar-default navbar-fixed-top">
+  <a
+    class="btn btn-danger navbar-btn pull-right"
+    *ngIf="devMode"
+    (click)="restart_panel()"
+  >
+    <i class="fas fa-redo"></i>
+  </a>
   <div class="container">
     <a
       class="navbar-brand navigation-toggle hide-phone hide-tablet"

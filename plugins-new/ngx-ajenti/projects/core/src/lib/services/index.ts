@@ -37,6 +37,8 @@ export * from './page-title/page-title.service';
 export * from './push/push.service';
 export * from './push/push-notification.type';
 
+export * from './restart/restart.service';
+
 export * from './screen/screen.service';
 
 export * from './session/session.service';
