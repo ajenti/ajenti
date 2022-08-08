@@ -40,7 +40,7 @@ class Handler(HttpPlugin):
 
         :param http_context: HttpContext
         :type http_context: HttpContext
-        :return: True if successfull
+        :return: True if successful
         :rtype: bool
         """
 

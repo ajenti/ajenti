@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-01-06 18:10+0100\n"
-"PO-Revision-Date: 2022-06-25 19:27\n"
+"PO-Revision-Date: 2022-07-22 14:42\n"
 "Last-Translator: \n"
 "Language-Team: Bulgarian\n"
 "Language: bg_BG\n"
@@ -19,37 +19,37 @@ msgstr ""
 
 #: plugins/services/resources/partial/systemd_status.modal.html:8
 msgid "Close"
-msgstr ""
+msgstr "Затваряне"
 
 #: plugins/services/resources/partial/index.html:43
 msgid "Disabled"
-msgstr ""
+msgstr "Изключено"
 
 #: plugins/services/resources/partial/index.html:2
 msgid "Filter services"
-msgstr ""
+msgstr "Филтриране на услугите"
 
 #: plugins/services/resources/partial/widget.config.html:3
 msgid "Manager"
-msgstr ""
+msgstr "Управление"
 
 #: plugins/services/resources/partial/widget.config.html:7
 #: plugins/services/widget.py:9
 msgid "Service"
-msgstr ""
+msgstr "Услуга"
 
 #: plugins/services/resources/partial/index.html:40
 msgid "Static"
-msgstr ""
+msgstr "Статично"
 
 #: plugins/services/main.py:26
 #: plugins/services/resources/js/controllers/index.controller.es:2
 msgid "Services"
-msgstr ""
+msgstr "Услуги"
 
 #: plugins/services/main.py:39
 msgid "Manage system services"
-msgstr ""
+msgstr "Управляване на системните услуги"
 
 #: plugins/services/resources/js/controllers/widget.controller.es:14
 #: plugins/services/resources/js/controllers/index.controller.es:55
@@ -58,29 +58,29 @@ msgstr ""
 
 #: plugins/services/resources/js/controllers/index.controller.es:6
 msgid "Stop service"
-msgstr ""
+msgstr "Спиране на услугата"
 
 #: plugins/services/resources/js/controllers/index.controller.es:7
 msgid "Start service"
-msgstr ""
+msgstr "Пускане на услугата"
 
 #: plugins/services/resources/js/controllers/index.controller.es:8
 msgid "Restart service"
-msgstr ""
+msgstr "Рестартиране на услугата"
 
 #: plugins/services/resources/js/controllers/index.controller.es:9
 msgid "Kill service"
-msgstr ""
+msgstr "Убиване на услугата"
 
 #: plugins/services/resources/js/controllers/index.controller.es:10
 msgid "Enable service"
-msgstr ""
+msgstr "Включване на услуга"
 
 #: plugins/services/resources/js/controllers/index.controller.es:11
 msgid "Disable service"
-msgstr ""
+msgstr "Изключване на услугата"
 
 #: plugins/services/resources/js/controllers/index.controller.es:52
 msgid "Done"
-msgstr ""
+msgstr "Готово"
 

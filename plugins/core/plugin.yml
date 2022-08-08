@@ -3,7 +3,7 @@ author: Ajenti project
 email: e@ajenti.org
 url: https://ajenti.org
 docs: https://docs.ajenti.org/en/latest/plugins/core.html
-version: '0.100'
+version: '0.102'
 title: Core
 icon: link
 dependencies: []

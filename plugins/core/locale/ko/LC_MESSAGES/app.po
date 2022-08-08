@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-25 21:20+0200\n"
-"PO-Revision-Date: 2022-06-25 19:27\n"
+"POT-Creation-Date: 2022-07-18 11:25+0200\n"
+"PO-Revision-Date: 2022-07-22 14:42\n"
 "Last-Translator: \n"
 "Language-Team: Korean\n"
 "Language: ko_KR\n"
@@ -142,7 +142,7 @@ msgstr "설정 파일 읽기"
 msgid "Write configuration file"
 msgstr "설정 파일 쓰기"
 
-#: plugins/core/views/api.py:132
+#: plugins/core/views/api.py:137
 msgid "Authorization failed"
 msgstr "인증 실패"
 

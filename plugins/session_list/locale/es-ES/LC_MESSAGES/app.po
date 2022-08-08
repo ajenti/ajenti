@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-23 10:30+0200\n"
-"PO-Revision-Date: 2022-06-25 19:27\n"
+"PO-Revision-Date: 2022-07-22 14:42\n"
 "Last-Translator: \n"
 "Language-Team: Spanish\n"
 "Language: es_ES\n"
@@ -19,11 +19,11 @@ msgstr ""
 
 #: plugins/session_list/resources/partial/widget.html:3
 msgid "Authenticated users"
-msgstr ""
+msgstr "Usuarios autenticados"
 
 #: plugins/session_list/resources/partial/index.html:9
 msgid "IP"
-msgstr ""
+msgstr "IP"
 
 #: plugins/session_list/resources/partial/index.html:10
 msgid "Logged in"

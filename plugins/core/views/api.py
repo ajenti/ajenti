@@ -106,7 +106,12 @@ class Handler(HttpPlugin):
                 }
 
             # Log failed login for e.g. fail2ban
-            ip = http_context.env.get('REMOTE_ADDR', None)
+            remote_addr = http_context.env.get('REMOTE_ADDR', None)
+            if len(aj.config.data['trusted_proxies']) > 0:
+                if remote_addr in aj.config.data['trusted_proxies']:
+                    ip = http_context.env.get('HTTP_X_FORWARDED_FOR', '').split(',')[0]
+            else:
+                ip = remote_addr
             logging.warning(f"Failed login from {username} at IP : {ip}")
 
             gevent.sleep(3)

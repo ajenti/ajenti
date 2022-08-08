@@ -88,6 +88,47 @@
                 </div>
             </div>
 
+            <hr ng:show="!customization.plugins.settings.hideProxiesSettings" />
+
+            <div class="form-group" ng:show="!customization.plugins.settings.hideProxiesSettings">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div style="margin-bottom:20px;">
+                            <label translate>Trusted domains</label>
+                            <i class="fas fa-question-circle pull-right" title="{{help_trusted_domains}}"></i>
+                            <div ng:repeat="domain in config.data.trusted_domains track by $index" class="input-group">
+                                <input ng:model="config.data.trusted_domains[$index]" class="form-control" type="text" />
+                                <div class="input-group-btn">
+                                    <a ng:click="delete_trusted_domain(config.data.trusted_domains[$index])" class="btn btn-default">
+                                        <i class="fa fa-trash"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <a ng:click="add_trusted_domain()" class="btn btn-default">
+                            <i class="fa fa-plus"></i> <span translate>New domain</span>
+                        </a>
+                    </div>
+                    <div class="col-md-6">
+                        <div style="margin-bottom:20px;">
+                            <label translate>Trusted proxies</label>
+                            <i class="fas fa-question-circle pull-right" title="{{help_trusted_proxies}}"></i>
+                            <div ng:repeat="domain in config.data.trusted_proxies track by $index" class="input-group">
+                                <input ng:model="config.data.trusted_proxies[$index]" class="form-control" type="text" />
+                                <div class="input-group-btn">
+                                    <a ng:click="delete_trusted_proxy(config.data.trusted_proxies[$index])" class="btn btn-default">
+                                        <i class="fa fa-trash"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <a ng:click="add_trusted_proxy()" class="btn btn-default">
+                            <i class="fa fa-plus"></i> <span translate>New proxy</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
             <hr ng:show="!customization.plugins.settings.hideAuthSettings" />
 
             <div class="form-group" ng:show="!customization.plugins.settings.hideSessionSettings">

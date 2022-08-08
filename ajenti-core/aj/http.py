@@ -13,15 +13,14 @@ import logging
 from urllib.parse import unquote
 
 from aj.api.http import BaseHttpHandler
-
+import aj
 
 def _validate_origin(env):
     protocol = 'https' if env['SSL'] else 'http'
-    valid_origin = f'{protocol}://{env["HTTP_HOST"]}'
+    valid_origin = aj.config.data['trusted_domains'] + [f'{protocol}://{env["HTTP_HOST"]}']
     request_origin = env.get('HTTP_ORIGIN', '').strip('/')
     if request_origin:
-        if request_origin != valid_origin:
-            return False
+        return request_origin in valid_origin
     return True
 
 

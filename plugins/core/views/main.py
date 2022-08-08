@@ -72,20 +72,39 @@ class Handler(HttpPlugin):
                 logging.warning("Cannot build resources without root permissions.")
 
         manager = PluginManager.get(aj.context)
-        path = manager.get_content_path('core', 'content/pages/index.html')
-        content = open(path).read() % {
-            'prefix': http_context.prefix,
-            'plugins': json.dumps(
-                {manager[n]['info']['name']:manager[n]['info']['title'] for n in manager}
-            ),
-            'config': json.dumps(aj.config.get_non_sensitive_data()),
-            'version': str(aj.version),
-            'platform': aj.platform,
-            'platformUnmapped': aj.platform_unmapped,
-            'devMode': aj.dev,
-            'pwReset': getattr(AuthenticationService.get(self.context).get_provider(), 'pw_reset', False),
-            'bootstrapColor': aj.config.data.get('color', None),
-        }
+
+        try:
+            path = manager.get_content_path(
+                aj.config.data['view']['plugin'],
+                aj.config.data['view']['filepath'],
+            )
+        except KeyError:
+            logging.error(
+                f"Could not open template view : plugin {aj.config.data['view']['plugin']} not found"
+            )
+            path = manager.get_content_path('core', 'content/pages/index.html')
+            logging.info(f'Using default view at {path}')
+
+        if not os.path.isfile(path):
+            logging.error(f'Could not open template view: {path} not found')
+            path = manager.get_content_path('core', 'content/pages/index.html')
+            logging.info(f'Using default view at {path}')
+
+        with open(path, 'r') as view:
+            content = view.read() % {
+                'prefix': http_context.prefix,
+                'plugins': json.dumps(
+                    {manager[n]['info']['name']:manager[n]['info']['title'] for n in manager}
+                ),
+                'config': json.dumps(aj.config.get_non_sensitive_data()),
+                'version': str(aj.version),
+                'platform': aj.platform,
+                'platformUnmapped': aj.platform_unmapped,
+                'devMode': aj.dev,
+                'pwReset': getattr(AuthenticationService.get(self.context).get_provider(), 'pw_reset', False),
+                'bootstrapColor': aj.config.data.get('color', None),
+            }
+
         http_context.add_header('Content-Type', 'text/html')
         http_context.respond_ok()
         return content

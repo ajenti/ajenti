@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-27 12:10+0200\n"
-"PO-Revision-Date: 2022-06-25 19:27\n"
+"PO-Revision-Date: 2022-07-22 14:42\n"
 "Last-Translator: \n"
 "Language-Team: Bulgarian\n"
 "Language: bg_BG\n"
@@ -23,28 +23,28 @@ msgstr ""
 
 #: plugins/filesystem/resources/js/directives/fileDialog.html:29
 msgid "Cancel"
-msgstr ""
+msgstr "Отказ"
 
 #: plugins/filesystem/resources/js/directives/fileDialog.html:22
 msgid "File name"
-msgstr ""
+msgstr "Име на файла"
 
 #: plugins/filesystem/resources/partial/widget.config.html:3
 #: plugins/filesystem/resources/partial/widget.html:11
 msgid "Filesystem"
-msgstr ""
+msgstr "Файлова система"
 
 #: plugins/filesystem/resources/js/directives/fileDialog.html:28
 msgid "Save"
-msgstr ""
+msgstr "Запазване"
 
 #: plugins/filesystem/resources/js/directives/fileDialog.html:27
 msgid "Select this directory"
-msgstr ""
+msgstr "Изберете тази директория"
 
 #: plugins/filesystem/resources/partial/widget.html:4
 msgid "Total"
-msgstr ""
+msgstr "Общо"
 
 #: plugins/filesystem/resources/js/directives/fileDialog.html:11
 msgid "Up one level"
@@ -52,25 +52,25 @@ msgstr ""
 
 #: plugins/filesystem/widget.py:10
 msgid "Disk space"
-msgstr ""
+msgstr "Дисково пространство"
 
 #: plugins/filesystem/tasks.py:9
 msgid "File transfer"
-msgstr ""
+msgstr "Прехвърляне на файлове"
 
 #: plugins/filesystem/tasks.py:42
 msgid "Deleting"
-msgstr ""
+msgstr "Изтриване"
 
 #: plugins/filesystem/main.py:12
 msgid "Read from the filesystem"
-msgstr ""
+msgstr "Четене от файловата система"
 
 #: plugins/filesystem/main.py:17
 msgid "Write to the filesystem"
-msgstr ""
+msgstr "Записване във файловата система"
 
 #: plugins/filesystem/resources/js/directives/fileDialog.es:35
 msgid "Could not load directory"
-msgstr ""
+msgstr "Не можа да създаде директория"
 

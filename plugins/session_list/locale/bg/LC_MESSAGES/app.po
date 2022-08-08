@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-23 10:30+0200\n"
-"PO-Revision-Date: 2022-06-25 19:27\n"
+"PO-Revision-Date: 2022-07-22 14:42\n"
 "Last-Translator: \n"
 "Language-Team: Bulgarian\n"
 "Language: bg_BG\n"
@@ -19,33 +19,33 @@ msgstr ""
 
 #: plugins/session_list/resources/partial/widget.html:3
 msgid "Authenticated users"
-msgstr ""
+msgstr "Удостоверени потребители"
 
 #: plugins/session_list/resources/partial/index.html:9
 msgid "IP"
-msgstr ""
+msgstr "IP адрес"
 
 #: plugins/session_list/resources/partial/index.html:10
 msgid "Logged in"
-msgstr ""
+msgstr "Влезли"
 
 #: plugins/session_list/resources/partial/index.html:11
 msgid "Timeout"
-msgstr ""
+msgstr "Изтекло време за отговор"
 
 #: plugins/session_list/resources/partial/index.html:8
 msgid "User <span class=\"badge\">{{number}}</span>"
-msgstr ""
+msgstr "Потребител <span class=\"badge\">{{number}}</span>"
 
 #: plugins/session_list/widget.py:8
 msgid "Sessions"
-msgstr ""
+msgstr "Сесии"
 
 #: plugins/session_list/main.py:17
 msgid "Session list"
-msgstr ""
+msgstr "Списък на сесията"
 
 #: plugins/session_list/resources/js/controllers/index.controller.coffee:2
 msgid "List all sessions"
-msgstr ""
+msgstr "Списък всички сесии"
 

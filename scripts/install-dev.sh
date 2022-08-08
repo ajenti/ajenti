@@ -131,6 +131,8 @@ bind:
   port: 8000
 color: default
 max_sessions: 9
+trusted_domains: []
+trusted_proxies: []
 session_max_time: 3600
 name: $(hostname)
 ssl:

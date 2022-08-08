@@ -24,7 +24,7 @@ Automatic Installation in  virtual environment
 ==============================================
 
 .. CAUTION::
-    Please note that this install method is still under tests. Ajenti starts successfully on the previously mentionned supported operating systems, but all functionalities were not tested. Be kind  to report any problem with this install method as issue here : https://github.com/ajenti/ajenti/issues
+    Please note that this install method is still under tests. Ajenti starts successfully on the previously mentioned supported operating systems, but all functionalities were not tested. Be kind  to report any problem with this install method as issue here : https://github.com/ajenti/ajenti/issues
 
 ::
 
@@ -80,10 +80,10 @@ Systemd
 
 ::
 
-    systemd stop ajenti.service
-    systemd disable ajenti.service
-    systemd daemon-reload
-    rm -f /lib/systemd/system/ajenti.service
+    sudo systemctl stop ajenti.service
+    sudo systemctl disable ajenti.service
+    sudo systemctl daemon-reload
+    sudo rm -f /lib/systemd/system/ajenti.service
 
 
 SysVinit

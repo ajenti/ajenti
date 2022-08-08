@@ -3,7 +3,7 @@ author: Ajenti project
 email: e@ajenti.org
 url: https://ajenti.org
 docs: https://docs.ajenti.org/en/latest/plugins/notepad.html
-version: '0.29'
+version: '0.30'
 title: 'Notepad'
 icon: pencil
 dependencies:

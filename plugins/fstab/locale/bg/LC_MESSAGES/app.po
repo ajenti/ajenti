@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-13 21:52+0100\n"
-"PO-Revision-Date: 2022-06-25 19:27\n"
+"PO-Revision-Date: 2022-07-22 14:42\n"
 "Last-Translator: \n"
 "Language-Team: Bulgarian\n"
 "Language: bg_BG\n"
@@ -19,101 +19,101 @@ msgstr ""
 
 #: plugins/fstab/resources/partial/index.html:54
 msgid "Add"
-msgstr ""
+msgstr "Добавяне"
 
 #: plugins/fstab/resources/partial/index.html:60
 msgid "Add new device"
-msgstr ""
+msgstr "Добавяне на ново устройство"
 
 #: plugins/fstab/resources/partial/index.html:117
 #: plugins/fstab/resources/js/controllers/index.controller.es:58
 msgid "Cancel"
-msgstr ""
+msgstr "Отказ"
 
 #: plugins/fstab/resources/partial/index.html:32
 #: plugins/fstab/resources/partial/index.html:8
 msgid "Device"
-msgstr ""
+msgstr "Устройство"
 
 #: plugins/fstab/resources/partial/index.html:67
 msgid "Device:"
-msgstr ""
+msgstr "Устройство:"
 
 #: plugins/fstab/resources/partial/index.html:9
 msgid "FS Type"
-msgstr ""
+msgstr "Вид файлова система"
 
 #: plugins/fstab/resources/partial/index.html:99
 msgid "Frequency:"
-msgstr ""
+msgstr "Честота:"
 
 #: plugins/fstab/resources/partial/index.html:59
 msgid "Modify"
-msgstr ""
+msgstr "Промяна"
 
 #: plugins/fstab/resources/partial/index.html:5
 msgid "Mounted"
-msgstr ""
+msgstr "Монтирано"
 
 #: plugins/fstab/resources/partial/index.html:10
 #: plugins/fstab/resources/partial/index.html:33
 msgid "Mountpoint"
-msgstr ""
+msgstr "Точка на монтиране"
 
 #: plugins/fstab/resources/partial/index.html:75
 msgid "Mountpoint:"
-msgstr ""
+msgstr "Точка на монтиране:"
 
 #: plugins/fstab/resources/partial/index.html:83
 msgid "Options:"
-msgstr ""
+msgstr "Опции:"
 
 #: plugins/fstab/resources/partial/index.html:107
 msgid "Pass:"
-msgstr ""
+msgstr "Преминато:"
 
 #: plugins/fstab/resources/partial/index.html:118
 #: plugins/fstab/resources/partial/index.html:119
 msgid "Save"
-msgstr ""
+msgstr "Запазване"
 
 #: plugins/fstab/resources/partial/index.html:12
 msgid "Size"
-msgstr ""
+msgstr "Размер"
 
 #: plugins/fstab/resources/partial/index.html:34
 msgid "Type"
-msgstr ""
+msgstr "Тип"
 
 #: plugins/fstab/resources/partial/index.html:91
 msgid "Type:"
-msgstr ""
+msgstr "Тип:"
 
 #: plugins/fstab/resources/partial/index.html:13
 msgid "Usage"
-msgstr ""
+msgstr "Употреба"
 
 #: plugins/fstab/resources/partial/index.html:11
 msgid "Used"
-msgstr ""
+msgstr "Използвано"
 
 #: plugins/fstab/resources/js/controllers/index.controller.es:2
 msgid "Fstab"
-msgstr ""
+msgstr "Fstab"
 
 #: plugins/fstab/resources/js/controllers/index.controller.es:13
 msgid "Device successfully unmounted!"
-msgstr ""
+msgstr "Успешно демонтирано устройство!"
 
 #: plugins/fstab/resources/js/controllers/index.controller.es:31
 msgid "Fstab successfully saved!"
-msgstr ""
+msgstr "Fstab е успешно запазено!"
 
 #: plugins/fstab/resources/js/controllers/index.controller.es:56
 msgid "Do you really want to permanently delete this entry?"
-msgstr ""
+msgstr "Наистина ли искате да изтриете за постоянно този запис?"
 
 #: plugins/fstab/resources/js/controllers/index.controller.es:57
 msgid "Delete"
-msgstr ""
+msgstr "Изтриване"
 

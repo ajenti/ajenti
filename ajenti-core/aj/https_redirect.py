@@ -15,7 +15,7 @@ def http_to_https(target_url):
             return [b"""
     <html>
     <body>
-        Migratin go HTTPS protocol.
+        Migrating to HTTPS protocol.
         Please go to <a href='{self.target}'>{self.target}</a> to use Ajenti.
     </body>
     </html>"""]

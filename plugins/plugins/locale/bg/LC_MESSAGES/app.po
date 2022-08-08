@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-06-25 21:20+0200\n"
-"PO-Revision-Date: 2022-06-25 19:27\n"
+"PO-Revision-Date: 2022-07-22 14:42\n"
 "Last-Translator: \n"
 "Language-Team: Bulgarian\n"
 "Language: bg_BG\n"
@@ -23,92 +23,92 @@ msgstr ""
 
 #: plugins/plugins/resources/partial/index.html:20
 msgid "Ajenti core {{ajentiVersion}}. An upgrade to {{coreUpgradeAvailable}} is available."
-msgstr ""
+msgstr "Ядрото на Ajenti {{ajentiVersion}}. Налично за награждане до {{coreUpgradeAvailable}}."
 
 #: plugins/plugins/resources/partial/index.html:138
 #: plugins/plugins/resources/partial/index.html:196
 msgid "Author"
-msgstr ""
+msgstr "Автор"
 
 #: plugins/plugins/resources/partial/index.html:50
 msgid "Available plugins"
-msgstr ""
+msgstr "Налични приставки"
 
 #: plugins/plugins/resources/partial/index.html:160
 #: plugins/plugins/resources/partial/index.html:212
 msgid "Close"
-msgstr ""
+msgstr "Затваряне"
 
 #: plugins/plugins/resources/partial/index.html:73
 msgid "Community"
-msgstr ""
+msgstr "Общност"
 
 #: plugins/plugins/resources/partial/index.html:10
 msgid "Core"
-msgstr ""
+msgstr "Ядро"
 
 #: plugins/plugins/resources/partial/index.html:148
 msgid "Documentation"
-msgstr ""
+msgstr "Документация"
 
 #: plugins/plugins/resources/partial/index.html:190
 msgid "Downloads in the last month"
-msgstr ""
+msgstr "Изтегляния за последния месец"
 
 #: plugins/plugins/resources/partial/index.html:106
 msgid "Error"
-msgstr ""
+msgstr "Грешка"
 
 #: plugins/plugins/resources/partial/index.html:117
 msgid "Exception: <code>{{selectedInstalledPlugin.crash.cls}}</code>"
-msgstr ""
+msgstr "Изключение: <code>{{selectedInstalledPlugin.crash.cls}}</code>"
 
 #: plugins/plugins/resources/partial/index.html:74
 msgid "Filter"
-msgstr ""
+msgstr "Филтър"
 
 #: plugins/plugins/resources/partial/index.html:145
 msgid "Homepage"
-msgstr ""
+msgstr "Начална страница"
 
 #: plugins/plugins/resources/partial/index.html:209
 #: plugins/plugins/resources/partial/index.html:59
 #: plugins/plugins/resources/partial/index.html:77
 msgid "Install"
-msgstr ""
+msgstr "Инсталиране"
 
 #: plugins/plugins/resources/partial/index.html:24
 msgid "Installed plugins"
-msgstr ""
+msgstr "Инсталирани приставки"
 
 #: plugins/plugins/resources/partial/index.html:44
 msgid "Loading error"
-msgstr ""
+msgstr "Грешка при зареждане"
 
 #: plugins/plugins/resources/partial/index.html:132
 msgid "Location"
-msgstr ""
+msgstr "Местоположение"
 
 #: plugins/plugins/resources/partial/index.html:120
 msgid "Message: <code>{{selectedInstalledPlugin.crash.message}}</code>"
-msgstr ""
+msgstr "Съобщение: <code>{{selectedInstalledPlugin.crash.message}}</code>"
 
 #: plugins/plugins/resources/partial/index.html:100
 #: plugins/plugins/resources/partial/index.html:172
 msgid "Name"
-msgstr ""
+msgstr "Име"
 
 #: plugins/plugins/resources/partial/index.html:56
 msgid "Official"
-msgstr ""
+msgstr "Официално"
 
 #: plugins/plugins/resources/partial/index.html:221
 msgid "Restart panel"
-msgstr ""
+msgstr "Рестартиране на панела"
 
 #: plugins/plugins/resources/partial/index.html:115
 msgid "This plugin crashed with the following error:"
-msgstr ""
+msgstr "Приставката спря да работи със следната грешка:"
 
 #: plugins/plugins/resources/partial/index.html:110
 msgid "This plugin requires application binary <code>{{selectedInstalledPlugin.crash.binaryName}}</code>, which was unavailable during startup."
@@ -123,32 +123,32 @@ msgstr ""
 #: plugins/plugins/resources/js/controllers/index.controller.es:178
 #: plugins/plugins/resources/js/controllers/index.controller.es:180
 msgid "Uninstall"
-msgstr ""
+msgstr "Деинсталиране"
 
 #: plugins/plugins/resources/partial/index.html:154
 msgid "Update"
-msgstr ""
+msgstr "Обновяване"
 
 #: plugins/plugins/resources/partial/index.html:6
 msgid "Update everything"
-msgstr ""
+msgstr "Обновяване на всичко"
 
 #: plugins/plugins/resources/partial/index.html:3
 msgid "Updates"
-msgstr ""
+msgstr "Обновявания"
 
 #: plugins/plugins/resources/partial/index.html:41
 msgid "Upgradeable to {{getUpgrade(plugin).version}}"
-msgstr ""
+msgstr "Надграждаемо до {{getUpgrade(plugin).version}}"
 
 #: plugins/plugins/resources/partial/index.html:126
 #: plugins/plugins/resources/partial/index.html:178
 msgid "Version"
-msgstr ""
+msgstr "Версия"
 
 #: plugins/plugins/main.py:15
 msgid "Plugins"
-msgstr ""
+msgstr "Приставки"
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:19
 msgid "Could not load repository version for ajenti-panel."
@@ -160,46 +160,46 @@ msgstr ""
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:59
 msgid "Could not load the installed plugin list"
-msgstr ""
+msgstr "Списъкът с инсталирани приставки не може да се зареди"
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:105
 msgid "All plugins updated"
-msgstr ""
+msgstr "Всички приставки осъвремени"
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:107
 #: plugins/plugins/resources/js/controllers/index.controller.es:148
 #: plugins/plugins/resources/js/controllers/index.controller.es:191
 msgid "Done"
-msgstr ""
+msgstr "Готово"
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:108
 #: plugins/plugins/resources/js/controllers/index.controller.es:149
 msgid "Installed. A panel restart is required."
-msgstr ""
+msgstr "Инсталирано. Изисква се рестарт на панела."
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:109
 #: plugins/plugins/resources/js/controllers/index.controller.es:150
 #: plugins/plugins/resources/js/controllers/index.controller.es:193
 msgid "Restart now"
-msgstr ""
+msgstr "Рестартиране сега"
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:110
 #: plugins/plugins/resources/js/controllers/index.controller.es:151
 #: plugins/plugins/resources/js/controllers/index.controller.es:194
 msgid "Later"
-msgstr ""
+msgstr "По-късно"
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:114
 msgid "Some plugins failed to update"
-msgstr ""
+msgstr "Неуспешно обновяване на някои приставки"
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:154
 msgid "Install failed"
-msgstr ""
+msgstr "Неуспешно инсталиране"
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:162
 msgid "Warning"
-msgstr ""
+msgstr "Предупреждение"
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:163
 msgid "This will remove the Plugins plugin. You can reinstall it later using PIP."
@@ -207,18 +207,18 @@ msgstr ""
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:164
 msgid "Continue"
-msgstr ""
+msgstr "Продължаване"
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:165
 #: plugins/plugins/resources/js/controllers/index.controller.es:181
 msgid "Cancel"
-msgstr ""
+msgstr "Отказ"
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:192
 msgid "Uninstalled. A panel restart is required."
-msgstr ""
+msgstr "Деинсталирано. Изисква се рестарт на панела."
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:197
 msgid "Uninstall failed"
-msgstr ""
+msgstr "Неуспешно деинсталиране"
 

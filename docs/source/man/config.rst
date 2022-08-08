@@ -82,9 +82,9 @@ Explanations:
      * **enable**: **true** or **false** to enable client authentication via certificates
      * **force**: if **true**, only allows login with client certificate. If **false**, also permit authentication with password
      * **certificates**: this entry contains all client certifcates for an automatic login. It will be filled through the settings in Ajenti with the following structure:
-        * **digest**: digest of the certificat
-        * **name**: name of the certificat
-        * **serial**: serial of the certificat
+        * **digest**: digest of the certificate
+        * **name**: name of the certificate
+        * **serial**: serial of the certificate
         * **user**: username
 
 email block
@@ -130,6 +130,8 @@ Explanations:
     Default is **nobody**.
   * **session_max_time**: max validity time in seconds before automatic logout.
     Default is **3600** (one hour).
+  * **trusted_domains** ( `Ajenti` >= 2.2.1 ) : comma separated list of trusted domains under which it's possible to reach your `Ajenti` server. When the HTTP headers are tested, a valid origin will be considered as one of the domains listed. It's necessary to specify the protocol. It's mean that an entry should look like `http://my.domain.com`.
+  * **trusted_proxies** ( `Ajenti` >= 2.2.1 ) : comma separated list of trusted proxies. This is actually used in order to get the real ip of the client.
 
 smtp.yml in details
 ===================

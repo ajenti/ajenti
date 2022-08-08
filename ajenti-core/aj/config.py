@@ -15,7 +15,7 @@ class BaseConfig():
 
     .. py:attribute:: data
 
-        currenly loaded config content
+        currently loaded config content
 
     """
     def __init__(self):
@@ -36,11 +36,18 @@ class BaseConfig():
     def ensure_structure(self):
         # Global options
         self.data.setdefault('name', None)
+        self.data.setdefault('trusted_domains', [])
+        self.data.setdefault('trusted_proxies', [])
         self.data.setdefault('max_sessions', 99)
         self.data.setdefault('session_max_time', 3600)
         self.data.setdefault('language', 'en')
         self.data.setdefault('restricted_user', 'nobody')
         self.data.setdefault('logo', os.path.dirname(__file__) + '/static/images/Logo.png')
+
+        # Main view
+        self.data.setdefault('view', {})
+        self.data['view'].setdefault('plugin', 'core')
+        self.data['view'].setdefault('filepath', 'content/pages/index.html')
 
         # Authentication
         self.data.setdefault('auth', {})
@@ -122,8 +129,12 @@ class SmtpConfig(BaseConfig):
         self.data['smtp'].setdefault('user', None)
 
     def get_smtp_password(self):
-       with open(self.path, 'r') as smtp:
-            return yaml.load(smtp, Loader=yaml.SafeLoader)['smtp']['password']
+        # if smtp.yml is not provided
+        if self.data['smtp']['password'] is None:
+            return ''
+        with open(self.path, 'r') as smtp:
+            smtp_config = yaml.load(smtp, Loader=yaml.SafeLoader).get('smtp', {})
+        return smtp_config.get('password', None)
 
     def load(self):
         if not os.path.exists(self.path):

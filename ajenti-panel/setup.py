@@ -29,6 +29,8 @@ bind:
   port: 8000
 color: default
 max_sessions: 9
+trusted_domains: []
+trusted_proxies: []
 session_max_time: 3600
 name: {socket.gethostname()}
 ssl:
@@ -56,10 +58,10 @@ class install(_install):
 
 setup(
     name='ajenti-panel',
-    version='2.1.44',
+    version='2.2.1',
     python_requires='>=3',
     install_requires=[
-        'aj==2.1.44',
+        'aj==2.2.1',
         'pyyaml',
         'requests',
     ],

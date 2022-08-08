@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-06-25 21:20+0200\n"
-"PO-Revision-Date: 2022-06-25 19:27\n"
+"PO-Revision-Date: 2022-07-22 14:42\n"
 "Last-Translator: \n"
 "Language-Team: Korean\n"
 "Language: ko_KR\n"
@@ -41,11 +41,11 @@ msgstr "기본 root 암호는 <code>admin</code> 입니다."
 
 #: plugins/auth_users/resources/partial/index.html:85
 msgid "Email"
-msgstr ""
+msgstr "이메일"
 
 #: plugins/auth_users/resources/partial/index.html:106
 msgid "Filesystem root"
-msgstr ""
+msgstr "파일 시스템 관리자"
 
 #: plugins/auth_users/resources/partial/index.html:76
 msgid "New password"
@@ -97,7 +97,7 @@ msgstr "<b>root</b> 시스템 계정에 매핑된 사용자가 없습니다. 이
 
 #: plugins/auth_users/api.py:21
 msgid "Custom users"
-msgstr ""
+msgstr "사용자 맞춤설정"
 
 #: plugins/auth_users/main.py:16
 msgid "Users"
@@ -109,9 +109,9 @@ msgstr ""
 
 #: plugins/auth_users/resources/js/controllers/index.controller.es:92
 msgid "Password updated"
-msgstr ""
+msgstr "비밀번호가 변경되었습니다"
 
 #: plugins/auth_users/resources/js/controllers/index.controller.es:100
 msgid "This username is already taken"
-msgstr ""
+msgstr "이미 사용 중인 사용자 이름입니다."
 
