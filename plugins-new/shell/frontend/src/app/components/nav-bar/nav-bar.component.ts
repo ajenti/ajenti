@@ -126,7 +126,6 @@ export class NavBarComponent implements OnInit {
   };
 
   public restart_panel() : void {
-    console.log("DevMode : " + this.devMode);
     this.restartService.restart();
   };
 

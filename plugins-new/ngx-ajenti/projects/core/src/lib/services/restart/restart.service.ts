@@ -4,13 +4,17 @@
 
 import { MessageBoxService } from '../message-box/message-box.service';
 import { Injectable, Type } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
-  providedIn: 'platform',
+  providedIn: 'root',
 })
 export class RestartService {
 
-  constructor(private mbs: MessageBoxService) {};
+  constructor(
+    private mbs: MessageBoxService,
+    private httpClient: HttpClient,
+    ) {};
 
   public pageReload(): void {
     window.location.reload();
@@ -24,30 +28,20 @@ export class RestartService {
     };
   };
 
-  public forceRestart(): void {
-    console.warn("force restart");
-    this.pageReload();
+  private async forceRestart(): Promise<void> {
+    let msg = this.mbs.show('', "Restarting...", '', '', '', '', false, false, true);
+    await this.httpClient.post('/api/core/restart-master', '').subscribe((value) => {
+      setTimeout(() => {
+        msg.close()
+        this.mbs.show('', "Restarted !");
+        this.pageReload();
+        setTimeout(() => {
+          this.pageReload();
+        }, 5000);
+      }, 5000);
+    }, () => {
+      msg.close();
+      console.error("Failed to restart");
+    });
   };
-
-
-  // this.forceRestart = () => {
-  //    let msg = messagebox.show({progress: true, title: gettext('Restarting')});
-  //    return $http.post('/api/core/restart-master').then(() => {
-  //        return $timeout(() => {
-  //            msg.close();
-  //            messagebox.show({title: gettext('Restarted'), text: gettext('Please wait')});
-  //            $timeout(() => {
-  //                this.pageReload();
-  //                return setTimeout(() => { // sometimes this is not enough
-  //                    return this.pageReload();
-  //                }, 5000);
-  //            });
-  //        }, 5000);
-  //    }).catch((err) => {
-  //        msg.close();
-  //        notify.error(gettext('Could not restart'), err.message);
-  //        return $q.reject(err);
-  //    });
-  // };
-
 }
