@@ -45,7 +45,7 @@ export class SessionService {
     this.isSessionExpired = new BehaviorSubject<boolean>(false);
 
     this.timeLeftInSeconds.subscribe(this.onTimeLeftInSecondsChanged);
-    this.isSessionExpired.subscribe(this.onIsSessionTimedOutChanged);
+    this.isSessionExpired.subscribe((isSessionTimedOut) => this.onIsSessionTimedOutChanged(isSessionTimedOut));
     this.routerService.events.subscribe(this.onRouterServiceEvent);
 
     this.initialize();
