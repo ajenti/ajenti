@@ -93,7 +93,7 @@ export class SessionService {
       return;
     }
 
-    await this.identityService.redirectToNormalLogin();
+    await this.identityService.logout();
     await this.clearCountDownInterval();
   }
 
