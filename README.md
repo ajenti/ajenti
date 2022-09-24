@@ -134,7 +134,7 @@ This project follows the [all-contributors](https://github.com/all-contributors/
 Contributions of any kind welcome!
 # Contributing
 
-Helpers are welcome ! There's many ways to help in Ajenti Project : 
+Helpers are welcome ! There are many ways to help in Ajenti Project : 
 
   * [Translations](https://docs.ajenti.org/en/latest/man/contributing.html)
   * [Plugin development](https://docs.ajenti.org/en/latest/dev/intro.html)
@@ -142,13 +142,13 @@ Helpers are welcome ! There's many ways to help in Ajenti Project :
 
 ## Roadmap
 
-Actually big changes are planed and under development. A global roadmap is : 
+Actually big changes are planned and under development. A global roadmap is : 
 
   * <s>Migrating to Python3
   * Migrating to [python-socketio](https://github.com/miguelgrinberg/python-socketio)
   * Implement better API REST with @get, @post ... decorators</s>
   * Migrating from AngularJS to Angular 13 (work in progress): 
-      * plugins core and dahsboard are almost done, but there's a lot of work to migrate all other plugins. 
+      * plugins core and dashboard are almost done, but there's a lot of work to migrate all other plugins. 
       * This work take actually place in the branch [ajenti-3-dev](https://github.com/ajenti/ajenti/tree/ajenti-3-dev) and the new plugins are stored in the directory [plugins-new](https://github.com/ajenti/ajenti/tree/ajenti-3-dev/plugins-new)
       * The documentation is located at https://docs.ajenti.org/en/ajenti-3-dev/index.html
   * Add a lot of new plugins: once the migration to Angular done, we can add a lot of plugins to manage services on the server ( like apache2, nginx, postfix, etc ... ).

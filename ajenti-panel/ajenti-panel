@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#! /usr/bin/env python3
 import getopt
 import logging
 import os
@@ -15,7 +15,7 @@ import aj.plugins
 
 # Is the ajenti virtualenv installed ?
 panel_venv = '/opt/ajenti/bin/ajenti-panel'
-if os.path.isfile(panel_venv):
+if os.path.isfile(panel_venv) and os.path.abspath(__file__) != panel_venv:
     logging.info('Ajenti virtualenv detected, switching to it.')
     try:
         os.execv(panel_venv, sys.argv)
