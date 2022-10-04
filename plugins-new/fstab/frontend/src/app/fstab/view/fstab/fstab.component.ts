@@ -12,9 +12,9 @@ import { lastValueFrom } from 'rxjs';
 })
 export class FstabComponent {
 
-  mounts: Array<FileSystem> = [];
+  mounts: FileSystem[] = [];
   fstab: Fstab = {filesystems: []};
-  devices: Array<Devices> = [];
+  devices: Devices[] = [];
   showDetails: boolean;
 
 
@@ -29,29 +29,51 @@ export class FstabComponent {
   };
 
   public async loadMounts(): Promise<void> {
-    await lastValueFrom(this.httpClient.get<FileSystem[]>('/api/fstab/mounts')).then((filesystems) => {
-      this.mounts = filesystems;
-    }, () => {
-      console.error('ERROR');
-    });
+    try {
+      this.mounts = await lastValueFrom(this.httpClient.get<FileSystem[]>('/api/fstab/mounts'))
+    } catch (error) {
+      // error of type unknown, must be converted or be handled at top level
+      this.notify.error('', 'message');
+    };
   };
 
   public async umount(entry:FileSystem): Promise<void> {
-    await lastValueFrom(this.httpClient.post('/api/fstab/command_umount', {mountpoint: entry.mountpoint})).then((resp) => {
-            this.notify.success('', 'Device successfully unmounted!');
-            let position = this.mounts.indexOf(entry);
-            this.mounts.splice(position, 1);
-        });;
+    try {
+      let resp = await lastValueFrom(this.httpClient.post('/api/fstab/command_umount', {mountpoint: entry.mountpoint}));
+      this.notify.success('', this.translate.instant('Device successfully unmounted!'));
+      let position = this.mounts.indexOf(entry);
+      this.mounts.splice(position, 1);
+    } catch (error) {
+      // error of type unknown, must be converted or be handled at top level
+      this.notify.error('', 'error');
+    };
   };
 
   public async loadFstab(): Promise<void> {
-    await lastValueFrom(this.httpClient.get<Fstab>('/api/fstab')).then( (fstab) => {
-	    this.fstab = fstab;
+    try {
+      this.fstab = await lastValueFrom(this.httpClient.get<Fstab>('/api/fstab'));
       this.devices = this.fstab.filesystems;
-      console.log(this.fstab.filesystems);
-    }, () => {
-      console.error('ERROR');
-    });
+    } catch (error) {
+      // error of type unknown, must be converted or be handled at top level
+      this.notify.error('', 'error');
+    };
+  };
+
+  public edit(device: Devices): void {
+    console.log(this.translate.instant('Edit'), device);
+  };
+
+  public remove(device: Devices): void {
+    console.log('Remove', device);
+  };
+
+  public add(): void {
+    console.log('Add');
+  };
+
+  private async save(): Promise<void> {
+    let resp = await lastValueFrom(this.httpClient.post('/api/fstab', {config: this.fstab}));
+    this.notify.success('', 'Fstab successfully saved!');
   };
 
     //   OLD CODE
@@ -59,7 +81,6 @@ export class FstabComponent {
     //     $scope.edit_device = device;
     //     $scope.showDetails = true;
     // }
-    //
     //     $scope.remove = (device) => {
     //     messagebox.show({
     //         text: gettext('Do you really want to permanently delete this entry?'),

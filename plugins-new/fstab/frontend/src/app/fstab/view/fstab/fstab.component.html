@@ -41,18 +41,18 @@
             <td>{{device.mountpoint}}</td>
             <td>{{device.type}}</td>
             <td class="list-group">
-              <!--                      <button class="btn btn-default" (click)="edit(device)">-->
-              <!--                          <i class="fas fa-pen"></i>-->
-              <!--                      </button>-->
+                <button class="btn btn-default" (click)="edit(device)">
+                    <i class="fas fa-pen"></i>
+                </button>
             </td>
             <td>
-              <!--                      <button class="btn btn-default" (click)="remove(device)">-->
-              <!--                          <i class="fa fa-remove"></i>-->
-              <!--                      </button>-->
+                <button class="btn btn-default" (click)="remove(device)">
+                    <i class="fa fa-remove"></i>
+                </button>
             </td>
           </tr>
         </table>
-        <!--          <button class="btn btn-default" (click)="add()" translate>Add</button>-->
+        <button class="btn btn-default" (click)="add()" translate>Add</button>
         <dialog [hidden]="!showDetails">
           <div class="modal-header">
             <h4>BLA</h4>
