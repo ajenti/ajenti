@@ -1,7 +1,7 @@
 import subprocess
 
 from jadi import component
-from aj.plugins.services.api import ServiceManager, Service
+from aj.plugins.services.api import ServiceManager, Service, ServiceOperationError
 
 
 @component(ServiceManager)
@@ -107,7 +107,10 @@ class SystemdServiceManager(ServiceManager):
         :type _id: string
         """
 
-        subprocess.check_call(['systemctl', 'start', _id], close_fds=True)
+        try:
+            subprocess.check_call(['systemctl', 'start', _id], close_fds=True)
+        except subprocess.CalledProcessError as e:
+            raise ServiceOperationError(e)
 
     def stop(self, _id):
         """
@@ -117,7 +120,10 @@ class SystemdServiceManager(ServiceManager):
         :type _id: string
         """
 
-        subprocess.check_call(['systemctl', 'stop', _id], close_fds=True)
+        try:
+            subprocess.check_call(['systemctl', 'stop', _id], close_fds=True)
+        except subprocess.CalledProcessError as e:
+            raise ServiceOperationError(e)
 
     def restart(self, _id):
         """
@@ -127,7 +133,10 @@ class SystemdServiceManager(ServiceManager):
         :type _id: string
         """
 
-        subprocess.check_call(['systemctl', 'restart', _id], close_fds=True)
+        try:
+            subprocess.check_call(['systemctl', 'restart', _id], close_fds=True)
+        except subprocess.CalledProcessError as e:
+            raise ServiceOperationError(e)
 
     def kill(self, _id):
         """
@@ -137,7 +146,10 @@ class SystemdServiceManager(ServiceManager):
         :type _id: string
         """
 
-        subprocess.check_call(['systemctl', 'kill -s SIGKILL', _id], close_fds=True)
+        try:
+            subprocess.check_call(['systemctl', 'kill -s SIGKILL', _id], close_fds=True)
+        except subprocess.CalledProcessError as e:
+            raise ServiceOperationError(e)
 
     def disable(self, _id):
         """
@@ -147,9 +159,12 @@ class SystemdServiceManager(ServiceManager):
         :type _id: string
         """
 
-        self.stop(_id)
-        subprocess.check_call(['systemctl', 'disable', _id], close_fds=True)
-        self.daemon_reload()
+        try:
+            self.stop(_id)
+            subprocess.check_call(['systemctl', 'disable', _id], close_fds=True)
+            self.daemon_reload()
+        except subprocess.CalledProcessError as e:
+            raise ServiceOperationError(e)
 
     def enable(self, _id):
         """
@@ -159,5 +174,8 @@ class SystemdServiceManager(ServiceManager):
         :type _id: string
         """
 
-        subprocess.check_call(['systemctl', 'enable', _id], close_fds=True)
-        self.daemon_reload()
+        try:
+            subprocess.check_call(['systemctl', 'enable', _id], close_fds=True)
+            self.daemon_reload()
+        except subprocess.CalledProcessError as e:
+            raise ServiceOperationError(e)
