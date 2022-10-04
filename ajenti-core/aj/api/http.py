@@ -118,15 +118,36 @@ class HttpPlugin():
         :returns: reponse data
         """
 
+        def check_method(handle_function, http_context):
+            """
+            Check if the requested method is supported by the function,
+            e.g. avoid accept a get request in a post method
+
+            :param handle_function:
+            :type handle_function:
+            :param http_context:
+            :type http_context:
+            :return:
+            :rtype:
+            """
+
+            # Right http method called
+            if handle_function.method == http_context.method.lower():
+                return True
+
+            # Allow head request on get targets
+            if http_context.method.lower() == 'head' and handle_function.method == 'get':
+                return True
+            return False
+
         for name, handle_function in self.__class__.__dict__.items():
             if hasattr(handle_function, 'url_pattern'):
                 handle_function = getattr(self, name)
                 match = handle_function.url_pattern.match(http_context.path)
                 if match:
+                    # New decorators @get, @post, @delete ... used
                     if hasattr(handle_function, 'method'):
-                        # Check if the requested method is supported by the
-                        # function, e.g. avoid accept a get request in a post method
-                        if handle_function.method == http_context.method.lower():
+                        if check_method(handle_function, http_context):
                             http_context.route_data = match.groupdict()
                             data = handle_function(http_context, **http_context.route_data)
                             if isinstance(data, str):
