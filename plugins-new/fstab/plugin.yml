@@ -1,0 +1,26 @@
+name: fstab
+author: Arnaud Kientz
+email: arnaud@linuxmuster.net
+url: https://ajenti.org
+docs: https://docs.ajenti.org/en/latest/plugins/fstab.html
+version: '0.4'
+title: 'Fstab'
+icon: hdd
+requires-angular-build: true
+frontend-settings:
+    remote-entry: 'http://localhost:4203/remoteEntry.js' # For debug purposes. Keep empty for production!
+    remote-name: 'fstab'
+    exposed-module: './Module'
+    display-name: 'Fstab'
+    route-path: 'fstab'
+    ng-module-name: 'FstabModule'
+dependencies:
+    - !PluginDependency { plugin_name: core }
+resources:
+    - path: frontend/dist/vendor.js
+      vendor: true
+    - frontend/dist/polyfills.js
+    - frontend/dist/runtime.js
+    - frontend/dist/styles.css
+    - frontend/dist/main.js
+    - ng:ajenti.fstab
