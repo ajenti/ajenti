@@ -4,6 +4,8 @@ import { FileSystem } from './filesystem.type';
 import { Devices, Fstab } from './devices.type';
 import { NotificationService, TranslateService } from '@ngx-ajenti/core';
 import { lastValueFrom } from 'rxjs';
+import { FstabDialogComponent } from '../fstab-dialog/fstab-dialog.component';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-fstab',
@@ -17,11 +19,11 @@ export class FstabComponent {
   devices: Devices[] = [];
   showDetails: boolean;
 
-
   constructor (
     private httpClient: HttpClient,
     private translate: TranslateService,
     private notify: NotificationService,
+    private dialog: MatDialog,
   ) {
     this.loadMounts();
     this.loadFstab();
@@ -61,6 +63,11 @@ export class FstabComponent {
 
   public edit(device: Devices): void {
     console.log(this.translate.instant('Edit'), device);
+    let config = new MatDialogConfig();
+    config.autoFocus = true;
+    config.data = device;
+
+    let dialogRef = this.dialog.open(FstabDialogComponent, config);
   };
 
   public remove(device: Devices): void {

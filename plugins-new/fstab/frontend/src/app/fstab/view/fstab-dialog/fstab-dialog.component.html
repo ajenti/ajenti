@@ -1,0 +1,8 @@
+<h1 mat-dialog-title>Edit device</h1>
+<div mat-dialog-content>
+  <p>{{data.mountpoint}}</p>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
+</div>

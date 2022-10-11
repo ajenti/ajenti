@@ -1,8 +1,8 @@
 <br />
 
 <div>
-    <mat-tab-group>
-      <mat-tab label="{{'Mounted'|translate}}">
+<!--    <mat-tab-group>-->
+<!--      <mat-tab label="{{'Mounted'|translate}}">-->
         <table class="table">
             <tr>
                 <th translate>Device</th>
@@ -119,33 +119,33 @@
             <!--              <button type="submit" ng:click="saveNew()" class="btn btn-default btn-flat pull-right" ng:show="$parent.add_new" translate>Save</button>-->
           </div>
         </dialog>
-      </mat-tab>
-      <mat-tab label="Fstab">
-          <table class="table">
-              <tr>
-                  <th translate>Device</th>
-                  <th translate>Mountpoint</th>
-                  <th translate>Type</th>
-                  <th translate> </th>
-                  <th translate> </th>
-              </tr>
-              <tr *ngFor="let device of devices">
-                  <td>{{device.device}}</td>
-                  <td>{{device.mountpoint}}</td>
-                  <td>{{device.type}}</td>
-                  <td class="list-group">
+<!--      </mat-tab>-->
+<!--      <mat-tab label="Fstab">-->
+<!--          <table class="table">-->
+<!--              <tr>-->
+<!--                  <th translate>Device</th>-->
+<!--                  <th translate>Mountpoint</th>-->
+<!--                  <th translate>Type</th>-->
+<!--                  <th translate> </th>-->
+<!--                  <th translate> </th>-->
+<!--              </tr>-->
+<!--              <tr *ngFor="let device of devices">-->
+<!--                  <td>{{device.device}}</td>-->
+<!--                  <td>{{device.mountpoint}}</td>-->
+<!--                  <td>{{device.type}}</td>-->
+<!--                  <td class="list-group">-->
 <!--                      <button class="btn btn-default" (click)="edit(device)">-->
 <!--                          <i class="fas fa-pen"></i>-->
 <!--                      </button>-->
-                  </td>
-                  <td>
+<!--                  </td>-->
+<!--                  <td>-->
 <!--                      <button class="btn btn-default" (click)="remove(device)">-->
 <!--                          <i class="fa fa-remove"></i>-->
 <!--                      </button>-->
-                  </td>
-              </tr>
-          </table>
+<!--                  </td>-->
+<!--              </tr>-->
+<!--          </table>-->
 <!--          <button class="btn btn-default" (click)="add()" translate>Add</button>-->
-      </mat-tab>
-    </mat-tab-group>
+<!--      </mat-tab>-->
+<!--    </mat-tab-group>-->
 </div>
