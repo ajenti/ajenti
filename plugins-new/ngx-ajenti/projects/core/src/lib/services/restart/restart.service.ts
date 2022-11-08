@@ -21,7 +21,7 @@ export class RestartService {
   };
 
   public restart(): void {
-    const messageBox = this.mbs.show("Restart the panel ?", "Restart ?", undefined,undefined, "Yes", "No");
+    const messageBox = this.mbs.show({text:"Restart the panel ?", title:"Restart ?", acceptButtonLabel: "Yes", cancelButtonLabel: "No"});
 
     messageBox.accepted = () => {
       this.forceRestart();
@@ -29,11 +29,11 @@ export class RestartService {
   };
 
   private async forceRestart(): Promise<void> {
-    let msg = this.mbs.show('', "Restarting...", '', '', '', '', false, false, true);
+    let msg = this.mbs.show({title:"Restarting...", visible: false, progress: true});
     await this.httpClient.post('/api/core/restart-master', '').subscribe((value) => {
       setTimeout(() => {
         msg.close()
-        this.mbs.show('', "Restarted !");
+        this.mbs.show({title:"Restarted !"});
         this.pageReload();
         setTimeout(() => {
           this.pageReload();

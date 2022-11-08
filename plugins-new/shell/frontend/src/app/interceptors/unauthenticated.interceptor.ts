@@ -63,12 +63,12 @@ export class UnauthenticatedInterceptor implements HttpInterceptor {
     const closeButtonText = this.translateService.instant('Close');
     const injectedComponentData = error;
 
-    this.messageBoxService.show('', messageBoxTitle,
-      undefined,
-      undefined,
-      undefined, closeButtonText,
-      false, false, false,
-      ServerErrorMessageComponent, injectedComponentData);
+    this.messageBoxService.show({
+      title:messageBoxTitle,
+      cancelButtonLabel: closeButtonText,
+      visible:false,
+      injectedComponentType:ServerErrorMessageComponent,
+      injectComponentData:injectedComponentData});
   }
 
   private handleExpiredSession(error: any): void {
