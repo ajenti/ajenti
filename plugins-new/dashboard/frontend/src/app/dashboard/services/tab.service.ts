@@ -47,8 +47,11 @@ export class TabService {
     const acceptButtonLabel = this.translateService.instant('OK');
     const cancelButtonLabel = this.translateService.instant('Cancel');
 
-    const messageBox = this.messageBoxService.show(undefined, undefined, messageBoxTitle,
-      '', acceptButtonLabel, cancelButtonLabel);
+    const messageBox = this.messageBoxService.show({
+      promptText:messageBoxTitle,
+      acceptButtonLabel:acceptButtonLabel,
+      cancelButtonLabel:cancelButtonLabel
+    });
 
     messageBox.accepted = () => {
       if (messageBox.value) {
@@ -63,8 +66,12 @@ export class TabService {
     const acceptButtonLabel = this.translateService.instant('OK');
     const cancelButtonLabel = this.translateService.instant('Cancel');
 
-    const messageBox = this.messageBoxService.show(undefined, undefined, promptTitle,
-      promptInitialValue, acceptButtonLabel, cancelButtonLabel);
+    const messageBox = this.messageBoxService.show({
+      promptText:promptTitle,
+      promptInitialValue:promptInitialValue,
+      acceptButtonLabel:acceptButtonLabel,
+      cancelButtonLabel:cancelButtonLabel,
+    });
 
     messageBox.accepted = () => {
       if (messageBox.value) {
@@ -82,7 +89,11 @@ export class TabService {
     const messageboxTitle = this.translateService.instant('Remove the \'' + this.activeTabName + '\' tab?');
     const positiveButtonTitle = this.translateService.instant('Remove');
     const negativeButtonTitle = this.translateService.instant('Cancel');
-    const messageBox = this.messageBoxService.show(messageboxTitle, undefined, undefined, undefined, positiveButtonTitle, negativeButtonTitle);
+    const messageBox = this.messageBoxService.show({
+      title:messageboxTitle,
+      acceptButtonLabel:positiveButtonTitle,
+      cancelButtonLabel:negativeButtonTitle
+    });
     messageBox.accepted = () => {
       this.setActiveTab(this._tabs[0].name);
       this.dashboardConfigService.removeTab(indexTabToDelete);

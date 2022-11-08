@@ -4,6 +4,7 @@
 import { BehaviorSubject, Observable } from 'rxjs';
 import { MessageBox } from './message-box.model';
 import { Injectable, Type } from '@angular/core';
+import { MessageBoxParams } from './message-box-params.interface';
 
 @Injectable({
   providedIn: 'platform',
@@ -40,14 +41,34 @@ export class MessageBoxService {
    *
    * @returns The shown message box object.
    */
-  public show(
-    text: string = '', title: string = '', promptText: string = '', promptInitialValue: string = '',
-    acceptButtonLabel: string = '', cancelButtonLabel: string = '', visible: boolean = false,
-    scrollable: boolean = false, progress: boolean = false, injectedComponentType?: Type<any>, injectComponentData?: any,
-  ): MessageBox {
+  public show(params: Partial<MessageBoxParams> ): MessageBox {
+    const defaultValues = {
+      text: '',
+      title: '',
+      promptText: '',
+      promptInitialValue: '',
+      acceptButtonLabel: '',
+      cancelButtonLabel: '',
+      visible: true,
+      scrollable: false,
+      progress: false,
+      injectedComponentType: undefined,
+      injectComponentData: '',
+    };
+    const options = {...defaultValues, ...params};
     const messageBox = new MessageBox(
-      this.close, text, promptText, promptInitialValue, acceptButtonLabel,
-      cancelButtonLabel, true, scrollable, progress, title, injectedComponentType, injectComponentData,
+      this.close,
+      options.text,
+      options.promptText,
+      options.promptInitialValue,
+      options.acceptButtonLabel,
+      options.cancelButtonLabel,
+      options.visible,
+      options.scrollable,
+      options.progress,
+      options.title,
+      options.injectedComponentType,
+      options.injectComponentData,
     );
 
     const messageBoxes = this._messageBoxes.value;
@@ -66,7 +87,7 @@ export class MessageBoxService {
    * @returns The shown message box object.
    */
   public prompt(label: string, initialValue: string = ''): MessageBox {
-    return this.show('', label, initialValue, 'OK', 'Cancel');
+    return this.show({title: label, promptInitialValue:initialValue, acceptButtonLabel: 'OK', cancelButtonLabel: 'Cancel'});
   }
 
   /**

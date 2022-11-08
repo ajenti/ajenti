@@ -64,12 +64,14 @@ export class WidgetContainerComponent implements OnInit {
     const title = this.translateService.instant('Settings');
     const acceptButtonLabel = this.translateService.instant('Save');
     const cancelButtonLabel = this.translateService.instant('Cancel');
-    const messageBox = this.messageBoxService.show(undefined, title,
-      undefined,
-      undefined,
-      acceptButtonLabel, cancelButtonLabel,
-      false, false, false,
-      this.widgetConfigComponent, this.widget.config);
+    const messageBox = this.messageBoxService.show({
+      title:title,
+      acceptButtonLabel:acceptButtonLabel,
+      cancelButtonLabel:cancelButtonLabel,
+      visible:false,
+      injectedComponentType:this.widgetConfigComponent,
+      injectComponentData:this.widget.config,
+    });
 
     messageBox.accepted = () => {
       this.dashboardConfigService.changeWidgetConfig(this.widget.id, messageBox.injectedComponentInstance?.getData());
