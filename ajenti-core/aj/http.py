@@ -132,7 +132,7 @@ class HttpContext():
         self.method = self.env['REQUEST_METHOD'].upper()
 
         self.env.setdefault('QUERY_STRING', '')
-        if self.method in ['POST', 'PUT']:
+        if self.method in ['POST', 'PUT', 'PATCH']:
             ctype = self.env.get('CONTENT_TYPE', 'application/x-www-form-urlencoded')
             if 'wsgi.input' in self.env:
                 self.body = self.env['wsgi.input'].read()
