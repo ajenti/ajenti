@@ -1,16 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, OnChanges, SimpleChanges, DoCheck } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FileSystem } from './filesystem.type';
 import { Devices, Fstab } from './devices.type';
-import { NotificationService, TranslateService } from '@ngx-ajenti/core';
+import { MessageBoxService, NotificationService, TranslateService } from '@ngx-ajenti/core';
 import { lastValueFrom } from 'rxjs';
-import { FstabDialogComponent } from '../fstab-dialog/fstab-dialog.component';
-import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+// import { FstabDialogComponent } from '../fstab-dialog/fstab-dialog.component';
 
 @Component({
   selector: 'app-fstab',
   templateUrl: './fstab.component.html',
-  //styleUrls: [ '../style.less' ],
+  styleUrls: [ './fstab.component.less' ],
 })
 export class FstabComponent {
 
@@ -23,7 +22,7 @@ export class FstabComponent {
     private httpClient: HttpClient,
     private translate: TranslateService,
     private notify: NotificationService,
-    private dialog: MatDialog,
+    private messageBoxService: MessageBoxService,
   ) {
     this.loadMounts();
     this.loadFstab();
@@ -45,6 +44,8 @@ export class FstabComponent {
       this.notify.success('', this.translate.instant('Device successfully unmounted!'));
       let position = this.mounts.indexOf(entry);
       this.mounts.splice(position, 1);
+      // test
+      this.mounts = [...this.mounts, this.mounts[1]];
     } catch (error) {
       // error of type unknown, must be converted or be handled at top level
       this.notify.error('', 'error');
@@ -63,11 +64,14 @@ export class FstabComponent {
 
   public edit(device: Devices): void {
     console.log(this.translate.instant('Edit'), device);
-    let config = new MatDialogConfig();
-    config.autoFocus = true;
-    config.data = device;
-
-    let dialogRef = this.dialog.open(FstabDialogComponent, config);
+    const messageBox = this.messageBoxService.show({
+      title:"Title",
+      acceptButtonLabel:"OK",
+      cancelButtonLabel:"Cancel",
+      visible:true,
+      // injectedComponentType: Type<Devices>,
+      // injectComponentData:device,
+    });
   };
 
   public remove(device: Devices): void {
