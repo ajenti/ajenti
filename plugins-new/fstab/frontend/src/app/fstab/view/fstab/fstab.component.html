@@ -21,12 +21,10 @@
                 <td>{{entry.size | formatBytes}}</td>
                 <td><ajenti-smart-progress [animate]="true" [value]="entry.usage" [max]="1"></ajenti-smart-progress></td>
                 <td width="1">
-                    <button class="btn btn-default" (click)="umount(entry)"><i class="fas fa-eject"></i></button>
+                    <button class="btn btn-default" (click)="onUmountClick(entry)"><i class="fas fa-eject"></i></button>
                 </td>
             </tr>
         </table>
-
-        <div *ngFor="let value of test">{{value}}</div>
 
         <h2>FSTAB</h2>
 
