@@ -203,9 +203,14 @@ class TFAConfig(BaseConfig):
     def delete_user_totp(self, data):
         config = self._read()
         userid = data['userid']
-        for secret in config['users'].get(userid, {}).get('totp', []):
+        totps = config['users'].get(userid, {}).get('totp', [])
+        for secret in totps:
             if str(secret['created']) == data['timestamp']:
-                config['users'][userid]['totp'].remove(secret)
+                if len(totps) == 1:
+                    # Remove completely user entry
+                    del config['users'][userid]
+                else:
+                    config['users'][userid]['totp'].remove(secret)
                 break
         self._save(config)
         self.load()
