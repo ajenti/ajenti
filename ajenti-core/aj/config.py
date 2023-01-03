@@ -161,6 +161,79 @@ class SmtpConfig(BaseConfig):
                 ).decode('utf-8')
             )
 
+class TFAConfig(BaseConfig):
+    """
+    Class to handle the TFA yaml file which contains secrets for e.g. TOTP
+    Config file is located at /etc/ajenti/tfa.yml and should have the following
+    structure :
+    totp:
+      user@auth_id:
+        secret_id:
+          created: DATE
+          description: DESCRIPTION
+          secret: random key in base32 with 32 chars
+    """
+
+    def __init__(self):
+        BaseConfig.__init__(self)
+        self.data = {}
+        self.path = '/etc/ajenti/tfa.yml'
+        self.verify_totp = {}
+
+    def ensure_structure(self):
+        self.data.setdefault('totp', {})
+
+    def get_user_totp_secrets(self, userid):
+        with open(self.path, 'r') as tfa:
+            tfa_config = yaml.load(tfa, Loader=yaml.SafeLoader).get('users', {})
+            user_secrets = tfa_config.get(userid, {}).get('totp', [])
+        return [details['secret'] for details in user_secrets]
+
+    def append_user_totp(self, data):
+        config = self._read()
+        userid = data['userid']
+        if config['users'].get(userid, {}).get('totp', []):
+            config['users'][userid]['totp'].append(data['secret_details'])
+            self.verify_totp[userid] = None
+        else:
+            config['users'][userid]['totp'] = [data['secret_details']]
+        self._save(config)
+
+    def delete_user_totp(self, data):
+        config = self._read()
+        userid = data['userid']
+        for secret in config['users'].get(userid, {}).get('totp', []):
+            print(secret, data, secret['created'] == data['timestamp'])
+            if str(secret['created']) == data['timestamp']:
+                config['users'][userid]['totp'].remove(secret)
+                break
+        self._save(config)
+
+    def _read(self):
+        with open(self.path, 'r') as tfa:
+            return yaml.load(tfa, Loader=yaml.SafeLoader)
+
+    def load(self):
+        with open(self.path, 'r') as tfa:
+            self.data = yaml.load(tfa, Loader=yaml.SafeLoader).get('users', {})
+        # Don't keep secrets in memory and prepare verify values per user involved
+        for userid, tfa_methods in self.data.items():
+            self.verify_totp[userid] = None
+            for tfa_method, values in tfa_methods.items():
+                for entry in values:
+                    entry['secret'] = ''
+
+    def _save(self, data):
+        with open(self.path, 'w') as tfa:
+            tfa.write(
+                yaml.safe_dump(
+                    data,
+                    default_flow_style=False,
+                    encoding='utf-8',
+                    allow_unicode=True
+                ).decode('utf-8')
+           )
+
 class AjentiUsers(BaseConfig):
     """
     Class to handle the users config file for the auth-user plugin.
