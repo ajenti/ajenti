@@ -181,7 +181,7 @@ class TFAConfig(BaseConfig):
         self.verify_totp = {}
 
     def ensure_structure(self):
-        self.data.setdefault('totp', {})
+        self.data.setdefault('users', {})
 
     def get_user_totp_secrets(self, userid):
         with open(self.path, 'r') as tfa:
@@ -196,7 +196,7 @@ class TFAConfig(BaseConfig):
             config['users'][userid]['totp'].append(data['secret_details'])
             self.verify_totp[userid] = None
         else:
-            config['users'][userid]['totp'] = [data['secret_details']]
+            config['users'][userid] = {'totp': [data['secret_details']]}
         self._save(config)
         self.load()
 
@@ -211,18 +211,25 @@ class TFAConfig(BaseConfig):
         self.load()
 
     def _read(self):
-        with open(self.path, 'r') as tfa:
-            return yaml.load(tfa, Loader=yaml.SafeLoader)
+        if os.path.exists(self.path):
+            with open(self.path, 'r') as tfa:
+                return yaml.load(tfa, Loader=yaml.SafeLoader)
+        else:
+            return {'users': {}}
 
     def load(self):
-        with open(self.path, 'r') as tfa:
-            self.data = yaml.load(tfa, Loader=yaml.SafeLoader).get('users', {})
-        # Don't keep secrets in memory and prepare verify values per user involved
-        for userid, tfa_methods in self.data.items():
-            self.verify_totp[userid] = None
-            for tfa_method, values in tfa_methods.items():
-                for entry in values:
-                    entry['secret'] = ''
+        if os.path.exists(self.path):
+            os.chmod(self.path, 384)  # 0o600
+            with open(self.path, 'r') as tfa:
+                self.data = yaml.load(tfa, Loader=yaml.SafeLoader).get('users', {})
+            # Don't keep secrets in memory and prepare verify values per user involved
+            for userid, tfa_methods in self.data.items():
+                self.verify_totp[userid] = None
+                for tfa_method, values in tfa_methods.items():
+                    for entry in values:
+                        entry['secret'] = ''
+        else:
+            self.ensure_structure()
 
     def _save(self, data):
         with open(self.path, 'w') as tfa:
@@ -234,6 +241,7 @@ class TFAConfig(BaseConfig):
                     allow_unicode=True
                 ).decode('utf-8')
            )
+        os.chmod(self.path, 384)  # 0o600
 
 class AjentiUsers(BaseConfig):
     """
