@@ -5,6 +5,7 @@ angular.module('core').controller('CoreLoginController', function($scope, $log, 
     $scope.verif_code = false;
     $scope.showPWReset = $rootScope.pwReset == 'True';
     $scope.showPassword = false;
+    $scope.totp_attempts = 0;
 
     $scope.toggleShowPassword = () => $scope.showPassword = !$scope.showPassword;
 
@@ -18,14 +19,17 @@ angular.module('core').controller('CoreLoginController', function($scope, $log, 
     $scope.verify = ($event) => {
         code = $event.code;
         if (code.toString().length == 6) {
+            $scope.totp_attempts++;
             identity.auth($scope.username, code, "totp").then((response) => {
                 $scope.success = true;
                 location.href = customization.plugins.core.loginredir || $routeParams.nextPage || '/';
             }, error => {
-                $scope.working = false;
                 $event.code = "";
                 $log.log('Wrong TOTP', error);
                 notify.error(gettext('Wrong TOTP'));
+                if ($scope.totp_attempts == 3) {
+                    $scope.closeTotpDialog();
+                }
             });
         }
     }
@@ -33,6 +37,9 @@ angular.module('core').controller('CoreLoginController', function($scope, $log, 
     $scope.closeTotpDialog = () => {
         $scope.working = false;
         $scope.verif_code = false;
+        $scope.totp_attempts = 0;
+        $scope.username = '';
+        $scope.password = '';
     }
 
     $scope.login = () => {
