@@ -41,4 +41,17 @@
         <div class="col-sm-4">
         </div>
     </div>
+    <dialog ng:show="verif_code">
+       <div class="modal-header">
+            <h4><span translate>Please enter TOTP verification code:</span></h4>
+        </div>
+        <div class="modal-body">
+            <div class="input-group">
+                <input class="form-control" ng:model="code" ng:change="verify(this)" />
+            </div>
+        </div>
+        <div class="modal-footer">
+            <a ng:click="closeTotpDialog()" class="btn btn-default btn-flat" translate>Cancel</a>
+        </div>
+    </dialog>
 </div>

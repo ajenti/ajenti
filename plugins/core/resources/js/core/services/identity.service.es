@@ -28,10 +28,13 @@ angular.module('core').service('identity', function($http, $location, $window, $
             if (!response.data.success) {
                 return $q.reject(response.data.error);
             }
+            return $q.resolve(response);
         })
     };
 
     this.login = () => $window.location.assign(`${urlPrefix}/view/login/normal/${$location.path()}`);
+
+    this.manage_totp = () => $window.location.assign(`${urlPrefix}/view/totp`);
 
     this.elevate = function() {
         return $timeout(() => {
