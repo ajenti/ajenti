@@ -1,8 +1,8 @@
 <br />
 
-<div class="alert alert-info" ng:show="!totp" translate>There is currently no TOTP key for this user.</div>
+<div class="alert alert-info" ng:show="totp.length == 0" translate>There is currently no TOTP key for this user.</div>
 
-<div ng:show="totp">
+<div ng:show="totp.length > 0">
     <table class="table">
         <tr>
             <th translate>User</th>
