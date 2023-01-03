@@ -203,7 +203,6 @@ class TFAConfig(BaseConfig):
         config = self._read()
         userid = data['userid']
         for secret in config['users'].get(userid, {}).get('totp', []):
-            print(secret, data, secret['created'] == data['timestamp'])
             if str(secret['created']) == data['timestamp']:
                 config['users'][userid]['totp'].remove(secret)
                 break

@@ -88,22 +88,31 @@ class Handler(HttpPlugin):
     @post('/api/core/totps/qr')
     @endpoint(api=True)
     def handle_generate_totp_qr(self, http_context):
-        user = http_context.json_body()['user']
+        user = self.context.identity
         secret =  http_context.json_body()['secret']
         return TOTP(user, secret).make_b64qrcode()
+
+    @post('/api/core/totps')
+    @endpoint(api=True)
+    def handle_append_user_totp(self, http_context):
+        user = self.context.identity
+        secret_details = http_context.json_body()['secret']
+        auth_id = AuthenticationService.get(self.context).get_provider().id
+        data = {'type': 'append', 'userid':f'{user}@{auth_id}', 'secret_details': secret_details}
+        self.context.worker.change_totp(data)
 
     @delete('/api/core/totps/(?P<timestamp>\d*)')
     @endpoint(api=True)
     def handle_delete_user_totp(self, http_context, timestamp):
         user = self.context.identity
         auth_id = AuthenticationService.get(self.context).get_provider().id
-        data = {'userid':f'{user}@{auth_id}', 'timestamp': timestamp}
-        return aj.tfa_config.delete_user_totp(data)
+        data = {'type': 'delete', 'userid':f'{user}@{auth_id}', 'timestamp': timestamp}
+        self.context.worker.change_totp(data)
 
     @post('/api/core/totps/verify')
     @endpoint(api=True)
     def handle_verify_totp(self, http_context):
-        user = http_context.json_body()['user']
+        user = self.context.identity
         secret = http_context.json_body()['secret']
         code = http_context.json_body()['code']
         return TOTP(user, secret).verify(code)

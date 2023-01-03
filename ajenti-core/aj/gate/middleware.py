@@ -147,6 +147,11 @@ class GateMiddleware():
             if not session.is_dead() and gate_id == id(session.gate):
                 session.gate.verify_totp(userid, code)
 
+    def change_totp(self, data, gate_id):
+        for session in self.sessions.values():
+            if not session.is_dead() and gate_id == id(session.gate):
+                session.gate.change_totp(data)
+
     def broadcast_sessionlist(self):
         self.restricted_gate.send_sessionlist()
         for session in self.sessions.values():

@@ -96,6 +96,23 @@ class WorkerGate():
             'data': {'result': False, 'userid': userid}
         })
 
+    def change_totp(self, data):
+        if data['type'] == 'delete':
+            aj.tfa_config.delete_user_totp({
+                'userid': data['userid'],
+                'timestamp': data['timestamp']
+            })
+        elif data['type'] == 'append':
+            aj.tfa_config.append_user_totp({
+                'userid': data['userid'],
+                'secret_details': data['secret_details']
+            })
+        gevent.sleep(0.1)
+        self.stream.send({
+            'type': 'update-tfa-config',
+            'data': aj.tfa_config.data,
+        })
+
     def send_sessionlist(self):
         logging.debug(f'Sending a session list update to {self.name}')
         self.stream.send({
@@ -126,6 +143,11 @@ class WorkerGate():
                     self.gateway_middleware.verify_totp(
                         resp.object['userid'],
                         resp.object['code'],
+                        id(self)
+                    )
+                if resp.object['type'] == 'change_totp':
+                    self.gateway_middleware.change_totp(
+                        resp.object['data'],
                         id(self)
                     )
                 if resp.object['type'] == 'reload-config':

@@ -71,13 +71,6 @@ class Worker():
 
         self._master_config_reloaded = Event()
 
-    def verify_totp(self, userid, code):
-        self.send_to_upstream({
-            'type': 'verify_totp',
-            'userid': userid,
-            'code': code,
-        })
-
     def demote(self, uid, gid=None):
         try:
             username = pwd.getpwuid(uid).pw_name
@@ -160,6 +153,9 @@ class Worker():
                     result = rq.object['data']['result']
                     aj.tfa_config.verify_totp[userid] = result
 
+                if rq.object['type'] == 'update-tfa-config':
+                    aj.tfa_config = rq.object['data']
+
         # pylint: disable=W0703
         except Exception:
             logging.error('Worker crashed!')
@@ -168,6 +164,19 @@ class Worker():
     def terminate(self):
         self.send_to_upstream({
             'type': 'terminate',
+        })
+
+    def change_totp(self, data):
+        self.send_to_upstream({
+            'type': 'change_totp',
+            'data': data,
+        })
+
+    def verify_totp(self, userid, code):
+        self.send_to_upstream({
+            'type': 'verify_totp',
+            'userid': userid,
+            'code': code,
         })
 
     def update_sessionlist(self):

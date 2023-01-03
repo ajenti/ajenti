@@ -1,11 +1,9 @@
-angular.module('core').controller('CoreTotpController', function($scope, $log, $rootScope, $routeParams, $http, $window, identity, notify, gettext, customization) {
+angular.module('core').controller('CoreTotpController', function($scope, $log, $rootScope, $routeParams, $http, $window, identity, notify, gettext, messagebox, customization) {
     $scope.add_new = false;
     identity.promise.then(() => $scope.user = identity.user);
 
-    //$http.get('/api/core/user-config').then((resp) => $scope.totp = resp.data.totp || '');
     $http.get('/api/core/totps').then((resp) => {
         $scope.totp = resp.data || '';
-        console.log(resp.data);
     });
 
     $scope.random_secret = () => {
@@ -22,9 +20,8 @@ angular.module('core').controller('CoreTotpController', function($scope, $log, $
     $scope.add = () => {
         $scope.add_new = true;
         $scope.tmp_totp = {
-            'user': $scope.user,
             'description': '',
-            'secret': '',
+            'secret': ''
         };
         $scope.random_secret();
         $scope.verified = false;
@@ -33,7 +30,7 @@ angular.module('core').controller('CoreTotpController', function($scope, $log, $
     $scope.closeDialog = () => $scope.add_new = false;
 
     $scope.update_tmp_qr = () => {
-        $http.post('/api/core/totps/qr', {'user': $scope.tmp_totp.user, 'secret': $scope.tmp_totp.secret}).then((resp) => $scope.tmp_qr = resp.data);
+        $http.post('/api/core/totps/qr', {'secret': $scope.tmp_totp.secret}).then((resp) => $scope.tmp_qr = resp.data);
     }
 
     $scope.verify = ($event) => {
@@ -46,12 +43,27 @@ angular.module('core').controller('CoreTotpController', function($scope, $log, $
         }
     }
 
-    $scope.delete = (timestamp) => {
-        $http.delete(`/api/core/totps/${timestamp}`).then((resp) => notify.success('Done'));
+    $scope.delete = (totp) => {
+        messagebox.show({
+            text: gettext('Really delete this TOTP?'),
+            positive: gettext('Delete'),
+            negative: gettext('Cancel')
+        }).then(() => {
+            $http.delete(`/api/core/totps/${totp.created}`).then((resp) => {
+                notify.success(gettext('Command successfully sent'));
+                position = $scope.totp.indexOf(totp);
+                $scope.totp.splice(position, 1);
+            });
+        });
     }
 
     $scope.save = () => {
-        console.warn("saved");
+        $scope.tmp_totp.created = Date.now();
+        $http.post('/api/core/totps', {'secret': $scope.tmp_totp}).then((resp) => {
+            notify.success(gettext('Command successfully sent'));
+            $scope.totp.push($scope.tmp_totp);
+            $scope.tmp_totp = {};
+        });
         $scope.closeDialog();
     }
 });
