@@ -1,0 +1,64 @@
+<br />
+
+<div class="alert alert-info" ng:show="!totp" translate>There is currently no TOTP key for this user.</div>
+
+<div ng:show="totp">
+    <table class="table">
+        <tr>
+            <th translate>User</th>
+            <th translate>Date</th>
+            <th translate>Description</th>
+            <th></th>
+        </tr>
+        <tr ng:repeat="details in totp">
+            <td>{{identity.user}}</td>
+            <td>{{details.created * 1000 | date:'dd-MM-yyyy HH:mm:ss Z'}}</td>
+            <td>{{details.description}}</td>
+            <td style="width:1px;">
+                <button class="btn btn-default" ng:click="delete(details.created)" title="Delete">
+                        <i class="fa fa-trash-o"></i>
+                </button>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<button class="btn btn-default" ng:click="add()" translate>Add new TOTP</button>
+
+<dialog ng:show="add_new">
+     <div class="modal-header">
+        <h4><span translate>Add new TOTP</span></h4>
+    </div>
+    <div class="modal-body">
+        <form class="form-group">
+            <label translate>User:</label>
+            <span>{{tmp_totp.user}}</span>
+
+            <hr />
+
+            <label translate>Description</label>
+            <div class="input-group">
+                <textarea class="form-control" ng:model="tmp_totp.description" cols="80"></textarea>
+            </div>
+
+            <hr />
+
+            <label translate>Key</label>
+            <div class="form-group has-feedback">
+                <input class="form-control" ng:model="tmp_totp.secret" ng:change="update_tmp_qr()" minlength="16" pattern="([A-Z2-7]){16,}" />
+                <span ng:click="random_secret()" class="fas fa-dice form-control-feedback" style="cursor: pointer; pointer-events: all; line-height:34px;"></span>
+            </div>
+            <img ng:src="data:image/png;base64, {{tmp_qr}}" />
+
+            <hr />
+
+            <label translate>Verify</label>
+            <div class="input-group">
+                <input class="form-control" ng:model="verif_code" ng:change="verify(this)" />
+            </div>
+            <button type="reset" ng:click="closeDialog()" class="btn btn-default btn-flat pull-right" translate>Cancel</button>
+            <button type="submit" ng:disabled="!verified" ng:click="save()" class="btn btn-default btn-flat pull-right" translate>Save</button>
+        </form>
+    </div>
+
+</dialog>
