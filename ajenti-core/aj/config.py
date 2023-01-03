@@ -198,6 +198,7 @@ class TFAConfig(BaseConfig):
         else:
             config['users'][userid]['totp'] = [data['secret_details']]
         self._save(config)
+        self.load()
 
     def delete_user_totp(self, data):
         config = self._read()
@@ -207,6 +208,7 @@ class TFAConfig(BaseConfig):
                 config['users'][userid]['totp'].remove(secret)
                 break
         self._save(config)
+        self.load()
 
     def _read(self):
         with open(self.path, 'r') as tfa:

@@ -154,7 +154,7 @@ class Worker():
                     aj.tfa_config.verify_totp[userid] = result
 
                 if rq.object['type'] == 'update-tfa-config':
-                    aj.tfa_config = rq.object['data']
+                    aj.tfa_config.data = rq.object['data']
 
         # pylint: disable=W0703
         except Exception:

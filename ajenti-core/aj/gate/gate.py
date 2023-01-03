@@ -107,7 +107,7 @@ class WorkerGate():
                 'userid': data['userid'],
                 'secret_details': data['secret_details']
             })
-        gevent.sleep(0.1)
+        gevent.sleep(0.3)
         self.stream.send({
             'type': 'update-tfa-config',
             'data': aj.tfa_config.data,
