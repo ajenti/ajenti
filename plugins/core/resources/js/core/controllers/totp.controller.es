@@ -1,6 +1,10 @@
 angular.module('core').controller('CoreTotpController', function($scope, $log, $rootScope, $routeParams, $http, $window, identity, notify, gettext, messagebox, customization) {
     $scope.add_new = false;
     identity.promise.then(() => $scope.user = identity.user);
+    $scope.tmp_totp = {
+        'description': '',
+        'secret': ''
+    };
 
     $http.get('/api/core/totps').then((resp) => {
         $scope.totp = resp.data || '';
@@ -10,7 +14,7 @@ angular.module('core').controller('CoreTotpController', function($scope, $log, $
         // Generate a random 16-strings in base32
         secret = '';
         chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ234567';
-        for ( var i = 0; i < 16; i++ ) {
+        for ( var i = 0; i < 32; i++ ) {
             secret += chars.charAt(Math.floor(Math.random() * 32));
         }
         $scope.tmp_totp.secret = secret;
@@ -19,18 +23,21 @@ angular.module('core').controller('CoreTotpController', function($scope, $log, $
 
     $scope.add = () => {
         $scope.add_new = true;
-        $scope.tmp_totp = {
-            'description': '',
-            'secret': ''
-        };
         $scope.random_secret();
         $scope.verified = false;
     }
 
     $scope.closeDialog = () => $scope.add_new = false;
 
+    $scope.valid_secret = (secret) => {
+        return /^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{32,}$/.test($scope.tmp_totp.secret);
+    }
+
     $scope.update_tmp_qr = () => {
-        $http.post('/api/core/totps/qr', {'secret': $scope.tmp_totp.secret}).then((resp) => $scope.tmp_qr = resp.data);
+        $scope.tmp_totp.secret = $scope.tmp_totp.secret.toUpperCase();
+        if ($scope.valid_secret($scope.tmp_totp.secret)) {
+            $http.post('/api/core/totps/qr', {'secret': $scope.tmp_totp.secret}).then((resp) => $scope.tmp_qr = resp.data);
+        }
     }
 
     $scope.verify = ($event) => {
@@ -62,7 +69,10 @@ angular.module('core').controller('CoreTotpController', function($scope, $log, $
         $http.post('/api/core/totps', {'secret': $scope.tmp_totp}).then((resp) => {
             notify.success(gettext('Command successfully sent'));
             $scope.totp.push($scope.tmp_totp);
-            $scope.tmp_totp = {};
+            $scope.tmp_totp = {
+                'description': '',
+                'secret': ''
+            };
         });
         $scope.closeDialog();
     }
