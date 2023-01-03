@@ -14,9 +14,9 @@ jobs:
         os: [ubuntu-latest]
         python-version: [3.7, 3.8, 3.10]
         node-version: [16.x, 17.x]
-      include:
-        - os: ubuntu-18.04
-          python-version: 3.6
+        include:
+          - os: ubuntu-18.04
+            python-version: 3.6
     runs-on: ${{ matrix.os }}
     steps:
     - uses: actions/checkout@v2
