@@ -71,6 +71,13 @@ class Worker():
 
         self._master_config_reloaded = Event()
 
+    def verify_totp(self, userid, code):
+        self.send_to_upstream({
+            'type': 'verify_totp',
+            'userid': userid,
+            'code': code,
+        })
+
     def demote(self, uid, gid=None):
         try:
             username = pwd.getpwuid(uid).pw_name
@@ -147,6 +154,11 @@ class Worker():
                 if rq.object['type'] == 'session-list':
                     logging.debug('Received a session list update')
                     aj.sessions = rq.object['data']
+
+                if rq.object['type'] == 'verify_totp':
+                    userid = rq.object['data']['userid']
+                    result = rq.object['data']['result']
+                    aj.tfa_config.verify_totp[userid] = result
 
         # pylint: disable=W0703
         except Exception:

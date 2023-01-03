@@ -140,6 +140,13 @@ class GateMiddleware():
             if not session.is_dead():
                 session.gate.send_config_data()
 
+    def verify_totp(self, userid, code, gate_id):
+        if gate_id == id(self.restricted_gate):
+            self.restricted_gate.verify_totp(userid, code)
+        for session in self.sessions.values():
+            if not session.is_dead() and gate_id == id(session.gate):
+                session.gate.verify_totp(userid, code)
+
     def broadcast_sessionlist(self):
         self.restricted_gate.send_sessionlist()
         for session in self.sessions.values():
