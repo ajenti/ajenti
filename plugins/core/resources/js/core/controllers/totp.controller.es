@@ -65,7 +65,7 @@ angular.module('core').controller('CoreTotpController', function($scope, $log, $
     }
 
     $scope.save = () => {
-        $scope.tmp_totp.created = Date.now();
+        $scope.tmp_totp.created = Math.floor(Date.now()/1000);
         $http.post('/api/core/totps', {'secret': $scope.tmp_totp}).then((resp) => {
             notify.success(gettext('Command successfully sent'));
             $scope.totp.push($scope.tmp_totp);
