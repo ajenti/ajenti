@@ -2,6 +2,7 @@
 arrow
 bs4
 cookies
+cryptography==36.0.2; python_version == '3.6'
 distro
 python-socketio==5.5.2
 python-engineio==4.3.1
