@@ -20,8 +20,10 @@ pexpect
 psutil>=2.2.1
 pyOpenSSL==22.0.0; python_version == '3.6'
 pyOpenSSL==23.0.0; python_version >= '3.7'
+pyotp
 python-daemon
 pyyaml
+qrcode
 requests>=2
 setproctitle
 simplejson
