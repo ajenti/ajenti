@@ -54,6 +54,8 @@ jobs:
         sudo python3 -m pip install nose
         sudo python3 -m pip uninstall -y gevent-socketio-hartwork python-socketio
         sudo python3 -m pip install python-socketio==5.2.1
+        sudo python3 -m pip install cryptography==39.0.0
+        sudo python3 -m pip install pyOpenSSL==23.0.0
     - name: Install Bower components
       run: |
         sudo ajenti-dev-multitool --bower install || exit 1
