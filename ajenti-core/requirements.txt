@@ -3,6 +3,7 @@ arrow
 bs4
 cookies
 cryptography==36.0.2; python_version == '3.6'
+cryptography==39.0.0; python_version >= '3.7'
 distro
 python-socketio==5.5.2
 python-engineio==4.3.1
@@ -17,7 +18,8 @@ lxml>=2.2.4
 passlib
 pexpect
 psutil>=2.2.1
-pyOpenSSL==22.0.0
+pyOpenSSL==22.0.0; python_version == '3.6'
+pyOpenSSL==23.0.0; python_version >= '3.7'
 python-daemon
 pyyaml
 requests>=2
