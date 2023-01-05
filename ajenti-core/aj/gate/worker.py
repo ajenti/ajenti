@@ -148,7 +148,7 @@ class Worker():
                     logging.debug('Received a session list update')
                     aj.sessions = rq.object['data']
 
-                if rq.object['type'] == 'verify_totp':
+                if rq.object['type'] == 'verify-totp':
                     userid = rq.object['data']['userid']
                     result = rq.object['data']['result']
                     aj.tfa_config.verify_totp[userid] = result
@@ -168,13 +168,13 @@ class Worker():
 
     def change_totp(self, data):
         self.send_to_upstream({
-            'type': 'change_totp',
+            'type': 'change-totp',
             'data': data,
         })
 
     def verify_totp(self, userid, code):
         self.send_to_upstream({
-            'type': 'verify_totp',
+            'type': 'verify-totp',
             'userid': userid,
             'code': code,
         })

@@ -67,6 +67,11 @@ class GateMiddleware():
     def __init__(self, context):
         self.context = context
         self.sessions = {}
+        self.key = self.generate_session_key({
+            'REMOTE_ADDR': 'localhost',
+            'HTTP_USER_AGENT': '',
+            'HTTP_HOST': 'localhost',
+        })
         self.restricted_gate = WorkerGate(
             self,
             gateway_middleware=self,
@@ -140,16 +145,16 @@ class GateMiddleware():
             if not session.is_dead():
                 session.gate.send_config_data()
 
-    def verify_totp(self, userid, code, gate_id):
-        if gate_id == id(self.restricted_gate):
+    def verify_totp(self, userid, code, session_key):
+        if session_key == self.key:
             self.restricted_gate.verify_totp(userid, code)
         for session in self.sessions.values():
-            if not session.is_dead() and gate_id == id(session.gate):
+            if not session.is_dead() and session_key == session.key:
                 session.gate.verify_totp(userid, code)
 
-    def change_totp(self, data, gate_id):
+    def change_totp(self, data, session_key):
         for session in self.sessions.values():
-            if not session.is_dead() and gate_id == id(session.gate):
+            if not session.is_dead() and session_key == session.key:
                 session.gate.change_totp(data)
 
     def broadcast_sessionlist(self):

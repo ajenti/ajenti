@@ -87,12 +87,12 @@ class WorkerGate():
         for secret in secrets:
             if TOTP(user, secret).verify(code):
                 self.stream.send({
-                    'type': 'verify_totp',
+                    'type': 'verify-totp',
                     'data': {'result': True, 'userid': userid}
                 })
                 return
         self.stream.send({
-            'type': 'verify_totp',
+            'type': 'verify-totp',
             'data': {'result': False, 'userid': userid}
         })
 
@@ -139,16 +139,16 @@ class WorkerGate():
                     aj.restart()
                 if resp.object['type'] == 'update-sessionlist':
                     self.gateway_middleware.broadcast_sessionlist()
-                if resp.object['type'] == 'verify_totp':
+                if resp.object['type'] == 'verify-totp':
                     self.gateway_middleware.verify_totp(
                         resp.object['userid'],
                         resp.object['code'],
-                        id(self)
+                        self.session.key
                     )
-                if resp.object['type'] == 'change_totp':
+                if resp.object['type'] == 'change-totp':
                     self.gateway_middleware.change_totp(
                         resp.object['data'],
-                        id(self)
+                        self.session.key
                     )
                 if resp.object['type'] == 'reload-config':
                     aj.config.load()
