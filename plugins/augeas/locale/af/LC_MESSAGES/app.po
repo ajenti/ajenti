@@ -11,5 +11,5 @@ msgstr ""
 "X-Crowdin-File-ID: 24\n"
 "Language-Team: Afrikaans\n"
 "Language: af_ZA\n"
-"PO-Revision-Date: 2022-07-22 14:42\n"
+"PO-Revision-Date: 2023-01-05 17:22\n"
 

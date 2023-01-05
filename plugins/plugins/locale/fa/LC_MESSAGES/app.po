@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-06-25 21:20+0200\n"
-"PO-Revision-Date: 2022-07-22 14:42\n"
+"PO-Revision-Date: 2023-01-05 17:23\n"
 "Last-Translator: \n"
 "Language-Team: Persian\n"
 "Language: fa_IR\n"
@@ -28,28 +28,28 @@ msgstr ""
 #: plugins/plugins/resources/partial/index.html:138
 #: plugins/plugins/resources/partial/index.html:196
 msgid "Author"
-msgstr ""
+msgstr "نویسنده"
 
 #: plugins/plugins/resources/partial/index.html:50
 msgid "Available plugins"
-msgstr ""
+msgstr "افزونه های در دسترس"
 
 #: plugins/plugins/resources/partial/index.html:160
 #: plugins/plugins/resources/partial/index.html:212
 msgid "Close"
-msgstr ""
+msgstr "بستن"
 
 #: plugins/plugins/resources/partial/index.html:73
 msgid "Community"
-msgstr ""
+msgstr "جامعه کاربری"
 
 #: plugins/plugins/resources/partial/index.html:10
 msgid "Core"
-msgstr ""
+msgstr "هسته"
 
 #: plugins/plugins/resources/partial/index.html:148
 msgid "Documentation"
-msgstr ""
+msgstr "مستندات"
 
 #: plugins/plugins/resources/partial/index.html:190
 msgid "Downloads in the last month"
@@ -57,7 +57,7 @@ msgstr ""
 
 #: plugins/plugins/resources/partial/index.html:106
 msgid "Error"
-msgstr ""
+msgstr "خطا"
 
 #: plugins/plugins/resources/partial/index.html:117
 msgid "Exception: <code>{{selectedInstalledPlugin.crash.cls}}</code>"
@@ -69,25 +69,25 @@ msgstr "غربال"
 
 #: plugins/plugins/resources/partial/index.html:145
 msgid "Homepage"
-msgstr ""
+msgstr "صفحهٔ نخست"
 
 #: plugins/plugins/resources/partial/index.html:209
 #: plugins/plugins/resources/partial/index.html:59
 #: plugins/plugins/resources/partial/index.html:77
 msgid "Install"
-msgstr ""
+msgstr "نصب"
 
 #: plugins/plugins/resources/partial/index.html:24
 msgid "Installed plugins"
-msgstr ""
+msgstr "افزونه های نصب شده"
 
 #: plugins/plugins/resources/partial/index.html:44
 msgid "Loading error"
-msgstr ""
+msgstr "مشکل در بارگذاری."
 
 #: plugins/plugins/resources/partial/index.html:132
 msgid "Location"
-msgstr ""
+msgstr "موقعیت"
 
 #: plugins/plugins/resources/partial/index.html:120
 msgid "Message: <code>{{selectedInstalledPlugin.crash.message}}</code>"
@@ -96,15 +96,15 @@ msgstr ""
 #: plugins/plugins/resources/partial/index.html:100
 #: plugins/plugins/resources/partial/index.html:172
 msgid "Name"
-msgstr ""
+msgstr "نام"
 
 #: plugins/plugins/resources/partial/index.html:56
 msgid "Official"
-msgstr ""
+msgstr "رسمی"
 
 #: plugins/plugins/resources/partial/index.html:221
 msgid "Restart panel"
-msgstr ""
+msgstr "راه اندازی مجدد پنل"
 
 #: plugins/plugins/resources/partial/index.html:115
 msgid "This plugin crashed with the following error:"
@@ -123,11 +123,11 @@ msgstr ""
 #: plugins/plugins/resources/js/controllers/index.controller.es:178
 #: plugins/plugins/resources/js/controllers/index.controller.es:180
 msgid "Uninstall"
-msgstr ""
+msgstr "حذف نصب"
 
 #: plugins/plugins/resources/partial/index.html:154
 msgid "Update"
-msgstr ""
+msgstr "به‌روزرسانی"
 
 #: plugins/plugins/resources/partial/index.html:6
 msgid "Update everything"
@@ -135,7 +135,7 @@ msgstr ""
 
 #: plugins/plugins/resources/partial/index.html:3
 msgid "Updates"
-msgstr ""
+msgstr "به‌روزرسانی‌ها"
 
 #: plugins/plugins/resources/partial/index.html:41
 msgid "Upgradeable to {{getUpgrade(plugin).version}}"
@@ -144,11 +144,11 @@ msgstr ""
 #: plugins/plugins/resources/partial/index.html:126
 #: plugins/plugins/resources/partial/index.html:178
 msgid "Version"
-msgstr ""
+msgstr "نگارش"
 
 #: plugins/plugins/main.py:15
 msgid "Plugins"
-msgstr ""
+msgstr "افزونه‌ها"
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:19
 msgid "Could not load repository version for ajenti-panel."

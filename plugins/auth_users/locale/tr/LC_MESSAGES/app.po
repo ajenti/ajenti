@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-06-25 21:20+0200\n"
-"PO-Revision-Date: 2022-07-22 14:42\n"
+"PO-Revision-Date: 2023-01-05 17:22\n"
 "Last-Translator: \n"
 "Language-Team: Turkish\n"
 "Language: tr_TR\n"
@@ -20,7 +20,7 @@ msgstr ""
 #: plugins/auth_users/resources/partial/index.html:9
 msgid "<i class=\"fa fa-check\"></i>\n"
 "        <span>This module is currently used to authenticate users.</span>"
-msgstr ""
+msgstr "Bu modül şu anda kullanıcıları yetkilendirmek için kullanılıyor."
 
 #: plugins/auth_users/resources/partial/index.html:5
 msgid "<i class=\"fa fa-warning\"></i>\n"

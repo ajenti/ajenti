@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-07-22 16:37+0200\n"
-"PO-Revision-Date: 2022-07-22 14:42\n"
+"PO-Revision-Date: 2023-01-05 17:22\n"
 "Last-Translator: \n"
 "Language-Team: Swedish\n"
 "Language: sv_SE\n"
@@ -66,15 +66,15 @@ msgstr "Aktivera klientautentisering"
 
 #: plugins/settings/resources/partial/index.html:284
 msgid "Enable email relay for notification"
-msgstr ""
+msgstr "Aktivera e-postrelä för avisering"
 
 #: plugins/settings/resources/partial/index.html:153
 msgid "Force SSL"
-msgstr ""
+msgstr "Tvinga SSL"
 
 #: plugins/settings/resources/partial/index.html:7
 msgid "General"
-msgstr ""
+msgstr "Allmänt"
 
 #: plugins/settings/resources/partial/index.html:263
 #: plugins/settings/resources/js/controllers/index.controller.es:149
@@ -120,11 +120,11 @@ msgstr "Nytt klientcertifikat"
 
 #: plugins/settings/resources/partial/index.html:109
 msgid "New domain"
-msgstr ""
+msgstr "Ny domän"
 
 #: plugins/settings/resources/partial/index.html:126
 msgid "New proxy"
-msgstr ""
+msgstr "Ny proxy"
 
 #: plugins/settings/resources/partial/index.html:195
 msgid "No certificates are created yet."
@@ -149,15 +149,15 @@ msgstr "Starta om panel"
 
 #: plugins/settings/resources/partial/index.html:299
 msgid "SMTP host"
-msgstr ""
+msgstr "SMTP-värd"
 
 #: plugins/settings/resources/partial/index.html:321
 msgid "SMTP password"
-msgstr ""
+msgstr "SMTP-lösenord"
 
 #: plugins/settings/resources/partial/index.html:315
 msgid "SMTP user"
-msgstr ""
+msgstr "SMTP-användare"
 
 #: plugins/settings/resources/partial/index.html:172
 msgid "SSL FQDN certificate file"
@@ -185,11 +185,11 @@ msgstr "Spara och stäng"
 
 #: plugins/settings/resources/partial/index.html:70
 msgid "Security"
-msgstr ""
+msgstr "Säkerhet"
 
 #: plugins/settings/resources/partial/index.html:278
 msgid "Smtp relay"
-msgstr ""
+msgstr "Smtp relä"
 
 #: plugins/settings/resources/partial/index.html:62
 msgid "Socket path"
@@ -205,7 +205,7 @@ msgstr "Sudo"
 
 #: plugins/settings/resources/partial/index.html:337
 msgid "Template email reset"
-msgstr ""
+msgstr "E-poståterställningsmall"
 
 #: plugins/settings/resources/partial/index.html:293
 msgid "The smtp.yml config file seems to be empty. Currently it's not possible to send emails with this configuration."

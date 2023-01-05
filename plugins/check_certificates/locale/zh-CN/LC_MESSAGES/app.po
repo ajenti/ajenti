@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-06-25 21:20+0200\n"
-"PO-Revision-Date: 2022-07-22 14:42\n"
+"PO-Revision-Date: 2023-01-05 17:22\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -19,100 +19,101 @@ msgstr ""
 
 #: plugins/check_certificates/resources/partial/index.html:25
 msgid "({{h.restTime}} days)"
-msgstr ""
+msgstr "({{剩余时间}} 天)"
 
 #: plugins/check_certificates/resources/partial/widget.html:4
 msgid "<i class=\"fas fa-check\"></i>\n"
 "            All certificates are up to date !"
-msgstr ""
+msgstr "<i class=\"fas fa-check\"></i>\n"
+"            所有证书都是最新的！"
 
 #: plugins/check_certificates/resources/partial/index.html:60
 msgid "Add"
-msgstr ""
+msgstr "添加"
 
 #: plugins/check_certificates/resources/partial/index.html:41
 msgid "Add host"
-msgstr ""
+msgstr "添加主机"
 
 #: plugins/check_certificates/resources/partial/index.html:61
 #: plugins/check_certificates/resources/js/controllers/index.controller.coffee:38
 msgid "Cancel"
-msgstr ""
+msgstr "取消"
 
 #: plugins/check_certificates/resources/partial/widget.html:3
 msgid "Certificates to be renewed"
-msgstr ""
+msgstr "证书需要更新"
 
 #: plugins/check_certificates/resources/partial/index.html:11
 msgid "Domain"
-msgstr ""
+msgstr "域名"
 
 #: plugins/check_certificates/resources/partial/index.html:14
 msgid "End"
-msgstr ""
+msgstr "结束"
 
 #: plugins/check_certificates/resources/partial/index.html:13
 msgid "Issuer"
-msgstr ""
+msgstr "发行者"
 
 #: plugins/check_certificates/resources/partial/index.html:45
 msgid "New hostname"
-msgstr ""
+msgstr "新主机名"
 
 #: plugins/check_certificates/resources/partial/index.html:5
 msgid "No host defined actually. Please first add an host."
-msgstr ""
+msgstr "未实际定义主机。请首先添加一个主机。"
 
 #: plugins/check_certificates/resources/partial/index.html:12
 msgid "Port"
-msgstr ""
+msgstr "端口"
 
 #: plugins/check_certificates/resources/partial/index.html:53
 msgid "Port ( default is 443 if empty )"
-msgstr ""
+msgstr "端口（如果为空则默认443）"
 
 #: plugins/check_certificates/resources/partial/index.html:15
 msgid "Status"
-msgstr ""
+msgstr "状态"
 
 #: plugins/check_certificates/resources/partial/index.html:49
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 #: plugins/check_certificates/widget.py:8
 msgid "Certificates"
-msgstr ""
+msgstr "证书"
 
 #: plugins/check_certificates/api.py:91 plugins/check_certificates/api.py:97
 msgid "Timeout from host !"
-msgstr ""
+msgstr "主机超时！"
 
 #: plugins/check_certificates/api.py:94
 msgid "Could not resolve hostname !"
-msgstr ""
+msgstr "无法解析主机。"
 
 #: plugins/check_certificates/api.py:100
 msgid "Certificate is not valid !"
-msgstr ""
+msgstr "证书无效"
 
 #: plugins/check_certificates/api.py:103
 msgid "Can not handle SSL on this port !"
-msgstr ""
+msgstr "无法处理此端口上的 SSL ！"
 
 #: plugins/check_certificates/api.py:106
 msgid "Host refuse the connection !"
-msgstr ""
+msgstr "主机拒绝连接！"
 
 #: plugins/check_certificates/main.py:17
 #: plugins/check_certificates/resources/js/controllers/index.controller.coffee:2
 msgid "Check certificates"
-msgstr ""
+msgstr "检查证书"
 
 #: plugins/check_certificates/resources/js/controllers/index.controller.coffee:36
 msgid "Remove the url "
-msgstr ""
+msgstr "删除url"
 
 #: plugins/check_certificates/resources/js/controllers/index.controller.coffee:37
 msgid "Remove"
-msgstr ""
+msgstr "移除"
 

@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-07-22 16:37+0200\n"
-"PO-Revision-Date: 2022-07-22 14:42\n"
+"PO-Revision-Date: 2023-01-05 17:22\n"
 "Last-Translator: \n"
 "Language-Team: Italian\n"
 "Language: it_IT\n"
@@ -66,15 +66,15 @@ msgstr "Abilitare l'autenticazione del client"
 
 #: plugins/settings/resources/partial/index.html:284
 msgid "Enable email relay for notification"
-msgstr ""
+msgstr "Abilita il ritardo delle email per le notifiche"
 
 #: plugins/settings/resources/partial/index.html:153
 msgid "Force SSL"
-msgstr ""
+msgstr "Forza SSL"
 
 #: plugins/settings/resources/partial/index.html:7
 msgid "General"
-msgstr ""
+msgstr "Generale"
 
 #: plugins/settings/resources/partial/index.html:263
 #: plugins/settings/resources/js/controllers/index.controller.es:149
@@ -120,11 +120,11 @@ msgstr "Nuovo certificato per i client"
 
 #: plugins/settings/resources/partial/index.html:109
 msgid "New domain"
-msgstr ""
+msgstr "Nuovo dominio"
 
 #: plugins/settings/resources/partial/index.html:126
 msgid "New proxy"
-msgstr ""
+msgstr "Nuovo proxy"
 
 #: plugins/settings/resources/partial/index.html:195
 msgid "No certificates are created yet."
@@ -149,15 +149,15 @@ msgstr "Riavvia il pannello"
 
 #: plugins/settings/resources/partial/index.html:299
 msgid "SMTP host"
-msgstr ""
+msgstr "Host SMTP"
 
 #: plugins/settings/resources/partial/index.html:321
 msgid "SMTP password"
-msgstr ""
+msgstr "Password SMTP"
 
 #: plugins/settings/resources/partial/index.html:315
 msgid "SMTP user"
-msgstr ""
+msgstr "Utente SMTP"
 
 #: plugins/settings/resources/partial/index.html:172
 msgid "SSL FQDN certificate file"
@@ -185,11 +185,11 @@ msgstr "Salva e chiudi"
 
 #: plugins/settings/resources/partial/index.html:70
 msgid "Security"
-msgstr ""
+msgstr "Sicurezza"
 
 #: plugins/settings/resources/partial/index.html:278
 msgid "Smtp relay"
-msgstr ""
+msgstr "Ritardo SMTP"
 
 #: plugins/settings/resources/partial/index.html:62
 msgid "Socket path"
@@ -205,11 +205,11 @@ msgstr "Sudo"
 
 #: plugins/settings/resources/partial/index.html:337
 msgid "Template email reset"
-msgstr ""
+msgstr "Modello di ripristino email"
 
 #: plugins/settings/resources/partial/index.html:293
 msgid "The smtp.yml config file seems to be empty. Currently it's not possible to send emails with this configuration."
-msgstr ""
+msgstr "Il file di configurazione smtp.yml sembra essere vuoto. Non è correntemente possibile inviare email con questa configurazione."
 
 #: plugins/settings/resources/partial/index.html:229
 msgid "This might take a few seconds"
@@ -217,11 +217,11 @@ msgstr "Questa operazione potrebbe richiedere alcuni secondi"
 
 #: plugins/settings/resources/partial/index.html:97
 msgid "Trusted domains"
-msgstr ""
+msgstr "Domini affidabili"
 
 #: plugins/settings/resources/partial/index.html:114
 msgid "Trusted proxies"
-msgstr ""
+msgstr "Proxy affidabili"
 
 #: plugins/settings/main.py:15
 #: plugins/settings/resources/js/controllers/index.controller.es:2
@@ -231,32 +231,37 @@ msgstr "Impostazioni"
 #: plugins/settings/resources/js/controllers/index.controller.es:24
 msgid "If Ajenti is installed behind a proxy, oder reachable by a fqdn other than provided by the host,\n"
 "you can then specify the other domains here, and by this way avoiding some resources loading problems."
-msgstr ""
+msgstr "Se Ajenti è installato dietro un proxy, l'ordine è raggiungibile da un fqdn diverso da quello fornito dall'host,\n"
+"puoi allora specificare qui gli altri domini, così evitando alcuni problemi di caricamento delle risorse."
 
 #: plugins/settings/resources/js/controllers/index.controller.es:29
 msgid "If Ajenti is installed behind one or more proxies, specify the ip of these proxies here, in order to\n"
 "get the real client ip address."
-msgstr ""
+msgstr "Se Ajenti è installato dietro uno o più proxy, specifica qui l'IP di questi proxy, per poter\n"
+"ottenere l'indirizzo ip reale del client."
 
 #: plugins/settings/resources/js/controllers/index.controller.es:34
 msgid "This certificate is the default certificate used to create client certificate and to provide https connection.\n"
 "Using a Let's Encrypt certificate here will break the client certificate generator.\n"
 "Using a self-generated certificate is fine here."
-msgstr ""
+msgstr "Questo certificato è quello predefinito, usato per creare il certificato del client e fornire la connessione https.\n"
+"Usare qui un certificato Let's Encrypt interromperà il generatore di certificati del client.\n"
+"Usare qui un certificato auto-generato va bene."
 
 #: plugins/settings/resources/js/controllers/index.controller.es:40
 msgid "If you have a special certificate for your domain, like a Let's Encrypt certificate, put it there.\n"
 "If you are not sure, just use the same certificate as the one above."
-msgstr ""
+msgstr "Se hai un certificato speciale per il tuo dominio, come un certificato Let's Encrypt, inseriscilo qui.\n"
+"Se non ne sei sicuro, usa lo stesso certificato di cui sopra."
 
 #: plugins/settings/resources/js/controllers/index.controller.es:46
 msgid "Please be sure to have at least one valid user in the authentication provider. When not, you will be lock out from Ajenti. "
-msgstr ""
+msgstr "Sei pregato di assicurarti di avere almeno un utente valido nel fornitore d'autenticazione. Altrimenti, sarai bloccato da Ajenti. "
 
 #: plugins/settings/resources/js/controllers/index.controller.es:62
 #: plugins/settings/resources/js/controllers/index.controller.es:75
 msgid "Delete"
-msgstr ""
+msgstr "Elimina"
 
 #: plugins/settings/resources/js/controllers/index.controller.es:101
 msgid "Could not load authentication provider list"
@@ -276,19 +281,19 @@ msgstr "Errore SSL"
 
 #: plugins/settings/resources/js/controllers/index.controller.es:132
 msgid "Global config saved"
-msgstr ""
+msgstr "Configurazione globale salvata"
 
 #: plugins/settings/resources/js/controllers/index.controller.es:134
 msgid "Could not save global config"
-msgstr ""
+msgstr "Impossibile salvare la configurazione globale"
 
 #: plugins/settings/resources/js/controllers/index.controller.es:139
 msgid "Smtp config saved"
-msgstr ""
+msgstr "Configurazione SMTP salvata"
 
 #: plugins/settings/resources/js/controllers/index.controller.es:141
 msgid "Could not save smtp config"
-msgstr ""
+msgstr "Impossibile salvare la configurazione SMTP"
 
 #: plugins/settings/resources/js/controllers/index.controller.es:147
 msgid "Self-signed certificate"

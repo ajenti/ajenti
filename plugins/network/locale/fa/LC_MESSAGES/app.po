@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-27 12:10+0200\n"
-"PO-Revision-Date: 2022-07-22 14:42\n"
+"PO-Revision-Date: 2023-01-05 17:23\n"
 "Last-Translator: \n"
 "Language-Team: Persian\n"
 "Language: fa_IR\n"
@@ -25,15 +25,15 @@ msgstr ""
 #: plugins/network/resources/partial/index.html:261
 #: plugins/network/resources/partial/index.html:312
 msgid "Add"
-msgstr ""
+msgstr "ﺍﻓﺰﻭﺩﻥ"
 
 #: plugins/network/resources/partial/index.html:103
 msgid "Address"
-msgstr ""
+msgstr "آدرس"
 
 #: plugins/network/resources/partial/index.html:92
 msgid "Addressing"
-msgstr ""
+msgstr "آدرس"
 
 #: plugins/network/resources/partial/index.html:293
 msgid "Aliases"
@@ -54,7 +54,7 @@ msgstr ""
 #: plugins/network/resources/partial/index.html:184
 #: plugins/network/resources/partial/index.html:319
 msgid "Close"
-msgstr ""
+msgstr "بستن"
 
 #: plugins/network/resources/partial/index.html:233
 msgid "Configure"

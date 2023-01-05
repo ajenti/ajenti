@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-18 11:25+0200\n"
-"PO-Revision-Date: 2022-07-22 14:42\n"
+"POT-Creation-Date: 2023-01-05 17:41+0100\n"
+"PO-Revision-Date: 2023-01-05 17:22\n"
 "Last-Translator: \n"
 "Language-Team: French\n"
 "Language: fr_FR\n"
@@ -35,13 +35,37 @@ msgstr "<span>\n"
 "                </span>\n"
 "                L'URL {{url}} n'a pas été trouvée sur ce serveur."
 
-#: plugins/core/content/pages/index.html:152
+#: plugins/core/content/pages/index.html:157
 msgid "A bootstrap error has occurred"
 msgstr "Une erreur de bootstrap est survenue"
+
+#: plugins/core/resources/partial/totp.html:51
+msgid "A valid key should contain at least 32 characters chosen from \"ABCDEFGHIJKLMNOPQRSTUVWXYZ234567\"."
+msgstr "Une clé valide doit contenir au moins 32 caractères choisis parmi \"ABCDEFGHIJKLMNOPQRSTUVWXYZ234567\"."
+
+#: plugins/core/resources/partial/totp.html:26
+#: plugins/core/resources/partial/totp.html:30
+msgid "Add new TOTP"
+msgstr "Ajouter un nouveau TOTP"
 
 #: plugins/core/resources/partial/login.html:32
 msgid "Authenticate"
 msgstr "Authentifier"
+
+#: plugins/core/resources/partial/login.html:54
+#: plugins/core/resources/partial/totp.html:63
+#: plugins/core/resources/js/core/controllers/totp.controller.es:57
+msgid "Cancel"
+msgstr "Annuler"
+
+#: plugins/core/resources/partial/totp.html:9
+msgid "Date"
+msgstr "Date"
+
+#: plugins/core/resources/partial/totp.html:10
+#: plugins/core/resources/partial/totp.html:38
+msgid "Description"
+msgstr "Description"
 
 #: plugins/core/content/pages/index.html:89
 msgid "Elevate"
@@ -51,15 +75,19 @@ msgstr "Élever"
 msgid "Email"
 msgstr "Email"
 
-#: plugins/core/content/pages/index.html:135
+#: plugins/core/content/pages/index.html:140
 msgid "Enter"
 msgstr "Entrer"
+
+#: plugins/core/resources/partial/totp.html:45
+msgid "Key"
+msgstr "Clé"
 
 #: plugins/core/resources/partial/login.html:31
 msgid "Log in"
 msgstr "Se connecter"
 
-#: plugins/core/content/pages/index.html:94
+#: plugins/core/content/pages/index.html:99
 msgid "Log out"
 msgstr "Déconnexion"
 
@@ -67,7 +95,7 @@ msgstr "Déconnexion"
 msgid "New password"
 msgstr "Nouveau mot de passe"
 
-#: plugins/core/content/pages/index.html:176
+#: plugins/core/content/pages/index.html:181
 msgid "OK"
 msgstr "OK"
 
@@ -80,16 +108,20 @@ msgstr "Mot de passe"
 msgid "Please confirm the new password"
 msgstr "Merci de confirmer votre nouveau mot de passe."
 
+#: plugins/core/resources/partial/login.html:46
+msgid "Please enter TOTP verification code:"
+msgstr "Veuillez entrer le code de vérification TOTP :"
+
 #: plugins/core/resources/partial/reset_password.html:22
 msgid "Please enter the new password"
 msgstr "Veuillez saisir un nouveau mot de passe:"
 
-#: plugins/core/content/pages/index.html:155
+#: plugins/core/content/pages/index.html:160
 #: plugins/core/resources/js/core/module.es:32
 msgid "Please see browser console"
 msgstr "Veuillez consulter la console JavaScript du navigateur"
 
-#: plugins/core/content/pages/index.html:131
+#: plugins/core/content/pages/index.html:136
 msgid "Quick search"
 msgstr "Recherche rapide"
 
@@ -101,21 +133,45 @@ msgstr "Entrez à nouveau le mot de passe"
 msgid "Reset password"
 msgstr "Réinitialiser le mot de passe"
 
+#: plugins/core/resources/partial/totp.html:64
+msgid "Save"
+msgstr "Enregistrer"
+
 #: plugins/core/resources/partial/reset_password_send.html:17
 msgid "Send instructions to reset password"
 msgstr "Envoyer les instructions pour réinitialiser le mot de passe"
 
-#: plugins/core/content/pages/index.html:104
+#: plugins/core/content/pages/index.html:109
 msgid "Session time : {{ counter[0] }}:{{ counter[1] }}:{{ counter[2] }}"
 msgstr "Durée de la session : {{ counter[0] }}:{{ counter[1] }}:{{ counter[2] }}"
+
+#: plugins/core/content/pages/index.html:94
+msgid "TFA"
+msgstr "TFA"
 
 #: plugins/core/resources/partial/reset_password.html:10
 msgid "The used link is not valid or expired."
 msgstr "Le lien utilisé n'est pas valide ou expiré."
 
+#: plugins/core/resources/partial/totp.html:3
+msgid "There is currently no TOTP key for this user."
+msgstr "Il n'y a actuellement aucune clé TOTP pour cet utilisateur."
+
+#: plugins/core/resources/partial/totp.html:8
+msgid "User"
+msgstr "Utilisateur"
+
+#: plugins/core/resources/partial/totp.html:33
+msgid "User:"
+msgstr "Utilisateur :"
+
 #: plugins/core/resources/partial/login.html:19
 msgid "Username"
 msgstr "Nom d'utilisateur"
+
+#: plugins/core/resources/partial/totp.html:57
+msgid "Verify"
+msgstr "Vérifier"
 
 #: plugins/core/main.py:17
 msgid "General"
@@ -145,7 +201,7 @@ msgstr "Lire le fichier de configuration"
 msgid "Write configuration file"
 msgstr "Écrire le fichier de configuration"
 
-#: plugins/core/views/api.py:137
+#: plugins/core/views/api.py:185
 msgid "Authorization failed"
 msgstr "L'autorisation a échouée"
 
@@ -249,7 +305,24 @@ msgstr "Impossible de redémarrer"
 msgid "Done"
 msgstr "Fait"
 
+#: plugins/core/resources/js/core/controllers/totp.controller.es:55
+msgid "Really delete this TOTP?"
+msgstr "Vraiment supprimer ce TOTP ?"
+
+#: plugins/core/resources/js/core/controllers/totp.controller.es:56
+msgid "Delete"
+msgstr "Supprimer"
+
+#: plugins/core/resources/js/core/controllers/totp.controller.es:60
+#: plugins/core/resources/js/core/controllers/totp.controller.es:70
+msgid "Command successfully sent"
+msgstr "Commande envoyée avec succès"
+
 #: plugins/core/resources/js/core/controllers/login.controller.es:29
+msgid "Wrong TOTP"
+msgstr "TOTP incorrect"
+
+#: plugins/core/resources/js/core/controllers/login.controller.es:61
 msgid "Authentication failed"
 msgstr "Échec de l'authentification."
 

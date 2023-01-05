@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-06-25 21:20+0200\n"
-"PO-Revision-Date: 2022-07-22 14:42\n"
+"PO-Revision-Date: 2023-01-05 17:22\n"
 "Last-Translator: \n"
 "Language-Team: Italian\n"
 "Language: it_IT\n"
@@ -19,7 +19,7 @@ msgstr ""
 
 #: plugins/filemanager/resources/partial/properties.html:132
 msgid "< Back"
-msgstr ""
+msgstr "< Indietro"
 
 #: plugins/filemanager/resources/partial/properties.html:49
 msgid "Access"
@@ -159,11 +159,11 @@ msgstr "Rimuovi tutti gli elementi"
 
 #: plugins/filemanager/resources/partial/index.html:13
 msgid "Root directory"
-msgstr ""
+msgstr "Cartella di root"
 
 #: plugins/filemanager/resources/partial/properties.html:126
 msgid "Show in Notepad"
-msgstr ""
+msgstr "Mostra nel Blocco Note"
 
 #: plugins/filemanager/resources/partial/properties.html:76
 msgid "Size"
@@ -183,7 +183,7 @@ msgstr "Carica"
 
 #: plugins/filemanager/resources/partial/index.html:130
 msgid "Uploading ..."
-msgstr ""
+msgstr "Caricamento..."
 
 #: plugins/filemanager/resources/partial/properties.html:143
 msgid "User"
