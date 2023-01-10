@@ -51,7 +51,7 @@ jobs:
         sudo python3 -m pip install -r plugins/services/requirements.txt
         sudo python3 -m pip install -r plugins/terminal/requirements.txt
         sudo python3 -m pip install ajenti-dev-multitool
-        sudo python3 -m pip install nose
+        sudo python3 -m pip install pytest
         sudo python3 -m pip uninstall -y gevent-socketio-hartwork python-socketio
         sudo python3 -m pip install python-socketio==5.2.1
         sudo python3 -m pip install cryptography==39.0.0
@@ -60,8 +60,8 @@ jobs:
       run: |
         sudo ajenti-dev-multitool --bower install || exit 1
         sudo ajenti-dev-multitool --build || exit 1
-    - name: Running Nose tests
+    - name: Running pytest Tests
       run: |
-        cd tests-nose
-        sudo nosetests tests || exit 1
+        cd tests-pytest
+        sudo pytest -s || exit 1
         cd ..
