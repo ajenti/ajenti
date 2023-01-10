@@ -25,15 +25,15 @@ We recommend to use the automatic installer - see the :ref:`installation guide <
 Build tools require NodeJS - you can use the NodeSource repositories for quick setup::
 
     # Using Ubuntu
-    curl -sL https://deb.nodesource.com/setup_17.x | sudo -E bash -
+    curl -sL https://deb.nodesource.com/setup_18.x | sudo -E bash -
     sudo apt-get install -y nodejs
 
     # Using Debian, as root
-    curl -sL https://deb.nodesource.com/setup_17.x | bash -
+    curl -sL https://deb.nodesource.com/setup_18.x | bash -
     apt-get install -y nodejs
 
     # Using RHEL, as root
-    curl -sL https://rpm.nodesource.com/setup_17.x | bash -
+    curl -sL https://rpm.nodesource.com/setup_18.x | bash -
 
 Now, install the build tools::
 
