@@ -143,8 +143,9 @@ class SmtpConfig(BaseConfig):
             if os.geteuid() == 0:
                 os.chmod(self.path, 384)  # 0o600
                 with open(self.path, 'r') as smtp:
-                    self.data = yaml.load(smtp, Loader=yaml.SafeLoader)
+                    self.data = yaml.load(smtp, Loader=yaml.SafeLoader) or {}
                     # Prevent password leak
+                    self.ensure_structure()
                     self.data['smtp']['password'] = ''
 
     def save(self, data):
