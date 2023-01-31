@@ -3,6 +3,7 @@ import arrow
 import base64
 import cgi
 import gevent
+import tempfile
 import gzip
 import json
 import math
@@ -83,6 +84,16 @@ class HttpMiddlewareAggregator(BaseHttpHandler):
             if output is not None:
                 return output
 
+class CGIFieldStorage(cgi.FieldStorage):
+    # Fix cgi bug when a put request does not have a content-disposition
+    # See https://github.com/python/cpython/issues/71964
+    # TODO : cgi module will be deprecated in Python 3.11
+
+    def make_file(self, binary=None):
+        """
+        Always open a tempfile as binary
+        """
+        return tempfile.TemporaryFile("wb+")
 
 class HttpContext():
     """
@@ -142,7 +153,7 @@ class HttpContext():
                         # Avoid compatibility problem
                         logging.warning("Body converted to bytes!")
                         self.body = self.body.encode()
-                    self.form_cgi_query = cgi.FieldStorage(
+                    self.form_cgi_query = CGIFieldStorage(
                         fp=BytesIO(self.body),
                         environ=self.env,
                         keep_blank_values=1
