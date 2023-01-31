@@ -111,6 +111,10 @@ def endpoint(page=False, api=False, auth=True):
                 context.respond(status)
                 return json.dumps(result)
 
+            # In case of other response, like e.g. XML
+            # Currently available if api=False and page=False
+            return result
+
         return wrapper
 
     return decorator
