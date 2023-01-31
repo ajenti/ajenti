@@ -3,6 +3,7 @@ import logging
 import os
 import pwd
 import random
+import base64
 import time
 import gevent
 from socketio import Namespace
@@ -15,6 +16,7 @@ from aj.gate.gate import WorkerGate
 from aj.gate.session import Session
 from aj.gate.worker import WorkerError
 from aj.util import str_fsize
+from aj.auth import AuthenticationService
 
 class SocketIOQueue():
     def __init__(self, sid, gate, namespace):
@@ -179,6 +181,31 @@ class GateMiddleware():
                 initial_identity=username
             )
             session.set_cookie(http_context)
+
+        authorization_header = http_context.env.get('HTTP_AUTHORIZATION', False)
+        if not session and authorization_header:
+            authresp = False
+
+            try:
+                username,pw = base64.b64decode(authorization_header.replace('Basic ', '')).decode().split(':')
+                authresp = AuthenticationService.get(self.context).get_provider().authenticate(username, pw)
+            except Exception as e:
+                pass
+
+            if authresp:
+                # First search if a worker already exists and reuse it
+                for existing_session in self.sessions.values():
+                    if username == existing_session.identity:
+                        logging.debug(f"Using existing session {existing_session.key} for HTTP authentication")
+                        session = existing_session
+                        break
+                else:
+                    logging.info(f'Opening a session for user {username} per HTTP authentication')
+                    session = self.open_session(
+                        http_context.env,
+                        initial_identity=username
+                    )
+                    session.set_cookie(http_context)
 
         if session:
             session.touch()
