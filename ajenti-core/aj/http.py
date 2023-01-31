@@ -158,6 +158,12 @@ class HttpContext():
                         environ=self.env,
                         keep_blank_values=1
                     )
+
+        elif self.method in ['OPTIONS', 'PROPFIND', 'UPLOAD']:
+            # Read other request's body (like XML)
+            if 'wsgi.input' in self.env:
+                self.body = self.env['wsgi.input'].read()
+
         else:
             # prevent hanging on weird requests
             self.env['REQUEST_METHOD'] = 'GET'
