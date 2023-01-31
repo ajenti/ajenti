@@ -26,6 +26,9 @@
                 <a ng:href="{{urlPrefix}}/view/filemanager/properties/{{item.path}}" class="list-group-btn subtle" title="Properties">
                     <i class="fa fa-cog"></i>
                 </a>
+                <a ng:click="rename(item)" class="list-group-btn subtle" title="Rename">
+                    <i class="fa fa-pen"></i>
+                </a>
                 <div class="list-group-addon pull-left">
                     <span class="subtle" checkbox ng:model="item.selected"></span>
                 </div>
