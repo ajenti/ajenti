@@ -187,8 +187,10 @@ class GateMiddleware():
             authresp = False
 
             try:
-                username,pw = base64.b64decode(authorization_header.replace('Basic ', '')).decode().split(':')
-                authresp = AuthenticationService.get(self.context).get_provider().authenticate(username, pw)
+                auth_provider = AuthenticationService.get(self.context).get_provider()
+                if auth_provider.id != 'os':
+                    username,pw = base64.b64decode(authorization_header.replace('Basic ', '')).decode().split(':')
+                    authresp = auth_provider.authenticate(username, pw)
             except Exception as e:
                 pass
 
