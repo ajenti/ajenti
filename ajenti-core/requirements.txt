@@ -3,7 +3,7 @@ arrow
 bs4
 cookies
 cryptography==36.0.2; python_version == '3.6'
-cryptography==39.0.0; python_version >= '3.7'
+cryptography==39.0.1; python_version >= '3.7'
 distro
 python-socketio==5.5.2
 python-engineio==4.3.1
