@@ -208,6 +208,8 @@ class GateMiddleware():
                         initial_identity=username
                     )
                     session.set_cookie(http_context)
+            else:
+                gevent.sleep(3)
 
         if session:
             session.touch()
