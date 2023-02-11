@@ -1,4 +1,18 @@
-Ajenti 2.2.4 - Dev
+Ajenti 2.2.5 - Dev
+
+Ajenti 2.2.4 - 11/02/2023
+
+- Fix empty smtp config load. See #1422.
+- Accept more http requests.
+- Allow XML bodies and responses.
+- Prevent cgi bug with binary content.
+- Support for http basic auth.
+- Upgrade cryptography and pyOpenSSL versions.
+- Ignore plugins with wrong yml syntax.
+- Avoid unwanted redirections.
+- [Services] Fix missing enabled attribute.
+- [Filesystem] Rename files.
+- [Network] Fix loading wrong config files in /etc/netplan.
 
 Ajenti 2.2.3 - 05/01/2023
 
