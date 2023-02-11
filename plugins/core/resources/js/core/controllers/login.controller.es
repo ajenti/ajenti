@@ -16,13 +16,22 @@ angular.module('core').controller('CoreLoginController', function($scope, $log, 
         $scope.mode = $routeParams.mode;
     }
 
+    $scope.sanitizeNextPage = () => {
+        // Avoid some unwanted redirections
+        if ($routeParams.nextPage.substring(0,1) != '/') {
+            return '/';
+        } else {
+            return $routeParams.nextPage;
+        }
+    }
+
     $scope.verify = ($event) => {
         code = $event.code;
         if (code.toString().length == 6) {
             $scope.totp_attempts++;
             identity.auth($scope.username, code, "totp").then((response) => {
                 $scope.success = true;
-                location.href = customization.plugins.core.loginredir || $routeParams.nextPage || '/';
+                location.href = customization.plugins.core.loginredir || $scope.sanitizeNextPage() || '/';
             }, error => {
                 $event.code = "";
                 $log.log('Wrong TOTP', error);
@@ -54,7 +63,7 @@ angular.module('core').controller('CoreLoginController', function($scope, $log, 
                return
             }
             $scope.success = true;
-            location.href = customization.plugins.core.loginredir || $routeParams.nextPage || '/';
+            location.href = customization.plugins.core.loginredir || $scope.sanitizeNextPage() || '/';
         }, error => {
             $scope.working = false;
             $log.log('Authentication failed', error);
