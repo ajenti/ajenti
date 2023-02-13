@@ -9,6 +9,14 @@ angular.module('core').controller('CoreLoginController', function($scope, $log, 
 
     $scope.toggleShowPassword = () => $scope.showPassword = !$scope.showPassword;
 
+    identity.init();
+    identity.promise.then(() => {
+        // Already identified ? Then redirect to /
+        if (identity.user !== null ) {
+            location.href = '/';
+        }
+    });
+
     if ($routeParams.mode.indexOf('sudo:') === 0) {
         $scope.mode = 'sudo';
         $scope.username = $routeParams.mode.split(':')[1];
