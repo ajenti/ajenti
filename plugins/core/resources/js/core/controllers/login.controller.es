@@ -18,11 +18,14 @@ angular.module('core').controller('CoreLoginController', function($scope, $log, 
 
     $scope.sanitizeNextPage = () => {
         // Avoid some unwanted redirections
-        if ($routeParams.nextPage.substring(0,1) != '/') {
-            return '/';
-        } else {
-            return $routeParams.nextPage;
+        if ($routeParams.nextPage !== undefined) {
+            if ($routeParams.nextPage.substring(0, 1) != '/') {
+                return '/'
+            } else {
+                return $routeParams.nextPage
+            }
         }
+        return '/'
     }
 
     $scope.verify = ($event) => {
@@ -31,7 +34,8 @@ angular.module('core').controller('CoreLoginController', function($scope, $log, 
             $scope.totp_attempts++;
             identity.auth($scope.username, code, "totp").then((response) => {
                 $scope.success = true;
-                location.href = customization.plugins.core.loginredir || $scope.sanitizeNextPage() || '/';
+                nextPage = $scope.sanitizeNextPage();
+                location.href = customization.plugins.core.loginredir || nextPage;
             }, error => {
                 $event.code = "";
                 $log.log('Wrong TOTP', error);
@@ -63,7 +67,8 @@ angular.module('core').controller('CoreLoginController', function($scope, $log, 
                return
             }
             $scope.success = true;
-            location.href = customization.plugins.core.loginredir || $scope.sanitizeNextPage() || '/';
+            nextPage = $scope.sanitizeNextPage();
+            location.href = customization.plugins.core.loginredir || nextPage;
         }, error => {
             $scope.working = false;
             $log.log('Authentication failed', error);
