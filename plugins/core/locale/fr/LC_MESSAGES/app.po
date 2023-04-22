@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-05 17:41+0100\n"
+"POT-Creation-Date: 2023-04-22 19:21+0200\n"
 "PO-Revision-Date: 2023-01-05 17:22\n"
 "Last-Translator: \n"
 "Language-Team: French\n"
@@ -26,12 +26,16 @@ msgid "<small>The two entered passwords differ</small>"
 msgstr "<small>Les deux mots de passe saisis diffèrent</small>"
 
 #: plugins/core/resources/partial/404.html:7
-msgid "<span>\n"
-"                    <i class=\"fa fa-exclamation-triangle\" style=\"color:red;\"></i>\n"
+msgid ""
+"<span>\n"
+"                    <i class=\"fa fa-exclamation-triangle\" style=\"color:"
+"red;\"></i>\n"
 "                </span>\n"
 "                The URL {{url}} was not found on this server."
-msgstr "<span>\n"
-"                    <i class=\"fa fa-exclamation-triangle\" style=\"color:red;\"></i>\n"
+msgstr ""
+"<span>\n"
+"                    <i class=\"fa fa-exclamation-triangle\" style=\"color:"
+"red;\"></i>\n"
 "                </span>\n"
 "                L'URL {{url}} n'a pas été trouvée sur ce serveur."
 
@@ -40,8 +44,12 @@ msgid "A bootstrap error has occurred"
 msgstr "Une erreur de bootstrap est survenue"
 
 #: plugins/core/resources/partial/totp.html:51
-msgid "A valid key should contain at least 32 characters chosen from \"ABCDEFGHIJKLMNOPQRSTUVWXYZ234567\"."
-msgstr "Une clé valide doit contenir au moins 32 caractères choisis parmi \"ABCDEFGHIJKLMNOPQRSTUVWXYZ234567\"."
+msgid ""
+"A valid key should contain at least 32 characters chosen from "
+"\"ABCDEFGHIJKLMNOPQRSTUVWXYZ234567\"."
+msgstr ""
+"Une clé valide doit contenir au moins 32 caractères choisis parmi "
+"\"ABCDEFGHIJKLMNOPQRSTUVWXYZ234567\"."
 
 #: plugins/core/resources/partial/totp.html:26
 #: plugins/core/resources/partial/totp.html:30
@@ -143,7 +151,8 @@ msgstr "Envoyer les instructions pour réinitialiser le mot de passe"
 
 #: plugins/core/content/pages/index.html:109
 msgid "Session time : {{ counter[0] }}:{{ counter[1] }}:{{ counter[2] }}"
-msgstr "Durée de la session : {{ counter[0] }}:{{ counter[1] }}:{{ counter[2] }}"
+msgstr ""
+"Durée de la session : {{ counter[0] }}:{{ counter[1] }}:{{ counter[2] }}"
 
 #: plugins/core/content/pages/index.html:94
 msgid "TFA"
@@ -318,11 +327,11 @@ msgstr "Supprimer"
 msgid "Command successfully sent"
 msgstr "Commande envoyée avec succès"
 
-#: plugins/core/resources/js/core/controllers/login.controller.es:29
+#: plugins/core/resources/js/core/controllers/login.controller.es:50
 msgid "Wrong TOTP"
 msgstr "TOTP incorrect"
 
-#: plugins/core/resources/js/core/controllers/login.controller.es:61
+#: plugins/core/resources/js/core/controllers/login.controller.es:83
 msgid "Authentication failed"
 msgstr "Échec de l'authentification."
 
@@ -340,5 +349,5 @@ msgstr "Un problème a été rencontré lors de la modification du mot de passe.
 
 #: plugins/core/resources/js/core/controllers/pwreset.controller.es:37
 msgid "The password complexity does not match the system requirements : "
-msgstr "La complexité du mot de passe ne correspond pas aux exigences du système : "
-
+msgstr ""
+"La complexité du mot de passe ne correspond pas aux exigences du système : "

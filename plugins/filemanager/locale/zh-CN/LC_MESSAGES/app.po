@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-25 21:20+0200\n"
+"POT-Creation-Date: 2023-04-22 19:21+0200\n"
 "PO-Revision-Date: 2023-01-05 17:22\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -33,10 +33,10 @@ msgstr "全部"
 msgid "Apply"
 msgstr "应用"
 
-#: plugins/filemanager/resources/partial/index.html:84
-#: plugins/filemanager/resources/partial/index.html:97
+#: plugins/filemanager/resources/partial/index.html:100
+#: plugins/filemanager/resources/partial/index.html:87
 #: plugins/filemanager/resources/partial/properties.html:194
-#: plugins/filemanager/resources/js/controllers/index.controller.es:98
+#: plugins/filemanager/resources/js/controllers/index.controller.es:115
 msgid "Cancel"
 msgstr "取消 "
 
@@ -44,24 +44,24 @@ msgstr "取消 "
 msgid "Change permissions"
 msgstr "更改权限"
 
-#: plugins/filemanager/resources/partial/index.html:103
+#: plugins/filemanager/resources/partial/index.html:106
 msgid "Clipboard"
 msgstr "剪贴板"
 
-#: plugins/filemanager/resources/partial/index.html:125
+#: plugins/filemanager/resources/partial/index.html:128
 msgid "Close"
 msgstr "关闭"
 
-#: plugins/filemanager/resources/partial/index.html:71
+#: plugins/filemanager/resources/partial/index.html:74
 msgid "Copy"
 msgstr "拷贝"
 
-#: plugins/filemanager/resources/partial/index.html:83
-#: plugins/filemanager/resources/partial/index.html:96
+#: plugins/filemanager/resources/partial/index.html:86
+#: plugins/filemanager/resources/partial/index.html:99
 msgid "Create"
 msgstr "创建"
 
-#: plugins/filemanager/resources/partial/index.html:70
+#: plugins/filemanager/resources/partial/index.html:73
 msgid "Cut"
 msgstr "剪切"
 
@@ -69,12 +69,12 @@ msgstr "剪切"
 msgid "DIRECTORY"
 msgstr "目录"
 
-#: plugins/filemanager/resources/partial/index.html:72
-#: plugins/filemanager/resources/js/controllers/index.controller.es:97
+#: plugins/filemanager/resources/partial/index.html:75
+#: plugins/filemanager/resources/js/controllers/index.controller.es:114
 msgid "Delete"
 msgstr "删除"
 
-#: plugins/filemanager/resources/partial/index.html:93
+#: plugins/filemanager/resources/partial/index.html:96
 msgid "Directory name"
 msgstr "目录名称"
 
@@ -94,7 +94,7 @@ msgstr "额外"
 msgid "FILE"
 msgstr "文件"
 
-#: plugins/filemanager/resources/partial/index.html:80
+#: plugins/filemanager/resources/partial/index.html:83
 msgid "File name"
 msgstr "文件名称"
 
@@ -123,13 +123,13 @@ msgstr "已修改"
 msgid "Name"
 msgstr "名称"
 
-#: plugins/filemanager/resources/partial/index.html:54
-#: plugins/filemanager/resources/partial/index.html:90
+#: plugins/filemanager/resources/partial/index.html:57
+#: plugins/filemanager/resources/partial/index.html:93
 msgid "New directory"
 msgstr "新目录"
 
-#: plugins/filemanager/resources/partial/index.html:53
-#: plugins/filemanager/resources/partial/index.html:77
+#: plugins/filemanager/resources/partial/index.html:56
+#: plugins/filemanager/resources/partial/index.html:80
 msgid "New file"
 msgstr "新文件"
 
@@ -137,7 +137,7 @@ msgstr "新文件"
 msgid "Owner"
 msgstr "所有者"
 
-#: plugins/filemanager/resources/partial/index.html:58
+#: plugins/filemanager/resources/partial/index.html:61
 msgid "Paste here"
 msgstr "粘贴到这里"
 
@@ -149,11 +149,11 @@ msgstr "权限位"
 msgid "READ"
 msgstr "阅读"
 
-#: plugins/filemanager/resources/partial/index.html:108
+#: plugins/filemanager/resources/partial/index.html:111
 msgid "Remove"
 msgstr "删除"
 
-#: plugins/filemanager/resources/partial/index.html:124
+#: plugins/filemanager/resources/partial/index.html:127
 msgid "Remove all items"
 msgstr "删除所有项目"
 
@@ -169,7 +169,7 @@ msgstr "在记事本中显示"
 msgid "Size"
 msgstr "大小"
 
-#: plugins/filemanager/resources/partial/index.html:61
+#: plugins/filemanager/resources/partial/index.html:64
 msgid "Tab"
 msgstr "选项卡"
 
@@ -177,11 +177,11 @@ msgstr "选项卡"
 msgid "Type"
 msgstr "类型"
 
-#: plugins/filemanager/resources/partial/index.html:56
+#: plugins/filemanager/resources/partial/index.html:59
 msgid "Upload"
 msgstr "上传"
 
-#: plugins/filemanager/resources/partial/index.html:130
+#: plugins/filemanager/resources/partial/index.html:133
 msgid "Uploading ..."
 msgstr "正在上传..."
 
@@ -193,7 +193,7 @@ msgstr "用户"
 msgid "WRITE"
 msgstr "写"
 
-#: plugins/filemanager/resources/partial/index.html:67
+#: plugins/filemanager/resources/partial/index.html:70
 msgid "items selected"
 msgstr "选中项目"
 
@@ -213,19 +213,27 @@ msgstr "文件模式已保存"
 msgid "Could not load directory"
 msgstr "无法加载目录"
 
-#: plugins/filemanager/resources/js/controllers/index.controller.es:96
+#: plugins/filemanager/resources/js/controllers/index.controller.es:71
+#, fuzzy
+msgid "New name"
+msgstr "文件名称"
+
+#: plugins/filemanager/resources/js/controllers/index.controller.es:78
+msgid "File or directory already exists"
+msgstr ""
+
+#: plugins/filemanager/resources/js/controllers/index.controller.es:113
 msgid "Delete selected items?"
 msgstr "是否删除所选的项目？"
 
-#: plugins/filemanager/resources/js/controllers/index.controller.es:133
+#: plugins/filemanager/resources/js/controllers/index.controller.es:150
 msgid "Could not create file"
 msgstr "无法创建文件"
 
-#: plugins/filemanager/resources/js/controllers/index.controller.es:153
+#: plugins/filemanager/resources/js/controllers/index.controller.es:170
 msgid "Could not create directory"
 msgstr "无法创建目录"
 
-#: plugins/filemanager/resources/js/controllers/index.controller.es:160
+#: plugins/filemanager/resources/js/controllers/index.controller.es:177
 msgid "Uploaded"
 msgstr "上传完成"
-

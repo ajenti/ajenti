@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-05 17:41+0100\n"
+"POT-Creation-Date: 2023-04-22 19:21+0200\n"
 "PO-Revision-Date: 2023-01-05 17:23\n"
 "Last-Translator: \n"
 "Language-Team: Latvian\n"
@@ -26,8 +26,10 @@ msgid "<small>The two entered passwords differ</small>"
 msgstr ""
 
 #: plugins/core/resources/partial/404.html:7
-msgid "<span>\n"
-"                    <i class=\"fa fa-exclamation-triangle\" style=\"color:red;\"></i>\n"
+msgid ""
+"<span>\n"
+"                    <i class=\"fa fa-exclamation-triangle\" style=\"color:"
+"red;\"></i>\n"
 "                </span>\n"
 "                The URL {{url}} was not found on this server."
 msgstr ""
@@ -37,7 +39,9 @@ msgid "A bootstrap error has occurred"
 msgstr ""
 
 #: plugins/core/resources/partial/totp.html:51
-msgid "A valid key should contain at least 32 characters chosen from \"ABCDEFGHIJKLMNOPQRSTUVWXYZ234567\"."
+msgid ""
+"A valid key should contain at least 32 characters chosen from "
+"\"ABCDEFGHIJKLMNOPQRSTUVWXYZ234567\"."
 msgstr ""
 
 #: plugins/core/resources/partial/totp.html:26
@@ -315,11 +319,11 @@ msgstr ""
 msgid "Command successfully sent"
 msgstr ""
 
-#: plugins/core/resources/js/core/controllers/login.controller.es:29
+#: plugins/core/resources/js/core/controllers/login.controller.es:50
 msgid "Wrong TOTP"
 msgstr ""
 
-#: plugins/core/resources/js/core/controllers/login.controller.es:61
+#: plugins/core/resources/js/core/controllers/login.controller.es:83
 msgid "Authentication failed"
 msgstr ""
 
@@ -338,4 +342,3 @@ msgstr ""
 #: plugins/core/resources/js/core/controllers/pwreset.controller.es:37
 msgid "The password complexity does not match the system requirements : "
 msgstr ""
-

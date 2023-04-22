@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-25 21:20+0200\n"
+"POT-Creation-Date: 2023-04-22 19:21+0200\n"
 "PO-Revision-Date: 2023-01-05 17:22\n"
 "Last-Translator: \n"
 "Language-Team: Ukrainian\n"
@@ -10,7 +10,9 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=((n%10==1 && n%100!=11) ? 0 : ((n%10 >= 2 && n%10 <=4 && (n%100 < 12 || n%100 > 14)) ? 1 : ((n%10 == 0 || (n%10 >= 5 && n%10 <=9)) || (n%100 >= 11 && n%100 <= 14)) ? 2 : 3));\n"
+"Plural-Forms: nplurals=4; plural=((n%10==1 && n%100!=11) ? 0 : ((n%10 >= 2 "
+"&& n%10 <=4 && (n%100 < 12 || n%100 > 14)) ? 1 : ((n%10 == 0 || (n%10 >= 5 "
+"&& n%10 <=9)) || (n%100 >= 11 && n%100 <= 14)) ? 2 : 3));\n"
 "X-Crowdin-Project: ajenti\n"
 "X-Crowdin-Project-ID: 18127\n"
 "X-Crowdin-Language: uk\n"
@@ -33,10 +35,10 @@ msgstr "Усі"
 msgid "Apply"
 msgstr "Застосувати"
 
-#: plugins/filemanager/resources/partial/index.html:84
-#: plugins/filemanager/resources/partial/index.html:97
+#: plugins/filemanager/resources/partial/index.html:100
+#: plugins/filemanager/resources/partial/index.html:87
 #: plugins/filemanager/resources/partial/properties.html:194
-#: plugins/filemanager/resources/js/controllers/index.controller.es:98
+#: plugins/filemanager/resources/js/controllers/index.controller.es:115
 msgid "Cancel"
 msgstr "Скасувати"
 
@@ -44,24 +46,24 @@ msgstr "Скасувати"
 msgid "Change permissions"
 msgstr "Змінити права доступу"
 
-#: plugins/filemanager/resources/partial/index.html:103
+#: plugins/filemanager/resources/partial/index.html:106
 msgid "Clipboard"
 msgstr "Буфер обміну"
 
-#: plugins/filemanager/resources/partial/index.html:125
+#: plugins/filemanager/resources/partial/index.html:128
 msgid "Close"
 msgstr "Закрити"
 
-#: plugins/filemanager/resources/partial/index.html:71
+#: plugins/filemanager/resources/partial/index.html:74
 msgid "Copy"
 msgstr "Копіювати"
 
-#: plugins/filemanager/resources/partial/index.html:83
-#: plugins/filemanager/resources/partial/index.html:96
+#: plugins/filemanager/resources/partial/index.html:86
+#: plugins/filemanager/resources/partial/index.html:99
 msgid "Create"
 msgstr "Створити"
 
-#: plugins/filemanager/resources/partial/index.html:70
+#: plugins/filemanager/resources/partial/index.html:73
 msgid "Cut"
 msgstr "Вирізати"
 
@@ -69,12 +71,12 @@ msgstr "Вирізати"
 msgid "DIRECTORY"
 msgstr "КАТАЛОГ"
 
-#: plugins/filemanager/resources/partial/index.html:72
-#: plugins/filemanager/resources/js/controllers/index.controller.es:97
+#: plugins/filemanager/resources/partial/index.html:75
+#: plugins/filemanager/resources/js/controllers/index.controller.es:114
 msgid "Delete"
 msgstr "Видалити"
 
-#: plugins/filemanager/resources/partial/index.html:93
+#: plugins/filemanager/resources/partial/index.html:96
 msgid "Directory name"
 msgstr "Назва каталогу"
 
@@ -94,7 +96,7 @@ msgstr "Додатково"
 msgid "FILE"
 msgstr "ФАЙЛ"
 
-#: plugins/filemanager/resources/partial/index.html:80
+#: plugins/filemanager/resources/partial/index.html:83
 msgid "File name"
 msgstr "Назва файлу"
 
@@ -123,13 +125,13 @@ msgstr "Змінено"
 msgid "Name"
 msgstr "Назва"
 
-#: plugins/filemanager/resources/partial/index.html:54
-#: plugins/filemanager/resources/partial/index.html:90
+#: plugins/filemanager/resources/partial/index.html:57
+#: plugins/filemanager/resources/partial/index.html:93
 msgid "New directory"
 msgstr "Новий каталог"
 
-#: plugins/filemanager/resources/partial/index.html:53
-#: plugins/filemanager/resources/partial/index.html:77
+#: plugins/filemanager/resources/partial/index.html:56
+#: plugins/filemanager/resources/partial/index.html:80
 msgid "New file"
 msgstr "Новий файл"
 
@@ -137,7 +139,7 @@ msgstr "Новий файл"
 msgid "Owner"
 msgstr "Власник"
 
-#: plugins/filemanager/resources/partial/index.html:58
+#: plugins/filemanager/resources/partial/index.html:61
 msgid "Paste here"
 msgstr "Вставити тут"
 
@@ -149,11 +151,11 @@ msgstr "Права доступу"
 msgid "READ"
 msgstr "ПЕРЕГЛЯНУТИ"
 
-#: plugins/filemanager/resources/partial/index.html:108
+#: plugins/filemanager/resources/partial/index.html:111
 msgid "Remove"
 msgstr "Видалити"
 
-#: plugins/filemanager/resources/partial/index.html:124
+#: plugins/filemanager/resources/partial/index.html:127
 msgid "Remove all items"
 msgstr "Видалити усі"
 
@@ -169,7 +171,7 @@ msgstr "Показати в блокноті"
 msgid "Size"
 msgstr "Розмір"
 
-#: plugins/filemanager/resources/partial/index.html:61
+#: plugins/filemanager/resources/partial/index.html:64
 msgid "Tab"
 msgstr "Вкладка"
 
@@ -177,11 +179,11 @@ msgstr "Вкладка"
 msgid "Type"
 msgstr "Тип"
 
-#: plugins/filemanager/resources/partial/index.html:56
+#: plugins/filemanager/resources/partial/index.html:59
 msgid "Upload"
 msgstr "Завантажити"
 
-#: plugins/filemanager/resources/partial/index.html:130
+#: plugins/filemanager/resources/partial/index.html:133
 msgid "Uploading ..."
 msgstr "Завантаження ..."
 
@@ -193,7 +195,7 @@ msgstr "Користувач"
 msgid "WRITE"
 msgstr "ЗАПИСАТИ"
 
-#: plugins/filemanager/resources/partial/index.html:67
+#: plugins/filemanager/resources/partial/index.html:70
 msgid "items selected"
 msgstr "елементів вибрано"
 
@@ -213,19 +215,27 @@ msgstr "Режим файлу збережений"
 msgid "Could not load directory"
 msgstr "Не вдалося завантажити каталог"
 
-#: plugins/filemanager/resources/js/controllers/index.controller.es:96
+#: plugins/filemanager/resources/js/controllers/index.controller.es:71
+#, fuzzy
+msgid "New name"
+msgstr "Назва файлу"
+
+#: plugins/filemanager/resources/js/controllers/index.controller.es:78
+msgid "File or directory already exists"
+msgstr ""
+
+#: plugins/filemanager/resources/js/controllers/index.controller.es:113
 msgid "Delete selected items?"
 msgstr "Видалити виділені елементи?"
 
-#: plugins/filemanager/resources/js/controllers/index.controller.es:133
+#: plugins/filemanager/resources/js/controllers/index.controller.es:150
 msgid "Could not create file"
 msgstr "Не вдалося створити файл"
 
-#: plugins/filemanager/resources/js/controllers/index.controller.es:153
+#: plugins/filemanager/resources/js/controllers/index.controller.es:170
 msgid "Could not create directory"
 msgstr "Не вдалося створити каталог"
 
-#: plugins/filemanager/resources/js/controllers/index.controller.es:160
+#: plugins/filemanager/resources/js/controllers/index.controller.es:177
 msgid "Uploaded"
 msgstr "Завантажено"
-

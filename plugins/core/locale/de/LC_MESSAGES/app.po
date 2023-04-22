@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-05 17:41+0100\n"
+"POT-Creation-Date: 2023-04-22 19:21+0200\n"
 "PO-Revision-Date: 2023-01-05 17:22\n"
 "Last-Translator: \n"
 "Language-Team: German\n"
@@ -26,12 +26,16 @@ msgid "<small>The two entered passwords differ</small>"
 msgstr "<small>Die beiden eingegebenen Passwörter unterscheiden sich</small>"
 
 #: plugins/core/resources/partial/404.html:7
-msgid "<span>\n"
-"                    <i class=\"fa fa-exclamation-triangle\" style=\"color:red;\"></i>\n"
+msgid ""
+"<span>\n"
+"                    <i class=\"fa fa-exclamation-triangle\" style=\"color:"
+"red;\"></i>\n"
 "                </span>\n"
 "                The URL {{url}} was not found on this server."
-msgstr "<span>\n"
-"                    <i class=\"fa fa-exclamation-triangle\" style=\"color:red;\"></i>\n"
+msgstr ""
+"<span>\n"
+"                    <i class=\"fa fa-exclamation-triangle\" style=\"color:"
+"red;\"></i>\n"
 "                </span>\n"
 "                Die URL {{url}} wurde nicht auf diesem Server gefunden."
 
@@ -40,8 +44,12 @@ msgid "A bootstrap error has occurred"
 msgstr "Ein Bootstrap-Fehler ist aufgetreten"
 
 #: plugins/core/resources/partial/totp.html:51
-msgid "A valid key should contain at least 32 characters chosen from \"ABCDEFGHIJKLMNOPQRSTUVWXYZ234567\"."
-msgstr "Ein gültiger Schlüssel sollte mindestens 32 Zeichen enthalten, die aus \"ABCDEFGHIJKLMNOPQRSTUVWXYZ234567\" ausgewählt wurden."
+msgid ""
+"A valid key should contain at least 32 characters chosen from "
+"\"ABCDEFGHIJKLMNOPQRSTUVWXYZ234567\"."
+msgstr ""
+"Ein gültiger Schlüssel sollte mindestens 32 Zeichen enthalten, die aus "
+"\"ABCDEFGHIJKLMNOPQRSTUVWXYZ234567\" ausgewählt wurden."
 
 #: plugins/core/resources/partial/totp.html:26
 #: plugins/core/resources/partial/totp.html:30
@@ -224,7 +232,6 @@ msgstr "Ihre Sitzung ist abgelaufen"
 #: plugins/core/resources/js/core/module.es:32
 msgid "Unhandled error occurred"
 msgstr "Ein unerwarteter Fehler ist aufgetreten\n"
-""
 
 #: plugins/core/resources/js/core/filters.es:7
 msgid "0 bytes"
@@ -319,17 +326,18 @@ msgstr "Löschen"
 msgid "Command successfully sent"
 msgstr "Befehl erfolgreich gesendet"
 
-#: plugins/core/resources/js/core/controllers/login.controller.es:29
+#: plugins/core/resources/js/core/controllers/login.controller.es:50
 msgid "Wrong TOTP"
 msgstr "Falsches TOTP"
 
-#: plugins/core/resources/js/core/controllers/login.controller.es:61
+#: plugins/core/resources/js/core/controllers/login.controller.es:83
 msgid "Authentication failed"
 msgstr "Authentifizierung fehlgeschlagen"
 
 #: plugins/core/resources/js/core/controllers/pwreset.controller.es:6
 msgid "If the email exists, the user will get a reset email"
-msgstr "Wenn die E-Mail existiert, erhält der Benutzer eine Zurücksetzungs-E-Mail"
+msgstr ""
+"Wenn die E-Mail existiert, erhält der Benutzer eine Zurücksetzungs-E-Mail"
 
 #: plugins/core/resources/js/core/controllers/pwreset.controller.es:31
 msgid "Password successfully changed !"
@@ -341,5 +349,5 @@ msgstr "Während der Änderung des Kennworts ist ein Fehler aufgetreten"
 
 #: plugins/core/resources/js/core/controllers/pwreset.controller.es:37
 msgid "The password complexity does not match the system requirements : "
-msgstr "Die Komplexität des Passworts entspricht nicht den Systemanforderungen : "
-
+msgstr ""
+"Die Komplexität des Passworts entspricht nicht den Systemanforderungen : "
