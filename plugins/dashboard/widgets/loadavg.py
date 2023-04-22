@@ -22,5 +22,5 @@ class LoadAverageWidget(Widget):
         if os.path.exists('/proc/loadavg'):
             return [float(open('/proc/loadavg').read().split()[x]) * k for x in range(3)]
 
-        tokens = subprocess.check_output(['uptime']).split()
-        return [float(x.strip(',')) * k for x in tokens[-3:]]
+        tokens = subprocess.check_output(['uptime']).decode().split()
+        return [float(x.strip(',').replace(',', '.')) * k for x in tokens[-3:]]
