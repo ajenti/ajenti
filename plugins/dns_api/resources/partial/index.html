@@ -1,6 +1,31 @@
 <br/>
 
-<h1>DNS</h1>
-<div>
+<div root-access>
+    <h1>DNS</h1>
+
+    <div>
+        <span translate>Select domain: </span>
+        <select ng:options="domain for domain in domains" ng:model="active_domain" ng:change="get_records()"></select>
+    </div>
+
+    <table class="table">
+        <tr>
+            <th translate>Name</th>
+            <th translate>TTL</th>
+            <th translate>Type</th>
+            <th translate>Values</th>
+            <th translate></th>
+        </tr>
+        <tr ng:repeat="record in records">
+            <td>{{record.name}}</td>
+            <td>{{record.ttl}}</td>
+            <td>{{record.type}}</td>
+            <td>
+                <span ng:repeat="value in record.values">{{value}}</span>
+            </td>
+            <td></td>
+        </tr>
+
+    </table>
 
 </div>
