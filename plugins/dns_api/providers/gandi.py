@@ -37,4 +37,10 @@ class GandiApiDnsProvider(ApiDnsManager):
         records = json.loads(resp.content)
 
         for record in sorted(records, key=lambda d: d['rrset_name']):
-            domain.records.append(Record(domain.fqdn, record))
+            domain.records.append(Record(
+                domain.fqdn,
+                record['rrset_name'],
+                record['rrset_ttl'],
+                record['rrset_type'],
+                record['rrset_values'])
+            )
