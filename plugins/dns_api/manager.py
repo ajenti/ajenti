@@ -11,13 +11,9 @@ class Domain:
     def get_records(self):
         self.api.get_records(self)
 
-    def get(self, name):
-        try:
-            for record in self.records:
-                if record.name == name:
-                    print(record)
-        except Exception as e:
-            print(e)
+    def add_record(self, record):
+        return self.api.add_record(self.fqdn, record)
+
 
 class DomainManager:
 

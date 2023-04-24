@@ -13,5 +13,9 @@ class ApiDnsManager():
     def get_domains(self):
         raise NotImplementedError
 
-    def get_records(self, _id):
+    def get_records(self, domain):
+        raise NotImplementedError
+
+
+    def add_record(self, record):
         raise NotImplementedError

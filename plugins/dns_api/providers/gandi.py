@@ -1,5 +1,6 @@
 import requests
 import json
+import logging
 
 from jadi import component
 from aj.plugins.dns_api.api import ApiDnsManager
@@ -35,12 +36,29 @@ class GandiApiDnsProvider(ApiDnsManager):
     def get_records(self, domain):
         resp = self._req('get', apiurl=f"/{domain.fqdn}/records")
         records = json.loads(resp.content)
+        domain.records = []
 
         for record in sorted(records, key=lambda d: d['rrset_name']):
             domain.records.append(Record(
-                domain.fqdn,
                 record['rrset_name'],
                 record['rrset_ttl'],
                 record['rrset_type'],
                 record['rrset_values'])
             )
+
+    def add_record(self, fqdn, record):
+        try:
+            data = json.dumps({
+                'rrset_name': record.name,
+                'rrset_type': record.type,
+                'rrset_values': record.values,
+                'rrset_ttl': record.ttl
+            })
+            resp = self._req('post', apiurl=f"/{fqdn}/records", data=data)
+            messages = json.loads(resp.content)
+            if messages.get('status', '') == 'error':
+                return resp.status_code, messages['errors']
+            else:
+                return resp.status_code, messages['message']
+        except Exception as e:
+            logging.error(e)
