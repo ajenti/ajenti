@@ -22,11 +22,13 @@
                 <th translate></th>
             </tr>
             <tr ng:repeat="record in records">
-                <td>{{record.name}}</td>
+                <td style="word-break:break-all;width:150px;">{{record.name}}</td>
                 <td>{{record.ttl}}</td>
                 <td>{{record.type}}</td>
                 <td>
-                    <span ng:repeat="value in record.values">{{value}}</span>
+                    <span ng:repeat="value in record.values" style="word-break:break-all;">
+                        {{value}}
+                    </span>
                 </td>
                 <td></td>
             </tr>
