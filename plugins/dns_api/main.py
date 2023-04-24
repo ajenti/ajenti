@@ -12,7 +12,7 @@ class ItemProvider(SidebarItemProvider):
         return [
             {
                 'attach': 'category:tools',
-                'name': 'DNS',
+                'name': 'External DNS',
                 'icon': 'globe',
                 'url': '/view/dns_api',
                 'children': []
