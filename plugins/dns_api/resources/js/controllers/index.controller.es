@@ -3,8 +3,12 @@ angular.module('ajenti.dns_api').controller('DnsAPIIndexController', function($s
 
     $http.get('/api/dns_api/domains').then((resp) => {
         $scope.domains = resp.data;
-        $scope.active_domain = resp.data[0]; // Could not exist
-        $scope.get_records();
+        if ($scope.domains.length > 0) {
+            $scope.active_domain = resp.data[0];
+            $scope.get_records();
+        } else {
+            $scope.active_domain = '';
+        }
     });
 
     $scope.get_records = () => {
