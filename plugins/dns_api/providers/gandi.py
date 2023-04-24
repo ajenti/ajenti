@@ -62,3 +62,17 @@ class GandiApiDnsProvider(ApiDnsManager):
                 return resp.status_code, messages['message']
         except Exception as e:
             logging.error(e)
+
+    def delete_record(self, fqdn, name):
+        try:
+            resp = self._req('delete', apiurl=f"/{fqdn}/records/{name}")
+            if resp.content:
+                messages = json.loads(resp.content)
+            else:
+                messages = {'message': 'Entry deleted'}
+            if messages.get('status', '') == 'error':
+                return resp.status_code, messages['errors'][0]['description']
+            else:
+                return resp.status_code, messages['message']
+        except Exception as e:
+            logging.error(e)

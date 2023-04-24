@@ -14,6 +14,9 @@ class Domain:
     def add_record(self, record):
         return self.api.add_record(self.fqdn, record)
 
+    def delete_record(self, name):
+        return self.api.delete_record(self.fqdn, name)
+
 
 class DomainManager:
 
