@@ -1,8 +1,9 @@
 from jadi import component
 from dataclasses import asdict
 
-from aj.api.http import get, HttpPlugin
+from aj.api.http import get, put, post, HttpPlugin
 from aj.auth import authorize
+from aj.plugins.dns_api.record import Record
 from aj.api.endpoint import endpoint, EndpointError
 from aj.plugins.dns_api.manager import DomainManager
 
@@ -26,3 +27,13 @@ class Handler(HttpPlugin):
         self.mgr.domains[fqdn].get_records()
         return [asdict(r) for r in self.mgr.domains[fqdn].records]
 
+    @post(r'/api/dns_api/domain/(?P<fqdn>[\w\.]+)/records/(?P<name>.*)')
+    @endpoint(api=True)
+    def handle_api_dns_put_record(self, http_context, fqdn, name):
+        record = Record (
+            name,
+            http_context.json_body()['ttl'],
+            http_context.json_body()['type'],
+            [http_context.json_body()['values']]
+        )
+        return self.mgr.domains[fqdn].add_record(record)
