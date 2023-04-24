@@ -1,4 +1,4 @@
-angular.module('ajenti.dns_api').controller('DnsAPIIndexController', function($scope, $http, pageTitle, gettext, notify) {
+angular.module('ajenti.dns_api').controller('DnsAPIIndexController', function($scope, $http, pageTitle, gettext, notify, messagebox) {
     pageTitle.set(gettext('DNS API'));
     $scope.detailsVisible = false;
 
@@ -46,6 +46,25 @@ angular.module('ajenti.dns_api').controller('DnsAPIIndexController', function($s
         });
         $scope.detailsVisible = false;
     };
+
+    $scope.delete = (name) => {
+        messagebox.show({
+            text: gettext('Really delete this entry?'),
+            positive: gettext('Delete'),
+            negative: gettext('Cancel')
+        }).then(() => {
+            $http.delete(`/api/dns_api/domain/${$scope.active_domain}/records/${name}`).then((resp) => {
+                code = resp.data[0];
+                msg = resp.data[1];
+                if (code >= 200 && code < 300) {
+                    notify.success(msg);
+                    $scope.get_records();
+                } else {
+                    notify.error(msg);
+                }
+            });
+        });
+    }
 
     $scope.closeDialog = () => $scope.detailsVisible = false;
 });

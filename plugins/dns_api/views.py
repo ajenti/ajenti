@@ -1,7 +1,7 @@
 from jadi import component
 from dataclasses import asdict
 
-from aj.api.http import get, put, post, HttpPlugin
+from aj.api.http import get, put, post, delete, HttpPlugin
 from aj.auth import authorize
 from aj.plugins.dns_api.record import Record
 from aj.api.endpoint import endpoint, EndpointError
@@ -13,7 +13,6 @@ class Handler(HttpPlugin):
     def __init__(self, context):
         self.context = context
         self.mgr = DomainManager(self.context)
-
 
     @get(r'/api/dns_api/domains')
     @endpoint(api=True)
@@ -37,3 +36,8 @@ class Handler(HttpPlugin):
             [http_context.json_body()['values']]
         )
         return self.mgr.domains[fqdn].add_record(record)
+
+    @delete(r'/api/dns_api/domain/(?P<fqdn>[\w\.]+)/records/(?P<name>.*)')
+    @endpoint(api=True)
+    def handle_api_dns_delete_record(self, http_context, fqdn, name):
+        return self.mgr.domains[fqdn].delete_record(name)
