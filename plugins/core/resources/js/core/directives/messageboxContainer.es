@@ -14,7 +14,7 @@ angular.module('core').directive('messageboxContainer', (messagebox) =>
                     <ng:include ng:if="message.template" src="message.template"></ng:include>
                     <div ng:show="message.prompt">
                         <label>{{message.prompt}}</label>
-                        <input type="text" ng:model="message.value" ng:enter="doPositive(message)" class="form-control" autofocus />
+                        <input type="{{message.input_type}}" ng:model="message.value" ng:enter="doPositive(message)" class="form-control" autofocus />
                     </div>
                 </div>
                 <div class="modal-footer">

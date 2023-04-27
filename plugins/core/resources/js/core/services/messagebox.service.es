@@ -15,13 +15,14 @@ angular.module('core').service('messagebox', function($timeout, $q) {
         };
     };
 
-    this.prompt = (prompt, value) => {
+    this.prompt = (prompt, value, input_type='text') => {
         value = value || ''
         return this.show({
             prompt,
             value,
             positive: 'OK',
-            negative: 'Cancel'
+            negative: 'Cancel',
+            input_type: input_type
         });
     };
 
