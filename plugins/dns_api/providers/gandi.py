@@ -13,19 +13,26 @@ class GandiApiDnsProvider(ApiDnsManager):
     name = 'Gandi DNS API'
 
     def __init__(self, context):
-        apikey = aj.config.data.get('dns_apikey', '') # TODO : wrong config entry for this
         self.baseUrl = 'https://api.gandi.net/v5/livedns/domains'
-        self.headers = {"Authorization": f"Apikey {apikey}"}
 
     def _req(self, method, apiurl="", data=None):
-        if method not in ["get", "put", "post", "delete"]:
+        apikey = aj.config.data.get('dns_api', {}).get('apikey', None)
+
+        if method not in ["get", "put", "post", "delete"] or apikey is None:
             return
 
         func = getattr(requests, method)
         if data is None:
-            resp = func(f"{self.baseUrl}{apiurl}", headers=self.headers)
+            resp = func(
+                f"{self.baseUrl}{apiurl}",
+                headers={"Authorization": f"Apikey {apikey}"}
+            )
         else:
-            resp = func(f"{self.baseUrl}{apiurl}", data=data, headers=self.headers)
+            resp = func(
+                f"{self.baseUrl}{apiurl}",
+                data=data,
+                headers={"Authorization": f"Apikey {apikey}"}
+            )
 
         return resp
 
