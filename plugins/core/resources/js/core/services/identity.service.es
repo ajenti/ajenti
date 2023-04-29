@@ -4,18 +4,18 @@ angular.module('core').service('identity', function($http, $location, $window, $
     this.color = ajentiBootstrapColor;
 
     this.init = () =>
-        $http.get('/api/core/identity').success(data => {
-            this.user = data.identity.user;
-            this.uid = data.identity.uid;
-            this.effective = data.identity.effective;
-            this.elevation_allowed = data.identity.elevation_allowed;
-            this.profile = data.identity.profile;
-            this.machine = data.machine;
-            this.color = data.color;
+        $http.get('/api/core/identity').then((resp) => {
+            identity = resp.data.identity;
+            this.user = identity.user;
+            this.uid = identity.uid;
+            this.effective = identity.effective;
+            this.elevation_allowed = identity.elevation_allowed;
+            this.profile = identity.profile;
+            this.machine = resp.data.machine;
+            this.color = resp.data.color;
             this.isSuperuser = this.effective === 0;
             q.resolve();
-        })
-        .error(() => q.reject());
+        }, () => q.reject());
 
     this.auth = (username, password, mode) => {
         let data = {

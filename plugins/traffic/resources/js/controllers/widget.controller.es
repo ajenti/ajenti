@@ -23,5 +23,5 @@ angular.module('ajenti.traffic').controller('TrafficWidgetController', ($scope, 
 
 angular.module('ajenti.traffic').controller('TrafficWidgetConfigController', ($scope, $http) => {
     $scope.traffic = [];
-    $http.get('/api/traffic/interfaces').success(interfaces => $scope.interfaces = interfaces);
+    $http.get('/api/traffic/interfaces').then((resp) => $scope.interfaces = resp.data);
 });
