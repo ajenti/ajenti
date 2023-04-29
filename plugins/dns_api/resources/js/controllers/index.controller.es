@@ -79,7 +79,7 @@ angular.module('ajenti.dns_api').controller('DnsAPIIndexController', function($s
 
     $scope.delete = (name) => {
         messagebox.show({
-            text: gettext('Really delete this entry?'),
+            text: gettext(`Really delete the entry ${name}?`),
             positive: gettext('Delete'),
             negative: gettext('Cancel')
         }).then(() => {
