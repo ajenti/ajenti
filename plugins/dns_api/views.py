@@ -28,7 +28,7 @@ class Handler(HttpPlugin):
 
     @post(r'/api/dns_api/domain/(?P<fqdn>[\w\.]+)/records/(?P<name>.*)')
     @endpoint(api=True)
-    def handle_api_dns_put_record(self, http_context, fqdn, name):
+    def handle_api_dns_post_record(self, http_context, fqdn, name):
         record = Record (
             name,
             http_context.json_body()['ttl'],
@@ -36,6 +36,17 @@ class Handler(HttpPlugin):
             [http_context.json_body()['values']]
         )
         return self.mgr.domains[fqdn].add_record(record)
+
+    @put(r'/api/dns_api/domain/(?P<fqdn>[\w\.]+)/records/(?P<name>.*)')
+    @endpoint(api=True)
+    def handle_api_dns_put_record(self, http_context, fqdn, name):
+        record = Record (
+            name,
+            http_context.json_body()['ttl'],
+            http_context.json_body()['type'],
+            [http_context.json_body()['values']]
+        )
+        return self.mgr.domains[fqdn].update_record(record)
 
     @delete(r'/api/dns_api/domain/(?P<fqdn>[\w\.]+)/records/(?P<name>.*)')
     @endpoint(api=True)

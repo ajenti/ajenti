@@ -31,15 +31,18 @@
                     </span>
                 </td>
                 <td>
-                    <button class="btn btn-flat" ng:click="delete(record.name)">
+                    <button class="btn pull-right" ng:click="delete(record.name)">
                         <i class="fas fa-trash"></i>
+                    </button>
+                    <button class="btn pull-right" ng:click="openDialog(record)">
+                        <i class="fas fa-pen"></i>
                     </button>
                 </td>
             </tr>
 
         </table>
 
-        <button class="btn btn-default" ng:click="openNew()" translate>Add entry</button>
+        <button class="btn btn-default" ng:click="openDialog()" translate>Add entry</button>
 
         <dialog ng:show="detailsVisible">
             <div class="modal-header">
@@ -66,7 +69,8 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <a ng:click="add()" ng:disabled="false" class="btn btn-default btn-flat" translate>Add</a>
+                <a ng:click="add()" class="btn btn-default btn-flat" ng:show="$parent.DNSdialog.mode == 'add'" translate>Add</a>
+                <a ng:click="update()" class="btn btn-default btn-flat" ng:show="$parent.DNSdialog.mode == 'update'" translate>Update</a>
                 <a ng:click="closeDialog()" class="btn btn-default btn-flat" translate>Cancel</a>
             </div
 

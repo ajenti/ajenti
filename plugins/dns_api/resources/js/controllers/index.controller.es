@@ -20,13 +20,24 @@ angular.module('ajenti.dns_api').controller('DnsAPIIndexController', function($s
         });
     };
 
-    $scope.openNew = () => {
-        $scope.DNSdialog = {
-            'type': 'A',
-            'ttl': 10800,
-            'name': '',
-            'value': ''
-        };
+    $scope.openDialog = (record) => {
+        if (record) {
+            $scope.DNSdialog = {
+                'type': record.type,
+                'ttl': record.ttl,
+                'name': record.name,
+                'value': record.values.join(' '),
+                'mode': 'update'
+            };
+        } else {
+            $scope.DNSdialog = {
+                'type': 'A',
+                'ttl': 10800,
+                'name': '',
+                'value': '',
+                'mode': 'add'
+            };
+        }
         $scope.detailsVisible = true;
     };
 
@@ -41,6 +52,24 @@ angular.module('ajenti.dns_api').controller('DnsAPIIndexController', function($s
                     notify.success(msg);
                     $scope.get_records();
                 } else {
+                    notify.error(msg);
+                }
+        });
+        $scope.detailsVisible = false;
+    };
+
+    $scope.update = () => {
+        $http.put(`/api/dns_api/domain/${$scope.active_domain}/records/${$scope.DNSdialog.name}`, {
+            'ttl': $scope.DNSdialog.ttl,
+            'type': $scope.DNSdialog.type,
+            'values': $scope.DNSdialog.value}).then((resp) => {
+                code = resp.data[0];
+                msg = resp.data[1];
+                if (code >= 200 && code < 300) {
+                    notify.success(msg);
+                    $scope.get_records();
+                } else {
+                    console.log(msg);
                     notify.error(msg);
                 }
         });
