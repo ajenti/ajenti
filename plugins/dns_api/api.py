@@ -19,5 +19,8 @@ class ApiDnsManager():
     def add_record(self, fqdn, record):
         raise NotImplementedError
 
+    def update_record(self, fqdn, record):
+        raise NotImplementedError
+
     def delete_record(self, fqdn, name):
         raise NotImplementedError

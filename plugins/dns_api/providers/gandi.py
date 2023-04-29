@@ -63,6 +63,23 @@ class GandiApiDnsProvider(ApiDnsManager):
         except Exception as e:
             logging.error(e)
 
+    def update_record(self, fqdn, record):
+        try:
+            data = json.dumps({'items': [{
+                'rrset_name': record.name,
+                'rrset_type': record.type,
+                'rrset_values': record.values,
+                'rrset_ttl': record.ttl
+            }]})
+            resp = self._req('put', apiurl=f"/{fqdn}/records/{record.name}", data=data)
+            messages = json.loads(resp.content)
+            if messages.get('status', '') == 'error':
+                return resp.status_code, messages['errors']
+            else:
+                return resp.status_code, messages['message']
+        except Exception as e:
+            logging.error(e)
+
     def delete_record(self, fqdn, name):
         try:
             resp = self._req('delete', apiurl=f"/{fqdn}/records/{name}")
