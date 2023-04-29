@@ -18,7 +18,7 @@ class Handler(HttpPlugin):
     @endpoint(api=True)
     def handle_api_dns_list_domains(self, http_context):
         self.mgr.load()
-        return list(self.mgr.domains.keys())
+        return list(self.mgr.domains.keys()), self.mgr.api_provider.name
 
     @get(r'/api/dns_api/domain/(?P<fqdn>[\w\.]+)/records')
     @endpoint(api=True)

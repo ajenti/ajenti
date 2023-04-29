@@ -5,9 +5,10 @@ angular.module('ajenti.dns_api').controller('DnsAPIIndexController', function($s
     $scope.supported_types = ['A', 'AAAA', 'ALIAS', 'CNAME', 'MX', 'NS', 'PTR', 'SPF', 'TXT']
 
     $http.get('/api/dns_api/domains').then((resp) => {
-        $scope.domains = resp.data;
+        $scope.domains = resp.data[0];
+        $scope.provider = resp.data[1];
         if ($scope.domains.length > 0) {
-            $scope.active_domain = resp.data[0];
+            $scope.active_domain = $scope.domains[0];
             $scope.get_records();
         } else {
             $scope.active_domain = '';
