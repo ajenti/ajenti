@@ -1,4 +1,5 @@
 from aj.plugins.dns_api.api import ApiDnsManager
+import aj
 
 class Domain:
 
@@ -25,9 +26,11 @@ class DomainManager:
 
     def __init__(self, context):
         self.context = context
+        # gandi is currently the only provider
+        provider_id = aj.config.data.get('dns_api', {}).get('provider', 'gandi')
+
         for provider in ApiDnsManager.all(self.context):
-            # TODO : gandi is the only one, need to prepare a config entry
-            if provider.id == 'gandi':
+            if provider.id == provider_id:
                 self.api_provider = provider
                 break
         self.domains = {}
