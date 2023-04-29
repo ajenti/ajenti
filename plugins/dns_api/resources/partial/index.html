@@ -10,7 +10,7 @@
     </div>
 
     <div ng:show="domains.length > 0">
-        <div class="form-group">
+        <div class="form-group" ng:if="domains.length > 1">
             <label translate>Select domain: </label>
             <select
                     ng:options="domain for domain in domains"
@@ -19,6 +19,10 @@
                     class="form-control"
             >
             </select>
+        </div>
+
+        <div class="form-group" ng:if="domains.length == 1">
+            <label translate>Selected domain: {{active_domain}}</label>
         </div>
 
         <table class="table">
