@@ -1,7 +1,9 @@
+import logging
+
 from jadi import component
 import subprocess
 
-from aj.api.http import get, post, HttpPlugin
+from aj.api.http import get, post, delete, HttpPlugin
 from aj.auth import authorize
 from aj.api.endpoint import endpoint, EndpointError
 
@@ -50,11 +52,19 @@ class Handler(HttpPlugin):
                     'source': details[4],
                     'destination': details[5],
                     'options': ' '.join(details[6:]),
+                    'rule_line': line.strip(),
                 })
 
         return chains
 
-    @post(r'/api/iptables')
+    @delete(r'/api/iptables/(?P<chain>[\w\-]*)/(?P<number>\d*)')
     @endpoint(api=True)
-    def handle_api_post_iptables(self, http_context):
-        pass
+    def handle_api_delete_iptables(self, http_context, chain, number):
+        try:
+            print(f"{self.iptables} -D {chain} {number}".split())
+            subprocess.check_output(f"{self.iptables} -D {chain} {number}".split())
+            return {'type': 'success', 'msg': _('Rule successfully deleted')}
+        except Exception as e:
+            logging.error(e)
+            return {'type': 'error', 'msg': e}
+
