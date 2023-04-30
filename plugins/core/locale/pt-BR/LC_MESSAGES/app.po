@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-22 19:21+0200\n"
-"PO-Revision-Date: 2023-01-05 17:22\n"
+"PO-Revision-Date: 2023-04-30 13:07\n"
 "Last-Translator: \n"
 "Language-Team: Portuguese, Brazilian\n"
 "Language: pt_BR\n"
@@ -23,19 +23,15 @@ msgstr "404 - Página não encontrada"
 
 #: plugins/core/resources/partial/reset_password.html:30
 msgid "<small>The two entered passwords differ</small>"
-msgstr ""
+msgstr "<small>As duas senhas inseridas não são iguais</small>"
 
 #: plugins/core/resources/partial/404.html:7
-msgid ""
-"<span>\n"
-"                    <i class=\"fa fa-exclamation-triangle\" style=\"color:"
-"red;\"></i>\n"
+msgid "<span>\n"
+"                    <i class=\"fa fa-exclamation-triangle\" style=\"color:red;\"></i>\n"
 "                </span>\n"
 "                The URL {{url}} was not found on this server."
-msgstr ""
-"<span>\n"
-"                    <i class=\"fa fa-exclamation-triangle\" style=\"color:"
-"red;\"></i>\n"
+msgstr "<span>\n"
+"                    <i class=\"fa fa-exclamation-triangle\" style=\"color:red;\"></i>\n"
 "                </span>\n"
 "                A URL {{url}} não foi encontrada neste servidor."
 
@@ -44,15 +40,13 @@ msgid "A bootstrap error has occurred"
 msgstr ""
 
 #: plugins/core/resources/partial/totp.html:51
-msgid ""
-"A valid key should contain at least 32 characters chosen from "
-"\"ABCDEFGHIJKLMNOPQRSTUVWXYZ234567\"."
-msgstr ""
+msgid "A valid key should contain at least 32 characters chosen from \"ABCDEFGHIJKLMNOPQRSTUVWXYZ234567\"."
+msgstr "Uma chave válida deve conter pelo menos 32 caracteres escolhidos de \"ABCDEFGHIJKLMNOPQRSTUVWXYZ234567\"."
 
 #: plugins/core/resources/partial/totp.html:26
 #: plugins/core/resources/partial/totp.html:30
 msgid "Add new TOTP"
-msgstr ""
+msgstr "Adicionar novo TOTP"
 
 #: plugins/core/resources/partial/login.html:32
 msgid "Authenticate"
@@ -62,7 +56,7 @@ msgstr "Autenticar"
 #: plugins/core/resources/partial/totp.html:63
 #: plugins/core/resources/js/core/controllers/totp.controller.es:57
 msgid "Cancel"
-msgstr ""
+msgstr "Cancelar"
 
 #: plugins/core/resources/partial/totp.html:9
 msgid "Date"
@@ -71,7 +65,7 @@ msgstr ""
 #: plugins/core/resources/partial/totp.html:10
 #: plugins/core/resources/partial/totp.html:38
 msgid "Description"
-msgstr ""
+msgstr "Descrição"
 
 #: plugins/core/content/pages/index.html:89
 msgid "Elevate"
@@ -79,7 +73,7 @@ msgstr "Subir"
 
 #: plugins/core/resources/partial/reset_password_send.html:13
 msgid "Email"
-msgstr ""
+msgstr "Email"
 
 #: plugins/core/content/pages/index.html:140
 msgid "Enter"
@@ -116,7 +110,7 @@ msgstr "Por favor, confirme a nova senha"
 
 #: plugins/core/resources/partial/login.html:46
 msgid "Please enter TOTP verification code:"
-msgstr ""
+msgstr "Por favor, insira o código de verificação TOTP:"
 
 #: plugins/core/resources/partial/reset_password.html:22
 msgid "Please enter the new password"
@@ -141,7 +135,7 @@ msgstr "Redefinir senha"
 
 #: plugins/core/resources/partial/totp.html:64
 msgid "Save"
-msgstr ""
+msgstr "Salvar"
 
 #: plugins/core/resources/partial/reset_password_send.html:17
 msgid "Send instructions to reset password"
@@ -153,7 +147,7 @@ msgstr "Tempo de sessão : {{ counter[0] }}:{{ counter[1] }}:{{ counter[2] }}"
 
 #: plugins/core/content/pages/index.html:94
 msgid "TFA"
-msgstr ""
+msgstr "TFA"
 
 #: plugins/core/resources/partial/reset_password.html:10
 msgid "The used link is not valid or expired."
@@ -161,15 +155,15 @@ msgstr "O link utilizado não é válido ou expirou."
 
 #: plugins/core/resources/partial/totp.html:3
 msgid "There is currently no TOTP key for this user."
-msgstr ""
+msgstr "Não há nenhuma chave TOTP para este usuário no momento."
 
 #: plugins/core/resources/partial/totp.html:8
 msgid "User"
-msgstr ""
+msgstr "Usuário"
 
 #: plugins/core/resources/partial/totp.html:33
 msgid "User:"
-msgstr ""
+msgstr "Usuário:"
 
 #: plugins/core/resources/partial/login.html:19
 msgid "Username"
@@ -177,7 +171,7 @@ msgstr "Usuário"
 
 #: plugins/core/resources/partial/totp.html:57
 msgid "Verify"
-msgstr ""
+msgstr "Verificar"
 
 #: plugins/core/main.py:17
 msgid "General"
@@ -313,20 +307,20 @@ msgstr "Concluído"
 
 #: plugins/core/resources/js/core/controllers/totp.controller.es:55
 msgid "Really delete this TOTP?"
-msgstr ""
+msgstr "Tem certeza que deseja deletar este TOTP?"
 
 #: plugins/core/resources/js/core/controllers/totp.controller.es:56
 msgid "Delete"
-msgstr ""
+msgstr "Deletar"
 
 #: plugins/core/resources/js/core/controllers/totp.controller.es:60
 #: plugins/core/resources/js/core/controllers/totp.controller.es:70
 msgid "Command successfully sent"
-msgstr ""
+msgstr "Comando enviado com sucesso"
 
 #: plugins/core/resources/js/core/controllers/login.controller.es:50
 msgid "Wrong TOTP"
-msgstr ""
+msgstr "Código TOTP inválido"
 
 #: plugins/core/resources/js/core/controllers/login.controller.es:83
 msgid "Authentication failed"
@@ -347,3 +341,4 @@ msgstr "Ocorreu um erro ao alterar a senha"
 #: plugins/core/resources/js/core/controllers/pwreset.controller.es:37
 msgid "The password complexity does not match the system requirements : "
 msgstr "A complexidade da senha não corresponde aos requisitos do sistema: "
+

@@ -3,15 +3,14 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-22 19:21+0200\n"
-"PO-Revision-Date: 2023-01-05 17:23\n"
+"PO-Revision-Date: 2023-04-30 13:07\n"
 "Last-Translator: \n"
 "Language-Team: Serbian (Latin)\n"
 "Language: sr_CS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Crowdin-Project: ajenti\n"
 "X-Crowdin-Project-ID: 18127\n"
 "X-Crowdin-Language: sr-CS\n"
@@ -215,9 +214,8 @@ msgid "Could not load directory"
 msgstr ""
 
 #: plugins/filemanager/resources/js/controllers/index.controller.es:71
-#, fuzzy
 msgid "New name"
-msgstr "Ime fajla"
+msgstr ""
 
 #: plugins/filemanager/resources/js/controllers/index.controller.es:78
 msgid "File or directory already exists"
@@ -238,3 +236,4 @@ msgstr ""
 #: plugins/filemanager/resources/js/controllers/index.controller.es:177
 msgid "Uploaded"
 msgstr ""
+

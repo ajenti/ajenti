@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-06 13:09+0200\n"
-"PO-Revision-Date: 2023-01-05 17:22\n"
+"POT-Creation-Date: 2023-04-30 15:01+0200\n"
+"PO-Revision-Date: 2023-04-30 13:07\n"
 "Last-Translator: \n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
@@ -18,28 +18,29 @@ msgstr ""
 "X-Crowdin-File-ID: 60\n"
 
 #: plugins/cron/resources/partial/index.html:38
-#: plugins/cron/resources/partial/index.html:65
-#: plugins/cron/resources/partial/index.html:92
-msgid "Add"
-msgstr "Добавить"
+#: plugins/cron/resources/partial/index.html:68
+#: plugins/cron/resources/partial/index.html:98
+msgid "<i class=\"fas fa-plus-circle\"></i>\n"
+"                Add"
+msgstr ""
 
-#: plugins/cron/resources/partial/index.html:129
-#: plugins/cron/resources/partial/index.html:145
-#: plugins/cron/resources/partial/index.html:161
+#: plugins/cron/resources/partial/index.html:138
+#: plugins/cron/resources/partial/index.html:154
+#: plugins/cron/resources/partial/index.html:170
 #: plugins/cron/resources/js/controllers/index.controller.es:47
 msgid "Cancel"
 msgstr "Отменить"
 
-#: plugins/cron/resources/partial/index.html:121
-#: plugins/cron/resources/partial/index.html:137
+#: plugins/cron/resources/partial/index.html:130
+#: plugins/cron/resources/partial/index.html:146
 #: plugins/cron/resources/partial/index.html:15
-#: plugins/cron/resources/partial/index.html:46
+#: plugins/cron/resources/partial/index.html:49
 msgid "Command"
 msgstr "Команда"
 
-#: plugins/cron/resources/partial/index.html:125
-#: plugins/cron/resources/partial/index.html:141
-#: plugins/cron/resources/partial/index.html:157
+#: plugins/cron/resources/partial/index.html:134
+#: plugins/cron/resources/partial/index.html:150
+#: plugins/cron/resources/partial/index.html:166
 msgid "Comment"
 msgstr "Комментарий"
 
@@ -51,20 +52,20 @@ msgstr "День (месяц)"
 msgid "Day (week)"
 msgstr "День (неделя)"
 
-#: plugins/cron/resources/partial/index.html:109
+#: plugins/cron/resources/partial/index.html:118
 msgid "Day of the month"
 msgstr "День месяца"
 
-#: plugins/cron/resources/partial/index.html:117
+#: plugins/cron/resources/partial/index.html:126
 msgid "Day of the week"
 msgstr "День недели"
 
-#: plugins/cron/resources/partial/index.html:67
+#: plugins/cron/resources/partial/index.html:73
 msgid "Environment variables"
 msgstr "Переменные окружения"
 
-#: plugins/cron/resources/partial/index.html:105
 #: plugins/cron/resources/partial/index.html:11
+#: plugins/cron/resources/partial/index.html:114
 msgid "Hour"
 msgstr "Час"
 
@@ -73,37 +74,37 @@ msgid "Jobs"
 msgstr "Работы"
 
 #: plugins/cron/resources/partial/index.html:10
-#: plugins/cron/resources/partial/index.html:101
+#: plugins/cron/resources/partial/index.html:110
 msgid "Minute"
 msgstr "Минуты"
 
-#: plugins/cron/resources/partial/index.html:97
+#: plugins/cron/resources/partial/index.html:106
 msgid "Modify"
 msgstr "Изменить"
 
-#: plugins/cron/resources/partial/index.html:113
+#: plugins/cron/resources/partial/index.html:122
 #: plugins/cron/resources/partial/index.html:13
 msgid "Month"
 msgstr "Месяц"
 
-#: plugins/cron/resources/partial/index.html:149
-#: plugins/cron/resources/partial/index.html:72
+#: plugins/cron/resources/partial/index.html:158
+#: plugins/cron/resources/partial/index.html:78
 msgid "Name"
 msgstr "Имя"
 
-#: plugins/cron/resources/partial/index.html:130
-#: plugins/cron/resources/partial/index.html:146
-#: plugins/cron/resources/partial/index.html:162
+#: plugins/cron/resources/partial/index.html:139
+#: plugins/cron/resources/partial/index.html:155
+#: plugins/cron/resources/partial/index.html:171
 msgid "OK"
 msgstr "OK"
 
-#: plugins/cron/resources/partial/index.html:167
+#: plugins/cron/resources/partial/index.html:176
 msgid "Save"
 msgstr "Сохранить"
 
-#: plugins/cron/resources/partial/index.html:133
-#: plugins/cron/resources/partial/index.html:40
-#: plugins/cron/resources/partial/index.html:45
+#: plugins/cron/resources/partial/index.html:142
+#: plugins/cron/resources/partial/index.html:43
+#: plugins/cron/resources/partial/index.html:48
 msgid "Special"
 msgstr "Специальный"
 
@@ -111,16 +112,16 @@ msgstr "Специальный"
 msgid "There is no cronjob."
 msgstr "Нет задач для cron."
 
-#: plugins/cron/resources/partial/index.html:42
+#: plugins/cron/resources/partial/index.html:45
 msgid "There is no special task."
 msgstr "Нет специальной задачи."
 
-#: plugins/cron/resources/partial/index.html:69
+#: plugins/cron/resources/partial/index.html:75
 msgid "There is no variables environment set."
 msgstr "Переменных окружения не установлено."
 
-#: plugins/cron/resources/partial/index.html:153
-#: plugins/cron/resources/partial/index.html:73
+#: plugins/cron/resources/partial/index.html:162
+#: plugins/cron/resources/partial/index.html:79
 msgid "Value"
 msgstr "Значение"
 

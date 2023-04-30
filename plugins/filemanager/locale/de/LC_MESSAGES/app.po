@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-22 19:21+0200\n"
-"PO-Revision-Date: 2023-01-05 17:22\n"
+"PO-Revision-Date: 2023-04-30 13:07\n"
 "Last-Translator: \n"
 "Language-Team: German\n"
 "Language: de_DE\n"
@@ -135,7 +135,7 @@ msgstr "Neue Datei"
 
 #: plugins/filemanager/resources/partial/properties.html:92
 msgid "Owner"
-msgstr "Besitzer\t"
+msgstr "Besitzer	"
 
 #: plugins/filemanager/resources/partial/index.html:61
 msgid "Paste here"
@@ -214,13 +214,12 @@ msgid "Could not load directory"
 msgstr "Verzeichnis konnte nicht geladen werden"
 
 #: plugins/filemanager/resources/js/controllers/index.controller.es:71
-#, fuzzy
 msgid "New name"
-msgstr "Dateiname"
+msgstr "Neuer Name"
 
 #: plugins/filemanager/resources/js/controllers/index.controller.es:78
 msgid "File or directory already exists"
-msgstr ""
+msgstr "Datei oder Verzeichnis existiert bereits"
 
 #: plugins/filemanager/resources/js/controllers/index.controller.es:113
 msgid "Delete selected items?"
@@ -237,3 +236,4 @@ msgstr "Verzeichnis konnte nicht erstellt werden"
 #: plugins/filemanager/resources/js/controllers/index.controller.es:177
 msgid "Uploaded"
 msgstr "Hochgeladen"
+

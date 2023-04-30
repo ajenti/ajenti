@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-22 19:21+0200\n"
-"PO-Revision-Date: 2023-01-05 17:22\n"
+"PO-Revision-Date: 2023-04-30 13:07\n"
 "Last-Translator: \n"
 "Language-Team: Swedish\n"
 "Language: sv_SE\n"
@@ -26,16 +26,12 @@ msgid "<small>The two entered passwords differ</small>"
 msgstr "<small>De två angivna lösenorden skiljer sig åt</small>"
 
 #: plugins/core/resources/partial/404.html:7
-msgid ""
-"<span>\n"
-"                    <i class=\"fa fa-exclamation-triangle\" style=\"color:"
-"red;\"></i>\n"
+msgid "<span>\n"
+"                    <i class=\"fa fa-exclamation-triangle\" style=\"color:red;\"></i>\n"
 "                </span>\n"
 "                The URL {{url}} was not found on this server."
-msgstr ""
-"<span>\n"
-"                    <i class=\"fa fa-exclamation-triangle\" style=\"color:"
-"red;\"></i>\n"
+msgstr "<span>\n"
+"                    <i class=\"fa fa-exclamation-triangle\" style=\"color:red;\"></i>\n"
 "                </span>\n"
 "                URL {{url}} hittades inte på den här servern."
 
@@ -44,9 +40,7 @@ msgid "A bootstrap error has occurred"
 msgstr "Ett bootstrap-fel har inträffat"
 
 #: plugins/core/resources/partial/totp.html:51
-msgid ""
-"A valid key should contain at least 32 characters chosen from "
-"\"ABCDEFGHIJKLMNOPQRSTUVWXYZ234567\"."
+msgid "A valid key should contain at least 32 characters chosen from \"ABCDEFGHIJKLMNOPQRSTUVWXYZ234567\"."
 msgstr ""
 
 #: plugins/core/resources/partial/totp.html:26
@@ -347,3 +341,4 @@ msgstr "Ett fel uppstod när lösenordet skulle ändras"
 #: plugins/core/resources/js/core/controllers/pwreset.controller.es:37
 msgid "The password complexity does not match the system requirements : "
 msgstr "Lösenordskomplexiteten matchar inte systemkraven :"
+

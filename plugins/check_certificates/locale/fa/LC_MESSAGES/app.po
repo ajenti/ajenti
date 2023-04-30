@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-06-25 21:20+0200\n"
-"PO-Revision-Date: 2023-01-05 17:23\n"
+"PO-Revision-Date: 2023-04-30 13:07\n"
 "Last-Translator: \n"
 "Language-Team: Persian\n"
 "Language: fa_IR\n"
@@ -90,7 +90,7 @@ msgstr "تایم اوت از میزبان!"
 
 #: plugins/check_certificates/api.py:94
 msgid "Could not resolve hostname !"
-msgstr ""
+msgstr "نام میزبان غلط است!"
 
 #: plugins/check_certificates/api.py:100
 msgid "Certificate is not valid !"

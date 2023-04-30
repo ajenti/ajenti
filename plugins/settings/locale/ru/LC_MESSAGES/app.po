@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-22 16:37+0200\n"
-"PO-Revision-Date: 2023-01-05 17:22\n"
+"POT-Creation-Date: 2023-04-30 15:01+0200\n"
+"PO-Revision-Date: 2023-04-30 13:07\n"
 "Last-Translator: \n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
@@ -66,15 +66,15 @@ msgstr "Включите проверку подлинности клиенто�
 
 #: plugins/settings/resources/partial/index.html:284
 msgid "Enable email relay for notification"
-msgstr ""
+msgstr "Включить ретрансляцию почты для уведомлений"
 
 #: plugins/settings/resources/partial/index.html:153
 msgid "Force SSL"
-msgstr ""
+msgstr "Принудительный SSL"
 
 #: plugins/settings/resources/partial/index.html:7
 msgid "General"
-msgstr ""
+msgstr "Общее"
 
 #: plugins/settings/resources/partial/index.html:263
 #: plugins/settings/resources/js/controllers/index.controller.es:149
@@ -120,11 +120,11 @@ msgstr "Новый пользовательский сертификат"
 
 #: plugins/settings/resources/partial/index.html:109
 msgid "New domain"
-msgstr ""
+msgstr "Новый домен"
 
 #: plugins/settings/resources/partial/index.html:126
 msgid "New proxy"
-msgstr ""
+msgstr "Новый прокси"
 
 #: plugins/settings/resources/partial/index.html:195
 msgid "No certificates are created yet."
@@ -149,11 +149,11 @@ msgstr "Перезапустить панель"
 
 #: plugins/settings/resources/partial/index.html:299
 msgid "SMTP host"
-msgstr ""
+msgstr "SMTP сервер"
 
 #: plugins/settings/resources/partial/index.html:321
 msgid "SMTP password"
-msgstr ""
+msgstr "SMTP пароль"
 
 #: plugins/settings/resources/partial/index.html:315
 msgid "SMTP user"
@@ -189,7 +189,7 @@ msgstr "Безопасность"
 
 #: plugins/settings/resources/partial/index.html:278
 msgid "Smtp relay"
-msgstr ""
+msgstr "SMTP-ретранслятор"
 
 #: plugins/settings/resources/partial/index.html:62
 msgid "Socket path"
@@ -205,11 +205,11 @@ msgstr "Sudo"
 
 #: plugins/settings/resources/partial/index.html:337
 msgid "Template email reset"
-msgstr ""
+msgstr "Путь к шаблону письма для сброса пароля"
 
 #: plugins/settings/resources/partial/index.html:293
 msgid "The smtp.yml config file seems to be empty. Currently it's not possible to send emails with this configuration."
-msgstr ""
+msgstr "Похоже, что конфигурационный файл smtp.yml пустой. В настоящее время невозможно отправлять письма с этой конфигурацией."
 
 #: plugins/settings/resources/partial/index.html:229
 msgid "This might take a few seconds"
@@ -217,11 +217,11 @@ msgstr "Это займет немного времени"
 
 #: plugins/settings/resources/partial/index.html:97
 msgid "Trusted domains"
-msgstr ""
+msgstr "Доверенные домены"
 
 #: plugins/settings/resources/partial/index.html:114
 msgid "Trusted proxies"
-msgstr ""
+msgstr "Доверенные прокси"
 
 #: plugins/settings/main.py:15
 #: plugins/settings/resources/js/controllers/index.controller.es:2
@@ -231,32 +231,36 @@ msgstr "Настройки"
 #: plugins/settings/resources/js/controllers/index.controller.es:24
 msgid "If Ajenti is installed behind a proxy, oder reachable by a fqdn other than provided by the host,\n"
 "you can then specify the other domains here, and by this way avoiding some resources loading problems."
-msgstr ""
+msgstr "Если Ajenti установлен за прокси-сервером или доступен по полному доменному имени, отличному от предоставленного хостом,\n"
+"вы можете указать здесь другие домены и, таким образом, избежать некоторых проблем с загрузкой ресурсов."
 
 #: plugins/settings/resources/js/controllers/index.controller.es:29
 msgid "If Ajenti is installed behind one or more proxies, specify the ip of these proxies here, in order to\n"
 "get the real client ip address."
-msgstr ""
+msgstr "Если Ajenti установлен за одним или несколькими прокси, укажите IP этих прокси здесь, чтобы получить реальный IP-адрес клиента."
 
 #: plugins/settings/resources/js/controllers/index.controller.es:34
 msgid "This certificate is the default certificate used to create client certificate and to provide https connection.\n"
 "Using a Let's Encrypt certificate here will break the client certificate generator.\n"
 "Using a self-generated certificate is fine here."
-msgstr ""
+msgstr "Этот сертификат является сертификатом по умолчанию, используемым для создания клиентского сертификата и обеспечения https-соединения.\n"
+"Использование здесь сертификата Let's Encrypt приведет к поломке генератора клиентских сертификатов.\n"
+"Здесь можно использовать самостоятельно сгенерированный сертификат."
 
 #: plugins/settings/resources/js/controllers/index.controller.es:40
 msgid "If you have a special certificate for your domain, like a Let's Encrypt certificate, put it there.\n"
 "If you are not sure, just use the same certificate as the one above."
-msgstr ""
+msgstr "Если у вас есть специальный сертификат для вашего домена, например сертификат Let's Encrypt, поместите его туда.\n"
+"Если вы не уверены, просто используйте тот же сертификат, что и выше."
 
 #: plugins/settings/resources/js/controllers/index.controller.es:46
 msgid "Please be sure to have at least one valid user in the authentication provider. When not, you will be lock out from Ajenti. "
-msgstr ""
+msgstr "Убедитесь, что у поставщика аутентификации есть хотя бы один действительный пользователь. В противном случае вы будете заблокированы от Ajenti. "
 
 #: plugins/settings/resources/js/controllers/index.controller.es:62
 #: plugins/settings/resources/js/controllers/index.controller.es:75
 msgid "Delete"
-msgstr ""
+msgstr "Удалить"
 
 #: plugins/settings/resources/js/controllers/index.controller.es:101
 msgid "Could not load authentication provider list"
@@ -306,8 +310,8 @@ msgstr "Пожалуйста, подождите"
 msgid "Certificate successfully generated"
 msgstr "Сертификат успешно создан"
 
-#: plugins/settings/resources/js/controllers/index.controller.es:161
-#: plugins/settings/resources/js/controllers/index.controller.es:180
+#: plugins/settings/resources/js/controllers/index.controller.es:160
+#: plugins/settings/resources/js/controllers/index.controller.es:179
 msgid "Certificate generation failed"
 msgstr "Ошибка создания сертификата"
 

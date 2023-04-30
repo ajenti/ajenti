@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-22 19:21+0200\n"
-"PO-Revision-Date: 2023-01-05 17:22\n"
+"PO-Revision-Date: 2023-04-30 13:07\n"
 "Last-Translator: \n"
 "Language-Team: Indonesian\n"
 "Language: id_ID\n"
@@ -26,10 +26,8 @@ msgid "<small>The two entered passwords differ</small>"
 msgstr ""
 
 #: plugins/core/resources/partial/404.html:7
-msgid ""
-"<span>\n"
-"                    <i class=\"fa fa-exclamation-triangle\" style=\"color:"
-"red;\"></i>\n"
+msgid "<span>\n"
+"                    <i class=\"fa fa-exclamation-triangle\" style=\"color:red;\"></i>\n"
 "                </span>\n"
 "                The URL {{url}} was not found on this server."
 msgstr ""
@@ -39,9 +37,7 @@ msgid "A bootstrap error has occurred"
 msgstr ""
 
 #: plugins/core/resources/partial/totp.html:51
-msgid ""
-"A valid key should contain at least 32 characters chosen from "
-"\"ABCDEFGHIJKLMNOPQRSTUVWXYZ234567\"."
+msgid "A valid key should contain at least 32 characters chosen from \"ABCDEFGHIJKLMNOPQRSTUVWXYZ234567\"."
 msgstr ""
 
 #: plugins/core/resources/partial/totp.html:26
@@ -94,7 +90,7 @@ msgstr "Keluar"
 
 #: plugins/core/resources/partial/reset_password.html:23
 msgid "New password"
-msgstr ""
+msgstr "Kata sandi baru"
 
 #: plugins/core/content/pages/index.html:181
 msgid "OK"
@@ -107,7 +103,7 @@ msgstr "Kata sandi"
 
 #: plugins/core/resources/partial/reset_password.html:26
 msgid "Please confirm the new password"
-msgstr ""
+msgstr "Konfirmasi kata sandi"
 
 #: plugins/core/resources/partial/login.html:46
 msgid "Please enter TOTP verification code:"
@@ -128,11 +124,11 @@ msgstr "Pencarian Cepat"
 
 #: plugins/core/resources/partial/reset_password.html:27
 msgid "Reenter the new password"
-msgstr ""
+msgstr "Ketikkan kembali kata sandi baru"
 
 #: plugins/core/resources/partial/reset_password.html:34
 msgid "Reset password"
-msgstr ""
+msgstr "Atur ulang kata sandi"
 
 #: plugins/core/resources/partial/totp.html:64
 msgid "Save"
@@ -140,7 +136,7 @@ msgstr ""
 
 #: plugins/core/resources/partial/reset_password_send.html:17
 msgid "Send instructions to reset password"
-msgstr ""
+msgstr "Kirim instruksi untuk atur ulang kata sandi"
 
 #: plugins/core/content/pages/index.html:109
 msgid "Session time : {{ counter[0] }}:{{ counter[1] }}:{{ counter[2] }}"
@@ -333,7 +329,7 @@ msgstr ""
 
 #: plugins/core/resources/js/core/controllers/pwreset.controller.es:31
 msgid "Password successfully changed !"
-msgstr ""
+msgstr "Kata sandi berhasil diubah!"
 
 #: plugins/core/resources/js/core/controllers/pwreset.controller.es:34
 msgid "An error occured while changing the password"
@@ -342,3 +338,4 @@ msgstr ""
 #: plugins/core/resources/js/core/controllers/pwreset.controller.es:37
 msgid "The password complexity does not match the system requirements : "
 msgstr ""
+

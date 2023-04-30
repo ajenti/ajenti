@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-22 19:21+0200\n"
-"PO-Revision-Date: 2023-01-05 17:22\n"
+"PO-Revision-Date: 2023-04-30 13:07\n"
 "Last-Translator: \n"
 "Language-Team: Hungarian\n"
 "Language: hu_HU\n"
@@ -214,9 +214,8 @@ msgid "Could not load directory"
 msgstr ""
 
 #: plugins/filemanager/resources/js/controllers/index.controller.es:71
-#, fuzzy
 msgid "New name"
-msgstr "Fájlnév"
+msgstr ""
 
 #: plugins/filemanager/resources/js/controllers/index.controller.es:78
 msgid "File or directory already exists"
@@ -237,3 +236,4 @@ msgstr ""
 #: plugins/filemanager/resources/js/controllers/index.controller.es:177
 msgid "Uploaded"
 msgstr ""
+

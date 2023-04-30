@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-22 19:21+0200\n"
-"PO-Revision-Date: 2023-01-05 17:22\n"
+"PO-Revision-Date: 2023-04-30 13:07\n"
 "Last-Translator: \n"
 "Language-Team: Portuguese, Brazilian\n"
 "Language: pt_BR\n"
@@ -19,7 +19,7 @@ msgstr ""
 
 #: plugins/filemanager/resources/partial/properties.html:132
 msgid "< Back"
-msgstr ""
+msgstr "< Voltar"
 
 #: plugins/filemanager/resources/partial/properties.html:49
 msgid "Access"
@@ -159,7 +159,7 @@ msgstr "Remover todos os itens"
 
 #: plugins/filemanager/resources/partial/index.html:13
 msgid "Root directory"
-msgstr ""
+msgstr "Diretório raiz"
 
 #: plugins/filemanager/resources/partial/properties.html:126
 msgid "Show in Notepad"
@@ -214,9 +214,8 @@ msgid "Could not load directory"
 msgstr "Não foi possível carregar o diretório"
 
 #: plugins/filemanager/resources/js/controllers/index.controller.es:71
-#, fuzzy
 msgid "New name"
-msgstr "Nome do arquivo"
+msgstr ""
 
 #: plugins/filemanager/resources/js/controllers/index.controller.es:78
 msgid "File or directory already exists"
@@ -237,3 +236,4 @@ msgstr "Não foi possível criar o diretório"
 #: plugins/filemanager/resources/js/controllers/index.controller.es:177
 msgid "Uploaded"
 msgstr "Enviado"
+

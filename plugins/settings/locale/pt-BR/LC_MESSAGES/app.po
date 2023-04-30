@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-22 16:37+0200\n"
-"PO-Revision-Date: 2023-01-05 17:22\n"
+"POT-Creation-Date: 2023-04-30 15:01+0200\n"
+"PO-Revision-Date: 2023-04-30 13:07\n"
 "Last-Translator: \n"
 "Language-Team: Portuguese, Brazilian\n"
 "Language: pt_BR\n"
@@ -66,11 +66,11 @@ msgstr "Habilitar a autenticação de cliente"
 
 #: plugins/settings/resources/partial/index.html:284
 msgid "Enable email relay for notification"
-msgstr ""
+msgstr "Habilitar retransmissão de email para notificação"
 
 #: plugins/settings/resources/partial/index.html:153
 msgid "Force SSL"
-msgstr ""
+msgstr "Forçar SSL"
 
 #: plugins/settings/resources/partial/index.html:7
 msgid "General"
@@ -120,11 +120,11 @@ msgstr "Novo certificado de cliente"
 
 #: plugins/settings/resources/partial/index.html:109
 msgid "New domain"
-msgstr ""
+msgstr "Novo domínio"
 
 #: plugins/settings/resources/partial/index.html:126
 msgid "New proxy"
-msgstr ""
+msgstr "Novo proxy"
 
 #: plugins/settings/resources/partial/index.html:195
 msgid "No certificates are created yet."
@@ -149,15 +149,15 @@ msgstr "Reiniciar painel"
 
 #: plugins/settings/resources/partial/index.html:299
 msgid "SMTP host"
-msgstr ""
+msgstr "Servidor SMTP"
 
 #: plugins/settings/resources/partial/index.html:321
 msgid "SMTP password"
-msgstr ""
+msgstr "Senha SMTP"
 
 #: plugins/settings/resources/partial/index.html:315
 msgid "SMTP user"
-msgstr ""
+msgstr "Usuário do SMTP"
 
 #: plugins/settings/resources/partial/index.html:172
 msgid "SSL FQDN certificate file"
@@ -185,11 +185,11 @@ msgstr "Salve e Feche"
 
 #: plugins/settings/resources/partial/index.html:70
 msgid "Security"
-msgstr ""
+msgstr "Segurança"
 
 #: plugins/settings/resources/partial/index.html:278
 msgid "Smtp relay"
-msgstr ""
+msgstr "Relay SMTP"
 
 #: plugins/settings/resources/partial/index.html:62
 msgid "Socket path"
@@ -209,7 +209,7 @@ msgstr ""
 
 #: plugins/settings/resources/partial/index.html:293
 msgid "The smtp.yml config file seems to be empty. Currently it's not possible to send emails with this configuration."
-msgstr ""
+msgstr "O arquivo de configuração smtp.yml parece estar vazio. Atualmente, não é possível enviar e-mails com esta configuração."
 
 #: plugins/settings/resources/partial/index.html:229
 msgid "This might take a few seconds"
@@ -217,11 +217,11 @@ msgstr "Isto pode demorar alguns segundos"
 
 #: plugins/settings/resources/partial/index.html:97
 msgid "Trusted domains"
-msgstr ""
+msgstr "Domínios confiáveis"
 
 #: plugins/settings/resources/partial/index.html:114
 msgid "Trusted proxies"
-msgstr ""
+msgstr "Proxies confiáveis"
 
 #: plugins/settings/main.py:15
 #: plugins/settings/resources/js/controllers/index.controller.es:2
@@ -236,27 +236,31 @@ msgstr ""
 #: plugins/settings/resources/js/controllers/index.controller.es:29
 msgid "If Ajenti is installed behind one or more proxies, specify the ip of these proxies here, in order to\n"
 "get the real client ip address."
-msgstr ""
+msgstr "Se o Ajenti está instalado atrás de um ou mais proxies, especifique o IP destes proxies aqui, para\n"
+"obter o endereço IP do cliente real."
 
 #: plugins/settings/resources/js/controllers/index.controller.es:34
 msgid "This certificate is the default certificate used to create client certificate and to provide https connection.\n"
 "Using a Let's Encrypt certificate here will break the client certificate generator.\n"
 "Using a self-generated certificate is fine here."
-msgstr ""
+msgstr "Este certificado é o certificado padrão usado para criar um certificado de cliente e para fornecer conexão sobre https.\n"
+"Usar um certificado Let's Encrypt aqui quebrará o gerador de certificado de cliente.\n"
+"Usar um certificado auto-gerado é adequado aqui."
 
 #: plugins/settings/resources/js/controllers/index.controller.es:40
 msgid "If you have a special certificate for your domain, like a Let's Encrypt certificate, put it there.\n"
 "If you are not sure, just use the same certificate as the one above."
-msgstr ""
+msgstr "Se tiver um certificado especial para seu domínio, como um certificado Let's Encrypt, coloque-o aqui.\n"
+"Se você não tem certeza, use o mesmo certificado acima."
 
 #: plugins/settings/resources/js/controllers/index.controller.es:46
 msgid "Please be sure to have at least one valid user in the authentication provider. When not, you will be lock out from Ajenti. "
-msgstr ""
+msgstr "Por favor, certifique-se de ter pelo menos um usuário válido no provedor de autenticação. Se não, você será bloqueado pelo Ajenti. "
 
 #: plugins/settings/resources/js/controllers/index.controller.es:62
 #: plugins/settings/resources/js/controllers/index.controller.es:75
 msgid "Delete"
-msgstr ""
+msgstr "Deletar"
 
 #: plugins/settings/resources/js/controllers/index.controller.es:101
 msgid "Could not load authentication provider list"
@@ -276,19 +280,19 @@ msgstr "Erro de SSL"
 
 #: plugins/settings/resources/js/controllers/index.controller.es:132
 msgid "Global config saved"
-msgstr ""
+msgstr "Configuração global salva"
 
 #: plugins/settings/resources/js/controllers/index.controller.es:134
 msgid "Could not save global config"
-msgstr ""
+msgstr "Não foi possível salvar a configuração global"
 
 #: plugins/settings/resources/js/controllers/index.controller.es:139
 msgid "Smtp config saved"
-msgstr ""
+msgstr "Configuração SMTP salva"
 
 #: plugins/settings/resources/js/controllers/index.controller.es:141
 msgid "Could not save smtp config"
-msgstr ""
+msgstr "Não foi possível salvar configuração SMTP"
 
 #: plugins/settings/resources/js/controllers/index.controller.es:147
 msgid "Self-signed certificate"
@@ -306,8 +310,8 @@ msgstr "Por favor, aguarde"
 msgid "Certificate successfully generated"
 msgstr "Certificado gerado com sucesso"
 
-#: plugins/settings/resources/js/controllers/index.controller.es:161
-#: plugins/settings/resources/js/controllers/index.controller.es:180
+#: plugins/settings/resources/js/controllers/index.controller.es:160
+#: plugins/settings/resources/js/controllers/index.controller.es:179
 msgid "Certificate generation failed"
 msgstr "Geração de certificado falhou"
 

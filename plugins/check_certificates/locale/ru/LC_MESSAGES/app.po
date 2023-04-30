@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-06-25 21:20+0200\n"
-"PO-Revision-Date: 2023-01-05 17:22\n"
+"PO-Revision-Date: 2023-04-30 13:07\n"
 "Last-Translator: \n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
@@ -29,7 +29,7 @@ msgstr "<i class=\"fas fa-check\"></i>\n"
 
 #: plugins/check_certificates/resources/partial/index.html:60
 msgid "Add"
-msgstr ""
+msgstr "Добавить"
 
 #: plugins/check_certificates/resources/partial/index.html:41
 msgid "Add host"
@@ -50,19 +50,19 @@ msgstr "Домен"
 
 #: plugins/check_certificates/resources/partial/index.html:14
 msgid "End"
-msgstr ""
+msgstr "Конец"
 
 #: plugins/check_certificates/resources/partial/index.html:13
 msgid "Issuer"
-msgstr ""
+msgstr "Издатель"
 
 #: plugins/check_certificates/resources/partial/index.html:45
 msgid "New hostname"
-msgstr ""
+msgstr "Новый hostname"
 
 #: plugins/check_certificates/resources/partial/index.html:5
 msgid "No host defined actually. Please first add an host."
-msgstr ""
+msgstr "Хост не определен фактически. Пожалуйста, сначала добавьте хост."
 
 #: plugins/check_certificates/resources/partial/index.html:12
 msgid "Port"
@@ -70,7 +70,7 @@ msgstr "Порт"
 
 #: plugins/check_certificates/resources/partial/index.html:53
 msgid "Port ( default is 443 if empty )"
-msgstr ""
+msgstr "Порт (по умолчанию 443, если пусто)"
 
 #: plugins/check_certificates/resources/partial/index.html:15
 msgid "Status"
@@ -78,7 +78,7 @@ msgstr "Статус"
 
 #: plugins/check_certificates/resources/partial/index.html:49
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 #: plugins/check_certificates/widget.py:8
 msgid "Certificates"
@@ -86,23 +86,23 @@ msgstr "Сертификаты"
 
 #: plugins/check_certificates/api.py:91 plugins/check_certificates/api.py:97
 msgid "Timeout from host !"
-msgstr ""
+msgstr "Время ожидания от хоста превышено !"
 
 #: plugins/check_certificates/api.py:94
 msgid "Could not resolve hostname !"
-msgstr ""
+msgstr "Не удается определить hostname !"
 
 #: plugins/check_certificates/api.py:100
 msgid "Certificate is not valid !"
-msgstr ""
+msgstr "Сертификат недействителен !"
 
 #: plugins/check_certificates/api.py:103
 msgid "Can not handle SSL on this port !"
-msgstr ""
+msgstr "Не удается обработать SSL на этом порту !"
 
 #: plugins/check_certificates/api.py:106
 msgid "Host refuse the connection !"
-msgstr ""
+msgstr "Хост отклонил соединение !"
 
 #: plugins/check_certificates/main.py:17
 #: plugins/check_certificates/resources/js/controllers/index.controller.coffee:2

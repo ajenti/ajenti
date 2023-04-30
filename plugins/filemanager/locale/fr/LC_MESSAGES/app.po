@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-22 19:21+0200\n"
-"PO-Revision-Date: 2023-01-05 17:22\n"
+"PO-Revision-Date: 2023-04-30 13:07\n"
 "Last-Translator: \n"
 "Language-Team: French\n"
 "Language: fr_FR\n"
@@ -214,13 +214,12 @@ msgid "Could not load directory"
 msgstr "Impossible de charger le répertoire"
 
 #: plugins/filemanager/resources/js/controllers/index.controller.es:71
-#, fuzzy
 msgid "New name"
-msgstr "Nom du fichier"
+msgstr "Nouveau nom"
 
 #: plugins/filemanager/resources/js/controllers/index.controller.es:78
 msgid "File or directory already exists"
-msgstr ""
+msgstr "Le fichier ou le répertoire existe déjà"
 
 #: plugins/filemanager/resources/js/controllers/index.controller.es:113
 msgid "Delete selected items?"
@@ -237,3 +236,4 @@ msgstr "Impossible de créer le répertoire"
 #: plugins/filemanager/resources/js/controllers/index.controller.es:177
 msgid "Uploaded"
 msgstr "Transféré"
+

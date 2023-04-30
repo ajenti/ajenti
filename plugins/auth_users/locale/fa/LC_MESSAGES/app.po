@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-06-25 21:20+0200\n"
-"PO-Revision-Date: 2023-01-05 17:23\n"
+"PO-Revision-Date: 2023-04-30 13:07\n"
 "Last-Translator: \n"
 "Language-Team: Persian\n"
 "Language: fa_IR\n"
@@ -35,7 +35,7 @@ msgstr "پیکربندی"
 
 #: plugins/auth_users/resources/partial/index.html:39
 msgid "Create"
-msgstr "ایجاد کردن"
+msgstr "ساختن"
 
 #: plugins/auth_users/resources/partial/index.html:50
 msgid "Default root password is <code>admin</code>"
@@ -43,7 +43,7 @@ msgstr "کلمه عبور پیشفرض کاربر روت <code>admin</code> می
 
 #: plugins/auth_users/resources/partial/index.html:85
 msgid "Email"
-msgstr "ایمیل"
+msgstr "رایانامه"
 
 #: plugins/auth_users/resources/partial/index.html:106
 msgid "Filesystem root"
@@ -75,7 +75,7 @@ msgstr "ذخیره"
 
 #: plugins/auth_users/resources/partial/index.html:89
 msgid "Sidebar entries"
-msgstr "موارد نوار کناری"
+msgstr "ورودی‌های نوار کناری"
 
 #: plugins/auth_users/resources/partial/index.html:65
 msgid "System account"
@@ -91,7 +91,7 @@ msgstr "این کاربر توسط مجوز های POSIX برای حساب سی�
 
 #: plugins/auth_users/resources/partial/index.html:80
 msgid "Update password"
-msgstr "به روز رسانی رمز عبور"
+msgstr "به‌روزرسانی گذرواژه"
 
 #: plugins/auth_users/resources/partial/index.html:46
 msgid "You have no users mapped to <b>root</b> system account. Saving this configuration will prevent any administrative access."
@@ -111,7 +111,7 @@ msgstr "در واقع هیچ کاربری ذخیره نشده است. شما ب�
 
 #: plugins/auth_users/resources/js/controllers/index.controller.es:92
 msgid "Password updated"
-msgstr "کلمه عبور به روز رسانی شد."
+msgstr "گذرواژه به‌روز شد"
 
 #: plugins/auth_users/resources/js/controllers/index.controller.es:100
 msgid "This username is already taken"
