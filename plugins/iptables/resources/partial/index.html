@@ -11,7 +11,7 @@
         <div class="form-group" ng:if="chains_list.length > 1">
             <label translate>Select chain: </label>
             <select
-                    ng:options="chain for chain in chains_list"
+                    ng:options='chain as (chain + "   (" + chains[chain].length + " rule(s))") for chain in chains_list'
                     ng:model="chains.active_chain"
                     ng:change="update_rules()"
                     class="form-control"
