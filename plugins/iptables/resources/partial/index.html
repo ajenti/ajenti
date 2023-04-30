@@ -27,6 +27,12 @@
             No rule found in the chain {{chains.active_chain}}.
         </div>
 
+        <div class="form-group" ng:show="rules.length > 0">
+            <input ng:model="filter" type="search" autofocus class="form-control" placeholder="Filter" />
+        </div>
+
+        <br />
+
         <table class="table" ng:show="rules.length > 0">
             <tr>
                 <th translate>Number</th>
@@ -38,7 +44,7 @@
                 <th translate>Options</th>
                 <th></th>
             </tr>
-            <tr ng:repeat="rule in rules">
+            <tr ng:repeat="rule in rules|filter:filter">
                 <td>{{rule.number}}</td>
                 <td>{{rule.target}}</td>
                 <td>{{rule.protocol}}</td>
