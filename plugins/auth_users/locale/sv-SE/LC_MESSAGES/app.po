@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-06-25 21:20+0200\n"
-"PO-Revision-Date: 2022-07-22 14:42\n"
+"PO-Revision-Date: 2023-04-30 13:07\n"
 "Last-Translator: \n"
 "Language-Team: Swedish\n"
 "Language: sv_SE\n"
@@ -20,12 +20,14 @@ msgstr ""
 #: plugins/auth_users/resources/partial/index.html:9
 msgid "<i class=\"fa fa-check\"></i>\n"
 "        <span>This module is currently used to authenticate users.</span>"
-msgstr ""
+msgstr "<i class=\"fa fa-check\"></i>\n"
+"        <span>Denna modul används för närvarande för att autentisera användare.</span>"
 
 #: plugins/auth_users/resources/partial/index.html:5
 msgid "<i class=\"fa fa-warning\"></i>\n"
 "        <span>This module is currently not used to authenticate users.</span>"
-msgstr ""
+msgstr "<i class=\"fa fa-warning\"></i>\n"
+" <span>Denna modul används för närvarande inte för att autentisera användare.</span>"
 
 #: plugins/auth_users/resources/partial/index.html:19
 msgid "Configure"
@@ -41,7 +43,7 @@ msgstr "Standardlösenordet för root är <code>admin</code>"
 
 #: plugins/auth_users/resources/partial/index.html:85
 msgid "Email"
-msgstr ""
+msgstr "E-post"
 
 #: plugins/auth_users/resources/partial/index.html:106
 msgid "Filesystem root"
@@ -57,7 +59,7 @@ msgstr "Nytt användarnamn"
 
 #: plugins/auth_users/resources/partial/index.html:74
 msgid "No password set : the user will not be able to log in."
-msgstr ""
+msgstr "Inget lösenord inställt : användaren kommer inte att kunna logga in."
 
 #: plugins/auth_users/resources/partial/index.html:113
 msgid "OK"
@@ -105,7 +107,7 @@ msgstr "Användare"
 
 #: plugins/auth_users/resources/js/controllers/index.controller.es:15
 msgid "No user actually saved. You should save this configuration to permit at least root login."
-msgstr ""
+msgstr "Ingen användare har faktiskt sparats. Du bör spara denna konfiguration för att åtminstone tillåta root-inloggning."
 
 #: plugins/auth_users/resources/js/controllers/index.controller.es:92
 msgid "Password updated"
@@ -113,5 +115,5 @@ msgstr "Lösenord uppdaterat"
 
 #: plugins/auth_users/resources/js/controllers/index.controller.es:100
 msgid "This username is already taken"
-msgstr ""
+msgstr "Det här användarnamnet är upptaget"
 

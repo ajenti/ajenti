@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-18 11:25+0200\n"
-"PO-Revision-Date: 2022-07-22 14:42\n"
+"POT-Creation-Date: 2023-04-22 19:21+0200\n"
+"PO-Revision-Date: 2023-04-30 13:07\n"
 "Last-Translator: \n"
 "Language-Team: Indonesian\n"
 "Language: id_ID\n"
@@ -32,13 +32,37 @@ msgid "<span>\n"
 "                The URL {{url}} was not found on this server."
 msgstr ""
 
-#: plugins/core/content/pages/index.html:152
+#: plugins/core/content/pages/index.html:157
 msgid "A bootstrap error has occurred"
+msgstr ""
+
+#: plugins/core/resources/partial/totp.html:51
+msgid "A valid key should contain at least 32 characters chosen from \"ABCDEFGHIJKLMNOPQRSTUVWXYZ234567\"."
+msgstr ""
+
+#: plugins/core/resources/partial/totp.html:26
+#: plugins/core/resources/partial/totp.html:30
+msgid "Add new TOTP"
 msgstr ""
 
 #: plugins/core/resources/partial/login.html:32
 msgid "Authenticate"
 msgstr "Otentikasi"
+
+#: plugins/core/resources/partial/login.html:54
+#: plugins/core/resources/partial/totp.html:63
+#: plugins/core/resources/js/core/controllers/totp.controller.es:57
+msgid "Cancel"
+msgstr ""
+
+#: plugins/core/resources/partial/totp.html:9
+msgid "Date"
+msgstr ""
+
+#: plugins/core/resources/partial/totp.html:10
+#: plugins/core/resources/partial/totp.html:38
+msgid "Description"
+msgstr ""
 
 #: plugins/core/content/pages/index.html:89
 msgid "Elevate"
@@ -48,23 +72,27 @@ msgstr "Mengangkat"
 msgid "Email"
 msgstr ""
 
-#: plugins/core/content/pages/index.html:135
+#: plugins/core/content/pages/index.html:140
 msgid "Enter"
 msgstr "Memasukkan"
+
+#: plugins/core/resources/partial/totp.html:45
+msgid "Key"
+msgstr ""
 
 #: plugins/core/resources/partial/login.html:31
 msgid "Log in"
 msgstr "Masuk"
 
-#: plugins/core/content/pages/index.html:94
+#: plugins/core/content/pages/index.html:99
 msgid "Log out"
 msgstr "Keluar"
 
 #: plugins/core/resources/partial/reset_password.html:23
 msgid "New password"
-msgstr ""
+msgstr "Kata sandi baru"
 
-#: plugins/core/content/pages/index.html:176
+#: plugins/core/content/pages/index.html:181
 msgid "OK"
 msgstr "Baik"
 
@@ -75,44 +103,72 @@ msgstr "Kata sandi"
 
 #: plugins/core/resources/partial/reset_password.html:26
 msgid "Please confirm the new password"
+msgstr "Konfirmasi kata sandi"
+
+#: plugins/core/resources/partial/login.html:46
+msgid "Please enter TOTP verification code:"
 msgstr ""
 
 #: plugins/core/resources/partial/reset_password.html:22
 msgid "Please enter the new password"
 msgstr ""
 
-#: plugins/core/content/pages/index.html:155
+#: plugins/core/content/pages/index.html:160
 #: plugins/core/resources/js/core/module.es:32
 msgid "Please see browser console"
 msgstr "Silakan lihat konsol browser"
 
-#: plugins/core/content/pages/index.html:131
+#: plugins/core/content/pages/index.html:136
 msgid "Quick search"
 msgstr "Pencarian Cepat"
 
 #: plugins/core/resources/partial/reset_password.html:27
 msgid "Reenter the new password"
-msgstr ""
+msgstr "Ketikkan kembali kata sandi baru"
 
 #: plugins/core/resources/partial/reset_password.html:34
 msgid "Reset password"
+msgstr "Atur ulang kata sandi"
+
+#: plugins/core/resources/partial/totp.html:64
+msgid "Save"
 msgstr ""
 
 #: plugins/core/resources/partial/reset_password_send.html:17
 msgid "Send instructions to reset password"
+msgstr "Kirim instruksi untuk atur ulang kata sandi"
+
+#: plugins/core/content/pages/index.html:109
+msgid "Session time : {{ counter[0] }}:{{ counter[1] }}:{{ counter[2] }}"
 msgstr ""
 
-#: plugins/core/content/pages/index.html:104
-msgid "Session time : {{ counter[0] }}:{{ counter[1] }}:{{ counter[2] }}"
+#: plugins/core/content/pages/index.html:94
+msgid "TFA"
 msgstr ""
 
 #: plugins/core/resources/partial/reset_password.html:10
 msgid "The used link is not valid or expired."
 msgstr ""
 
+#: plugins/core/resources/partial/totp.html:3
+msgid "There is currently no TOTP key for this user."
+msgstr ""
+
+#: plugins/core/resources/partial/totp.html:8
+msgid "User"
+msgstr ""
+
+#: plugins/core/resources/partial/totp.html:33
+msgid "User:"
+msgstr ""
+
 #: plugins/core/resources/partial/login.html:19
 msgid "Username"
 msgstr "Nama pengguna"
+
+#: plugins/core/resources/partial/totp.html:57
+msgid "Verify"
+msgstr ""
 
 #: plugins/core/main.py:17
 msgid "General"
@@ -142,7 +198,7 @@ msgstr "File konfigurasi"
 msgid "Write configuration file"
 msgstr "Tulis file konfigurasi"
 
-#: plugins/core/views/api.py:137
+#: plugins/core/views/api.py:185
 msgid "Authorization failed"
 msgstr "Otorisasi gagal"
 
@@ -246,7 +302,24 @@ msgstr ""
 msgid "Done"
 msgstr ""
 
-#: plugins/core/resources/js/core/controllers/login.controller.es:29
+#: plugins/core/resources/js/core/controllers/totp.controller.es:55
+msgid "Really delete this TOTP?"
+msgstr ""
+
+#: plugins/core/resources/js/core/controllers/totp.controller.es:56
+msgid "Delete"
+msgstr ""
+
+#: plugins/core/resources/js/core/controllers/totp.controller.es:60
+#: plugins/core/resources/js/core/controllers/totp.controller.es:70
+msgid "Command successfully sent"
+msgstr ""
+
+#: plugins/core/resources/js/core/controllers/login.controller.es:50
+msgid "Wrong TOTP"
+msgstr ""
+
+#: plugins/core/resources/js/core/controllers/login.controller.es:83
 msgid "Authentication failed"
 msgstr ""
 
@@ -256,7 +329,7 @@ msgstr ""
 
 #: plugins/core/resources/js/core/controllers/pwreset.controller.es:31
 msgid "Password successfully changed !"
-msgstr ""
+msgstr "Kata sandi berhasil diubah!"
 
 #: plugins/core/resources/js/core/controllers/pwreset.controller.es:34
 msgid "An error occured while changing the password"

@@ -51,7 +51,7 @@ fi
 if [ "$OS" == "debian" ] ; then
 
     msg ":: Preparing nodejs package"
-    curl -fsSL https://deb.nodesource.com/setup_17.x | bash -
+    curl -fsSL https://deb.nodesource.com/setup_18.x | bash -
 
     msg ":: Installing curl"
     apt-get update

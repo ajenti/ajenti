@@ -11,14 +11,14 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest, ubuntu-18.04]
-        python-version: [3.6, 3.7, 3.8, 3.9]
-        node-version: [16.x, 17.x]
+        os: [ubuntu-latest]
+        python-version: ['3.7', '3.8', '3.10']
+        node-version: [16.x, 18.x, 19.x]
     runs-on: ${{ matrix.os }}
     steps:
     - uses: actions/checkout@v2
     - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v4
       with:
         python-version: ${{ matrix.python-version }}
     - name: Installing Apt packages
@@ -48,15 +48,17 @@ jobs:
         sudo python3 -m pip install -r plugins/services/requirements.txt
         sudo python3 -m pip install -r plugins/terminal/requirements.txt
         sudo python3 -m pip install ajenti-dev-multitool
-        sudo python3 -m pip install nose
+        sudo python3 -m pip install pytest
         sudo python3 -m pip uninstall -y gevent-socketio-hartwork python-socketio
         sudo python3 -m pip install python-socketio==5.2.1
+        sudo python3 -m pip install cryptography==39.0.0
+        sudo python3 -m pip install pyOpenSSL==23.0.0
     - name: Install Bower components
       run: |
         sudo ajenti-dev-multitool --bower install || exit 1
         sudo ajenti-dev-multitool --build || exit 1
-    - name: Running Nose tests
+    - name: Running pytest Tests
       run: |
-        cd tests-nose
-        sudo nosetests tests || exit 1
+        cd tests-pytest
+        sudo pytest -s || exit 1
         cd ..

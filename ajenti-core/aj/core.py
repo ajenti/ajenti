@@ -15,7 +15,7 @@ from importlib import reload
 import aj
 import aj.plugins
 # from aj.auth import AuthenticationService # Test for callback with certificate
-from aj.config import AjentiUsers, SmtpConfig
+from aj.config import AjentiUsers, SmtpConfig, TFAConfig
 from aj.http import HttpRoot, HttpMiddlewareAggregator
 from aj.plugins import PluginManager
 from aj.wsgi import RequestHandler
@@ -116,6 +116,11 @@ def run(config=None, plugin_providers=None, product_name='ajenti', dev_mode=Fals
     aj.smtp_config = SmtpConfig()
     aj.smtp_config.load()
     aj.smtp_config.ensure_structure()
+
+    logging.info('Loading tfa config from /etc/ajenti/tfa.yml')
+    aj.tfa_config = TFAConfig()
+    aj.tfa_config.load()
+    aj.tfa_config.ensure_structure()
 
     if aj.debug:
         logging.warning('Debug mode')

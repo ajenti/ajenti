@@ -3,6 +3,7 @@ import logging
 import os
 import pwd
 import random
+import base64
 import time
 import gevent
 from socketio import Namespace
@@ -15,6 +16,7 @@ from aj.gate.gate import WorkerGate
 from aj.gate.session import Session
 from aj.gate.worker import WorkerError
 from aj.util import str_fsize
+from aj.auth import AuthenticationService
 
 class SocketIOQueue():
     def __init__(self, sid, gate, namespace):
@@ -67,6 +69,11 @@ class GateMiddleware():
     def __init__(self, context):
         self.context = context
         self.sessions = {}
+        self.key = self.generate_session_key({
+            'REMOTE_ADDR': 'localhost',
+            'HTTP_USER_AGENT': '',
+            'HTTP_HOST': 'localhost',
+        })
         self.restricted_gate = WorkerGate(
             self,
             gateway_middleware=self,
@@ -140,6 +147,18 @@ class GateMiddleware():
             if not session.is_dead():
                 session.gate.send_config_data()
 
+    def verify_totp(self, userid, code, session_key):
+        if session_key == self.key:
+            self.restricted_gate.verify_totp(userid, code)
+        for session in self.sessions.values():
+            if not session.is_dead() and session_key == session.key:
+                session.gate.verify_totp(userid, code)
+
+    def change_totp(self, data, session_key):
+        for session in self.sessions.values():
+            if not session.is_dead() and session_key == session.key:
+                session.gate.change_totp(data)
+
     def broadcast_sessionlist(self):
         self.restricted_gate.send_sessionlist()
         for session in self.sessions.values():
@@ -162,6 +181,35 @@ class GateMiddleware():
                 initial_identity=username
             )
             session.set_cookie(http_context)
+
+        authorization_header = http_context.env.get('HTTP_AUTHORIZATION', False)
+        if not session and authorization_header:
+            authresp = False
+
+            try:
+                auth_provider = AuthenticationService.get(self.context).get_provider()
+                if auth_provider.id != 'os':
+                    username,pw = base64.b64decode(authorization_header.replace('Basic ', '')).decode().split(':')
+                    authresp = auth_provider.authenticate(username, pw)
+            except Exception as e:
+                pass
+
+            if authresp:
+                # First search if a worker already exists and reuse it
+                for existing_session in self.sessions.values():
+                    if username == existing_session.identity:
+                        logging.debug(f"Using existing session {existing_session.key} for HTTP authentication")
+                        session = existing_session
+                        break
+                else:
+                    logging.info(f'Opening a session for user {username} per HTTP authentication')
+                    session = self.open_session(
+                        http_context.env,
+                        initial_identity=username
+                    )
+                    session.set_cookie(http_context)
+            else:
+                gevent.sleep(3)
 
         if session:
             session.touch()

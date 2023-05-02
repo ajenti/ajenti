@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-01-06 18:10+0100\n"
-"PO-Revision-Date: 2022-07-22 14:42\n"
+"PO-Revision-Date: 2023-04-30 13:07\n"
 "Last-Translator: \n"
 "Language-Team: Portuguese, Brazilian\n"
 "Language: pt_BR\n"
@@ -19,11 +19,11 @@ msgstr ""
 
 #: plugins/services/resources/partial/systemd_status.modal.html:8
 msgid "Close"
-msgstr ""
+msgstr "Fechar"
 
 #: plugins/services/resources/partial/index.html:43
 msgid "Disabled"
-msgstr ""
+msgstr "Desabilitado"
 
 #: plugins/services/resources/partial/index.html:2
 msgid "Filter services"
@@ -40,7 +40,7 @@ msgstr "Serviço"
 
 #: plugins/services/resources/partial/index.html:40
 msgid "Static"
-msgstr ""
+msgstr "Estático"
 
 #: plugins/services/main.py:26
 #: plugins/services/resources/js/controllers/index.controller.es:2
@@ -58,27 +58,27 @@ msgstr "Falha na operação do serviço"
 
 #: plugins/services/resources/js/controllers/index.controller.es:6
 msgid "Stop service"
-msgstr ""
+msgstr "Parar serviço"
 
 #: plugins/services/resources/js/controllers/index.controller.es:7
 msgid "Start service"
-msgstr ""
+msgstr "Iniciar serviço"
 
 #: plugins/services/resources/js/controllers/index.controller.es:8
 msgid "Restart service"
-msgstr ""
+msgstr "Reiniciar serviço"
 
 #: plugins/services/resources/js/controllers/index.controller.es:9
 msgid "Kill service"
-msgstr ""
+msgstr "Terminar serviço"
 
 #: plugins/services/resources/js/controllers/index.controller.es:10
 msgid "Enable service"
-msgstr ""
+msgstr "Habilitar serviço"
 
 #: plugins/services/resources/js/controllers/index.controller.es:11
 msgid "Disable service"
-msgstr ""
+msgstr "Desabilitar serviço"
 
 #: plugins/services/resources/js/controllers/index.controller.es:52
 msgid "Done"

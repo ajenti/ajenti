@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-27 12:10+0200\n"
-"PO-Revision-Date: 2022-07-22 14:42\n"
+"PO-Revision-Date: 2023-04-30 13:07\n"
 "Last-Translator: \n"
 "Language-Team: Persian\n"
 "Language: fa_IR\n"
@@ -72,5 +72,5 @@ msgstr "نوشتن در فایل سیستم"
 
 #: plugins/filesystem/resources/js/directives/fileDialog.es:35
 msgid "Could not load directory"
-msgstr ""
+msgstr "بارگذاری پوشه ممکن نیست"
 

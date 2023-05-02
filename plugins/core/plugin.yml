@@ -3,7 +3,7 @@ author: Ajenti project
 email: e@ajenti.org
 url: https://ajenti.org
 docs: https://docs.ajenti.org/en/latest/plugins/core.html
-version: '0.102'
+version: '0.105'
 title: Core
 icon: link
 dependencies: []
@@ -47,6 +47,7 @@ resources:
     - resources/js/core/controllers/index.controller.es
     - resources/js/core/controllers/login.controller.es
     - resources/js/core/controllers/pwreset.controller.es
+    - resources/js/core/controllers/totp.controller.es
     - resources/js/core/controllers/root.controller.es
     - resources/js/core/controllers/tasks.controller.es
     - resources/js/core/controllers/navbox.controller.es
@@ -81,6 +82,7 @@ resources:
     - resources/partial/login.html
     - resources/partial/reset_password_send.html
     - resources/partial/reset_password.html
+    - resources/partial/totp.html
     - resources/partial/404.html
     - resources/partial/sidebarItem.html
     - resources/partial/sidebarTasks.html

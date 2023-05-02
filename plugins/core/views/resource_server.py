@@ -60,7 +60,8 @@ class ResourcesHandler(HttpPlugin):
                 for plugin in self.mgr:
                     path = self.mgr.get_content_path(plugin, f'resources/build/all.{group}')
                     if os.path.exists(path):
-                        file_content = open(path, encoding="utf-8").read()
+                        with open(path, encoding="utf-8") as f:
+                            file_content = f.read()
                         if group == 'js':
                             file_content = self.__wrap_js(path, file_content)
                         content += file_content
@@ -81,7 +82,8 @@ class ResourcesHandler(HttpPlugin):
                         locale_dir = self.mgr.get_content_path(plugin, 'locale')
                         js_path = os.path.join(locale_dir, lang, 'LC_MESSAGES', 'app.js')
                         if os.path.exists(js_path):
-                            js_locale.update(json.load(open(js_path)))
+                            with open(js_path, encoding='utf-8') as j:
+                                js_locale.update(json.load(j))
                     content = json.dumps(js_locale)
                 else:
                     content = ''
@@ -99,7 +101,8 @@ class ResourcesHandler(HttpPlugin):
                         if name.endswith('.html'):
                             path = self.mgr.get_content_path(plugin, path)
                             if os.path.exists(path):
-                                template = open(path).read()
+                                with open(path, encoding='utf-8') as t:
+                                    template = t.read()
                                 content += f'''
                                       $templateCache.put("{http_context.prefix}/{name}", {json.dumps(template)});
                                 '''

@@ -1,4 +1,27 @@
-Ajenti 2.2.2 - dev
+Ajenti 2.2.5 - Dev
+
+Ajenti 2.2.4 - 11/02/2023
+
+- Fix empty smtp config load. See #1422.
+- Accept more http requests.
+- Allow XML bodies and responses.
+- Prevent cgi bug with binary content.
+- Support for http basic auth.
+- Upgrade cryptography and pyOpenSSL versions.
+- Ignore plugins with wrong yml syntax.
+- Avoid unwanted redirections.
+- [Services] Fix missing enabled attribute.
+- [Filesystem] Rename files.
+- [Network] Fix loading wrong config files in /etc/netplan.
+
+Ajenti 2.2.3 - 05/01/2023
+
+- Add TOTP code verification at login and TOTP management in user space
+- Allow HEAD requests on GET targets
+- Allow body for PATCH requests
+- Fix encoding problems when locales are not available
+- Fix dummy loop in ajenti-panel when using venv
+- [Services] Catch systemctl openration errors. Fix #1407
 
 Ajenti 2.2.1 - 18/07/2022
 

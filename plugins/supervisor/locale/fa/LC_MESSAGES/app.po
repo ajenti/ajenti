@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-27 12:11+0200\n"
-"PO-Revision-Date: 2022-07-22 14:42\n"
+"PO-Revision-Date: 2023-04-30 13:07\n"
 "Last-Translator: \n"
 "Language-Team: Persian\n"
 "Language: fa_IR\n"
@@ -19,35 +19,35 @@ msgstr ""
 
 #: plugins/supervisor/resources/partial/index.html:45
 msgid "Add"
-msgstr ""
+msgstr "ﺍﻓﺰﻭﺩﻥ"
 
 #: plugins/supervisor/resources/partial/index.html:150
 msgid "Autorestart"
-msgstr ""
+msgstr "باز راه‌اندازی خودکار"
 
 #: plugins/supervisor/resources/partial/index.html:136
 msgid "Autostart"
-msgstr ""
+msgstr "شروع خودکار"
 
 #: plugins/supervisor/resources/partial/index.html:217
 msgid "Close"
-msgstr ""
+msgstr "بستن"
 
 #: plugins/supervisor/resources/partial/index.html:65
 msgid "Command"
-msgstr ""
+msgstr "فرمان"
 
 #: plugins/supervisor/resources/partial/index.html:8
 msgid "Configure"
-msgstr ""
+msgstr "پیکربندی"
 
 #: plugins/supervisor/resources/partial/index.html:106
 msgid "Environment"
-msgstr ""
+msgstr "محیط"
 
 #: plugins/supervisor/resources/partial/index.html:62
 msgid "General"
-msgstr ""
+msgstr "عمومی"
 
 #: plugins/supervisor/resources/partial/index.html:196
 msgid "Kill children"
@@ -59,15 +59,15 @@ msgstr ""
 
 #: plugins/supervisor/resources/partial/index.html:158
 msgid "No"
-msgstr ""
+msgstr "خیر"
 
 #: plugins/supervisor/resources/partial/index.html:39
 msgid "No processes defined"
-msgstr ""
+msgstr "هیچ فرآیندی تعریف نشده"
 
 #: plugins/supervisor/resources/partial/index.html:75
 msgid "Number of processes"
-msgstr ""
+msgstr "تعداد فرآیندها"
 
 #: plugins/supervisor/resources/partial/index.html:157
 msgid "On crash"
@@ -79,24 +79,24 @@ msgstr ""
 
 #: plugins/supervisor/resources/partial/index.html:26
 msgid "RUNNING"
-msgstr ""
+msgstr "درحال اجرا"
 
 #: plugins/supervisor/resources/partial/index.html:5
 msgid "Remove"
-msgstr ""
+msgstr "پاک کردن"
 
 #: plugins/supervisor/resources/partial/index.html:216
 #: plugins/supervisor/resources/partial/index.html:53
 msgid "Save"
-msgstr ""
+msgstr "ذخیره"
 
 #: plugins/supervisor/resources/partial/index.html:166
 msgid "Seconds to start"
-msgstr ""
+msgstr "ثانیه جهت شروع"
 
 #: plugins/supervisor/resources/partial/index.html:174
 msgid "Seconds to stop"
-msgstr ""
+msgstr "ثانیه جهت پایان"
 
 #: plugins/supervisor/resources/partial/index.html:203
 msgid "Start retries"
@@ -108,7 +108,7 @@ msgstr ""
 
 #: plugins/supervisor/resources/partial/index.html:95
 msgid "User account"
-msgstr ""
+msgstr "حساب کاربر"
 
 #: plugins/supervisor/resources/partial/index.html:115
 msgid "Working directory"
@@ -116,7 +116,7 @@ msgstr ""
 
 #: plugins/supervisor/resources/partial/index.html:156
 msgid "Yes"
-msgstr ""
+msgstr "بله"
 
 #: plugins/supervisor/main.py:15
 #: plugins/supervisor/resources/js/controllers/index.controller.es:2
@@ -125,7 +125,7 @@ msgstr ""
 
 #: plugins/supervisor/resources/js/controllers/index.controller.es:19
 msgid "Saved"
-msgstr ""
+msgstr "ذخیره شد"
 
 #: plugins/supervisor/resources/js/controllers/index.controller.es:20
 msgid "Could not save"
@@ -134,5 +134,5 @@ msgstr ""
 #: plugins/supervisor/resources/js/controllers/index.controller.es:34
 #: plugins/supervisor/resources/js/controllers/index.controller.es:39
 msgid "Failed"
-msgstr ""
+msgstr "ناموفق بود"
 

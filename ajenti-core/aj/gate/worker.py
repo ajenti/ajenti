@@ -148,6 +148,14 @@ class Worker():
                     logging.debug('Received a session list update')
                     aj.sessions = rq.object['data']
 
+                if rq.object['type'] == 'verify-totp':
+                    userid = rq.object['data']['userid']
+                    result = rq.object['data']['result']
+                    aj.tfa_config.verify_totp[userid] = result
+
+                if rq.object['type'] == 'update-tfa-config':
+                    aj.tfa_config.data = rq.object['data']
+
         # pylint: disable=W0703
         except Exception:
             logging.error('Worker crashed!')
@@ -156,6 +164,19 @@ class Worker():
     def terminate(self):
         self.send_to_upstream({
             'type': 'terminate',
+        })
+
+    def change_totp(self, data):
+        self.send_to_upstream({
+            'type': 'change-totp',
+            'data': data,
+        })
+
+    def verify_totp(self, userid, code):
+        self.send_to_upstream({
+            'type': 'verify-totp',
+            'userid': userid,
+            'code': code,
         })
 
     def update_sessionlist(self):

@@ -35,7 +35,10 @@
                     </td>
                 </tr>
             </table>
-            <button class="btn btn-default" ng:click="add('normal_tasks')" translate>Add</button>
+            <button class="btn btn-default" ng:click="add('normal_tasks')" translate>
+                <i class="fas fa-plus-circle"></i>
+                Add
+            </button>
         </uib:tab>
         <uib:tab heading="{{'Special'|translate}}">
             <br/>
@@ -62,7 +65,10 @@
                     </td>
                 </tr>
             </table>
-            <button class="btn btn-default" ng:click="add('special_tasks')" translate>Add</button>
+            <button class="btn btn-default" ng:click="add('special_tasks')" translate>
+                <i class="fas fa-plus-circle"></i>
+                Add
+            </button>
         </uib:tab>
         <uib:tab heading="{{'Environment variables'|translate}}">
             <br/>
@@ -89,7 +95,10 @@
                     </td>
                 </tr>
             </table>
-            <button class="btn btn-default" ng:click="add('env_settings')" translate>Add</button>
+            <button class="btn btn-default" ng:click="add('env_settings')" translate>
+                <i class="fas fa-plus-circle"></i>
+                Add
+            </button>
         </uib:tab>
     </uib:tabset>
     <dialog ng:show="modifyJob">
