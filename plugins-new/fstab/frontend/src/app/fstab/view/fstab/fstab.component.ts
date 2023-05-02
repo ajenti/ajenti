@@ -5,7 +5,7 @@ import { Devices, Fstab } from './devices.type';
 import { MessageBoxService, NotificationService, TranslateService } from '@ngx-ajenti/core';
 import { lastValueFrom } from 'rxjs';
 import { FstabService } from '../../services/fstab.service';
-// import { FstabDialogComponent } from '../fstab-dialog/fstab-dialog.component';
+import { FstabDialogComponent } from '../../components/fstab-dialog/fstab-dialog.component';
 
 @Component({
   selector: 'app-fstab',
@@ -73,14 +73,13 @@ export class FstabComponent {
   };
 
   public edit(device: Devices): void {
-    console.log(this.translate.instant('Edit'), device);
     const messageBox = this.messageBoxService.show({
-      title:"Title",
+      title:"TEST",
       acceptButtonLabel:"OK",
       cancelButtonLabel:"Cancel",
       visible:true,
-      // injectedComponentType: Type<Devices>,
-      // injectComponentData:device,
+      injectedComponentType: FstabDialogComponent,
+      injectComponentData: device,
     });
   };
 
