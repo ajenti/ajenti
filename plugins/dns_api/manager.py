@@ -18,8 +18,8 @@ class Domain:
     def update_record(self, record):
         return self.api.update_record(self.fqdn, record)
 
-    def delete_record(self, name):
-        return self.api.delete_record(self.fqdn, name)
+    def delete_record(self, rtype, name):
+        return self.api.delete_record(self.fqdn, rtype, name)
 
 
 class DomainManager:

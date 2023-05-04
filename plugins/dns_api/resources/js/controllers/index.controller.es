@@ -77,13 +77,13 @@ angular.module('ajenti.dns_api').controller('DnsAPIIndexController', function($s
         $scope.detailsVisible = false;
     };
 
-    $scope.delete = (name) => {
+    $scope.delete = (record) => {
         messagebox.show({
-            text: gettext(`Really delete the entry ${name}?`),
+            text: gettext(`Really delete the entry "${record.name} ${record.type} ${record.values}"?`),
             positive: gettext('Delete'),
             negative: gettext('Cancel')
         }).then(() => {
-            $http.delete(`/api/dns_api/domain/${$scope.active_domain}/records/${name}`).then((resp) => {
+            $http.delete(`/api/dns_api/domain/${$scope.active_domain}/records/${record.type}/${record.name}`).then((resp) => {
                 code = resp.data[0];
                 msg = resp.data[1];
                 if (code >= 200 && code < 300) {

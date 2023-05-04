@@ -142,20 +142,22 @@ class GandiApiDnsProvider(ApiDnsManager):
         except Exception as e:
             logging.error(e)
 
-    def delete_record(self, fqdn, name):
+    def delete_record(self, fqdn, rtype, name):
         """
         Delete a record from a given domain.
 
         :param fqdn: the domain, like example.com
         :type fqdn: basestring
-        :param record: the record name, like test (to delete the entry test.example.com)
-        :type record: Record object
+        :param rtype: type of the DNS entry, like CNAME or AAAA
+        :type rtype: basestring
+        :param name: the record name, like test (to delete the entry test.example.com)
+        :type name: basestring
         :return: status of the request and message
         :rtype: tuple
         """
 
         try:
-            resp = self._req('delete', apiurl=f"/{fqdn}/records/{name}")
+            resp = self._req('delete', apiurl=f"/{fqdn}/records/{name}/{rtype}")
             if resp.content:
                 messages = json.loads(resp.content)
             else:

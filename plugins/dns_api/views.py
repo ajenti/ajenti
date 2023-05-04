@@ -48,7 +48,7 @@ class Handler(HttpPlugin):
         )
         return self.mgr.domains[fqdn].update_record(record)
 
-    @delete(r'/api/dns_api/domain/(?P<fqdn>[\w\.]+)/records/(?P<name>.*)')
+    @delete(r'/api/dns_api/domain/(?P<fqdn>[\w\.]+)/records/(?P<rtype>[A-Z]*)/(?P<name>.*)')
     @endpoint(api=True)
-    def handle_api_dns_delete_record(self, http_context, fqdn, name):
-        return self.mgr.domains[fqdn].delete_record(name)
+    def handle_api_dns_delete_record(self, http_context, fqdn, rtype, name):
+        return self.mgr.domains[fqdn].delete_record(rtype, name)
