@@ -8,7 +8,7 @@
     </div>
 
     <div ng:show="chains_list.length > 0">
-        <div class="form-group" ng:if="chains_list.length > 1">
+        <div class="form-group col-md-6" ng:if="chains_list.length > 1">
             <label translate>Select chain: </label>
             <select
                     ng:options='chain as (chain + "   (" + chains[chain].length + " rule(s))") for chain in chains_list'
