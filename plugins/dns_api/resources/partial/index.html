@@ -10,11 +10,11 @@
     </div>
 
     <div ng:show="domains.length > 0">
-        <div class="form-group" ng:if="domains.length > 1">
+        <div class="form-group col-md-6" ng:if="domains.length > 1">
             <label translate>Select domain: </label>
             <select
                     ng:options="domain for domain in domains"
-                    ng:model="active_domain"
+                    ng:model="domains.active"
                     ng:change="get_records()"
                     class="form-control"
             >
@@ -22,7 +22,7 @@
         </div>
 
         <div class="form-group" ng:if="domains.length == 1">
-            <label translate>Selected domain: {{active_domain}}</label>
+            <label translate>Selected domain: {{domains.active}}</label>
         </div>
 
         <table class="table">
@@ -49,7 +49,7 @@
                     </button>
                 </td>
                 <td>
-                    <button class="btn btn-default" ng:click="delete(record.name)">
+                    <button class="btn btn-default" ng:click="delete(record)">
                         <i class="fas fa-trash"></i>
                     </button>
                 </td>
