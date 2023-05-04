@@ -8,15 +8,15 @@ angular.module('ajenti.dns_api').controller('DnsAPIIndexController', function($s
         $scope.domains = resp.data[0];
         $scope.provider = resp.data[1];
         if ($scope.domains.length > 0) {
-            $scope.active_domain = $scope.domains[0];
+            $scope.domains.active = $scope.domains[0];
             $scope.get_records();
         } else {
-            $scope.active_domain = '';
+            $scope.domains.active = '';
         }
     });
 
     $scope.get_records = () => {
-        $http.get(`/api/dns_api/domain/${$scope.active_domain}/records`).then((resp) => {
+        $http.get(`/api/dns_api/domain/${$scope.domains.active}/records`).then((resp) => {
             $scope.records = resp.data;
         });
     };
@@ -43,7 +43,7 @@ angular.module('ajenti.dns_api').controller('DnsAPIIndexController', function($s
     };
 
     $scope.add = () => {
-        $http.post(`/api/dns_api/domain/${$scope.active_domain}/records/${$scope.DNSdialog.name}`, {
+        $http.post(`/api/dns_api/domain/${$scope.domains.active}/records/${$scope.DNSdialog.name}`, {
             'ttl': $scope.DNSdialog.ttl,
             'type': $scope.DNSdialog.type,
             'values': $scope.DNSdialog.value}).then((resp) => {
@@ -60,7 +60,7 @@ angular.module('ajenti.dns_api').controller('DnsAPIIndexController', function($s
     };
 
     $scope.update = () => {
-        $http.put(`/api/dns_api/domain/${$scope.active_domain}/records/${$scope.DNSdialog.name}`, {
+        $http.put(`/api/dns_api/domain/${$scope.domains.active}/records/${$scope.DNSdialog.name}`, {
             'ttl': $scope.DNSdialog.ttl,
             'type': $scope.DNSdialog.type,
             'values': $scope.DNSdialog.value}).then((resp) => {
@@ -83,7 +83,7 @@ angular.module('ajenti.dns_api').controller('DnsAPIIndexController', function($s
             positive: gettext('Delete'),
             negative: gettext('Cancel')
         }).then(() => {
-            $http.delete(`/api/dns_api/domain/${$scope.active_domain}/records/${record.type}/${record.name}`).then((resp) => {
+            $http.delete(`/api/dns_api/domain/${$scope.domains.active}/records/${record.type}/${record.name}`).then((resp) => {
                 code = resp.data[0];
                 msg = resp.data[1];
                 if (code >= 200 && code < 300) {

@@ -14,7 +14,7 @@
             <label translate>Select domain: </label>
             <select
                     ng:options="domain for domain in domains"
-                    ng:model="active_domain"
+                    ng:model="domains.active"
                     ng:change="get_records()"
                     class="form-control"
             >
@@ -22,7 +22,7 @@
         </div>
 
         <div class="form-group" ng:if="domains.length == 1">
-            <label translate>Selected domain: {{active_domain}}</label>
+            <label translate>Selected domain: {{domains.active}}</label>
         </div>
 
         <table class="table">
