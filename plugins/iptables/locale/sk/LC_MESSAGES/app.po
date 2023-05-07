@@ -1,0 +1,84 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: ajenti\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-05-07 11:49+0200\n"
+"PO-Revision-Date: 2023-05-07 10:30\n"
+"Last-Translator: \n"
+"Language-Team: Slovak\n"
+"Language: sk_SK\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 3;\n"
+"X-Crowdin-Project: ajenti\n"
+"X-Crowdin-Project-ID: 18127\n"
+"X-Crowdin-Language: sk\n"
+"X-Crowdin-File: /2.0/iptables.po\n"
+"X-Crowdin-File-ID: 81\n"
+
+#: plugins/iptables/resources/partial/index.html:43
+msgid "Destination"
+msgstr ""
+
+#: plugins/iptables/resources/partial/index.html:41
+msgid "Ip options"
+msgstr ""
+
+#: plugins/iptables/resources/partial/index.html:4
+#: plugins/iptables/resources/js/controllers/index.controller.es:2
+msgid "Iptables"
+msgstr ""
+
+#: plugins/iptables/resources/partial/index.html:6
+msgid "No chain found in iptables."
+msgstr ""
+
+#: plugins/iptables/resources/partial/index.html:26
+msgid "No rule found in the chain {{chains.active_chain}}."
+msgstr ""
+
+#: plugins/iptables/resources/partial/index.html:38
+msgid "Number"
+msgstr ""
+
+#: plugins/iptables/resources/partial/index.html:44
+msgid "Options"
+msgstr ""
+
+#: plugins/iptables/resources/partial/index.html:40
+msgid "Protocol"
+msgstr ""
+
+#: plugins/iptables/resources/partial/index.html:12
+msgid "Select chain:"
+msgstr ""
+
+#: plugins/iptables/resources/partial/index.html:23
+msgid "Selected chain: {{active_chain}}"
+msgstr ""
+
+#: plugins/iptables/resources/partial/index.html:42
+msgid "Source"
+msgstr ""
+
+#: plugins/iptables/resources/partial/index.html:39
+msgid "Target"
+msgstr ""
+
+#: plugins/iptables/views.py:22
+msgid "Iptables is not installed on this host"
+msgstr ""
+
+#: plugins/iptables/views.py:66
+msgid "Rule successfully deleted"
+msgstr ""
+
+#: plugins/iptables/resources/js/controllers/index.controller.es:42
+msgid "Delete"
+msgstr ""
+
+#: plugins/iptables/resources/js/controllers/index.controller.es:43
+msgid "Cancel"
+msgstr ""
+
