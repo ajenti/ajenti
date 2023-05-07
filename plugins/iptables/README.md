@@ -1,3 +1,3 @@
-# Ajenti plugin template
+# Ajenti plugin Iptables
 
-This is the plugin template used by ajenti-dev-multitool
+This plugin list the chains and displays the rules of each, with the possibility to delete some rules (may be useful to unban IPs from `fail2ban`).
