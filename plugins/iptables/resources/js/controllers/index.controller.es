@@ -1,6 +1,10 @@
 angular.module('ajenti.iptables').controller('IptablesIndexController', function($scope, $http, pageTitle, gettext, notify, messagebox) {
     pageTitle.set(gettext('Iptables'));
 
+    $scope.paging = {
+        'page': 1
+    }
+
     $http.get('/api/iptables/which').then(() => {
             $scope.load();
             $scope.installed = true;
