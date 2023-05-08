@@ -1,6 +1,6 @@
 import time
 import logging
-from cookies import Cookie
+from http.cookies import SimpleCookie
 
 from aj.gate.gate import WorkerGate
 
@@ -64,13 +64,12 @@ class Session():
         Adds headers to :class:`aj.http.HttpContext` that set
         the session cookie
         """
-        cookie = Cookie(
-            'session',
-            self.key,
-            path='/',
-            httponly=True
-        ).render_response()
-        http_context.add_header('Set-Cookie', cookie)
+
+        cookie = SimpleCookie()
+        cookie['session'] = self.key
+        cookie['session']['path'] = '/'
+        cookie['session']['httponly'] = True
+        http_context.add_header('Set-Cookie', cookie.output(header=''))
 
     def serialize(self):
         return {
