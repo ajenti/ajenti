@@ -9,6 +9,11 @@ import aj
 
 @component(ApiDnsManager)
 class GandiApiDnsProvider(ApiDnsManager):
+    """
+    LiveDNS API for domains hosted by Gandi.
+    Full documentation available here: https://api.gandi.net/docs/livedns/
+    """
+
     id = 'gandi'
     name = 'Gandi DNS API'
 
@@ -16,6 +21,19 @@ class GandiApiDnsProvider(ApiDnsManager):
         self.baseUrl = 'https://api.gandi.net/v5/livedns/domains'
 
     def _req(self, method, apiurl="", data=None):
+        """
+        Do the request to the api url.
+
+        :param method: get, put, post or delete
+        :type method: basestring
+        :param apiurl: called url
+        :type apiurl: basestring
+        :param data: optional data to send (e.g. post)
+        :type data: dict
+        :return: response from the api
+        :rtype: json
+        """
+
         apikey = aj.config.data.get('dns_api', {}).get('apikey', None)
 
         if method not in ["get", "put", "post", "delete"] or apikey is None:
@@ -37,10 +55,25 @@ class GandiApiDnsProvider(ApiDnsManager):
         return resp
 
     def get_domains(self):
+        """
+        List all domains managed by livedns under the provided apikey.
+        :return: List of domains
+        :rtype: list
+        """
+
         domains = json.loads(self._req("get").content)
         return [domain['fqdn'] for domain in domains]
 
     def get_records(self, domain):
+        """
+        List all records from a given domain.
+
+        :param domain: the domain, like example.com
+        :type domain: basestring
+        :return: List of records with details (TTL, name, type, etc...)
+        :rtype: list
+        """
+
         resp = self._req('get', apiurl=f"/{domain.fqdn}/records")
         records = json.loads(resp.content)
         domain.records = []
@@ -54,6 +87,17 @@ class GandiApiDnsProvider(ApiDnsManager):
             )
 
     def add_record(self, fqdn, record):
+        """
+        Add a new record to a given domain.
+
+        :param fqdn: the domain, like example.com
+        :type fqdn: basestring
+        :param record: the record to add, with all details (TTL, name, type, etc...)
+        :type record: Record object
+        :return: status of the request and message
+        :rtype: tuple
+        """
+
         try:
             data = json.dumps({
                 'rrset_name': record.name,
@@ -71,6 +115,17 @@ class GandiApiDnsProvider(ApiDnsManager):
             logging.error(e)
 
     def update_record(self, fqdn, record):
+        """
+        Update a record from a given domain with new values.
+
+        :param fqdn: the domain, like example.com
+        :type fqdn: basestring
+        :param record: the record to add, with all details (TTL, name, type, etc...)
+        :type record: Record object
+        :return: status of the request and message
+        :rtype: tuple
+        """
+
         try:
             data = json.dumps({'items': [{
                 'rrset_name': record.name,
@@ -87,9 +142,22 @@ class GandiApiDnsProvider(ApiDnsManager):
         except Exception as e:
             logging.error(e)
 
-    def delete_record(self, fqdn, name):
+    def delete_record(self, fqdn, rtype, name):
+        """
+        Delete a record from a given domain.
+
+        :param fqdn: the domain, like example.com
+        :type fqdn: basestring
+        :param rtype: type of the DNS entry, like CNAME or AAAA
+        :type rtype: basestring
+        :param name: the record name, like test (to delete the entry test.example.com)
+        :type name: basestring
+        :return: status of the request and message
+        :rtype: tuple
+        """
+
         try:
-            resp = self._req('delete', apiurl=f"/{fqdn}/records/{name}")
+            resp = self._req('delete', apiurl=f"/{fqdn}/records/{name}/{rtype}")
             if resp.content:
                 messages = json.loads(resp.content)
             else:

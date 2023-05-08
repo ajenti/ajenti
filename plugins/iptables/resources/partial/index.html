@@ -1,0 +1,65 @@
+<br/>
+
+<div root-access>
+    <h2 translate>Iptables</h2>
+
+    <div ng:show="chains.length == 0 " class="alert alert-info" translate>
+        No chain found in iptables.
+    </div>
+
+    <div ng:show="chains_list.length > 0">
+        <div class="form-group col-md-6" ng:if="chains_list.length > 1">
+            <label translate>Select chain: </label>
+            <select
+                    ng:options='chain as (chain + "   (" + chains[chain].length + " rule(s))") for chain in chains_list'
+                    ng:model="chains.active_chain"
+                    ng:change="update_rules()"
+                    class="form-control"
+            >
+            </select>
+        </div>
+
+        <div class="form-group" ng:if="chains_list.length == 1">
+            <label translate>Selected chain: {{active_chain}}</label>
+        </div>
+
+        <div ng:show="rules.length == 0 " class="alert alert-info" translate>
+            No rule found in the chain {{chains.active_chain}}.
+        </div>
+
+        <div class="form-group" ng:show="rules.length > 0">
+            <input ng:model="filter" type="search" autofocus class="form-control" placeholder="Filter" />
+        </div>
+
+        <br />
+
+        <table class="table" ng:show="rules.length > 0">
+            <tr>
+                <th translate>Number</th>
+                <th translate>Target</th>
+                <th translate>Protocol</th>
+                <th translate>Ip options</th>
+                <th translate>Source</th>
+                <th translate>Destination</th>
+                <th translate>Options</th>
+                <th></th>
+            </tr>
+            <tr ng:repeat="rule in rules|filter:filter|page:paging.page:100">
+                <td>{{rule.number}}</td>
+                <td>{{rule.target}}</td>
+                <td>{{rule.protocol}}</td>
+                <td>{{rule.ip_options}}</td>
+                <td>{{rule.source}}</td>
+                <td>{{rule.destination}}</td>
+                <td style="word-break:break-all;width:150px;">{{rule.options}}</td>
+                <td>
+                    <button class="btn btn-default" ng:click="delete(rule)">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </td>
+            </tr>
+
+        </table>
+
+        <ul uib-pagination ng:show="rules.length > 100"  ng-model="paging.page" total-items="rules.length" items-per-page="100" boundary-links="true"></ul>
+</div>

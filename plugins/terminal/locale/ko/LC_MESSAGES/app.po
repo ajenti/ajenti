@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-22 19:21+0200\n"
-"PO-Revision-Date: 2023-04-30 13:07\n"
+"PO-Revision-Date: 2023-05-07 10:29\n"
 "Last-Translator: \n"
 "Language-Team: Korean\n"
 "Language: ko_KR\n"
@@ -75,7 +75,7 @@ msgstr "쉘 터미널 열기"
 #: plugins/terminal/resources/js/directives/terminal.es:127
 #: plugins/terminal/resources/js/directives/terminal.es:178
 msgid "Terminal was closed"
-msgstr ""
+msgstr "터미널이 닫혔습니다."
 
 #: plugins/terminal/resources/js/services/terminals.service.es:20
 msgid "You will be redirect to the previous page."
@@ -91,11 +91,11 @@ msgstr ""
 
 #: plugins/terminal/resources/js/controllers/widget.controller.es:10
 msgid "Script has finished"
-msgstr ""
+msgstr "스크립트 실행 완료"
 
 #: plugins/terminal/resources/js/controllers/widget.controller.es:12
 msgid "Script has failed"
-msgstr ""
+msgstr "스크립트 실행 실패"
 
 #: plugins/terminal/resources/js/controllers/widget.controller.es:15
 msgid "Could not launch the script"

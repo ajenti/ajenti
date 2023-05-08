@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-30 15:01+0200\n"
-"PO-Revision-Date: 2023-04-30 13:07\n"
+"POT-Creation-Date: 2023-05-07 11:49+0200\n"
+"PO-Revision-Date: 2023-05-07 10:29\n"
 "Last-Translator: \n"
 "Language-Team: Indonesian\n"
 "Language: id_ID\n"
@@ -49,7 +49,7 @@ msgid "Select domain:"
 msgstr ""
 
 #: plugins/dns_api/resources/partial/index.html:25
-msgid "Selected domain: {{active_domain}}"
+msgid "Selected domain: {{domains.active}}"
 msgstr ""
 
 #: plugins/dns_api/resources/partial/index.html:31

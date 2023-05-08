@@ -1,4 +1,14 @@
-Ajenti 2.2.5 - Dev
+Ajenti 2.2.6 - Dev
+
+Ajenti 2.2.5 - 08/05/2023
+
+- Update gevent to 22.10.2
+- Update gipc to 1.5.0
+- [Core] Add input type to messagebox (useful for passwords)
+- [Core] Update Angular
+- [Dashboard] Fix loadavg on systems without /proc/loadavg
+- [DNS API] Add new plugin to manage external DNS
+- [Iptables] Add new plugin to list chains and rules
 
 Ajenti 2.2.4 - 11/02/2023
 

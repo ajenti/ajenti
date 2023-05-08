@@ -58,10 +58,10 @@ class install(_install):
 
 setup(
     name='ajenti-panel',
-    version='2.2.4',
+    version='2.2.5',
     python_requires='>=3',
     install_requires=[
-        'aj==2.2.4',
+        'aj==2.2.5',
         'pyyaml',
         'requests',
     ],
