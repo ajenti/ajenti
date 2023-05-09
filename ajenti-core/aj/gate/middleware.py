@@ -7,7 +7,7 @@ import base64
 import time
 import gevent
 from socketio import Namespace
-from cookies import Cookies
+from http.cookies import SimpleCookie
 from gevent.timeout import Timeout
 from jadi import service
 
@@ -129,10 +129,7 @@ class GateMiddleware():
         cookie_str = env.get('HTTP_COOKIE', None)
         session = None
         if cookie_str:
-            cookie = Cookies.from_request(
-                cookie_str,
-                ignore_bad_cookies=True,
-            ).get('session', None)
+            cookie = SimpleCookie(cookie_str).get('session', None)
             if cookie and cookie.value:
                 if cookie.value in self.sessions:
                     # Session found
