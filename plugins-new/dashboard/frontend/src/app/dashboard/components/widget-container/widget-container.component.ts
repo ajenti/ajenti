@@ -69,7 +69,7 @@ export class WidgetContainerComponent implements OnInit {
       acceptButtonLabel:acceptButtonLabel,
       cancelButtonLabel:cancelButtonLabel,
       visible:false,
-      injectedComponentType:this.widgetConfigComponent,
+      injectedComponent:this.widgetConfigComponent,
       injectComponentData:this.widget.config,
     });
 

@@ -67,7 +67,7 @@ export class UnauthenticatedInterceptor implements HttpInterceptor {
       title:messageBoxTitle,
       cancelButtonLabel: closeButtonText,
       visible:false,
-      injectedComponentType:ServerErrorMessageComponent,
+      injectedComponent:ServerErrorMessageComponent,
       injectComponentData:injectedComponentData});
   }
 

@@ -10,6 +10,6 @@ export interface MessageBoxParams {
   visible: boolean;
   scrollable: boolean;
   progress: boolean;
-  injectedComponentType: Type<any>;
+  injectedComponent: Type<any>;
   injectComponentData: any;
 }

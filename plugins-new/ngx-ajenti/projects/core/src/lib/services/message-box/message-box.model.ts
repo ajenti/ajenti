@@ -11,7 +11,7 @@ export class MessageBox {
     text: string = '', promptLabel: string = '', value: string = '',
     acceptButtonLabel: string = '', cancelButtonLabel: string = '', visible: boolean = false,
     scrollable: boolean = false, inProgress: boolean = false,
-    title: string = '', injectedComponentType?: Type<any>, injectedComponentData?: any,
+    title: string = '', injectedComponent?: Type<any>, injectedComponentData?: any,
   ) {
 
     this.visible = visible;
@@ -26,7 +26,7 @@ export class MessageBox {
     this.promptLabel = promptLabel;
     this.acceptButtonLabel = acceptButtonLabel;
     this.cancelButtonLabel = cancelButtonLabel;
-    this.injectedComponentType = injectedComponentType;
+    this.injectedComponent = injectedComponent;
     this.injectedComponentData = injectedComponentData;
   }
 
@@ -68,7 +68,7 @@ export class MessageBox {
   /**
    * Defines a custom component to be shown inside the message box.
    */
-  public injectedComponentType: Type<any> | undefined;
+  public injectedComponent: Type<any> | undefined;
 
   /**
    * Defines a custom component to be shown inside the message box.
