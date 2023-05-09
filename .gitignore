@@ -17,4 +17,5 @@ plugins/demo*
 *.mo
 .idea*
 .crowdin.key
+.crowdin.token
 .mypy_cache
