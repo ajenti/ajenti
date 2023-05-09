@@ -1,0 +1,17 @@
+name: iptables
+author: Arnaud Kientz
+email: arnaud@linuxmuster.net
+url: http://ajenti.org
+version: '0.1'
+title: 'iptables'
+icon:
+dependencies:
+    - !PluginDependency {
+        plugin_name: core
+    }
+resources:
+    - 'resources/js/module.es'
+    - 'resources/js/routing.es'
+    - 'resources/js/controllers/index.controller.es'
+    - 'resources/partial/index.html'
+    - 'ng:ajenti.iptables'

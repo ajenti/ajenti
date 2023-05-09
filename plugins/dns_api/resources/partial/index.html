@@ -1,0 +1,98 @@
+<br/>
+
+<div root-access>
+    <h2>{{provider}}</h2>
+
+    <br />
+
+    <div ng:show="domains.length == 0 " class="alert alert-info" translate>
+        No domain found with this apikey.
+    </div>
+
+    <div ng:show="domains.length > 0">
+        <div class="form-group col-md-6" ng:if="domains.length > 1">
+            <label translate>Select domain: </label>
+            <select
+                    ng:options="domain for domain in domains"
+                    ng:model="domains.active"
+                    ng:change="get_records()"
+                    class="form-control"
+            >
+            </select>
+        </div>
+
+        <div class="form-group" ng:if="domains.length == 1">
+            <label translate>Selected domain: {{domains.active}}</label>
+        </div>
+
+        <table class="table">
+            <tr>
+                <th translate>Name</th>
+                <th translate>TTL</th>
+                <th translate>Type</th>
+                <th translate>Values</th>
+                <th></th>
+                <th></th>
+            </tr>
+            <tr ng:repeat="record in records">
+                <td style="word-break:break-all;width:150px;">{{record.name}}</td>
+                <td>{{record.ttl}}</td>
+                <td>{{record.type}}</td>
+                <td>
+                    <span ng:repeat="value in record.values" style="word-break:break-all;">
+                        {{value}}
+                    </span>
+                </td>
+                <td>
+                    <button class="btn btn-default" ng:click="openDialog(record)">
+                        <i class="fas fa-pen"></i>
+                    </button>
+                </td>
+                <td>
+                    <button class="btn btn-default" ng:click="delete(record)">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </td>
+            </tr>
+
+        </table>
+
+        <button class="btn btn-default" ng:click="openDialog()" translate>
+            <i class="fas fa-plus-circle"></i>
+            Add entry
+        </button>
+
+        <dialog ng:show="detailsVisible">
+            <div class="modal-header">
+                <h4 translate>New DNS entry</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label translate>Type</label>
+                    <span class="row">
+                        <select ng:options="type for type in $parent.supported_types" ng:model="$parent.DNSdialog.type" ng:change="get_records()"></select>
+                    </span>
+                    <label translate>TTL</label>
+                    <div class="row">
+                        <input ng:model="$parent.DNSdialog.ttl" class="form-control" type="number" />
+                    </div>
+                    <label translate>Name</label>
+                    <div class="row">
+                        <input ng:model="$parent.DNSdialog.name" class="form-control" type="text" />
+                    </div>
+                    <label translate>Value</label>
+                    <div class="row">
+                        <input ng:model="$parent.DNSdialog.value" class="form-control" type="text" />
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a ng:click="add()" class="btn btn-default btn-flat" ng:show="$parent.DNSdialog.mode == 'add'" translate>Add</a>
+                <a ng:click="update()" class="btn btn-default btn-flat" ng:show="$parent.DNSdialog.mode == 'update'" translate>Update</a>
+                <a ng:click="closeDialog()" class="btn btn-default btn-flat" translate>Cancel</a>
+            </div
+
+        </dialog>
+    </div>
+
+</div>

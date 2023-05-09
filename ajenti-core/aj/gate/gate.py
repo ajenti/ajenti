@@ -10,6 +10,8 @@ import aj
 from aj.gate.stream import GateStreamServerEndpoint, GateStreamWorkerEndpoint
 from aj.gate.worker import Worker
 from aj.util import BroadcastQueue
+from aj.security.totp import TOTP
+
 
 class WorkerGate():
     def __init__(self, session, gateway_middleware, name=None, log_tag=None, restricted=False,
@@ -79,6 +81,38 @@ class WorkerGate():
             'data': {'config': aj.config.data, 'users': aj.users.data}
         })
 
+    def verify_totp(self, userid, code):
+        secrets = aj.tfa_config.get_user_totp_secrets(userid)
+        user = userid.split('@')[0]
+        for secret in secrets:
+            if TOTP(user, secret).verify(code):
+                self.stream.send({
+                    'type': 'verify-totp',
+                    'data': {'result': True, 'userid': userid}
+                })
+                return
+        self.stream.send({
+            'type': 'verify-totp',
+            'data': {'result': False, 'userid': userid}
+        })
+
+    def change_totp(self, data):
+        if data['type'] == 'delete':
+            aj.tfa_config.delete_user_totp({
+                'userid': data['userid'],
+                'timestamp': data['timestamp']
+            })
+        elif data['type'] == 'append':
+            aj.tfa_config.append_user_totp({
+                'userid': data['userid'],
+                'secret_details': data['secret_details']
+            })
+        gevent.sleep(0.3)
+        self.stream.send({
+            'type': 'update-tfa-config',
+            'data': aj.tfa_config.data,
+        })
+
     def send_sessionlist(self):
         logging.debug(f'Sending a session list update to {self.name}')
         self.stream.send({
@@ -105,6 +139,17 @@ class WorkerGate():
                     aj.restart()
                 if resp.object['type'] == 'update-sessionlist':
                     self.gateway_middleware.broadcast_sessionlist()
+                if resp.object['type'] == 'verify-totp':
+                    self.gateway_middleware.verify_totp(
+                        resp.object['userid'],
+                        resp.object['code'],
+                        self.session.key
+                    )
+                if resp.object['type'] == 'change-totp':
+                    self.gateway_middleware.change_totp(
+                        resp.object['data'],
+                        self.session.key
+                    )
                 if resp.object['type'] == 'reload-config':
                     aj.config.load()
                     aj.users.load()

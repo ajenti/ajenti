@@ -55,7 +55,8 @@ class Handler(HttpPlugin):
             http_context.respond_not_found()
             return 'File not found'
         try:
-            content = open(path, 'rb').read()
+            with open(path, 'rb') as f:
+                content = f.read()
             if http_context.query:
                 encoding = http_context.query.get('encoding', None)
                 if encoding:
@@ -64,6 +65,31 @@ class Handler(HttpPlugin):
         except OSError as e:
             http_context.respond_server_error()
             return json.dumps({'error': str(e)})
+
+    @post(r'/api/filesystem/rename/(?P<path>.+)')
+    @authorize('filesystem:write')
+    @endpoint(api=True)
+    def handle_api_fs_rename(self, http_context, path=None):
+        """
+        Rename a file or a directory without overwriting
+
+        :param http_context: HttpContext
+        :type http_context: HttpContext
+        :param path: Path of the file
+        :type path: string
+        """
+
+        if not os.path.isfile(path) and not os.path.isdir(path):
+            raise EndpointError
+
+        try:
+            dst = http_context.json_body()['dst']
+            if not os.path.isfile(dst) and not os.path.isdir(dst):
+                os.rename(path, dst)
+                return True
+            return False
+        except OSError as e:
+            raise EndpointError(e)
 
     @post(r'/api/filesystem/write/(?P<path>.+)')
     @authorize('filesystem:write')

@@ -151,30 +151,29 @@ angular.module('ajenti.settings').controller('SettingsIndexController', ($scope,
         }).then(() => {
             config.data.ssl.client_auth.force = false;
             notify.info(gettext('Generating certificate'), gettext('Please wait'));
-            return $http.post('/api/settings/generate/server-certificate').success(function(data) {
+            return $http.post('/api/settings/generate/server-certificate').then(function(resp) {
                 notify.success(gettext('Certificate successfully generated'));
                 config.data.ssl.enable = true;
-                config.data.ssl.certificate = data.path;
+                config.data.ssl.certificate = resp.data.path;
                 config.data.ssl.client_auth.certificates = [];
                 $scope.save();
-            })
-            .error(err => notify.error(gettext('Certificate generation failed'), err.message));
+            }, (err) => notify.error(gettext('Certificate generation failed'), err.message));
         })
     ;
 
     $scope.generateClientCertificate = () => {
         $scope.newClientCertificate.generating = true;
-        return $http.post('/api/settings/generate/client-certificate', $scope.newClientCertificate).success(function(data) {
+        return $http.post('/api/settings/generate/client-certificate', $scope.newClientCertificate).then(function(resp) {
             $scope.newClientCertificate.generating = false;
             $scope.newClientCertificate.generated = true;
-            $scope.newClientCertificate.url = $sce.trustAsUrl(`data:application/x-pkcs12;base64,${data.b64certificate}`);
+            $scope.newClientCertificate.url = $sce.trustAsUrl(`data:application/x-pkcs12;base64,${resp.data.b64certificate}`);
             config.data.ssl.client_auth.certificates.push({
                 user: $scope.newClientCertificate.user,
-                digest: data.digest,
-                name: data.name,
-                serial: data.serial
+                digest: resp.data.digest,
+                name: resp.data.name,
+                serial: resp.data.serial
             });
-        }).error((err) => {
+        }, (err) => {
             $scope.newClientCertificate.generating = false;
             $scope.newClientCertificateDialogVisible = false;
             notify.error(gettext('Certificate generation failed'), err.message);

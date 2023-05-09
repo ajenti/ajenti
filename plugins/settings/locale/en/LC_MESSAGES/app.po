@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-22 16:37+0200\n"
+"POT-Creation-Date: 2023-04-30 15:01+0200\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
@@ -311,7 +311,7 @@ msgstr ""
 msgid "Certificate successfully generated"
 msgstr ""
 
-#: plugins/settings/resources/js/controllers/index.controller.es:161
-#: plugins/settings/resources/js/controllers/index.controller.es:180
+#: plugins/settings/resources/js/controllers/index.controller.es:160
+#: plugins/settings/resources/js/controllers/index.controller.es:179
 msgid "Certificate generation failed"
 msgstr ""

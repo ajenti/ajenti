@@ -1,0 +1,84 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-05-07 11:49+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: plugins/dns_api/resources/partial/index.html:60
+msgid ""
+"<i class=\"fas fa-plus-circle\"></i>\n"
+"            Add entry"
+msgstr ""
+
+#: plugins/dns_api/resources/partial/index.html:90
+msgid "Add"
+msgstr ""
+
+#: plugins/dns_api/resources/partial/index.html:92
+#: plugins/dns_api/resources/js/controllers/index.controller.es:84
+msgid "Cancel"
+msgstr ""
+
+#: plugins/dns_api/resources/partial/index.html:30
+#: plugins/dns_api/resources/partial/index.html:79
+msgid "Name"
+msgstr ""
+
+#: plugins/dns_api/resources/partial/index.html:67
+msgid "New DNS entry"
+msgstr ""
+
+#: plugins/dns_api/resources/partial/index.html:8
+msgid "No domain found with this apikey."
+msgstr ""
+
+#: plugins/dns_api/resources/partial/index.html:14
+msgid "Select domain:"
+msgstr ""
+
+#: plugins/dns_api/resources/partial/index.html:25
+msgid "Selected domain: {{domains.active}}"
+msgstr ""
+
+#: plugins/dns_api/resources/partial/index.html:31
+#: plugins/dns_api/resources/partial/index.html:75
+msgid "TTL"
+msgstr ""
+
+#: plugins/dns_api/resources/partial/index.html:32
+#: plugins/dns_api/resources/partial/index.html:71
+msgid "Type"
+msgstr ""
+
+#: plugins/dns_api/resources/partial/index.html:91
+msgid "Update"
+msgstr ""
+
+#: plugins/dns_api/resources/partial/index.html:83
+msgid "Value"
+msgstr ""
+
+#: plugins/dns_api/resources/partial/index.html:33
+msgid "Values"
+msgstr ""
+
+#: plugins/dns_api/resources/js/controllers/index.controller.es:2
+msgid "DNS API"
+msgstr ""
+
+#: plugins/dns_api/resources/js/controllers/index.controller.es:83
+msgid "Delete"
+msgstr ""

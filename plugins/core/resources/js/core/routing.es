@@ -36,6 +36,11 @@ angular.module('core').config(($routeProvider, $locationProvider, urlPrefix) => 
         templateUrl: '/core:resources/partial/index.html'
     });
 
+    $routeProvider.when('/view/totp', {
+        templateUrl: '/core:resources/partial/totp.html',
+        controller: 'CoreTotpController'
+    });
+
     $routeProvider.otherwise({
             controller: 'CoreError404',
             templateUrl: '/core:resources/partial/404.html'

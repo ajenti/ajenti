@@ -3,9 +3,12 @@ import os
 import cgi
 import traceback
 import base64
+import json
 from jadi import service
 
 from aj.api.http import BaseHttpHandler, HttpPlugin
+from aj.auth import SecurityError
+
 
 class DeniedRouteHandler(BaseHttpHandler):
     """If client authentication is forced, and the client certificate is not valid."""
@@ -96,6 +99,13 @@ class CentralDispatcher(BaseHttpHandler):
         for instance in HttpPlugin.all(self.context):
             try:
                 output = instance.handle(http_context)
+            except SecurityError as e:
+                http_context.respond_server_error()
+                result = {
+                    'message': str(e.message),
+                    'exception': "SecurityError",
+                }
+                return json.dumps(result)
             # pylint: disable=W0703
             except Exception as e:
                 return [self.respond_error(http_context, e)]

@@ -7,13 +7,14 @@ from jadi import component
 from time import time
 
 import aj
-from aj.api.http import get, post, HttpPlugin
+from aj.api.http import get, post, delete, HttpPlugin
 from aj.auth import AuthenticationService, SudoError
 from aj.plugins import PluginManager
 
 from aj.api.endpoint import endpoint, EndpointError
 from aj.plugins.core.api.sidebar import Sidebar
 from aj.plugins.core.api.navbox import Navbox
+from aj.security.totp import TOTP
 
 
 @component(HttpPlugin)
@@ -77,6 +78,45 @@ class Handler(HttpPlugin):
             ]
         }
 
+    @get('/api/core/totps')
+    @endpoint(api=True)
+    def handle_get_user_totp(self, http_context):
+        user = self.context.identity
+        auth_id = AuthenticationService.get(self.context).get_provider().id
+        return aj.tfa_config.data.get(f'{user}@{auth_id}',{}).get('totp', [])
+
+    @post('/api/core/totps/qr')
+    @endpoint(api=True)
+    def handle_generate_totp_qr(self, http_context):
+        user = self.context.identity
+        secret =  http_context.json_body()['secret']
+        return TOTP(user, secret).make_b64qrcode()
+
+    @post('/api/core/totps')
+    @endpoint(api=True)
+    def handle_append_user_totp(self, http_context):
+        user = self.context.identity
+        secret_details = http_context.json_body()['secret']
+        auth_id = AuthenticationService.get(self.context).get_provider().id
+        data = {'type': 'append', 'userid':f'{user}@{auth_id}', 'secret_details': secret_details}
+        self.context.worker.change_totp(data)
+
+    @delete('/api/core/totps/(?P<timestamp>\d*)')
+    @endpoint(api=True)
+    def handle_delete_user_totp(self, http_context, timestamp):
+        user = self.context.identity
+        auth_id = AuthenticationService.get(self.context).get_provider().id
+        data = {'type': 'delete', 'userid':f'{user}@{auth_id}', 'timestamp': timestamp}
+        self.context.worker.change_totp(data)
+
+    @post('/api/core/totps/verify')
+    @endpoint(api=True)
+    def handle_verify_totp(self, http_context):
+        user = self.context.identity
+        secret = http_context.json_body()['secret']
+        code = http_context.json_body()['code']
+        return TOTP(user, secret).verify(code)
+
     @post('/api/core/auth')
     @endpoint(api=True, auth=False)
     def handle_api_auth(self, http_context):
@@ -95,10 +135,18 @@ class Handler(HttpPlugin):
         password = body_data.get('password', None)
 
         auth = AuthenticationService.get(self.context)
+        user_auth_id = f'{username}@{auth.get_provider().id}'
 
         if mode == 'normal':
             auth_info = auth.check_password(username, password)
             if auth_info:
+                if aj.tfa_config.data.get(user_auth_id, {}).get('totp', []):
+                    return {
+                        'success': True,
+                        'username': username,
+                        'totp': True
+                    }
+
                 auth.prepare_session_redirect(http_context, username, auth_info)
                 return {
                     'success': True,
@@ -141,6 +189,18 @@ class Handler(HttpPlugin):
                 return {
                     'success': False,
                     'error': e.message,
+                }
+
+        elif mode == 'totp':
+            # Reset verify value before verifying
+            aj.tfa_config.verify_totp[user_auth_id] = None
+            self.context.worker.verify_totp(user_auth_id, password)
+            gevent.sleep(0.3)
+            if aj.tfa_config.verify_totp[user_auth_id]:
+                auth.prepare_session_redirect(http_context, username, None)
+                return {
+                    'success': True,
+                    'username': username,
                 }
         return {
             'success': False,

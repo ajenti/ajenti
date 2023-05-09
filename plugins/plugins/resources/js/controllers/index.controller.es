@@ -42,27 +42,27 @@ angular.module('ajenti.plugins').controller('PluginsIndexController', function($
     }
 
     $scope.refresh = () => {
-        $http.get('/api/plugins/installed').success((data) => {
-            $scope.installedPlugins = data;
+        $http.get('/api/plugins/installed').then((resp) => {
+            $scope.installedPlugins = resp.data;
             $scope.repoList = null;
             $scope.repoListOfficial = null;
             $scope.repoListCommunity = null;
-            $http.get('/api/plugins/pypi/ajenti-plugins').success((data) => {
-                $scope.repoList = data;
+            $http.get('/api/plugins/pypi/ajenti-plugins').then((rsp) => {
+                $scope.repoList = rsp.data;
                 $scope.notInstalledRepoList = $scope.repoList.filter((x) => !$scope.isInstalled(x)).map((x) => x);
                 $scope.repoListOfficial = $scope.repoList.filter((x) => x.type === "official").map((x) => x);
                 $scope.repoListCommunity = $scope.repoList.filter((x) => x.type !== "official").map((x) => x);
-            }, err => {
+            }, (err) => {
                 notify.error(gettext('Could not load plugin repository'), err.message)
             });
         }, (err) => {
             notify.error(gettext('Could not load the installed plugin list'), err.message)
         });
 
-        $http.post('/api/plugins/core/check-upgrade').success(data => $scope.coreUpgradeAvailable = $scope.needUpgrade($rootScope.ajentiVersion,data));
+        $http.post('/api/plugins/core/check-upgrade').then((resp) => $scope.coreUpgradeAvailable = $scope.needUpgrade($rootScope.ajentiVersion, resp.data));
 
         $scope.pypiList = null;
-        $http.get('/api/plugins/pypi/installed').success(data => $scope.pypiList = data);
+        $http.get('/api/plugins/pypi/installed').then((resp) => $scope.pypiList = resp.data);
     };
 
     $scope.refresh();
