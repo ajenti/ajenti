@@ -1,8 +1,11 @@
 <br />
 
 <div>
-<!--    <mat-tab-group>-->
-<!--      <mat-tab label="{{'Mounted'|translate}}">-->
+    <mat-tab-group>
+      <mat-tab label="{{'Mounted'|translate}}">
+
+        <h2 translate>List of mounted volumes</h2>
+
         <table class="table">
             <tr>
                 <th translate>Device</th>
@@ -21,12 +24,14 @@
                 <td>{{entry.size | formatBytes}}</td>
                 <td><ajenti-smart-progress [animate]="true" [value]="entry.usage" [max]="1"></ajenti-smart-progress></td>
                 <td width="1">
-                    <button class="btn btn-default" (click)="onUmountClick(entry)"><i class="fas fa-eject"></i></button>
+                    <button mat-raised-button (click)="onUmountClick(entry)"><i class="fas fa-eject"></i></button>
                 </td>
             </tr>
         </table>
+      </mat-tab>
+      <mat-tab label="Fstab">
 
-        <h2>FSTAB</h2>
+        <h2 translate>FSTAB</h2>
 
         <table class="table">
           <tr>
@@ -53,6 +58,8 @@
           </tr>
         </table>
         <button mat-raised-button (click)="add()" translate>Add</button>
+      </mat-tab>
+    </mat-tab-group>
 <!--        <dialog [hidden]="!showDetails">-->
 <!--          <div class="modal-header">-->
 <!--            <h4>BLA</h4>-->

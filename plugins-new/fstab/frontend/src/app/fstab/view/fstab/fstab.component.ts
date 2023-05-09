@@ -7,6 +7,7 @@ import { lastValueFrom } from 'rxjs';
 import { FstabService } from '../../services/fstab.service';
 import { FstabDialogComponent } from '../../components/fstab-dialog/fstab-dialog.component';
 import { MatButton } from '@angular/material/button';
+import { MatTab } from '@angular/material/tabs';
 
 @Component({
   selector: 'app-fstab',
