@@ -26,7 +26,7 @@ jobs:
         sudo apt update
         sudo apt install python3-dbus python3-lxml python3-pip libaugeas-dev augeas-tools
     - name: Set up Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
+      uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
     - name: Install npm dependencies
@@ -50,9 +50,7 @@ jobs:
         sudo python3 -m pip install ajenti-dev-multitool
         sudo python3 -m pip install pytest
         sudo python3 -m pip uninstall -y gevent-socketio-hartwork python-socketio
-        sudo python3 -m pip install python-socketio==5.2.1
-        sudo python3 -m pip install cryptography==39.0.0
-        sudo python3 -m pip install pyOpenSSL==23.0.0
+        sudo python3 -m pip install python-socketio==5.8.0
     - name: Install Bower components
       run: |
         sudo ajenti-dev-multitool --bower install || exit 1
