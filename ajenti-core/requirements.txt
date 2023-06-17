@@ -2,7 +2,7 @@
 arrow
 bs4
 cookies
-cryptography==39.0.1
+cryptography==41.0.0
 distro
 python-socketio==5.5.2
 python-engineio==4.3.1
