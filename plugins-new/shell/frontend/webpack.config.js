@@ -31,10 +31,13 @@ module.exports = {
       remotes: {},
       shared: share({
         '@ajenti/*': {singleton: true},
+        '@angular/animations': {singleton: true, strictVersion: true, requiredVersion: 'auto'},
         '@angular/core': {singleton: true, strictVersion: true, requiredVersion: 'auto'},
         '@angular/common': {singleton: true, strictVersion: true, requiredVersion: 'auto'},
         '@angular/common/http': {singleton: true, strictVersion: true, requiredVersion: 'auto'},
         '@angular/material': {singleton: true, strictVersion: true, requiredVersion: 'auto'},
+        '@angular/platform-browser': {singleton: true, strictVersion: true, requiredVersion: 'auto'},
+        '@angular/platform-browser/animations': {singleton: true, strictVersion: true, requiredVersion: 'auto'},
         '@angular/router': {singleton: true, strictVersion: true, requiredVersion: 'auto'},
         '@ngx-ajenti/core': {singleton: true, strictVersion: false},
         '@ngx-loading-bar/core': {singleton: true, strictVersion: false, requiredVersion: 'auto'},

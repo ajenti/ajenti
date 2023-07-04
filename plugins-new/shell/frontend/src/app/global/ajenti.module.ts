@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AjentiHammerJSProvider } from '@ajenti/core/AjentiHammerJSProvider';
-import { BrowserModule, HammerModule } from '@angular/platform-browser';
+import { HammerModule } from '@angular/platform-browser';
 import { ProgressSpinnerComponent } from '@ajenti/components/progress-spinner/progress-spinner.component';
 import { SmartProgressComponent } from '@ajenti/components/smart-progress/smart-progress.component';
 import { FormatSecondsToDurationPipe } from '@ajenti/pipes/format-seconds-to-duration.pipe';
@@ -28,7 +28,6 @@ const translateModuleConfig: TranslateModuleConfig = {
     AutoFocusDirective,
   ],
   imports: [
-    BrowserModule,
     CommonModule,
     HammerModule,
     NgbModule,
@@ -41,7 +40,6 @@ const translateModuleConfig: TranslateModuleConfig = {
     TranslateService,
   ],
   exports: [
-    BrowserModule,
     HammerModule,
     NgbModule,
     CommonModule,

@@ -6,7 +6,6 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { AjentiModule } from '@ajenti/ajenti.module';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTabsModule } from '@angular/material/tabs';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // import { FstabDialogComponent } from './view/fstab-dialog/fstab-dialog.component';
 
@@ -21,7 +20,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AjentiModule,
     RouterModule.forChild(FSTAB_ROUTES),
     DragDropModule,
-    BrowserAnimationsModule,
     MatButtonModule,
     MatTabsModule,
   ],
