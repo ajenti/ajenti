@@ -38,31 +38,8 @@ export class FstabComponent {
 
   public onUmountClick(entry:FileSystem): void {
     this.fstabService.umount(entry);
+    this.notify.success('', entry.device + ' successfully unmounted');
   }
-
-  // public async loadMounts(): Promise<void> {
-  //   try {
-  //     this.mounts = await lastValueFrom(this.httpClient.get<FileSystem[]>('/api/fstab/mounts'));console.log("load", this.mounts);
-  //   } catch (error) {
-  //     // error of type unknown, must be converted or be handled at top level
-  //     this.notify.error('', 'message');
-  //   };
-  // };
-  //
-  // public async umount(entry:FileSystem): Promise<void> {
-  //   try {
-  //     console.log("before command:", this.mounts);
-  //     let resp = await lastValueFrom(this.httpClient.post('/api/fstab/command_umount', {mountpoint: entry.mountpoint}));
-  //     this.notify.success('', this.translate.instant('Device successfully unmounted!'));
-  //     let position = this.mounts.indexOf(entry);console.warn("before splice:", this.mounts);
-  //     this.mounts.splice(position, 1);
-  //     // test
-  //     this.mounts = [...this.mounts, this.mounts[1]];console.log(this.mounts);
-  //   } catch (error) {
-  //     // error of type unknown, must be converted or be handled at top level
-  //     this.notify.error('', 'error');
-  //   };
-  //};
 
   public async loadFstab(): Promise<void> {
     try {
