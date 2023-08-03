@@ -49,6 +49,10 @@ pull-crowdin:
 	ajenti-dev-multitool --pull-crowdin
 	ajenti-dev-multitool --msgfmt
 
+add-crowdin:
+	ajenti-dev-multitool --xgettext
+	ajenti-dev-multitool --add-crowdin
+
 check:
 	ajenti-dev-multitool --find-outdated
 
