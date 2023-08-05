@@ -80,8 +80,14 @@ angular.module('core').controller('CoreLoginController', function($scope, $log, 
             location.href = customization.plugins.core.loginredir || nextPage;
         }, error => {
             $scope.working = false;
-            $log.log('Authentication failed', error);
-            notify.error(gettext('Authentication failed'));
+            if ($scope.mode == 'sudo') {
+                $log.log('Sudo authentication failed from ' + $scope.username, error);
+                notify.error(gettext('Sudo authentication failed. Are you in the sudo group?'));
+
+            } else {
+                $log.log('Authentication failed from ' + $scope.username, error);
+                notify.error(gettext('Authentication failed'));
+            }
         });
     };
 });
