@@ -10,12 +10,6 @@ angular.module('core').controller('CoreLoginController', function($scope, $log, 
     $scope.toggleShowPassword = () => $scope.showPassword = !$scope.showPassword;
 
     identity.init();
-    identity.promise.then(() => {
-        // Already identified ? Then redirect to /
-        if (identity.user !== null ) {
-            location.href = '/';
-        }
-    });
 
     if ($routeParams.mode.indexOf('sudo:') === 0) {
         $scope.mode = 'sudo';
@@ -23,6 +17,13 @@ angular.module('core').controller('CoreLoginController', function($scope, $log, 
     } else {
         $scope.mode = $routeParams.mode;
     }
+
+    identity.promise.then(() => {
+        // Already identified ? Then redirect to /
+        if (identity.user !== null && $scope.mode != 'sudo') {
+            location.href = '/';
+        }
+    });
 
     $scope.sanitizeNextPage = () => {
         // Avoid some unwanted redirections
