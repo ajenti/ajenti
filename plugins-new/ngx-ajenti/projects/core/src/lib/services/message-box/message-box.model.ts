@@ -4,10 +4,10 @@ import { DataInterface } from './data.interface';
 /**
  * Represents a message box.
  */
-export class MessageBox {
+export class MessageBox<T = any> {
 
   constructor(
-    close: (message: MessageBox) => Promise<void>,
+    close: (message: MessageBox<T>) => Promise<void>,
     text: string = '', promptLabel: string = '', value: string = '',
     acceptButtonLabel: string = '', cancelButtonLabel: string = '', visible: boolean = false,
     scrollable: boolean = false, inProgress: boolean = false,
@@ -32,8 +32,9 @@ export class MessageBox {
 
   /**
    * Callback function which will be called if the message was accepted.
+   * @param updatedData The accepted (updated) data from the dialog (messagebox).
    */
-  public accepted: (() => void) | undefined;
+  public accepted: ((updatedData: T) => void) | undefined;
 
   /**
    * Callback function which will be called if the message was cancelled.
@@ -73,13 +74,13 @@ export class MessageBox {
   /**
    * Defines a custom component to be shown inside the message box.
    */
-  public injectedComponentInstance: DataInterface | undefined;
+  public injectedComponentInstance: DataInterface<T> | undefined;
 
   /**
    * Defines the data of the injected instance
    */
   public injectedComponentData: any;
-  
+
   /**
    * Defines the title of the message.
    */

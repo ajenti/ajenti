@@ -37,7 +37,8 @@ export class MessageBoxContainerComponent implements OnInit, AfterViewInit {
       return;
     }
 
-    messageBox.accepted();
+    const updatedData = messageBox.injectedComponentInstance?.getData();
+    messageBox.accepted(updatedData);
     await messageBox.close();
   }
 
@@ -62,10 +63,11 @@ export class MessageBoxContainerComponent implements OnInit, AfterViewInit {
     }
 
     containerForInjectedComponent.clear();
+
     const componentRef = containerForInjectedComponent.createComponent(injectedComponent);
 
     const instance = componentRef.instance as DataInterface;
-    instance.setData(messageBox.injectedComponentData);
+    instance.setData({ ...messageBox.injectedComponentData });
     messageBox.injectedComponentInstance = instance;
   }
 }

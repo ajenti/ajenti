@@ -41,7 +41,7 @@ export class MessageBoxService {
    *
    * @returns The shown message box object.
    */
-  public show(params: Partial<MessageBoxParams> ): MessageBox {
+  public show<T = any>(params: Partial<MessageBoxParams<T>> ): MessageBox<typeof params.injectComponentData> {
     const defaultValues = {
       text: '',
       title: '',
@@ -56,7 +56,7 @@ export class MessageBoxService {
       injectComponentData: '',
     };
     const options = {...defaultValues, ...params};
-    const messageBox = new MessageBox(
+    const messageBox = new MessageBox<typeof params.injectComponentData>(
       this.close,
       options.text,
       options.promptText,

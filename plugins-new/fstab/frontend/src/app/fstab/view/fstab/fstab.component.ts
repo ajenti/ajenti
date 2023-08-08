@@ -6,8 +6,6 @@ import { MessageBoxService, NotificationService, TranslateService } from '@ngx-a
 import { lastValueFrom } from 'rxjs';
 import { FstabService } from '../../services/fstab.service';
 import { FstabDialogComponent } from '../../components/fstab-dialog/fstab-dialog.component';
-import { MatButton } from '@angular/material/button';
-import { MatTab } from '@angular/material/tabs';
 
 @Component({
   selector: 'app-fstab',
@@ -60,7 +58,9 @@ export class FstabComponent {
       injectedComponent: FstabDialogComponent,
       injectComponentData: device
     });
-    messageBox.accepted = () => console.log('ACCEPTED');
+    messageBox.accepted = (updatedDevice) => {
+      console.log('ACCEPTED', updatedDevice);
+    };
   };
 
   public remove(device: Devices): void {
