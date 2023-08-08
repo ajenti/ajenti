@@ -1,4 +1,10 @@
 <h1>Edit device TEST</h1>
 <div >
-  <p>{{device?.mountpoint}}</p>
+  <p>
+    <mat-form-field appearance="fill">
+      <mat-label translate>Mountpoint</mat-label>
+      <input matInput placeholder="/path/to/mountpoint" [(ngModel)]="device && device.mountpoint">
+      <mat-icon matSuffix>usb</mat-icon>
+    </mat-form-field>
+  </p>
 </div>
