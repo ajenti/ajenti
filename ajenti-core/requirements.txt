@@ -22,6 +22,7 @@ python-socketio==5.8.0
 python-engineio==4.4.1
 pyyaml
 qrcode
+reconfigure
 requests>=2
 setproctitle
 simplejson
