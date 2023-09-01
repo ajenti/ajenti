@@ -5,6 +5,7 @@ from itsdangerous.url_safe import URLSafeTimedSerializer
 from itsdangerous.exc import SignatureExpired, BadTimeSignature, BadSignature
 
 from jadi import component
+import aj
 from aj.auth import AuthenticationService
 from aj.api.mail import Mail
 from aj.api.http import HttpMasterMiddleware
@@ -66,8 +67,20 @@ class PasswordResetMiddleware(HttpMasterMiddleware):
                 secret = f.read().strip('\n')
                 serializer = URLSafeTimedSerializer(secret)
             serial = serializer.dumps({'user': username, 'email': mail})
-            origin = http_context.env['HTTP_ORIGIN']
-            link = f'{origin}/view/reset_password/{serial}'
+
+            if aj.config.data['trusted_domains']:
+                # trusted_domains should already contains a full url with protocol
+                # and port
+                base_url = aj.config.data['trusted_domains'][0]
+            else:
+                # This will be a problem if SERVER_NAME is not a FQDN
+                origin = http_context.env['SERVER_NAME']
+                port = ""
+                if http_context.env['SERVER_PORT'] not in [80, 443]:
+                    port = f":{http_context.env['SERVER_PORT']}"
+                base_url = f"{http_context.env['wsgi.url_scheme']}://{origin}{port}"
+
+            link = f'{base_url}/view/reset_password/{serial}'
             self.notifications.send_password_reset(mail, link)
 
     def check_serial(self, http_context):
