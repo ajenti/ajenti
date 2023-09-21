@@ -130,7 +130,7 @@ Explanations:
     Default is **nobody**.
   * **session_max_time**: max validity time in seconds before automatic logout.
     Default is **3600** (one hour).
-  * **trusted_domains** ( `Ajenti` >= 2.2.1 ) : comma separated list of trusted domains under which it's possible to reach your `Ajenti` server. When the HTTP headers are tested, a valid origin will be considered as one of the domains listed. It's necessary to specify the protocol. It's mean that an entry should look like `http://my.domain.com`.
+  * **trusted_domains** ( `Ajenti` >= 2.2.1 ) : comma separated list of trusted domains under which it's possible to reach your `Ajenti` server. When the HTTP headers are tested, a valid origin will be considered as one of the domains listed. It's necessary to specify the protocol and the port. It's mean that an entry should look like `http://my.domain.com:8000`. If set, the first entry of this list will be used as url for the password reset functionality, for more security.
   * **trusted_proxies** ( `Ajenti` >= 2.2.1 ) : comma separated list of trusted proxies. This is actually used in order to get the real ip of the client.
 
 smtp.yml in details

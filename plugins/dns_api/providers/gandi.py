@@ -35,6 +35,8 @@ class GandiApiDnsProvider(ApiDnsManager):
         """
 
         apikey = aj.config.data.get('dns_api', {}).get('apikey', None)
+        sharing_id = aj.config.data.get('dns_api', {}).get('sharing_id', None)
+        params = {'sharing_id': sharing_id}
 
         if method not in ["get", "put", "post", "delete"] or apikey is None:
             return
@@ -43,12 +45,14 @@ class GandiApiDnsProvider(ApiDnsManager):
         if data is None:
             resp = func(
                 f"{self.baseUrl}{apiurl}",
+                params=params,
                 headers={"Authorization": f"Apikey {apikey}"}
             )
         else:
             resp = func(
                 f"{self.baseUrl}{apiurl}",
                 data=data,
+                params=params,
                 headers={"Authorization": f"Apikey {apikey}"}
             )
 

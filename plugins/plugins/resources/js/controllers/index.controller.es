@@ -5,7 +5,7 @@ angular.module('core').config($routeProvider => {
     })
 });
 
-angular.module('ajenti.plugins').controller('PluginsIndexController', function($scope, $q, $http, $rootScope, notify, pageTitle, messagebox, tasks, core, gettext) {
+angular.module('ajenti.plugins').controller('PluginsIndexController', function($scope, $q, $http, $rootScope, notify, identity, pageTitle, messagebox, tasks, core, gettext) {
     pageTitle.set('Plugins');
 
     $scope.selectedInstalledPlugin = null;
@@ -65,7 +65,12 @@ angular.module('ajenti.plugins').controller('PluginsIndexController', function($
         $http.get('/api/plugins/pypi/installed').then((resp) => $scope.pypiList = resp.data);
     };
 
-    $scope.refresh();
+    identity.init();
+    identity.promise.then(() => {
+        if (identity.isSuperuser) {
+            $scope.refresh();
+        }
+    });
 
     $scope.isInstalled = (plugin) => {
         if (!$scope.isInstalled) {
