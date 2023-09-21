@@ -59,6 +59,11 @@
                 "input": "src/assets/toastr.css",
                 "bundleName": "all",
                 "inject": true
+              },
+              {
+                "input": "node_modules/material-icons-font/material-icons-font.css",
+                "bundleName": "all",
+                "inject": true
               }
             ],
             "scripts": [
