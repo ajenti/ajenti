@@ -7,11 +7,14 @@ import { Devices } from '../../view/fstab/devices.type';
   templateUrl: './fstab-dialog.component.html',
   styleUrls: [ './fstab-dialog.component.less' ],
 })
-export class FstabDialogComponent implements DataInterface {
+export class FstabDialogComponent implements DataInterface<Devices> {
 
   device: Devices | undefined;
 
-  getData(): Devices | undefined {
+  getData(): Devices {
+    if (!this.device) {
+      throw new Error("Device not defined");
+    };
     return this.device;
   }
 
