@@ -51,24 +51,41 @@ export class FstabComponent {
 
   public edit(device: Devices): void {
     const messageBox = this.messageBoxService.show({
-      title:"TEST",
-      acceptButtonLabel:"OK",
+      title:"Edit device",
+      acceptButtonLabel:"Save",
       cancelButtonLabel:"Cancel",
       visible:true,
       injectedComponent: FstabDialogComponent,
       injectComponentData: device
     });
     messageBox.accepted = (updatedDevice) => {
-      console.log('ACCEPTED', updatedDevice);
+      let position = this.devices.indexOf(device);
+      this.devices[position] = <Devices>updatedDevice;
     };
   };
 
   public remove(device: Devices): void {
-    console.log('Remove', device);
+    const messageBox = this.messageBoxService.prompt("Do you really want to remove this device?");
+    messageBox.accepted = (updatedDevice: Devices) => {
+      let position = this.devices.indexOf(updatedDevice);
+      this.devices.splice(position, 1);
+    };
   };
 
   public add(): void {
-    console.log('Add');
+    let device_new = <Devices>{};
+    const messageBox = this.messageBoxService.show({
+      title:"Add device",
+      acceptButtonLabel:"Save",
+      cancelButtonLabel:"Cancel",
+      visible:true,
+      injectedComponent: FstabDialogComponent,
+      injectComponentData: device_new
+    });
+    messageBox.accepted = (updatedDevice) => {
+      this.devices.push(<Devices>updatedDevice);
+    };
+
   };
 
   private async save(): Promise<void> {
