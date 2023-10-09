@@ -1,6 +1,6 @@
 import logging
 import os
-import cgi
+import html
 import traceback
 import base64
 import json
@@ -145,7 +145,7 @@ class CentralDispatcher(BaseHttpHandler):
                 <p>
                     Server error
                 </p>
-                <pre>{cgi.escape(stack)}</pre>
+                <pre>{html.escape(stack)}</pre>
             </body>
         </html>
         """
