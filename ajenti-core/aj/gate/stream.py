@@ -127,6 +127,8 @@ class GateStreamServerEndpoint():
             self.pipe.close()
         except gipc.gipc.GIPCClosed as e:
             logging.info('Pipe already closed, redirecting to login page.')
+        except gipc.gipc.GIPCLocked as e:
+            logging.info('I/O error on pipe, redirecting to login page.')
 
 class GateStreamWorkerEndpoint():
     def __init__(self, pipe):
