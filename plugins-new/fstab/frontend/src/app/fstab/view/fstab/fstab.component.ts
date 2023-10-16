@@ -39,6 +39,10 @@ export class FstabComponent {
     this.notify.success('', entry.device + ' successfully unmounted');
   }
 
+  public loadMounts(): void {
+    this.fstabService.loadMounts();
+  };
+
   public async loadFstab(): Promise<void> {
     try {
       this.fstab = await lastValueFrom(this.httpClient.get<Fstab>('/api/fstab'));

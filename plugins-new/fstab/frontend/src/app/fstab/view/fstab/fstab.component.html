@@ -4,6 +4,10 @@
     <mat-tab-group>
       <mat-tab label="{{'Mounted'|translate}}">
 
+        <button class="pull-right" (click)="loadMounts()">
+          <i class="fa fa-sync"></i>
+        </button>
+
         <h2 translate>List of mounted volumes</h2>
 
         <table class="table">
