@@ -56,6 +56,12 @@ export class FstabComponent {
     };
   };
 
+  public async saveFstab(): Promise<void> {
+      const resp = await lastValueFrom(this.httpClient.post<boolean>('/api/fstab', {config: this.fstab}));
+      if (resp) {
+        this.notify.success('', "Fstab successfully saved");
+      }
+  }
   public edit(device: Devices): void {
     const messageBox = this.messageBoxService.show({
       title:"Edit device",
@@ -68,6 +74,7 @@ export class FstabComponent {
     messageBox.accepted = (updatedDevice) => {
       let position = this.devices.indexOf(device);
       this.devices[position] = <Devices>updatedDevice;
+      this.saveFstab();
     };
   };
 
@@ -91,12 +98,8 @@ export class FstabComponent {
     });
     messageBox.accepted = (updatedDevice) => {
       this.devices.push(<Devices>updatedDevice);
+      this.saveFstab();
     };
 
-  };
-
-  private async save(): Promise<void> {
-    let resp = await lastValueFrom(this.httpClient.post('/api/fstab', {config: this.fstab}));
-    this.notify.success('', 'Fstab successfully saved!');
   };
 }

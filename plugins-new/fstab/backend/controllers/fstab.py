@@ -105,7 +105,7 @@ class Handler(HttpPlugin):
         new_fstab = FSTabConfig(content='')
         new_fstab.load()
 
-        for filesystem in config:
+        for filesystem in config['filesystems']:
             device = FilesystemData()
             for prop, value in filesystem.items():
                 setattr(device, prop, value)
