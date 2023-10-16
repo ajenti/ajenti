@@ -35,8 +35,11 @@ export class FstabComponent {
   };
 
   public onUmountClick(entry:FileSystem): void {
-    this.fstabService.umount(entry);
-    this.notify.success('', entry.device + ' successfully unmounted');
+    const messageBox = this.messageBoxService.prompt("Do you really want to unmount this device?");
+    messageBox.accepted = (updatedEntry) => {
+      this.fstabService.umount(entry);
+      this.notify.success('', entry.device + ' successfully unmounted');
+    }
   }
 
   public loadMounts(): void {
