@@ -25,6 +25,8 @@ start_yarn () {
         cd ../..
     done
 }
+
+
 kill_yarn () {
     /usr/bin/killall node
     for pid in $(pgrep -f "ng serve") ; do

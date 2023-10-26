@@ -132,15 +132,69 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification.
 Contributions of any kind welcome!
-# Contributing
 
+
+
+
+
+# Contributing to Ajenti Project 🌟
+
+Welcome to the Ajenti project, and thank you for your interest in contributing! Below you'll find all the information you need to get started.
 Helpers are welcome ! There are many ways to help in Ajenti Project : 
 
   * [Translations](https://docs.ajenti.org/en/latest/man/contributing.html)
   * [Plugin development](https://docs.ajenti.org/en/latest/dev/intro.html)
   * [Core development](https://docs.ajenti.org/en/latest/dev/intro-core.html)
 
-## Roadmap
+
+### Getting Started 🚀
+
+To streamline the process, we have prepared a simple command that sets everything up for your development environment. Follow the steps below to get started:
+
+1. **Ensure Docker is Installed**: Make sure you have Docker installed on your system. If not, download and install it from [Docker Hub](https://hub.docker.com/repository/docker/maddi02/ajenti/general).
+
+2. **Run the Development Script**: Navigate to the project’s root directory and execute the `startAjenti3Dev.sh` script by running:
+
+    ```sh
+    ./startAjenti3Dev.sh
+    ```
+
+    This script will:
+    - Pull the necessary Docker image (if it doesn't already exist).
+    - Start a Docker container which brings up the Ajenti backend.
+    - Run a script to start the frontend development server.
+
+    After executing this script, your development environment should be up and running, and you can start coding!
+
+### Running Components Separately
+
+If you prefer to run the backend and frontend separately, you can do so as follows:
+
+### Backend 🌐
+
+1. Pull the Docker image:
+
+    ```sh
+    docker pull <image-name>
+    ```
+
+2. Start the Docker container:
+
+    ```sh
+    docker run <options> <image-name>
+    ```
+
+### Frontend 💻
+
+Run the frontend development server with:
+
+```sh
+./startFrontEnd.sh
+```
+
+
+
+# Roadmap
 
 Actually big changes are planned and under development. A global roadmap is : 
 
