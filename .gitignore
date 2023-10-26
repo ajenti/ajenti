@@ -21,3 +21,4 @@ plugins/demo*
 .crowdin.key
 .crowdin.token
 .mypy_cache
+/package-lock.json

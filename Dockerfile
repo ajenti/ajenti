@@ -11,7 +11,6 @@ FROM python:3.10-slim-buster AS final-image
 
 # Set a working directory
 WORKDIR /git
-
 # Install required packages
 RUN apt-get update && \
     apt-get install -y \
