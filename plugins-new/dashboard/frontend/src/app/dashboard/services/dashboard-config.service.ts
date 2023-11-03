@@ -82,7 +82,6 @@ export class DashboardConfigService {
 
 
   private subscribeToUserConfigChanges(): void {
-    const mockConfig = { /* ... your mock DashboardConfigurationDto data ... */ };
     this.userConfigService
       .getUserConfigListener<DashboardConfigurationDto>(DashboardConfigService.PLUGIN_ID)
       .subscribe((config) => {
@@ -93,7 +92,6 @@ export class DashboardConfigService {
           //TODO load default dashboard (customization service)
         } else {
           this.config = config as DashboardConfigurationDto;
-        //  this.config = mockConfig
           this.configUpdated.next(this.config);
         }
       });
