@@ -1,0 +1,19 @@
+name: widgetTemplate
+author: Ajenti project
+email: e@ajenti.org
+url: https://ajenti.org
+version: '1.00'
+title: 'widgetTemplate'
+icon: exchange
+requires-angular-build: true
+frontend-settings:
+  remote-entry: 'http://localhost:4206/remoteEntry.js' # For debug purposes. Keep empty for production!
+  remote-name: 'widgetTemplate'
+  exposed-module: './WidgetTemplateModule'
+  widget-components: '["WidgetTemplateComponent"]'
+  display-name: 'WidgetTemplate'
+  route-path: 'widgetTemplate'
+  ng-module-name: 'WidgetTemplateModule'
+dependencies:
+  - !PluginDependency { plugin_name: core }
+  - !PluginDependency { plugin_name: dashboard }

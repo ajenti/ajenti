@@ -1,7 +1,7 @@
 #! /bin/bash
 # BAD HARDCODED THINGS
 cd plugins-new
-PLUGINS=( "traffic" "dashboard" "shell" "fstab" "basicTemplate")
+PLUGINS=( "traffic" "dashboard" "shell" "fstab" "basicTemplate" "widgetTemplate")
 ######################
 usage () {
     echo 

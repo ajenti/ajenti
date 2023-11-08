@@ -7,7 +7,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 class AjentiHammerJSConfig extends HammerGestureConfig {
-  overrides = <any> {
+  override = <any> {
     swipe: { direction: Hammer.DIRECTION_ALL },
   };
 }
