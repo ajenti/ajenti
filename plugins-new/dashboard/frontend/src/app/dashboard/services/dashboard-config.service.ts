@@ -80,12 +80,10 @@ export class DashboardConfigService {
     this.saveDashboardConfiguration();
   }
 
-
   private subscribeToUserConfigChanges(): void {
     this.userConfigService
       .getUserConfigListener<DashboardConfigurationDto>(DashboardConfigService.PLUGIN_ID)
       .subscribe((config) => {
-        console.log("In here ")
         const isDashboardConfigEmpty = Object.keys(config).length === 0;
         if (isDashboardConfigEmpty) {
           console.warn('No user defined dashboard found. Loading default dashboard ..');
