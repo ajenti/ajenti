@@ -23,6 +23,9 @@ angular.module('ajenti.filesystem').service('filesystem', function($rootScope, $
     this.createDirectory = (path) =>
       $http.post(`/api/filesystem/create-directory/${path}`)
 
+    this.rename = (path, dst) =>
+      $http.post(`/api/filesystem/rename/${path}`, {'dst': dst})
+
     this.downloadBlob = (content, mime, name) =>
         setTimeout(() => {
             let blob = new Blob([content], {type: mime});

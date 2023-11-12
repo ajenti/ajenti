@@ -1,6 +1,6 @@
 import time
 import logging
-from cookies import Cookie
+from http.cookies import SimpleCookie
 
 from aj.gate.gate import WorkerGate
 
@@ -18,7 +18,7 @@ class Session():
         self.key = key
         self.client_info = client_info or {}
         self.data = {}
-        self.identity = kwargs['initial_identity'] if 'initial_identity' in kwargs.keys() else None
+        self.identity = kwargs.get('initial_identity', None)
         self.auth_info = auth_info
         self.touch()
         self.active = True
@@ -64,13 +64,12 @@ class Session():
         Adds headers to :class:`aj.http.HttpContext` that set
         the session cookie
         """
-        cookie = Cookie(
-            'session',
-            self.key,
-            path='/',
-            httponly=True
-        ).render_response()
-        http_context.add_header('Set-Cookie', cookie)
+
+        cookie = SimpleCookie()
+        cookie['session'] = self.key
+        cookie['session']['path'] = '/'
+        cookie['session']['httponly'] = True
+        http_context.add_header('Set-Cookie', cookie.output(header=''))
 
     def serialize(self):
         return {

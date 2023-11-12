@@ -1,3 +1,4 @@
+import '@angular/compiler';
 import { loadAllPluginsEntries } from 'plugin-list-loader';
 
 

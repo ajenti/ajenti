@@ -67,6 +67,23 @@ angular.module('ajenti.filemanager').controller('FileManagerIndexController', fu
         $scope.hideClipboard();
     };
 
+    $scope.rename = function(item) {
+        messagebox.prompt(gettext('New name')).then((msg) => {
+            if (!msg.value) {
+                return;
+            }
+            dst = `${$scope.path}/${msg.value}`;
+            filesystem.rename(item.path, dst).then((resp) => {
+                if (!resp.data) {
+                    notify.error(gettext("File or directory already exists"));
+                    return
+                }
+                item.name = msg.value;
+                item.path = dst;
+            });
+        });
+    };
+
     $scope.doCut = function() {
         for (let item of $scope.items) {
             if (item.selected) {

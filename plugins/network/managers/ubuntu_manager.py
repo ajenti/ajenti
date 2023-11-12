@@ -46,16 +46,23 @@ class UbuntuNetworkManager(NetworkManager):
         ifaces = []
         netplan_files = [join(self.path,f) for f in os.listdir(self.path) if isfile(join(self.path, f))]
         for path in netplan_files:
-            config = yaml.load(open(path), Loader=yaml.SafeLoader)['network']['ethernets']
-            for key in config:
-                addresses = config[key].get('adresses', None)
+            try:
+                with open(path, 'r') as netplan_config:
+                    config = yaml.load(netplan_config, Loader=yaml.SafeLoader) or {}
+                    network_config = config.get('network', {})
+                    ethernet_config = network_config.get('ethernets', {})
+            except KeyError:
+                # Maybe there are some others files in /etc/netplan
+                continue
+            for key in ethernet_config:
+                addresses = ethernet_config[key].get('adresses', None)
                 if addresses is None:
                     # DHCP
                     ip, mask = ifconfig_get_ip4_mask(key)
                     gateway = ifconfig_get_gateway(key)
                 else:
-                    ip, mask = config[key]['addresses'][0].split('/')
-                    gateway = config[key].get('gateway4', None)
+                    ip, mask = ethernet_config[key]['addresses'][0].split('/')
+                    gateway = ethernet_config[key].get('gateway4', None)
                 iface = {
                     'name': key,
                     'family': None,

@@ -55,7 +55,10 @@ def requests_decorator_generator(method):
     return request_decorator
 
 # Decorators like @get and @post are defined here
-for method in ['get', 'post', 'delete', 'head', 'put', 'patch']:
+http_methods = ['get', 'post', 'delete', 'head', 'put', 'patch']
+webdav_methods = ['propfind', 'mkcol', 'options', 'proppatch', 'copy', 'move', 'lock', 'unlock']
+
+for method in http_methods + webdav_methods:
     globals()[method] = requests_decorator_generator(method)
 
 class BaseHttpHandler():

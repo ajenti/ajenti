@@ -1,6 +1,6 @@
 import { Type } from '@angular/core';
 
-export interface MessageBoxParams {
+export interface MessageBoxParams<T = any> {
   text: string;
   title: string;
   promptText: string;
@@ -10,6 +10,6 @@ export interface MessageBoxParams {
   visible: boolean;
   scrollable: boolean;
   progress: boolean;
-  injectedComponentType: Type<any>;
-  injectComponentData: any;
+  injectedComponent: Type<any>;
+  injectComponentData: T;
 }

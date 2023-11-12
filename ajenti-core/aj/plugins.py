@@ -271,7 +271,11 @@ class PluginManager():
 
         self.__plugin_info = {}
         for path in found:
-            yml_info = yaml.load(open(os.path.join(path, 'plugin.yml')), Loader=yaml.SafeLoader)
+            try:
+                yml_info = yaml.load(open(os.path.join(path, 'plugin.yml')), Loader=yaml.SafeLoader)
+            except yaml.constructor.ConstructorError:
+                logging.error(f"Malformatted plugin.yml located at {path}, not loading plugin. ")
+                continue
             yml_info['resources'] = [
                 ({'path': x} if isinstance(x, str) else x)
                 for x in yml_info.get('resources', [])

@@ -66,7 +66,9 @@ def endpoint(page=False, api=False, auth=True):
         @wraps(fx)
         def wrapper(self, context, *args, **kwargs):
             if auth and not self.context.identity:
-                context.respond(401)
+                context.respond_unauthenticated()
+                if context.env['PATH_INFO'].startswith('/webdav/'):
+                    context.add_header("WWW-Authenticate", 'Basic realm="Ajenti", charset="UTF-8"')
                 return ''
 
             status = 200
@@ -110,6 +112,10 @@ def endpoint(page=False, api=False, auth=True):
                 context.add_header('Content-Type', 'application/json')
                 context.respond(status)
                 return json.dumps(result)
+
+            # In case of other response, like e.g. XML
+            # Currently available if api=False and page=False
+            return result
 
         return wrapper
 

@@ -1,0 +1,17 @@
+name: dns_api
+author: Arnaud Kientz
+email: arnaud@linuxmuster.net
+url: https://ajenti.org
+version: '0.2'
+title: 'External DNS'
+icon: globe
+dependencies:
+    - !PluginDependency {
+        plugin_name: core
+    }
+resources:
+    - 'resources/js/module.es'
+    - 'resources/js/routing.es'
+    - 'resources/js/controllers/index.controller.es'
+    - 'resources/partial/index.html'
+    - 'ng:ajenti.dns_api'
