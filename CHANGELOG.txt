@@ -1,4 +1,18 @@
-Ajenti 2.2.6 - Dev
+Ajenti 2.2.8 - Dev
+
+
+Ajenti 2.2.7 - 01/09/2023
+
+- Update cryptography library
+- Harden base url for password reset email
+- Only allow same origin in cors policy
+- [Core] Fix sudo elevation
+- [Dns api] Add sharing id for gandi provider
+
+Ajenti 2.2.6 - 18/06/2023
+
+- Update cryptography, pyopenssl and socketio
+- Migrate to http.cookies for Py >= 3.11
 
 Ajenti 2.2.5 - 08/05/2023
 

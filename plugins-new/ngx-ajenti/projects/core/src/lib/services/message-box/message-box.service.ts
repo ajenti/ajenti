@@ -36,12 +36,12 @@ export class MessageBoxService {
    * @param visible Determines if the message box is visible or not.
    * @param scrollable Determines if the message box is scrollable or not.
    * @param progress Determines if the message box indicates progress.
-   * @param injectedComponentType The type of the component to be injected as inner component.
+   * @param injectedComponent The type of the component to be injected as inner component.
    * @param injectComponentData The data of the injected component.
    *
    * @returns The shown message box object.
    */
-  public show(params: Partial<MessageBoxParams> ): MessageBox {
+  public show<T = any>(params: Partial<MessageBoxParams<T>> ): MessageBox<typeof params.injectComponentData> {
     const defaultValues = {
       text: '',
       title: '',
@@ -52,11 +52,11 @@ export class MessageBoxService {
       visible: true,
       scrollable: false,
       progress: false,
-      injectedComponentType: undefined,
+      injectedComponent: undefined,
       injectComponentData: '',
     };
     const options = {...defaultValues, ...params};
-    const messageBox = new MessageBox(
+    const messageBox = new MessageBox<typeof params.injectComponentData>(
       this.close,
       options.text,
       options.promptText,
@@ -67,7 +67,7 @@ export class MessageBoxService {
       options.scrollable,
       options.progress,
       options.title,
-      options.injectedComponentType,
+      options.injectedComponent,
       options.injectComponentData,
     );
 

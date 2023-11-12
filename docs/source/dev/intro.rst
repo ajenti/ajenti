@@ -115,3 +115,4 @@ Example plugins
 
     .. HINT::
       Changes in ES6, CoffeeScript and LESS files will be recompiled automatically when you refresh the page; Python code will not. Additional debug information will be available in the console output and browser console. Reloading the page with Ctrl-F5 (``Cache-Control: no-cache``) will unconditionally rebuild all resources
+=======

@@ -4,14 +4,14 @@ import { DataInterface } from './data.interface';
 /**
  * Represents a message box.
  */
-export class MessageBox {
+export class MessageBox<T = any> {
 
   constructor(
-    close: (message: MessageBox) => Promise<void>,
+    close: (message: MessageBox<T>) => Promise<void>,
     text: string = '', promptLabel: string = '', value: string = '',
     acceptButtonLabel: string = '', cancelButtonLabel: string = '', visible: boolean = false,
     scrollable: boolean = false, inProgress: boolean = false,
-    title: string = '', injectedComponentType?: Type<any>, injectedComponentData?: any,
+    title: string = '', injectedComponent?: Type<any>, injectedComponentData?: any,
   ) {
 
     this.visible = visible;
@@ -26,14 +26,15 @@ export class MessageBox {
     this.promptLabel = promptLabel;
     this.acceptButtonLabel = acceptButtonLabel;
     this.cancelButtonLabel = cancelButtonLabel;
-    this.injectedComponentType = injectedComponentType;
+    this.injectedComponent = injectedComponent;
     this.injectedComponentData = injectedComponentData;
   }
 
   /**
    * Callback function which will be called if the message was accepted.
+   * @param updatedData The accepted (updated) data from the dialog (messagebox).
    */
-  public accepted: (() => void) | undefined;
+  public accepted: ((updatedData: T) => void) | undefined;
 
   /**
    * Callback function which will be called if the message was cancelled.
@@ -68,18 +69,18 @@ export class MessageBox {
   /**
    * Defines a custom component to be shown inside the message box.
    */
-  public injectedComponentType: Type<any> | undefined;
+  public injectedComponent: Type<any> | undefined;
 
   /**
    * Defines a custom component to be shown inside the message box.
    */
-  public injectedComponentInstance: DataInterface | undefined;
+  public injectedComponentInstance: DataInterface<T> | undefined;
 
   /**
    * Defines the data of the injected instance
    */
   public injectedComponentData: any;
-  
+
   /**
    * Defines the title of the message.
    */

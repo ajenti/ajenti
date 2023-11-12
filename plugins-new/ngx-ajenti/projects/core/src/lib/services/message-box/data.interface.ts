@@ -1,6 +1,6 @@
-export interface DataInterface {
+export interface DataInterface<T = any> {
 
-  setData(data: any): void;
+  setData(data: T): void;
 
-  getData(): any;
+  getData(): T;
 }

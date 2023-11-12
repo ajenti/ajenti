@@ -3,7 +3,7 @@
     <label translate>Interface</label>
     <select [(ngModel)]="selectedInterface" style="margin-left: 1rem;">
       <option
-        *ngFor="let interface of interfaces" [ngValue]="interface"
+        *ngFor="let interface of interfaces" [value]="interface"
         [selected]="interface == selectedInterface"
       >{{interface}}</option>
     </select>

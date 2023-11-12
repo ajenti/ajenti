@@ -10,12 +10,6 @@ angular.module('core').controller('CoreLoginController', function($scope, $log, 
     $scope.toggleShowPassword = () => $scope.showPassword = !$scope.showPassword;
 
     identity.init();
-    identity.promise.then(() => {
-        // Already identified ? Then redirect to /
-        if (identity.user !== null ) {
-            location.href = '/';
-        }
-    });
 
     if ($routeParams.mode.indexOf('sudo:') === 0) {
         $scope.mode = 'sudo';
@@ -23,6 +17,13 @@ angular.module('core').controller('CoreLoginController', function($scope, $log, 
     } else {
         $scope.mode = $routeParams.mode;
     }
+
+    identity.promise.then(() => {
+        // Already identified ? Then redirect to /
+        if (identity.user !== null && $scope.mode != 'sudo') {
+            location.href = '/';
+        }
+    });
 
     $scope.sanitizeNextPage = () => {
         // Avoid some unwanted redirections
@@ -79,8 +80,14 @@ angular.module('core').controller('CoreLoginController', function($scope, $log, 
             location.href = customization.plugins.core.loginredir || nextPage;
         }, error => {
             $scope.working = false;
-            $log.log('Authentication failed', error);
-            notify.error(gettext('Authentication failed'));
+            if ($scope.mode == 'sudo') {
+                $log.log('Sudo authentication failed from ' + $scope.username, error);
+                notify.error(gettext('Sudo authentication failed. Are you in the sudo group?'));
+
+            } else {
+                $log.log('Authentication failed from ' + $scope.username, error);
+                notify.error(gettext('Authentication failed'));
+            }
         });
     };
 });

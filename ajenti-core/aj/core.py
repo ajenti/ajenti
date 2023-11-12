@@ -181,7 +181,11 @@ def run(config=None, plugin_providers=None, product_name='ajenti', dev_mode=Fals
     gateway = GateMiddleware.get(aj.context)
     middleware_stack = HttpMasterMiddleware.all(aj.context) + [gateway]
 
-    sio = Server(async_mode='gevent', cors_allowed_origins=aj.config.data['trusted_domains'])
+    if aj.config.data['trusted_domains']:
+        sio = Server(async_mode='gevent', cors_allowed_origins=aj.config.data['trusted_domains'])
+    else:
+        # Not trusted domain set, only allow same origin
+        sio = Server(async_mode='gevent')
     application = WSGIApp(sio, HttpRoot(HttpMiddlewareAggregator(middleware_stack)).dispatch)
     sio.register_namespace(SocketIONamespace(context=aj.context))
 

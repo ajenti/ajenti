@@ -1,0 +1,67 @@
+<br />
+
+<div>
+    <mat-tab-group>
+      <mat-tab label="{{'Mounted'|translate}}">
+
+        <button class="pull-right" (click)="loadMounts()">
+          <i class="fa fa-sync"></i>
+        </button>
+
+        <h2 translate>List of mounted volumes</h2>
+
+        <table class="table">
+            <tr>
+                <th translate>Device</th>
+                <th translate>FS Type</th>
+                <th translate>Mountpoint</th>
+                <th translate>Used</th>
+                <th translate>Size</th>
+                <th translate>Usage</th>
+                <th> </th>
+            </tr>
+            <tr *ngFor="let entry of mounts">
+                <td>{{entry.device}}</td>
+                <td>{{entry.fstype}}</td>
+                <td>{{entry.mountpoint}}</td>
+                <td>{{entry.used | formatBytes}}</td>
+                <td>{{entry.size | formatBytes}}</td>
+                <td><ajenti-smart-progress [animate]="true" [value]="entry.usage" [max]="1"></ajenti-smart-progress></td>
+                <td width="1">
+                    <button mat-raised-button (click)="onUmountClick(entry)"><i class="fas fa-eject"></i></button>
+                </td>
+            </tr>
+        </table>
+      </mat-tab>
+      <mat-tab label="Fstab">
+
+        <h2 translate>FSTAB</h2>
+
+        <table class="table">
+          <tr>
+            <th translate>Device</th>
+            <th translate>Mountpoint</th>
+            <th translate>Type</th>
+            <th translate> </th>
+            <th translate> </th>
+          </tr>
+          <tr *ngFor="let device of devices">
+            <td>{{device.device}}</td>
+            <td>{{device.mountpoint}}</td>
+            <td>{{device.type}}</td>
+            <td class="list-group">
+                <button class="btn btn-default" (click)="edit(device)">
+                    <i class="fas fa-pen"></i>
+                </button>
+            </td>
+            <td>
+                <button class="btn btn-default" (click)="remove(device)">
+                    <i class="fa fa-remove"></i>
+                </button>
+            </td>
+          </tr>
+        </table>
+        <button mat-raised-button (click)="add()" translate>Add</button>
+      </mat-tab>
+    </mat-tab-group>
+</div>
