@@ -3,7 +3,9 @@ import binascii
 import gevent.socket
 import json
 import os
+import gipc
 import logging
+
 
 MSG_SIZE_LIMIT = 1024 * 1024 * 128  # 128 MB
 MSG_CONTINUATION_MARKER = '\x00\x00\x00continued\x00\x00\x00'
@@ -121,7 +123,12 @@ class GateStreamServerEndpoint():
             return self.buffer.pop(_id)
 
     def destroy(self):
-        self.pipe.close()
+        try:
+            self.pipe.close()
+        except gipc.gipc.GIPCClosed as e:
+            logging.info('Pipe already closed, redirecting to login page.')
+        except gipc.gipc.GIPCLocked as e:
+            logging.info('I/O error on pipe, redirecting to login page.')
 
 class GateStreamWorkerEndpoint():
     def __init__(self, pipe):

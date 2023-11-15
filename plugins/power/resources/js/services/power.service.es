@@ -7,11 +7,11 @@ angular.module('ajenti.power').service('power', function($http) {
 
     this.poweroff = () => $http.post("/api/power/command_power", {'command': 'poweroff'}).then(response => response.data)
 
-    this.reboot = () => $http.get("/api/power/command_power", {'command': 'reboot'}).then(response => response.data)
+    this.reboot = () => $http.post("/api/power/command_power", {'command': 'reboot'}).then(response => response.data)
 
-    this.suspend = () => $http.get("/api/power/command_power", {'command': 'suspend'}).then(response => response.data)
+    this.suspend = () => $http.post("/api/power/command_power", {'command': 'suspend'}).then(response => response.data)
 
-    this.hibernate = () => $http.get("/api/power/command_power", {'command': 'hibernate'}).then(response => response.data)
+    this.hibernate = () => $http.post("/api/power/command_power", {'command': 'hibernate'}).then(response => response.data)
 
     return this;
 });
