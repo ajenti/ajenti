@@ -1,0 +1,39 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-23 10:30+0200\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: plugins/session_list/resources/partial/widget.html:3
+msgid "Authenticated users"
+msgstr ""
+
+#: plugins/session_list/resources/partial/index.html:9
+msgid "IP"
+msgstr ""
+
+#: plugins/session_list/resources/partial/index.html:10
+msgid "Logged in"
+msgstr ""
+
+#: plugins/session_list/resources/partial/index.html:11
+msgid "Timeout"
+msgstr ""
+
+#: plugins/session_list/resources/partial/index.html:8
+msgid "User <span class=\"badge\">{{number}}</span>"
+msgstr ""
+
+#: plugins/session_list/widget.py:8
+msgid "Sessions"
+msgstr ""
+
+#: plugins/session_list/main.py:17
+msgid "Session list"
+msgstr ""
+
+#: plugins/session_list/resources/js/controllers/index.controller.coffee:2
+msgid "List all sessions"
+msgstr ""

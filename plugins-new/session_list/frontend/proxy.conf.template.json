@@ -1,0 +1,14 @@
+{
+  "/api/*": {
+    "target": "http://localhost:8001",
+    "secure": false
+  },
+  "/resources/*": {
+    "target": "http://localhost:8001",
+    "secure": false
+  },
+  "/socket.io": {
+    "target": "ws://localhost:8001",
+    "ws": true
+  }
+}
