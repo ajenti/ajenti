@@ -153,3 +153,26 @@ Actually big changes are planned and under development. A global roadmap is :
       * The documentation is located at https://docs.ajenti.org/en/ajenti-3-dev/index.html
   * Add a lot of new plugins: once the migration to Angular done, we can add a lot of plugins to manage services on the server ( like apache2, nginx, postfix, etc ... ).
   * Migrating to [asyncio](https://docs.python.org/3/library/asyncio.html): concept tested, but migration not really started.
+
+## Development AJ3
+
+[See Doku](./docs/source/dev/setup-devenv-core.rst)
+
+
+### Prerequisites
+Before you begin, make sure you have the following prerequisites installed on your system:
+
+Docker: [Docker Installation Guide](https://docs.docker.com/engine/install/)<br>
+Docker Compose (optional): [Docker Compose Installation Guide](https://docs.docker.com/compose/install/)
+
+### Getting Started
+
+#### Docker Compose
+
+The start your backend-service with docker compose. Just 
+execute the following commands <br><br>
+
+Initial or when you change something in dockerfile <br>
+`docker-compose up --build` <br>
+After the build
+`docker-compose up ` <br>
