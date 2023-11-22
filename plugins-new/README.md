@@ -11,8 +11,27 @@
 
 See the page
 https://docs.ajenti.org/en/latest/dev/setup-devenv-extension-plugins.html
+## II. Automated Startup
 
-## II. Setup plugin environment
+### Run the services
+
+This utility provides a convenient way to manage Yarn processes for Ajenti plugins.
+Use the provided script to manage Yarn processes in bulk. 
+This option is best if you're looking to save time and automate the routine start-up and shutdown 
+of multiple Yarn instances associated with Ajenti plugins.
+
+#### Initial setup:
+
+open the  `setupFrontend.sh` adjust the plugins list you want to use.<br><br>
+`./setupFrontend.sh` link - Builds the core library ngx-ajenti, makes setup of all selected plugins.<br><br>
+While developement:<br>
+`./setupFrontend.sh start` - Starts the core pluginshell + all selected plugins.<br>
+
+`./setupFrontend.sh kill` - Stops all started plugin<br><br>
+`./setupFrontend.sh restart` - Stops all started plugin and starts them again
+
+
+## III. Setup plugin environment
 
 To setup the plugin development is required
 
@@ -52,3 +71,5 @@ The following steps are for one plugin. Each plugin is an Angular application. T
    (Optional) To use your developer machine's host:   
    `yarn start -- --host my-host-name --disable-host-check` => This is very useful for testing on mobile devices!
 4. The application is now available on the http://localhost:4200 ( the port is defined in the `angular.json`)
+
+
