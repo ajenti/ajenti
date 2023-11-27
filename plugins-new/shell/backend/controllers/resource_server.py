@@ -180,6 +180,8 @@ window.globalConstants = {{
 
 
             plugin_info = manager[plugin_name]['info']
+            if 'frontend-settings' not in plugin_info:
+                continue
             frontend_settings = plugin_info['frontend-settings']
 
             widgetComponents = []
