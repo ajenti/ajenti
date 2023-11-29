@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { TabDto } from '../models/user-config-service/tab.dto';
 import { UserConfigService } from '@ngx-ajenti/core';
 import { DashboardConfigurationDto } from '../models/user-config-service/dashboard-configuration.dto';
@@ -22,7 +21,6 @@ export class DashboardConfigService {
   }
 
   constructor(
-    private httpClient: HttpClient,
     private userConfigService: UserConfigService,
     private widgetComponentProvider: WidgetComponentProvider,
   ) {
@@ -84,15 +82,28 @@ export class DashboardConfigService {
     this.userConfigService
       .getUserConfigListener<DashboardConfigurationDto>(DashboardConfigService.PLUGIN_ID)
       .subscribe((config) => {
-        const isDashboardConfigEmpty = Object.keys(config).length === 0;
-        if (isDashboardConfigEmpty) {
-          console.warn('No user defined dashboard found. Loading default dashboard ..');
-          //TODO load default dashboard (customization service)
+        let dashboardConfiguration = config as DashboardConfigurationDto;
+        let hasAnyTabs = !!(dashboardConfiguration?.tabs?.length);
+        if (!hasAnyTabs) {
+          this.config = this.createDefaultConfiguration();
+          this.configUpdated.next(this.config);
+          this.saveDashboardConfiguration();
         } else {
-          this.config = config as DashboardConfigurationDto;
+          this.config = dashboardConfiguration;
           this.configUpdated.next(this.config);
         }
       });
+  }
+
+  private createDefaultConfiguration() {
+    const defaultConfiguration = new DashboardConfigurationDto();
+    defaultConfiguration.tabs.push(
+      new TabDto('Home', [
+        new WidgetDto('cpu'),
+        new WidgetDto('uptime'),
+      ]));
+
+    return defaultConfiguration;
   }
 
   saveDashboardConfiguration(): void {

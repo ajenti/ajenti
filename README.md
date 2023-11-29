@@ -172,7 +172,8 @@ Docker Compose (optional): [Docker Compose Installation Guide](https://docs.dock
 The start your backend-service with docker compose. Just 
 execute the following commands <br><br>
 
-Initial or when you change something in dockerfile <br>
-`docker-compose up --build` <br>
-After the build
-`docker-compose up ` <br>
+`docker-compose up --build` - Initial or after Dockerfile change<br>
+
+`docker-compose up ` - After the build <br>
+`docker-compose down` - Before the changes on docker-compose.yml<br>
+`docker-compose up --detach ` - To detach the console. Let it run in background.

@@ -21,4 +21,7 @@ plugins/demo*
 .crowdin.key
 .crowdin.token
 .mypy_cache
+.container/etc/.secret
 .container/config/.secret
+.container/config/*
+!.container/config/.gitkeep
