@@ -142,6 +142,7 @@ class Worker():
                     logging.debug('Received a config update')
                     aj.config.data = rq.object['data']['config']
                     aj.users.data = rq.object['data']['users']
+                    aj.tfa_config.data = rq.object['data']['tfa']
                     self._master_config_reloaded.set()
 
                 if rq.object['type'] == 'session-list':

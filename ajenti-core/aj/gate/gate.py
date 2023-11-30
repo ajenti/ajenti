@@ -78,7 +78,7 @@ class WorkerGate():
         logging.debug(f'Sending a config update to {self.name}')
         self.stream.send({
             'type': 'config-data',
-            'data': {'config': aj.config.data, 'users': aj.users.data}
+            'data': {'config': aj.config.data, 'users': aj.users.data, 'tfa': aj.tfa_config.data}
         })
 
     def verify_totp(self, userid, code):
@@ -108,10 +108,7 @@ class WorkerGate():
                 'secret_details': data['secret_details']
             })
         gevent.sleep(0.3)
-        self.stream.send({
-            'type': 'update-tfa-config',
-            'data': aj.tfa_config.data,
-        })
+        self.gateway_middleware.broadcast_config_data()
 
     def send_sessionlist(self):
         logging.debug(f'Sending a session list update to {self.name}')
