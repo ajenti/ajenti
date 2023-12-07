@@ -3,7 +3,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { GetSideBarItemResponse } from './get-side-bar-item-response.type';
 import { SideBarItem } from './side-bar-item.type';
-import { NavigationEnd, Router } from '@angular/router';
+import { Event, NavigationEnd, Router, RouterEvent } from '@angular/router';
 import { Identity, IdentityService } from '@ngx-ajenti/core';
 
 
@@ -96,6 +96,11 @@ export class SideBarService {
     }
 
     this.sideBarRootItem.next(sideBarItem);
+
+    const firstUrlInNavigationTree = sideBarItem.findFirstUrlInTree();
+    if (this.routerService.url === '/view' && firstUrlInNavigationTree) {
+      await this.routerService.navigate([ sideBarItem.findFirstUrlInTree() ]);
+    }
   }
 
   private getInitialShowSideBarValue(isUserSignedIn?: boolean): boolean {

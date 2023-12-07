@@ -2,7 +2,7 @@ export class SideBarItem {
 
   constructor(item: SideBarItem) {
     this.id = item.id;
-    this.name = item.name || "";
+    this.name = item.name || '';
     this.url = item.url;
     this.icon = item.icon;
     this.attach = item.attach;
@@ -32,5 +32,20 @@ export class SideBarItem {
   public get hasChildren(): boolean {
     return this.children.length > 0;
   };
+
+  public findFirstUrlInTree(): string | undefined {
+    if (this.url !== undefined) {
+      return this.url;
+    }
+
+    for (const child of this.children) {
+      const childUrl = child.findFirstUrlInTree();
+      if (childUrl !== undefined) {
+        return childUrl;
+      }
+    }
+
+    return undefined;
+  }
 
 }
