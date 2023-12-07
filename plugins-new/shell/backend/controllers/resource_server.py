@@ -188,6 +188,10 @@ window.globalConstants = {{
             if "widget-components" in frontend_settings:
                 widgetComponents = frontend_settings['widget-components']
 
+            themeComponent = ''
+            if "theme-component" in frontend_settings:
+                themeComponent = frontend_settings['theme-component']
+
             remote_entry = frontend_settings['remote-entry'] if not frontend_settings['remote-entry'] == '' \
                 else f'resources/{plugin_name}/frontend/dist/remoteEntry.js'
 
@@ -195,6 +199,7 @@ window.globalConstants = {{
     "remoteEntry": "{remote_entry}",
     "remoteName": "{frontend_settings['remote-name']}",
     "exposedModule": "{frontend_settings['exposed-module']}",
+    "themeComponent": "{themeComponent}",
     "widgetComponents": {widgetComponents},
     "displayName": "{frontend_settings['display-name']}",
     "routePath": "{frontend_settings['route-path']}",

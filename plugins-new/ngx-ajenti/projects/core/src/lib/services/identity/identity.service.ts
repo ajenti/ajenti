@@ -29,12 +29,6 @@ export class IdentityService {
    * Defines the server's machine information.
    */
   public machine: BehaviorSubject<MachineInfo | null>;
-
-  /**
-   * The user's preferred theme color.
-   */
-  public themeColor: BehaviorSubject<string>;
-
   //</editor-fold>
 
 
@@ -44,7 +38,6 @@ export class IdentityService {
   ) {
     this.identity = new BehaviorSubject<Identity | null>(null);
     this.machine = new BehaviorSubject<MachineInfo | null>(null);
-    this.themeColor = new BehaviorSubject<string>('bluegrey');
 
     this.updateIdentityData().then(() => {
       this.routerService.events.subscribe(event => {
@@ -74,7 +67,6 @@ export class IdentityService {
       return;
     }
 
-    this.themeColor.next(response.color || 'bluegrey');
     this.identity.next(new Identity(response.identity));
     this.machine.next(new MachineInfo(response.machine));
   }

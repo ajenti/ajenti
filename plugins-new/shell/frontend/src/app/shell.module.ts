@@ -18,10 +18,13 @@ import { ToastrService } from 'ngx-toastr';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { UnauthenticatedInterceptor } from './interceptors/unauthenticated.interceptor';
 import { UrlPrefixInterceptor } from './interceptors/urlPrefix.interceptor';
+import {CustomThemeLoaderComponent} from "./components/custom-theme-loader/custom-theme-loader.component";
+import {ThemeHost} from "./components/custom-theme-loader/theme-host.directive";
 
 @NgModule({
   declarations: [
     ShellComponent,
+    CustomThemeLoaderComponent,
     NavBarComponent,
     ErrorViewComponent,
     LoginViewComponent,
@@ -29,6 +32,7 @@ import { UrlPrefixInterceptor } from './interceptors/urlPrefix.interceptor';
     SideBarComponent,
     SideBarItemComponent,
     SideBarTasksComponent,
+    ThemeHost,
   ],
   providers: [ TranslateService,
     {

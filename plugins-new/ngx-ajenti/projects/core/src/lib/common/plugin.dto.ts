@@ -6,4 +6,5 @@ export type PluginDto = {
   displayName: string;
   routePath: string;
   ngModuleName: string;
+  themeComponent?: string;
 };

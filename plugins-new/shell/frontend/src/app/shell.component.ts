@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { SideBarService } from './services/side-bar/side-bar.service';
-import { Meta } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import {
   ConfigService,
@@ -11,6 +10,7 @@ import {
   PageTitleService,
   ScreenService,
 } from '@ngx-ajenti/core';
+import { DOCUMENT } from '@angular/common';
 
 
 @Component({
@@ -29,13 +29,13 @@ export class ShellComponent implements OnInit {
 
   constructor(
     public sideBarService: SideBarService,
-    private metaService: Meta,
     private identityService: IdentityService,
     private screenService: ScreenService,
     private customizationService: CustomizationService,
     private pageTitleService: PageTitleService,
     private routerService: Router,
     private configService: ConfigService,
+    @Inject(DOCUMENT) private document: Document,
   ) {
     this.appReady = false;
     this.isWidescreen = false;
@@ -64,27 +64,28 @@ export class ShellComponent implements OnInit {
       .getPluginCustomizations<CorePluginCustomizationSettings>('core')
       .subscribe(pluginCustomizations => {
         this.corePluginCustomizations = pluginCustomizations;
+        this.setBodyCssClasses();
       });
 
     this.identityService.identity.subscribe(this.onIdentityChanged);
   }
 
 
-  public getComponentCssClasses(): string {
-    const { bodyClass } = this.corePluginCustomizations;
-    const themeColor = this.identityService.themeColor.value;
-
+  public setBodyCssClasses(): void {
+    const { cssClass } = this.corePluginCustomizations;
+    const themeColor = this.corePluginCustomizations.themeColor;
     const cssClasses: string[] = [
       'app-component',
       `global-color-${ themeColor }`,
       `widescreen-mode-${ this.isWidescreen ? 'on' : 'off' }`,
     ];
 
-    if (bodyClass) {
-      cssClasses.push(bodyClass);
+    if (cssClass) {
+      cssClasses.push(cssClass);
     }
-
-    return cssClasses.join(' ');
+    const classListCopy = Array.from(this.document.body.classList);
+    classListCopy.forEach((className) => {this.document.body.classList.remove(className)});
+    cssClasses.forEach(cssClass => this.document.body.classList.add(cssClass));
   }
 
   public get isLoginViewOpen(): boolean {
@@ -100,10 +101,6 @@ export class ShellComponent implements OnInit {
 
     try {
       this.pageTitleService.init();
-      this.metaService.addTag({
-        name: 'theme-color',
-        content: this.identityService.themeColor.value,
-      });
 
       const isLoginViewOpen = this.routerService.url.includes('/view/login');
       if (!isLoginViewOpen && !identity.isUserSignedIn) {
@@ -125,5 +122,4 @@ export class ShellComponent implements OnInit {
       this.appReady = true;
     }
   };
-
 }

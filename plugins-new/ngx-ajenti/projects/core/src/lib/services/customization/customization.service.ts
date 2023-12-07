@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { CorePluginCustomizationSettings } from './core-plugin-customization-settings.model';
-
+import * as _ from "lodash";
 
 @Injectable({
   providedIn: 'root',
@@ -39,7 +39,7 @@ export class CustomizationService {
    * Note: (WILL BE FIXED WITH A3-58!!!!) New values will be merged with existing values.
    *
    * @param pluginName The unique name of the plugin.
-   * @param nextValue The new customization values for the plugin.
+   * @param newValue The new customization values for the plugin.
    *
    * @example
    *  // To reset an existing value it must be explicitly set to null.
@@ -52,9 +52,9 @@ export class CustomizationService {
    *      );
    */
   public setPluginCustomizations<T>(pluginName: string, newValue: Partial<T>): void {
-    // const previousValue: T = this.pluginCustomizations[pluginName].value;
-    // const deeplyMergedValue: T = jQuery.extend(true, {}, previousValue, newValue);
+    const previousValue: T = this.pluginCustomizations[pluginName].value;
+    const deeplyMergedValue: T = _.merge({}, previousValue, newValue);
 
-    this.pluginCustomizations[pluginName].next(newValue);
+    this.pluginCustomizations[pluginName].next(deeplyMergedValue);
   }
 }
