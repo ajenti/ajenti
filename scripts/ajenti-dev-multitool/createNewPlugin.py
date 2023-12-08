@@ -347,7 +347,7 @@ def __handel_frontend_modifications( new_folder_path: str, old_name: str, new_na
     if port is None:
         port = __find_greatest_port(new_parent_folder_path) + 1
     print("Used Port Number", port)
-    __modify_port_in_angular_json(os.path.join(new_folder_path, 'frontend/'), new_plugin_naming["template"].lower(), port)
+    __modify_port_in_angular_json(os.path.join(new_folder_path, 'frontend/'), new_plugin_naming["template"], port)
 
     file_path = os.path.join(new_folder_path, 'plugin.yml')  # The file where the port number is to be replaced
     __replace_port_pattern(file_path, port)

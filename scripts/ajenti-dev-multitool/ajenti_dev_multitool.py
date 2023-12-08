@@ -538,6 +538,7 @@ def run_msgfmt(plugin):
         with open(js_path, 'w') as f:
             f.write(json.dumps(js_locale))
 
+
 def handle_commands(args):
     if args.command == 'new-plugin-minimal':
         new_plugin_minimal(args.name, args.port)
@@ -626,6 +627,19 @@ def new_plugin_widget(name, port):
                  )
 
 
+def ensure_correct_directory(expected_directory_name):
+    current_working_directory = os.getcwd()
+    while True:
+        if current_working_directory == '/':
+            print(f"{expected_directory_name} directory not found in the project.")
+            sys.exit(1)
+        if expected_directory_name in os.listdir(current_working_directory):
+            os.chdir(os.path.join(current_working_directory, expected_directory_name))
+            print(f"Changed to directory: {os.getcwd()}")
+            break
+        current_working_directory = os.path.dirname(current_working_directory)
+
+
 def usage():
     print("""
 Usage: %s [options]
@@ -652,6 +666,7 @@ Plugin commands (these operate on all plugins found within current directory)
 
 if __name__ == '__main__':
 
+    ensure_correct_directory("plugins-new")
     coloredlogs.install(level=logging.DEBUG, show_hostname=False)
     sys.path.insert(0, '..')
 
@@ -706,6 +721,7 @@ if __name__ == '__main__':
             break
 
     if match:
+        print(os.getcwd())
         command_name = match.group(1)
         remaining_args = args[args.index(arg) + 1:]
 

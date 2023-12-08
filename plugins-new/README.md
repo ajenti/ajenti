@@ -54,7 +54,7 @@ The following steps are for one plugin. Each plugin is an Angular application. T
 2. Set yarn as default package manager
    `ng config -g cli.packageManager yarn`
 3. run `yarn install` to install all required dependencies.
-4. create link to ngx-ajenti library `ln -nsf ../../../../../ngx-ajenti/dist/ngx-ajenti node_modules/@ngx-ajenti/core`
+4. create link to ngx-ajenti library `ln -nsf ../../../ngx-ajenti/dist/ngx-ajenti node_modules/@ngx-ajenti/core`
 5. copy `proxy.conf.template.json` to `proxy.conf.json`
 6. (Optional) Update the `localhost` in the`proxy.conf.json` if Ajenti runs on a different machine than is accessed on.
 7. (Optional) If running multiple plugins make sure the port in the `angular.json` (` "port": 4200,`) is unique.
@@ -64,12 +64,11 @@ The following steps are for one plugin. Each plugin is an Angular application. T
 (Use new terminal window for each plugin.)
 
 1. `cd plugins-new/{PLUGIN_NAME/frontend)`
-2. (`shell` plugin only) Go to `plugins-new/shell/frontend/src/index.html` and comment out all lines containing the `%(prefix)`.
-3. run `yarn start`.  
+2. run `yarn start`.  
    (Optional) Rebuild on code changes:   
    `yarn start --watch`  
    (Optional) To use your developer machine's host:   
    `yarn start -- --host my-host-name --disable-host-check` => This is very useful for testing on mobile devices!
-4. The application is now available on the http://localhost:4200 ( the port is defined in the `angular.json`)
+3. The application is now available on the http://localhost:4200 ( the port is defined in the `angular.json`)
 
 
