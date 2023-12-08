@@ -15,9 +15,9 @@ export class CustomShellStyleComponent {
 
     getCustomShellSettings(): CorePluginCustomizationSettings {
         const settings = new CorePluginCustomizationSettings(true);
-        settings.title = 'CUSTOM PAGE TITLE';
-        settings.cssClass = 'examplePluginCssClass';
-        settings.logoURL = 'https://ajenti.org/static/home/img/section-v.png';
+        settings.title = ' ';
+        settings.cssClass = 'examplePluginCssClass'; // Must match the .less file
+        settings.logoURL = 'https://www.linuxmuster.net/wp-content/uploads/2017/01/logo_homepage-1.png';
         settings.extraProfileMenuItems = [
             new ExtraProfileMenuItem('Plugin item', '/ssdashboard', 'camera-retro'),
             new ExtraProfileMenuItem('Plugin item 2', '/bookStore', 'book'),
