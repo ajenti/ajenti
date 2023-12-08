@@ -43,17 +43,18 @@ export class WidgetContainerComponent implements OnInit {
     );
 
     this.widgetConfigComponent = widgetComponentInstance.configWidgetComponent;
-    this.subscribeFetchingWidgetValues(this.widget, widgetComponentInstance);
+    this.subscribeFetchingWidgetValues(this.widget.id, widgetComponentInstance);
   }
 
-  private subscribeFetchingWidgetValues(widget: WidgetDto, widgetComponentInstance: WidgetComponent) {
+  private subscribeFetchingWidgetValues(widgetId: string, widgetComponentInstance: WidgetComponent) {
     this.widgetValuesService.widgetValues.subscribe({
       next: (widgetValues) => {
-        if (widgetValues.widgetId == widget.id) {
+        if (widgetValues.widgetId == widgetId) {
           widgetComponentInstance.updateWidgetWithNewValues(widgetValues.values);
         }
       },
     });
+    this.widgetValuesService.ensureAutoUpdateStarted();
   }
 
   openConfiguration() {

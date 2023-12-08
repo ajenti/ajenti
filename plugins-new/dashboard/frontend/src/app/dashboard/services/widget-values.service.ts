@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnDestroy } from '@angular/core';
 import { HttpClient, HttpContext } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { WidgetValues } from '../components/widget-values';
@@ -14,23 +14,30 @@ import { WidgetValuesDto } from '../models/dashboard/widget-values.dto';
 export class WidgetValuesService {
 
   private _widgetValues: BehaviorSubject<WidgetValues>;
+  private autoUpdateIntervalId: number | undefined;
+  private readonly AUTO_UPDATE_INTERVAL_IN_MS = 1 * 1000;
 
   constructor(
     private httpClient: HttpClient,
     private tabService: TabService,
   ) {
     this._widgetValues = new BehaviorSubject<WidgetValues>(new WidgetValues('', null));
-    this.startWidgetsAutoUpdate();
+    this.ensureAutoUpdateStarted();
   }
 
   get widgetValues(): Observable<WidgetValues> {
     return this._widgetValues.asObservable();
   }
 
-  private startWidgetsAutoUpdate() {
-    setInterval(() => {
+  ensureAutoUpdateStarted() {
+    if (this.autoUpdateIntervalId) {
+      return;
+    }
+
+    this.autoUpdateIntervalId = setInterval(() => {
       this.fetchWidgetValues();
-    }, 1000);
+    }, this.AUTO_UPDATE_INTERVAL_IN_MS);
+
   }
 
   private fetchWidgetValues() {
@@ -60,4 +67,13 @@ export class WidgetValuesService {
 
     return widgetValueRequest;
   }
+
+  stopAutoUpdate = (): void => {
+    if (!this.autoUpdateIntervalId) {
+      return;
+    }
+
+    clearInterval(this.autoUpdateIntervalId);
+    this.autoUpdateIntervalId = undefined;
+  };
 }
