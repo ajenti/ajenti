@@ -20,11 +20,13 @@ import { UnauthenticatedInterceptor } from './interceptors/unauthenticated.inter
 import { UrlPrefixInterceptor } from './interceptors/urlPrefix.interceptor';
 import {CustomThemeLoaderComponent} from "./components/custom-theme-loader/custom-theme-loader.component";
 import {ThemeHost} from "./components/custom-theme-loader/theme-host.directive";
+import { SharedStylesComponent } from './components/shared-styles/shared-styles.component';
 
 @NgModule({
   declarations: [
     ShellComponent,
     CustomThemeLoaderComponent,
+    SharedStylesComponent,
     NavBarComponent,
     ErrorViewComponent,
     LoginViewComponent,
