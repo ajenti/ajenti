@@ -96,13 +96,11 @@ def prepare_requirements_and_start_all_plugins(yarn_path):
 def ensure_correct_directory(expected_directory):
     current_directory = os.path.basename(os.getcwd())
     if current_directory != expected_directory:
-        print(f"Not in {expected_directory} directory. Attempting to change directory...")
         try:
             parent_directory = os.path.dirname(os.path.dirname(os.getcwd()))
             expected_path = os.path.join(parent_directory, expected_directory)
             if os.path.isdir(expected_path):
                 os.chdir(expected_path)
-                print(f"Changed to directory: {expected_path}")
             else:
                 print(
                     f"{expected_directory} directory not found in {parent_directory}. Please navigate to the correct directory and run this script again.")

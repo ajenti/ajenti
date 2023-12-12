@@ -2,7 +2,6 @@
 ..   * :ref:`Installing <installing>`
 ..   * :ref:`Architecture and how it works <architecture>`
 ..   * :ref:`Extension plugins <setup-devenv-extension-plugins>`
-..   * :ref:`Core <setup-devenv-core>`
 
 Ajenti
 ------
@@ -90,24 +89,8 @@ Platforms
    :caption: Plugins
    :hidden:
 
-   plugins/check_certificates.rst
-   plugins/core.rst
-   plugins/cron.rst
    plugins/dashboard.rst
-   plugins/datetime.rst
-   plugins/docker.rst
-   plugins/filemanager.rst
    plugins/fstab.rst
-   plugins/network.rst
-   plugins/notepad.rst
-   plugins/packages.rst
-   plugins/plugins.rst
-   plugins/power.rst
-   plugins/services.rst
-   plugins/session_list.rst
-   plugins/settings.rst
-   plugins/terminal.rst
-   plugins/users.rst
 
 .. toctree::
    :maxdepth: 1
@@ -116,8 +99,6 @@ Platforms
 
    dev/architecture.rst
    dev/multitool.rst
-   dev/ui.rst
-   dev/http.rst
    dev/dash-widgets.rst
 
 .. toctree::
@@ -126,7 +107,6 @@ Platforms
    :hidden:
 
    dev/setup-devenv-extension-plugins.rst
-   dev/setup-devenv-core.rst
    dev/setup-devenv-build-tools.rst
 
 .. toctree::

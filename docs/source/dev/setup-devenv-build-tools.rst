@@ -3,7 +3,8 @@
 Build tools
 ***********
 
-This setup is required for the development of the :ref:`Core <setup-devenv-core>` and the :ref:`Extension plugins <setup-devenv-extension-plugins>`.
+This setup is required for the development of the Core and the :ref:`Extension plugins <setup-devenv-extension-plugins>`.
+Note: The automated setup (see the README.md) does those steps for you.
 
 
 Steps

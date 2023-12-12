@@ -15,9 +15,7 @@ Testing
 
 It's always good to have some users feedback, because we may oversee some problems. If you find an issue, please post it on `GitHub <https://github.com/ajenti/ajenti/issues>`_ with a complete description of the problem, and we will try to solve it and improve Ajenti.
 
-Developping
+Developing
 -----------
 
-There's two main axes to develop Ajenti :
   * :ref:`Extension plugins <setup-devenv-extension-plugins>`: like e.g. a plugin to manage the fstab file,
-  * :ref:`Core <setup-devenv-core>`: improve Ajenti on server side.

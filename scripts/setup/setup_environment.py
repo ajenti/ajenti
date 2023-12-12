@@ -126,7 +126,7 @@ def install_requirements(requirements_path):
     """
     Install requirements from the given path.
     """
-    print("Installing requirements...")
+    print("Requirements from path")
     print(requirements_path)
 
     try:
@@ -136,7 +136,7 @@ def install_requirements(requirements_path):
 
 
 def install_frontend_requirements(start_path):
-    logging.warning("Installing Frontend")
+    print("Installing Frontend requirements:")
     for root, dirs, files in os.walk(start_path, topdown=True):
         # Exclude 'node_modules' and directories listed in included_dirs
         dirs[:] = [d for d in dirs if d != 'node_modules' and d not in included_dirs]
@@ -206,7 +206,6 @@ if __name__ == "__main__":
 
     if len(sys.argv) > 0:  # Check that at least one argument was given
         print(sys.argv[-1])
-        print("The last argument is:")
     else:
         print("No arguments were provided.")
         exit(1)

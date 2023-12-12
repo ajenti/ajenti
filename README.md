@@ -154,26 +154,31 @@ Actually big changes are planned and under development. A global roadmap is :
   * Add a lot of new plugins: once the migration to Angular done, we can add a lot of plugins to manage services on the server ( like apache2, nginx, postfix, etc ... ).
   * Migrating to [asyncio](https://docs.python.org/3/library/asyncio.html): concept tested, but migration not really started.
 
-## Development AJ3
+## Setup Development
 
-[See Doku](./docs/source/dev/setup-devenv-core.rst)
+### Automated setup of Backend and Frontend
+One terminal for Backend, one for Frontend.
+#### Backend <br>
+1. (MacOS) 
+     `chmod +x scripts/setup/macOS_Prerequisites.sh && bash scripts/setup/macOS_Prerequisites.sh`
+    <br> To ensure all MacOS prerequisites are installed.
+    <br> (Linux) Analyse the script [macOS_Prerequisites.sh](scripts/setup/macOS_Prerequisites.sh) and run the linux commands manually.
+    <br><br>
+2. `python3 ./scripts/setup/setup_environment.py` to start the backend
 
 
-### Prerequisites
-Before you begin, make sure you have the following prerequisites installed on your system:
+#### Frontend 
+1. `cd scripts/setup/`
+2. `python3 ./setup_frontend.py --build` Builds the frontend.
+3. `python3 ./setup_frontend.py --start` Start the frontend (with live reload).
+    <br>
+    <br>The frontend is running on http://localhost:4200/ 
+    <br>
+    <br>It uses the default modules `dashboard`,`traffic`and `shell`.
+    <br>To run different modules:
+    <br>Adjust the `PLUGINS = ["traffic", "dashboard", "shell"]   ` in the file [setup_frontend.py](scripts/setup/setup_frontend.py)
 
-Docker: [Docker Installation Guide](https://docs.docker.com/engine/install/)<br>
-Docker Compose (optional): [Docker Compose Installation Guide](https://docs.docker.com/compose/install/)
-
-### Getting Started
-
-#### Docker Compose
-
-The start your backend-service with docker compose. Just 
-execute the following commands <br><br>
-
-`docker-compose up --build` - Initial or after Dockerfile change<br>
-
-`docker-compose up ` - After the build <br>
-`docker-compose down` - Before the changes on docker-compose.yml<br>
-`docker-compose up --detach ` - To detach the console. Let it run in background.
+<br><br>
+### Manual setup of frontend
+We recommend to use the automated setup but you need to setup 
+the frontend manually see the file [ManualFrontendSetup.md](./ManualFrontendSetup.md) 

@@ -25,3 +25,4 @@ plugins/demo*
 .container/config/.secret
 .container/config/*
 !.container/config/.gitkeep
+my-project-env

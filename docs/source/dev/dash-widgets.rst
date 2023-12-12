@@ -62,7 +62,3 @@ Frontend: WidgetComponent
 
 This is the actual UI shown to the user. It's implemented as a Angular component.
 This component must be exposed in the ``webpack.config.js`` as part of the ModuleFederationPlugin.
-
-Widget component implementation: https://github.com/ajenti/demo-plugins/tree/master/demo_5_widget/frontend/components/demowidget/
-
-Webpack registration: https://github.com/ajenti/demo-plugins/tree/master/demo_5_widget//frontend/webpack.config.js#L35

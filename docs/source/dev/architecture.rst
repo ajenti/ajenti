@@ -46,7 +46,6 @@ The frontend can be divided into two main parts:
  - core part (plugin ``shell`` and ``ngx-ajenti``)
  - extension plugins (``ace``, ``dashboard``, ``filemanager``,.. )
 
-Screenshot
 
 shell (plugin)
 --------------
@@ -69,3 +68,17 @@ Represents the shared library.
 * Navigation (Header, Siderbar, Routing,.. )
 * Config management
 * Plugin manager
+
+
+CSS Styles
+==========
+
+The CSS styles can be defined on different levels:
+
+- **Core Styles:** Styles defined and applied only on the core. Example: Usual component style defined in the core plugin `shell`.
+
+- **Shared Core Styles:** Styles defined in the `shell` and can be used everywhere. Example: Look for `shared-styles.component.less`.
+
+- **Extension Plugin Style:** Styles applied only on a given extension plugin.
+
+- **Core Customizations from an Extension Plugin:** Adjustment of the core `shell` plugin from within an extension plugin. See the example in the `custom-shell-style.component.ts`.
