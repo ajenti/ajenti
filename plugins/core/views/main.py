@@ -58,16 +58,19 @@ class Handler(HttpPlugin):
                             cmd = ['ajenti-dev-multitool', '--rebuild']
                         else:
                             cmd = ['ajenti-dev-multitool', '--build']
-                        p = subprocess.Popen(
-                            cmd,
-                            cwd=provider.path,
-                            stdout=subprocess.PIPE,
-                            stderr=subprocess.PIPE
-                        )
-                        o, e = p.communicate()
-                        if p.returncode != 0:
-                            logging.error('Resource compilation failed')
-                            logging.error((o+e).decode('utf-8'))
+                        try:
+                            p = subprocess.Popen(
+                                cmd,
+                                cwd=provider.path,
+                                stdout=subprocess.PIPE,
+                                stderr=subprocess.PIPE
+                            )
+                            o, e = p.communicate()
+                            if p.returncode != 0:
+                                logging.error('Resource compilation failed')
+                                logging.error((o+e).decode('utf-8'))
+                        except FileNotFoundError:
+                            logging.error('Resource compilation failed: please install ajenti-dev-multitool.')
             else:
                 logging.warning("Cannot build resources without root permissions.")
 
