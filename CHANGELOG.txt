@@ -1,5 +1,13 @@
-Ajenti 2.2.8 - Dev
+Ajenti 2.2.9 - Dev
 
+Ajenti 2.2.8 - 01/01/2024
+
+- Update cryptography, gipc and gevent versions
+- Catch gipc errors
+- Use escape from html module
+- Fix TFA config not loaded properly
+- [core] Upgrade to FontAwesome 6.4.2
+- [power] Fix power requests
 
 Ajenti 2.2.7 - 01/09/2023
 
