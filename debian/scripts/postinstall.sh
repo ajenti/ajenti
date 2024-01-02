@@ -41,11 +41,11 @@ fi
 
 if [ ! -f /etc/ajenti/users.yml ]; then
 	mkdir -p /etc/ajenti
-	cat "users: null" > /etc/ajenti/users.yml
+	echo "users: null" > /etc/ajenti/users.yml
 fi
 
 echo "Generate SSL certificate"
 /usr/local/bin/ajenti-ssl-gen $(hostname)
 
 echo "Cleanup"
-rm -f /etc/ajenti/requirements.txt
+#rm -f /etc/ajenti/requirements.txt
