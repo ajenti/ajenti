@@ -1,4 +1,0 @@
-upstart-new
-aj
-ajenti.plugin.core
-ajenti.plugin.dashboard

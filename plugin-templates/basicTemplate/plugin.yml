@@ -2,7 +2,7 @@ name: basicTemplate
 author: Ajenti project
 email: e@ajenti.org
 url: https://ajenti.org
-version: '1.00'
+version: '1.0.0'
 title: 'basicTemplate'
 icon: bar-chart
 requires-angular-build: true

@@ -1,4 +1,0 @@
-aj
-ajenti.plugin.ace
-ajenti.plugin.core
-ajenti.plugin.filesystem

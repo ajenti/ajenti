@@ -1,2 +1,2 @@
-aj
-ajenti.plugin.core
+aj-3
+ajenti-3.plugin.shell

@@ -113,7 +113,7 @@ msg ":: Building localization files"
 ajenti-dev-multitool --msgfmt || exit 1
 cd ..
 msg ":: Building frontends of all plugins "
-ajenti-dev-multitool --build-frontend || exit 1
+ajenti-dev-multitool --build-plugins || exit 1
 
 msg ":: Preparing configuration files"
 

@@ -57,18 +57,18 @@ class install(_install):
 
 
 setup(
-    name='ajenti-panel',
-    version='2.2.7',
+    name='ajenti-3-panel',
+    version='3.0.4',
     python_requires='>=3',
     install_requires=[
-        'aj==2.2.7',
+        'aj-3',
         'pyyaml',
         'requests',
     ],
     description='Ajenti core based panel',
-    author='Eugene Pankov',
-    author_email='e@ajenti.org',
-    url='https://ajenti.org/',
+    author='Daniel Schulz',
+    author_email='info@schulz-informatik.com',
+    url='https://schulz-informatik.com',
     packages=find_packages(),
     package_data={
         "": [

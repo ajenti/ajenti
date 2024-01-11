@@ -17,7 +17,7 @@ class Handler(HttpPlugin):
     def __init__(self, context):
         self.context = context
 
-    get('/')
+    @get('/')
     @endpoint(page=True, auth=False)
     def handle_root(self, http_context):
         """
@@ -49,7 +49,7 @@ class Handler(HttpPlugin):
 
         manager = PluginManager.get(aj.context)
         # Path eventually need to be customizable
-        path = manager.get_content_path('core', 'resources/build/index.html')
+        path = manager.get_content_path('core', 'frontend/src/index.prod.html')
         with open(path, 'r') as index:
             content = index.read()
         http_context.add_header('Content-Type', 'text/html')

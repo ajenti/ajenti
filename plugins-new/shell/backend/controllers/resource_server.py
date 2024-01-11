@@ -173,27 +173,23 @@ window.globalConstants = {{
         content = '['
         separator = ''
         for plugin_name in manager:
-            if plugin_name == 'core':
+            if plugin_name == 'core': # TODO: check if necessary
                 continue
             if '..' in plugin_name:
                 return http_context.respond_not_found()
 
 
             plugin_info = manager[plugin_name]['info']
-            if 'frontend-settings' not in plugin_info:
+            frontend_settings = plugin_info.get('frontend-settings', None)
+            if frontend_settings is None:
                 continue
-            frontend_settings = plugin_info['frontend-settings']
 
-            widgetComponents = []
-            if "widget-components" in frontend_settings:
-                widgetComponents = frontend_settings['widget-components']
-
-            themeComponent = ''
-            if "theme-component" in frontend_settings:
-                themeComponent = frontend_settings['theme-component']
-
-            remote_entry = frontend_settings['remote-entry'] if not frontend_settings['remote-entry'] == '' \
-                else f'resources/{plugin_name}/frontend/dist/remoteEntry.js'
+            widgetComponents = frontend_settings.get('widget-components', [])
+            themeComponent = frontend_settings.get('theme-component', '')
+            if aj.dev:
+                remote_entry = frontend_settings.get('remote-entry', f'resources/{plugin_name}/frontend/dist/remoteEntry.js')
+            else:
+                remote_entry = f'resources/{plugin_name}/frontend/dist/remoteEntry.js'
 
             content += f'''{separator}{{
     "remoteEntry": "{remote_entry}",

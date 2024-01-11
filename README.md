@@ -169,14 +169,14 @@ One terminal for Backend, one for Frontend.
 
 #### Frontend 
 1. `cd scripts/setup/`
-2. `python3 ./setup_frontend.py --build` Builds the frontend.
-3. `python3 ./setup_frontend.py --start` Start the frontend (with live reload).
+2. `python3 ./scripts/ajenti-dev-multitool/ajenti_dev_multitool.py --build-plugins` Builds the frontends of all plugins.
+3. `python3 ./scripts/ajenti-dev-multitool/ajenti_dev_multitool.py --serve-plugins` Serves the frontends of all plugins (with live reload).
     <br>
     <br>The frontend is running on http://localhost:4200/ 
     <br>
-    <br>It uses the default modules `dashboard`,`traffic`and `shell`.
-    <br>To run different modules:
-    <br>Adjust the `PLUGINS = ["traffic", "dashboard", "shell"]   ` in the file [setup_frontend.py](scripts/setup/setup_frontend.py)
+    <br>It uses the default modules `dashboard`,`traffic`,`fstab`and `session_list`.
+    <br>To develop different or fewer modules:
+    <br>Adjust the list `DEVELOPMENT_PLUGINS = ['dashboard', 'traffic', 'fstab', 'session_list']` in the file [ajenti_dev_multitool.py](scripts/ajenti-dev-multitool/ajenti_dev_multitool.py)
 
 <br><br>
 ### Manual setup of frontend

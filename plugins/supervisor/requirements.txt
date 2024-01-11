@@ -1,6 +1,0 @@
-aj
-ajenti.plugin.core
-ajenti.plugin.augeas
-ajenti.plugin.services
-ajenti.plugin.passwd
-pytz

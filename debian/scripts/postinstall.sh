@@ -41,7 +41,7 @@ fi
 
 if [ ! -f /etc/ajenti/users.yml ]; then
 	mkdir -p /etc/ajenti
-	cat "users: null" > /etc/ajenti/users.yml
+	echo "users: null" > /etc/ajenti/users.yml
 fi
 
 echo "Generate SSL certificate"

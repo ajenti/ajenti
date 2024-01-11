@@ -1,25 +1,23 @@
 #!/usr/bin/env python3
-import asyncio
-import concurrent.futures
 
 import coloredlogs
 import getopt
-import gevent
-import hashlib
 import json
 import logging
 import os
-import re
-import shutil
 import sys
 import tempfile
 import time
 import yaml
 from gevent import subprocess
-import argparse
 import shutil
 from enum import Enum
-from createNewPlugin import clone_plugin
+from plugin_generation import create_new_plugin_by_cli_arguments
+from frontend_utils import serve_plugins, build_plugins
+
+# List of plugins which should be provided for development - customize this array as needed.
+# Note: The mandatory shell plugin will be added automatically.
+DEVELOPMENT_PLUGINS = ['dashboard', 'traffic', 'fstab', 'session_list']
 
 # Ignore ajenti specific python objects
 yaml.add_multi_constructor('tag:yaml.org,2002:python/object:', lambda a, b, c: None)
@@ -32,32 +30,13 @@ def find_plugins():
     if os.path.exists('__init__.py'):
         yield '.'
     else:
-        for dir_path, dn, fn in os.walk('..'):
+        for dir_path, dn, fn in os.walk('.'):
             for d in sorted(dn):
                 dir = os.path.join(dir_path, d)
                 if os.path.exists(os.path.join(dir, 'plugin.yml')):
+                    if 'plugin-templates' in dir:
+                        continue
                     yield dir
-
-
-def run_bower(path, cmdline):
-    bower_json = os.path.join(path, 'bower.json')
-    bower_rc = os.path.join(path, '.bowerrc')
-
-    if not os.path.exists(bower_json):
-        logging.warning('Plugin at %s has no bower.json' % path)
-        return
-
-    with open(bower_rc, 'w') as f:
-        f.write('{"directory" : "resources/vendor"}')
-
-    if not os.path.exists(os.path.join(path, 'resources/vendor')):
-        os.makedirs(os.path.join(path, 'resources/vendor'))
-
-    logging.info('Running bower %s in %s' % (cmdline, path))
-    code = subprocess.call('bower -V --allow-root %s' % cmdline, shell=True, cwd=path)
-    if code != 0:
-        logging.error('Bower failed for %s' % path)
-    os.unlink(bower_rc)
 
 
 def run_npm_install(path):
@@ -71,134 +50,6 @@ def run_npm_install(path):
     code = subprocess.call('npm --loglevel=verbose install', shell=True, cwd=path)
     if code != 0:
         logging.error('Npm failed for %s' % path)
-
-
-def run_build(plugin, cache_enabled):
-    babel_preset = '/usr/lib/node_modules/babel-preset-es2015'
-    if not os.path.isdir(babel_preset):
-        babel_preset = 'es2015'
-
-    babel_eh_plugin = '/usr/lib/node_modules/babel-plugin-external-helpers'
-    if not os.path.isdir(babel_eh_plugin):
-        babel_eh_plugin = 'external-helpers'
-
-    cache_path = '/tmp/.ajenti-resource-cache'
-    if not os.path.exists(cache_path):
-        os.makedirs(cache_path)
-
-    def get_hash(name):
-        return hashlib.sha512(name.encode('utf-8')).hexdigest()
-
-    def get_cached(name):
-        if os.path.exists(os.path.join(cache_path, get_hash(name))):
-            return open(os.path.join(cache_path, get_hash(name))).read()
-
-    def get_cached_time(name):
-        if os.path.exists(os.path.join(cache_path, get_hash(name))):
-            return os.stat(os.path.join(cache_path, get_hash(name))).st_mtime
-
-    def set_cached(name, content):
-        open(os.path.join(cache_path, get_hash(name)), 'w').write(content.decode())
-
-    resources = yaml.load(open(os.path.join(plugin, 'plugin.yml')), Loader=yaml.SafeLoader)['resources']
-
-    if not resources:
-        return
-    logging.info('Building resources for %s' % plugin)
-
-    if not os.path.exists(os.path.join(plugin, 'resources/build')):
-        os.makedirs(os.path.join(plugin, 'resources/build'))
-
-    all_js = all_vendor_js = all_css = all_vendor_css = ''
-
-    workers = []
-    errors = []
-
-    def worker(path, args):
-        try:
-            set_cached(path, subprocess.check_output(args, stderr=subprocess.STDOUT) + b'\n')
-        except subprocess.CalledProcessError as e:
-            errors.append({
-                'path': path,
-                'output': e.output,
-            })
-
-    for resource in resources:
-        if isinstance(resource, str):
-            resource = {'path': resource}
-
-        path = os.path.join(plugin, resource['path'])
-        if resource['path'].endswith('.es'):
-            if not cache_enabled or not get_cached(path) or get_cached_time(path) < os.stat(path).st_mtime:
-                logging.info('Compiling %s' % path)
-                workers.append(gevent.spawn(worker, path,
-                                            ['babel', '--presets', babel_preset, '--plugins', babel_eh_plugin, path]))
-        if resource['path'].endswith('.coffee'):
-            if not cache_enabled or not get_cached(path) or get_cached_time(path) < os.stat(path).st_mtime:
-                logging.info('Compiling %s' % path)
-                workers.append(gevent.spawn(worker, path, ['coffee', '-p', '-c', path]))
-        if resource['path'].endswith('.ts'):
-            if not cache_enabled or not get_cached(path) or get_cached_time(path) < os.stat(path).st_mtime:
-                logging.info('Compiling %s' % path)
-                workers.append(gevent.spawn(worker, path, ['tsc', path]))
-        if resource['path'].endswith('.less'):
-            if not cache_enabled or not get_cached(path) or get_cached_time(path) < os.stat(path).st_mtime:
-                logging.info('Compiling %s' % path)
-                workers.append(gevent.spawn(worker, path, ['lessc', path]))
-        if resource['path'].endswith('.scss'):
-            if not cache_enabled or not get_cached(path) or get_cached_time(path) < os.stat(path).st_mtime:
-                logging.info('Compiling %s' % path)
-                workers.append(gevent.spawn(worker, path, ['sass', path]))
-
-    gevent.joinall(workers)
-    if len(errors) > 0:
-        logging.error('BUILD FAILED')
-        logging.info('  %s error(s):' % len(errors))
-        for error in errors:
-            logging.error(' * %s' % error['path'])
-            for line in error['output'].splitlines():
-                logging.warning(line)
-        sys.exit(1)
-
-    for resource in resources:
-        if isinstance(resource, str):
-            resource = {'path': resource}
-
-        path = os.path.join(plugin, resource['path'])
-
-        if 'vendor/' in resource['path'] or 'node_modules/' in resource['path']:
-            if resource['path'].endswith('.js'):
-                logging.debug('Including %s' % path)
-                all_vendor_js += open(path).read() + '\n'
-            if resource['path'].endswith('.css'):
-                logging.debug('Including %s' % path)
-                all_vendor_css += open(path).read() + '\n'
-        else:
-            if resource['path'].endswith('.coffee'):
-                all_js += get_cached(path)
-            if resource['path'].endswith('.es'):
-                all_js += get_cached(path)
-            if resource['path'].endswith('.ts'):
-                all_js += get_cached(path)
-            if resource['path'].endswith('.js'):
-                logging.debug('Including %s' % path)
-                all_js += open(path).read() + '\n'
-            if resource['path'].endswith('.less'):
-                all_css += get_cached(path)
-            if resource['path'].endswith('.scss'):
-                all_css += get_cached(path)
-
-    content_map = {
-        'all.js': all_js,
-        'all.css': all_css,
-        'all.vendor.js': all_vendor_js,
-        'all.vendor.css': all_vendor_css,
-    }
-    for (k, v) in content_map.items():
-        path = os.path.join(plugin, 'resources/build/' + k)
-        with open(path, 'w') as f:
-            f.write(v)
-        os.chmod(path, 0o777)
 
 
 def run_setuptools(plugin, cmd):
@@ -216,7 +67,7 @@ def run_setuptools(plugin, cmd):
         shutil.rmtree(dist)
 
     shutil.copytree(plugin, workspace_plugin)
-    shutil.copy(os.path.join(plugin, 'requirements.txt'), workspace)
+    shutil.copy(os.path.join(plugin, 'backend', 'requirements.txt'), workspace)
 
     setuppy = '''
 #!/usr/bin/env python3
@@ -227,7 +78,7 @@ import os
 __requires = [dep.split('#')[0].strip() for dep in filter(None, open('requirements.txt').read().splitlines())] 
 
 setup(
-    name='ajenti.plugin.%(pypi_name)s',
+    name='ajenti-3.plugin.%(pypi_name)s',
     version='%(version)s',
     python_requires='>=3',
     install_requires=__requires,
@@ -288,24 +139,29 @@ include requirements.txt
     logging.info('setup.py has finished')
 
 
-def run_bump(plugin):
+def run_bump(plugin, level='patch'):
     path = os.path.join(plugin, 'plugin.yml')
     output = ''
     bumped = False
-    for l in open(path).read().splitlines():
-        if l.startswith('version:'):
-            prefix, counter = l.rsplit('.', 1)
-            counter = counter.rstrip("'")
-            counter = str(int(counter) + 1)
-            l = prefix + '.' + counter
-            if "'" in prefix:
-                l += "'"
+    for line in open(path).read().splitlines():
+        if line.startswith('version:'):
+            print(f'start bumping stuff for plugin {plugin}')
+            major, minor, patch = line.replace('version:', '').replace('\'','').rsplit('.', 2)
+            previous_version = '.'.join([major, minor, patch]).strip()
+            if level == 'patch':
+                patch = str(int(patch) + 1)
+            elif level == 'minor':
+                minor = str(int(minor) + 1)
+            elif level == 'major':
+                major = str(int(major) + 1)
+            next_version = '.'.join([major, minor, patch]).strip()
+            line = 'version: \'' + next_version + '\''
             bumped = True
-        output += l + '\n'
+        output += line + '\n'
     if bumped:
         with open(path, 'w') as f:
             f.write(output)
-        logging.info('Bumped %s to %s.%s', plugin, prefix.split(':')[1].strip(" '"), counter)
+        logging.info(f'Bumped {plugin} from {previous_version} to {next_version}')
     else:
         logging.warning('Could not find version info for %s', plugin)
 
@@ -337,7 +193,7 @@ def run_find_outdated(plugin):
 
 
 def run_xgettext(plugin):
-    locale_path = os.path.join(plugin, 'locale')
+    locale_path = os.path.join(plugin, 'backend', 'locale')
     if not os.path.exists(locale_path):
         os.makedirs(locale_path + '/en/LC_MESSAGES')
 
@@ -539,17 +395,6 @@ def run_msgfmt(plugin):
             f.write(json.dumps(js_locale))
 
 
-def handle_commands(args):
-    if args.command == 'new-plugin-minimal':
-        new_plugin_minimal(args.name, args.port)
-    elif args.command == 'new-plugin-':
-        new_plugin(args.name, args.port)
-    elif args.command == 'new-plugin-widget':
-        new_plugin_widget(args.name, args.port)
-    else:
-        print("Invalid command")
-
-
 def modify_port_in_angular_json(directory, project_name, new_port):
     angular_json_path = os.path.join(directory, 'angular.json')
     try:
@@ -563,11 +408,11 @@ def modify_port_in_angular_json(directory, project_name, new_port):
             with open(angular_json_path, 'w') as file:
                 json.dump(config, file, indent=2)
         else:
-            print(f"Project {project_name} not found in angular.json")
+            print(f'Project {project_name} not found in angular.json')
     except FileNotFoundError:
-        print(f"angular.json not found in {directory}")
+        print(f'angular.json not found in {directory}')
     except json.JSONDecodeError:
-        print(f"Error decoding JSON in {angular_json_path}")
+        print(f'Error decoding JSON in {angular_json_path}')
 
 
 def rename_directory(directory, new_file_name):
@@ -580,93 +425,50 @@ def rename_directory(directory, new_file_name):
                 new_file_path = os.path.join(root, file_name)
 
                 os.rename(old_file_path, new_file_path)
-                print(f"Renamed file: {file} to {file_name}")
+                print(f'Renamed file: {file} to {file_name}')
             else:
-                print(f"Found file: {file}")
+                print(f'Found file: {file}')
 
 
 class TemplateFolder(Enum):
     MINIMAL = 'minimalTemplate'
     BASIC = 'basicTemplate'
-    WIDGET = 'widgetTemplate'
 
 
-def new_plugin_minimal(name, port):
-    path_to_template = os.path.join(os.path.dirname(os.getcwd()), 'plugin-templates', TemplateFolder.MINIMAL.value)
-    path_to_generate = os.path.join(os.path.dirname(os.getcwd()), 'plugins-new')
-    path_to_new_plugin = os.path.join(os.path.dirname(os.getcwd()), f'plugins-new/{name}')
-    clone_plugin(new_folder_path=path_to_new_plugin,
-                 new_name=name,
-                 old_name=TemplateFolder.MINIMAL.value,
-                 template_folder=path_to_template,
-                 path_to_plugins_new=path_to_generate,
-                 port=port)
-
-
-def new_plugin(name, port):
-    path_to_template = os.path.join(os.path.dirname(os.getcwd()), 'plugin-templates', TemplateFolder.BASIC.value)
-    path_to_generate = os.path.join(os.path.dirname(os.getcwd()), 'plugins-new')
-    clone_plugin(new_folder_path=path_to_generate,
-                 new_name=name,
-                 old_name=TemplateFolder.BASIC.value,
-                 template_folder=path_to_template,
-                 path_to_plugins_new=path_to_generate,
-                 port=port
-                 )
-
-
-def new_plugin_widget(name, port):
-    path_to_template = os.path.join(os.path.dirname(os.getcwd()), 'plugin-templates', TemplateFolder.WIDGET.value)
-    path_to_generate = os.path.join(os.path.dirname(os.getcwd()), 'plugins-new')
-    clone_plugin(new_folder_path=path_to_generate,
-                 new_name=name,
-                 old_name=TemplateFolder.WIDGET.value,
-                 template_folder=path_to_template,
-                 path_to_plugins_new=path_to_generate,
-                 port=port
-                 )
-
-
-def ensure_correct_directory(expected_directory_name):
-    current_working_directory = os.getcwd()
-    while True:
-        if current_working_directory == '/':
-            print(f"{expected_directory_name} directory not found in the project.")
-            sys.exit(1)
-        if expected_directory_name in os.listdir(current_working_directory):
-            os.chdir(os.path.join(current_working_directory, expected_directory_name))
-            print(f"Changed to directory: {os.getcwd()}")
-            break
-        current_working_directory = os.path.dirname(current_working_directory)
+def ensure_correct_directory():
+    is_root_directory = os.path.exists('Dockerfile')
+    if is_root_directory:
+        print(f'Current working directory: {os.getcwd()}')
+    else:
+        logging.error('The script needs to be executed withing the root path of the project!')
 
 
 def usage():
-    print("""
+    print('''
 Usage: %s [options]
 
 Plugin commands (these operate on all plugins found within current directory)
-    --new-plugin '<some-name>'      - Creates a new plugin boilerplate in current directory
+    --new-plugin '<some-name>'      - Creates a new Ajenti3 plugin boilerplate in current directory
+    --new-plugin-minimal '<name>'   - Creates a new Ajenti3 plugin without UI
+    --list-plugins                  - Lists all available Ajenti3 plugins
+    --build-plugins                 - Builds all plugin frontends (combine with --clean to reinstall dependencies) 
+    --serve-plugins                 - Serves all plugin frontends (combine with --clean to reinstall dependencies)
     --run                           - Run Ajenti with plugins from the current directory
     --run-dev                       - Run Ajenti in dev mode with plugins from the current directory
     --log-level '<level>'           - Fix the log level : debug, info, warning or error ( default : debug )
                                       Must be specified before the run command.
-    --bower '<cmdline>'             - Run Bower, e.g. --bower install
     --npm                           - Run npm install in each plugin directory discovered
-    --build                         - Compile resources
-    --rebuild                       - Force recompile resources
     --setuppy '<args>'              - Run a setuptools build
     --bump                          - Bump plugin's version
     --find-outdated                 - Find plugins that have unpublished changes
     --xgettext                      - Extracts localizable strings
     --msgfmt                        - Compiles translated localizable strings
-    --new-plugin-minimal '<name>'   - Create a new Ajenti3 plugin without UI
-    --new-plugin-widget '<name>'    - Create a new Ajenti3 widget plugin
-    """ % sys.argv[0])
+    ''' % sys.argv[0])
 
 
 if __name__ == '__main__':
+    ensure_correct_directory()
 
-    ensure_correct_directory("plugins-new")
     coloredlogs.install(level=logging.DEBUG, show_hostname=False)
     sys.path.insert(0, '..')
 
@@ -678,10 +480,7 @@ if __name__ == '__main__':
                 'run',
                 'run-dev',
                 'run-dev-loglevel=',
-                'bower=',
                 'npm',
-                'build',
-                'rebuild',
                 'setuppy=',
                 'bump',
                 'find-outdated',
@@ -694,7 +493,11 @@ if __name__ == '__main__':
                 'log-level=',
                 'new-plugin-minimal',
                 'new-plugin',
-                'new-plugin-widget'
+                'list-plugins',
+                'build-plugins',
+                'build-plugins=',
+                'serve-plugins',
+                'serve-plugins=',
             ]
         )
     except getopt.GetoptError as e:
@@ -707,39 +510,6 @@ if __name__ == '__main__':
         '--autologin', '--stock-plugins', '--plugins', '.'
     ]
     log_level = False
-
-    parser = argparse.ArgumentParser(description='Ajenti Dev Multitool')
-
-    command_pattern = re.compile(r'--new-plugin-?(\w*)')
-
-    args = sys.argv[1:]
-    match = None
-
-    for arg in args:
-        match = command_pattern.match(arg)
-        if match:
-            break
-
-    if match:
-        print(os.getcwd())
-        command_name = match.group(1)
-        remaining_args = args[args.index(arg) + 1:]
-
-        if command_name == 'minimal':
-            parser.add_argument('name', help='Name of the plugin')
-            parser.add_argument('-p', '--port', type=int, help='Port number')
-        elif command_name == 'widget':
-            parser.add_argument('name', help='Name of the plugin')
-            parser.add_argument('-p', '--port', type=int, help='Port number')
-        elif command_name == '':
-            command_name = ''
-            parser.add_argument('name', help='Name of the plugin')
-            parser.add_argument('-p', '--port', type=int, help='Port number')
-
-        args = parser.parse_args(remaining_args)
-        args.command = f'new-plugin-{command_name}'
-        handle_commands(args)
-        sys.exit(0)
 
     for option, argument in opts:
         if option.startswith('--run'):
@@ -754,23 +524,9 @@ if __name__ == '__main__':
             except KeyboardInterrupt:
                 pass
             sys.exit(0)
-        if option == '--bower':
-            for plugin in find_plugins():
-                run_bower(plugin, argument)
-            sys.exit(0)
         if option == '--npm':
             for plugin in find_plugins():
                 run_npm_install(plugin)
-            sys.exit(0)
-        elif option == '--build':
-            for plugin in find_plugins():
-                run_build(plugin, True)
-            logging.info('Resource build complete')
-            sys.exit(0)
-        elif option == '--rebuild':
-            for plugin in find_plugins():
-                run_build(plugin, False)
-            logging.info('Resource rebuild complete')
             sys.exit(0)
         elif option == '--setuppy':
             for plugin in find_plugins():
@@ -804,9 +560,22 @@ if __name__ == '__main__':
         elif option == '--pull-crowdin':
             run_pull_crowdin(list(find_plugins()))
             sys.exit(0)
+        elif option == '--new-plugin':
+            create_new_plugin_by_cli_arguments()
+            sys.exit(0)
         elif option == '--log-level':
             cmd += ['--log', argument]
             log_level = True
+        elif option == '--list-plugins':
+            for plugin in find_plugins():
+                print(plugin)
+            sys.exit(0)
+        elif option == '--serve-plugins':
+            serve_plugins(DEVELOPMENT_PLUGINS, argument == '--clean')
+            sys.exit(0)
+        elif option == '--build-plugins':
+            build_plugins(DEVELOPMENT_PLUGINS, argument == '--clean')
+            sys.exit(0)
 
     usage()
     sys.exit(2)

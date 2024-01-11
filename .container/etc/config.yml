@@ -12,7 +12,7 @@ max_sessions: 9
 trusted_domains: []
 trusted_proxies: []
 session_max_time: 3600
-name: $(hostname)
+name: dev-container
 ssl:
   certificate:
   force: false

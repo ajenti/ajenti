@@ -1,7 +1,0 @@
-{
-  "name": "plugin",
-  "private": true,
-  "dependencies": {
-    "ng-flow": "~2"
-  }
-}

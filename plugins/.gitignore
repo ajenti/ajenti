@@ -1,9 +1,0 @@
-*.pyc
-*.sublime-*
-.~lock.*
-.bowerrc
-resources/build
-resources/vendor
-*/resources/build
-*/resources/vendor
-*/locale/*/LC_MESSAGES/app.js
