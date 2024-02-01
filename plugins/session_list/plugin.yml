@@ -3,7 +3,7 @@ author: Arnaud Kientz
 email: arnaud@linuxmuster.net
 url: https://ajenti.org
 docs: https://docs.ajenti.org/en/latest/plugins/session_list.html
-version: '0.6'
+version: '0.7'
 title: 'Session list'
 icon: network-wired
 dependencies:
