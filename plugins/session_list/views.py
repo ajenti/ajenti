@@ -3,6 +3,7 @@ Update the list of connected user. This need a communication between the worker
 process and the root process.
 """
 
+import os
 from jadi import component
 
 from aj.api.http import get, HttpPlugin
@@ -29,6 +30,10 @@ class Handler(HttpPlugin):
         :return: Dict of Session obj
         :rtype: dict
         """
+
+        if os.getuid() != 0:
+            http_context.respond_forbidden()
+            return ''
 
         self.context.worker.update_sessionlist()
         gevent.sleep(1)
