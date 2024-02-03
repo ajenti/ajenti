@@ -15,6 +15,7 @@ class Handler(HttpPlugin):
         self.mgr = DomainManager(self.context)
 
     @get(r'/api/dns_api/domains')
+    @authorize('dns_api:read')
     @endpoint(api=True)
     def handle_api_dns_list_domains(self, http_context):
         """
@@ -27,6 +28,7 @@ class Handler(HttpPlugin):
         return list(self.mgr.domains.keys()), self.mgr.api_provider.name
 
     @get(r'/api/dns_api/domain/(?P<fqdn>[\w\.]+)/records')
+    @authorize('dns_api:read')
     @endpoint(api=True)
     def handle_api_dns_list_records(self, http_context, fqdn):
         """
@@ -42,6 +44,7 @@ class Handler(HttpPlugin):
         return [asdict(r) for r in self.mgr.domains[fqdn].records]
 
     @post(r'/api/dns_api/domain/(?P<fqdn>[\w\.]+)/records/(?P<name>.*)')
+    @authorize('dns_api:write')
     @endpoint(api=True)
     def handle_api_dns_post_record(self, http_context, fqdn, name):
         """
@@ -64,6 +67,7 @@ class Handler(HttpPlugin):
         return self.mgr.domains[fqdn].add_record(record)
 
     @put(r'/api/dns_api/domain/(?P<fqdn>[\w\.]+)/records/(?P<name>.*)')
+    @authorize('dns_api:write')
     @endpoint(api=True)
     def handle_api_dns_put_record(self, http_context, fqdn, name):
         """
@@ -86,6 +90,7 @@ class Handler(HttpPlugin):
         return self.mgr.domains[fqdn].update_record(record)
 
     @delete(r'/api/dns_api/domain/(?P<fqdn>[\w\.]+)/records/(?P<rtype>[A-Z]*)/(?P<name>.*)')
+    @authorize('dns_api:write')
     @endpoint(api=True)
     def handle_api_dns_delete_record(self, http_context, fqdn, rtype, name):
         """
