@@ -6,6 +6,7 @@ from jadi import component
 import subprocess
 import os
 
+from aj.auth import authorize
 from aj.api.http import get, post, HttpPlugin
 from aj.api.endpoint import endpoint, EndpointError
 from reconfigure.configs import FSTabConfig
@@ -18,6 +19,7 @@ class Handler(HttpPlugin):
         self.context = context
 
     @get(r'/api/fstab/mounts')
+    @authorize('fstab:mounts:read')
     @endpoint(api=True)
     def handle_api_mounted(self, http_context):
         """
@@ -54,6 +56,7 @@ class Handler(HttpPlugin):
         return filesystems
 
     @post(r'/api/fstab/command_umount')
+    @authorize('fstab:mounts:umount')
     @endpoint(api=True)
     def handle_api_umount(self, http_context):
         """
@@ -73,6 +76,7 @@ class Handler(HttpPlugin):
             raise EndpointError(e)
 
     @get(r'/api/fstab')
+    @authorize('fstab:read')
     @endpoint(api=True)
     def handle_api_get_fstab(self, http_context):
         """
@@ -89,6 +93,7 @@ class Handler(HttpPlugin):
         return self.fstab_config.tree.to_dict()
 
     @post(r'/api/fstab')
+    @authorize('fstab:mounts:write')
     @endpoint(api=True)
     def handle_api_set_fstab(self, http_context):
         """
