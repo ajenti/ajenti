@@ -6,6 +6,7 @@ import os
 import pwd
 from jadi import component
 
+from aj.auth import authorize
 from aj.api.http import get, post, HttpPlugin
 from aj.api.endpoint import endpoint, EndpointError
 from .manager import CronManager
@@ -17,6 +18,7 @@ class Handler(HttpPlugin):
         self.context = context
 
     @get(r'/api/crontab')
+    @authorize('crontab:read')
     @endpoint(api=True)
     def handle_api_get_crontab(self, http_context):
         """
@@ -33,6 +35,7 @@ class Handler(HttpPlugin):
         return crontab.tree.to_dict()
 
     @post(r'/api/crontab')
+    @authorize('crontab:write')
     @endpoint(api=True)
     def handle_api_save_crontab(self, http_context):
         """

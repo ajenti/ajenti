@@ -1,5 +1,6 @@
 from jadi import component
 
+from aj.auth import PermissionProvider
 from aj.plugins.core.api.sidebar import SidebarItemProvider
 
 
@@ -19,3 +20,18 @@ class ItemProvider(SidebarItemProvider):
             }
         ]
 
+@component(PermissionProvider)
+class Permissions (PermissionProvider):
+    def provide(self):
+        return [
+            {
+                'id': 'crontab:read',
+                'name': _('Read crontab jobs'),
+                'default': False,
+            },
+            {
+                'id': 'crontab:write',
+                'name': _('Write jobs in crontab'),
+                'default': False,
+            },
+        ]
