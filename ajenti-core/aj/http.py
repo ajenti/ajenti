@@ -307,6 +307,13 @@ class HttpContext():
         self.respond('404 Not Found')
         return [b'Not Found']
 
+    def respond_bad_request(self):
+        """
+        Returns a ``HTTP 400 Bad Request`` response
+        """
+        self.respond('400 Bad Request')
+        return [b'Bad Request']
+
     def redirect(self, location):
         """
         Returns a ``HTTP 302 Found`` redirect response with given ``location``
