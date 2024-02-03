@@ -3,6 +3,7 @@ Handle user and passwords stored in /etc/shadow.
 """
 
 import pwd
+import os
 import subprocess
 
 from jadi import component
@@ -26,6 +27,10 @@ class Handler(HttpPlugin):
         :return: List of user, one per dict
         :rtype:list of dict
         """
+
+        if os.getuid() != 0:
+            http_context.respond_forbidden()
+            return ''
 
         return [
             {
