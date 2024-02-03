@@ -1,5 +1,6 @@
 from jadi import component
 
+from aj.auth import PermissionProvider
 from aj.plugins.core.api.sidebar import SidebarItemProvider
 
 
@@ -20,3 +21,18 @@ class ItemProvider(SidebarItemProvider):
             }
         ]
 
+@component(PermissionProvider)
+class Permissions (PermissionProvider):
+    def provide(self):
+        return [
+            {
+                'id': 'docker:read',
+                'name': _('List Docker containers, images and inspect'),
+                'default': False,
+            },
+            {
+                'id': 'docker:write',
+                'name': _('Modify Docker containers, images'),
+                'default': False,
+            }
+        ]

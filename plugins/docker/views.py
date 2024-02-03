@@ -7,7 +7,7 @@ import subprocess
 import json
 
 from aj.api.http import get, post, delete, HttpPlugin
-# from aj.auth import authorize
+from aj.auth import authorize
 from aj.api.endpoint import endpoint, EndpointError
 
 @component(HttpPlugin)
@@ -17,6 +17,7 @@ class Handler(HttpPlugin):
         self.docker = 'docker'
 
     @get(r'/api/docker/which')
+    @authorize('docker:read')
     @endpoint(api=True)
     def handle_api_which_docker(self, http_context):
         """
@@ -32,6 +33,7 @@ class Handler(HttpPlugin):
             raise EndpointError(_('Docker is not installed on this host'))
 
     @get(r'/api/docker/containers')
+    @authorize('docker:read')
     @endpoint(api=True)
     def handle_api_resources_docker(self, http_context):
         """
@@ -51,6 +53,7 @@ class Handler(HttpPlugin):
         ]
 
     @get(r'/api/docker/container/(?P<container_id>.*)')
+    @authorize('docker:read')
     @endpoint(api=True)
     def handle_api_details_container(self, http_context, container_id=None):
         """
@@ -68,6 +71,7 @@ class Handler(HttpPlugin):
         return json.loads(subprocess.check_output(command).decode())
 
     @post(r'/api/docker/container_command')
+    @authorize('docker:write')
     @endpoint(api=True)
     def handle_api_container_stop(self, http_context):
         """
@@ -91,6 +95,7 @@ class Handler(HttpPlugin):
             raise EndpointError(e.output.decode().strip())
 
     @get(r'/api/docker/images')
+    @authorize('docker:read')
     @endpoint(api=True)
     def handle_api_list_images(self, http_context):
         """
@@ -111,6 +116,7 @@ class Handler(HttpPlugin):
         return images
 
     @delete(r'/api/docker/image/(?P<image_id>.*)')
+    @authorize('docker:write')
     @endpoint(api=True)
     def handle_api_remove_image(self, http_context, image_id=None):
         """
