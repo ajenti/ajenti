@@ -1,5 +1,5 @@
 from functools import wraps
-import json
+import simplejson as json
 import logging
 import traceback
 
