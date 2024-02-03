@@ -55,5 +55,9 @@ class Handler(HttpPlugin):
         """
 
         data = http_context.json_body()
+        if os.getuid() != 0 and data['users'] != self.context.identity:
+            http_context.respond_forbidden()
+            return ''
+
         p = subprocess.Popen(['chpasswd'], stdin=subprocess.PIPE)
         p.communicate(f'{data["users"]}:{data["password"]}'.encode())
