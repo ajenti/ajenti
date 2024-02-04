@@ -5,6 +5,7 @@ import logging
 import os
 import pickle
 import signal
+from hashlib import sha3_256
 
 import aj
 from aj.gate.stream import GateStreamServerEndpoint, GateStreamWorkerEndpoint
@@ -114,7 +115,8 @@ class WorkerGate():
         logging.debug(f'Sending a session list update to {self.name}')
         self.stream.send({
             'type': 'session-list',
-            'data': {key:session.serialize() for key,session in self.gateway_middleware.sessions.items()},
+            'data': {sha3_256(key.encode()).hexdigest(): session.serialize()
+                         for key,session in self.gateway_middleware.sessions.items()},
         })
 
     def _stream_reader(self):
