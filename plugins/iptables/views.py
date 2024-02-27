@@ -24,7 +24,11 @@ class Handler(HttpPlugin):
     @get(r'/api/iptables')
     @endpoint(api=True)
     def handle_api_get_iptables(self, http_context):
-        chains_list = subprocess.check_output(f"{self.iptables} -L -n --line-numbers".split()).decode()
+        try:
+            chains_list = subprocess.check_output(f"{self.iptables} -L -n --line-numbers".split()).decode()
+        except Exception as e:
+            logging.error(e)
+            raise EndpointError(e)
         chains = {}
 
         valid_rule = False
@@ -61,7 +65,6 @@ class Handler(HttpPlugin):
     @endpoint(api=True)
     def handle_api_delete_iptables(self, http_context, chain, number):
         try:
-            print(f"{self.iptables} -D {chain} {number}".split())
             subprocess.check_output(f"{self.iptables} -D {chain} {number}".split())
             return {'type': 'success', 'msg': _('Rule successfully deleted')}
         except Exception as e:
