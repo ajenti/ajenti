@@ -25,7 +25,7 @@ class SudoError(Exception):
 class SecurityError(Exception):
     def __init__(self, permission):
         Exception.__init__(self)
-        self.message = f'Permission "{permission}" is required'
+        self.message = f'Forbidden: permission "{permission}" is required'
 
     def __str__(self):
         return self.message

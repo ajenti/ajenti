@@ -100,12 +100,8 @@ class CentralDispatcher(BaseHttpHandler):
             try:
                 output = instance.handle(http_context)
             except SecurityError as e:
-                http_context.respond_server_error()
-                result = {
-                    'message': str(e.message),
-                    'exception': "SecurityError",
-                }
-                return json.dumps(result)
+                http_context.respond_forbidden()
+                return str(e.message)
             # pylint: disable=W0703
             except Exception as e:
                 return [self.respond_error(http_context, e)]

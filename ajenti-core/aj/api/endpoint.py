@@ -85,7 +85,7 @@ def endpoint(page=False, api=False, auth=True):
                 logging.debug(f'Endpoint return at {context.path}: {e.code}')
                 status = e.code
                 result = e.data
-            except (EndpointError, SecurityError) as e:
+            except EndpointError as e:
                 logging.warning(f'Endpoint error at {context.path}: {e.message}')
                 if page:
                     raise
@@ -95,6 +95,12 @@ def endpoint(page=False, api=False, auth=True):
                     'exception': str(e.__class__.__name__),
                     'traceback': str(getattr(e, 'traceback_str', '')),
                 }
+            except SecurityError as e:
+                logging.warning(f'Security error at {context.path}: {e.message}')
+                if page:
+                    raise
+                status  = 403
+                result = "Forbidden"
             # pylint: disable=W0703
             except Exception as e:
                 logging.error(f'Unhandled endpoint error at {context.path}')

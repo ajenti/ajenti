@@ -1,16 +1,23 @@
 angular.module('core').factory('unauthenticatedInterceptor', ($q, $rootScope, $location, $window, notify, urlPrefix, messagebox, gettext) =>
     ({
         responseError: (rejection) => {
-            if (rejection.status === 500 && rejection.data.exception === 'SecurityError') {
-                notify.error(gettext('Security error'), rejection.data.message);
-            } else if (rejection.status === 500 && rejection.data.exception !== 'EndpointError') {
-                messagebox.show({
-                    title: gettext('Server error'),
-                    data: rejection,
-                    template: '/core:resources/partial/serverErrorMessage.html',
-                    scrollable: true,
-                    negative: gettext('Close')
-                });
+            if (rejection.status === 500) {
+                if (rejection.data.exception === 'SecurityError') {
+                    // Should not happen again
+                    notify.error(gettext('Security error'), rejection.data.message);
+                } else if (rejection.data.exception !== 'EndpointError') {
+                    messagebox.show({
+                        title: gettext('Server error'),
+                        data: rejection,
+                        template: '/core:resources/partial/serverErrorMessage.html',
+                        scrollable: true,
+                        negative: gettext('Close')
+                    });
+                }
+
+            } else if (rejection.status === 403) {
+                notify.error(gettext('Security error'), rejection.data);
+
             } else if (rejection.status === 401) {
                 if ($rootScope.disableExpiredSessionInterceptor || $location.path().indexOf(`${urlPrefix}/view/login`) === 0) {
                     return $q.reject(rejection);
