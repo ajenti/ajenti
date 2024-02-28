@@ -20,7 +20,12 @@ class UpgradeAll (Task):
 
     def run(self):
         try:
-            subprocess.check_output(['ajenti-upgrade'])
+            if sys.executable.startswith('/opt/ajenti'):
+                # Virtualenv install
+                subprocess.check_output(['/opt/ajenti/bin/ajenti-upgrade'])
+            else:
+                # Trying with default paths
+                subprocess.check_output(['ajenti-upgrade'])
         except FileNotFoundError as e:
             subprocess.check_output(['/usr/local/bin/ajenti-upgrade'])
 
