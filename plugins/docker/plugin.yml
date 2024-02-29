@@ -3,7 +3,7 @@ author: Arnaud Kientz
 email: arnaud@linuxmuster.net
 url: https://ajenti.org
 docs: https://docs.ajenti.org/en/latest/plugins/docker.html
-version: '0.5'
+version: '0.6'
 title: 'Docker'
 icon: 'fab fa-docker'
 dependencies:
