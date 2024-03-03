@@ -4,7 +4,7 @@ bs4
 cookies
 cryptography==42.0.4
 distro
-greenlet==2.0.2
+greenlet>=2.0.2
 gevent==23.9.1
 gevent-websocket
 gipc==1.6.0
