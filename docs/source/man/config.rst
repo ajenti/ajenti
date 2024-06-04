@@ -7,7 +7,7 @@ Configuration files
 All the configuration files are store in ``/etc/ajenti`` :
 
   * **config.yml**: the main configuration file with all important parameters,
-  * **smtp.yml**: credentials to an email server relay, if you want to use some mail notifications or reset password functionality,
+  * **smtp.yml**: credentials for an email server relay, used for reset password functionality,
   * **users.yml**: the default file which contains user account for the user authentication provider.
 
 All configuration files use the `yaml format <https://en.wikipedia.org/wiki/YAML>`_
@@ -136,7 +136,7 @@ Explanations:
 smtp.yml in details
 ===================
 
-This file contains all the credentials of an email server which can be used as email relay to send some notifications, like an email to reset a forgotten password.
+This file contains all the credentials of an email server which can be used as email relay to send an email to reset a forgotten password. A mail backend is prepared in ajenti-core, and this could be possibly be used in the future to send some other notifications, but it's currently only used in order to reset a password.
 
 .. code-block:: yaml
 

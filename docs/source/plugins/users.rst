@@ -21,7 +21,7 @@ The property modal window displays some utilities per account:
 
  * system account: all user accounts must be bound to a system account in order to set the privileges. An user bound to ``root`` wil have all privileges, but an user bound to a system user account like ``arnaud`` will only have the privileges of the system user ``arnaud``.
  * password change: only a hash is stored, not the password itself,
- * set the email: for notifications or password reset function,
+ * set the email: for password reset,
  * select the sidebar entries and permissions of the user.
 
 Don't forget to SAVE the changes when updating an user.
