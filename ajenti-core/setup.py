@@ -10,14 +10,14 @@ else:
     __requires.append('gevent>=1')
 
 setup(
-    name='aj',
-    version='2.2.10',
+    name='aj-3',
+    version='3.0.0',
     python_requires='>=3',
     install_requires=__requires,
     description='Web UI base toolkit',
-    author='Eugene Pankov',
-    author_email='e@ajenti.org',
-    url='https://ajenti.org/',
+    author='Arnaud Kientz',
+    author_email='arnaud@linuxmuster.net',
+    url='https://ajenti.org',
     packages=find_packages(),
     include_package_data=True,
     package_data={

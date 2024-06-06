@@ -1,0 +1,13 @@
+{
+  "name": "@ngx-ajenti/core",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/common": "~13.1.1",
+    "@angular/core": "~13.1.1",
+    "@ngx-translate/core": "^14.0.0",
+    "socket.io-client": "^0.9.17"
+  },
+  "dependencies": {
+    "tslib": "^2.3.1"
+  }
+}

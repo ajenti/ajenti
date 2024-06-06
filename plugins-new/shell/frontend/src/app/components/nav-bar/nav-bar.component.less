@@ -1,0 +1,89 @@
+@import '../../../styles/variables';
+
+.navbar {
+  box-shadow: @object-shadow-large;
+  border: none;
+
+  // TODO: Seems to be obsolete => Check for removal!
+  .navbar-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: @zindex-navbar-fixed;
+
+    .extra-toolbar {
+      background: #ccc;
+      height: 40px;
+      box-shadow: @object-shadow-large;
+      z-index: @zindex-navbar-fixed - 1;
+    }
+  }
+
+  .navbar-text {
+    margin: 20px 15px;
+  }
+
+  .navbar-brand {
+    float: left;
+    padding: 20px 15px;
+    font-size: 18px;
+    line-height: 20px;
+    height: 60px;
+
+    .subtitle {
+      opacity: .5;
+    }
+
+    img {
+      max-height: 40px;
+      margin-top: -13px;
+    }
+  }
+
+  .navbar-btn {
+    margin-top: 13px;
+    margin-bottom: 13px;
+  }
+
+  .sessiontime {
+    font-size:10px;
+    margin-right:-134px;
+    margin-top:40px;
+  }
+
+  .profile-button {
+    margin: 10px 5px;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    line-height: 28px;
+    text-align: center;
+    font-size: 20px;
+    border: 1px solid @brand-info;
+    color: @brand-info;
+    background: transparent;
+    position: relative;
+
+    &.superuser {
+      color: @brand-warning;
+      border: 1px solid @brand-warning;
+    }
+
+    .rank {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 15px;
+      height: 15px;
+      font-size: 13px;
+      line-height: 13px;
+
+      text-align: center;
+      border: 1px solid #555;
+      color: #555;
+      background: white;
+      border-radius: 50%;
+    }
+  }
+}

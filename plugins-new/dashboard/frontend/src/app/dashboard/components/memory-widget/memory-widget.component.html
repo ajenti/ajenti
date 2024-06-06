@@ -1,0 +1,41 @@
+<div>
+  <div class="row">
+    <div class="col-xs-4" >
+      <div class="widget-header" translate>
+        Total
+      </div>
+      <ajenti-smart-progress
+        [animate]="true"
+        [max]="1"
+        [value]="1"
+      ></ajenti-smart-progress>
+    </div>
+    <div class="col-xs-8">
+      <div class="widget-header" translate>
+        Memory usage
+      </div>
+      <ajenti-smart-progress
+        [animate]="true"
+        [max]="100"
+        [value]="usage"
+      ></ajenti-smart-progress>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-4">
+      <div class="widget-value">
+      {{total | formatBytes}}
+      </div>
+    </div>
+    <div class="col-xs-8">
+      <div class="widget-value">
+        {{usage}}%
+        <sup *ngIf="usage > 90">
+                    <span class="label label-danger">
+                        <i class="fa fa-warning"></i>
+                    </span>
+        </sup>
+      </div>
+    </div>
+  </div>
+</div>

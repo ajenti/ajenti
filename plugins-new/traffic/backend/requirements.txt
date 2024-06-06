@@ -1,0 +1,4 @@
+upstart-new
+aj-3
+ajenti-3.plugin.shell
+ajenti-3.plugin.dashboard

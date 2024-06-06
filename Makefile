@@ -3,34 +3,33 @@ CONFIGFILE := ''
 
 all: build
 
-bower:
-	ajenti-dev-multitool --bower install
-
 build:
-	ajenti-dev-multitool --msgfmt
-	ajenti-dev-multitool --build
+	python3 ./scripts/ajenti-dev-multitool/ajenti_dev_multitool.py --msgfmt
+	python3 ./scripts/ajenti-dev-multitool/ajenti_dev_multitool.py --build-plugins
 
 run:
-	cd ajenti-panel && ./ajenti-panel -v --autologin --plugins ../plugins $(CONFIGFILE)
+	cd ajenti-panel && ./ajenti-panel -v --autologin --plugins ../plugins-new $(CONFIGFILE)
 
 rundev:
-	cd ajenti-panel && ./ajenti-panel -v --autologin --plugins ../plugins --dev $(CONFIGFILE)
+	cd ajenti-panel && ./ajenti-panel -v --autologin --plugins ../plugins-new --dev $(CONFIGFILE)
 
 rundevlogin:
-	cd ajenti-panel && ./ajenti-panel -v --plugins ../plugins --dev $(CONFIGFILE)
+	cd ajenti-panel && ./ajenti-panel -v --plugins ../plugins-new --dev $(CONFIGFILE)
 
 runprod:
-	cd ajenti-panel && ./ajenti-panel --plugins ../plugins $(CONFIGFILE)
+	cd ajenti-panel && ./ajenti-panel --plugins ../plugins-new $(CONFIGFILE)
 
 rund:
-	cd ajenti-panel && ./ajenti-panel --plugins ../plugins -d $(CONFIGFILE)
+	cd ajenti-panel && ./ajenti-panel --plugins ../plugins-new -d $(CONFIGFILE)
 
+deb:
+	python3 ./scripts/ajenti-dev-multitool/build_deb.py
 
 clean:
 	find | grep \.pyc | xargs rm || true
-	rm -rf plugins/*/build || true
-	rm -rf plugins/*/dist || true
-	rm -rf plugins/*/.last-upload || true
+	rm -rf plugins-new/*/dist || true
+	rm -rf plugins-new/*/frontend/node_modules || true
+	rm -rf plugins-new/*/.last-upload || true
 
 
 doc:
@@ -42,19 +41,19 @@ cdoc:
 
 
 push-crowdin:
-	ajenti-dev-multitool --xgettext
-	ajenti-dev-multitool --push-crowdin
+	python3 ./scripts/ajenti-dev-multitool/ajenti_dev_multitool.py --xgettext
+	python3 ./scripts/ajenti-dev-multitool/ajenti_dev_multitool.py --push-crowdin
 
 pull-crowdin:
-	ajenti-dev-multitool --pull-crowdin
-	ajenti-dev-multitool --msgfmt
+	python3 ./scripts/ajenti-dev-multitool/ajenti_dev_multitool.py --pull-crowdin
+	python3 ./scripts/ajenti-dev-multitool/ajenti_dev_multitool.py --msgfmt
 
 add-crowdin:
-	ajenti-dev-multitool --xgettext
-	ajenti-dev-multitool --add-crowdin
+	python3 ./scripts/ajenti-dev-multitool/ajenti_dev_multitool.py --xgettext
+	python3 ./scripts/ajenti-dev-multitool/ajenti_dev_multitool.py --add-crowdin
 
 check:
-	ajenti-dev-multitool --find-outdated
+	python3 ./scripts/ajenti-dev-multitool/ajenti_dev_multitool.py --find-outdated
 
 upload:
 	rm ajenti-core/dist/* ajenti-panel/dist/* || true
@@ -62,15 +61,12 @@ upload:
 	cd ajenti-panel && ./setup.py sdist && twine upload dist/*.tar.gz -i "Ajenti Packagers" -s
 
 upload-plugins: build
-	rm plugins/dist/* || true
-	ajenti-dev-multitool --setuppy 'sdist'
-	twine upload plugins/*/dist/*.tar.gz -i "Ajenti Packagers" -s --skip-existing
+	rm plugins-new/*/dist/* || true
+	python3 ./scripts/ajenti-dev-multitool/ajenti_dev_multitool.py --setuppy 'sdist'
+	twine upload plugins-new/*/dist/*.tar.gz -i "Ajenti Packagers" -s --skip-existing
 
 test:
 	cd e2e && ./run
-
-build_dev:
-	bash scripts/build_deb.sh
 
 webdriver:
 	cd e2e && node_modules/protractor/bin/webdriver-manager start

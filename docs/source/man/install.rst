@@ -1,6 +1,5 @@
 .. _installing:
 
-
 Installing
 **********
 
@@ -66,11 +65,17 @@ Upgrade PIP::
 
 Minimal install::
 
-    sudo pip3 install ajenti-panel ajenti.plugin.core ajenti.plugin.dashboard ajenti.plugin.settings ajenti.plugin.plugins
+    sudo pip3 install ajenti-3-panel ajenti-3.plugin.shell ajenti-3.plugin.dashboard
 
 With all plugins::
 
-    sudo pip3 install ajenti-panel ajenti.plugin.ace ajenti.plugin.augeas ajenti.plugin.auth-users ajenti.plugin.core ajenti.plugin.dashboard ajenti.plugin.datetime ajenti.plugin.filemanager ajenti.plugin.filesystem ajenti.plugin.network ajenti.plugin.notepad ajenti.plugin.packages ajenti.plugin.passwd ajenti.plugin.plugins ajenti.plugin.power ajenti.plugin.services ajenti.plugin.settings ajenti.plugin.terminal
+    sudo pip3 install ajenti-3-panel \
+                      ajenti-3.plugin.shell \
+                      ajenti-3.plugin.dashboard \
+                      ajenti-3.plugin.fstab \
+                      ajenti-3.plugin.lmn-theme \
+                      ajenti-3.plugin.session-list \
+                      ajenti-3.plugin.traffic
 
 Uninstall Ajenti 2
 ==================
@@ -105,21 +110,23 @@ List all modules from Ajenti::
 
 The result should be something like ( eventually more or less plugins )::
 
-    aj                         2.1.43
-    ajenti-panel               2.1.43
-    ajenti.plugin.ace          0.30
-    ajenti.plugin.auth-users   0.31
-    ajenti.plugin.core         0.99
-    ajenti.plugin.dashboard    0.39
-    ajenti.plugin.filesystem   0.47
-    ajenti.plugin.passwd       0.24
-    ajenti.plugin.plugins      0.47
-    ajenti.plugin.session-list 0.4
-    ajenti.plugin.settings     0.30
+    aj-3                            3.0.0
+    ajenti-3-panel                  3.0.0
+    ajenti-3.plugin.shell           0.1.0
+    ajenti-3.plugin.dashboard       0.1.0
+    ajenti-3.plugin.traffic         0.1.0
+    ajenti-3.plugin.fstab           0.1.0
+    ajenti-3.plugin.session-list    0.1.0
 
 Then simply remove all these modules::
 
-    sudo pip3 uninstall -y aj ajenti-panel ajenti.plugin.ace ajenti.plugin.auth-users ajenti.plugin.core ajenti.plugin.dashboard ajenti.plugin.filesystem ajenti.plugin.passwd ajenti.plugin.plugins ajenti.plugin.session-list ajenti.plugin.settings
+    sudo pip3 uninstall -y aj-3 \
+                           ajenti-3-panel \
+                           ajenti-3.plugin.shell \
+                           ajenti-3.plugin.dashboard \
+                           ajenti-3.plugin.traffic \
+                           ajenti-3.plugin.fstab \
+                           ajenti-3.plugin.session-list
 
 Configuration files
 -------------------

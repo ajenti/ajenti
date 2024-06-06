@@ -1,0 +1,123 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+  <a
+    class="btn btn-danger navbar-btn pull-right"
+    *ngIf="devMode"
+    (click)="restart_panel()"
+  >
+    <i class="fas fa-redo"></i>
+  </a>
+  <div class="container">
+    <a
+      class="navbar-brand navigation-toggle hide-phone hide-tablet"
+      *ngIf="isNavigationPresent()"
+      (click)="onToggleNavigationClick()"
+    >
+      <i class="fa fa-navicon"></i>
+    </a>
+
+    <a
+      class="navbar-brand navigation-toggle hide-desktop hide-large"
+      *ngIf="isNavigationPresent()"
+      (click)="toggleOverlayNavigation()"
+    >
+      <i class="fa fa-navicon"></i>
+    </a>
+
+    <a
+      class="navbar-brand"
+      [routerLink]="['/']"
+      *ngIf="corePluginCustomizations.logoURL"
+    >
+      <img [src]="corePluginCustomizations.logoURL"/>
+    </a>
+
+
+    <a
+      class="navbar-brand ellipsis"
+      [routerLink]="['/']"
+    >
+      <span class="title">
+          {{ corePluginCustomizations.title || 'Ajenti' }}
+      </span>
+      <span class="subtitle hide-phone hide-tablet">
+        {{ pageTitle | translate }}
+      </span>
+    </a>
+
+    <a
+      (click)="onToggleWidescreenClick()"
+      class="hide-phone hide-tablet navbar-btn btn btn-default btn-flat pull-right"
+    >
+      <i class="fa fa-expand" *ngIf="!isWidescreen"></i>
+      <i class="fa fa-compress" *ngIf="isWidescreen"></i>
+    </a>
+
+    <div *ngIf="identity?.isUserSignedIn" class="pull-right">
+      <div ngbDropdown>
+        <a
+          [className]="getProfileButtonCSSClasses()"
+          ngbDropdownToggle
+        >
+          {{ identity?.user?.charAt(0)?.toUpperCase() || '' }}
+
+          <span
+            class="rank"
+            *ngIf="identity?.isSuperuser">
+            <i class="fa fa-angle-double-up"></i>
+          </span>
+        </a>
+        <ul
+          ngbDropdownMenu
+          autoClose="true"
+          class="dropdown-menu-right"
+          style="width: 200px"
+        >
+          <li ngbDropdownItem>
+            <div>
+              <span class="subtle pull-right">UID {{ identity?.effectiveUid }}</span>
+              <i class="fa fa-fw fa-user"></i> {{ identity?.user }}
+            </div>
+          </li>
+          <li class="hide-tablet hide-desktop hide-large" ngbDropdownItem>
+            <div>
+              <i class="fa fa-fw fa-hdd-o"></i> {{ machine?.name }}
+            </div>
+          </li>
+          <li
+            *ngFor="let menuItem of corePluginCustomizations.extraProfileMenuItems"
+            ngbDropdownItem
+          >
+            <a [routerLink]="[menuItem.url]" ngbDropdownItem>
+              <i class="fa fa-fw fa-{{menuItem.faIconName}}"></i> {{ menuItem.name }}
+            </a>
+          </li>
+          <li ngbDropdownItem>
+            <a
+              *ngIf="!identity?.isSuperuser && identity?.elevationAllowed"
+              (click)="onElevateMenuItemClick()"
+            >
+              <i class="fa fa-fw fa-angle-double-up"></i>&nbsp;<span translate>Elevate</span>
+            </a>
+          </li>
+          <li ngbDropdownItem>
+            <a (click)="onLogoutMenuItemClick()">
+              <i class="fa fa-fw fa-power-off"></i>&nbsp;<span translate>Log out</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="navbar-text pull-right hide-phone" style="min-width:99px;">
+      <i class="fa fa-hdd-o"></i> {{ machine?.name }}
+    </p>
+    <span
+      *ngIf="showSessionTimer"
+
+      class="pull-right sessiontime hide-phone"
+    >
+      <span translate>Session time</span>
+      <span> : {{ timeLeftInSeconds | formatSecondsToDuration }}</span>
+    </span>
+  </div>
+</nav>

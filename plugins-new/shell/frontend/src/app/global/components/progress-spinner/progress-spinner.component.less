@@ -1,0 +1,46 @@
+@import '../../../../styles/variables';
+
+.progress-spinner {
+  @size: 30px;
+  @fg: @brand-primary;
+  @bg: white;
+  @inner: 2px;
+  @outer: 5px;
+
+  width: @size;
+  height: @size;
+  position: relative;
+
+  .one, .two {
+    position: absolute;
+    border-radius: 50%;
+  }
+
+  .one {
+    width: @size - 2px;
+    height: @size - 2px;
+    left: 1px;
+    top: 1px;
+
+    border: @inner solid transparent;
+    border-left: @inner solid @fg;
+    border-top: @inner solid @fg;
+    z-index: 1;
+    -webkit-animation: progress-spin 2.7s infinite linear;
+    animation: progress-spin 2.7s infinite linear;
+  }
+
+  .two {
+    width: @size;
+    height: @size;
+    left: 0;
+    top: 0;
+
+    border: @outer solid transparent;
+    border-right: @outer solid @bg;
+    border-bottom: @outer solid @bg;
+    z-index: 2;
+    -webkit-animation: progress-spin 1.3s infinite linear;
+    animation: progress-spin 1.3s infinite linear;
+  }
+}

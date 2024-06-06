@@ -1,0 +1,26 @@
+name: theme
+author: Ajenti project
+email: e@ajenti.org
+url: https://ajenti.org
+version: '1.0.0'
+title: 'Theme'
+icon: bar-chart
+requires-angular-build: true
+frontend-settings:
+    remote-entry: 'http://localhost:4206/remoteEntry.js' # For debug purposes. Keep empty for production!
+    remote-name: 'theme'
+    exposed-module: './ThemeModule'
+    theme-component: 'CustomShellStyleComponent'
+    display-name: 'Theme'
+    route-path: 'theme'
+    ng-module-name: 'ThemeModule'
+dependencies:
+    - !PluginDependency { plugin_name: core }
+resources:
+    - path: frontend/dist/vendor.js
+      vendor: true
+    - frontend/dist/polyfills.js
+    - frontend/dist/runtime.js
+    - frontend/dist/styles.css
+    - frontend/dist/main.js
+    - ng:ajenti.theme

@@ -57,18 +57,18 @@ class install(_install):
 
 
 setup(
-    name='ajenti-panel',
-    version='2.2.10',
+    name='ajenti-3-panel',
+    version='3.0.4',
     python_requires='>=3',
     install_requires=[
-        'aj==2.2.10',
+        'aj-3',
         'pyyaml',
         'requests',
     ],
     description='Ajenti core based panel',
-    author='Eugene Pankov',
-    author_email='e@ajenti.org',
-    url='https://ajenti.org/',
+    author='Arnaud Kientz',
+    author_email='arnaud@linuxmuster.net',
+    url='https://ajenti.org',
     packages=find_packages(),
     package_data={
         "": [

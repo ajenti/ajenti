@@ -1,0 +1,4 @@
+aj-3
+gipc
+jadi>=1.0.0
+setproctitle

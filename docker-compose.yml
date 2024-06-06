@@ -1,0 +1,14 @@
+version: '3'
+services:
+  ajenti-3-development-backend:
+    build:
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    image: ajenti-3-development-backend-image
+    volumes:
+      - ./.container/etc/:/etc/ajenti/
+      - ./.container/config/:/root/.config/
+      - ./:/opt/ajenti/backend/
+
+

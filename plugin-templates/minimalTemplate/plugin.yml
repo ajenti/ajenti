@@ -1,0 +1,11 @@
+name: minimalTemplate
+author: Ajenti project
+email: e@ajenti.org
+url: https://ajenti.org
+version: '1.0.0'
+title: 'minimalTemplate'
+icon: bar-chart
+dependencies:
+    - !PluginDependency { plugin_name: core }
+resources:
+    - path: ''

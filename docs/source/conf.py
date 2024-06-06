@@ -134,4 +134,4 @@ import aj.plugins
 
 aj.context = aj.api.Context()
 aj.init()
-aj.plugins.PluginManager.get(aj.context).load_all_from([aj.plugins.DirectoryPluginProvider('../../plugins')])
+aj.plugins.PluginManager.get(aj.context).load_all_from([aj.plugins.DirectoryPluginProvider('../../plugins-new')])

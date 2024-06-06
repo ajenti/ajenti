@@ -1,0 +1,43 @@
+<div >
+  <div class="row">
+    <div class="col-xs-4">
+      <div class="widget-header" translate>
+        Active cores
+      </div>
+      <ajenti-smart-progress
+        [animate]="true"
+        [max]="coresCount"
+        [value]="activeCores"
+      ></ajenti-smart-progress>
+    </div>
+    <div class="col-xs-8">
+      <div class="widget-header" translate>
+        CPU usage
+      </div>
+      <ajenti-smart-progress
+        [animate]="true"
+        [max]="100"
+        [value]="averageUsageInPercents"
+      ></ajenti-smart-progress>
+    </div>
+  </div>
+  <div>
+  </div>
+  <div class="row">
+    <div class="col-xs-4">
+      <div class="widget-value">
+        {{activeCores}}/{{coresCount}}
+      </div>
+    </div>
+    <div class="col-xs-8">
+      <div class="widget-value">
+        {{averageUsageInPercents}}%
+        <sup *ngIf="averageUsageInPercents > 95">
+                    <span class="label label-danger">
+                        <i class="fa fa-warning"></i>
+                    </span>
+        </sup>
+      </div>
+    </div>
+  </div>
+</div>

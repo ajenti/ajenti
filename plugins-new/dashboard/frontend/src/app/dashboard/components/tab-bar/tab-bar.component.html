@@ -1,0 +1,54 @@
+<br/>
+
+<!-- Dropdown menu Tabs -->
+<div>
+  <div class="pull-right" ngbDropdown>
+    <a class="btn btn-default subtle" data-toggle="dropdown">
+      <span translate>Tabs</span> <i class="fa fa-caret-down"></i>
+    </a>
+    <ul x-placement="bottom-right" ngbDropdownMenu>
+      <li>
+        <a (click)="tabService.addTab()" translate>
+          Add
+        </a>
+      </li>
+      <li>
+        <a (click)="tabService.renameTab()" translate>
+          Rename
+        </a>
+      </li>
+      <li *ngIf="tabService.tabs.length > 1">
+        <a (click)="tabService.deleteActiveTab()" translate>
+          Remove
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Dropdown menu "Add widget" -->
+  <div class="pull-right" ngbDropdown>
+    <a class="btn btn-default subtle" data-toggle="dropdown">
+      <i class="fa fa-plus"> </i> <span translate> Add widget</span>
+    </a>
+    <ul ngbDropdownMenu>
+      <li *ngFor="let widgetType of widgetTypesService.widgetTypes | async">
+        <a (click)="dashboardConfigService.addNewWidget(tabService.getIndexOfActiveTab(),widgetType);">
+          {{ widgetType.name }}
+        </a>
+      </li>
+    </ul>
+  </div>
+  <!-- NavTab menu -->
+  <div class="ng-isolate-scope">
+    <ul ngbNav #nav="ngbNav" class="nav-tabs">
+      <li
+        *ngFor="let tab of tabService.tabs"
+        [ngClass]="{ 'active': tab.name === tabService.activeTabName }"
+        [ngbNavItem]
+        (click)="tabService.setActiveTab(tab.name)">
+        <a ngbNavLink>
+          {{ tab.name }} </a>
+      </li>
+    </ul>
+  </div>
+</div>

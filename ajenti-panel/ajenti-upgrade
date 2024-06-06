@@ -3,7 +3,7 @@ import requests
 import sys
 import subprocess
 
-PLUGIN_PREFIX = 'ajenti.plugin.'
+PLUGIN_PREFIX = 'ajenti-3.plugin.'
 
 installed = {}
 for l in subprocess.check_output([sys.executable, '-m', 'pip', 'freeze']).decode().splitlines():

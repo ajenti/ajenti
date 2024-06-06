@@ -2,6 +2,8 @@
 /**/bower_components
 /**/node_modules
 /**/.idea
+/**/.vscode
+proxy.conf.json
 *.sublime-*
 .~lock.*
 *~
@@ -19,3 +21,8 @@ plugins/demo*
 .crowdin.key
 .crowdin.token
 .mypy_cache
+.container/etc/.secret
+.container/config/.secret
+.container/config/*
+!.container/config/.gitkeep
+my-project-env

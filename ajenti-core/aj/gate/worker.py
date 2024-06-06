@@ -84,7 +84,7 @@ class Worker():
             return
 
         if os.getuid() != 0:
-            logging.warning('Running as a limited user, setuid() unavailable!')
+            logging.warning('Running Ajenti as a limited user, setuid() unavailable!')
             return
 
         logging.info(

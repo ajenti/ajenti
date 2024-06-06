@@ -1,0 +1,16 @@
+<app-tab-bar></app-tab-bar>
+
+
+<div class="widgets" cdkDropListGroup>
+  <ng-container
+    *ngFor="let widget of tabService.activeWidgets;let i=index">
+    <div class=" widget-item col-md-12 col-md-6" cdkDropList
+         cdkDropListOrientation="horizontal"
+         [cdkDropListData]="{item:widget,index:i}" (cdkDropListDropped)="drop($event)">
+      <div cdkDrag class="row">
+        <div *cdkDragPlaceholder></div>
+        <app-widget-container [widget]="widget"></app-widget-container>
+      </div>
+    </div>
+  </ng-container>
+</div>

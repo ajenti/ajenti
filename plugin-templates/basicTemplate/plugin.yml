@@ -1,0 +1,25 @@
+name: basicTemplate
+author: Ajenti project
+email: e@ajenti.org
+url: https://ajenti.org
+version: '1.0.0'
+title: 'basicTemplate'
+icon: bar-chart
+requires-angular-build: true
+frontend-settings:
+    remote-entry: 'http://localhost:4204/remoteEntry.js' # For debug purposes. Keep empty for production!
+    remote-name: 'basicTemplate'
+    exposed-module: './Module'
+    display-name: 'basicTemplate'
+    route-path: 'basicTemplate'
+    ng-module-name: 'BasicTemplateModule'
+dependencies:
+    - !PluginDependency { plugin_name: core }
+resources:
+    - path: frontend/dist/vendor.js
+      vendor: true
+    - frontend/dist/polyfills.js
+    - frontend/dist/runtime.js
+    - frontend/dist/styles.css
+    - frontend/dist/main.js
+    - ng:ajenti.basicTemplate

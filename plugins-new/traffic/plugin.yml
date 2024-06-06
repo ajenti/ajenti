@@ -1,0 +1,20 @@
+name: traffic
+author: Ajenti project
+email: e@ajenti.org
+url: https://ajenti.org
+version: '1.0.0'
+title: 'Traffic'
+icon: exchange
+requires-angular-build: true
+frontend-settings:
+  remote-entry: 'http://localhost:4202/remoteEntry.js' # For debug purposes. Keep empty for production!
+  remote-name: 'traffic'
+  exposed-module: './TrafficModule'
+  widget-components: '["TrafficWidgetComponent"]'
+  display-name: 'Traffic'
+  route-path: 'traffic'
+  ng-module-name: 'TrafficModule'
+dependencies:
+  - !PluginDependency { plugin_name: core }
+  - !PluginDependency { plugin_name: dashboard }
+

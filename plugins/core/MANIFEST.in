@@ -1,0 +1,5 @@
+recursive-include core * *.*
+recursive-exclude core *.pyc
+include core/plugin.yml
+include MANIFEST.in
+include requirements.txt

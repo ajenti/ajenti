@@ -1,6 +1,7 @@
 [![Logo](docs/img/Logo.png)](https://ajenti.org/)
 
-Ajenti is a Linux & BSD modular server admin panel. Ajenti 2 provides a new interface and a better architecture, developed with [Python3](https://www.python.org/) and [AngularJS](https://angularjs.org/).
+Ajenti is a Linux & BSD modular server admin panel. Ajenti 3 provides a new interface and a better architecture,
+developed with [Python3](https://www.python.org/) and [Angular](https://angular.io/).
 
 <p align="center">
     <a href="https://crowdin.net/project/ajenti">
@@ -18,15 +19,18 @@ Ajenti is a Linux & BSD modular server admin panel. Ajenti 2 provides a new inte
 
 # Feature highlights
 
-* **Easy installation** : Ajenti 2 can be easy installed [with pip and the provided script](https://docs.ajenti.org/en/latest/man/install.html#installing).
+* **Easy installation** : Ajenti 3 can be easy
+  installed [with pip and the provided script](https://docs.ajenti.org/en/latest/man/install.html#installing).
 
-* **Existing configuration** : Picks up your current configuration and works on your existing system as-is, without any preparation.
+* **Existing configuration** : Picks up your current configuration and works on your existing system as-is, without any
+  preparation.
 
 * **Caring** : Does not overwrite your config files, options and comments. All changes are non-destructive.
 
 * **Batteries included** : Includes lots of plugins for system and software configuration, monitoring and management.
 
-* **Extensible** : Ajenti 2 is easily extensible using Python. Plugin development is a quick and pleasant with Ajenti APIs. [Write your first plugin](https://docs.ajenti.org/en/latest/dev/intro.html#your-first-plugin).
+* **Extensible** : Ajenti 3 is easily extensible using Python. Plugin development is a quick and pleasant with Ajenti
+  APIs. [Write your first plugin](https://docs.ajenti.org/en/latest/dev/intro.html#your-first-plugin).
 
 * **Modern** : Pleasant to look at, satisfying to click and accessible anywhere from tablets and mobile.
 
@@ -126,8 +130,8 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
-This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
-
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification.
+Contributions of any kind welcome!
 # Contributing
 
 Helpers are welcome ! There are many ways to help in Ajenti Project : 
@@ -149,3 +153,32 @@ Actually big changes are planned and under development. A global roadmap is :
       * The documentation is located at https://docs.ajenti.org/en/ajenti-3-dev/index.html
   * Add a lot of new plugins: once the migration to Angular done, we can add a lot of plugins to manage services on the server ( like apache2, nginx, postfix, etc ... ).
   * Migrating to [asyncio](https://docs.python.org/3/library/asyncio.html): concept tested, but migration not really started.
+
+## Setup Development
+
+### Automated setup of Backend and Frontend
+One terminal for Backend, one for Frontend.
+#### Backend <br>
+1. (MacOS) 
+     `chmod +x scripts/setup/macOS_Prerequisites.sh && bash scripts/setup/macOS_Prerequisites.sh`
+    <br> To ensure all MacOS prerequisites are installed.
+    <br> (Linux) Analyse the script [macOS_Prerequisites.sh](scripts/setup/macOS_Prerequisites.sh) and run the linux commands manually.
+    <br><br>
+2. `python3 ./scripts/setup/setup_environment.py` to start the backend
+
+
+#### Frontend 
+1. `cd scripts/setup/`
+2. `python3 ./scripts/ajenti-dev-multitool/ajenti_dev_multitool.py --build-plugins` Builds the frontends of all plugins.
+3. `python3 ./scripts/ajenti-dev-multitool/ajenti_dev_multitool.py --serve-plugins` Serves the frontends of all plugins (with live reload).
+    <br>
+    <br>The frontend is running on http://localhost:4200/ 
+    <br>
+    <br>It uses the default modules `dashboard`,`traffic`,`fstab`and `session_list`.
+    <br>To develop different or fewer modules:
+    <br>Adjust the list `DEVELOPMENT_PLUGINS = ['dashboard', 'traffic', 'fstab', 'session_list']` in the file [ajenti_dev_multitool.py](scripts/ajenti-dev-multitool/ajenti_dev_multitool.py)
+
+<br><br>
+### Manual setup of frontend
+We recommend to use the automated setup but you need to setup 
+the frontend manually see the file [ManualFrontendSetup.md](./ManualFrontendSetup.md) 

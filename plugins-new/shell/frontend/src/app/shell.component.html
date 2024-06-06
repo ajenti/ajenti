@@ -1,0 +1,37 @@
+<div class="app-component">
+  <ngx-loading-bar></ngx-loading-bar>
+
+  <app-nav-bar *ngIf="appReady"></app-nav-bar>
+
+  <div class="container" *ngIf="appReady">
+    <div class="row">
+      <div
+        *ngIf="showSidebar"
+        class="col-md-3 sidebar hide-tablet hide-phone"
+      >
+        <app-side-bar></app-side-bar>
+      </div>
+
+      <div class="content">
+        <router-outlet
+          (swiperight)="sideBarService.setShowOverlaySideBar(true)"
+          (swipeleft)="sideBarService.setShowOverlaySideBar(false)"
+        >
+        </router-outlet>
+      </div>
+    </div>
+
+    <div
+      class="sidebar overlay-sidebar animate-sidebar hide-desktop hide-large"
+      *ngIf="showOverlaySidebar && isLoginViewOpen"
+      (swipeleft)="sideBarService.setShowOverlaySideBar(false)"
+    >
+      <app-side-bar></app-side-bar>
+    </div>
+
+
+    <app-message-box-container></app-message-box-container>
+    <shared-styles></shared-styles>
+    <theme-loader></theme-loader>
+  </div>
+</div>

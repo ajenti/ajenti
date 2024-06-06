@@ -1,0 +1,12 @@
+name: core
+author: Ajenti project
+email: e@ajenti.org
+url: https://ajenti.org
+version: '1.0.0'
+title: Core
+icon: link
+requires-angular-build: true
+dependencies: [ ]
+resources:
+  - ng:core
+  - ng:core.templates
