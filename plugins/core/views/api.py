@@ -168,7 +168,7 @@ class Handler(HttpPlugin):
                 'error': None,
             }
 
-        elif mode == 'sudo':
+        if mode == 'sudo':
             target = 'root'
             try:
                 if auth.check_sudo_password(username, password):
@@ -191,7 +191,7 @@ class Handler(HttpPlugin):
                     'error': e.message,
                 }
 
-        elif mode == 'totp':
+        if mode == 'totp':
             # Reset verify value before verifying
             aj.tfa_config.verify_totp[user_auth_id] = None
             self.context.worker.verify_totp(user_auth_id, password)
@@ -202,6 +202,7 @@ class Handler(HttpPlugin):
                     'success': True,
                     'username': username,
                 }
+
         return {
             'success': False,
             'error': 'Invalid mode',

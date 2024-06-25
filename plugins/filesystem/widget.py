@@ -24,13 +24,12 @@ class DiskWidget(Widget):
                 'free': sum(x.free for x in usage.values()),
                 'used': sum(x.used for x in usage.values()),
             }
-        elif mountpoint in usage:
+        if mountpoint in usage:
             return {
                 'total': usage[mountpoint].total,
                 'free': usage[mountpoint].free,
                 'used': usage[mountpoint].used,
             }
-
         return {
             'total': None,
             'free': None,

@@ -130,6 +130,5 @@ class PasswordResetMiddleware(HttpMasterMiddleware):
             if not answer:
                 http_context.respond_forbidden()
                 return [b'403 Forbidden']
-            else:
-                http_context.respond_ok()
-                return [b'200 OK']
+            http_context.respond_ok()
+            return [b'200 OK']
