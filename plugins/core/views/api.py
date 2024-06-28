@@ -20,6 +20,7 @@ from aj.security.totp import TOTP
 @component(HttpPlugin)
 class Handler(HttpPlugin):
     def __init__(self, context):
+        super().__init__(context)
         self.context = context
 
     @get('/api/core/identity')
@@ -168,7 +169,7 @@ class Handler(HttpPlugin):
                 'error': None,
             }
 
-        elif mode == 'sudo':
+        if mode == 'sudo':
             target = 'root'
             try:
                 if auth.check_sudo_password(username, password):
@@ -191,7 +192,7 @@ class Handler(HttpPlugin):
                     'error': e.message,
                 }
 
-        elif mode == 'totp':
+        if mode == 'totp':
             # Reset verify value before verifying
             aj.tfa_config.verify_totp[user_auth_id] = None
             self.context.worker.verify_totp(user_auth_id, password)
@@ -202,6 +203,7 @@ class Handler(HttpPlugin):
                     'success': True,
                     'username': username,
                 }
+
         return {
             'success': False,
             'error': 'Invalid mode',
@@ -308,7 +310,7 @@ class Handler(HttpPlugin):
         gevent.sleep(0.01)
         session_max_time = aj.config.data['session_max_time'] if aj.config.data['session_max_time'] else 3600
         timestamp = 0
-        if self.context.session.key in aj.sessions.keys():
+        if self.context.session.key in aj.sessions:
             timestamp = aj.sessions[self.context.session.key]['timestamp']
         return int(timestamp + session_max_time - time())
 

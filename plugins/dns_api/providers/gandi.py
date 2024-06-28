@@ -113,8 +113,7 @@ class GandiApiDnsProvider(ApiDnsManager):
             messages = json.loads(resp.content)
             if messages.get('status', '') == 'error':
                 return resp.status_code, messages['errors']
-            else:
-                return resp.status_code, messages['message']
+            return resp.status_code, messages['message']
         except Exception as e:
             logging.error(e)
 
@@ -141,8 +140,7 @@ class GandiApiDnsProvider(ApiDnsManager):
             messages = json.loads(resp.content)
             if messages.get('status', '') == 'error':
                 return resp.status_code, messages['errors']
-            else:
-                return resp.status_code, messages['message']
+            return resp.status_code, messages['message']
         except Exception as e:
             logging.error(e)
 
@@ -168,7 +166,6 @@ class GandiApiDnsProvider(ApiDnsManager):
                 messages = {'message': 'Entry deleted'}
             if messages.get('status', '') == 'error':
                 return resp.status_code, messages['errors'][0]['description']
-            else:
-                return resp.status_code, messages['message']
+            return resp.status_code, messages['message']
         except Exception as e:
             logging.error(e)
