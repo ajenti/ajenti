@@ -20,6 +20,7 @@ from aj.security.totp import TOTP
 @component(HttpPlugin)
 class Handler(HttpPlugin):
     def __init__(self, context):
+        super.__init__(context)
         self.context = context
 
     @get('/api/core/identity')
@@ -309,7 +310,7 @@ class Handler(HttpPlugin):
         gevent.sleep(0.01)
         session_max_time = aj.config.data['session_max_time'] if aj.config.data['session_max_time'] else 3600
         timestamp = 0
-        if self.context.session.key in aj.sessions.keys():
+        if self.context.session.key in aj.sessions:
             timestamp = aj.sessions[self.context.session.key]['timestamp']
         return int(timestamp + session_max_time - time())
 
