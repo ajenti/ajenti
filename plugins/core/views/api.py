@@ -20,7 +20,7 @@ from aj.security.totp import TOTP
 @component(HttpPlugin)
 class Handler(HttpPlugin):
     def __init__(self, context):
-        super.__init__(context)
+        super().__init__(context)
         self.context = context
 
     @get('/api/core/identity')
