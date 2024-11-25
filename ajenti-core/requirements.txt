@@ -2,7 +2,7 @@
 arrow
 bs4
 cookies
-cryptography==43.0.1
+cryptography
 distro
 greenlet>=2.0.2
 gevent>=23.9.1
@@ -15,7 +15,7 @@ lxml>=2.2.4
 passlib
 pexpect
 psutil>=2.2.1
-pyOpenSSL==24.0.0
+pyOpenSSL
 pyotp
 python-daemon
 python-socketio==5.8.0
