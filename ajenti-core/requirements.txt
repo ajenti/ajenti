@@ -5,9 +5,9 @@ cookies
 cryptography==42.0.4
 distro
 greenlet>=2.0.2
-gevent==23.9.1
+gevent>=23.9.1
 gevent-websocket
-gipc==1.6.0
+gipc==1.7.0
 itsdangerous
 jadi>=1.0.3
 jinja2
