@@ -71,7 +71,7 @@ PYTHON3=/opt/ajenti/bin/python3
 msg ":: Upgrading PIP"
 
 rm /usr/lib/$PYTHON3/dist-packages/setuptools.egg-info || true # for debian 7
-$PYTHON3 -m pip install -U pip wheel setuptools
+$PYTHON3 -m pip install -U pip wheel setuptools packaging
 $PYTHON3 -m pip uninstall -y gevent-socketio gevent-socketio-hartwork
 
 msg ":: Installing Ajenti Dev Multitool"

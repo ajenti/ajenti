@@ -175,8 +175,26 @@ The default path for the **users_file** is ``/etc/ajenti/users.yml`` with follow
 
 Explanations:
 
-  * **password**: hash of the password
+  * **password**: hash of the password (see :ref:`how_to_generate_password_hash`)
   * **permissions**: list of permissions of the user
   * **uid**: related os uid to run the worker on
   * **fs_root**: root directory
   * **email**: email to use for password reset.
+
+.. _how_to_generate_password_hash:
+
+how to generate password hash
+=============================
+Ajenti uses ``scrypt`` for encryption and hashing.
+
+To "hash" your desired password with scrypt, you can do the following:
+
+.. code-block:: py
+
+  import scrypt, os
+  
+  bytes = scrypt.encrypt(os.urandom(256), "password", maxtime=1)
+  hex = bytes.hex()
+  print(hex)
+
+Note that ``scrypt.encrypt`` doesn't produce a traditional hash. It produces a derived key.

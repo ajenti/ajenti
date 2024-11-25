@@ -2,7 +2,7 @@
 arrow
 bs4
 cookies
-cryptography==42.0.4
+cryptography==43.0.1
 distro
 greenlet>=2.0.2
 gevent>=23.9.1
