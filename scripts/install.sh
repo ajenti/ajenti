@@ -100,6 +100,9 @@ msg ":: Installing Ajenti"
 
 $PYTHON3 -m pip install ajenti-panel ajenti.plugin.core ajenti.plugin.dashboard ajenti.plugin.settings ajenti.plugin.plugins ajenti.plugin.notepad ajenti.plugin.terminal ajenti.plugin.filemanager ajenti.plugin.packages ajenti.plugin.services || exit 1
 
+# Temporary fix for newer versions
+$PYTHON3 -m pip install gipc gevent -U
+
 # ----------------
 
 # Ensure /usr/local/bin is in $PATH
