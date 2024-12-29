@@ -1,4 +1,8 @@
 #!/bin/bash
+
+# Hide root warning for pip
+export PIP_ROOT_USER_ACTION=ignore
+
 if [ "$(id -u)" != "0" ]; then
    echo "This script must be run as root" 1>&2
    exit 1
@@ -93,7 +97,9 @@ msg ":: Upgrading PIP"
 
 rm /usr/lib/$PYTHON3/dist-packages/setuptools.egg-info || true # for debian 7
 $PYTHON3 -m pip install -U pip wheel setuptools packaging
-$PYTHON3 -m pip uninstall -y gevent-socketio gevent-socketio-hartwork
+
+msg ":: Uninstalling conflicting gevent-socktio if already installed"
+$PYTHON3 -c 'from socketio import mixins' 2>/dev/null && $PYTHON3 -m pip uninstall -y gevent-socketio gevent-socketio-hartwork
 
 msg ":: Installing Ajenti"
 
