@@ -14,23 +14,36 @@ Installing
     Other Linux-based systems *might* work, but you'll have to use manual installation method.
 
 
+Automatic Installation in  virtual environment
+==============================================
+
+It's actually the recommended method in order to avoid the error "externally managed environment" in `pip` with newer versions of Debian (12 and above) and Ubuntu (24.04 and above):
+
+::
+
+    curl https://raw.githubusercontent.com/ajenti/ajenti/master/scripts/install-venv.sh | sudo bash -s -
+
+If you get an empty response after login, please try to upgrade `gipc` and `gevent`:
+
+::
+
+    /opt/ajenti/bin/python3 -m pip install gipc gevent -U
+
+If the certificate for https is missing, simply run:
+
+::
+
+   /opt/ajenti/bin/python3 /opt/ajenti/bin/ajenti-ssl-gen $(hostname)
+
 Automatic Installation
 ======================
 
-This installation method will not work under Debian, prefer the virtual environment installation below.
+This installation method will attempt to install `Ajenti` at OS level, and this will not work under newer versions of Debian and Ubuntu, prefer the virtual environment installation above.
 This should work for all other operating systems.
 
 ::
 
     curl https://raw.githubusercontent.com/ajenti/ajenti/master/scripts/install.sh | sudo bash -s -
-
-Automatic Installation in  virtual environment
-==============================================
-
-
-::
-
-    curl https://raw.githubusercontent.com/ajenti/ajenti/master/scripts/install-venv.sh | sudo bash -s -
 
 Manual Installation
 ===================
