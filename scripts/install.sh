@@ -109,7 +109,7 @@ PANEL=$(which ajenti-panel)
 msg ":: Creating config files"
 mkdir -p /etc/ajenti
 
-if [! -f /etc/ajenti/users.yml ] ; then
+if [ ! -f /etc/ajenti/users.yml ] ; then
   cat << EOF > /etc/ajenti/users.yml
 users: null
 EOF
