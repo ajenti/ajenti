@@ -17,7 +17,7 @@
     "karma-requirejs": "~0.2.2",
     "karma-sinon-chai": "~0.2.0",
     "mocha": "~2.1.0",
-    "requirejs": "~2.1.15",
+    "requirejs": "~2.3.7",
     "yamljs": "~0.2.1"
   }
 }
