@@ -283,6 +283,10 @@ fi
 
 IPADDR=$(hostname -I | awk '{$1=$1};1')
 
+msg ":: Generating SSL certificate"
+AJENTI_SSL_GEN=$(which ajenti-ssl-gen)
+$PYTHON3 $AJENTI_SSL_GEN $(hostname)
+
 msg ':: Complete'
 echo
 msg "Ajenti will be listening at https://$IPADDR:8000\nLog in with your root password or another OS user"
