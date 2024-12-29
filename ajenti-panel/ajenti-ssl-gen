@@ -1,31 +1,36 @@
 #!/usr/bin/env python3
+
 import sys
-import socket
+import os
 import random
 import yaml
 from OpenSSL.crypto import dump_certificate, dump_privatekey, FILETYPE_PEM, PKey, TYPE_RSA, X509
 
 if len(sys.argv) < 2:
-    print('Usage: ajenti-ssl-gen <hostname> [-f]')
+    print('Usage: ajenti-ssl-gen <hostname>')
     sys.exit(1)
 
 host = sys.argv[1]
+
 etcdir = '/etc/ajenti'
+if not os.path.isdir(etcdir):
+    os.makedirs(etcdir)
+
 certificate_path = f'{etcdir}/ajenti.pem'
 config_path = f'{etcdir}/config.yml'
 
-config = yaml.load(open(config_path), Loader=yaml.Loader)
+with open(config_path, 'r') as config_file:
+    config = yaml.load(config_file, Loader=yaml.Loader)
 
-if len(sys.argv) == 2:
-    if config['ssl']['certificate']:
-        print(':: SSL is already configured')
-        sys.exit(1)
+if config['ssl']['certificate']:
+    print(':: SSL is already configured')
+    sys.exit(1)
 
 key = PKey()
 key.generate_key(TYPE_RSA, 4096)
 cert = X509()
 cert.get_subject().countryName = 'NA'
-cert.get_subject().organizationName = socket.gethostname()
+cert.get_subject().organizationName = host
 cert.get_subject().commonName = 'ajenti'
 cert.set_pubkey(key)
 cert.set_serial_number(random.getrandbits(8 * 20))
@@ -39,9 +44,12 @@ with open(certificate_path, 'wb') as f:
     f.write(dump_privatekey(FILETYPE_PEM, key))
     f.write(dump_certificate(FILETYPE_PEM, cert))
 
+print(f':: Certificate {certificate_path} generated!')
 
 config['ssl']['enable'] = True
 config['ssl']['certificate'] = certificate_path
-open(config_path, 'w').write(
-    yaml.safe_dump(config, default_flow_style=False, encoding='utf-8', allow_unicode=True).decode('utf-8')
-)
+with open(config_path, 'w') as config_file:
+    config_file.write(
+        yaml.safe_dump(config, default_flow_style=False, encoding='utf-8', allow_unicode=True).decode('utf-8')
+    )
+print(f':: {config_path} updated with certificate path!')
