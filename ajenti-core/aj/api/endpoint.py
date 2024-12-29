@@ -67,7 +67,7 @@ def endpoint(page=False, api=False, auth=True):
         def wrapper(self, context, *args, **kwargs):
             if auth and not self.context.identity:
                 context.respond_unauthenticated()
-                if context.env['PATH_INFO'].startswith('/webdav/'):
+                if context.env['PATH_INFO'].startswith('/webdav'):
                     context.add_header("WWW-Authenticate", 'Basic realm="Ajenti", charset="UTF-8"')
                 return ''
 
