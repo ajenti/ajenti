@@ -153,6 +153,10 @@ ssl:
 EOF
 fi
 
+msg ":: Generating SSL certificate"
+AJENTI_SSL_GEN=$(which ajenti-ssl-gen)
+$PYTHON3 $AJENTI_SSL_GEN $(hostname)
+
 msg ":: Installing initscript"
 
 if [ -e /etc/init ] && which start ; then # Upstart
@@ -282,10 +286,6 @@ EOF
 fi
 
 IPADDR=$(hostname -I | awk '{$1=$1};1')
-
-msg ":: Generating SSL certificate"
-AJENTI_SSL_GEN=$(which ajenti-ssl-gen)
-$PYTHON3 $AJENTI_SSL_GEN $(hostname)
 
 msg ':: Complete'
 echo
