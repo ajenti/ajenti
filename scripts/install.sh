@@ -1,4 +1,8 @@
 #!/bin/bash
+
+# Hide root warning for pip
+export PIP_ROOT_USER_ACTION=ignore
+
 if [ "$(id -u)" != "0" ]; then
    echo "This script must be run as root" 1>&2
    exit 1
@@ -88,7 +92,9 @@ msg ":: Upgrading PIP"
 
 rm /usr/lib/$PYTHON3/dist-packages/setuptools.egg-info || true # for debian 7
 $PYTHON3 -m pip install -U pip wheel setuptools packaging
-$PYTHON3 -m pip uninstall -y gevent-socketio gevent-socketio-hartwork
+
+msg ":: Uninstalling conflicting gevent-socketio if already installed"
+$PYTHON3 -c 'from socketio import mixins' 2>/dev/null && $PYTHON3 -m pip uninstall -y gevent-socketio gevent-socketio-hartwork
 
 msg ":: Installing Ajenti"
 
@@ -99,6 +105,52 @@ $PYTHON3 -m pip install ajenti-panel ajenti.plugin.core ajenti.plugin.dashboard 
 # Ensure /usr/local/bin is in $PATH
 export PATH=$PATH:/usr/local/bin
 PANEL=$(which ajenti-panel)
+
+msg ":: Creating config files"
+mkdir -p /etc/ajenti
+
+if [! -f /etc/ajenti/users.yml ] ; then
+  cat << EOF > /etc/ajenti/users.yml
+users: null
+EOF
+fi
+
+if [ -f /etc/ajenti/config.yml ] ; then
+  echo "Config file already detected, doing nothing"
+else
+  HOSTNAME=$(hostname)
+  cat << EOF > /etc/ajenti/config.yml
+auth:
+  allow_sudo: true
+  emails: {}
+  provider: os
+  users_file: /etc/ajenti/users.yml
+bind:
+  host: 0.0.0.0
+  mode: tcp
+  port: 8000
+color: default
+max_sessions: 9
+trusted_domains: []
+trusted_proxies: []
+session_max_time: 3600
+name: $HOSTNAME
+ssl:
+  certificate:
+  fqdn_certificate:
+  force: false
+  client_auth:
+    certificates: []
+    enable: false
+    force: false
+  enable: false
+
+EOF
+fi
+
+msg ":: Generating SSL certificate"
+AJENTI_SSL_GEN=$(which ajenti-ssl-gen)
+$PYTHON3 $AJENTI_SSL_GEN $(hostname)
 
 msg ":: Installing initscript"
 
