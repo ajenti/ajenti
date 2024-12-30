@@ -13,7 +13,7 @@ jobs:
       matrix:
         os: [ubuntu-latest]
         python-version: ['3.8', '3.9', '3.10', '3.11', '3.12']
-        node-version: [16.x, 18.x, 19.x]
+        node-version: [18.x, 19.x]
     runs-on: ${{ matrix.os }}
     steps:
     - uses: actions/checkout@v3
@@ -36,7 +36,6 @@ jobs:
         sudo npm install babel-cli babel-preset-es2015 babel-plugin-external-helpers
     - name: Install python dependencies
       run: |
-        sudo python3 -m pip install --upgrade pip
         sudo python3 -m pip install wheel setuptools
     - name: Install Ajenti
       run: |
