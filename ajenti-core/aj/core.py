@@ -120,7 +120,6 @@ def run(config=None, plugin_providers=None, product_name='ajenti', dev_mode=Fals
     logging.info('Loading tfa config from /etc/ajenti/tfa.yml')
     aj.tfa_config = TFAConfig()
     aj.tfa_config.load()
-    aj.tfa_config.ensure_structure()
 
     if aj.debug:
         logging.warning('Debug mode')

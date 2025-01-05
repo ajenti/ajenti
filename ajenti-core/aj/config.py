@@ -181,9 +181,6 @@ class TFAConfig(BaseConfig):
         self.path = '/etc/ajenti/tfa.yml'
         self.verify_totp = {}
 
-    def ensure_structure(self):
-        self.data.setdefault('users', {})
-
     def get_user_totp_secrets(self, userid):
         with open(self.path, 'r') as tfa:
             tfa_config = yaml.load(tfa, Loader=yaml.SafeLoader).get('users', {})
