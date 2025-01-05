@@ -16,6 +16,12 @@ angular.module('core').service('config', function($http, $q, initialConfigConten
     this.setSmtpConfig = (config) =>
         $http.post("/api/core/smtp-config", config).then(response => response.data);
 
+    this.getTfaConfig = () =>
+        $http.get("/api/core/tfa-config").then(response => response.data);
+
+    this.deleteTfa = (data) =>
+        $http.post("/api/core/tfa-config", data).then(response => response.data);
+
     this.getAuthenticationProviders = (config) =>
         $http.get("/api/core/authentication-providers").then(response => response.data);
 

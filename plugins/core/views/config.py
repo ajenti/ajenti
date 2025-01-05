@@ -4,7 +4,7 @@ from jadi import component
 
 import aj
 from aj.auth import authorize
-from aj.api.http import get, post, HttpPlugin
+from aj.api.http import get, post, delete, HttpPlugin
 from aj.config import UserConfigService
 from aj.auth import AuthenticationProvider, PermissionProvider, AuthenticationService
 
@@ -114,8 +114,6 @@ class Handler(HttpPlugin):
 
         :param http_context: HttpContext
         :type http_context: HttpContext
-        :return: Content of the ajenti config file without password
-        :rtype: dict
         """
 
         if os.getuid() != 0:
@@ -124,6 +122,41 @@ class Handler(HttpPlugin):
         with authorize('core:config:write'):
             data = json.loads(http_context.body.decode())
             aj.smtp_config.save(data)
+
+    @get(r'/api/core/tfa-config')
+    @endpoint(api=True)
+    def handle_api_get_tfa_config(self, http_context):
+        """
+        Load the tfa config file without password.
+
+        :param http_context: HttpContext
+        :type http_context: HttpContext
+        :return: Content of the ajenti config file without password
+        :rtype: dict
+        """
+
+        if os.getuid() != 0:
+            raise EndpointReturn(403)
+
+        with authorize('core:config:read'):
+            return aj.tfa_config.data
+
+    @post(r'/api/core/tfa-config')
+    @endpoint(api=True)
+    def handle_api_post_tfa_config(self, http_context):
+        """
+        Delete an entry in the tfa config file.
+
+        :param http_context: HttpContext
+        :type http_context: HttpContext
+        """
+
+        if os.getuid() != 0:
+            raise EndpointReturn(403)
+
+        with authorize('core:config:write'):
+            data = json.loads(http_context.body.decode())
+            aj.tfa_config.delete_user_totp(data)
 
     @get(r'/api/core/authentication-providers')
     @endpoint(api=True)
