@@ -232,7 +232,7 @@ class TFAConfig(BaseConfig):
                     for entry in values:
                         entry['secret'] = ''
         else:
-            self.ensure_structure()
+            self.data = {}
 
     def _save(self, data):
         with open(self.path, 'w') as tfa:
