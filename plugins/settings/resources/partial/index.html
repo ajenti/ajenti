@@ -389,6 +389,27 @@
                 </dialog>
             </div-->
         </uib:tab>
+        <uib:tab heading="{{'2FA'}}" ng:click="getTfaConfig()">
+            <br />
+            <table class="table">
+                <tr>
+                    <th translate>User</th>
+                    <th translate>Description</th>
+                    <th translate>Created</th>
+                    <th></th>
+                </tr>
+                <tr ng:repeat="tfa in tfaList">
+                    <td>{{tfa.user}}<br /><span class="badge badge-info">{{tfa.provider}}</span></td>
+                    <td>{{tfa.desc}}</td>
+                    <td>{{tfa.created*1000 | date: 'dd MMMM yyyy HH:mm:ss'}}</td>
+                    <td>
+                        <a ng:click="deleteTfa(tfa)" class="btn btn-default">
+                            <i class="fa fa-trash"></i>
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        </uib:tab>
     </uib:tabset>
 
     <div class="floating-toolbar-padder"></div>

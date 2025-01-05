@@ -114,6 +114,29 @@ angular.module('ajenti.settings').controller('SettingsIndexController', ($scope,
         config.getSmtpConfig().then((smtpConfig) => $scope.smtp_config = smtpConfig);
     };
 
+    $scope.getTfaConfig = () => {
+        config.getTfaConfig().then((tfaConfig) => {
+            $scope.tfa_config = tfaConfig;
+            $scope.tfaList = [];
+            Object.entries($scope.tfa_config).forEach(([user_prov, totp]) => {
+                user = user_prov.split("@")[0];
+                authprov = user_prov.split("@")[1];
+                for (tfa of totp.totp) {
+                    $scope.tfaList.push({"user": user, "provider": authprov, "created": tfa.created, "desc": tfa.description});
+                }
+            });
+        });
+    };
+
+    $scope.deleteTfa = (tfa) => {
+        data = {'type':'delete', 'userid': `${tfa.user}@${tfa.provider}`, 'timestamp': `${tfa.created}`};
+        config.deleteTfa(data).then(() => {
+            notify.success("Deleted !");
+            index = $scope.tfaList.indexOf(tfa);
+            $scope.tfaList.splice(index, 1);
+        });
+    };
+
     $scope.$watch('config.data.language', () => {
         if (config.data) {
             locale.setLanguage(config.data.language);
