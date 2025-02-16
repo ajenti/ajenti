@@ -1,4 +1,2 @@
 aj
-gipc
-jadi>=1.0.3
 setproctitle
