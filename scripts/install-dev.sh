@@ -94,6 +94,9 @@ for PLUGIN in $(ls) ; do
     $PYTHON3 -m pip install -r $PLUGIN/requirements.txt || exit 1
 done
 
+# Temporary fix for newer versions
+$PYTHON3 -m pip install gipc gevent -U
+
 msg ":: Installing Bower dependencies"
 
 ajenti-dev-multitool --bower install || exit 1
