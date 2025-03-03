@@ -73,7 +73,7 @@ Ajenti is a Linux & BSD modular server admin panel. Ajenti 2 provides a new inte
     </tr>
 </table>
 
-See https://ajenti.org for more information
+See https://docs.ajenti.org for more information
 
 ----
 
