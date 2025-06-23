@@ -49,7 +49,7 @@ After a successful installation, do the following to activate the dev mode:
 Manual installation
 ===================
 
-First, it's necessary to complete the install for plugin developpement mentioned here : :ref:`Dev getting started <dev-getting-started>`
+First, it's necessary to complete the install for plugin development mentioned here : :ref:`Dev getting started <dev-getting-started>`
 
 Download the source::
 
@@ -58,7 +58,7 @@ Download the source::
 Install the dependencies::
 
     # Debian/Ubuntu
-    sudo apt-get install build-essential python3-pip python3-dev python3-lxml libffi-dev libssl-dev libjpeg-dev libpng-dev uuid-dev python3-dbus gettext
+    sudo apt-get install build-essential python3-pip python3-dev libffi-dev libssl-dev libjpeg-dev libpng-dev uuid-dev python3-dbus gettext
 
     # RHEL
     sudo dnf install gcc python3-devel python3-pip libxslt-devel libxml2-devel libffi-devel openssl-devel libjpeg-turbo-devel libpng-devel dbus-python gettext
@@ -67,7 +67,7 @@ Install the dependencies::
     sudo pip3 install -r ajenti-core/requirements.txt
     sudo pip3 install ajenti-dev-multitool
 
-    sudo npm install -g coffeescript less bower
+    sudo npm install -g coffeescript less bower angular-gettext-cli yarn
 
 
 Download and install Bower dependencies::
@@ -77,6 +77,13 @@ Download and install Bower dependencies::
 Ensure that resource compilation is set up correctly and works (optional)::
 
     make build
+
+Create config & secret::
+
+    sudo mkdir /etc/ajenti
+    sudo touch /etc/ajenti/config.yml
+    sudo echo "$(tr -dc A-Za-z0-9 </dev/urandom | head -c 50)" > /etc/ajenti/.secret
+
 
 Launch Ajenti in dev mode::
 

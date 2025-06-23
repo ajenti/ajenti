@@ -7,6 +7,9 @@ build:
 	python3 ./scripts/ajenti-dev-multitool/ajenti_dev_multitool.py --msgfmt
 	python3 ./scripts/ajenti-dev-multitool/ajenti_dev_multitool.py --build-plugins
 
+bower:
+    python3 ./scripts/ajenti-dev-multitool/ajenti_dev_multitool.py --bower install
+
 run:
 	cd ajenti-panel && ./ajenti-panel -v --autologin --plugins ../plugins-new $(CONFIGFILE)
 
