@@ -359,7 +359,7 @@ def run_msgfmt(plugin):
     logging.info('Compiling in %s', locale_path)
 
     if subprocess.call(['which', 'msgfmt'], stdout=subprocess.PIPE) != 0:
-        logging.error('msgfmt not found!')
+        logging.error('msgfmt not found! (pkg: gettext)')
         sys.exit(1)
 
     if subprocess.call(['which', 'angular-gettext-cli'], stdout=subprocess.PIPE) != 0:

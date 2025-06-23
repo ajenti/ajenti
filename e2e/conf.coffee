@@ -1,4 +1,4 @@
-require 'coffee-script'
+require 'coffeescript'
 
 specs = [
     'specs/notepad.coffee'

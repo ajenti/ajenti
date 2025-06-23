@@ -1,6 +1,6 @@
 {
   "devDependencies": {
-    "coffee-script": "~1.8.0",
+    "coffeescript": "~1.8.0",
     "jasmine-spec-reporter": "^1.1.1",
     "protractor": "4.0.10"
   }

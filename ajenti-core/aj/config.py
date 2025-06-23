@@ -34,6 +34,9 @@ class BaseConfig():
         raise NotImplementedError()
 
     def ensure_structure(self):
+        if self.data is None:
+            self.data = {}
+
         # Global options
         self.data.setdefault('name', None)
         self.data.setdefault('trusted_domains', [])
@@ -41,8 +44,15 @@ class BaseConfig():
         self.data.setdefault('max_sessions', 99)
         self.data.setdefault('session_max_time', 3600)
         self.data.setdefault('language', 'en')
+        self.data.setdefault('color', 'blue')
         self.data.setdefault('restricted_user', 'nobody')
         self.data.setdefault('logo', os.path.dirname(__file__) + '/static/images/Logo.png')
+
+        # Bind
+        self.data.setdefault('bind', {})
+        self.data['bind'].setdefault('mode', 'tcp')
+        self.data['bind'].setdefault('host', '0.0.0.0')
+        self.data['bind'].setdefault('port', 8000)
 
         # Main view
         self.data.setdefault('view', {})
