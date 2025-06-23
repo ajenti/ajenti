@@ -177,7 +177,7 @@ class HttpContext():
         )
 
         self.query = {}
-        if self.form_cgi_query:
+        if hasattr(self.form_cgi_query, 'list') and self.form_cgi_query.list is not None:
             self.query.update({k:self.form_cgi_query[k].value for k in self.form_cgi_query})
         if self.url_cgi_query:
             self.query.update({k:self.url_cgi_query[k].value for k in self.url_cgi_query})
