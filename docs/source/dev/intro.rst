@@ -37,7 +37,7 @@ Build tools require NodeJS - you can use the NodeSource repositories for quick s
 
 Now, install the build tools::
 
-    npm -g install bower babel-cli babel-preset-es2015 babel-plugin-external-helpers less coffeescript angular-gettext-cli angular-gettext-tools
+    npm -g install yarn babel-cli babel-preset-es2015 babel-plugin-external-helpers less coffeescript angular-gettext-cli angular-gettext-tools
 
     # Ubuntu or Debian:
     apt-get install gettext
@@ -106,7 +106,6 @@ Example plugins
 
     Prep work::
 
-        ajenti-dev-multitool --bower install
         ajenti-dev-multitool --rebuild
 
     Run::

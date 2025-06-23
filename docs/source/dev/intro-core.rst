@@ -21,7 +21,7 @@ Prerequisites
 The following is the absolutely minimal set of software required to build and run Ajenti:
 
   * git
-  * bower, babel, babel-preset-es2015 and lessc (from NPM)
+  * yarn, babel, babel-preset-es2015 and lessc (from NPM)
 
 
 Debian/Ubuntu extras:
@@ -67,12 +67,8 @@ Install the dependencies::
     sudo pip3 install -r ajenti-core/requirements.txt
     sudo pip3 install ajenti-dev-multitool
 
-    sudo npm install -g coffeescript less bower angular-gettext-cli yarn
+    sudo npm install -g coffeescript less angular-gettext-cli yarn
 
-
-Download and install Bower dependencies::
-
-    make bower
 
 Ensure that resource compilation is set up correctly and works (optional)::
 
