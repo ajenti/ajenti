@@ -32,7 +32,7 @@ jobs:
     - name: Install npm dependencies
       run: |
         sudo npm install -g npm
-        sudo npm install -g bower babel-cli babel-preset-es2015 babel-plugin-external-helpers less coffee-script
+        sudo npm install -g bower babel-cli babel-preset-es2015 babel-plugin-external-helpers less coffeescript
         sudo npm install babel-cli babel-preset-es2015 babel-plugin-external-helpers
     - name: Install python dependencies
       run: |

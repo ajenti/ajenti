@@ -67,7 +67,7 @@ Install the dependencies::
     sudo pip3 install -r ajenti-core/requirements.txt
     sudo pip3 install ajenti-dev-multitool
 
-    sudo npm install -g coffee-script less bower
+    sudo npm install -g coffeescript less bower
 
 
 Download and install Bower dependencies::
