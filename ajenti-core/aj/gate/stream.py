@@ -24,7 +24,7 @@ def _seq_is_continued(part):
 def _seq_combine(parts):
     full_object = ''
     for part in parts[:-1]:
-        full_object += part[len(MSG_CONTINUATION_MARKER):]
+        full_object += part.replace(MSG_CONTINUATION_MARKER, '')
     full_object += parts[-1]
     return full_object
 
