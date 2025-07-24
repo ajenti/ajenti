@@ -40,7 +40,6 @@ jobs:
     - name: Install Ajenti
       run: |
         sudo python3 -m venv /opt/ajenti --system-site-packages
-        sudo source /opt/ajenti/bin/activate
         sudo /opt/ajenti/bin/python3 -m pip install -r ajenti-core/requirements.txt
         sudo /opt/ajenti/bin/python3 -m pip install -r plugins/core/requirements.txt
         sudo /opt/ajenti/bin/python3 -m pip install -r plugins/augeas/requirements.txt
