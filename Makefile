@@ -11,19 +11,19 @@ build:
 	ajenti-dev-multitool --build
 
 run:
-	cd ajenti-panel && ./ajenti-panel -v --autologin --plugins ../plugins $(CONFIGFILE)
+	cd ajenti-panel && ./ajenti-panel -v --autologin --plugins ../plugins -c $(CONFIGFILE)
 
 rundev:
-	cd ajenti-panel && ./ajenti-panel -v --autologin --plugins ../plugins --dev $(CONFIGFILE)
+	cd ajenti-panel && ./ajenti-panel -v --autologin --plugins ../plugins --dev -c $(CONFIGFILE)
 
 rundevlogin:
-	cd ajenti-panel && ./ajenti-panel -v --plugins ../plugins --dev $(CONFIGFILE)
+	cd ajenti-panel && ./ajenti-panel -v --plugins ../plugins --dev -c $(CONFIGFILE)
 
 runprod:
-	cd ajenti-panel && ./ajenti-panel --plugins ../plugins $(CONFIGFILE)
+	cd ajenti-panel && ./ajenti-panel --plugins ../plugins -c $(CONFIGFILE)
 
 rund:
-	cd ajenti-panel && ./ajenti-panel --plugins ../plugins -d $(CONFIGFILE)
+	cd ajenti-panel && ./ajenti-panel --plugins ../plugins -d -c $(CONFIGFILE)
 
 
 clean:
