@@ -54,8 +54,8 @@ jobs:
         sudo /opt/ajenti/bin/python3 -m pip install gipc gevent -U
     - name: Install Bower components
       run: |
-        sudo ajenti-dev-multitool --bower install || exit 1
-        sudo ajenti-dev-multitool --build || exit 1
+        sudo /opt/ajenti/bin/ajenti-dev-multitool --bower install || exit 1
+        sudo /opt/ajenti/bin/ajenti-dev-multitool --build || exit 1
     - name: Running pytest Tests
       run: |
         cd tests-pytest
