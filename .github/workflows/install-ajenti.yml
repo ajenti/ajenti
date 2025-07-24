@@ -24,7 +24,7 @@ jobs:
     - name: Installing Apt packages
       run: |
         sudo apt update
-        sudo apt install python3-dbus python3-lxml python3-pip libaugeas-dev augeas-tools
+        sudo apt install python3-dbus python3-lxml python3-pip libaugeas-dev augeas-tools build-essential python3-venv python3-dev python3-augeas libssl-dev python3-apt ntpdate
     - name: Set up Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
       with:
@@ -39,18 +39,20 @@ jobs:
         sudo python3 -m pip install wheel setuptools
     - name: Install Ajenti
       run: |
-        sudo python3 -m pip install -r ajenti-core/requirements.txt
-        sudo python3 -m pip install -r plugins/core/requirements.txt
-        sudo python3 -m pip install -r plugins/augeas/requirements.txt
-        sudo python3 -m pip install -r plugins/auth_users/requirements.txt
-        sudo python3 -m pip install -r plugins/datetime/requirements.txt
-        sudo python3 -m pip install -r plugins/services/requirements.txt
-        sudo python3 -m pip install -r plugins/terminal/requirements.txt
-        sudo python3 -m pip install ajenti-dev-multitool
-        sudo python3 -m pip install pytest
-        sudo python3 -m pip uninstall -y gevent-socketio-hartwork python-socketio
-        sudo python3 -m pip install python-socketio==5.8.0
-        sudo python3 -m pip install gipc gevent -U
+        sudo python3 -m venv /opt/ajenti --system-site-packages
+        sudo source /opt/ajenti/bin/activate
+        sudo /opt/ajenti/bin/python3 -m pip install -r ajenti-core/requirements.txt
+        sudo /opt/ajenti/bin/python3 -m pip install -r plugins/core/requirements.txt
+        sudo /opt/ajenti/bin/python3 -m pip install -r plugins/augeas/requirements.txt
+        sudo /opt/ajenti/bin/python3 -m pip install -r plugins/auth_users/requirements.txt
+        sudo /opt/ajenti/bin/python3 -m pip install -r plugins/datetime/requirements.txt
+        sudo /opt/ajenti/bin/python3 -m pip install -r plugins/services/requirements.txt
+        sudo /opt/ajenti/bin/python3 -m pip install -r plugins/terminal/requirements.txt
+        sudo /opt/ajenti/bin/python3 -m pip install ajenti-dev-multitool
+        sudo /opt/ajenti/bin/python3 -m pip install pytest
+        sudo /opt/ajenti/bin/python3 -m pip uninstall -y gevent-socketio-hartwork python-socketio
+        sudo /opt/ajenti/bin/python3 -m pip install python-socketio==5.8.0
+        sudo /opt/ajenti/bin/python3 -m pip install gipc gevent -U
     - name: Install Bower components
       run: |
         sudo ajenti-dev-multitool --bower install || exit 1
@@ -58,5 +60,5 @@ jobs:
     - name: Running pytest Tests
       run: |
         cd tests-pytest
-        sudo pytest -s || exit 1
+        sudo /opt/ajenti/bin/python3 -m pytest -s || exit 1
         cd ..
