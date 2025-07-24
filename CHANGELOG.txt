@@ -1,4 +1,24 @@
-Ajenti 2.2.9 - Dev
+Ajenti 2.2.12 - Dev
+
+Ajenti 2.2.11 - 24/07/2025
+
+- Fix installation problem due to missing packaging (thanks @jaden78)
+- Update requirements for gevent and gipc
+- Fix ajenti SSL generation
+- Fix PUT requests without query parameters
+- Fix buffer in stream
+- [Settings] Add tab to handle 2FA secrets
+
+Ajenti 2.2.10 - 03/03/2024
+
+- Fix dependency problem under Python 3.11 
+
+Ajenti 2.2.9 - 29/02/2024
+
+- Better handle security errors
+- Update requirements
+- Harden security of many plugins
+- HTTP Bad request response code
 
 Ajenti 2.2.8 - 01/01/2024
 
