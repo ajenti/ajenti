@@ -17,6 +17,15 @@ msg()
     echo
 }
 
+warn()
+{
+    message=$1
+    echo
+    # Bold and yellow font
+    echo -e "\e[1m\e[33m$message\e[39m\e[0m"
+    echo
+}
+
 DISTRO=
 OS=
 PYTHON3=$(which python3)
@@ -82,6 +91,7 @@ if [ "$DISTRO" == "ubuntu" ] ; then
 fi
 
 if [ "$OS" == "debian" ] ; then
+    warn "WARNING: due to the new pip installation's policy on debian OSes, this script may not work properly. Please use the install-venv script instead."
     msg ":: Installing prerequisites"
     apt-get update
     DEBIAN_FRONTEND='noninteractive' apt-get install -y build-essential python3-pip python3-dev python3-lxml python3-dbus python3-augeas libssl-dev python3-apt ntpdate || exit 1
