@@ -30,3 +30,4 @@ six>=1.9.0
 termcolor
 pip>=20
 setuptools>=41
+zope.event==5.1.1

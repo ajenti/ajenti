@@ -102,6 +102,7 @@ $PYTHON3 -m pip install ajenti-panel ajenti.plugin.core ajenti.plugin.dashboard 
 
 # Temporary fix for newer versions
 $PYTHON3 -m pip install gipc gevent -U
+$PYTHON3 -m pip install zope.event==5.1.1
 
 # ----------------
 

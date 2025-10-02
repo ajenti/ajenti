@@ -96,6 +96,7 @@ done
 
 # Temporary fix for newer versions
 $PYTHON3 -m pip install gipc gevent -U
+$PYTHON3 -m pip install zope.event==5.1.1
 
 msg ":: Installing Bower dependencies"
 
