@@ -18,7 +18,7 @@ psutil>=2.2.1
 pyOpenSSL
 pyotp
 python-daemon
-python-socketio==5.8.0
+python-socketio==5.14.0
 python-engineio==4.4.1
 pyyaml
 qrcode
