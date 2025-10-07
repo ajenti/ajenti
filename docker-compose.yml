@@ -4,7 +4,7 @@ services:
     build:
       dockerfile: Dockerfile
     ports:
-      - "8000:8000"
+      - "8001:8000"
     image: ajenti-3-development-backend-image
     volumes:
       - ./.container/etc/:/etc/ajenti/

@@ -1,0 +1,28 @@
+yarn run v1.22.22
+$ ng build ngx-ajenti
+Building Angular Package
+
+------------------------------------------------------------------------------
+Building entry point '@ngx-ajenti/core'
+------------------------------------------------------------------------------
+- Compiling with Angular sources in Ivy partial compilation mode.
+✔ Compiling with Angular sources in Ivy partial compilation mode.
+- Generating FESM2020
+✔ Generating FESM2020
+- Generating FESM2015
+✔ Generating FESM2015
+- Copying assets
+✔ Copying assets
+- Writing package manifest
+✔ Writing package manifest
+✔ Built @ngx-ajenti/core
+
+------------------------------------------------------------------------------
+Built Angular Package
+ - from: /mnt/c/Users/james/OneDrive/Desktop/panels/2/ajenti/plugins-new/ngx-ajenti/projects/core
+ - to:   /mnt/c/Users/james/OneDrive/Desktop/panels/2/ajenti/plugins-new/ngx-ajenti/dist/ngx-ajenti
+------------------------------------------------------------------------------
+
+Build at: 2025-10-07T18:14:45.175Z - Time: 85422ms
+
+Done in 218.81s.
