@@ -38,6 +38,26 @@ developed with [Python3](https://www.python.org/) and [Angular](https://angular.
 
 ----
 
+# Quick Start with Docker (Development)
+
+For development purposes, you can quickly set up Ajenti 3 using Docker:
+
+```bash
+# Quick start
+docker-compose up --build -d
+
+# Or use the setup script
+./docker-setup.sh
+```
+
+**Backend will be available at:** `http://localhost:8001`
+
+For complete Docker setup instructions, frontend development, and troubleshooting, see [DOCKER_SETUP.md](DOCKER_SETUP.md).
+
+> ⚠️ **Note:** Docker setup is for development only. For production, install Ajenti directly on the host system.
+
+----
+
 # Screenshots
 
 <table align="center">
