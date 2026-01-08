@@ -51,7 +51,6 @@ jobs:
         sudo /opt/ajenti/bin/python3 -m pip install pytest
         sudo /opt/ajenti/bin/python3 -m pip uninstall -y gevent-socketio-hartwork python-socketio
         sudo /opt/ajenti/bin/python3 -m pip install python-socketio==5.8.0
-        sudo /opt/ajenti/bin/python3 -m pip install gipc gevent -U
     - name: Install Bower components
       run: |
         sudo /opt/ajenti/bin/ajenti-dev-multitool --bower install || exit 1
