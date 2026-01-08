@@ -111,7 +111,7 @@ def detect_platform():
     minor = int(minor)
     if (major * 10 + minor) >= 36:
         import distro
-        dist = distro.linux_distribution()[0].split()[0]
+        dist = distro.name()
     elif (major * 10 + minor) >= 26:
         dist = pyplatform.linux_distribution()[0]
     else:
