@@ -120,6 +120,11 @@ class OSAuthenticationProvider(AuthenticationProvider):
         from shlex import quote
 
         try:
+            pwd.getpwnam(quote(username))
+        except KeyError:
+            return False
+
+        try:
             child = pexpect.spawn(
                 '/bin/sh',
                 ['-c', f'/bin/su -c "/bin/echo SUCCESS" - {quote(username)}'],
