@@ -55,7 +55,13 @@ if [ "$OS" == "debian" ] ; then
 
     msg ":: Installing prerequisites"
     apt-get update
-    DEBIAN_FRONTEND='noninteractive' apt-get install -y build-essential python3-pip python3-venv python3-dev python3-lxml python3-dbus libffi-dev python3-augeas libssl-dev libjpeg-dev libpng-dev uuid-dev python3-apt ntpdate git nodejs gettext || exit 1
+
+    DEBIAN_VERSION=$(cat /etc/debian_version | cut -d'.' -f1)
+    if [[ $DEBIAN_VERSION -ge 13 ]] ; then
+        DEBIAN_FRONTEND='noninteractive' apt-get install -y build-essential python3-pip python3-venv python3-dev python3-lxml python3-dbus python3-augeas libssl-dev python3-apt ntpsec-ntpdate || exit 1
+    else
+        DEBIAN_FRONTEND='noninteractive' apt-get install -y build-essential python3-pip python3-venv python3-dev python3-lxml python3-dbus python3-augeas libssl-dev python3-apt ntpdate || exit 1
+    fi
 fi
 
 msg ":: Installing node dependencies"
