@@ -1,6 +1,7 @@
 # core
 arrow
 bs4
+legacy-cgi; python_version >= '3.13'
 cookies
 cryptography
 distro
