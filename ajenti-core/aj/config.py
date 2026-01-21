@@ -138,7 +138,7 @@ class SmtpConfig(BaseConfig):
 
     def load(self):
         if not os.path.exists(self.path):
-            logging.error(f'Smtp credentials file "{self.path}" not found')
+            logging.warning(f'Smtp credentials file "{self.path}" not found')
         else:
             if os.geteuid() == 0:
                 os.chmod(self.path, 384)  # 0o600
