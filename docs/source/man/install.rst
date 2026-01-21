@@ -38,7 +38,8 @@ If the certificate for https is missing, simply run:
 Automatic Installation
 ======================
 
-This installation method will attempt to install `Ajenti` at OS level, and this will not work under newer versions of Debian and Ubuntu, prefer the virtual environment installation above.
+This installation method will attempt to install `Ajenti` at OS level, and this will not work under newer versions of Debian and Ubuntu, this is not recommended anymore.
+Please prefer the virtual environment installation above.
 This should work for all other operating systems.
 
 ::
