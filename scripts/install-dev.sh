@@ -4,6 +4,10 @@ if [ "$(id -u)" != "0" ]; then
    exit 1
 fi
 
+DEPRECATED_WARNING="This script will directly install Ajenti on your system which is not recommended anymore.
+Please prefer the installation script with virtual environment, see: https://docs.ajenti.org/en/latest/man/install.html#automatic-installation-in-virtual-environment."
+echo -e "\e[1m\e[91m$DEPRECATED_WARNING\e[39m\e[0m"
+
 DISTRO=
 OS=
 PYTHON3=$(which python3)
