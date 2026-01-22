@@ -15,7 +15,8 @@ url = 'http://localhost:8000'
 @pytest.fixture(scope="session")
 def handle_ajenti_process():
     print("\n--> Starting Ajenti")
-    process = subprocess.Popen(['python3', './ajenti-test-instance.py'])
+    cmd = "source /opt/ajenti/bin/activate; python3 ./ajenti-test-instance.py"
+    process = subprocess.Popen(cmd, shell=True, executable='/bin/bash')
     while True:
         try:
             requests.get(url)
