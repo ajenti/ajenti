@@ -4,6 +4,7 @@ import logging
 import os
 import sys
 import yaml
+import socket
 
 
 import aj
@@ -111,6 +112,25 @@ if __name__ == '__main__':
         logging.error('Autologin is a dangerous option and should be used together with -v')
         sys.exit(1)
 
+    users_file = '/etc/ajenti/users.yml'
+    smtp_file = '/etc/ajenti/smtp.yml'
+
+    if not os.path.exists('/etc/ajenti'):
+        os.makedirs('/etc/ajenti')
+
+    if not os.path.exists(users_file):
+        with open(users_file, 'w') as u:
+            u.write("users: null")
+
+    if not os.path.exists(smtp_file):
+        with open(smtp_file, 'w') as u:
+            u.write("""smtp:
+  password: ''
+  port: starttls
+  server: ''
+  user: ''
+""")
+
     # Find default config file
     if not config_path:
         # Check for config file in /etc/ajenti/config.yml
@@ -121,8 +141,35 @@ if __name__ == '__main__':
             config_path = os.path.join(sys.path[0], 'config.yml')
 
     if not os.path.exists(config_path):
-        logging.error(f'Config file "{config_path}" not found')
-        sys.exit(1)
+        logging.warning(f'No config file found, creating a new one /etc/ajenti/config.yml')
+
+        with open(config_path, 'w') as c:
+            c.write(f'''
+auth:
+  allow_sudo: true
+  emails: {{}}
+  provider: os
+  users_file: {users_file}
+bind:
+  host: 0.0.0.0
+  mode: tcp
+  port: 8000
+color: default
+max_sessions: 9
+trusted_domains: []
+trusted_proxies: []
+session_max_time: 3600
+name: {socket.gethostname()}
+ssl:
+  certificate:
+  fqdn_certificate:
+  force: false
+  client_auth:
+    certificates: []
+    enable: false
+    force: false
+  enable: false
+        ''')
 
     aj.entry.start(
         config=AjentiConfig(config_path),
