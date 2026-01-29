@@ -1,5 +1,9 @@
 #!/bin/bash
 
+DEPRECATED_WARNING="This script will install Ajenti directly on your system, installation method which is not recommended anymore.
+Please prefer the installation script with virtual environment, see: https://docs.ajenti.org/en/latest/man/install.html#automatic-installation-in-virtual-environment."
+echo -e "\e[1m\e[91m$DEPRECATED_WARNING\e[39m\e[0m"
+
 # Hide root warning for pip
 export PIP_ROOT_USER_ACTION=ignore
 
@@ -111,7 +115,8 @@ msg ":: Installing Ajenti"
 $PYTHON3 -m pip install ajenti-panel ajenti.plugin.core ajenti.plugin.dashboard ajenti.plugin.settings ajenti.plugin.plugins ajenti.plugin.notepad ajenti.plugin.terminal ajenti.plugin.filemanager ajenti.plugin.packages ajenti.plugin.services || exit 1
 
 # Temporary fix for newer versions
-$PYTHON3 -m pip install gipc gevent -U
+$PYTHON3 -m pip install gipc -U
+$PYTHON3 -m pip install gevent==25.5.1
 $PYTHON3 -m pip install zope.event==5.1.1
 
 # ----------------

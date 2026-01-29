@@ -113,7 +113,8 @@ msg ":: Installing Ajenti"
 $PYTHON3 -m pip install ajenti-panel ajenti.plugin.core ajenti.plugin.dashboard ajenti.plugin.settings ajenti.plugin.plugins ajenti.plugin.notepad ajenti.plugin.terminal ajenti.plugin.filemanager ajenti.plugin.packages ajenti.plugin.services || exit 1
 
 # Temporary fix for newer versions
-$PYTHON3 -m pip install gipc gevent -U
+$PYTHON3 -m pip install gipc -U
+$PYTHON3 -m pip install gevent==25.5.1 -U
 $PYTHON3 -m pip install zope.event==5.1.1
 
 # ----------------
