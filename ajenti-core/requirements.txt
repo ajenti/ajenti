@@ -6,7 +6,7 @@ cookies
 cryptography
 distro
 greenlet>=2.0.2
-gevent<=25.4.2
+gevent<=25.5.1
 gevent-websocket
 gipc==1.8.0
 itsdangerous
