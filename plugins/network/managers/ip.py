@@ -1,4 +1,5 @@
 import fcntl
+import shutil
 import socket
 import struct
 import subprocess
@@ -31,16 +32,17 @@ def ifconfig_get_ip4_mask(iface):
     :rtype: tuple
     """
 
+    ip_path = shutil.which('ip') or 'ip'
     try:
-        inet_line = subprocess.check_output(
-            f"ip -4 addr show {iface} | grep 'inet '",
-            shell=True,
-            encoding='utf-8'
-        )
-        return inet_line.strip().split()[1].split('/')
-    except subprocess.CalledProcessError as e:
-        # No ipv4 found
-        return ["Not configured"]*2
+        out = subprocess.check_output([ip_path, '-4', 'addr', 'show', iface], encoding='utf-8')
+        for line in out.splitlines():
+            if 'inet ' in line:
+                return line.strip().split()[1].split('/')
+    except (subprocess.CalledProcessError, IndexError):
+        # No ipv4 found or parsing error
+        pass
+    return ['Not configured'] * 2
+
 
 def ifconfig_get_ip6_mask(iface):
     """
@@ -52,16 +54,17 @@ def ifconfig_get_ip6_mask(iface):
     :rtype: tuple
     """
 
+    ip_path = shutil.which('ip') or 'ip'
     try:
-        inet_line = subprocess.check_output(
-            f"ip -6 addr show {iface} | grep 'inet6 '",
-            shell=True,
-            encoding='utf-8'
-        )
-        return inet_line.strip().split()[1].split('/')
-    except subprocess.CalledProcessError as e:
-        # No ipv6 found
-        return ["Not configured"]*2
+        out = subprocess.check_output([ip_path, '-6', 'addr', 'show', iface], encoding='utf-8')
+        for line in out.splitlines():
+            if 'inet6 ' in line:
+                return line.strip().split()[1].split('/')
+    except (subprocess.CalledProcessError, IndexError):
+        # No ipv6 found or parsing error
+        pass
+    return ['Not configured'] * 2
+
 
 def ifconfig_get_gateway(iface):
     """
@@ -73,11 +76,17 @@ def ifconfig_get_gateway(iface):
     :rtype: string
     """
 
-    return subprocess.check_output(
-        f"ip route | grep default | grep {iface} | cut -d' ' -f3",
-        shell=True,
-        encoding='utf-8'
-    )
+    ip_path = shutil.which('ip') or 'ip'
+    try:
+        out = subprocess.check_output([ip_path, 'route'], encoding='utf-8')
+        for line in out.splitlines():
+            if 'default' in line and iface in line:
+                parts = line.split()
+                if 'via' in parts:
+                    return parts[parts.index('via') + 1]
+    except (subprocess.CalledProcessError, ValueError, IndexError):
+        pass
+    return ''
 
 
 def ifconfig_get_up(iface):
@@ -90,9 +99,10 @@ def ifconfig_get_up(iface):
     :rtype: bool
     """
 
-    if subprocess.call(['ip', 'l', 'show', iface]) != 0:
+    ip_path = shutil.which('ip') or 'ip'
+    if subprocess.call([ip_path, 'l', 'show', iface]) != 0:
         return False
-    return b'UP' in subprocess.check_output(['ip', 'l', 'show', iface])
+    return b'UP' in subprocess.check_output([ip_path, 'l', 'show', iface])
 
 
 def ifconfig_up(iface):
@@ -103,7 +113,8 @@ def ifconfig_up(iface):
     :type iface: string
     """
 
-    subprocess.check_call(['ip', 'link', 'set', iface, 'up'])
+    ip_path = shutil.which('ip') or 'ip'
+    subprocess.check_call([ip_path, 'link', 'set', iface, 'up'])
     ### Is it necessary to do something else like set ip/mask/gateway/post-script ... ?
     # if subprocess.call(['which', 'ifup']) == 0:
         # subprocess.check_call(['ifup', iface])
@@ -120,4 +131,5 @@ def ifconfig_down(iface):
     ### Is it necessary to do something else ?
     # if subprocess.call(['which', 'ifdown']) == 0:
         # subprocess.check_call(['ifdown', iface])
-    subprocess.check_call(['ip', 'link', 'set', iface, 'down'])
+    ip_path = shutil.which('ip') or 'ip'
+    subprocess.check_call([ip_path, 'link', 'set', iface, 'down'])
