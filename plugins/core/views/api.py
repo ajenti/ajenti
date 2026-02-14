@@ -148,7 +148,10 @@ class Handler(HttpPlugin):
                     tmp_string += http_context.env.get('HTTP_USER_AGENT', '')
                     tmp_string += http_context.env.get('HTTP_HOST', '')
                     totp_random = hashlib.sha256(tmp_string.encode('utf-8')).hexdigest()
-                    aj.tfa_config.verify_totp[user_auth_id] = {'totp_random': totp_random}
+                    aj.tfa_config.verify_totp[user_auth_id] = {
+                        'totp_random': totp_random,
+                        'result': False,
+                    }
                     return {
                         'success': True,
                         'username': username,
@@ -207,10 +210,10 @@ class Handler(HttpPlugin):
 
                     # Reset verify value before verifying
                     if aj.tfa_config.verify_totp[user_auth_id].get('totp_random', None) == totp_random:
-                        aj.tfa_config.verify_totp[user_auth_id] = None
+                        aj.tfa_config.verify_totp[user_auth_id]['result'] = False
                         self.context.worker.verify_totp(user_auth_id, totp_code)
                         gevent.sleep(0.3)
-                        if aj.tfa_config.verify_totp[user_auth_id]:
+                        if aj.tfa_config.verify_totp[user_auth_id]['result']:
                             auth.prepare_session_redirect(http_context, username, None)
                             return {
                                 'success': True,

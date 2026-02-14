@@ -152,7 +152,7 @@ class Worker():
                 if rq.object['type'] == 'verify-totp':
                     userid = rq.object['data']['userid']
                     result = rq.object['data']['result']
-                    aj.tfa_config.verify_totp[userid] = result
+                    aj.tfa_config.verify_totp[userid]["result"] = result
 
                 if rq.object['type'] == 'update-tfa-config':
                     aj.tfa_config.data = rq.object['data']
