@@ -22,7 +22,6 @@ resources:
     - resources/vendor/angular-loading-bar/build/loading-bar.min.js
     - resources/vendor/angular-loading-bar/build/loading-bar.min.css
     - resources/vendor/angular-bootstrap/ui-bootstrap-tpls.min.js
-    - resources/vendor/angular-sortable-view/src/angular-sortable-view.js
     - resources/vendor/ngstorage/ngStorage.min.js
     - resources/vendor/fastclick/lib/fastclick.js
     - resources/vendor/angular-base64/angular-base64.js
@@ -44,6 +43,7 @@ resources:
     - resources/js/core/filters.es
     - resources/js/core/interceptors.es
     - resources/js/core/routing.es
+    - resources/js/core/patched/sortable-view.js
     - resources/js/core/controllers/index.controller.es
     - resources/js/core/controllers/login.controller.es
     - resources/js/core/controllers/pwreset.controller.es
