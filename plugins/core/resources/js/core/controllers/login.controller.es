@@ -41,7 +41,7 @@ angular.module('core').controller('CoreLoginController', function($scope, $log, 
         code = $event.code;
         if (code.toString().length == 6) {
             $scope.totp_attempts++;
-            identity.auth($scope.username, code, "totp").then((response) => {
+            identity.auth($scope.username, code + "#" + $scope.totp_random, "totp").then((response) => {
                 $scope.success = true;
                 nextPage = $scope.sanitizeNextPage();
                 location.href = customization.plugins.core.loginredir || nextPage;
@@ -72,6 +72,7 @@ angular.module('core').controller('CoreLoginController', function($scope, $log, 
         $scope.username = $scope.username.toLowerCase();
         identity.auth($scope.username, $scope.password, $scope.mode).then((response) => {
             if (response.data.totp) {
+               $scope.totp_random = response.data.totp_random;
                $scope.verif_code = true;
                return
             }

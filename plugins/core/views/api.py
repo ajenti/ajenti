@@ -1,4 +1,6 @@
 import gevent
+import random
+import hashlib
 import simplejson as json
 import os
 import socket
@@ -141,10 +143,17 @@ class Handler(HttpPlugin):
             auth_info = auth.check_password(username, password)
             if auth_info:
                 if aj.tfa_config.data.get(user_auth_id, {}).get('totp', []):
+                    tmp_string = str(random.random())
+                    tmp_string += http_context.env.get('REMOTE_ADDR', '')
+                    tmp_string += http_context.env.get('HTTP_USER_AGENT', '')
+                    tmp_string += http_context.env.get('HTTP_HOST', '')
+                    totp_random = hashlib.sha256(tmp_string.encode('utf-8')).hexdigest()
+                    aj.tfa_config.verify_totp[user_auth_id] = {'totp_random': totp_random}
                     return {
                         'success': True,
                         'username': username,
-                        'totp': True
+                        'totp': True,
+                        'totp_random': totp_random
                     }
 
                 auth.prepare_session_redirect(http_context, username, auth_info)
@@ -192,16 +201,30 @@ class Handler(HttpPlugin):
                 }
 
         elif mode == 'totp':
-            # Reset verify value before verifying
-            aj.tfa_config.verify_totp[user_auth_id] = None
-            self.context.worker.verify_totp(user_auth_id, password)
-            gevent.sleep(0.3)
-            if aj.tfa_config.verify_totp[user_auth_id]:
-                auth.prepare_session_redirect(http_context, username, None)
-                return {
-                    'success': True,
-                    'username': username,
-                }
+            if isinstance(aj.tfa_config.verify_totp[user_auth_id], dict):
+                try:
+                    totp_code, totp_random = password.split('#')
+
+                    # Reset verify value before verifying
+                    if aj.tfa_config.verify_totp[user_auth_id].get('totp_random', None) == totp_random:
+                        aj.tfa_config.verify_totp[user_auth_id] = None
+                        self.context.worker.verify_totp(user_auth_id, totp_code)
+                        gevent.sleep(0.3)
+                        if aj.tfa_config.verify_totp[user_auth_id]:
+                            auth.prepare_session_redirect(http_context, username, None)
+                            return {
+                                'success': True,
+                                'username': username,
+                            }
+
+                except Exception:
+                    pass
+
+            return {
+                'success': False,
+                'error': _('Authorization failed'),
+            }
+
         return {
             'success': False,
             'error': 'Invalid mode',
