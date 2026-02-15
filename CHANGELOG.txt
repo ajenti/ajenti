@@ -1,4 +1,16 @@
-Ajenti 2.2.12 - Dev
+Ajenti 2.2.13 - Dev
+
+Ajenti 2.2.12 - 16/02/2026
+
+- Fix gevent and zope.event versions to avoid conflicts
+- Update socketio and engineio
+- Replace deprecated method of distro lib
+- Replace standart cgi with legacy-cgi for debian >=13
+- Support for ntpsec-ntpdate for debian >= 13
+- Check for existing usernames before trying to log in
+- [core] Harden TOTP auth with secret key
+- [core] Fix sortable view empty array bug
+- [network] Refactor ip manager to avoid injection (thanks @RinZ27)
 
 Ajenti 2.2.11 - 24/07/2025
 
