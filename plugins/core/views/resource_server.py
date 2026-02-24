@@ -1,5 +1,7 @@
 import json
 import os
+import hashlib
+import time
 from jadi import component
 
 import aj
@@ -52,8 +54,25 @@ class ResourcesHandler(HttpPlugin):
         :rtype: gzip
         """
 
-        if self.use_cache and group in self.cache:
-            content = self.cache[group]
+
+        sid = http_context.env.get('REMOTE_ADDR', '')
+        sid += http_context.env.get('HTTP_USER_AGENT', '')
+        sid += http_context.env.get('HTTP_HOST', '')
+        cache_id = hashlib.sha256(sid.encode('utf-8')).hexdigest()
+
+        if cache_id not in self.cache:
+            self.cache[cache_id] = {'timestamp': int(time.time())}
+
+        if self.use_cache and group in self.cache[cache_id]:
+            content = self.cache[cache_id][group]
+            now = int(time.time())
+            self.cache[cache_id]['timestamp'] = now
+
+            # Delete cache older than 1h
+            dead_cache_id = [cid  for cid, cache in self.cache.items() if now - cache['timestamp'] > 3600]
+            for cid in dead_cache_id:
+                del self.cache[cid]
+
         else:
             content = ''
             if group in ['js', 'css', 'vendor.js', 'vendor.css']:
@@ -110,7 +129,7 @@ class ResourcesHandler(HttpPlugin):
                     }]);
                 '''
 
-            self.cache[group] = content
+            self.cache[cache_id][group] = content
 
         http_context.add_header('Content-Type', {
             'css': 'text/css',
