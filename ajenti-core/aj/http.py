@@ -8,6 +8,7 @@ import gzip
 import json
 import math
 import os
+import re
 from io import BytesIO
 import pickle
 import logging
@@ -15,6 +16,9 @@ from urllib.parse import unquote
 
 from aj.api.http import BaseHttpHandler
 import aj
+
+
+PREFIX_REGEXP = re.compile(r'^[A-Za-z0-9\-\/_~\.#&]*$')
 
 def _validate_origin(env):
     protocol = 'https' if env['SSL'] else 'http'
@@ -34,6 +38,7 @@ class HttpRoot():
     :type  handler: :class:`aj.api.http.BaseHttpHandler`
     """
 
+
     def __init__(self, handler):
         self.handler = handler
 
@@ -41,12 +46,19 @@ class HttpRoot():
         """
         Dispatches the WSGI request
         """
+
+
         if not _validate_origin(env):
             start_response('403 Invalid Origin', [])
             return ''
 
+        prefix = env.get('HTTP_X_URL_PREFIX', '')
+        if re.match(PREFIX_REGEXP, prefix) is None:
+            start_response('403 Invalid Prefix', [])
+            return ''
+
         http_context = HttpContext(env, start_response)
-        http_context.prefix = env.get('HTTP_X_URL_PREFIX', '')
+        http_context.prefix = prefix
         if http_context.prefix:
             if http_context.path.startswith(http_context.prefix):
                 http_context.path = http_context.path[len(http_context.prefix):] or '/'
