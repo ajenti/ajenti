@@ -1,4 +1,9 @@
-Ajenti 2.2.13 - Dev
+Ajenti 2.2.14 - Dev
+
+Ajenti 2.2.13 - 24/02/2026
+
+- More checks on header
+- Cache isolation and time limited
 
 Ajenti 2.2.12 - 16/02/2026
 
