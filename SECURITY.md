@@ -2,7 +2,7 @@
 
 ## Reporting a Vulnerability
 
-The seucrity aspect of Ajenti is taken very seriously, and we will try our best to solve the security issues as soon as possible.
+The security aspect of Ajenti is taken very seriously, and we will try our best to solve the security issues as soon as possible.
 If you wish to report a potential vulnerability, first thank you for your help and your interest !
 That's what makes open source software so great.
 
