@@ -9,10 +9,10 @@ from setuptools import find_packages
 
 setup(
     name='ajenti-panel',
-    version='2.2.13',
+    version='2.2.14',
     python_requires='>=3',
     install_requires=[
-        'aj==2.2.13',
+        'aj==2.2.14',
         'pyyaml',
         'requests',
     ],
