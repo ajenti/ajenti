@@ -1,6 +1,6 @@
-Ajenti 2.2.15 - Dev
+Ajenti 2.2.16 - Dev
 
-Ajenti 2.2.14 - 31/03/2026
+Ajenti 2.2.15 - 31/03/2026
 
 - Add anti-framing headers
 - More checks on tasks
