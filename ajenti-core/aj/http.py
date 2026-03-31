@@ -270,9 +270,22 @@ class HttpContext():
         status = self.status
         if isinstance(status, int):
             status = f'{status} '
+
+        headers = []
+        headers_keys = []
+
+        for x,y in self.headers:
+            headers.append((str(x), str(y)))
+            headers_keys.append(str(x))
+
+        if 'X-Frame-Options' not in headers_keys:
+            headers.append(('X-Frame-Options', 'DENY'))
+        if 'Content-Security-Policy' not in headers_keys:
+            headers.append(('Content-Security-Policy', 'frame-ancestors \'self\';'))
+
         self.start_response(
             str(status),
-            [(str(x), str(y)) for x, y in self.headers]
+            headers
         )
 
     def respond(self, status):
