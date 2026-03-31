@@ -279,7 +279,7 @@ class HttpContext():
             headers_keys.append(str(x))
 
         if 'X-Frame-Options' not in headers_keys:
-            headers.append(('X-Frame-Options', 'DENY'))
+            headers.append(('X-Frame-Options', 'SAMEORIGIN'))
         if 'Content-Security-Policy' not in headers_keys:
             headers.append(('Content-Security-Policy', 'frame-ancestors \'self\';'))
 
