@@ -32,6 +32,9 @@ class Handler(HttpPlugin):
         :type username: string
         """
 
+        if os.getuid() != 0:
+            raise EndpointReturn(403)
+
         password = http_context.body
         self.context.worker.reload_master_config()
         aj.users.data.setdefault('users', {}).setdefault(username, {})['password'] = self.manager.hash_password(password)
