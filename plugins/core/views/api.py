@@ -200,7 +200,7 @@ class Handler(HttpPlugin):
                 gevent.sleep(3)
                 return {
                     'success': False,
-                    'error': e.message,
+                    'error': _('Authorization failed'),
                 }
 
         elif mode == 'totp':
