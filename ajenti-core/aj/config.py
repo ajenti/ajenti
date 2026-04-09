@@ -1,4 +1,5 @@
 import os
+import sys
 import pwd
 import stat
 import yaml
@@ -273,10 +274,10 @@ class AjentiUsers(BaseConfig):
         if not self.path:
             # Check for users file in /etc/ajenti/users.yml
             if os.path.isfile('/etc/ajenti/users.yml'):
-                config_path = '/etc/ajenti/users.yml'
+                self.path = '/etc/ajenti/users.yml'
             elif os.path.isfile(os.path.join(sys.path[0], 'users.yml')):
                 # Try local users file
-                config_path = os.path.join(sys.path[0], 'users.yml')
+                self.path = os.path.join(sys.path[0], 'users.yml')
 
         if not os.path.exists(self.path):
             logging.error(f'Users file "{self.path}" not found')
