@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-27 12:11+0200\n"
-"PO-Revision-Date: 2023-05-07 10:29\n"
+"PO-Revision-Date: 2026-04-26 16:03\n"
 "Last-Translator: \n"
 "Language-Team: Japanese\n"
 "Language: ja_JP\n"
@@ -19,122 +19,122 @@ msgstr ""
 
 #: plugins/power/resources/partial/index.html:72
 msgid "Adapters"
-msgstr ""
+msgstr "アダプター"
 
 #: plugins/power/resources/partial/index.html:32
 msgid "Batteries"
-msgstr ""
+msgstr "バッテリー"
 
 #: plugins/power/resources/partial/index.html:55
 msgid "Charging"
-msgstr ""
+msgstr "充電中"
 
 #: plugins/power/resources/partial/index.html:58
 msgid "Discharging at {{battery.rate}} W"
-msgstr ""
+msgstr "{{battery.rate}} Wで放電中"
 
 #: plugins/power/resources/partial/index.html:22
 #: plugins/power/resources/js/controllers/index.controller.es:55
 msgid "Hibernate"
-msgstr ""
+msgstr "休止状態"
 
 #: plugins/power/resources/partial/index.html:75
 msgid "No adapters detected"
-msgstr ""
+msgstr "アダプターが検出されませんでした"
 
 #: plugins/power/resources/partial/index.html:35
 msgid "No batteries detected"
-msgstr ""
+msgstr "バッテリーが検出されませんでした"
 
 #: plugins/power/resources/partial/index.html:92
 msgid "Not available"
-msgstr ""
+msgstr "利用不可"
 
 #: plugins/power/resources/partial/index.html:89
 msgid "Plugged in"
-msgstr ""
+msgstr "接続済み"
 
 #: plugins/power/resources/partial/widget.html:2 plugins/power/main.py:16
 msgid "Power"
-msgstr ""
+msgstr "電源"
 
 #: plugins/power/resources/partial/index.html:13
 msgid "Power off"
-msgstr ""
+msgstr "電源オフ"
 
 #: plugins/power/resources/partial/index.html:16
 #: plugins/power/resources/js/controllers/index.controller.es:32
 msgid "Reboot"
-msgstr ""
+msgstr "再起動"
 
 #: plugins/power/resources/partial/index.html:19
 #: plugins/power/resources/js/controllers/index.controller.es:45
 msgid "Suspend"
-msgstr ""
+msgstr "スリープ"
 
 #: plugins/power/resources/partial/index.html:6
 msgid "System uptime"
-msgstr ""
+msgstr "システムの稼働時間"
 
 #: plugins/power/resources/partial/index.html:61
 msgid "{{battery.voltage}} V"
-msgstr ""
+msgstr "{{battery.voltage}} V"
 
 #: plugins/power/widget.py:9
 msgid "Power state"
-msgstr ""
+msgstr "電源の状態"
 
 #: plugins/power/main.py:30
 msgid "Shutdown and reboot the system"
-msgstr ""
+msgstr "システムをシャットダウンして再起動します"
 
 #: plugins/power/resources/js/controllers/index.controller.es:2
 msgid "Power management"
-msgstr ""
+msgstr "電源管理"
 
 #: plugins/power/resources/js/controllers/index.controller.es:20
 #: plugins/power/resources/js/controllers/index.controller.es:30
 #: plugins/power/resources/js/controllers/index.controller.es:43
 #: plugins/power/resources/js/controllers/index.controller.es:53
 msgid "Warning"
-msgstr ""
+msgstr "警告"
 
 #: plugins/power/resources/js/controllers/index.controller.es:21
 msgid "Are you sure you want to shutdown the system now?"
-msgstr ""
+msgstr "システムをシャットダウンしてもよろしいですか？"
 
 #: plugins/power/resources/js/controllers/index.controller.es:22
 msgid "Shutdown"
-msgstr ""
+msgstr "シャットダウン"
 
 #: plugins/power/resources/js/controllers/index.controller.es:23
 #: plugins/power/resources/js/controllers/index.controller.es:33
 #: plugins/power/resources/js/controllers/index.controller.es:46
 #: plugins/power/resources/js/controllers/index.controller.es:56
 msgid "Cancel"
-msgstr ""
+msgstr "キャンセル"
 
 #: plugins/power/resources/js/controllers/index.controller.es:31
 msgid "Are you sure you want to reboot the system now?"
-msgstr ""
+msgstr "システムを再起動してもよろしいですか？"
 
 #: plugins/power/resources/js/controllers/index.controller.es:37
 msgid "System is rebooting. We will try to reconnect with it."
-msgstr ""
+msgstr "システムを再起動中です。再接続を試みます。"
 
 #: plugins/power/resources/js/controllers/index.controller.es:44
 msgid "Are you sure you want to suspend the system now?"
-msgstr ""
+msgstr "システムをスリープさせてもよろしいですか？"
 
 #: plugins/power/resources/js/controllers/index.controller.es:48
 msgid "System is suspending"
-msgstr ""
+msgstr "システムをスリープ中です"
 
 #: plugins/power/resources/js/controllers/index.controller.es:54
 msgid "Are you sure you want to hibernate the system now?"
-msgstr ""
+msgstr "システムを休止状態にしてもよろしいですか？"
 
 #: plugins/power/resources/js/controllers/index.controller.es:58
 msgid "System is hibernating"
-msgstr ""
+msgstr "システムを休止状態にしています"
 

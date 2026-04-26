@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-13 21:52+0100\n"
-"PO-Revision-Date: 2023-05-07 10:29\n"
+"POT-Creation-Date: 2026-04-26 17:41+0200\n"
+"PO-Revision-Date: 2026-04-26 16:03\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -19,54 +19,54 @@ msgstr ""
 
 #: plugins/fstab/resources/partial/index.html:54
 msgid "Add"
-msgstr ""
+msgstr "添加"
 
 #: plugins/fstab/resources/partial/index.html:60
 msgid "Add new device"
-msgstr ""
+msgstr "添加新设备"
 
 #: plugins/fstab/resources/partial/index.html:117
 #: plugins/fstab/resources/js/controllers/index.controller.es:58
 msgid "Cancel"
-msgstr ""
+msgstr "取消 "
 
 #: plugins/fstab/resources/partial/index.html:32
 #: plugins/fstab/resources/partial/index.html:8
 msgid "Device"
-msgstr ""
+msgstr "设备"
 
 #: plugins/fstab/resources/partial/index.html:67
 msgid "Device:"
-msgstr ""
+msgstr "设备："
 
 #: plugins/fstab/resources/partial/index.html:9
 msgid "FS Type"
-msgstr ""
+msgstr "文件系统类型"
 
 #: plugins/fstab/resources/partial/index.html:99
 msgid "Frequency:"
-msgstr ""
+msgstr "频率："
 
 #: plugins/fstab/resources/partial/index.html:59
 msgid "Modify"
-msgstr ""
+msgstr "修改"
 
 #: plugins/fstab/resources/partial/index.html:5
 msgid "Mounted"
-msgstr ""
+msgstr "已挂载"
 
 #: plugins/fstab/resources/partial/index.html:10
 #: plugins/fstab/resources/partial/index.html:33
 msgid "Mountpoint"
-msgstr ""
+msgstr "挂载点"
 
 #: plugins/fstab/resources/partial/index.html:75
 msgid "Mountpoint:"
-msgstr ""
+msgstr "挂载点："
 
 #: plugins/fstab/resources/partial/index.html:83
 msgid "Options:"
-msgstr ""
+msgstr "选项："
 
 #: plugins/fstab/resources/partial/index.html:107
 msgid "Pass:"
@@ -75,19 +75,19 @@ msgstr ""
 #: plugins/fstab/resources/partial/index.html:118
 #: plugins/fstab/resources/partial/index.html:119
 msgid "Save"
-msgstr ""
+msgstr "保存"
 
 #: plugins/fstab/resources/partial/index.html:12
 msgid "Size"
-msgstr ""
+msgstr "大小"
 
 #: plugins/fstab/resources/partial/index.html:34
 msgid "Type"
-msgstr ""
+msgstr "类型"
 
 #: plugins/fstab/resources/partial/index.html:91
 msgid "Type:"
-msgstr ""
+msgstr "类型："
 
 #: plugins/fstab/resources/partial/index.html:13
 msgid "Usage"
@@ -95,6 +95,22 @@ msgstr ""
 
 #: plugins/fstab/resources/partial/index.html:11
 msgid "Used"
+msgstr "已用"
+
+#: plugins/fstab/main.py:29
+msgid "List mounts"
+msgstr ""
+
+#: plugins/fstab/main.py:34
+msgid "Umount a device"
+msgstr ""
+
+#: plugins/fstab/main.py:39
+msgid "Read fstab file"
+msgstr ""
+
+#: plugins/fstab/main.py:44
+msgid "Write fstab file"
 msgstr ""
 
 #: plugins/fstab/resources/js/controllers/index.controller.es:2
@@ -103,17 +119,17 @@ msgstr ""
 
 #: plugins/fstab/resources/js/controllers/index.controller.es:13
 msgid "Device successfully unmounted!"
-msgstr ""
+msgstr "设备卸载成功！"
 
 #: plugins/fstab/resources/js/controllers/index.controller.es:31
 msgid "Fstab successfully saved!"
-msgstr ""
+msgstr "Fstab 保存成功！"
 
 #: plugins/fstab/resources/js/controllers/index.controller.es:56
 msgid "Do you really want to permanently delete this entry?"
-msgstr ""
+msgstr "真的要永久删除该项吗？"
 
 #: plugins/fstab/resources/js/controllers/index.controller.es:57
 msgid "Delete"
-msgstr ""
+msgstr "删除"
 

@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-30 15:01+0200\n"
-"PO-Revision-Date: 2023-05-07 10:30\n"
+"POT-Creation-Date: 2026-04-26 17:41+0200\n"
+"PO-Revision-Date: 2026-04-26 16:03\n"
 "Last-Translator: \n"
 "Language-Team: Slovenian\n"
 "Language: sl_SI\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n%100==4 ? 3 : 0);\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3;\n"
 "X-Crowdin-Project: ajenti\n"
 "X-Crowdin-Project-ID: 18127\n"
 "X-Crowdin-Language: sl\n"
@@ -123,6 +123,14 @@ msgstr ""
 #: plugins/cron/resources/partial/index.html:162
 #: plugins/cron/resources/partial/index.html:79
 msgid "Value"
+msgstr ""
+
+#: plugins/cron/main.py:29
+msgid "Read crontab jobs"
+msgstr ""
+
+#: plugins/cron/main.py:34
+msgid "Write jobs in crontab"
 msgstr ""
 
 #: plugins/cron/resources/js/controllers/index.controller.es:2

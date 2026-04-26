@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-13 21:52+0100\n"
+"POT-Creation-Date: 2026-04-26 17:41+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -95,6 +95,22 @@ msgstr ""
 
 #: plugins/fstab/resources/partial/index.html:11
 msgid "Used"
+msgstr ""
+
+#: plugins/fstab/main.py:29
+msgid "List mounts"
+msgstr ""
+
+#: plugins/fstab/main.py:34
+msgid "Umount a device"
+msgstr ""
+
+#: plugins/fstab/main.py:39
+msgid "Read fstab file"
+msgstr ""
+
+#: plugins/fstab/main.py:44
+msgid "Write fstab file"
 msgstr ""
 
 #: plugins/fstab/resources/js/controllers/index.controller.es:2

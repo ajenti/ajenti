@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-27 12:11+0200\n"
-"PO-Revision-Date: 2023-05-07 10:29\n"
+"PO-Revision-Date: 2026-04-26 16:03\n"
 "Last-Translator: \n"
 "Language-Team: Japanese\n"
 "Language: ja_JP\n"
@@ -19,120 +19,120 @@ msgstr ""
 
 #: plugins/supervisor/resources/partial/index.html:45
 msgid "Add"
-msgstr ""
+msgstr "追加"
 
 #: plugins/supervisor/resources/partial/index.html:150
 msgid "Autorestart"
-msgstr ""
+msgstr "自動再起動"
 
 #: plugins/supervisor/resources/partial/index.html:136
 msgid "Autostart"
-msgstr ""
+msgstr "自動開始"
 
 #: plugins/supervisor/resources/partial/index.html:217
 msgid "Close"
-msgstr ""
+msgstr "閉じる"
 
 #: plugins/supervisor/resources/partial/index.html:65
 msgid "Command"
-msgstr ""
+msgstr "コマンド"
 
 #: plugins/supervisor/resources/partial/index.html:8
 msgid "Configure"
-msgstr ""
+msgstr "設定"
 
 #: plugins/supervisor/resources/partial/index.html:106
 msgid "Environment"
-msgstr ""
+msgstr "環境"
 
 #: plugins/supervisor/resources/partial/index.html:62
 msgid "General"
-msgstr ""
+msgstr "一般"
 
 #: plugins/supervisor/resources/partial/index.html:196
 msgid "Kill children"
-msgstr ""
+msgstr "子プロセスの終了"
 
 #: plugins/supervisor/resources/partial/index.html:43
 msgid "New process name"
-msgstr ""
+msgstr "新しいプロセス名"
 
 #: plugins/supervisor/resources/partial/index.html:158
 msgid "No"
-msgstr ""
+msgstr "いいえ"
 
 #: plugins/supervisor/resources/partial/index.html:39
 msgid "No processes defined"
-msgstr ""
+msgstr "プロセスが定義されていません"
 
 #: plugins/supervisor/resources/partial/index.html:75
 msgid "Number of processes"
-msgstr ""
+msgstr "プロセス数"
 
 #: plugins/supervisor/resources/partial/index.html:157
 msgid "On crash"
-msgstr ""
+msgstr "クラッシュ時"
 
 #: plugins/supervisor/resources/partial/index.html:85
 msgid "Process name template"
-msgstr ""
+msgstr "プロセス名のテンプレート"
 
 #: plugins/supervisor/resources/partial/index.html:26
 msgid "RUNNING"
-msgstr ""
+msgstr "実行中"
 
 #: plugins/supervisor/resources/partial/index.html:5
 msgid "Remove"
-msgstr ""
+msgstr "削除"
 
 #: plugins/supervisor/resources/partial/index.html:216
 #: plugins/supervisor/resources/partial/index.html:53
 msgid "Save"
-msgstr ""
+msgstr "保存"
 
 #: plugins/supervisor/resources/partial/index.html:166
 msgid "Seconds to start"
-msgstr ""
+msgstr "開始までの秒数"
 
 #: plugins/supervisor/resources/partial/index.html:174
 msgid "Seconds to stop"
-msgstr ""
+msgstr "停止までの秒数"
 
 #: plugins/supervisor/resources/partial/index.html:203
 msgid "Start retries"
-msgstr ""
+msgstr "再試行回数"
 
 #: plugins/supervisor/resources/partial/index.html:187
 msgid "Terminate children"
-msgstr ""
+msgstr "子プロセスの終了"
 
 #: plugins/supervisor/resources/partial/index.html:95
 msgid "User account"
-msgstr ""
+msgstr "ユーザーアカウント"
 
 #: plugins/supervisor/resources/partial/index.html:115
 msgid "Working directory"
-msgstr ""
+msgstr "作業ディレクトリ"
 
 #: plugins/supervisor/resources/partial/index.html:156
 msgid "Yes"
-msgstr ""
+msgstr "はい"
 
 #: plugins/supervisor/main.py:15
 #: plugins/supervisor/resources/js/controllers/index.controller.es:2
 msgid "Supervisor"
-msgstr ""
+msgstr "スーパーバイザー"
 
 #: plugins/supervisor/resources/js/controllers/index.controller.es:19
 msgid "Saved"
-msgstr ""
+msgstr "保存されました"
 
 #: plugins/supervisor/resources/js/controllers/index.controller.es:20
 msgid "Could not save"
-msgstr ""
+msgstr "保存できませんでした"
 
 #: plugins/supervisor/resources/js/controllers/index.controller.es:34
 #: plugins/supervisor/resources/js/controllers/index.controller.es:39
 msgid "Failed"
-msgstr ""
+msgstr "失敗しました"
 

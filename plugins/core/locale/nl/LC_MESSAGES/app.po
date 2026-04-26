@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-22 19:21+0200\n"
-"PO-Revision-Date: 2023-05-07 10:29\n"
+"POT-Creation-Date: 2026-04-26 17:41+0200\n"
+"PO-Revision-Date: 2026-04-26 16:03\n"
 "Last-Translator: \n"
 "Language-Team: Dutch\n"
 "Language: nl_NL\n"
@@ -19,11 +19,11 @@ msgstr ""
 
 #: plugins/core/resources/partial/404.html:4
 msgid "404 - Page not found"
-msgstr "404 - pagina niet gevonden"
+msgstr "404 - Pagina niet gevonden"
 
 #: plugins/core/resources/partial/reset_password.html:30
 msgid "<small>The two entered passwords differ</small>"
-msgstr ""
+msgstr "<small>De twee ingevoerde wachtwoorden zijn verschillend</small>"
 
 #: plugins/core/resources/partial/404.html:7
 msgid "<span>\n"
@@ -37,35 +37,35 @@ msgstr "<span>\n"
 
 #: plugins/core/content/pages/index.html:157
 msgid "A bootstrap error has occurred"
-msgstr ""
+msgstr "Er is een bootstrap fout opgetreden"
 
 #: plugins/core/resources/partial/totp.html:51
 msgid "A valid key should contain at least 32 characters chosen from \"ABCDEFGHIJKLMNOPQRSTUVWXYZ234567\"."
-msgstr ""
+msgstr "Een geldige sleutel moet minstens 32 tekens uit \"ABCDEFGHIJKLMNOPQRSTUVWXYZ234567\" bevatten."
 
 #: plugins/core/resources/partial/totp.html:26
 #: plugins/core/resources/partial/totp.html:30
 msgid "Add new TOTP"
-msgstr ""
+msgstr "Nieuwe TOTP toevoegen"
 
 #: plugins/core/resources/partial/login.html:32
 msgid "Authenticate"
-msgstr "Inloggen"
+msgstr "Authenticeren"
 
 #: plugins/core/resources/partial/login.html:54
 #: plugins/core/resources/partial/totp.html:63
 #: plugins/core/resources/js/core/controllers/totp.controller.es:57
 msgid "Cancel"
-msgstr ""
+msgstr "Annuleren"
 
 #: plugins/core/resources/partial/totp.html:9
 msgid "Date"
-msgstr ""
+msgstr "Datum"
 
 #: plugins/core/resources/partial/totp.html:10
 #: plugins/core/resources/partial/totp.html:38
 msgid "Description"
-msgstr ""
+msgstr "Beschrijving"
 
 #: plugins/core/content/pages/index.html:89
 msgid "Elevate"
@@ -73,7 +73,7 @@ msgstr "Verheffen"
 
 #: plugins/core/resources/partial/reset_password_send.html:13
 msgid "Email"
-msgstr ""
+msgstr "Email"
 
 #: plugins/core/content/pages/index.html:140
 msgid "Enter"
@@ -81,7 +81,7 @@ msgstr "Voer in"
 
 #: plugins/core/resources/partial/totp.html:45
 msgid "Key"
-msgstr ""
+msgstr "Sleutel"
 
 #: plugins/core/resources/partial/login.html:31
 msgid "Log in"
@@ -93,7 +93,7 @@ msgstr "Afmelden"
 
 #: plugins/core/resources/partial/reset_password.html:23
 msgid "New password"
-msgstr ""
+msgstr "Nieuw wachtwoord"
 
 #: plugins/core/content/pages/index.html:181
 msgid "OK"
@@ -106,20 +106,20 @@ msgstr "Wachtwoord"
 
 #: plugins/core/resources/partial/reset_password.html:26
 msgid "Please confirm the new password"
-msgstr ""
+msgstr "Bevestig a.u.b. het nieuwe wachtwoord"
 
 #: plugins/core/resources/partial/login.html:46
 msgid "Please enter TOTP verification code:"
-msgstr ""
+msgstr "Voer je TOTP verificatiecode in:"
 
 #: plugins/core/resources/partial/reset_password.html:22
 msgid "Please enter the new password"
-msgstr ""
+msgstr "Voer a.u.b een nieuw wachtwoord in"
 
 #: plugins/core/content/pages/index.html:160
 #: plugins/core/resources/js/core/module.es:32
 msgid "Please see browser console"
-msgstr "Raadpleeg browser console"
+msgstr "Raadpleeg de browser console"
 
 #: plugins/core/content/pages/index.html:136
 msgid "Quick search"
@@ -127,19 +127,19 @@ msgstr "Snel zoeken"
 
 #: plugins/core/resources/partial/reset_password.html:27
 msgid "Reenter the new password"
-msgstr ""
+msgstr "Voer het nieuwe wachtwoord nogmaals in"
 
 #: plugins/core/resources/partial/reset_password.html:34
 msgid "Reset password"
-msgstr ""
+msgstr "Wachtwoord opnieuw instellen"
 
 #: plugins/core/resources/partial/totp.html:64
 msgid "Save"
-msgstr ""
+msgstr "Opslaan"
 
 #: plugins/core/resources/partial/reset_password_send.html:17
 msgid "Send instructions to reset password"
-msgstr ""
+msgstr "Verstuur instructies om het wachtwoord opnieuw in te stellen"
 
 #: plugins/core/content/pages/index.html:109
 msgid "Session time : {{ counter[0] }}:{{ counter[1] }}:{{ counter[2] }}"
@@ -147,23 +147,23 @@ msgstr "Sessie tijd: {{ counter[0] }}:{{ counter[1] }}:{{ counter[2] }}"
 
 #: plugins/core/content/pages/index.html:94
 msgid "TFA"
-msgstr ""
+msgstr "TFA"
 
 #: plugins/core/resources/partial/reset_password.html:10
 msgid "The used link is not valid or expired."
-msgstr ""
+msgstr "De gebruikte link is niet geldig of verlopen."
 
 #: plugins/core/resources/partial/totp.html:3
 msgid "There is currently no TOTP key for this user."
-msgstr ""
+msgstr "Er is momenteel geen TOTP-sleutel voor deze gebruiker."
 
 #: plugins/core/resources/partial/totp.html:8
 msgid "User"
-msgstr ""
+msgstr "Gebruiker"
 
 #: plugins/core/resources/partial/totp.html:33
 msgid "User:"
-msgstr ""
+msgstr "Gebruiker:"
 
 #: plugins/core/resources/partial/login.html:19
 msgid "Username"
@@ -171,7 +171,7 @@ msgstr "Gebruikersnaam"
 
 #: plugins/core/resources/partial/totp.html:57
 msgid "Verify"
-msgstr ""
+msgstr "Verifiëren"
 
 #: plugins/core/main.py:17
 msgid "General"
@@ -195,29 +195,32 @@ msgstr "Overig"
 
 #: plugins/core/main.py:68
 msgid "Read configuration file"
-msgstr "Lees configuratiebestand"
+msgstr "Lees het configuratiebestand"
 
 #: plugins/core/main.py:73
 msgid "Write configuration file"
 msgstr "Configuratiebestand schrijven"
 
-#: plugins/core/views/api.py:185
+#: plugins/core/views/api.py:197 plugins/core/views/api.py:203
+#: plugins/core/views/api.py:228
 msgid "Authorization failed"
 msgstr "Autorisatie mislukt"
 
-#: plugins/core/resources/js/core/interceptors.es:5
+#. Should not happen again
+#: plugins/core/resources/js/core/interceptors.es:7
+#: plugins/core/resources/js/core/interceptors.es:19
 msgid "Security error"
 msgstr "Beveiligingsfout"
 
-#: plugins/core/resources/js/core/interceptors.es:8
+#: plugins/core/resources/js/core/interceptors.es:10
 msgid "Server error"
 msgstr "Serverfout"
 
-#: plugins/core/resources/js/core/interceptors.es:12
+#: plugins/core/resources/js/core/interceptors.es:14
 msgid "Close"
 msgstr "Sluiten"
 
-#: plugins/core/resources/js/core/interceptors.es:20
+#: plugins/core/resources/js/core/interceptors.es:27
 msgid "Your session has expired"
 msgstr "Uw sessie is verlopen"
 
@@ -307,38 +310,42 @@ msgstr "Gereed"
 
 #: plugins/core/resources/js/core/controllers/totp.controller.es:55
 msgid "Really delete this TOTP?"
-msgstr ""
+msgstr "Weet je zeker dat je deze TOTP wilt verwijderen?"
 
 #: plugins/core/resources/js/core/controllers/totp.controller.es:56
 msgid "Delete"
-msgstr ""
+msgstr "Verwijderen"
 
 #: plugins/core/resources/js/core/controllers/totp.controller.es:60
 #: plugins/core/resources/js/core/controllers/totp.controller.es:70
 msgid "Command successfully sent"
-msgstr ""
+msgstr "Opdracht succesvol verzonden"
 
-#: plugins/core/resources/js/core/controllers/login.controller.es:50
+#: plugins/core/resources/js/core/controllers/login.controller.es:51
 msgid "Wrong TOTP"
+msgstr "Verkeerde TOTP"
+
+#: plugins/core/resources/js/core/controllers/login.controller.es:86
+msgid "Sudo authentication failed. Are you in the sudo group?"
 msgstr ""
 
-#: plugins/core/resources/js/core/controllers/login.controller.es:83
+#: plugins/core/resources/js/core/controllers/login.controller.es:90
 msgid "Authentication failed"
-msgstr "Aanmelden mislukt"
+msgstr "Authenticatie mislukt"
 
 #: plugins/core/resources/js/core/controllers/pwreset.controller.es:6
 msgid "If the email exists, the user will get a reset email"
-msgstr ""
+msgstr "Als het e-mailadres bestaat ontvangt de gebruiker een herstel e-mail"
 
 #: plugins/core/resources/js/core/controllers/pwreset.controller.es:31
 msgid "Password successfully changed !"
-msgstr ""
+msgstr "Wachtwoord succesvol aangepast!"
 
 #: plugins/core/resources/js/core/controllers/pwreset.controller.es:34
 msgid "An error occured while changing the password"
-msgstr ""
+msgstr "Er is een fout opgetreden tijdens het wijzigen van het wachtwoord"
 
 #: plugins/core/resources/js/core/controllers/pwreset.controller.es:37
 msgid "The password complexity does not match the system requirements : "
-msgstr ""
+msgstr "Dit wachtwoord is niet complex genoeg voor de systeemvereisten: "
 

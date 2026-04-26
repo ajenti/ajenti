@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-07 11:49+0200\n"
-"PO-Revision-Date: 2023-05-07 10:30\n"
+"POT-Creation-Date: 2026-04-26 17:41+0200\n"
+"PO-Revision-Date: 2026-04-26 16:03\n"
 "Last-Translator: \n"
 "Language-Team: Turkish\n"
 "Language: tr_TR\n"
@@ -20,65 +20,74 @@ msgstr ""
 #: plugins/dns_api/resources/partial/index.html:60
 msgid "<i class=\"fas fa-plus-circle\"></i>\n"
 "            Add entry"
-msgstr ""
+msgstr "<i class=\"fas fa-plus-circle\"></i>\n"
+"            Kayıt ekle"
 
 #: plugins/dns_api/resources/partial/index.html:90
 msgid "Add"
-msgstr ""
+msgstr "Ekle"
 
 #: plugins/dns_api/resources/partial/index.html:92
 #: plugins/dns_api/resources/js/controllers/index.controller.es:84
 msgid "Cancel"
-msgstr ""
+msgstr "İptal"
 
 #: plugins/dns_api/resources/partial/index.html:30
 #: plugins/dns_api/resources/partial/index.html:79
 msgid "Name"
-msgstr ""
+msgstr "İsim"
 
 #: plugins/dns_api/resources/partial/index.html:67
 msgid "New DNS entry"
-msgstr ""
+msgstr "Yeni DNS kaydı"
 
 #: plugins/dns_api/resources/partial/index.html:8
 msgid "No domain found with this apikey."
-msgstr ""
+msgstr "Bu apikey ile bir alan adı bulunamadı"
 
 #: plugins/dns_api/resources/partial/index.html:14
 msgid "Select domain:"
-msgstr ""
+msgstr "Alan adı seç:"
 
 #: plugins/dns_api/resources/partial/index.html:25
 msgid "Selected domain: {{domains.active}}"
-msgstr ""
+msgstr "Seçilen alan adı: {{domains.active}}"
 
 #: plugins/dns_api/resources/partial/index.html:31
 #: plugins/dns_api/resources/partial/index.html:75
 msgid "TTL"
-msgstr ""
+msgstr "TTL"
 
 #: plugins/dns_api/resources/partial/index.html:32
 #: plugins/dns_api/resources/partial/index.html:71
 msgid "Type"
-msgstr ""
+msgstr "Tip"
 
 #: plugins/dns_api/resources/partial/index.html:91
 msgid "Update"
-msgstr ""
+msgstr "Güncelle"
 
 #: plugins/dns_api/resources/partial/index.html:83
 msgid "Value"
-msgstr ""
+msgstr "Değer"
 
 #: plugins/dns_api/resources/partial/index.html:33
 msgid "Values"
+msgstr "Değerler"
+
+#: plugins/dns_api/main.py:29
+msgid "List DNS entries via API"
+msgstr ""
+
+#: plugins/dns_api/main.py:34
+msgid "Modify DNS entries via API"
 msgstr ""
 
 #: plugins/dns_api/resources/js/controllers/index.controller.es:2
 msgid "DNS API"
-msgstr ""
+msgstr "DNS API"
 
 #: plugins/dns_api/resources/js/controllers/index.controller.es:83
 msgid "Delete"
-msgstr ""
+msgstr "Sil"
 

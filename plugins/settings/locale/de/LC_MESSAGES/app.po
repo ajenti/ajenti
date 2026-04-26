@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-30 15:01+0200\n"
-"PO-Revision-Date: 2023-05-07 10:29\n"
+"POT-Creation-Date: 2026-04-26 17:41+0200\n"
+"PO-Revision-Date: 2026-04-26 16:03\n"
 "Last-Translator: \n"
 "Language-Team: German\n"
 "Language: de_DE\n"
@@ -32,7 +32,7 @@ msgstr "Bindung"
 #: plugins/settings/resources/partial/index.html:264
 #: plugins/settings/resources/js/controllers/index.controller.es:63
 #: plugins/settings/resources/js/controllers/index.controller.es:76
-#: plugins/settings/resources/js/controllers/index.controller.es:150
+#: plugins/settings/resources/js/controllers/index.controller.es:173
 msgid "Cancel"
 msgstr "Abbrechen"
 
@@ -48,9 +48,17 @@ msgstr "Allgemeiner Name"
 msgid "Country"
 msgstr "Land"
 
+#: plugins/settings/resources/partial/index.html:398
+msgid "Created"
+msgstr "Erstellt"
+
 #: plugins/settings/resources/partial/index.html:188
 msgid "Deny other means of authentication"
 msgstr "Andere Authentifizierungsmittel verweigern"
+
+#: plugins/settings/resources/partial/index.html:397
+msgid "Description"
+msgstr "Beschreibung"
 
 #: plugins/settings/resources/partial/index.html:235
 msgid "Download certificate"
@@ -77,7 +85,7 @@ msgid "General"
 msgstr "Allgemein"
 
 #: plugins/settings/resources/partial/index.html:263
-#: plugins/settings/resources/js/controllers/index.controller.es:149
+#: plugins/settings/resources/js/controllers/index.controller.es:172
 msgid "Generate"
 msgstr "Generieren"
 
@@ -86,7 +94,7 @@ msgid "Generate a self-signed certificate"
 msgstr "Generieren eines selbstsignierten Zertifikates"
 
 #: plugins/settings/resources/partial/index.html:228
-#: plugins/settings/resources/js/controllers/index.controller.es:153
+#: plugins/settings/resources/js/controllers/index.controller.es:176
 msgid "Generating certificate"
 msgstr "Zertifikat generieren"
 
@@ -143,7 +151,7 @@ msgstr "Port"
 msgid "Remove"
 msgstr "Entfernen"
 
-#: plugins/settings/resources/partial/index.html:398
+#: plugins/settings/resources/partial/index.html:419
 msgid "Restart panel"
 msgstr "Neustarten des Panels"
 
@@ -175,7 +183,7 @@ msgstr "SSL-Clientauthentifizierung"
 msgid "SSL client certificates"
 msgstr "SSL-Client-Zertifikate"
 
-#: plugins/settings/resources/partial/index.html:397
+#: plugins/settings/resources/partial/index.html:418
 msgid "Save"
 msgstr "Speichern"
 
@@ -222,6 +230,10 @@ msgstr "Vertrauenswürdige Domains"
 #: plugins/settings/resources/partial/index.html:114
 msgid "Trusted proxies"
 msgstr "Vertrauenswürdige Proxies"
+
+#: plugins/settings/resources/partial/index.html:396
+msgid "User"
+msgstr "Benutzer"
 
 #: plugins/settings/main.py:15
 #: plugins/settings/resources/js/controllers/index.controller.es:2
@@ -271,48 +283,48 @@ msgstr "Authentifizierungsanbieterliste konnte nicht geladen werden"
 msgid "Could not load config"
 msgstr "Konfiguration konnte nicht geladen werden"
 
-#: plugins/settings/resources/js/controllers/index.controller.es:127
+#: plugins/settings/resources/js/controllers/index.controller.es:150
 msgid "Saved"
 msgstr "Gespeichert"
 
-#: plugins/settings/resources/js/controllers/index.controller.es:128
+#: plugins/settings/resources/js/controllers/index.controller.es:151
 msgid "SSL Error"
 msgstr "SSL-Fehler"
 
-#: plugins/settings/resources/js/controllers/index.controller.es:132
+#: plugins/settings/resources/js/controllers/index.controller.es:155
 msgid "Global config saved"
 msgstr "Globale Konfiguration gespeichert"
 
-#: plugins/settings/resources/js/controllers/index.controller.es:134
+#: plugins/settings/resources/js/controllers/index.controller.es:157
 msgid "Could not save global config"
 msgstr "Konnte die globale Konfiguration nicht speichern"
 
-#: plugins/settings/resources/js/controllers/index.controller.es:139
+#: plugins/settings/resources/js/controllers/index.controller.es:162
 msgid "Smtp config saved"
 msgstr "Smtp Konfiguration gespeichert"
 
-#: plugins/settings/resources/js/controllers/index.controller.es:141
+#: plugins/settings/resources/js/controllers/index.controller.es:164
 msgid "Could not save smtp config"
 msgstr "smtp Konfiguration konnte nicht gespeichert werden"
 
-#: plugins/settings/resources/js/controllers/index.controller.es:147
+#: plugins/settings/resources/js/controllers/index.controller.es:170
 msgid "Self-signed certificate"
 msgstr "Selbstsigniertes Zertifikat"
 
-#: plugins/settings/resources/js/controllers/index.controller.es:148
+#: plugins/settings/resources/js/controllers/index.controller.es:171
 msgid "Generating a new certificate will void all existing client authentication certificates!"
 msgstr "Die Generierung eines neuen Zertifikats wird alle bestehenden Client-Authentifizierungszertifikate außer Kraft setzen!"
 
-#: plugins/settings/resources/js/controllers/index.controller.es:153
+#: plugins/settings/resources/js/controllers/index.controller.es:176
 msgid "Please wait"
 msgstr "Bitte warten"
 
-#: plugins/settings/resources/js/controllers/index.controller.es:155
+#: plugins/settings/resources/js/controllers/index.controller.es:178
 msgid "Certificate successfully generated"
 msgstr "Zertifikat erfolgreich generiert"
 
-#: plugins/settings/resources/js/controllers/index.controller.es:160
-#: plugins/settings/resources/js/controllers/index.controller.es:179
+#: plugins/settings/resources/js/controllers/index.controller.es:183
+#: plugins/settings/resources/js/controllers/index.controller.es:202
 msgid "Certificate generation failed"
 msgstr "Zertifikatserstellung fehlgeschlagen"
 

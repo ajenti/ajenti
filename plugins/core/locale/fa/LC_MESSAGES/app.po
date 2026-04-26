@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-22 19:21+0200\n"
-"PO-Revision-Date: 2023-05-07 10:29\n"
+"POT-Creation-Date: 2026-04-26 17:41+0200\n"
+"PO-Revision-Date: 2026-04-26 16:03\n"
 "Last-Translator: \n"
 "Language-Team: Persian\n"
 "Language: fa_IR\n"
@@ -201,23 +201,26 @@ msgstr "خواندن سند پیکربندی"
 msgid "Write configuration file"
 msgstr "نوشتن سند پیکربندی"
 
-#: plugins/core/views/api.py:185
+#: plugins/core/views/api.py:197 plugins/core/views/api.py:203
+#: plugins/core/views/api.py:228
 msgid "Authorization failed"
 msgstr "احراز هویت ناموفق بود"
 
-#: plugins/core/resources/js/core/interceptors.es:5
+#. Should not happen again
+#: plugins/core/resources/js/core/interceptors.es:7
+#: plugins/core/resources/js/core/interceptors.es:19
 msgid "Security error"
 msgstr "خطای امنیتی"
 
-#: plugins/core/resources/js/core/interceptors.es:8
+#: plugins/core/resources/js/core/interceptors.es:10
 msgid "Server error"
 msgstr "خطای سرور"
 
-#: plugins/core/resources/js/core/interceptors.es:12
+#: plugins/core/resources/js/core/interceptors.es:14
 msgid "Close"
 msgstr "بستن"
 
-#: plugins/core/resources/js/core/interceptors.es:20
+#: plugins/core/resources/js/core/interceptors.es:27
 msgid "Your session has expired"
 msgstr "نشست شما منقضی شده است"
 
@@ -318,11 +321,15 @@ msgstr "پاک کردن"
 msgid "Command successfully sent"
 msgstr "دستور با موفقیت ارسال شد"
 
-#: plugins/core/resources/js/core/controllers/login.controller.es:50
+#: plugins/core/resources/js/core/controllers/login.controller.es:51
 msgid "Wrong TOTP"
 msgstr "TOTP اشتباه"
 
-#: plugins/core/resources/js/core/controllers/login.controller.es:83
+#: plugins/core/resources/js/core/controllers/login.controller.es:86
+msgid "Sudo authentication failed. Are you in the sudo group?"
+msgstr ""
+
+#: plugins/core/resources/js/core/controllers/login.controller.es:90
 msgid "Authentication failed"
 msgstr "احراز هویت ناموفق بود"
 

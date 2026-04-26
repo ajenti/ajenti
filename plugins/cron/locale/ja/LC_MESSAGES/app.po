@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-30 15:01+0200\n"
-"PO-Revision-Date: 2023-05-07 10:29\n"
+"POT-Creation-Date: 2026-04-26 17:41+0200\n"
+"PO-Revision-Date: 2026-04-26 16:03\n"
 "Last-Translator: \n"
 "Language-Team: Japanese\n"
 "Language: ja_JP\n"
@@ -22,139 +22,148 @@ msgstr ""
 #: plugins/cron/resources/partial/index.html:98
 msgid "<i class=\"fas fa-plus-circle\"></i>\n"
 "                Add"
-msgstr ""
+msgstr "<i class=\"fas fa-plus-circle\"></i>\n"
+"                追加"
 
 #: plugins/cron/resources/partial/index.html:138
 #: plugins/cron/resources/partial/index.html:154
 #: plugins/cron/resources/partial/index.html:170
 #: plugins/cron/resources/js/controllers/index.controller.es:47
 msgid "Cancel"
-msgstr ""
+msgstr "キャンセル"
 
 #: plugins/cron/resources/partial/index.html:130
 #: plugins/cron/resources/partial/index.html:146
 #: plugins/cron/resources/partial/index.html:15
 #: plugins/cron/resources/partial/index.html:49
 msgid "Command"
-msgstr ""
+msgstr "コマンド"
 
 #: plugins/cron/resources/partial/index.html:134
 #: plugins/cron/resources/partial/index.html:150
 #: plugins/cron/resources/partial/index.html:166
 msgid "Comment"
-msgstr ""
+msgstr "コメント"
 
 #: plugins/cron/resources/partial/index.html:12
 msgid "Day (month)"
-msgstr ""
+msgstr "月"
 
 #: plugins/cron/resources/partial/index.html:14
 msgid "Day (week)"
-msgstr ""
+msgstr "曜日"
 
 #: plugins/cron/resources/partial/index.html:118
 msgid "Day of the month"
-msgstr ""
+msgstr "月"
 
 #: plugins/cron/resources/partial/index.html:126
 msgid "Day of the week"
-msgstr ""
+msgstr "曜日"
 
 #: plugins/cron/resources/partial/index.html:73
 msgid "Environment variables"
-msgstr ""
+msgstr "環境変数"
 
 #: plugins/cron/resources/partial/index.html:11
 #: plugins/cron/resources/partial/index.html:114
 msgid "Hour"
-msgstr ""
+msgstr "時"
 
 #: plugins/cron/resources/partial/index.html:5
 msgid "Jobs"
-msgstr ""
+msgstr "ジョブ"
 
 #: plugins/cron/resources/partial/index.html:10
 #: plugins/cron/resources/partial/index.html:110
 msgid "Minute"
-msgstr ""
+msgstr "分"
 
 #: plugins/cron/resources/partial/index.html:106
 msgid "Modify"
-msgstr ""
+msgstr "修正"
 
 #: plugins/cron/resources/partial/index.html:122
 #: plugins/cron/resources/partial/index.html:13
 msgid "Month"
-msgstr ""
+msgstr "月"
 
 #: plugins/cron/resources/partial/index.html:158
 #: plugins/cron/resources/partial/index.html:78
 msgid "Name"
-msgstr ""
+msgstr "名前"
 
 #: plugins/cron/resources/partial/index.html:139
 #: plugins/cron/resources/partial/index.html:155
 #: plugins/cron/resources/partial/index.html:171
 msgid "OK"
-msgstr ""
+msgstr "はい"
 
 #: plugins/cron/resources/partial/index.html:176
 msgid "Save"
-msgstr ""
+msgstr "保存"
 
 #: plugins/cron/resources/partial/index.html:142
 #: plugins/cron/resources/partial/index.html:43
 #: plugins/cron/resources/partial/index.html:48
 msgid "Special"
-msgstr ""
+msgstr "特殊"
 
 #: plugins/cron/resources/partial/index.html:7
 msgid "There is no cronjob."
-msgstr ""
+msgstr "クロンジョブはありません。"
 
 #: plugins/cron/resources/partial/index.html:45
 msgid "There is no special task."
-msgstr ""
+msgstr "特別なタスクはありません。"
 
 #: plugins/cron/resources/partial/index.html:75
 msgid "There is no variables environment set."
-msgstr ""
+msgstr "環境変数は設定されていません。"
 
 #: plugins/cron/resources/partial/index.html:162
 #: plugins/cron/resources/partial/index.html:79
 msgid "Value"
+msgstr "値"
+
+#: plugins/cron/main.py:29
+msgid "Read crontab jobs"
+msgstr ""
+
+#: plugins/cron/main.py:34
+msgid "Write jobs in crontab"
 msgstr ""
 
 #: plugins/cron/resources/js/controllers/index.controller.es:2
 #: plugins/cron/resources/js/controllers/index.controller.es:4
 msgid "Cron"
-msgstr ""
+msgstr "Cron"
 
 #: plugins/cron/resources/js/controllers/index.controller.es:32
 msgid "normal task"
-msgstr ""
+msgstr "通常タスク"
 
 #: plugins/cron/resources/js/controllers/index.controller.es:33
 msgid "special task"
-msgstr ""
+msgstr "特殊タスク"
 
 #: plugins/cron/resources/js/controllers/index.controller.es:34
 msgid "environment variable"
-msgstr ""
+msgstr "環境変数"
 
 #: plugins/cron/resources/js/controllers/index.controller.es:45
 msgid "Do you really want to permanently delete this entry?"
-msgstr ""
+msgstr "本当にこのエントリーを削除しますか？"
 
 #: plugins/cron/resources/js/controllers/index.controller.es:46
 msgid "Delete"
-msgstr ""
+msgstr "削除"
 
 #: plugins/cron/resources/js/controllers/index.controller.es:76
 msgid "Crontab successfully saved !"
-msgstr ""
+msgstr "Crontabが正常に保存されました！"
 
 #: plugins/cron/resources/js/controllers/index.controller.es:79
 msgid "Failed to save crontab"
-msgstr ""
+msgstr "crontabの保存に失敗しました"
 

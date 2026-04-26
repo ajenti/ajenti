@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-13 21:52+0100\n"
-"PO-Revision-Date: 2023-05-07 10:29\n"
+"POT-Creation-Date: 2026-04-26 17:41+0200\n"
+"PO-Revision-Date: 2026-04-26 16:03\n"
 "Last-Translator: \n"
 "Language-Team: German\n"
 "Language: de_DE\n"
@@ -96,6 +96,22 @@ msgstr "Nutzung"
 #: plugins/fstab/resources/partial/index.html:11
 msgid "Used"
 msgstr "Verwendet"
+
+#: plugins/fstab/main.py:29
+msgid "List mounts"
+msgstr "Mounts auflisten"
+
+#: plugins/fstab/main.py:34
+msgid "Umount a device"
+msgstr "Ein Gerät auswerfen"
+
+#: plugins/fstab/main.py:39
+msgid "Read fstab file"
+msgstr "Fstab Datei lesen"
+
+#: plugins/fstab/main.py:44
+msgid "Write fstab file"
+msgstr "Fstab Datei schreiben"
 
 #: plugins/fstab/resources/js/controllers/index.controller.es:2
 msgid "Fstab"

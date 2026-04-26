@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-25 21:20+0200\n"
-"PO-Revision-Date: 2023-05-07 10:29\n"
+"POT-Creation-Date: 2026-04-26 17:41+0200\n"
+"PO-Revision-Date: 2026-04-26 16:03\n"
 "Last-Translator: \n"
 "Language-Team: Japanese\n"
 "Language: ja_JP\n"
@@ -19,206 +19,206 @@ msgstr ""
 
 #: plugins/plugins/resources/partial/index.html:14
 msgid "Ajenti Core version {{ajentiVersion}}, no upgrades available."
-msgstr ""
+msgstr "Ajenti Core バージョン {{ajentiVersion}}、アップグレードはありません。"
 
 #: plugins/plugins/resources/partial/index.html:20
 msgid "Ajenti core {{ajentiVersion}}. An upgrade to {{coreUpgradeAvailable}} is available."
-msgstr ""
+msgstr "Ajenti core {{ajentiVersion}}。{{coreUpgradeAvailable}} へのアップグレードが利用可能です。"
 
 #: plugins/plugins/resources/partial/index.html:138
 #: plugins/plugins/resources/partial/index.html:196
 msgid "Author"
-msgstr ""
+msgstr "著者"
 
 #: plugins/plugins/resources/partial/index.html:50
 msgid "Available plugins"
-msgstr ""
+msgstr "利用可能なプラグイン"
 
 #: plugins/plugins/resources/partial/index.html:160
 #: plugins/plugins/resources/partial/index.html:212
 msgid "Close"
-msgstr ""
+msgstr "閉じる"
 
 #: plugins/plugins/resources/partial/index.html:73
 msgid "Community"
-msgstr ""
+msgstr "コミュニティ"
 
 #: plugins/plugins/resources/partial/index.html:10
 msgid "Core"
-msgstr ""
+msgstr "コア"
 
 #: plugins/plugins/resources/partial/index.html:148
 msgid "Documentation"
-msgstr ""
+msgstr "ドキュメント"
 
 #: plugins/plugins/resources/partial/index.html:190
 msgid "Downloads in the last month"
-msgstr ""
+msgstr "過去1か月のダウンロード数"
 
 #: plugins/plugins/resources/partial/index.html:106
 msgid "Error"
-msgstr ""
+msgstr "エラー"
 
 #: plugins/plugins/resources/partial/index.html:117
 msgid "Exception: <code>{{selectedInstalledPlugin.crash.cls}}</code>"
-msgstr ""
+msgstr "例外: <code>{{selectedInstalledPlugin.crash.cls}}</code>"
 
 #: plugins/plugins/resources/partial/index.html:74
 msgid "Filter"
-msgstr ""
+msgstr "フィルター"
 
 #: plugins/plugins/resources/partial/index.html:145
 msgid "Homepage"
-msgstr ""
+msgstr "ホームページ"
 
 #: plugins/plugins/resources/partial/index.html:209
 #: plugins/plugins/resources/partial/index.html:59
 #: plugins/plugins/resources/partial/index.html:77
 msgid "Install"
-msgstr ""
+msgstr "インストール"
 
 #: plugins/plugins/resources/partial/index.html:24
 msgid "Installed plugins"
-msgstr ""
+msgstr "インストール済みプラグイン"
 
 #: plugins/plugins/resources/partial/index.html:44
 msgid "Loading error"
-msgstr ""
+msgstr "読み込みエラー"
 
 #: plugins/plugins/resources/partial/index.html:132
 msgid "Location"
-msgstr ""
+msgstr "場所"
 
 #: plugins/plugins/resources/partial/index.html:120
 msgid "Message: <code>{{selectedInstalledPlugin.crash.message}}</code>"
-msgstr ""
+msgstr "メッセージ: <code>{{selectedInstalledPlugin.crash.message}}</code>"
 
 #: plugins/plugins/resources/partial/index.html:100
 #: plugins/plugins/resources/partial/index.html:172
 msgid "Name"
-msgstr ""
+msgstr "名前"
 
 #: plugins/plugins/resources/partial/index.html:56
 msgid "Official"
-msgstr ""
+msgstr "公式"
 
 #: plugins/plugins/resources/partial/index.html:221
 msgid "Restart panel"
-msgstr ""
+msgstr "パネルを再起動"
 
 #: plugins/plugins/resources/partial/index.html:115
 msgid "This plugin crashed with the following error:"
-msgstr ""
+msgstr "このプラグインは次のエラーでクラッシュしました:"
 
 #: plugins/plugins/resources/partial/index.html:110
 msgid "This plugin requires application binary <code>{{selectedInstalledPlugin.crash.binaryName}}</code>, which was unavailable during startup."
-msgstr ""
+msgstr "このプラグインは起動時に使用されるアプリケーションバイナリ <code>{{selectedInstalledPlugin.crash.binaryName}}</code> が利用できませんでした。"
 
 #: plugins/plugins/resources/partial/index.html:107
 msgid "This plugin requires plugin <code>{{selectedInstalledPlugin.crash.pluginName}}</code>, which was unavailable during startup."
-msgstr ""
+msgstr "このプラグインは起動時に利用されるプラグイン <code>{{selectedInstalledPlugin.crash.pluginName}}</code> が利用できませんでした。"
 
 #: plugins/plugins/resources/partial/index.html:157
 #: plugins/plugins/resources/partial/index.html:30
-#: plugins/plugins/resources/js/controllers/index.controller.es:178
-#: plugins/plugins/resources/js/controllers/index.controller.es:180
+#: plugins/plugins/resources/js/controllers/index.controller.es:183
+#: plugins/plugins/resources/js/controllers/index.controller.es:185
 msgid "Uninstall"
-msgstr ""
+msgstr "アンインストール"
 
 #: plugins/plugins/resources/partial/index.html:154
 msgid "Update"
-msgstr ""
+msgstr "アップデート"
 
 #: plugins/plugins/resources/partial/index.html:6
 msgid "Update everything"
-msgstr ""
+msgstr "すべてをアップデート"
 
 #: plugins/plugins/resources/partial/index.html:3
 msgid "Updates"
-msgstr ""
+msgstr "アップデート"
 
 #: plugins/plugins/resources/partial/index.html:41
 msgid "Upgradeable to {{getUpgrade(plugin).version}}"
-msgstr ""
+msgstr "{{getUpgrade(plugin).version}} へのアップグレード可能"
 
 #: plugins/plugins/resources/partial/index.html:126
 #: plugins/plugins/resources/partial/index.html:178
 msgid "Version"
-msgstr ""
+msgstr "バージョン"
 
 #: plugins/plugins/main.py:15
 msgid "Plugins"
-msgstr ""
+msgstr "プラグイン"
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:19
 msgid "Could not load repository version for ajenti-panel."
-msgstr ""
+msgstr "ajenti-panel のリポジトリバージョンを読み込めませんでした。"
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:56
 msgid "Could not load plugin repository"
-msgstr ""
+msgstr "プラグインリポジトリを読み込めませんでした"
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:59
 msgid "Could not load the installed plugin list"
-msgstr ""
-
-#: plugins/plugins/resources/js/controllers/index.controller.es:105
-msgid "All plugins updated"
-msgstr ""
-
-#: plugins/plugins/resources/js/controllers/index.controller.es:107
-#: plugins/plugins/resources/js/controllers/index.controller.es:148
-#: plugins/plugins/resources/js/controllers/index.controller.es:191
-msgid "Done"
-msgstr ""
-
-#: plugins/plugins/resources/js/controllers/index.controller.es:108
-#: plugins/plugins/resources/js/controllers/index.controller.es:149
-msgid "Installed. A panel restart is required."
-msgstr ""
-
-#: plugins/plugins/resources/js/controllers/index.controller.es:109
-#: plugins/plugins/resources/js/controllers/index.controller.es:150
-#: plugins/plugins/resources/js/controllers/index.controller.es:193
-msgid "Restart now"
-msgstr ""
+msgstr "インストールされたプラグインリストを読み込めませんでした"
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:110
-#: plugins/plugins/resources/js/controllers/index.controller.es:151
-#: plugins/plugins/resources/js/controllers/index.controller.es:194
-msgid "Later"
-msgstr ""
+msgid "All plugins updated"
+msgstr "すべてのプラグインがアップデートされました"
+
+#: plugins/plugins/resources/js/controllers/index.controller.es:112
+#: plugins/plugins/resources/js/controllers/index.controller.es:153
+#: plugins/plugins/resources/js/controllers/index.controller.es:196
+msgid "Done"
+msgstr "完了"
+
+#: plugins/plugins/resources/js/controllers/index.controller.es:113
+#: plugins/plugins/resources/js/controllers/index.controller.es:154
+msgid "Installed. A panel restart is required."
+msgstr "インストール済み。パネルの再起動が必要です。"
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:114
+#: plugins/plugins/resources/js/controllers/index.controller.es:155
+#: plugins/plugins/resources/js/controllers/index.controller.es:198
+msgid "Restart now"
+msgstr "今すぐ再起動"
+
+#: plugins/plugins/resources/js/controllers/index.controller.es:115
+#: plugins/plugins/resources/js/controllers/index.controller.es:156
+#: plugins/plugins/resources/js/controllers/index.controller.es:199
+msgid "Later"
+msgstr "後で"
+
+#: plugins/plugins/resources/js/controllers/index.controller.es:119
 msgid "Some plugins failed to update"
-msgstr ""
+msgstr "一部のプラグインのアップデートに失敗しました"
 
-#: plugins/plugins/resources/js/controllers/index.controller.es:154
+#: plugins/plugins/resources/js/controllers/index.controller.es:159
 msgid "Install failed"
-msgstr ""
+msgstr "インストールに失敗しました"
 
-#: plugins/plugins/resources/js/controllers/index.controller.es:162
+#: plugins/plugins/resources/js/controllers/index.controller.es:167
 msgid "Warning"
-msgstr ""
+msgstr "警告"
 
-#: plugins/plugins/resources/js/controllers/index.controller.es:163
+#: plugins/plugins/resources/js/controllers/index.controller.es:168
 msgid "This will remove the Plugins plugin. You can reinstall it later using PIP."
-msgstr ""
+msgstr "これにより Plugins プラグインが削除されます。後で PIP を使用して再インストールできます。"
 
-#: plugins/plugins/resources/js/controllers/index.controller.es:164
+#: plugins/plugins/resources/js/controllers/index.controller.es:169
 msgid "Continue"
-msgstr ""
+msgstr "続行"
 
-#: plugins/plugins/resources/js/controllers/index.controller.es:165
-#: plugins/plugins/resources/js/controllers/index.controller.es:181
+#: plugins/plugins/resources/js/controllers/index.controller.es:170
+#: plugins/plugins/resources/js/controllers/index.controller.es:186
 msgid "Cancel"
-msgstr ""
-
-#: plugins/plugins/resources/js/controllers/index.controller.es:192
-msgid "Uninstalled. A panel restart is required."
-msgstr ""
+msgstr "キャンセル"
 
 #: plugins/plugins/resources/js/controllers/index.controller.es:197
+msgid "Uninstalled. A panel restart is required."
+msgstr "アンインストール済み。パネルの再起動が必要です。"
+
+#: plugins/plugins/resources/js/controllers/index.controller.es:202
 msgid "Uninstall failed"
-msgstr ""
+msgstr "アンインストールに失敗しました"
 

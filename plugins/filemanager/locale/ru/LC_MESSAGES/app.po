@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-22 19:21+0200\n"
-"PO-Revision-Date: 2023-05-07 10:30\n"
+"PO-Revision-Date: 2026-04-26 16:03\n"
 "Last-Translator: \n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
@@ -215,11 +215,11 @@ msgstr "Не удалось загрузить каталог"
 
 #: plugins/filemanager/resources/js/controllers/index.controller.es:71
 msgid "New name"
-msgstr ""
+msgstr "Новое имя"
 
 #: plugins/filemanager/resources/js/controllers/index.controller.es:78
 msgid "File or directory already exists"
-msgstr ""
+msgstr "Файл или каталог уже существует"
 
 #: plugins/filemanager/resources/js/controllers/index.controller.es:113
 msgid "Delete selected items?"

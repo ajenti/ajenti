@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-27 12:10+0200\n"
-"PO-Revision-Date: 2023-05-07 10:30\n"
+"PO-Revision-Date: 2026-04-26 16:03\n"
 "Last-Translator: \n"
 "Language-Team: Ukrainian\n"
 "Language: uk_UA\n"
@@ -132,19 +132,19 @@ msgstr "Немає встановлених імен"
 
 #: plugins/network/resources/partial/index.html:177
 msgid "Post-down script"
-msgstr ""
+msgstr "Post-down скрипт"
 
 #: plugins/network/resources/partial/index.html:162
 msgid "Post-up script"
-msgstr ""
+msgstr "Post-up скрипт"
 
 #: plugins/network/resources/partial/index.html:167
 msgid "Pre-down script"
-msgstr ""
+msgstr "Pre-down скрипт"
 
 #: plugins/network/resources/partial/index.html:152
 msgid "Pre-up script"
-msgstr ""
+msgstr "Pre-up скрипт"
 
 #: plugins/network/resources/partial/index.html:196
 #: plugins/network/resources/partial/index.html:230

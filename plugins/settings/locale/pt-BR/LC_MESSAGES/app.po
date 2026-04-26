@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-30 15:01+0200\n"
-"PO-Revision-Date: 2023-05-07 10:29\n"
+"POT-Creation-Date: 2026-04-26 17:41+0200\n"
+"PO-Revision-Date: 2026-04-26 16:03\n"
 "Last-Translator: \n"
 "Language-Team: Portuguese, Brazilian\n"
 "Language: pt_BR\n"
@@ -32,7 +32,7 @@ msgstr "Ligação"
 #: plugins/settings/resources/partial/index.html:264
 #: plugins/settings/resources/js/controllers/index.controller.es:63
 #: plugins/settings/resources/js/controllers/index.controller.es:76
-#: plugins/settings/resources/js/controllers/index.controller.es:150
+#: plugins/settings/resources/js/controllers/index.controller.es:173
 msgid "Cancel"
 msgstr "Cancelar"
 
@@ -48,9 +48,17 @@ msgstr "Nome comum"
 msgid "Country"
 msgstr "País"
 
+#: plugins/settings/resources/partial/index.html:398
+msgid "Created"
+msgstr ""
+
 #: plugins/settings/resources/partial/index.html:188
 msgid "Deny other means of authentication"
 msgstr "Negar a outros meios de autenticação"
+
+#: plugins/settings/resources/partial/index.html:397
+msgid "Description"
+msgstr ""
 
 #: plugins/settings/resources/partial/index.html:235
 msgid "Download certificate"
@@ -74,10 +82,10 @@ msgstr "Forçar SSL"
 
 #: plugins/settings/resources/partial/index.html:7
 msgid "General"
-msgstr ""
+msgstr "Geral"
 
 #: plugins/settings/resources/partial/index.html:263
-#: plugins/settings/resources/js/controllers/index.controller.es:149
+#: plugins/settings/resources/js/controllers/index.controller.es:172
 msgid "Generate"
 msgstr "Gerar"
 
@@ -86,7 +94,7 @@ msgid "Generate a self-signed certificate"
 msgstr "Gerar um certificado auto-assinado"
 
 #: plugins/settings/resources/partial/index.html:228
-#: plugins/settings/resources/js/controllers/index.controller.es:153
+#: plugins/settings/resources/js/controllers/index.controller.es:176
 msgid "Generating certificate"
 msgstr "Gerando o certificado"
 
@@ -143,7 +151,7 @@ msgstr "Porta"
 msgid "Remove"
 msgstr "Remover"
 
-#: plugins/settings/resources/partial/index.html:398
+#: plugins/settings/resources/partial/index.html:419
 msgid "Restart panel"
 msgstr "Reiniciar painel"
 
@@ -175,7 +183,7 @@ msgstr "Autenticação de cliente SSL"
 msgid "SSL client certificates"
 msgstr "Certificados de cliente SSL"
 
-#: plugins/settings/resources/partial/index.html:397
+#: plugins/settings/resources/partial/index.html:418
 msgid "Save"
 msgstr "Salvar"
 
@@ -205,7 +213,7 @@ msgstr "Sudo"
 
 #: plugins/settings/resources/partial/index.html:337
 msgid "Template email reset"
-msgstr ""
+msgstr "Redefinição de modelo de e-mail"
 
 #: plugins/settings/resources/partial/index.html:293
 msgid "The smtp.yml config file seems to be empty. Currently it's not possible to send emails with this configuration."
@@ -223,6 +231,10 @@ msgstr "Domínios confiáveis"
 msgid "Trusted proxies"
 msgstr "Proxies confiáveis"
 
+#: plugins/settings/resources/partial/index.html:396
+msgid "User"
+msgstr ""
+
 #: plugins/settings/main.py:15
 #: plugins/settings/resources/js/controllers/index.controller.es:2
 msgid "Settings"
@@ -231,7 +243,8 @@ msgstr "Configurar"
 #: plugins/settings/resources/js/controllers/index.controller.es:24
 msgid "If Ajenti is installed behind a proxy, oder reachable by a fqdn other than provided by the host,\n"
 "you can then specify the other domains here, and by this way avoiding some resources loading problems."
-msgstr ""
+msgstr "Se o Ajenti estiver instalado atrás de um proxy, ou acessível por um fqdn diferente do fornecido pelo host,\n"
+"você poderá especificar os outros domínios aqui, evitando assim alguns problemas de carregamento de recursos."
 
 #: plugins/settings/resources/js/controllers/index.controller.es:29
 msgid "If Ajenti is installed behind one or more proxies, specify the ip of these proxies here, in order to\n"
@@ -270,48 +283,48 @@ msgstr "Não foi possível carregar a lista de provedores de autenticação"
 msgid "Could not load config"
 msgstr "Não foi possível carregar a configuração"
 
-#: plugins/settings/resources/js/controllers/index.controller.es:127
+#: plugins/settings/resources/js/controllers/index.controller.es:150
 msgid "Saved"
 msgstr "Salvo"
 
-#: plugins/settings/resources/js/controllers/index.controller.es:128
+#: plugins/settings/resources/js/controllers/index.controller.es:151
 msgid "SSL Error"
 msgstr "Erro de SSL"
 
-#: plugins/settings/resources/js/controllers/index.controller.es:132
+#: plugins/settings/resources/js/controllers/index.controller.es:155
 msgid "Global config saved"
 msgstr "Configuração global salva"
 
-#: plugins/settings/resources/js/controllers/index.controller.es:134
+#: plugins/settings/resources/js/controllers/index.controller.es:157
 msgid "Could not save global config"
 msgstr "Não foi possível salvar a configuração global"
 
-#: plugins/settings/resources/js/controllers/index.controller.es:139
+#: plugins/settings/resources/js/controllers/index.controller.es:162
 msgid "Smtp config saved"
 msgstr "Configuração SMTP salva"
 
-#: plugins/settings/resources/js/controllers/index.controller.es:141
+#: plugins/settings/resources/js/controllers/index.controller.es:164
 msgid "Could not save smtp config"
 msgstr "Não foi possível salvar configuração SMTP"
 
-#: plugins/settings/resources/js/controllers/index.controller.es:147
+#: plugins/settings/resources/js/controllers/index.controller.es:170
 msgid "Self-signed certificate"
 msgstr "Certificado auto-assinado"
 
-#: plugins/settings/resources/js/controllers/index.controller.es:148
+#: plugins/settings/resources/js/controllers/index.controller.es:171
 msgid "Generating a new certificate will void all existing client authentication certificates!"
 msgstr "Gerar um novo certificado anulará todos os certificados de autenticação de cliente existentes!"
 
-#: plugins/settings/resources/js/controllers/index.controller.es:153
+#: plugins/settings/resources/js/controllers/index.controller.es:176
 msgid "Please wait"
 msgstr "Por favor, aguarde"
 
-#: plugins/settings/resources/js/controllers/index.controller.es:155
+#: plugins/settings/resources/js/controllers/index.controller.es:178
 msgid "Certificate successfully generated"
 msgstr "Certificado gerado com sucesso"
 
-#: plugins/settings/resources/js/controllers/index.controller.es:160
-#: plugins/settings/resources/js/controllers/index.controller.es:179
+#: plugins/settings/resources/js/controllers/index.controller.es:183
+#: plugins/settings/resources/js/controllers/index.controller.es:202
 msgid "Certificate generation failed"
 msgstr "Geração de certificado falhou"
 

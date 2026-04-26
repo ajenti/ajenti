@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-07 11:49+0200\n"
-"PO-Revision-Date: 2023-05-07 10:30\n"
+"POT-Creation-Date: 2026-04-26 17:41+0200\n"
+"PO-Revision-Date: 2026-04-26 16:03\n"
 "Last-Translator: \n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
@@ -19,66 +19,66 @@ msgstr ""
 
 #: plugins/iptables/resources/partial/index.html:43
 msgid "Destination"
-msgstr ""
+msgstr "Получатель"
 
 #: plugins/iptables/resources/partial/index.html:41
 msgid "Ip options"
-msgstr ""
+msgstr "Параметры IP"
 
 #: plugins/iptables/resources/partial/index.html:4
 #: plugins/iptables/resources/js/controllers/index.controller.es:2
 msgid "Iptables"
-msgstr ""
+msgstr "Iptables"
 
 #: plugins/iptables/resources/partial/index.html:6
 msgid "No chain found in iptables."
-msgstr ""
+msgstr "Цепочка не найдена в iptables."
 
 #: plugins/iptables/resources/partial/index.html:26
 msgid "No rule found in the chain {{chains.active_chain}}."
-msgstr ""
+msgstr "Правило в цепочке {{chains.active_chain}} не найдено."
 
 #: plugins/iptables/resources/partial/index.html:38
 msgid "Number"
-msgstr ""
+msgstr "Номер"
 
 #: plugins/iptables/resources/partial/index.html:44
 msgid "Options"
-msgstr ""
+msgstr "Параметры"
 
 #: plugins/iptables/resources/partial/index.html:40
 msgid "Protocol"
-msgstr ""
+msgstr "Протокол"
 
 #: plugins/iptables/resources/partial/index.html:12
 msgid "Select chain:"
-msgstr ""
+msgstr "Выберите цепочку:"
 
 #: plugins/iptables/resources/partial/index.html:23
 msgid "Selected chain: {{active_chain}}"
-msgstr ""
+msgstr "Выбранная цепочка: {{active_chain}}"
 
 #: plugins/iptables/resources/partial/index.html:42
 msgid "Source"
-msgstr ""
+msgstr "Отправитель"
 
 #: plugins/iptables/resources/partial/index.html:39
 msgid "Target"
-msgstr ""
+msgstr "Цель"
 
 #: plugins/iptables/views.py:22
 msgid "Iptables is not installed on this host"
-msgstr ""
+msgstr "Iptables не установлен на этом хосте"
 
-#: plugins/iptables/views.py:66
+#: plugins/iptables/views.py:69
 msgid "Rule successfully deleted"
-msgstr ""
+msgstr "Правило успешно удалено"
 
 #: plugins/iptables/resources/js/controllers/index.controller.es:42
 msgid "Delete"
-msgstr ""
+msgstr "Удалить"
 
 #: plugins/iptables/resources/js/controllers/index.controller.es:43
 msgid "Cancel"
-msgstr ""
+msgstr "Отмена"
 

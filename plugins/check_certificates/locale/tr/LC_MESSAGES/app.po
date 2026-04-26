@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-06-25 21:20+0200\n"
-"PO-Revision-Date: 2023-05-07 10:30\n"
+"PO-Revision-Date: 2026-04-26 16:03\n"
 "Last-Translator: \n"
 "Language-Team: Turkish\n"
 "Language: tr_TR\n"
@@ -19,7 +19,7 @@ msgstr ""
 
 #: plugins/check_certificates/resources/partial/index.html:25
 msgid "({{h.restTime}} days)"
-msgstr "({{h.restTime}} günler)"
+msgstr "({{h.restTime}} gün)"
 
 #: plugins/check_certificates/resources/partial/widget.html:4
 msgid "<i class=\"fas fa-check\"></i>\n"
@@ -29,16 +29,16 @@ msgstr "<i class=\"fas fa-check\"></i>\n"
 
 #: plugins/check_certificates/resources/partial/index.html:60
 msgid "Add"
-msgstr ""
+msgstr "Ekle"
 
 #: plugins/check_certificates/resources/partial/index.html:41
 msgid "Add host"
-msgstr "Host ekle"
+msgstr "Sunucu ekle"
 
 #: plugins/check_certificates/resources/partial/index.html:61
 #: plugins/check_certificates/resources/js/controllers/index.controller.coffee:38
 msgid "Cancel"
-msgstr "Vazgeç"
+msgstr "İptal"
 
 #: plugins/check_certificates/resources/partial/widget.html:3
 msgid "Certificates to be renewed"
@@ -46,39 +46,39 @@ msgstr "Yenilenecek sertifikalar"
 
 #: plugins/check_certificates/resources/partial/index.html:11
 msgid "Domain"
-msgstr ""
+msgstr "Alan Adı"
 
 #: plugins/check_certificates/resources/partial/index.html:14
 msgid "End"
-msgstr ""
+msgstr "Son"
 
 #: plugins/check_certificates/resources/partial/index.html:13
 msgid "Issuer"
-msgstr ""
+msgstr "Sertifikayı Veren"
 
 #: plugins/check_certificates/resources/partial/index.html:45
 msgid "New hostname"
-msgstr ""
+msgstr "Yeni host adı"
 
 #: plugins/check_certificates/resources/partial/index.html:5
 msgid "No host defined actually. Please first add an host."
-msgstr ""
+msgstr "Ana makine tanımlanmadı. Lütfen önce ana makine adresi tanımlayın."
 
 #: plugins/check_certificates/resources/partial/index.html:12
 msgid "Port"
-msgstr ""
+msgstr "Bağlantı Noktası"
 
 #: plugins/check_certificates/resources/partial/index.html:53
 msgid "Port ( default is 443 if empty )"
-msgstr ""
+msgstr "Bağlantı Noktası ( boş ise varsayılan port 443 tanımlanır)"
 
 #: plugins/check_certificates/resources/partial/index.html:15
 msgid "Status"
-msgstr ""
+msgstr "Durum"
 
 #: plugins/check_certificates/resources/partial/index.html:49
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 #: plugins/check_certificates/widget.py:8
 msgid "Certificates"
@@ -86,23 +86,23 @@ msgstr "Sertifikalar"
 
 #: plugins/check_certificates/api.py:91 plugins/check_certificates/api.py:97
 msgid "Timeout from host !"
-msgstr ""
+msgstr "Sunucu zaman aşımı"
 
 #: plugins/check_certificates/api.py:94
 msgid "Could not resolve hostname !"
-msgstr ""
+msgstr "Ana makine adresi çözülemedi"
 
 #: plugins/check_certificates/api.py:100
 msgid "Certificate is not valid !"
-msgstr ""
+msgstr "Sertifika gerçersiz!"
 
 #: plugins/check_certificates/api.py:103
 msgid "Can not handle SSL on this port !"
-msgstr ""
+msgstr "Bu bağlantı noktasında SSL işlenemiyor!"
 
 #: plugins/check_certificates/api.py:106
 msgid "Host refuse the connection !"
-msgstr ""
+msgstr "Sunucu bağlantıyı reddetti !"
 
 #: plugins/check_certificates/main.py:17
 #: plugins/check_certificates/resources/js/controllers/index.controller.coffee:2

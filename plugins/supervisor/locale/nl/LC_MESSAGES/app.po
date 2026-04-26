@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-27 12:11+0200\n"
-"PO-Revision-Date: 2023-05-07 10:29\n"
+"PO-Revision-Date: 2026-04-26 16:03\n"
 "Last-Translator: \n"
 "Language-Team: Dutch\n"
 "Language: nl_NL\n"
@@ -19,7 +19,7 @@ msgstr ""
 
 #: plugins/supervisor/resources/partial/index.html:45
 msgid "Add"
-msgstr "Voeg toe"
+msgstr "Toevoegen"
 
 #: plugins/supervisor/resources/partial/index.html:150
 msgid "Autorestart"
@@ -27,7 +27,7 @@ msgstr "Automatisch herstarten"
 
 #: plugins/supervisor/resources/partial/index.html:136
 msgid "Autostart"
-msgstr "Autostart"
+msgstr "Automatisch starten"
 
 #: plugins/supervisor/resources/partial/index.html:217
 msgid "Close"
@@ -35,11 +35,11 @@ msgstr "Sluiten"
 
 #: plugins/supervisor/resources/partial/index.html:65
 msgid "Command"
-msgstr "Commando"
+msgstr "Opdracht"
 
 #: plugins/supervisor/resources/partial/index.html:8
 msgid "Configure"
-msgstr "Configureer"
+msgstr "Configureren"
 
 #: plugins/supervisor/resources/partial/index.html:106
 msgid "Environment"
@@ -51,7 +51,7 @@ msgstr "Algemeen"
 
 #: plugins/supervisor/resources/partial/index.html:196
 msgid "Kill children"
-msgstr "Kill children"
+msgstr "Kinderen doden"
 
 #: plugins/supervisor/resources/partial/index.html:43
 msgid "New process name"
@@ -63,19 +63,19 @@ msgstr "Nee"
 
 #: plugins/supervisor/resources/partial/index.html:39
 msgid "No processes defined"
-msgstr ""
+msgstr "Geen processen gedefinieerd"
 
 #: plugins/supervisor/resources/partial/index.html:75
 msgid "Number of processes"
-msgstr ""
+msgstr "Aantal processen"
 
 #: plugins/supervisor/resources/partial/index.html:157
 msgid "On crash"
-msgstr ""
+msgstr "Bij crash"
 
 #: plugins/supervisor/resources/partial/index.html:85
 msgid "Process name template"
-msgstr ""
+msgstr "Procesnaam sjabloon"
 
 #: plugins/supervisor/resources/partial/index.html:26
 msgid "RUNNING"
@@ -92,19 +92,19 @@ msgstr "Opslaan"
 
 #: plugins/supervisor/resources/partial/index.html:166
 msgid "Seconds to start"
-msgstr ""
+msgstr "Seconden om te starten"
 
 #: plugins/supervisor/resources/partial/index.html:174
 msgid "Seconds to stop"
-msgstr ""
+msgstr "Seconden om te stoppen"
 
 #: plugins/supervisor/resources/partial/index.html:203
 msgid "Start retries"
-msgstr ""
+msgstr "Herstart pogingen"
 
 #: plugins/supervisor/resources/partial/index.html:187
 msgid "Terminate children"
-msgstr ""
+msgstr "Kinderen beëindigen"
 
 #: plugins/supervisor/resources/partial/index.html:95
 msgid "User account"
@@ -112,7 +112,7 @@ msgstr "Gebruikersaccount"
 
 #: plugins/supervisor/resources/partial/index.html:115
 msgid "Working directory"
-msgstr "Werkdirectory"
+msgstr "Werkmap"
 
 #: plugins/supervisor/resources/partial/index.html:156
 msgid "Yes"
@@ -121,18 +121,18 @@ msgstr "Ja"
 #: plugins/supervisor/main.py:15
 #: plugins/supervisor/resources/js/controllers/index.controller.es:2
 msgid "Supervisor"
-msgstr ""
+msgstr "Toezichthouder"
 
 #: plugins/supervisor/resources/js/controllers/index.controller.es:19
 msgid "Saved"
-msgstr ""
+msgstr "Opgeslagen"
 
 #: plugins/supervisor/resources/js/controllers/index.controller.es:20
 msgid "Could not save"
-msgstr ""
+msgstr "Kan niet opslaan"
 
 #: plugins/supervisor/resources/js/controllers/index.controller.es:34
 #: plugins/supervisor/resources/js/controllers/index.controller.es:39
 msgid "Failed"
-msgstr ""
+msgstr "Mislukt"
 

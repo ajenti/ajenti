@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-22 19:21+0200\n"
-"PO-Revision-Date: 2023-05-07 10:30\n"
+"PO-Revision-Date: 2026-04-26 16:03\n"
 "Last-Translator: \n"
 "Language-Team: Spanish\n"
 "Language: es_ES\n"
@@ -75,29 +75,29 @@ msgstr "Abrir terminales shell"
 #: plugins/terminal/resources/js/directives/terminal.es:127
 #: plugins/terminal/resources/js/directives/terminal.es:178
 msgid "Terminal was closed"
-msgstr ""
+msgstr "Terminal cerrada"
 
 #: plugins/terminal/resources/js/services/terminals.service.es:20
 msgid "You will be redirect to the previous page."
-msgstr ""
+msgstr "Será redirigido a la página anterior."
 
 #: plugins/terminal/resources/js/controllers/view.controller.es:11
 msgid "Use exit or Ctrl+D to exit terminal."
-msgstr ""
+msgstr "Utilice salir o Ctrl+D para salir de la terminal."
 
 #: plugins/terminal/resources/js/controllers/widget.controller.es:7
 msgid "Starting the script"
-msgstr ""
+msgstr "Iniciando el script"
 
 #: plugins/terminal/resources/js/controllers/widget.controller.es:10
 msgid "Script has finished"
-msgstr ""
+msgstr "El script ha finalizado"
 
 #: plugins/terminal/resources/js/controllers/widget.controller.es:12
 msgid "Script has failed"
-msgstr ""
+msgstr "El script ha fallado"
 
 #: plugins/terminal/resources/js/controllers/widget.controller.es:15
 msgid "Could not launch the script"
-msgstr ""
+msgstr "No se puede lanzar el script"
 

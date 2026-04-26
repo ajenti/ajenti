@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-21 15:47+0100\n"
-"PO-Revision-Date: 2023-05-07 10:30\n"
+"POT-Creation-Date: 2026-04-26 17:41+0200\n"
+"PO-Revision-Date: 2026-04-26 16:03\n"
 "Last-Translator: \n"
 "Language-Team: Vietnamese\n"
 "Language: vi_VN\n"
@@ -85,8 +85,16 @@ msgstr ""
 msgid "Volumes"
 msgstr ""
 
-#: plugins/docker/views.py:32
+#: plugins/docker/views.py:33
 msgid "Docker is not installed on this host"
+msgstr ""
+
+#: plugins/docker/main.py:30
+msgid "List Docker containers, images and inspect"
+msgstr ""
+
+#: plugins/docker/main.py:35
+msgid "Modify Docker containers, images"
 msgstr ""
 
 #: plugins/docker/resources/js/controllers/index.controller.es:41

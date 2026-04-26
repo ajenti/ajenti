@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-22 19:21+0200\n"
-"PO-Revision-Date: 2023-05-07 10:29\n"
+"PO-Revision-Date: 2026-04-26 16:03\n"
 "Last-Translator: \n"
 "Language-Team: Hebrew\n"
 "Language: he_IL\n"
@@ -19,38 +19,38 @@ msgstr ""
 
 #: plugins/terminal/resources/partial/view.html:15
 msgid "Copy terminal content"
-msgstr ""
+msgstr "העתקת תוכן מסוף"
 
 #: plugins/terminal/resources/partial/view.html:26
 msgid "Done"
-msgstr ""
+msgstr "סיים"
 
 #: plugins/terminal/resources/partial/widget.config.html:3
 msgid "Name"
-msgstr ""
+msgstr "שם"
 
 #: plugins/terminal/resources/partial/index.html:29
 msgid "Open a new terminal"
-msgstr ""
+msgstr "פתח טרמינל חדש"
 
 #: plugins/terminal/resources/partial/widget.html:7
 msgid "Run"
-msgstr ""
+msgstr "הפעלה"
 
 #: plugins/terminal/resources/partial/index.html:34
 msgid "Run a command..."
-msgstr ""
+msgstr "הרץ פקודה"
 
 #: plugins/terminal/resources/partial/widget.config.html:7
 #: plugins/terminal/resources/partial/widget.html:2
 #: plugins/terminal/widget.py:8
 msgid "Script"
-msgstr ""
+msgstr "סקריפט"
 
 #: plugins/terminal/resources/partial/index.html:1
 #: plugins/terminal/resources/js/controllers/index.controller.es:2
 msgid "Terminals"
-msgstr ""
+msgstr "מסופים"
 
 #: plugins/terminal/resources/partial/index.html:9
 msgid "Terminate"
@@ -62,7 +62,7 @@ msgstr ""
 
 #: plugins/terminal/main.py:16
 msgid "Terminal"
-msgstr ""
+msgstr "מסוף"
 
 #: plugins/terminal/main.py:30
 msgid "Run arbitrary scripts"

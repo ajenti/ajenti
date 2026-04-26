@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-22 19:21+0200\n"
-"PO-Revision-Date: 2023-05-07 10:29\n"
+"PO-Revision-Date: 2026-04-26 16:03\n"
 "Last-Translator: \n"
 "Language-Team: Japanese\n"
 "Language: ja_JP\n"
@@ -19,85 +19,85 @@ msgstr ""
 
 #: plugins/terminal/resources/partial/view.html:15
 msgid "Copy terminal content"
-msgstr ""
+msgstr "ターミナルの内容をコピー"
 
 #: plugins/terminal/resources/partial/view.html:26
 msgid "Done"
-msgstr ""
+msgstr "完了"
 
 #: plugins/terminal/resources/partial/widget.config.html:3
 msgid "Name"
-msgstr ""
+msgstr "名前"
 
 #: plugins/terminal/resources/partial/index.html:29
 msgid "Open a new terminal"
-msgstr ""
+msgstr "新しいターミナルを開く"
 
 #: plugins/terminal/resources/partial/widget.html:7
 msgid "Run"
-msgstr ""
+msgstr "実行"
 
 #: plugins/terminal/resources/partial/index.html:34
 msgid "Run a command..."
-msgstr ""
+msgstr "コマンドを実行..."
 
 #: plugins/terminal/resources/partial/widget.config.html:7
 #: plugins/terminal/resources/partial/widget.html:2
 #: plugins/terminal/widget.py:8
 msgid "Script"
-msgstr ""
+msgstr "スクリプト"
 
 #: plugins/terminal/resources/partial/index.html:1
 #: plugins/terminal/resources/js/controllers/index.controller.es:2
 msgid "Terminals"
-msgstr ""
+msgstr "ターミナル"
 
 #: plugins/terminal/resources/partial/index.html:9
 msgid "Terminate"
-msgstr ""
+msgstr "終了"
 
 #: plugins/terminal/resources/partial/widget.config.html:11
 msgid "stdin data"
-msgstr ""
+msgstr "標準入力データ"
 
 #: plugins/terminal/main.py:16
 msgid "Terminal"
-msgstr ""
+msgstr "ターミナル"
 
 #: plugins/terminal/main.py:30
 msgid "Run arbitrary scripts"
-msgstr ""
+msgstr "任意のスクリプトを実行"
 
 #: plugins/terminal/main.py:35
 msgid "Open shell terminals"
-msgstr ""
+msgstr "シェルターミナルを開く"
 
 #: plugins/terminal/resources/js/directives/terminal.es:127
 #: plugins/terminal/resources/js/directives/terminal.es:178
 msgid "Terminal was closed"
-msgstr ""
+msgstr "ターミナルが閉じられました"
 
 #: plugins/terminal/resources/js/services/terminals.service.es:20
 msgid "You will be redirect to the previous page."
-msgstr ""
+msgstr "前のページにリダイレクトされます。"
 
 #: plugins/terminal/resources/js/controllers/view.controller.es:11
 msgid "Use exit or Ctrl+D to exit terminal."
-msgstr ""
+msgstr "ターミナルを終了するには、exitまたはCtrl+Dを使用します。"
 
 #: plugins/terminal/resources/js/controllers/widget.controller.es:7
 msgid "Starting the script"
-msgstr ""
+msgstr "スクリプトを開始しています"
 
 #: plugins/terminal/resources/js/controllers/widget.controller.es:10
 msgid "Script has finished"
-msgstr ""
+msgstr "スクリプトが完了しました"
 
 #: plugins/terminal/resources/js/controllers/widget.controller.es:12
 msgid "Script has failed"
-msgstr ""
+msgstr "スクリプトが失敗しました"
 
 #: plugins/terminal/resources/js/controllers/widget.controller.es:15
 msgid "Could not launch the script"
-msgstr ""
+msgstr "スクリプトを起動できませんでした"
 

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-22 19:21+0200\n"
-"PO-Revision-Date: 2023-05-07 10:30\n"
+"POT-Creation-Date: 2026-04-26 17:41+0200\n"
+"PO-Revision-Date: 2026-04-26 16:03\n"
 "Last-Translator: \n"
 "Language-Team: Turkish\n"
 "Language: tr_TR\n"
@@ -23,7 +23,7 @@ msgstr "404 - Sayfa bulunamadı"
 
 #: plugins/core/resources/partial/reset_password.html:30
 msgid "<small>The two entered passwords differ</small>"
-msgstr ""
+msgstr "<small>Girilen şifreler farklı</small>"
 
 #: plugins/core/resources/partial/404.html:7
 msgid "<span>\n"
@@ -33,20 +33,20 @@ msgid "<span>\n"
 msgstr "<span>\n"
 "                    <i class=\"fa fa-exclamation-triangle\" style=\"color:red;\"></i>\n"
 "                </span>\n"
-"                URL {{url}} bu sunucuda bulunamadı."
+"                {{url}}, bu URL bu sunucuda bulunamadı."
 
 #: plugins/core/content/pages/index.html:157
 msgid "A bootstrap error has occurred"
-msgstr ""
+msgstr "Bir önyükleme hatası oluştu"
 
 #: plugins/core/resources/partial/totp.html:51
 msgid "A valid key should contain at least 32 characters chosen from \"ABCDEFGHIJKLMNOPQRSTUVWXYZ234567\"."
-msgstr ""
+msgstr "Geçerli bir anahtar \"ABCDEFGHIJKLMNOPQRSTUVWXYZ234567\" karakterleri arasından seçilen en az 32 karakter içermelidir."
 
 #: plugins/core/resources/partial/totp.html:26
 #: plugins/core/resources/partial/totp.html:30
 msgid "Add new TOTP"
-msgstr ""
+msgstr "Yeni TOTP ekle"
 
 #: plugins/core/resources/partial/login.html:32
 msgid "Authenticate"
@@ -56,16 +56,16 @@ msgstr "Kimlik doğrula"
 #: plugins/core/resources/partial/totp.html:63
 #: plugins/core/resources/js/core/controllers/totp.controller.es:57
 msgid "Cancel"
-msgstr ""
+msgstr "İptal"
 
 #: plugins/core/resources/partial/totp.html:9
 msgid "Date"
-msgstr ""
+msgstr "Tarih"
 
 #: plugins/core/resources/partial/totp.html:10
 #: plugins/core/resources/partial/totp.html:38
 msgid "Description"
-msgstr ""
+msgstr "Açıklama"
 
 #: plugins/core/content/pages/index.html:89
 msgid "Elevate"
@@ -73,7 +73,7 @@ msgstr "Yükseltmek"
 
 #: plugins/core/resources/partial/reset_password_send.html:13
 msgid "Email"
-msgstr ""
+msgstr "E-posta"
 
 #: plugins/core/content/pages/index.html:140
 msgid "Enter"
@@ -81,7 +81,7 @@ msgstr "Giriş"
 
 #: plugins/core/resources/partial/totp.html:45
 msgid "Key"
-msgstr ""
+msgstr "Anahtar"
 
 #: plugins/core/resources/partial/login.html:31
 msgid "Log in"
@@ -93,7 +93,7 @@ msgstr "Çıkış"
 
 #: plugins/core/resources/partial/reset_password.html:23
 msgid "New password"
-msgstr ""
+msgstr "Yeni parola"
 
 #: plugins/core/content/pages/index.html:181
 msgid "OK"
@@ -106,15 +106,15 @@ msgstr "Parola"
 
 #: plugins/core/resources/partial/reset_password.html:26
 msgid "Please confirm the new password"
-msgstr ""
+msgstr "Lütfen yeni parolayı onaylayın"
 
 #: plugins/core/resources/partial/login.html:46
 msgid "Please enter TOTP verification code:"
-msgstr ""
+msgstr "Lütfen doğrulama kodunu girin"
 
 #: plugins/core/resources/partial/reset_password.html:22
 msgid "Please enter the new password"
-msgstr ""
+msgstr "Lütfen yeni bir parola girin"
 
 #: plugins/core/content/pages/index.html:160
 #: plugins/core/resources/js/core/module.es:32
@@ -127,19 +127,19 @@ msgstr "Hızlı Arama"
 
 #: plugins/core/resources/partial/reset_password.html:27
 msgid "Reenter the new password"
-msgstr ""
+msgstr "Tekrar yeni parolayı giriniz"
 
 #: plugins/core/resources/partial/reset_password.html:34
 msgid "Reset password"
-msgstr ""
+msgstr "Parolayı sıfırla"
 
 #: plugins/core/resources/partial/totp.html:64
 msgid "Save"
-msgstr ""
+msgstr "Kaydet"
 
 #: plugins/core/resources/partial/reset_password_send.html:17
 msgid "Send instructions to reset password"
-msgstr ""
+msgstr "Parola sıfırlama talimatlarını gönder"
 
 #: plugins/core/content/pages/index.html:109
 msgid "Session time : {{ counter[0] }}:{{ counter[1] }}:{{ counter[2] }}"
@@ -147,23 +147,23 @@ msgstr "Oturum süresi : {{ counter[0] }}:{{ counter[1] }}:{{ counter[2] }}"
 
 #: plugins/core/content/pages/index.html:94
 msgid "TFA"
-msgstr ""
+msgstr "2 Faktörlü Kimlik Doğrulama"
 
 #: plugins/core/resources/partial/reset_password.html:10
 msgid "The used link is not valid or expired."
-msgstr ""
+msgstr "Kullanılan link geçersiz veya süresi dolmuş."
 
 #: plugins/core/resources/partial/totp.html:3
 msgid "There is currently no TOTP key for this user."
-msgstr ""
+msgstr "Bu kullanıcı için OTP şifresi bulunmuyor."
 
 #: plugins/core/resources/partial/totp.html:8
 msgid "User"
-msgstr ""
+msgstr "Kullanıcı"
 
 #: plugins/core/resources/partial/totp.html:33
 msgid "User:"
-msgstr ""
+msgstr "Kullanıcı:"
 
 #: plugins/core/resources/partial/login.html:19
 msgid "Username"
@@ -171,7 +171,7 @@ msgstr "Kullanıcı adı"
 
 #: plugins/core/resources/partial/totp.html:57
 msgid "Verify"
-msgstr ""
+msgstr "Doğrula"
 
 #: plugins/core/main.py:17
 msgid "General"
@@ -201,23 +201,26 @@ msgstr "Konfigürasyon dosyasını okuyunuz"
 msgid "Write configuration file"
 msgstr "Konfigürasyon dosyasını düzenle"
 
-#: plugins/core/views/api.py:185
+#: plugins/core/views/api.py:197 plugins/core/views/api.py:203
+#: plugins/core/views/api.py:228
 msgid "Authorization failed"
 msgstr "Yetkilendirme başarısız oldu"
 
-#: plugins/core/resources/js/core/interceptors.es:5
+#. Should not happen again
+#: plugins/core/resources/js/core/interceptors.es:7
+#: plugins/core/resources/js/core/interceptors.es:19
 msgid "Security error"
 msgstr "Güvenlik hatası"
 
-#: plugins/core/resources/js/core/interceptors.es:8
+#: plugins/core/resources/js/core/interceptors.es:10
 msgid "Server error"
 msgstr "Sunucu hatası"
 
-#: plugins/core/resources/js/core/interceptors.es:12
+#: plugins/core/resources/js/core/interceptors.es:14
 msgid "Close"
 msgstr "Kapat"
 
-#: plugins/core/resources/js/core/interceptors.es:20
+#: plugins/core/resources/js/core/interceptors.es:27
 msgid "Your session has expired"
 msgstr "Oturumunuzun süresi doldu"
 
@@ -307,38 +310,42 @@ msgstr "Tamam"
 
 #: plugins/core/resources/js/core/controllers/totp.controller.es:55
 msgid "Really delete this TOTP?"
-msgstr ""
+msgstr "Gerçekten OTPyi kaldırmak istiyor musun?"
 
 #: plugins/core/resources/js/core/controllers/totp.controller.es:56
 msgid "Delete"
-msgstr ""
+msgstr "Sil"
 
 #: plugins/core/resources/js/core/controllers/totp.controller.es:60
 #: plugins/core/resources/js/core/controllers/totp.controller.es:70
 msgid "Command successfully sent"
-msgstr ""
+msgstr "Komut başarıyla gönderildi"
 
-#: plugins/core/resources/js/core/controllers/login.controller.es:50
+#: plugins/core/resources/js/core/controllers/login.controller.es:51
 msgid "Wrong TOTP"
+msgstr "Geçersiz OTP"
+
+#: plugins/core/resources/js/core/controllers/login.controller.es:86
+msgid "Sudo authentication failed. Are you in the sudo group?"
 msgstr ""
 
-#: plugins/core/resources/js/core/controllers/login.controller.es:83
+#: plugins/core/resources/js/core/controllers/login.controller.es:90
 msgid "Authentication failed"
 msgstr "Kimlik doğrulama başarısız oldu"
 
 #: plugins/core/resources/js/core/controllers/pwreset.controller.es:6
 msgid "If the email exists, the user will get a reset email"
-msgstr ""
+msgstr "Eğer bu eposta kayıtlıysa, şifre sıfırlama talimatları gönderilecektir"
 
 #: plugins/core/resources/js/core/controllers/pwreset.controller.es:31
 msgid "Password successfully changed !"
-msgstr ""
+msgstr "Şifre başarıyla değiştirildi !"
 
 #: plugins/core/resources/js/core/controllers/pwreset.controller.es:34
 msgid "An error occured while changing the password"
-msgstr ""
+msgstr "Şifre değiştirilirken bir hatayla karşılaşıldı"
 
 #: plugins/core/resources/js/core/controllers/pwreset.controller.es:37
 msgid "The password complexity does not match the system requirements : "
-msgstr ""
+msgstr "Şifre güvenliği sistem gereksinimlerini karşılamıyor : "
 

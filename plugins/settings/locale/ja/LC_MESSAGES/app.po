@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-30 15:01+0200\n"
-"PO-Revision-Date: 2023-05-07 10:29\n"
+"POT-Creation-Date: 2026-04-26 17:41+0200\n"
+"PO-Revision-Date: 2026-04-26 16:03\n"
 "Last-Translator: \n"
 "Language-Team: Japanese\n"
 "Language: ja_JP\n"
@@ -19,295 +19,312 @@ msgstr ""
 
 #: plugins/settings/resources/partial/index.html:87
 msgid "Allow sudo elevation for logged in users"
-msgstr ""
+msgstr "ログインしているユーザーに対してsudo昇格を許可する"
 
 #: plugins/settings/resources/partial/index.html:74
 msgid "Authentication provider"
-msgstr ""
+msgstr "認証プロバイダー"
 
 #: plugins/settings/resources/partial/index.html:43
 msgid "Binding"
-msgstr ""
+msgstr "バインディング"
 
 #: plugins/settings/resources/partial/index.html:264
 #: plugins/settings/resources/js/controllers/index.controller.es:63
 #: plugins/settings/resources/js/controllers/index.controller.es:76
-#: plugins/settings/resources/js/controllers/index.controller.es:150
+#: plugins/settings/resources/js/controllers/index.controller.es:173
 msgid "Cancel"
-msgstr ""
+msgstr "キャンセル"
 
 #: plugins/settings/resources/partial/index.html:19
 msgid "Color tag"
-msgstr ""
+msgstr "カラータグ"
 
 #: plugins/settings/resources/partial/index.html:257
 msgid "Common name"
-msgstr ""
+msgstr "一般名"
 
 #: plugins/settings/resources/partial/index.html:245
 msgid "Country"
+msgstr "国"
+
+#: plugins/settings/resources/partial/index.html:398
+msgid "Created"
 msgstr ""
 
 #: plugins/settings/resources/partial/index.html:188
 msgid "Deny other means of authentication"
+msgstr "他の認証手段を拒否する"
+
+#: plugins/settings/resources/partial/index.html:397
+msgid "Description"
 msgstr ""
 
 #: plugins/settings/resources/partial/index.html:235
 msgid "Download certificate"
-msgstr ""
+msgstr "証明書のダウンロード"
 
 #: plugins/settings/resources/partial/index.html:146
 msgid "Enable SSL"
-msgstr ""
+msgstr "SSLを有効にする"
 
 #: plugins/settings/resources/partial/index.html:185
 msgid "Enable client authentication"
-msgstr ""
+msgstr "クライアント認証を有効にする"
 
 #: plugins/settings/resources/partial/index.html:284
 msgid "Enable email relay for notification"
-msgstr ""
+msgstr "通知のための電子メールリレーを有効にする"
 
 #: plugins/settings/resources/partial/index.html:153
 msgid "Force SSL"
-msgstr ""
+msgstr "SSLを強制する"
 
 #: plugins/settings/resources/partial/index.html:7
 msgid "General"
-msgstr ""
+msgstr "一般"
 
 #: plugins/settings/resources/partial/index.html:263
-#: plugins/settings/resources/js/controllers/index.controller.es:149
+#: plugins/settings/resources/js/controllers/index.controller.es:172
 msgid "Generate"
-msgstr ""
+msgstr "生成する"
 
 #: plugins/settings/resources/partial/index.html:165
 msgid "Generate a self-signed certificate"
-msgstr ""
+msgstr "自己署名証明書を生成する"
 
 #: plugins/settings/resources/partial/index.html:228
-#: plugins/settings/resources/js/controllers/index.controller.es:153
+#: plugins/settings/resources/js/controllers/index.controller.es:176
 msgid "Generating certificate"
-msgstr ""
+msgstr "証明書を生成中"
 
 #: plugins/settings/resources/partial/index.html:54
 msgid "Host / IP"
-msgstr ""
+msgstr "ホスト / IP"
 
 #: plugins/settings/resources/partial/index.html:33
 msgid "Language"
-msgstr ""
+msgstr "言語"
 
 #: plugins/settings/resources/partial/index.html:241
 msgid "Login as"
-msgstr ""
+msgstr "としてログイン"
 
 #: plugins/settings/resources/partial/index.html:13
 msgid "Machine name"
-msgstr ""
+msgstr "マシン名"
 
 #: plugins/settings/resources/partial/index.html:135
 msgid "Max session time"
-msgstr ""
+msgstr "最大セッション時間"
 
 #: plugins/settings/resources/partial/index.html:218
 msgid "New certificate"
-msgstr ""
+msgstr "新しい証明書"
 
 #: plugins/settings/resources/partial/index.html:223
 msgid "New client certificate"
-msgstr ""
+msgstr "新しいクライアント証明書"
 
 #: plugins/settings/resources/partial/index.html:109
 msgid "New domain"
-msgstr ""
+msgstr "新しいドメイン"
 
 #: plugins/settings/resources/partial/index.html:126
 msgid "New proxy"
-msgstr ""
+msgstr "新しいプロキシ"
 
 #: plugins/settings/resources/partial/index.html:195
 msgid "No certificates are created yet."
-msgstr ""
+msgstr "まだ証明書が作成されていません。"
 
 #: plugins/settings/resources/partial/index.html:253
 msgid "Organization"
-msgstr ""
+msgstr "組織"
 
 #: plugins/settings/resources/partial/index.html:304
 #: plugins/settings/resources/partial/index.html:57
 msgid "Port"
-msgstr ""
+msgstr "ポート"
 
 #: plugins/settings/resources/partial/index.html:352
 msgid "Remove"
-msgstr ""
+msgstr "削除"
 
-#: plugins/settings/resources/partial/index.html:398
+#: plugins/settings/resources/partial/index.html:419
 msgid "Restart panel"
-msgstr ""
+msgstr "パネルを再起動"
 
 #: plugins/settings/resources/partial/index.html:299
 msgid "SMTP host"
-msgstr ""
+msgstr "SMTPホスト"
 
 #: plugins/settings/resources/partial/index.html:321
 msgid "SMTP password"
-msgstr ""
+msgstr "SMTPパスワード"
 
 #: plugins/settings/resources/partial/index.html:315
 msgid "SMTP user"
-msgstr ""
+msgstr "SMTPユーザー"
 
 #: plugins/settings/resources/partial/index.html:172
 msgid "SSL FQDN certificate file"
-msgstr ""
+msgstr "SSL FQDN証明書ファイル"
 
 #: plugins/settings/resources/partial/index.html:160
 msgid "SSL certificate file"
-msgstr ""
+msgstr "SSL証明書ファイル"
 
 #: plugins/settings/resources/partial/index.html:183
 msgid "SSL client authentication"
-msgstr ""
+msgstr "SSLクライアント認証"
 
 #: plugins/settings/resources/partial/index.html:193
 msgid "SSL client certificates"
-msgstr ""
+msgstr "SSLクライアント証明書"
 
-#: plugins/settings/resources/partial/index.html:397
+#: plugins/settings/resources/partial/index.html:418
 msgid "Save"
-msgstr ""
+msgstr "保存"
 
 #: plugins/settings/resources/partial/index.html:268
 msgid "Save and Close"
-msgstr ""
+msgstr "保存して閉じる"
 
 #: plugins/settings/resources/partial/index.html:70
 msgid "Security"
-msgstr ""
+msgstr "セキュリティ"
 
 #: plugins/settings/resources/partial/index.html:278
 msgid "Smtp relay"
-msgstr ""
+msgstr "SMTPリレー"
 
 #: plugins/settings/resources/partial/index.html:62
 msgid "Socket path"
-msgstr ""
+msgstr "ソケットパス"
 
 #: plugins/settings/resources/partial/index.html:249
 msgid "State"
-msgstr ""
+msgstr "状態"
 
 #: plugins/settings/resources/partial/index.html:85
 msgid "Sudo"
-msgstr ""
+msgstr "Sudo権限"
 
 #: plugins/settings/resources/partial/index.html:337
 msgid "Template email reset"
-msgstr ""
+msgstr "テンプレートメールのリセット"
 
 #: plugins/settings/resources/partial/index.html:293
 msgid "The smtp.yml config file seems to be empty. Currently it's not possible to send emails with this configuration."
-msgstr ""
+msgstr "smtp.ymlの設定ファイルが空のようです。現在、この設定ではメールを送信することができません。"
 
 #: plugins/settings/resources/partial/index.html:229
 msgid "This might take a few seconds"
-msgstr ""
+msgstr "これには数秒かかる場合があります"
 
 #: plugins/settings/resources/partial/index.html:97
 msgid "Trusted domains"
-msgstr ""
+msgstr "信頼されるドメイン"
 
 #: plugins/settings/resources/partial/index.html:114
 msgid "Trusted proxies"
+msgstr "信頼されるプロキシ"
+
+#: plugins/settings/resources/partial/index.html:396
+msgid "User"
 msgstr ""
 
 #: plugins/settings/main.py:15
 #: plugins/settings/resources/js/controllers/index.controller.es:2
 msgid "Settings"
-msgstr ""
+msgstr "設定"
 
 #: plugins/settings/resources/js/controllers/index.controller.es:24
 msgid "If Ajenti is installed behind a proxy, oder reachable by a fqdn other than provided by the host,\n"
 "you can then specify the other domains here, and by this way avoiding some resources loading problems."
-msgstr ""
+msgstr "Ajentiがプロキシの背後にインストールされている場合、ホストが提供する以外のfqdnに到達可能。\n"
+"ここで他のドメインを指定することができます。この方法で、リソースの読み込みに問題があることを回避できます。"
 
 #: plugins/settings/resources/js/controllers/index.controller.es:29
 msgid "If Ajenti is installed behind one or more proxies, specify the ip of these proxies here, in order to\n"
 "get the real client ip address."
-msgstr ""
+msgstr "Ajenti が 1 つ以上のプロキシの後ろにインストールされている場合は、ここでこれらのプロキシの IP を指定します。 実際のクライアントのIPアドレスを\n"
+"取得するために。"
 
 #: plugins/settings/resources/js/controllers/index.controller.es:34
 msgid "This certificate is the default certificate used to create client certificate and to provide https connection.\n"
 "Using a Let's Encrypt certificate here will break the client certificate generator.\n"
 "Using a self-generated certificate is fine here."
-msgstr ""
+msgstr "この証明書は、クライアント証明書を作成し、https接続を提供するために使用されるデフォルトの証明書です。\n"
+"ここで Let's Encrypt 証明書を使用すると、クライアント証明書ジェネレータが壊れます。\n"
+"ここでは、自己生成証明書を使用することは問題ありません。"
 
 #: plugins/settings/resources/js/controllers/index.controller.es:40
 msgid "If you have a special certificate for your domain, like a Let's Encrypt certificate, put it there.\n"
 "If you are not sure, just use the same certificate as the one above."
-msgstr ""
+msgstr "ドメイン用の特別な証明書（Let's Encrypt証明書など）がある場合は、そこに入れてください。\n"
+"わからない場合は、上記の証明書と同じものを使用してください。"
 
 #: plugins/settings/resources/js/controllers/index.controller.es:46
 msgid "Please be sure to have at least one valid user in the authentication provider. When not, you will be lock out from Ajenti. "
-msgstr ""
+msgstr "認証プロバイダに少なくとも1人の有効なユーザーが登録されていることを確認してください。認証されていない場合は、Ajentiからロックアウトされます。 "
 
 #: plugins/settings/resources/js/controllers/index.controller.es:62
 #: plugins/settings/resources/js/controllers/index.controller.es:75
 msgid "Delete"
-msgstr ""
+msgstr "削除"
 
 #: plugins/settings/resources/js/controllers/index.controller.es:101
 msgid "Could not load authentication provider list"
-msgstr ""
+msgstr "認証プロバイダのリストを読み込めませんでした"
 
 #: plugins/settings/resources/js/controllers/index.controller.es:104
 msgid "Could not load config"
-msgstr ""
+msgstr "設定を読み込めませんでした"
 
-#: plugins/settings/resources/js/controllers/index.controller.es:127
+#: plugins/settings/resources/js/controllers/index.controller.es:150
 msgid "Saved"
-msgstr ""
+msgstr "保存しました"
 
-#: plugins/settings/resources/js/controllers/index.controller.es:128
+#: plugins/settings/resources/js/controllers/index.controller.es:151
 msgid "SSL Error"
-msgstr ""
-
-#: plugins/settings/resources/js/controllers/index.controller.es:132
-msgid "Global config saved"
-msgstr ""
-
-#: plugins/settings/resources/js/controllers/index.controller.es:134
-msgid "Could not save global config"
-msgstr ""
-
-#: plugins/settings/resources/js/controllers/index.controller.es:139
-msgid "Smtp config saved"
-msgstr ""
-
-#: plugins/settings/resources/js/controllers/index.controller.es:141
-msgid "Could not save smtp config"
-msgstr ""
-
-#: plugins/settings/resources/js/controllers/index.controller.es:147
-msgid "Self-signed certificate"
-msgstr ""
-
-#: plugins/settings/resources/js/controllers/index.controller.es:148
-msgid "Generating a new certificate will void all existing client authentication certificates!"
-msgstr ""
-
-#: plugins/settings/resources/js/controllers/index.controller.es:153
-msgid "Please wait"
-msgstr ""
+msgstr "SSLエラー"
 
 #: plugins/settings/resources/js/controllers/index.controller.es:155
-msgid "Certificate successfully generated"
-msgstr ""
+msgid "Global config saved"
+msgstr "グローバル設定を保存しました"
 
-#: plugins/settings/resources/js/controllers/index.controller.es:160
-#: plugins/settings/resources/js/controllers/index.controller.es:179
+#: plugins/settings/resources/js/controllers/index.controller.es:157
+msgid "Could not save global config"
+msgstr "グローバル設定を保存できませんでした"
+
+#: plugins/settings/resources/js/controllers/index.controller.es:162
+msgid "Smtp config saved"
+msgstr "SMTP設定を保存しました"
+
+#: plugins/settings/resources/js/controllers/index.controller.es:164
+msgid "Could not save smtp config"
+msgstr "SMTP設定を保存できませんでした"
+
+#: plugins/settings/resources/js/controllers/index.controller.es:170
+msgid "Self-signed certificate"
+msgstr "自己署名証明書"
+
+#: plugins/settings/resources/js/controllers/index.controller.es:171
+msgid "Generating a new certificate will void all existing client authentication certificates!"
+msgstr "新しい証明書を生成すると、すべての既存のクライアント証明書は無効になります！"
+
+#: plugins/settings/resources/js/controllers/index.controller.es:176
+msgid "Please wait"
+msgstr "お待ちください"
+
+#: plugins/settings/resources/js/controllers/index.controller.es:178
+msgid "Certificate successfully generated"
+msgstr "証明書が正常に生成されました"
+
+#: plugins/settings/resources/js/controllers/index.controller.es:183
+#: plugins/settings/resources/js/controllers/index.controller.es:202
 msgid "Certificate generation failed"
-msgstr ""
+msgstr "証明書の生成に失敗しました"
 

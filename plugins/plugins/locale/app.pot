@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-07 11:53+0200\n"
+"POT-Creation-Date: 2026-04-26 17:41+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -126,8 +126,8 @@ msgstr ""
 
 #: plugins/plugins/resources/partial/index.html:157
 #: plugins/plugins/resources/partial/index.html:30
-#: plugins/plugins/resources/js/controllers/index.controller.es:178
-#: plugins/plugins/resources/js/controllers/index.controller.es:180
+#: plugins/plugins/resources/js/controllers/index.controller.es:183
+#: plugins/plugins/resources/js/controllers/index.controller.es:185
 msgid "Uninstall"
 msgstr ""
 
@@ -168,63 +168,63 @@ msgstr ""
 msgid "Could not load the installed plugin list"
 msgstr ""
 
-#: plugins/plugins/resources/js/controllers/index.controller.es:105
+#: plugins/plugins/resources/js/controllers/index.controller.es:110
 msgid "All plugins updated"
 msgstr ""
 
-#: plugins/plugins/resources/js/controllers/index.controller.es:107
-#: plugins/plugins/resources/js/controllers/index.controller.es:148
-#: plugins/plugins/resources/js/controllers/index.controller.es:191
+#: plugins/plugins/resources/js/controllers/index.controller.es:112
+#: plugins/plugins/resources/js/controllers/index.controller.es:153
+#: plugins/plugins/resources/js/controllers/index.controller.es:196
 msgid "Done"
 msgstr ""
 
-#: plugins/plugins/resources/js/controllers/index.controller.es:108
-#: plugins/plugins/resources/js/controllers/index.controller.es:149
+#: plugins/plugins/resources/js/controllers/index.controller.es:113
+#: plugins/plugins/resources/js/controllers/index.controller.es:154
 msgid "Installed. A panel restart is required."
 msgstr ""
 
-#: plugins/plugins/resources/js/controllers/index.controller.es:109
-#: plugins/plugins/resources/js/controllers/index.controller.es:150
-#: plugins/plugins/resources/js/controllers/index.controller.es:193
+#: plugins/plugins/resources/js/controllers/index.controller.es:114
+#: plugins/plugins/resources/js/controllers/index.controller.es:155
+#: plugins/plugins/resources/js/controllers/index.controller.es:198
 msgid "Restart now"
 msgstr ""
 
-#: plugins/plugins/resources/js/controllers/index.controller.es:110
-#: plugins/plugins/resources/js/controllers/index.controller.es:151
-#: plugins/plugins/resources/js/controllers/index.controller.es:194
+#: plugins/plugins/resources/js/controllers/index.controller.es:115
+#: plugins/plugins/resources/js/controllers/index.controller.es:156
+#: plugins/plugins/resources/js/controllers/index.controller.es:199
 msgid "Later"
 msgstr ""
 
-#: plugins/plugins/resources/js/controllers/index.controller.es:114
+#: plugins/plugins/resources/js/controllers/index.controller.es:119
 msgid "Some plugins failed to update"
 msgstr ""
 
-#: plugins/plugins/resources/js/controllers/index.controller.es:154
+#: plugins/plugins/resources/js/controllers/index.controller.es:159
 msgid "Install failed"
 msgstr ""
 
-#: plugins/plugins/resources/js/controllers/index.controller.es:162
+#: plugins/plugins/resources/js/controllers/index.controller.es:167
 msgid "Warning"
 msgstr ""
 
-#: plugins/plugins/resources/js/controllers/index.controller.es:163
+#: plugins/plugins/resources/js/controllers/index.controller.es:168
 msgid ""
 "This will remove the Plugins plugin. You can reinstall it later using PIP."
 msgstr ""
 
-#: plugins/plugins/resources/js/controllers/index.controller.es:164
+#: plugins/plugins/resources/js/controllers/index.controller.es:169
 msgid "Continue"
 msgstr ""
 
-#: plugins/plugins/resources/js/controllers/index.controller.es:165
-#: plugins/plugins/resources/js/controllers/index.controller.es:181
+#: plugins/plugins/resources/js/controllers/index.controller.es:170
+#: plugins/plugins/resources/js/controllers/index.controller.es:186
 msgid "Cancel"
 msgstr ""
 
-#: plugins/plugins/resources/js/controllers/index.controller.es:192
+#: plugins/plugins/resources/js/controllers/index.controller.es:197
 msgid "Uninstalled. A panel restart is required."
 msgstr ""
 
-#: plugins/plugins/resources/js/controllers/index.controller.es:197
+#: plugins/plugins/resources/js/controllers/index.controller.es:202
 msgid "Uninstall failed"
 msgstr ""
