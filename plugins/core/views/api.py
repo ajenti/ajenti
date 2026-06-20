@@ -37,22 +37,28 @@ class Handler(HttpPlugin):
         :rtype: dict
         """
 
-        return {
+        user = AuthenticationService.get(self.context).get_identity()
+
+        response = {
             'identity': {
-                'user': AuthenticationService.get(self.context).get_identity(),
-                'uid': os.getuid(),
-                'effective': os.geteuid(),
-                'elevation_allowed': aj.config.data['auth'].get('allow_sudo', False),
-                'profile': AuthenticationService.get(self.context).get_provider().get_profile(
-                    AuthenticationService.get(self.context).get_identity()
-                ),
+                'user': user,
             },
             'machine': {
                 'name': aj.config.data['name'],
-                'hostname': socket.gethostname(),
             },
             'color': aj.config.data.get('color', None),
         }
+
+        if user:
+            response['identity'].update({
+                'uid': os.getuid(),
+                'effective': os.geteuid(),
+                'elevation_allowed': aj.config.data['auth'].get('allow_sudo', False),
+                'profile': AuthenticationService.get(self.context).get_provider().get_profile(user),
+            })
+            response['machine']['hostname'] = socket.gethostname()
+
+        return response
 
     @get('/api/core/web-manifest')
     @endpoint(api=True, auth=False)
