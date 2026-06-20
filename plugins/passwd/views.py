@@ -57,8 +57,9 @@ class Handler(HttpPlugin):
         if os.getuid() != 0 and data['users'] != self.context.identity:
             return http_context.respond_forbidden()
 
+        password = data["password"].replace('\n', '').replace('\r', '')
         p = subprocess.Popen(['chpasswd'], stdin=subprocess.PIPE)
-        p.communicate(f'{data["users"]}:{data["password"]}'.encode())
+        p.communicate(f'{data["users"]}:{password}'.encode())
 
         if p.returncode == 1:
             # TODO: Only a catchall, not optimal
