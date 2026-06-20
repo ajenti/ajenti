@@ -128,6 +128,9 @@ class Handler(HttpPlugin):
 
         id = http_context.query['flowIdentifier']
         chunk_index = http_context.query['flowChunkNumber']
+        if not chunk_index.isdigit():
+            http_context.respond('400 Bad Request')
+            return ''
         chunk_dir = f'/tmp/upload-{id}'
         try:
             os.makedirs(chunk_dir)
@@ -154,6 +157,9 @@ class Handler(HttpPlugin):
 
         id = http_context.query['flowIdentifier']
         chunk_index = http_context.query['flowChunkNumber']
+        if not chunk_index.isdigit():
+            http_context.respond('400 Bad Request')
+            return ''
         chunk_dir = f'/tmp/upload-{id}'
         try:
             os.makedirs(chunk_dir)
