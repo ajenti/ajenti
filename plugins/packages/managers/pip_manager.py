@@ -1,3 +1,4 @@
+import re
 import sys
 import importlib.metadata
 from concurrent.futures import ThreadPoolExecutor
@@ -19,6 +20,8 @@ class PIPPackageManager(PackageManager):
     PYPI_SIMPLE_URL = 'https://pypi.org/simple/'
     PYPI_JSON_URL = 'https://pypi.org/pypi/{name}/json'
     MAX_RESULTS = 20
+    PACKAGE_ID_RE = re.compile(r'^[a-zA-Z0-9][a-zA-Z0-9_\-\.]*(\[[a-zA-Z0-9_,]+\])?==[a-zA-Z0-9][a-zA-Z0-9\.\-]*$')
+    PACKAGE_NAME_RE = re.compile(r'^[a-zA-Z0-9][a-zA-Z0-9_\-\.]*$')
 
     def __init__(self, context):
         PackageManager.__init__(self, context)
@@ -163,14 +166,18 @@ class PIPPackageManager(PackageManager):
 
         for sel in selection:
             if sel['operation'] in ['install', 'upgrade']:
-                packages.append(sel['package']['id'])
+                pkg_id = sel['package']['id']
+                if self.PACKAGE_ID_RE.match(pkg_id):
+                    packages.append(pkg_id)
         if packages:
             cmd = f'{sys.executable} -m pip install {" ".join(packages)} ;'
             packages = []
 
         for sel in selection:
             if sel['operation'] in ['remove']:
-                packages.append(sel['package']['name'])
+                pkg_name = sel['package']['name']
+                if self.PACKAGE_NAME_RE.match(pkg_name):
+                    packages.append(pkg_name)
         if packages:
             cmd = f'{sys.executable} -m pip uninstall {" ".join(packages)}'
         return cmd
