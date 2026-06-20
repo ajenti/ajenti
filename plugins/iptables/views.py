@@ -14,6 +14,7 @@ class Handler(HttpPlugin):
         self.context = context
 
     @get(r'/api/iptables/which')
+    @authorize('iptables:read')
     @endpoint(api=True)
     def handle_api_get_which_iptables(self, http_context):
         try:
@@ -22,6 +23,7 @@ class Handler(HttpPlugin):
             raise EndpointError(_('Iptables is not installed on this host'))
 
     @get(r'/api/iptables')
+    @authorize('iptables:read')
     @endpoint(api=True)
     def handle_api_get_iptables(self, http_context):
         try:
@@ -62,6 +64,7 @@ class Handler(HttpPlugin):
         return chains
 
     @delete(r'/api/iptables/(?P<chain>[\w\-]*)/(?P<number>\d*)')
+    @authorize('iptables:write')
     @endpoint(api=True)
     def handle_api_delete_iptables(self, http_context, chain, number):
         try:
