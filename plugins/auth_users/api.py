@@ -68,7 +68,9 @@ class UsersAuthenticationProvider(AuthenticationProvider):
     def get_profile(self, username):
         if not username or not username in aj.users.data['users']:
             return {}
-        return aj.users.data['users'][username]
+        user = dict(aj.users.data['users'][username])
+        user.pop('password', None)
+        return user
 
     def check_mail(self, mail):
         for user, details in aj.users.data['users'].items():
