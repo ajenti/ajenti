@@ -142,25 +142,27 @@ class Handler(HttpPlugin):
         :rtype: list of dict
         """
 
-        def filter_info(plugin):
+        def filter_info(plugin, downloads):
             """
             Parse all informations from the pypi json package informations.
 
             :param plugin: Json informations from the packages
             :type plugin: dict
+            :param downloads: Last month download count from pypistats
+            :type downloads: int
             :return: Parsed informations
             :rtype: dict
             """
 
             name = plugin['info']['name'].split('.')[-1]
             return {
-                "url": plugin['info']['project_urls']['Homepage'],
+                "url": (plugin['info']['project_urls'] or {}).get('Homepage'),
                 "version": plugin['info']['version'],
                 "description": plugin['info']['description'],
                 "name": name,
                 "title": plugin['info']['summary'],
                 "author_email": plugin['info']['author_email'],
-                "last_month_downloads": plugin['info']['downloads']['last_month'],
+                "last_month_downloads": downloads,
                 "author": plugin['info']['author'],
                 "pypi_name": plugin['info']['name'],
                 "type": "official" if name.replace('-', '_') in official else "community",
@@ -168,17 +170,18 @@ class Handler(HttpPlugin):
 
         def get_json_info(plugin):
             """
-            Request plugin informations from pypi and append it to the plugins
-            list.
+            Request plugin informations from pypi and pypistats, append it to
+            the plugins list.
 
             :param plugin: List of plugins names
             :type plugin: list
             """
 
             try:
-                url = f'https://pypi.python.org/pypi/{plugin}/json'
-                data = requests.get(url).json()
-                plugin_list.append(filter_info(data))
+                data = requests.get(f'https://pypi.org/pypi/{plugin}/json').json()
+                stats = requests.get(f'https://pypistats.org/api/packages/{plugin}/recent').json()
+                downloads = stats.get('data', {}).get('last_month', 0)
+                plugin_list.append(filter_info(data, downloads))
             except Exception as e:
                 raise EndpointError(e)
 
