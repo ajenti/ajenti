@@ -163,7 +163,7 @@ class Handler(HttpPlugin):
                 "last_month_downloads": plugin['info']['downloads']['last_month'],
                 "author": plugin['info']['author'],
                 "pypi_name": plugin['info']['name'],
-                "type": "official" if name in official else "community",
+                "type": "official" if name.replace('-', '_') in official else "community",
             }
 
         def get_json_info(plugin):
