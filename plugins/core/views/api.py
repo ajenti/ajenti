@@ -1,6 +1,6 @@
 import gevent
-import random
 import hashlib
+import secrets
 import simplejson as json
 import os
 import socket
@@ -149,11 +149,7 @@ class Handler(HttpPlugin):
             auth_info = auth.check_password(username, password)
             if auth_info:
                 if aj.tfa_config.data.get(user_auth_id, {}).get('totp', []):
-                    tmp_string = str(random.random())
-                    tmp_string += http_context.env.get('REMOTE_ADDR', '')
-                    tmp_string += http_context.env.get('HTTP_USER_AGENT', '')
-                    tmp_string += http_context.env.get('HTTP_HOST', '')
-                    totp_random = hashlib.sha256(tmp_string.encode('utf-8')).hexdigest()
+                    totp_random = secrets.token_hex(32)
                     aj.tfa_config.verify_totp[user_auth_id] = {
                         'totp_random': totp_random,
                         'result': False,

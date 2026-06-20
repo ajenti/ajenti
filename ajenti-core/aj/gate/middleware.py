@@ -2,7 +2,7 @@ import hashlib
 import logging
 import os
 import pwd
-import random
+import secrets
 import base64
 import time
 import gevent
@@ -84,11 +84,7 @@ class GateMiddleware():
         self.restricted_gate.start()
 
     def generate_session_key(self, env):
-        h = str(random.random())
-        h += env.get('REMOTE_ADDR', '')
-        h += env.get('HTTP_USER_AGENT', '')
-        h += env.get('HTTP_HOST', '')
-        return hashlib.sha256(h.encode('utf-8')).hexdigest()
+        return secrets.token_hex(32)
 
     def vacuum(self):
         """
