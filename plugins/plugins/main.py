@@ -1,5 +1,6 @@
 from jadi import component
 
+from aj.auth import PermissionProvider
 from aj.plugins.core.api.sidebar import SidebarItemProvider
 
 
@@ -18,4 +19,26 @@ class ItemProvider(SidebarItemProvider):
                 'children': [
                 ]
             }
+        ]
+
+
+@component(PermissionProvider)
+class Permissions (PermissionProvider):
+    def provide(self):
+        return [
+            {
+                'id': 'plugins:install',
+                'name': _('Install plugins'),
+                'default': False,
+            },
+            {
+                'id': 'plugins:uninstall',
+                'name': _('Uninstall plugins'),
+                'default': False,
+            },
+            {
+                'id': 'plugins:upgrade',
+                'name': _('Upgrade Ajenti'),
+                'default': False,
+            },
         ]

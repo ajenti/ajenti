@@ -4,6 +4,7 @@ import sys
 import logging
 import subprocess
 
+from aj.auth import authorize
 from aj.plugins.core.api.tasks import Task
 
 _SAFE_NAME = re.compile(r'^[A-Za-z0-9]([A-Za-z0-9._-]*[A-Za-z0-9])?$')
@@ -25,6 +26,7 @@ class InstallPlugin (Task):
         _check_spec_parts(name, version)
         self.spec = f'ajenti.plugin.{name}=={version}'
 
+    @authorize('plugins:install')
     def run(self):
         if os.getuid() == 0:
             subprocess.check_output([
@@ -39,6 +41,7 @@ class InstallPlugin (Task):
 class UpgradeAll (Task):
     name = 'Upgrading Ajenti'
 
+    @authorize('plugins:upgrade')
     def run(self):
         if os.getuid() == 0:
             try:
@@ -62,6 +65,7 @@ class UnInstallPlugin (Task):
         _check_spec_parts(name)
         self.spec = f'ajenti.plugin.{name}'
 
+    @authorize('plugins:uninstall')
     def run(self):
         if os.getuid() == 0:
             subprocess.check_output([sys.executable, '-m', 'pip', 'uninstall', '-y', self.spec])
