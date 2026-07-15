@@ -1,4 +1,28 @@
-Ajenti 2.2.16 - Dev
+Ajenti 2.2.17 - Dev
+
+Ajenti 2.2.16 - 15/07/2026
+
+## Security
+- Hardened permissions: plugin management (`plugins/plugins`) and the `iptables` plugin now require `@authorize`
+- Validate package name and version before install (anti-injection)
+- Fixed an information disclosure issue for unauthenticated users
+- Removed exposed hash from user profile
+- Same response for all failed authentication attempts (anti-enumeration)
+- Increased entropy for key generation
+- Disallow newlines in passwords
+- General security hardening (auth_users/passwd) + config path fix
+
+## Fixes
+- Rewrote PyPI search and sort by relevance, added more response checks
+- Fixed official package listing + updated the list
+- Check that chunk index is numeric (filesystem)
+- Replaced deprecated `pkg_resources` with `importlib` (fix #1518)
+
+## Dependencies / CI
+- `python-socketio` 5.14.1 → 5.16.2 (core + GitHub Actions workflow)
+
+## Misc
+- Several intermediate version bumps
 
 Ajenti 2.2.15 - 31/03/2026
 
