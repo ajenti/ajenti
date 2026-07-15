@@ -11,7 +11,7 @@ else:
 
 setup(
     name='aj',
-    version='2.2.15',
+    version='2.2.16',
     python_requires='>=3',
     install_requires=__requires,
     description='Web UI base toolkit',
