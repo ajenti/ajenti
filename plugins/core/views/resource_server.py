@@ -55,9 +55,13 @@ class ResourcesHandler(HttpPlugin):
         """
 
 
-        sid = http_context.env.get('REMOTE_ADDR', '')
-        sid += http_context.env.get('HTTP_USER_AGENT', '')
-        sid += http_context.env.get('HTTP_HOST', '')
+        # Cache is keyed on what actually varies the generated content (the
+        # validated url prefix, and the locale for locale.js) — not on client
+        # network identity (REMOTE_ADDR/User-Agent/Host), which doesn't
+        # determine the content and collapses to the same value for every
+        # visitor behind a shared reverse proxy.
+        lang = http_context.query.get('lang', '') if group == 'locale.js' else ''
+        sid = f'{http_context.prefix}:{lang}'
         cache_id = hashlib.sha256(sid.encode('utf-8')).hexdigest()
 
         if cache_id not in self.cache:
