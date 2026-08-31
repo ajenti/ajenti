@@ -17,6 +17,7 @@ class ResourcesHandler(HttpPlugin):
         self.cache = {}
         self.use_cache = not aj.debug
         self.mgr = PluginManager.get(aj.context)
+        self.valid_locales = None
 
     def __wrap_js(self, name, js):
         """
@@ -61,22 +62,29 @@ class ResourcesHandler(HttpPlugin):
         # determine the content and collapses to the same value for every
         # visitor behind a shared reverse proxy.
         lang = http_context.query.get('lang', '') if group == 'locale.js' else ''
+        if lang and self.valid_locales is None:
+            self.valid_locales = set()
+            for plugin in self.mgr:
+                locale_dir = self.mgr.get_content_path(plugin, 'locale')
+                if os.path.isdir(locale_dir):
+                    for entry in os.listdir(locale_dir):
+                        if os.path.exists(os.path.join(locale_dir, entry, 'LC_MESSAGES', 'app.js')):
+                            self.valid_locales.add(entry)
+        if lang and lang not in self.valid_locales:
+            # Not an installed locale: collapse to the same cache entry as
+            # "no lang", instead of letting an arbitrary client-supplied
+            # value grow the cache with a new entry per request.
+            lang = ''
         sid = f'{http_context.prefix}:{lang}'
         cache_id = hashlib.sha256(sid.encode('utf-8')).hexdigest()
 
         if cache_id not in self.cache:
             self.cache[cache_id] = {'timestamp': int(time.time())}
 
+        now = int(time.time())
         if self.use_cache and group in self.cache[cache_id]:
             content = self.cache[cache_id][group]
-            now = int(time.time())
             self.cache[cache_id]['timestamp'] = now
-
-            # Delete cache older than 1h
-            dead_cache_id = [cid  for cid, cache in self.cache.items() if now - cache['timestamp'] > 3600]
-            for cid in dead_cache_id:
-                del self.cache[cid]
-
         else:
             content = ''
             if group in ['js', 'css', 'vendor.js', 'vendor.css']:
@@ -98,7 +106,6 @@ class ResourcesHandler(HttpPlugin):
                     window.__ngModules = {json.dumps(ng_modules)};
                 '''
             if group == 'locale.js':
-                lang = http_context.query.get('lang', None)
                 if lang:
                     js_locale = {}
                     for plugin in self.mgr:
@@ -134,6 +141,12 @@ class ResourcesHandler(HttpPlugin):
                 '''
 
             self.cache[cache_id][group] = content
+
+        # Delete cache older than 1h, on every request (hit or miss) so a
+        # stream of unique misses can't grow the cache indefinitely.
+        dead_cache_id = [cid for cid, cache in self.cache.items() if now - cache['timestamp'] > 3600]
+        for cid in dead_cache_id:
+            del self.cache[cid]
 
         http_context.add_header('Content-Type', {
             'css': 'text/css',
