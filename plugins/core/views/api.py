@@ -206,7 +206,7 @@ class Handler(HttpPlugin):
                 }
 
         elif mode == 'totp':
-            if isinstance(aj.tfa_config.verify_totp[user_auth_id], dict):
+            if isinstance(aj.tfa_config.verify_totp.get(user_auth_id), dict):
                 try:
                     totp_code, totp_random = password.split('#')
 
