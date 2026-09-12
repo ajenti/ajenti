@@ -26,6 +26,11 @@ if grep 'Debian' /etc/issue > /dev/null 2>&1 ; then
     DISTRO=debian
 fi
 
+if grep 'debian' /etc/os-release > /dev/null 2>&1 ; then
+    OS=debian
+    DISTRO=debian
+fi
+
 if grep 'Ubuntu' /etc/issue > /dev/null 2>&1 ; then
     OS=debian
     DISTRO=ubuntu
