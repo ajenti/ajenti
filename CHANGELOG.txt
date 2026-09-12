@@ -1,4 +1,33 @@
-Ajenti 2.2.17 - Dev
+Ajenti 2.2.18 - Dev
+
+Ajenti 2.2.17 - 12/09/2026
+
+## Security
+- Limit request body size for unauthenticated requests
+- Key the resource cache on the locale only: a client-supplied X-Url-Prefix
+  used to multiply every cached bundle, letting an unauthenticated client
+  exhaust the worker memory. The prefix is now applied client-side
+- Restrict lang to installed locales, prune the resource cache on every call
+- Harden TOTP verification state handling, more cache isolation
+
+## Fixes
+- Detect the platform with distro.id(). Since 2.2.12, distro.name() returned
+  the full NAME field ("Debian GNU/Linux"), which matched no known platform
+  and left the network and datetime plugins unloaded on Debian and Raspbian,
+  and the supervisor plugin pointing at the wrong config file
+- Map raspbian and armbian to debian. See #1325
+- Default the color option, missing from ensure_structure: a config file
+  predating that option made every page fail with a 500
+- [network] Fix typo hiding the static address branch of the netplan manager.
+  See #1382
+- [core] Fix missing ip when logging a failed login behind a trusted proxy
+
+## Packaging
+- Drop the dead PyPy branch and the redundant gevent spec from ajenti-core,
+  document why the gevent version is capped
+- Drop the redundant gipc install from the install scripts
+- Clone over https in install-dev.sh, git:// was removed by GitHub in 2022
+- Also detect Debian from /etc/os-release, as already done for the others
 
 Ajenti 2.2.16 - 15/07/2026
 
