@@ -6,6 +6,8 @@ cookies
 cryptography
 distro
 greenlet>=2.0.2
+# Capped on purpose since 41d85bf6d, to avoid a threading error seen with a
+# newer gevent. Raised once, deliberately, in 20e4d4e77. Test before raising.
 gevent<=25.5.1
 gevent-websocket
 gipc==1.8.0
