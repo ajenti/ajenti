@@ -56,11 +56,15 @@ class ResourcesHandler(HttpPlugin):
         """
 
 
-        # Cache is keyed on what actually varies the generated content (the
-        # validated url prefix, and the locale for locale.js) — not on client
-        # network identity (REMOTE_ADDR/User-Agent/Host), which doesn't
-        # determine the content and collapses to the same value for every
-        # visitor behind a shared reverse proxy.
+        # Cache is keyed on the only thing that still varies the generated
+        # content: the locale, for locale.js. Not on client network identity
+        # (REMOTE_ADDR/User-Agent/Host), which doesn't determine the content
+        # and collapses to the same value for every visitor behind a shared
+        # reverse proxy. Not on the url prefix either: partials.js used to
+        # bake it into every $templateCache key, so a client-supplied header
+        # multiplied the whole cache. It is now applied client-side, from the
+        # urlPrefix constant the index page already carries, which leaves the
+        # generated content identical for every prefix.
         lang = http_context.query.get('lang', '') if group == 'locale.js' else ''
         if lang and self.valid_locales is None:
             self.valid_locales = set()
@@ -75,8 +79,7 @@ class ResourcesHandler(HttpPlugin):
             # "no lang", instead of letting an arbitrary client-supplied
             # value grow the cache with a new entry per request.
             lang = ''
-        sid = f'{http_context.prefix}:{lang}'
-        cache_id = hashlib.sha256(sid.encode('utf-8')).hexdigest()
+        cache_id = hashlib.sha256(lang.encode('utf-8')).hexdigest()
 
         if cache_id not in self.cache:
             self.cache[cache_id] = {'timestamp': int(time.time())}
@@ -121,7 +124,7 @@ class ResourcesHandler(HttpPlugin):
                 content = '''
                     angular.module("core.templates", []);
                     angular.module("core.templates").run(
-                        ["$templateCache", function($templateCache) {
+                        ["$templateCache", "urlPrefix", function($templateCache, urlPrefix) {
                 '''
                 for plugin in self.mgr:
                     for resource in self.mgr[plugin]['info']['resources']:
@@ -134,7 +137,7 @@ class ResourcesHandler(HttpPlugin):
                                 with open(path, encoding='utf-8') as t:
                                     template = t.read()
                                 content += f'''
-                                      $templateCache.put("{http_context.prefix}/{name}", {json.dumps(template)});
+                                      $templateCache.put(urlPrefix + {json.dumps("/" + name)}, {json.dumps(template)});
                                 '''
                 content += '''
                     }]);
