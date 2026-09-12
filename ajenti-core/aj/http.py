@@ -20,6 +20,9 @@ import aj
 
 PREFIX_REGEXP = re.compile(r'^[A-Za-z0-9\-\/_~\.#&]*$')
 
+# Body size allowed to a request whose session could not be resolved.
+MAX_ANONYMOUS_BODY_SIZE = 1024 * 1024
+
 def _validate_origin(env):
     protocol = 'https' if env['SSL'] else 'http'
     valid_origin = aj.config.data['trusted_domains'] + [f'{protocol}://{env["HTTP_HOST"]}']
@@ -57,8 +60,20 @@ class HttpRoot():
             start_response('403 Invalid Prefix', [])
             return ''
 
-        http_context = HttpContext(env, start_response)
+        from aj.gate.middleware import GateMiddleware
+
+        resolved_session = GateMiddleware.get(aj.context).resolve_session(env)
+        max_body_size = None if resolved_session[0] else MAX_ANONYMOUS_BODY_SIZE
+
+        http_context = HttpContext(env, start_response, max_body_size=max_body_size)
+        http_context.resolved_session = resolved_session
         http_context.prefix = prefix
+
+        if http_context.body_too_large:
+            http_context.respond('413 Request Entity Too Large')
+            http_context.run_response()
+            return [b'Request body too large']
+
         if http_context.prefix:
             if http_context.path.startswith(http_context.prefix):
                 http_context.path = http_context.path[len(http_context.prefix):] or '/'
@@ -140,9 +155,11 @@ class HttpContext():
         HTTP query parameters
     """
 
-    def __init__(self, env, start_response=None):
+    def __init__(self, env, start_response=None, max_body_size=None):
         self.start_response = start_response
         self.env = env
+        self.max_body_size = max_body_size
+        self.body_too_large = False
         self.path = env['PATH_INFO']
         self.headers = []
         self.response_ready = False
@@ -158,7 +175,7 @@ class HttpContext():
         if self.method in ['POST', 'PUT', 'PATCH']:
             ctype = self.env.get('CONTENT_TYPE', 'application/x-www-form-urlencoded')
             if 'wsgi.input' in self.env:
-                self.body = self.env['wsgi.input'].read()
+                self.body = self._read_body()
                 if ctype.startswith('application/x-www-form-urlencoded') or \
                         ctype.startswith('multipart/form-data'):
                     if isinstance(self.body, str):
@@ -174,7 +191,7 @@ class HttpContext():
         elif self.method in ['OPTIONS', 'PROPFIND', 'UPLOAD']:
             # Read other request's body (like XML)
             if 'wsgi.input' in self.env:
-                self.body = self.env['wsgi.input'].read()
+                self.body = self._read_body()
 
         else:
             # prevent hanging on weird requests
@@ -193,6 +210,26 @@ class HttpContext():
             self.query.update({k:self.form_cgi_query[k].value for k in self.form_cgi_query})
         if self.url_cgi_query:
             self.query.update({k:self.url_cgi_query[k].value for k in self.url_cgi_query})
+
+    def _read_body(self):
+        """
+        Read the request body, at most max_body_size bytes when one is set.
+        Asking for one byte more than the limit is what tells an oversized body
+        apart from one that exactly fits, without ever holding more than that
+        in memory.
+        """
+
+
+        stream = self.env['wsgi.input']
+
+        if self.max_body_size is None:
+            return stream.read()
+
+        body = stream.read(self.max_body_size + 1)
+        if len(body) > self.max_body_size:
+            self.body_too_large = True
+            return b''
+        return body
 
     def json_body(self):
         return json.loads(self.body.decode('utf-8'))

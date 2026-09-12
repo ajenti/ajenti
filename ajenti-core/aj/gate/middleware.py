@@ -158,24 +158,36 @@ class GateMiddleware():
             if not session.is_dead():
                 session.gate.send_sessionlist()
 
-    def handle(self, http_context):
-        start_time = time.time()
+    def resolve_session(self, env):
+        """
+        Find the session a request belongs to, from its cookie or its Basic
+        credentials, opening one when needed. Only depends on the WSGI
+        environment, so that it can run before the request body is read and
+        decide how much of it may be read at all.
+
+        :param env: WSGI environment dict
+        :type env: dict
+        :return: the session, if any, and whether it still needs its cookie to
+                 be set on the response
+        :rtype: tuple(Session or None, bool)
+        """
+
 
         self.vacuum()
 
-        session = self.obtain_session(http_context.env)
-        gate = None
+        session = self.obtain_session(env)
+        new_session = False
 
         if not session and aj.dev_autologin:
             username = pwd.getpwuid(os.geteuid()).pw_name
             logging.warning(f'Opening an autologin session for user {username}')
             session = self.open_session(
-                http_context.env,
+                env,
                 initial_identity=username
             )
-            session.set_cookie(http_context)
+            new_session = True
 
-        authorization_header = http_context.env.get('HTTP_AUTHORIZATION', False)
+        authorization_header = env.get('HTTP_AUTHORIZATION', False)
         if not session and authorization_header:
             authresp = False
 
@@ -197,12 +209,30 @@ class GateMiddleware():
                 else:
                     logging.info(f'Opening a session for user {username} per HTTP authentication')
                     session = self.open_session(
-                        http_context.env,
+                        env,
                         initial_identity=username
                     )
-                    session.set_cookie(http_context)
+                    new_session = True
             else:
                 gevent.sleep(3)
+
+        return session, new_session
+
+    def handle(self, http_context):
+        start_time = time.time()
+
+        # HttpRoot.dispatch() already resolved the session to decide the body
+        # size limit: reuse its result instead of authenticating twice, Basic
+        # auth means a real call to the authentication provider.
+        if hasattr(http_context, 'resolved_session'):
+            session, new_session = http_context.resolved_session
+        else:
+            session, new_session = self.resolve_session(http_context.env)
+
+        if new_session:
+            session.set_cookie(http_context)
+
+        gate = None
 
         if session:
             session.touch()
