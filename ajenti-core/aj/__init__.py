@@ -91,6 +91,8 @@ def detect_platform():
         'olpc': 'rhel',
         'xo-system': 'rhel',
         'kali linux': 'debian',
+        'raspbian': 'debian',
+        'armbian': 'debian',
     }
 
     platform_mapping = {
@@ -111,7 +113,11 @@ def detect_platform():
     minor = int(minor)
     if (major * 10 + minor) >= 36:
         import distro
-        dist = distro.name()
+        # id(), not name(): name() returns the full NAME field of
+        # /etc/os-release ("Debian GNU/Linux"), which matches nothing below.
+        # Ubuntu is the only common distribution whose NAME is a single word,
+        # which is what hid this everywhere else.
+        dist = distro.id()
     elif (major * 10 + minor) >= 26:
         dist = pyplatform.linux_distribution()[0]
     else:
