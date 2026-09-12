@@ -37,6 +37,7 @@ class BaseConfig():
     def ensure_structure(self):
         # Global options
         self.data.setdefault('name', None)
+        self.data.setdefault('color', 'default')
         self.data.setdefault('trusted_domains', [])
         self.data.setdefault('trusted_proxies', [])
         self.data.setdefault('max_sessions', 99)
