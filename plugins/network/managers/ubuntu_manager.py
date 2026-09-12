@@ -55,7 +55,7 @@ class UbuntuNetworkManager(NetworkManager):
                 # Maybe there are some others files in /etc/netplan
                 continue
             for key in ethernet_config:
-                addresses = ethernet_config[key].get('adresses', None)
+                addresses = ethernet_config[key].get('addresses', None)
                 if addresses is None:
                     # DHCP
                     ip, mask = ifconfig_get_ip4_mask(key)
