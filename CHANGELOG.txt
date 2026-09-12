@@ -3,6 +3,7 @@ Ajenti 2.2.17 - Dev
 Ajenti 2.2.16 - 15/07/2026
 
 ## Security
+- [CVE-2026-79920] Privilege escalation to root via unauthorized plugin install task (GHSA-j8xf-5fw2-f99q)
 - Hardened permissions: plugin management (`plugins/plugins`) and the `iptables` plugin now require `@authorize`
 - Validate package name and version before install (anti-injection)
 - Fixed an information disclosure issue for unauthenticated users
@@ -26,11 +27,16 @@ Ajenti 2.2.16 - 15/07/2026
 
 Ajenti 2.2.15 - 31/03/2026
 
+- [CVE-2026-35175] Authorization bypass during custom package installation (GHSA-73jv-44c3-j5p2)
+- [CVE-2026-40177] Password bypass when 2FA is activated (GHSA-3mcx-6wxm-qr8v)
+- [CVE-2026-40178] Race condition in 2FA verification (GHSA-8647-755q-fw9p)
+- [CVE-2026-38979] Clickjacking weakness in the login and admin interface (GHSA-677j-gfv9-ppcc)
 - Add anti-framing headers
 - More checks on tasks
 
 Ajenti 2.2.13 - 24/02/2026
 
+- [CVE-2026-27975] Remote code execution by an unauthenticated user (GHSA-vcw3-r3fx-j444)
 - More checks on header
 - Cache isolation and time limited
 
@@ -231,5 +237,22 @@ Ajenti 2.1.33 - 13/02/2020
 - Differenciate FQDN and peer cert for compatibility with Let's Encrypt,
 - Switch to gevent SSL,
 - Switch to gevent-socketio-hartwork,
-- Fix shell injection i nos auth provider.
+- Fix shell injection i nos auth provider. [CVE-2019-25066] (GHSA-p28j-xhp9-88wp)
+
+
+Known historical CVEs
+
+Advisories published against Ajenti 1.x and early 2.1.x, before the current maintenance.
+None of them records a patched version, and no fix commit could be matched in this
+repository, so they are listed here for traceability only, without a release mapping.
+
+- [CVE-2020-37002] Authentication bypass allowing arbitrary command execution through /api/terminal/create, reported against 2.1.36 (GHSA-g2h7-7vxw-6v9j)
+- [CVE-2018-18548] Cross-site scripting via filename (GHSA-5pcv-m8w2-62m9)
+- [CVE-2018-1000126] Information disclosure (GHSA-8jpc-25w7-fj92)
+- [CVE-2018-1000083] Improper error handling in login JSON requests (GHSA-f576-rxff-hpmj)
+- [CVE-2018-1000082] Cross-site request forgery in commands (GHSA-2w58-27j5-f99h)
+- [CVE-2018-1000081] Improper input validation in ID string processing (GHSA-mp27-2772-552q)
+- [CVE-2018-1000080] Insecure permissions in plugin downloads (GHSA-mc57-hw6g-6hw2)
+- [CVE-2014-4301] Multiple cross-site scripting vulnerabilities, Ajenti 1.x (GHSA-2ch8-f849-pjg3)
+- [CVE-2014-2260] Cross-site scripting vulnerability, Ajenti 1.x (GHSA-9crx-p357-5vw8)
 
