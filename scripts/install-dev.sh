@@ -92,7 +92,7 @@ cd /opt/ajenti
 
 msg ":: Cloning git repository in /opt/ajenti"
 
-git clone git://github.com/ajenti/ajenti.git || exit 1
+git clone https://github.com/ajenti/ajenti.git || exit 1
 cd ajenti
 
 msg ":: Installing Python requirements"
@@ -105,7 +105,6 @@ for PLUGIN in $(ls) ; do
 done
 
 # Temporary fix for newer versions
-$PYTHON3 -m pip install gipc -U
 $PYTHON3 -m pip install gevent==25.5.1
 $PYTHON3 -m pip install zope.event==5.1.1
 
