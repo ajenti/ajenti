@@ -5,7 +5,7 @@ __requires = list(filter(None, open('requirements.txt').read().splitlines()))
 
 setup(
     name='aj',
-    version='2.2.16',
+    version='2.2.17',
     python_requires='>=3',
     install_requires=__requires,
     description='Web UI base toolkit',
