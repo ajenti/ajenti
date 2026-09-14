@@ -7,12 +7,20 @@ Ajenti 2.2.18 - Dev
 Ajenti 2.2.17 - 12/09/2026
 
 ## Security
-- Limit request body size for unauthenticated requests
 - Key the resource cache on the locale only: a client-supplied X-Url-Prefix
-  used to multiply every cached bundle, letting an unauthenticated client
-  exhaust the worker memory. The prefix is now applied client-side
-- Restrict lang to installed locales, prune the resource cache on every call
-- Harden TOTP verification state handling, more cache isolation
+  multiplied every cached bundle and an arbitrary lang added an entry that
+  was never evicted, letting an unauthenticated client exhaust the worker
+  memory. The prefix is now applied client-side, lang is restricted to the
+  installed locales, and the cache is pruned on every call
+  (GHSA-8pv8-4whr-79hw)
+- Limit request body size for unauthenticated requests: bodies were read
+  into memory and re-encoded before any per-route authorization ran. They
+  are now capped at 1 MiB until the session is resolved, over which the
+  request is answered with a 413 (GHSA-8328-p99g-qj7x)
+- Harden TOTP verification state handling: an account not enrolled in TOTP
+  raised on lookup, and the resulting HTTP 500 disclosed the submitted
+  identifier and a traceback to an unauthenticated caller
+  (GHSA-fqfv-pv2j-2w9g)
 
 ## Fixes
 - Detect the platform with distro.id(). Since 2.2.12, distro.name() returned
