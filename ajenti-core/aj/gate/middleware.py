@@ -267,7 +267,8 @@ class GateMiddleware():
             raise WorkerError(resp.object)
 
         for header in resp.object['headers']:
-            http_context.add_header(*header)
+            if header[0] not in ('X-Session-Redirect', 'X-Auth-Info'):
+                http_context.add_header(*header)
 
         headers = dict(resp.object['headers'])
         if 'X-Session-Redirect' in headers:
