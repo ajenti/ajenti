@@ -1,4 +1,5 @@
 import os
+import re
 import sys
 import pwd
 import stat
@@ -7,6 +8,10 @@ import logging
 from jadi import interface, component, service
 import aj
 from aj.util import public
+
+
+# Path prefix under which a reverse proxy publishes Ajenti, like "/ajenti"
+URL_PREFIX_REGEXP = re.compile(r'^(/[A-Za-z0-9\-_~.]+)*$')
 
 
 class BaseConfig():
@@ -40,6 +45,11 @@ class BaseConfig():
         self.data.setdefault('color', 'default')
         self.data.setdefault('trusted_domains', [])
         self.data.setdefault('trusted_proxies', [])
+        url_prefix = str(self.data.get('url_prefix') or '').rstrip('/')
+        if URL_PREFIX_REGEXP.match(url_prefix) is None:
+            logging.error(f'Invalid url_prefix {url_prefix!r} in config, ignoring it')
+            url_prefix = ''
+        self.data['url_prefix'] = url_prefix
         self.data.setdefault('max_sessions', 99)
         self.data.setdefault('session_max_time', 3600)
         self.data.setdefault('language', 'en')

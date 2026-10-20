@@ -8,7 +8,6 @@ import gzip
 import json
 import math
 import os
-import re
 from io import BytesIO
 import pickle
 import logging
@@ -17,8 +16,6 @@ from urllib.parse import unquote
 from aj.api.http import BaseHttpHandler
 import aj
 
-
-PREFIX_REGEXP = re.compile(r'^[A-Za-z0-9\-\/_~\.#&]*$')
 
 # Body size allowed to a request whose session could not be resolved.
 MAX_ANONYMOUS_BODY_SIZE = 1024 * 1024
@@ -55,10 +52,7 @@ class HttpRoot():
             start_response('403 Invalid Origin', [])
             return ''
 
-        prefix = env.get('HTTP_X_URL_PREFIX', '')
-        if re.match(PREFIX_REGEXP, prefix) is None:
-            start_response('403 Invalid Prefix', [])
-            return ''
+        prefix = aj.config.data['url_prefix']
 
         from aj.gate.middleware import GateMiddleware
 

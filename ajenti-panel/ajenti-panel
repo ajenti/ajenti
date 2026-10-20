@@ -158,6 +158,7 @@ color: default
 max_sessions: 9
 trusted_domains: []
 trusted_proxies: []
+url_prefix: ''
 session_max_time: 3600
 name: {socket.gethostname()}
 ssl:
