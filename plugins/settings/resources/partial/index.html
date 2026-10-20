@@ -127,6 +127,13 @@
                         </a>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label translate>URL prefix</label>
+                        <i class="fas fa-question-circle pull-right" title="{{help_url_prefix}}"></i>
+                        <input ng:model="config.data.url_prefix" class="form-control" type="text" placeholder="/ajenti" />
+                    </div>
+                </div>
             </div>
 
             <hr ng:show="!customization.plugins.settings.hideAuthSettings" />

@@ -30,6 +30,11 @@ angular.module('ajenti.settings').controller('SettingsIndexController', ($scope,
         "get the real client ip address."
     )
 
+    $scope.help_url_prefix = gettext(
+        "If a reverse proxy publishes Ajenti under a sub-path, e.g. /ajenti, specify it here.\n" +
+        "Once set, Ajenti is only reachable under this prefix. Leave empty if not needed."
+    )
+
     $scope.help_certificate = gettext(
         "This certificate is the default certificate used to create client certificate and to provide https connection.\n" +
         "Using a Let's Encrypt certificate here will break the client certificate generator.\n" +
@@ -153,8 +158,8 @@ angular.module('ajenti.settings').controller('SettingsIndexController', ($scope,
         else {
             config.save().then(data =>
                 notify.success(gettext('Global config saved'))
-            ).catch(() =>
-                notify.error(gettext('Could not save global config')));
+            ).catch(err =>
+                notify.error(gettext('Could not save global config'), err.data));
         };
 
         if ($scope.smtp_config) {
