@@ -5,7 +5,7 @@ from jadi import component
 import aj
 from aj.auth import authorize
 from aj.api.http import get, post, delete, HttpPlugin
-from aj.config import UserConfigService
+from aj.config import UserConfigService, URL_PREFIX_REGEXP
 from aj.auth import AuthenticationProvider, PermissionProvider, AuthenticationService
 
 from aj.api.endpoint import endpoint, EndpointReturn
@@ -52,6 +52,10 @@ class Handler(HttpPlugin):
 
         with authorize('core:config:write'):
             data = json.loads(http_context.body.decode())
+            if 'url_prefix' in data:
+                data['url_prefix'] = str(data['url_prefix'] or '').rstrip('/')
+                if URL_PREFIX_REGEXP.match(data['url_prefix']) is None:
+                    raise EndpointReturn(400, 'Invalid URL prefix')
             aj.config.data.update(data)
             aj.config.save()
             self.context.worker.reload_master_config()
