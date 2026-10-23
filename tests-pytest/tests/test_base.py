@@ -137,7 +137,7 @@ class TestFilesystem:
             data=json.dumps({'mode': 0o767})
         )
         assert rq.status_code == 200
-        assert os.stat(path).st_mode, 0o100767
+        assert os.stat(path).st_mode == 0o100767
 
     def test_create_file(self):
         path = self.path('create_file_test')
