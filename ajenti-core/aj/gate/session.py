@@ -35,6 +35,8 @@ class Session():
         )
         self.session_max_time = session_max_time
         self.gate.start()
+        # The worker got its own copy at start, the gateway never reads it
+        self.auth_info = None
         logging.debug(f'New session {self.id}')
 
     def destroy(self):
