@@ -153,7 +153,12 @@ class Handler(HttpPlugin):
                     aj.tfa_config.verify_totp[user_auth_id] = {
                         'totp_random': totp_random,
                         'result': False,
+                        'auth_info': auth_info,
+                        'attempts': 0,
                     }
+
+                    # Do not keep auth_info of an abandoned login
+                    gevent.spawn_later(300, aj.tfa_config.verify_totp[user_auth_id].pop, 'auth_info', None)
                     return {
                         'success': True,
                         'username': username,
@@ -204,21 +209,27 @@ class Handler(HttpPlugin):
                 }
 
         elif mode == 'totp':
-            if isinstance(aj.tfa_config.verify_totp.get(user_auth_id), dict):
+            pending = aj.tfa_config.verify_totp.get(user_auth_id)
+            if isinstance(pending, dict):
                 try:
                     totp_code, totp_random = password.split('#')
 
                     # Reset verify value before verifying
-                    if aj.tfa_config.verify_totp[user_auth_id].get('totp_random', None) == totp_random:
-                        aj.tfa_config.verify_totp[user_auth_id]['result'] = False
+                    if pending.get('totp_random', None) == totp_random and 'auth_info' in pending:
+                        pending['result'] = False
                         self.context.worker.verify_totp(user_auth_id, totp_code)
                         gevent.sleep(0.3)
-                        if aj.tfa_config.verify_totp[user_auth_id]['result']:
-                            auth.prepare_session_redirect(http_context, username, None)
+                        if pending['result']:
+                            auth.prepare_session_redirect(http_context, username, pending.pop('auth_info'))
                             return {
                                 'success': True,
                                 'username': username,
                             }
+                        pending['attempts'] += 1
+
+                        # Max 3 attempts with totp
+                        if pending['attempts'] >= 3:
+                            pending.pop('auth_info', None)
 
                 except Exception:
                     pass
