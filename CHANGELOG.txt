@@ -1,4 +1,28 @@
-Ajenti 2.2.18 - Dev
+Ajenti 2.2.19 - Dev
+
+Ajenti 2.2.18 - 25/10/2026
+
+## Security
+- Read the URL prefix from the new `url_prefix` config entry instead of the
+  X-Url-Prefix request header. Completes the remediation of CVE-2026-27975.
+  Breaking: the X-Url-Prefix header is now ignored. Setups publishing Ajenti
+  under a sub-path must set `url_prefix` (e.g. `/ajenti`) in config.yml
+- [settings] Add the URL prefix field, checked server-side
+- [core] Limit the TOTP step to 3 attempts per login, after which the
+  password step must be passed again, and drop a pending login after 5
+  minutes
+- Do not forward the internal X-Session-Redirect and X-Auth-Info headers to
+  the client: the login response exposed the data returned by the
+  authentication provider to the browser
+- Drop the auth info from the gateway once the session worker has started,
+  the worker keeps its own copy
+
+## Fixes
+- [core] Keep the auth info of logins with TOTP: it was replaced by None at
+  the TOTP step, so the session lost what the authentication provider
+  returned at the password step
+- [core] Use a raw string for the TOTP delete route (invalid escape sequence)
+- [settings] Show the server error when the global config cannot be saved
 
 ## Dependencies
 - Pin python-engineio like python-socketio, so that two servers running the
