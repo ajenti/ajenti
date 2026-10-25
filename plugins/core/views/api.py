@@ -109,7 +109,7 @@ class Handler(HttpPlugin):
         data = {'type': 'append', 'userid':f'{user}@{auth_id}', 'secret_details': secret_details}
         self.context.worker.change_totp(data)
 
-    @delete('/api/core/totps/(?P<timestamp>\d*)')
+    @delete(r'/api/core/totps/(?P<timestamp>\d*)')
     @endpoint(api=True)
     def handle_delete_user_totp(self, http_context, timestamp):
         user = self.context.identity
