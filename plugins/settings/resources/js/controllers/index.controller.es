@@ -152,8 +152,11 @@ angular.module('ajenti.settings').controller('SettingsIndexController', ($scope,
         $scope.certificate = config.data.ssl.certificate;
         if ($scope.certificate != $scope.oldCertificate) {
             return  $http.post('/api/settings/test/ssl-certificate', {'certificate': $scope.certificate})
-                    .then(data => { config.save().then(dt => notify.success(gettext('Saved')))})
-                    .catch(err => { notify.error(gettext('SSL Error')), err.message});
+                    .then(data => config.save().then(dt =>
+                        notify.success(gettext('Saved'))
+                    ).catch(err =>
+                        notify.error(gettext('Could not save global config'), err.data)))
+                    .catch(err => notify.error(gettext('SSL Error'), err.data.message));
         }
         else {
             config.save().then(data =>
