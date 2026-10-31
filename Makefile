@@ -66,6 +66,14 @@ upload-plugins: build
 	ajenti-dev-multitool --setuppy 'sdist'
 	twine upload plugins/*/dist/*.tar.gz -i "Ajenti Packagers" -s --skip-existing
 
+check-plugin:
+	@test -f plugins/$(PLUGIN)/plugin.yml || { echo "Usage: make upload-plugin PLUGIN=<plugin directory>"; exit 1; }
+
+upload-plugin: check-plugin build
+	rm plugins/dist/* || true
+	ajenti-dev-multitool --setuppy 'sdist'
+	twine upload plugins/$(PLUGIN)/dist/*.tar.gz -i "Ajenti Packagers" -s --skip-existing
+
 test:
 	cd e2e && ./run
 
