@@ -1,2 +1,2 @@
-aj
+aj>=2.2.19
 setproctitle

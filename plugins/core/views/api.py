@@ -13,10 +13,10 @@ from aj.api.http import get, post, delete, HttpPlugin
 from aj.auth import AuthenticationService, SudoError
 from aj.plugins import PluginManager
 
-from aj.api.endpoint import endpoint, EndpointError
+from aj.api.endpoint import endpoint, EndpointError, EndpointReturn
 from aj.plugins.core.api.sidebar import Sidebar
 from aj.plugins.core.api.navbox import Navbox
-from aj.security.totp import TOTP
+from aj.security.totp import TOTP, is_valid_totp_entry
 
 
 @component(HttpPlugin)
@@ -105,6 +105,8 @@ class Handler(HttpPlugin):
     def handle_append_user_totp(self, http_context):
         user = self.context.identity
         secret_details = http_context.json_body()['secret']
+        if not is_valid_totp_entry(secret_details):
+            raise EndpointReturn(400, 'Invalid TOTP secret')
         auth_id = AuthenticationService.get(self.context).get_provider().id
         data = {'type': 'append', 'userid':f'{user}@{auth_id}', 'secret_details': secret_details}
         self.context.worker.change_totp(data)
