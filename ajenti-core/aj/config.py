@@ -8,6 +8,7 @@ import logging
 from jadi import interface, component, service
 import aj
 from aj.util import public
+from aj.security.totp import is_valid_totp_entry
 
 
 # Path prefix under which a reverse proxy publishes Ajenti, like "/ajenti"
@@ -197,7 +198,7 @@ class TFAConfig(BaseConfig):
         with open(self.path, 'r') as tfa:
             tfa_config = yaml.load(tfa, Loader=yaml.SafeLoader).get('users', {})
             user_secrets = tfa_config.get(userid, {}).get('totp', [])
-        return [details['secret'] for details in user_secrets]
+        return [details['secret'] for details in user_secrets if is_valid_totp_entry(details)]
 
     def append_user_totp(self, data):
         config = self._read()
@@ -241,6 +242,8 @@ class TFAConfig(BaseConfig):
             for userid, tfa_methods in self.data.items():
                 self.verify_totp[userid] = None
                 for tfa_method, values in tfa_methods.items():
+                    # A malformed entry would break the startup for everyone
+                    values[:] = [entry for entry in values if is_valid_totp_entry(entry)]
                     for entry in values:
                         entry['secret'] = ''
         else:
